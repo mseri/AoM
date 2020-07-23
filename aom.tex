@@ -1,0 +1,204 @@
+\documentclass[nobib]{tufte-book}
+\usepackage{microtype, ifluatex, ifxetex}
+%Next block avoids bug, from  http://tex.stackexchange.com/a/200725/1913 
+\ifx\ifxetex\ifluatex\else % if lua- or xelatex http://tex.stackexchange.com/a/140164/1913
+  \renewcommand{\textls}[2][5]{%
+    \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
+  }
+  \renewcommand{\allcapsspacing}[1]{\textls[15]{#1}}
+  \renewcommand{\smallcapsspacing}[1]{\textls[10]{#1}}
+  \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
+  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
+  \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
+\fi
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{images/}} % set of paths to search for images
+\usepackage{amsmath,amssymb,amsthm,amsfonts,ulem,tikz}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+\usepackage{fancyvrb,xcolor} % extended verbatim environments
+  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\usepackage{tikz-cd,bbm,mathbbol}
+\DeclareSymbolFontAlphabet{\mathbbl}{bbold} %let's you use \mathbbl{k} for a field k
+\hypersetup{colorlinks} %puts color to hyperlinks
+\setcounter{secnumdepth}{2} 
+\usepackage{enumerate}
+\usepackage{mathabx}
+\usepackage{mathtools}
+\usepackage{nccmath}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,    
+    urlcolor=Cerulean,
+    linkcolor = ForestGreen,
+}
+\newcounter{dummy} %so that \pageref works properly
+\usepackage[absolute]{textpos}
+\setlength{\TPHorizModule}{\paperwidth} \setlength{\TPVertModule}{\paperheight}
+
+
+\usetikzlibrary{decorations.pathreplacing,} %for braces with itemize
+\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture] \node[outer sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
+
+
+% Standardize command font styles and environments
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\cat}[1]{{\normalfont\textsf{#1}}}
+\DeclareMathOperator{\id}{id}
+\newcommand{\adj}[4]{\begin{tikzcd}[ampersand replacement=\&, column sep=4ex]
+					  	   #1 \colon #2	\ar[yshift=+.6ex]{r}
+					  	\& #3 \colon #4	\ar[yshift=-.4ex]{l}
+					 \end{tikzcd}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{conj}[thm]{Conjecture}
+
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{ntn}[thm]{Notation}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc-sa},
+    version={4.0},
+]{doclicense}
+
+\usepackage{tcolorbox}
+
+\usepackage[numbers, sort]{natbib}
+\setlength{\bibsep}{3pt}
+\renewcommand{\bibfont}{\small}
+\usepackage{doi}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+
+%\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\T}{\mathbb{T}}
+
+\newcommand{\bx}{\bm{x}}
+\newcommand{\bp}{\bm{p}}
+\newcommand{\bv}{\bm{v}}
+
+\let\d\relax
+\DeclareMathOperator{\d}{d}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\diag}{diag}
+\let\mod\relax
+\DeclareMathOperator{\mod}{mod}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Vol}{Vol}
+
+
+\title{Analysis\\ \noindent
+on\\ \noindent
+Manifolds
+}
+\author{Marcello Seri}
+\publisher{Bernoulli Institute\\ \noindent
+A.Y. 2020--2021\\ \noindent 
+\MakeLowercase{\texttt{m.seri@rug.nl}}
+}
+
+\begin{document}
+\maketitlepage
+
+\newpage
+
+\begin{fullwidth}
+    ~\vfill
+    \thispagestyle{empty}
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{\baselineskip}
+    Copyright \copyright\ \the\year\ \thanklessauthor
+    
+    \par Version 0.1 -- \today
+
+    \vfill
+    \small{\doclicenseThis}
+    
+\end{fullwidth}
+    
+\pagenumbering{roman}
+\tableofcontents
+\cleardoublepage
+
+\pagenumbering{arabic}
+\chapter*{Introduction}
+
+At the voice \emph{Mathematical analysis}, our modern source of truth -- Wikipedia -- says
+
+\begin{quote}
+  \emph{Mathematical analysis} is the branch of mathematics dealing with limits and related theories, such as differentiation, integration, measure, infinite series, and analytic functions.
+
+  These theories are usually studied in the context of real and complex numbers and functions. Analysis evolved from calculus, which involves the elementary concepts and techniques of analysis. Analysis may be distinguished from geometry; however, it can be applied to any space of mathematical objects that has a definition of nearness (a topological space) or specific distances between objects (a metric space). 
+\end{quote}
+
+In this sense, our course will focus on generalizing the concepts of differentiation, integration and, up to some extent, differential equations on spaces that are more general than the standard Euclidean space.
+
+These lecture notes are by no means comprehensive.
+In addition to the course recommended textbook \cite{book:tu}, you can refer to \cite{book:lee}: it is an incredibly good textbook and contains all the material of the course and much more.
+I have requested for \cite{tu} book to be freely available via SpringerLink using the university proxy but this will take some time to become active.
+However, you can already freely access Lee's book via the University proxy on \href{https://link.springer.com/book/10.1007/978-1-4419-9982-5}{SpringerLink} and it will provide a very good and extensive reference for this and other future courses.
+
+In addition to the books above, these lecture notes have found deep inspiration from \cite{lectures:merry} and \cite{lectures:hitchin} (both freely downloadable from the authors websites), and from the advanced book \cite{book:abrahammarsdenratiu}.
+
+The course relies heavily on your knowledge of linear and multilinear algebra, multivariable analysis and dynamical systems.
+Make sure to review the material of \href{http://www.rolandvdv.nl/M19/}{Multivariable Analysis} before the course begins.
+
+\mainmatter
+
+\chapter{Einstein summation convention}
+
+As will become clear soon, sums of the type $\sum_i x^i e_i$ are unavoidably appearing all over the place when working on manifolds.
+Therefore, throughout these notes we will apply the \emph{Einstein summation convention}: if the same index (for example, $i$ in the summation above) appears exactly twice in a monomial term, once in the lower and once in the upper index position, then that term is understood to be summed over all possible values of that index, usually from $1$ to the dimension of the space in question.
+
+For instance, the expression
+\begin{equation}
+  a^{ij}b^k e_i e_k
+\end{equation}
+is a shorthand for
+\begin{equation}
+  \sum_{i,k} a^{ij}b^k e_i e_k.
+\end{equation}
+
+In general, we will use lower indices for basis of vector spaces (e.g. $e_i$), and upper indices for the components of a vector with respect to a basis (e.g. $x^i$). Since the coordinates of a point $x = (x^1, \ldots, x^n)\in\R^n$ are also its components with respect to the standard basis $(e_1, \ldots, e_n)$, for consistency we will use upper indices for them.
+
+\chapter{Manifolds}
+
+\chapter{Differential Forms}
+
+\chapter{Stokes' Theorem}
+
+\chapter{Riemannian Manifolds}
+
+\bibliographystyle{plainnat}
+\bibliography{aom}
+\end{document}
