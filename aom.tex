@@ -1,4 +1,4 @@
-\documentclass[nobib]{tufte-book}
+\documentclass[nobib, a4paper]{tufte-book}
 \usepackage{microtype, ifluatex, ifxetex}
 %Next block avoids bug, from  http://tex.stackexchange.com/a/200725/1913 
 \ifx\ifxetex\ifluatex\else % if lua- or xelatex http://tex.stackexchange.com/a/140164/1913
@@ -152,44 +152,60 @@ A.Y. 2020--2021\\ \noindent
 
 \pagenumbering{arabic}
 \chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
 
 At the voice \emph{Mathematical analysis}, our modern source of truth -- Wikipedia -- says
 
-\begin{quote}
+\begin{quotation}
   \emph{Mathematical analysis} is the branch of mathematics dealing with limits and related theories, such as differentiation, integration, measure, infinite series, and analytic functions.
 
   These theories are usually studied in the context of real and complex numbers and functions. Analysis evolved from calculus, which involves the elementary concepts and techniques of analysis. Analysis may be distinguished from geometry; however, it can be applied to any space of mathematical objects that has a definition of nearness (a topological space) or specific distances between objects (a metric space). 
+\end{quotation}
+
+\newthought{In this sense}, our course will focus on generalizing the concepts of differentiation, integration and, up to some extent, differential equations on spaces that are more general than the standard Euclidean space.
+
+This said, the Euclidean space $\R^n$ is \emph{the} prototype of all manifolds: it won't just be our simplest example, we will see that locally every manifold looks like a Euclidean space.
+
+Euclidean spaces, and the Riemannian charts that you encountered in the \href{http://www.rolandvdv.nl/G20/}{Geometry course}, have a very strong property: they can be described with a set of \emph{global} coordinates.
+Even though this means that all computations are explicit, it does make it harder to distinguish \emph{intrinsic}\footnote{I.e. independent from the choice of coordinates.} concepts.
+Manifolds will force our hand to work in a \emph{coordinate-free} setting.
+We will see that this will unleash a surprising power that will allow us to lay the foundation for a lot of the mathematics that will come in the rest of the curriculum.
+
+The course relies \emph{heavily} on your knowledge of linear and multilinear algebra, multivariable analysis\footnote{Make sure to review the material of \href{http://www.rolandvdv.nl/M19/}{Multivariable Analysis} before the course begins} and dynamical systems.
+This should not come as a surprise: differential geometry and classical mechanics were born together as unique discipline, part of mathematical physics, before the various communities started diverging on their own paths.
+
+An old mathematical joke says that
+\begin{quote}
+  differential geometry is the study of properties that are invariant under change of notation.
 \end{quote}
+Sadly, this is \emph{funny because it is alarmingly close to the truth}\footnote{Cit. Lee \cite{book:lee}.}
+You will soon see that different references use different notations. I'll try to stick to the ones you used in the past courses when possible, falling back to \cite{book:lee} and \cite{book:tu} and to my personal preference when the latter disagree.
 
-In this sense, our course will focus on generalizing the concepts of differentiation, integration and, up to some extent, differential equations on spaces that are more general than the standard Euclidean space.
-
-These lecture notes are by no means comprehensive.
+\marginnote{In addition to the reference books, these lecture notes have found deep inspiration from \cite{lectures:merry} and \cite{lectures:hitchin} (both freely downloadable from the authors websites), and from the advanced book \cite{book:abrahammarsdenratiu}.}
+\newthought{These lecture notes} are by no means comprehensive.
 In addition to the course recommended textbook \cite{book:tu}, you can refer to \cite{book:lee}: it is an incredibly good textbook and contains all the material of the course and much more.
-I have requested for \cite{tu} book to be freely available via SpringerLink using the university proxy but this will take some time to become active.
+I have requested for \cite{book:tu} book to be freely available via SpringerLink using the university proxy but this will take some time to become active.
 However, you can already freely access Lee's book via the University proxy on \href{https://link.springer.com/book/10.1007/978-1-4419-9982-5}{SpringerLink} and it will provide a very good and extensive reference for this and other future courses.
-
-In addition to the books above, these lecture notes have found deep inspiration from \cite{lectures:merry} and \cite{lectures:hitchin} (both freely downloadable from the authors websites), and from the advanced book \cite{book:abrahammarsdenratiu}.
-
-The course relies heavily on your knowledge of linear and multilinear algebra, multivariable analysis and dynamical systems.
-Make sure to review the material of \href{http://www.rolandvdv.nl/M19/}{Multivariable Analysis} before the course begins.
 
 \mainmatter
 
-\chapter{Einstein summation convention}
+\chapter*{Einstein summation convention}
+\addcontentsline{toc}{chapter}{Einstein summation convention}
 
 As will become clear soon, sums of the type $\sum_i x^i e_i$ are unavoidably appearing all over the place when working on manifolds.
-Therefore, throughout these notes we will apply the \emph{Einstein summation convention}: if the same index (for example, $i$ in the summation above) appears exactly twice in a monomial term, once in the lower and once in the upper index position, then that term is understood to be summed over all possible values of that index, usually from $1$ to the dimension of the space in question.
+Therefore, throughout these notes we will apply the \emph{Einstein summation convention}: if the same index\footnote{For example, $i$ in the summation $\sum_i x^i e_i$.} appears exactly twice in a monomial term, once in the lower and once in the upper index position, then that term is understood to be summed over all possible values of that index\footnote{Usually from $1$ to the dimension of the space in question.}.
 
 For instance, the expression
 \begin{equation}
-  a^{ij}b^k e_i e_k
+  a^{ij}b_l^k e_i e_k
 \end{equation}
 is a shorthand for
 \begin{equation}
-  \sum_{i,k} a^{ij}b^k e_i e_k.
+  \sum_{i,k} a^{ij}b_l^k e_i e_k.
 \end{equation}
 
-In general, we will use lower indices for basis of vector spaces (e.g. $e_i$), and upper indices for the components of a vector with respect to a basis (e.g. $x^i$). Since the coordinates of a point $x = (x^1, \ldots, x^n)\in\R^n$ are also its components with respect to the standard basis $(e_1, \ldots, e_n)$, for consistency we will use upper indices for them.
+In general, we will use lower indices for basis of vector spaces\footnote{E.g., $(e_1,\ldots,e_n)$ will be the standard basis of $\R^n$.}, and upper indices for the components of a vector with respect to a basis\footnote{E.g., the $i$th-coordinate $x^i$ of $x\in\R^n$.}.
+\marginnote[10pt]{Since the coordinates of a point $x\in\R^n$ are also its components with respect to the standard basis $(e_1, \ldots, e_n)$, for consistency they will be denoted $(x^1, \ldots, x^n)$ with upper indices.}
 
 \chapter{Manifolds}
 
@@ -197,8 +213,9 @@ In general, we will use lower indices for basis of vector spaces (e.g. $e_i$), a
 
 \chapter{Stokes' Theorem}
 
-\chapter{Riemannian Manifolds}
+\chapter{de Rahm cohomology or fiber bundles}
 
 \bibliographystyle{plainnat}
 \bibliography{aom}
+\addcontentsline{toc}{chapter}{Bibliography}
 \end{document}
