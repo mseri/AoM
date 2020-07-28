@@ -95,6 +95,7 @@
 \newcommand{\cO}{\mathcal{O}}
 \newcommand{\cH}{\mathcal{H}}
 \newcommand{\cI}{\mathcal{I}}
+\newcommand{\cT}{\mathcal{T}}
 
 %\newcommand{\C}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
@@ -171,6 +172,12 @@ Even though this means that all computations are explicit, it does make it harde
 Manifolds will force our hand to work in a \emph{coordinate-free} setting.
 We will see that this will unleash a surprising power that will allow us to lay the foundation for a lot of the mathematics that will come in the rest of the curriculum.
 
+These notes will focus on fundamental methods of differential geometry, in particular we will discuss manifolds, differential forms, integration, geometry of submanifolds, real and complex vector bundles, connections.
+Throughout the course and the text, I will try to give particular emphasis on the usefulness of these topics in the mathematical theories of classical and quantum mechanics.
+
+If the time permits it, we will give a brief tour of Riemannian metrics and the notion of curvature or of distributions and Frobenius theorem, depending on the preferences expressed in class.
+This part of the material will not necessarily be part of the lecture notes\footnote{I will update this paragraph, if needed, in due course.}.
+
 The course relies \emph{heavily} on your knowledge of linear and multilinear algebra, multivariable analysis\footnote{Make sure to review the material of \href{http://www.rolandvdv.nl/M19/}{Multivariable Analysis} before the course begins} and dynamical systems.
 This should not come as a surprise: differential geometry and classical mechanics were born together as unique discipline, part of mathematical physics, before the various communities started diverging on their own paths.
 
@@ -186,6 +193,9 @@ You will soon see that different references use different notations. I'll try to
 In addition to the course recommended textbook \cite{book:tu}, you can refer to \cite{book:lee}: it is an incredibly good textbook and contains all the material of the course and much more.
 I have requested for \cite{book:tu} book to be freely available via SpringerLink using the university proxy but this will take some time to become active.
 However, you can already freely access Lee's book via the University proxy on \href{https://link.springer.com/book/10.1007/978-1-4419-9982-5}{SpringerLink} and it will provide a very good and extensive reference for this and other future courses.
+
+The idea for the cut that I want to give to this course, came from the online \href{https://www.video.uni-erlangen.de/course/id/242}{Lectures on the Geometric Anatomy of Theoretical Physics} by Frederic Schuller and by the lecture notes of Stefan Teufel's Classical Mechanics course \cite{lectures:teufel} (in German).
+In some sense I would like this course to provide the introduction to analysis and geometry that I whish was there when I prepared my \href{https://www.mseri.me/lecture-notes-hamiltonian-mechanics/}{first edition} of the Hamiltonian mechanics course.
 
 \mainmatter
 
@@ -208,6 +218,81 @@ In general, we will use lower indices for basis of vector spaces\footnote{E.g., 
 \marginnote[10pt]{Since the coordinates of a point $x\in\R^n$ are also its components with respect to the standard basis $(e_1, \ldots, e_n)$, for consistency they will be denoted $(x^1, \ldots, x^n)$ with upper indices.}
 
 \chapter{Manifolds}
+
+\newthought{In the first two years} of your mathematical education, you have become familiar with calculus for functions and vector fields on $\R^n$.
+As I mentioned in the introduction, euclidean spaces will be our prototypical example.
+However, the generalization of calculus to curved spaces will require us to carefully isolate the mathematical structures associated to the various concepts.
+This process will help us to discover the rich geometric structure that lies at the root of derivation and integration, which ultimately is of great mathematical interest and has revolutionized mathematical physics.
+
+If you think carefully, this abstraction step was already in the air. Think about the concept of continuity.
+
+\begin{enumerate}[a)]
+  \item (High school) A function $f:\R\to\R$ is \emph{continuous} if you can draw it without lifting your pen from the page.
+  Then, the derivative $f'(x)$ of $f$ at a point $x$ is just the slope of the function $f$ at the point $x$.
+  
+  \item (Analysis) A function is continuous if its left and right limits at each point exist and have the same value.
+  Then, $f:\R\to\R$ is \emph{differentiable} at a point $x$ if the limit
+  \begin{equation}
+    f'(x) := \lim_{h\to0} \frac{f(x+h) - f(x)}{h} 
+  \end{equation}
+  exists, and is \emph{continuously differentiable} if $x\mapsto f'(x)$ is itself a continuous function.
+  
+  \item (Multivariable analysis) You generalized the concepts to functions with more than one variable.
+  Continuity is practically unchanged but, now, a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is differentiable at $x=(x^1,\ldots,x^m)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix.} $T: \R^n\to\R^m$ such that
+  \begin{equation}\label{eq:diff}
+    \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
+  \end{equation}
+  The map $Df(x) := T$ is the differential of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
+  \begin{equation}
+    Df(x) = \begin{pmatrix}
+      \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
+      \vdots & \ddots & \vdots \\
+      \frac{\partial f^m}{\partial x^1}(x) & \cdots & \frac{\partial f^m}{\partial x^n}(x) \\
+    \end{pmatrix}.
+  \end{equation} 
+  The notion of continuous differentiability is unchanged\footnote{Note how the spaces are changing though: since it takes values in the space of $m\times n$ matrices, the differential $x\mapsto Df(x)$ is in fact a mapping of $\R^n \to \R^{mn}$.}, and in fact for $m=n=1$ it coincides with the one you gave for real functions.
+  
+  \item (Metric and topological spaces) A map $f:X\to Y$ between \emph{topological spaces} is continuous if preimages of open sets under $f$ are open. More explicitly, $f$ is continuous if for every open set $O\subset Y$, $f^{-1}(O)\subset X$ is an open set.
+
+  If $X$ and $Y$ are \emph{metric spaces}, then this reduces to the definition given above.
+  But how can we make sense of differentiability in this case? 
+  
+  If you have taken a course on calculus of variations, you know that you can make sense of \eqref{eq:diff} and give a notion of differentiability in the case $X$ and $Y$ are Banach spaces\footnote{Complete normed vector spaces.}.
+  In general, a topological space is \emph{not} a vector space: there is no notion of adding points, least of all one of linearity.
+\end{enumerate}
+
+This is where differential geometry comes into play.
+The rest of this chapter will be devoted to the introduction of \emph{smooth manifolds}, which are a class of topological spaces on which it is possible to make sense of the notion of differentiation even though they are not necessarily vector spaces.
+We will do this in two stages.
+First we will introduce \emph{topological manifolds}, which are topological spaces that \emph{locally} look like euclidean spaces.
+Then we will endow topological manifolds with a so-called \emph{smooth structure}.
+This will allow us to define differentiability and \emph{smooth manifolds}\footnote{These will just be topological manifolds with a smooth structure.}.
+
+Without further ado, let's get started.
+
+\subsection{Topological manifolds}
+
+Since to speak of continuity we need topological spaces, it may be a good idea to remind you what they are and set some notation.
+I will be very brief: if you need a more extensive reminder, you can refer to Appendix A of either \cite{book:tu} or \cite{book:lee}.
+
+\begin{defn}[Topological space]
+  Let $M$ be some set and $\cT$ a set of subsets of $M$.
+  A pair $(M, \cT)$ is a \emph{topological space}\footnote{In such case the elements $O\in\cT$ of $\cT$ are all subsets of $M$ called \emph{open} subsets and $\cT$ is a topology on $X$.} if
+  \begin{enumerate}[(i)]
+    \item $M$ and $\emptyset$ are open, i.e., $M\in \cT$ and $\emptyset\in\cT$;
+    \item arbitrary unions of families of open subsets are open;
+    \item the intersection of finitely many\footnote{It is equivalent to require the intersection of any two open subsets to be open. (Why?)} open subsets is open.
+  \end{enumerate}
+\end{defn}
+
+\begin{defn}
+  A topological space $X$ is \emph{Hausdorff} if every two distinct points admit disjoint open neighborhoods. That is, for every pair $x\neq y$ of points in $M$, there exist open subsets $O_x, O_y\in\cT$ such that $x\in O_x$, $y\in O_y$ and $O_x \cap O_y = \emptyset$.
+\end{defn}
+
+Topological spaces are extremely general, as such they may have very inconvenient -- someone would say nasty -- properties. This is why we introduce Hausdorff spaces.
+
+In fact, you can see this for yourself. Let $x$ be an arbitrary set. Show that $\cT:=\{\emptyset, X\}$ defines a topology on $X$, called the \emph{trivial topology}. Show that on $(X, \cT)$ any sequence in $X$ converges to every point of $X$, and every map from a topological space into $X$ is continuous.
+
 
 \chapter{Differential Forms}
 
