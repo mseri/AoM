@@ -99,6 +99,7 @@
 \renewcommand{\bibfont}{\small}
 \usepackage{doi}
 
+\newcommand{\cA}{\mathcal{A}}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cE}{\mathcal{E}}
 \newcommand{\cL}{\mathcal{L}}
@@ -353,22 +354,145 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
 
 Don't get scared by the first two conditions: they are only needed to make sure that there are not too few open sets (Hausdorff) and not too many (second countable).
 
-Be patient, we will soon see plenty of nontrivial examples.
+\begin{ex}
+  With our definition, a countable collections of points with the discrete topology is a $0$-dimensional topological manifolds.
+  An uncountable collection of points with the discrete topology, however, is not!
+\end{ex}
+
+\begin{ex}
+  $\R^n$ is trivially\footnote{Use Exercise \ref{exe:rntopsp} and the \emph{global} chart $(\R^n, \id_{\R^n})$, where $\id_{\R^n}(x) := x$ is the identity on $\R^n$.} a topological manifold of dimension $n$.
+  More generally, any $n$-dimensional vector space\footnote{In fact, any subset of a $n$-dimensional vector space.} is a topological $n$-manifold.
+\end{ex}
+
+\begin{ex}
+  The \emph{closed} unit ball $D_1(0)$, where similarly as before
+  \begin{equation}
+    D_r(x) := \{z\in\R^n \;\mid\; d(z,x) \leq r\},
+  \end{equation}
+  is \emph{not} a topological manifold of dimension $n$. Can you see why? In fact, this is an example of a more general concept of \emph{manifold with boundary} that we will introduce later in Chapter \textcolor{red}{TODO}.
+\end{ex}
+
+Be patient, we will see plenty of examples soon.
 
 \section{Differentiable manifolds}
 
-The third property is the key for everything that will follow.
-Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, we can lift the definitions directly from $\R^n$.
-However, we will need to have extra care to ensure that these lifted definitions keep making sense when we patch the whole manifold with charts.
+Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, it seems reasonable to expect that we can lift the definitions directly from $\R^n$.
+If we are given a continuous map between two topological manifolds, we can locally view it as a continuous map between two Euclidean spaces.
+Generalizing further, we could conceivably say that our original map is differentiable if the local map is.
+
+\begin{defn}
+  A map $f: U \to V$ between open sets $U\subset\R^n$ and $V\subset\R^m$ is in $C^r(U,V)$ or \emph{of class $C^r$}, if it is differentiable $r$-times. It is called a $C^r$-diffeomorphism\footnote{With this definition a homeomorphism is a $C^1$-diffeomorphism} if it is bijective and of class $C^r$ with inverse of class $C^r$.
+  We say that $f$ is \emph{smooth}\marginnote{To be comprehensive, one should also include $C^\omega$, the class of analytic functions.} or of class $C^\infty$ if it is of class $C^r$ for every $r \geq 1$.
+\end{defn}
+
+As usual, the devil is in the details: a topological manifold is only homeomorphic to a Euclidean space, and a different choice of homeomorphism might affect whether the local map is differentiable or not.
+
+We need to have extra care to ensure that these lifted definitions keep making sense when we use different charts that overlap.
+The solution is to introduce a little more structure to the problem.
+
+We say that two charts $(U_1, \phi_1)$ and $(U_2, \phi_2)$ on a topological manifold $M$ are \emph{$C^r$-compatible} if either $U_! \cap U_2 = \emptyset$ or if the \emph{transition map}\footnote{Both the composition maps $\phi_1 \circ \phi_2^{-1}$ and $\phi_2 \circ \phi_1^{-1}$ are called transition maps. Both maps are necessarily homeomorphisms since $\phi_1$ and $\phi_2$ are.}
+\begin{equation}
+  \phi_1 \circ \phi_2^{-1} : \phi_2(U_1\cap U_2) \to \phi_1(U_1 \cap U_2)
+\end{equation}
+is a diffeomorphism of class $C^r$.
 
 \begin{figure*}[htp]
   \centering
   \includegraphics{1_2-compatible-charts.pdf}
-  \caption{Compatible charts}
+  \caption{Charts are compatible if they coincide on the intersections of their coordinate neighborhoods.}
   \label{fig:1.2-compatible-charts}
 \end{figure*}
 
+With these at hand, let's jump into the definition of smooth manifolds.
 
+\begin{defn}
+  A \emph{$C^r$-atlas} is a collection
+  \begin{equation}
+    \cA = \{\phi_j: U_j \to V_j \;\mid\; j\in J\}
+  \end{equation}
+  of pairwise $C^r$-compatible charts that cover\footnote{I.e. such that $M = \cup_{j\in J} U_j$. One calls the set $\{U_j \;\mid\; j\in J\}$, covering $M$ with open sets, a \emph{open cover} of $M$.} $M$.
+
+  Two $C^r$-atlases are \emph{equivalent} if their union is also a $C^r$-atlas. That is if any two charts in the atlases are $C^r$-compatible.
+\end{defn}
+
+\begin{exe}
+  Show that the equivalence of atlases is really an equivalence relation.
+\end{exe}
+
+\begin{defn}
+  A \emph{differentiable structure}, or more precisely a \emph{$C^r$-structure}\marginnote[-1.5em]{If $r=\infty$ we simply call it \emph{smooth structure}.}, on a topological manifold is an equivalence class of $C^r$-atlases.
+  \marginnote{The union of all atlases in a differentiable structure is the \emph{unique} \emph{maximal} atlas in the equivalence class. There is a one-to-one correspondence between differentiable structures and maximal differentiable atlases: for convenience and to lighten the notation, from now on, we will always regard a differentiable structure as a differentiable maximal atlas without further comments.}
+\end{defn}
+
+\begin{defn}
+  A \emph{differentiable manifold} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold $M$ and a differentiable structure $\cA$ on $M$.
+  \marginnote[1em]{There are no preferred coordinate charts on a manifold: all coordinate systems compatible with the differentiable structure are on equal footing.}
+  A \emph{smooth manifold} of dimension $n$ is a differentiable manifold whose differentiable structure $\cA$ is of class $C^\infty$.
+\end{defn}
+
+In colloquial language, a differentiable manifold is a space covered by charts with differentiable transition maps.
+
+\begin{exe}
+  Show that on a second countable differentiable manifold it is always possible to find a countable atlas.
+\end{exe}
+
+Even if we gave the general definition of $C^r$-manifolds, in these notes will be only interested in smooth manifolds. 
+Whenever possible we will omit the differentiable structure $\cA$ from the notation and just write $M$.
+We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
+
+\begin{ex}
+  $\R^n$ with the \emph{standard} smooth structure $\cA=(\R^n, \id_{\R^n})$ is trivially a smooth manifold of dimension $n$.
+
+  In fact, any open subset $U\subset\R^n$ can be made into a smooth manifold in a natural way: pick the atlas $\cA=(U, \id_{\R^n}|_U)$.
+
+  In the same way, any open subset $U$ of a smooth manifold $M$ is a smooth manifold.
+  Which atlas would you choose?
+
+  More generally, if $V$ is any $n$-dimensional real vector space, then the standard smooth structure on $V$ is the one induced by the smooth atlas consisting of a single chart $(V, T)$ where $T: V \to R^n$ is some linear isomorphism. Why is this independent of the choice of $T$?
+\end{ex}
+
+\begin{ex}\label{ex:S1emb}
+  The unit circle
+  \begin{equation}
+    \bS^1 := \{x\in\R^2 \;\mid\; \|x\|=1\}\subset\R^2
+  \end{equation}
+  with the relative topology\footnote{Let $(X,\cT)$ be a topological space and $Y\subset X$. The relative topology on $Y$ is \begin{equation}\mathcal{V}:=\{V\subset Y\;\mid\; V = U \cap Y \mbox{ for some } U\in\cT\}.\end{equation}} is a $1$-dimensional topological manifold.
+  To provide the local homeomorphisms to $\R^n$ and define a smooth structure four $\bS^1$ it is enough to define the following four charts:
+  \begin{equation}
+    \begin{aligned}
+      &V_1 := \{ x^1 > 0 \},\quad \phi_1: V_1 \to (-1, 1), \quad \phi_1(x) := x^2,\\
+      &V_2 := \{ x^1 < 0 \},\quad \phi_2: V_2 \to (-1, 1), \quad \phi_2(x) := x^2,\\
+      &V_3 := \{ x^2 > 0 \},\quad \phi_3: V_3 \to (-1, 1), \quad \phi_3(x) := x^1,\\
+      &V_4 := \{ x^2 < 0 \},\quad \phi_4: V_4 \to (-1, 1), \quad \phi_4(x) := x^1.
+    \end{aligned}
+  \end{equation}
+  What do these charts look like?
+\end{ex}
+
+\begin{exe}
+  Let $f: \R^n \to \R^m$ be a smooth map.
+  Show that its graph
+  \begin{equation}
+    \Gamma_f := \{(x, f(x)) \;\mid\; x\in\R^n\} \subset\R^{n+k}
+  \end{equation}
+  is a smooth manifold of dimension $n$.
+\end{exe}
+
+\begin{ex}
+  The definition of smooth manifold does not require $M$ to be embedded into some ambient space as in the examples above.
+  In fact, we can define the differentiable manifold $\bS^1$ by equipping the topological quotient space $\R/\Z$ with the two charts
+  \begin{equation}\textstyle
+    \phi_1 : \R/\Z \setminus\{[0]\} \to (0,1)
+    \quad\mbox{and}\quad
+    \phi_2 : \R/\Z \setminus\{[\frac12]\} \to (-\frac12,\frac12)
+  \end{equation}
+  which map $[x]\in\R/\Z$ to its representation in $(0,1)$ or $[-\frac12, \frac12)$ respectively.
+  The manifold obtained in this way is diffeomorphic to the one defined in Example \ref{ex:S1emb}.
+\end{ex}
+
+Note that smooth manifolds do not yet have a metric structure: distances between the points are not defined.
+However, they are \emph{metrizable}\footnote{This property is far more general: all the topological manifolds are metrizable.}: there exists some metric on the manifold that induces the given topology on it.
+This allows to always view manifolds as metric spaces.
 
 \chapter{Differential Forms}
 
