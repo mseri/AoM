@@ -2,6 +2,11 @@
 \usepackage{microtype, ifluatex, ifxetex}
 %Next block avoids bug, from  http://tex.stackexchange.com/a/200725/1913 
 \ifx\ifxetex\ifluatex\else % if lua- or xelatex http://tex.stackexchange.com/a/140164/1913
+  \usepackage{fontspec}
+  \setmainfont[Renderer=Basic, Numbers=OldStyle, Scale = 1.0]{TeX Gyre Pagella}
+  \setsansfont[Renderer=Basic, Scale=0.90]{TeX Gyre Heros}
+  \setmonofont[Renderer=Basic]{TeX Gyre Cursor}
+
   \renewcommand{\textls}[2][5]{%
     \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
   }
@@ -36,6 +41,8 @@
     urlcolor=Cerulean,
     linkcolor = ForestGreen,
 }
+\usepackage[toc]{appendix}
+
 \newcounter{dummy} %so that \pageref works properly
 \usepackage[absolute]{textpos}
 \setlength{\TPHorizModule}{\paperwidth} \setlength{\TPVertModule}{\paperheight}
@@ -76,6 +83,9 @@
 \newtheorem{rmk}[thm]{Remark}
 \newtheorem{ntn}[thm]{Notation}
 
+\newtheorem{exe}[thm]{Exercise}
+\newtheorem{prb}[thm]{Problem}
+
 \usepackage[
     type={CC},
     modifier={by-nc-sa},
@@ -96,12 +106,16 @@
 \newcommand{\cH}{\mathcal{H}}
 \newcommand{\cI}{\mathcal{I}}
 \newcommand{\cT}{\mathcal{T}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cU}{\mathcal{U}}
 
-%\newcommand{\C}{\mathbb{C}}
+%\newcommand{\bC}{\mathbb{C}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\T}{\mathbb{T}}
+\newcommand{\bS}{\mathbb{S}}
+\newcommand{\bT}{\mathbb{T}}
 
 \newcommand{\bx}{\bm{x}}
 \newcommand{\bp}{\bm{p}}
@@ -217,7 +231,7 @@ is a shorthand for
 In general, we will use lower indices for basis of vector spaces\footnote{E.g., $(e_1,\ldots,e_n)$ will be the standard basis of $\R^n$.}, and upper indices for the components of a vector with respect to a basis\footnote{E.g., the $i$th-coordinate $x^i$ of $x\in\R^n$.}.
 \marginnote[10pt]{Since the coordinates of a point $x\in\R^n$ are also its components with respect to the standard basis $(e_1, \ldots, e_n)$, for consistency they will be denoted $(x^1, \ldots, x^n)$ with upper indices.}
 
-\chapter{Manifolds}
+\chapter{Manifolds}\label{ch:manifolds}
 
 \newthought{In the first two years} of your mathematical education, you have become familiar with calculus for functions and vector fields on $\R^n$.
 As I mentioned in the introduction, euclidean spaces will be our prototypical example.
@@ -275,7 +289,7 @@ Without further ado, let's get started.
 Since to speak of continuity we need topological spaces, it may be a good idea to remind you what they are and set some notation.
 I will be very brief: if you need a more extensive reminder, you can refer to Appendix A of either \cite{book:tu} or \cite{book:lee}.
 
-\begin{defn}[Topological space]
+\begin{defn}
   Let $M$ be some set and $\cT$ a set of subsets of $M$.
   A pair $(M, \cT)$ is a \emph{topological space}\footnote{In such case the elements $O\in\cT$ of $\cT$ are all subsets of $M$ called \emph{open} subsets and $\cT$ is a topology on $X$.} if
   \begin{enumerate}[(i)]
@@ -285,13 +299,71 @@ I will be very brief: if you need a more extensive reminder, you can refer to Ap
   \end{enumerate}
 \end{defn}
 
+With topological spaces at hand, we can give a definition of continuity and introduce a way to compare topological spaces.
+
 \begin{defn}
-  A topological space $X$ is \emph{Hausdorff} if every two distinct points admit disjoint open neighborhoods. That is, for every pair $x\neq y$ of points in $M$, there exist open subsets $O_x, O_y\in\cT$ such that $x\in O_x$, $y\in O_y$ and $O_x \cap O_y = \emptyset$.
+  A map $f: X \to Y$ between two topological spaces $(X,\cT)$ and $(Y, \cU)$ is called:
+  \begin{itemize}
+    \item \emph{continuous} if $U\in\cU$ implies that $f^{-1}(U)\in\cT$, that is, preimages of open sets under $f$ are open;
+    \item \emph{homeomorphism} if it is bijective\footnote{I.e., one-to-one.} and continuous with continuous inverse.\marginnote{The existence of an homeomorphism between two spaces can be thought as those spaces being equivalent in a loose sense: they can be deformed continuously into each other.}
+  \end{itemize}
 \end{defn}
 
-Topological spaces are extremely general, as such they may have very inconvenient -- someone would say nasty -- properties. This is why we introduce Hausdorff spaces.
+\begin{marginfigure}
+  \includegraphics{images/1_1-dount-to-cup.pdf}
+  \vspace{5pt}
+\end{marginfigure}
 
-In fact, you can see this for yourself. Let $x$ be an arbitrary set. Show that $\cT:=\{\emptyset, X\}$ defines a topology on $X$, called the \emph{trivial topology}. Show that on $(X, \cT)$ any sequence in $X$ converges to every point of $X$, and every map from a topological space into $X$ is continuous.
+\begin{defn}
+  A topological space $(X, \cT)$ is \emph{Hausdorff} if every two distinct points admit disjoint open neighborhoods. That is, for every pair $x\neq y$ of points in $X$, there exist open subsets $O_x, O_y\in\cT$ such that $x\in O_x$, $y\in O_y$ and $O_x \cap O_y = \emptyset$.
+\end{defn}
+
+Topological spaces are extremely general, as such they may have very inconvenient -- someone would say nasty -- properties.
+You can see this for yourself with the following exercise.
+
+\begin{exe}
+Let $X$ be an arbitrary set. Show that $\cT:=\{\emptyset, X\}$ defines a topology on $X$, called the \emph{trivial topology}. Show that on $(X, \cT)$ any sequence in $X$ converges to every point of $X$, and every map from a topological space into $X$ is continuous.
+\end{exe}
+
+Hausdorff spaces are still rather general: in particular, any metric space with the metric topology\footnote{Recall that in a metric space $X$ the \emph{metric topology} is defined in the following way: a set $U\subset X$ is called open if for any $x\in U$ there exists $\epsilon>0$ such that $U$ fully contains the ball of radius $\epsilon$ around $x$.} is Hausdorff.
+
+\begin{defn}
+  A topological space $(X, \cT)$ is \emph{second countable} if there exists a countable set $\cB\subset\cT$ such that any open set can be written as a union of sets in $\cB$.
+  In such case, $\cB$ is called a (countable) basis for the topology $\cT$.
+\end{defn}
+
+\begin{exe}[Euclidean space $\R^n$]\label{exe:rntopsp}
+  Let's consider on $\R^n$ the metric topology\footnote{See comment above.} induced by the Euclidean metric $d: \R^n \times \R^n \to [0, +\infty)$, $d(x,y) := \sqrt{\sum_{i=1}^n (x^i-y^i)^2}$.
+  The topological space defined on $\R^n$ is Hausdorff and second countable.
+\end{exe}
+
+\begin{defn}[Topological manifold]
+  A topological space\footnote{From now on, if we say that $X$ is a topological space we are implying that there is a topology $\cT$ defined on $X$.} $M$ is a \emph{topological manifold} of dimension $n$, or topological $n$-manifold, if it has the following properties
+  \begin{enumerate}[(i)]
+    \item $M$ is a Hausdorff space;
+    \item $M$ is second countable;
+    \item $M$ is \emph{locally euclidean} of dimension $n$, \marginnote{This means that any point $x\in M$ has a neighborhood that is homeomorphic to an open subset of $\R^n$.}that is, for any point $x\in M$ there exist an open subset $U\subset M$ with $x\in U$, and open subset $V\in\R^n$ and a homeomorphism $\phi: U\to V$.
+  \end{enumerate}
+\end{defn}
+
+\begin{ntn}
+  Reusing the notation of the definition above, we call \emph{(coordinate) chart} the pair $(U, \phi)$ of a \emph{coordinate neighborhood} $U$ and an associated \emph{coordinate map}\footnote{Or \emph{coordinate system}.} $\phi: U\to V$ onto an open subset $U=\phi(V)\subseteq\R^n$ of $\R^n$.
+  Furthermore, we say that a chart is \emph{centered at $m\in U$} if $\phi(m) = 0$.
+\end{ntn}
+
+Don't get scared by the first two conditions: they are only needed to make sure that there are not too few open sets (Hausdorff) and not too many (second countable).
+
+Be patient, we will soon see plenty of nontrivial examples.
+
+\section{Differentiable manifolds}
+
+The third property is the key for everything that will follow.
+Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, we can lift the definitions directly from $\R^n$.
+
+
+
+To do that, we 
+
 
 
 \chapter{Differential Forms}
@@ -299,6 +371,19 @@ In fact, you can see this for yourself. Let $x$ be an arbitrary set. Show that $
 \chapter{Stokes' Theorem}
 
 \chapter{de Rahm cohomology or fiber bundles}
+
+\begin{appendices}
+  \chapter{Solution to selected exercises}
+  \section{Chapter \ref{ch:manifolds}}
+  
+  \newthought{Exercise \ref{exe:rntopsp}.}
+  \begin{enumerate}
+    \item[] Hausdorff. For $x\neq y\in\R^n$, let $\epsilon = d(x,y)/3$.
+    Then the two balls $B_x(\epsilon) := \{z\in X \;\mid\; d(z,x)<\epsilon\}$ and $B_y(\epsilon)$ are disjoint open sets containing $x$ and $y$ respectively.
+    \item[] Second countable. As countable basis for the topology we can take the open balls $B_\epsilon(x)$ with rational radii $\epsilon\in\Q$ and centers $x\in\Q^n$.
+  \end{enumerate}
+  
+\end{appendices}
 
 \bibliographystyle{plainnat}
 \bibliography{aom}
