@@ -132,6 +132,7 @@
 \DeclareMathOperator{\curl}{curl}
 \DeclareMathOperator{\Vol}{Vol}
 
+\newcommand{\todo}[1]{\footnote{\textcolor{red}{#1}}}
 
 \title{Analysis\\ \noindent
 on\\ \noindent
@@ -257,8 +258,8 @@ If you think carefully, this abstraction step was already in the air. Think abou
   \begin{equation}\label{eq:diff}
     \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
   \end{equation}
-  The map $Df(x) := T$ is the differential of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
-  \begin{equation}
+  The map $Df(x) := T$ is the \emph{differential} (or total derivative) of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
+  \begin{equation}\label{eq:jacobian}
     Df(x) = \begin{pmatrix}
       \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
       \vdots & \ddots & \vdots \\
@@ -287,7 +288,7 @@ Without further ado, let's get started.
 
 \subsection{Topological manifolds}
 
-Since to speak of continuity we need topological spaces, it may be a good idea to remind you what they are and set some notation.
+\newthought{Since to speak of continuity we need topological spaces}, it may be a good idea to remind you what they are and set some notation.
 I will be very brief: if you need a more extensive reminder, you can refer to Appendix A of either \cite{book:tu} or \cite{book:lee}.
 
 \begin{defn}
@@ -364,33 +365,87 @@ Don't get scared by the first two conditions: they are only needed to make sure 
   More generally, any $n$-dimensional vector space\footnote{In fact, any subset of a $n$-dimensional vector space.} is a topological $n$-manifold.
 \end{ex}
 
+\begin{exe}
+	Even though $\R^n$ with the euclidean topology is Hausdorff, being Hausdorff does not follow from being locally euclidean. A famous counterexample is the following\footnote{See also Problem 5.1 in \cite{book:tu}.}.
+  \begin{marginfigure}
+    \includegraphics{1_ex_1_0_11.pdf}
+    \label{fig:hausdorff-not-locally-euclidean}
+    \caption{A locally euclidean space which is not Hausdorff.}
+  \end{marginfigure}
+  Let $A_1, A_2$ be two point not on the real line $\R$ and define $M:= (\R\setminus\{0\})\cup\{A_1,A_2\}$.
+  Define the two charts
+  \begin{equation}
+  \phi_j:(\R\setminus\{0\})\cup\{A_j\} \to \R, \quad
+  \phi_j(x) = \begin{cases} x &\mbox{if } x\neq A_j\\ 0 & \mbox{if } x = A_j \end{cases}, \quad
+  j = 1,2.
+  \end{equation}
+  \begin{enumerate}[(a)]
+    \item Show that $\phi_1$ and $\phi_2$ are homeomorphisms with respect to the induced topology\footnote{Let $(X, \cT)$ be a topological space and $f: X\to Y$ some map. The induced topology on $Y$ is \begin{equation}\cU_f := \{f^{-1}(U) \;\mid\; U\in\cT\}.\end{equation}}.
+    \item Show that $M$ is locally euclidean and second countable but not Hausdorff.
+  \end{enumerate}
+\end{exe}
+
 \begin{ex}
   The \emph{closed} unit ball $D_1(0)$, where similarly as before
   \begin{equation}
     D_r(x) := \{z\in\R^n \;\mid\; d(z,x) \leq r\},
   \end{equation}
-  is \emph{not} a topological manifold of dimension $n$. Can you see why? In fact, this is an example of a more general concept of \emph{manifold with boundary} that we will introduce later in Chapter \textcolor{red}{TODO}.
+  is \emph{not} a topological manifold of dimension $n$. Can you see why? In fact, this is an example of a more general concept of \emph{manifold with boundary} that we will introduce later in Chapter \todo{add ref}.
 \end{ex}
 
-Be patient, we will see plenty of examples soon.
+\begin{ex}
+	Consider the set $M := \{ x\in\R^2 \;\mid\; |x^1| = |x^2| \}$ with the topology induced by $\R^2$:
+   this is \emph{not} a topological manifold.
+	Since the number of connected component is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} holomorphically mapped to open connected sets in $\R$.
+\end{ex}
+
+\marginnote{There is a caveat, the theorem holds for \emph{connected} components of a Manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}
+\newthought{There is still an elephant in the room} in need of a comment.
+In our definition of topological manifolds, we are giving for granted that the dimension of the manifold is well defined, that is, if we have two different charts, $\phi_1: U \to \R^n$ and $\phi_2: U \to \R^m$, then necessarily $m=n$. Luckily this is true! The result is called \emph{Invariance Domain Theorem} and, since its proof requires advanced concepts of algebraic topology, we will not pursue it further in the course.
 
 \section{Differentiable manifolds}
 
-Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, it seems reasonable to expect that we can lift the definitions directly from $\R^n$.
-If we are given a continuous map between two topological manifolds, we can locally view it as a continuous map between two Euclidean spaces.
-Generalizing further, we could conceivably say that our original map is differentiable if the local map is.
+Before entering into the details of new definitions, let's recall what will be the most important tools throughout the rest of the course.
 
 \begin{defn}
   A map $f: U \to V$ between open sets $U\subset\R^n$ and $V\subset\R^m$ is in $C^r(U,V)$ or \emph{of class $C^r$}, if it is differentiable $r$-times. It is called a $C^r$-diffeomorphism\footnote{With this definition a homeomorphism is a $C^1$-diffeomorphism} if it is bijective and of class $C^r$ with inverse of class $C^r$.
   We say that $f$ is \emph{smooth}\marginnote{To be comprehensive, one should also include $C^\omega$, the class of analytic functions.} or of class $C^\infty$ if it is of class $C^r$ for every $r \geq 1$.
 \end{defn}
 
-As usual, the devil is in the details: a topological manifold is only homeomorphic to a Euclidean space, and a different choice of homeomorphism might affect whether the local map is differentiable or not.
+\begin{thm}[Chain rule]\label{thm:chainrule}
+Let $U\subset\R^n$ and $V\subset\R^k$ be open sets and $f: U \to \R^k$, $g: V\to\R^m$ two continuously differentiable functions such that $f(U)\subset V$.
+Then, the following holds.
+\begin{enumerate}[(i)]
+  \item\label{thm:chainrule1} The function $g\circ f: U\subset\R^n \to\R^m$ is continuously differentiable and its total derivative \eqref{eq:jacobian} at a point $x\in U$ is given by
+\begin{equation}
+  D(g\circ f)(x) = D(g(f(x)) \circ Df(x).
+\end{equation}
+\item\label{thm:chainrule2} Denote $x=(x^1, \ldots, x^n)\in\R^n$ and $y=(y^2,\ldots,y^k)\in\R^k$ the coordinates on the respective euclidean spaces and $f=(f^1,\ldots,f^k)$ and $g=(g^1,\ldots,g^m)$ the components of the functions. Then the partial derivatives of $g\circ f$ are given by
+\begin{equation}
+  \frac{\partial g^i\circ f}{\partial x^j}(x)
+  = \sum_{r=1}^k \frac{\partial g^i}{\partial y^r}(f(x)) \frac{\partial f^r}{\partial x^j}(x),
+\qquad 1\leq i \leq m,\; 1\leq j\leq n.
+\end{equation}
+\end{enumerate}
+\end{thm}
 
+\begin{rmk}
+Theorem~\ref{thm:chainrule} has some very deep consequences. First of all \ref{thm:chainrule} \ref{thm:chainrule2} tells us that that composition preserves the regularity, that is the composition of functions  of class $C^r$ is itself a function of class $C^r$.
+
+\marginnote{Follows from the fact that $Df(x)$ is an invertibe matrix and with inverse is $D(f^{-1})(f(x))$.}
+Second, if $f:U\subset\R^n\to V\subset\R^m$ is a diffeomorphism, then \ref{thm:chainrule} \ref{thm:chainrule1} implies that $n=m$.
+\end{rmk}
+
+Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, it seems reasonable to expect that we can lift the definitions directly from $\R^n$.
+If we are given a continuous map between two topological manifolds, we can locally view it as a continuous map between two Euclidean spaces.
+Generalizing this further, we could conceivably say that our original map is differentiable if the local map is.
+
+\newthought{As usual, the devil is in the details}: a topological manifold is only homeomorphic to a Euclidean space, and a different choice of homeomorphism might affect whether the local map is differentiable or not.
 We need to have extra care to ensure that these lifted definitions keep making sense when we use different charts that overlap.
+
 The solution is to introduce a little more structure to the problem.
 
-We say that two charts $(U_1, \phi_1)$ and $(U_2, \phi_2)$ on a topological manifold $M$ are \emph{$C^r$-compatible} if either $U_! \cap U_2 = \emptyset$ or if the \emph{transition map}\footnote{Both the composition maps $\phi_1 \circ \phi_2^{-1}$ and $\phi_2 \circ \phi_1^{-1}$ are called transition maps. Both maps are necessarily homeomorphisms since $\phi_1$ and $\phi_2$ are.}
+We say that two charts $(U_1, \phi_1)$ and $(U_2, \phi_2)$ on a topological manifold $M$ are \emph{$C^r$-compatible} if either $U_1 \cap U_2 = \emptyset$ or if the \emph{transition map}\footnote{Both the composition maps $\phi_1 \circ \phi_2^{-1}$ and $\phi_2 \circ \phi_1^{-1}$ are called transition maps. Both maps are necessarily homeomorphisms since $\phi_1$ and $\phi_2$ are.}
 \begin{equation}
   \phi_1 \circ \phi_2^{-1} : \phi_2(U_1\cap U_2) \to \phi_1(U_1 \cap U_2)
 \end{equation}
@@ -408,9 +463,9 @@ With these at hand, let's jump into the definition of smooth manifolds.
 \begin{defn}
   A \emph{$C^r$-atlas} is a collection
   \begin{equation}
-    \cA = \{\phi_j: U_j \to V_j \;\mid\; j\in J\}
+    \cA = \{\phi_\alpha: U_\alpha \to V_\alpha \;\mid\; \alpha\in A\}
   \end{equation}
-  of pairwise $C^r$-compatible charts that cover\footnote{I.e. such that $M = \cup_{j\in J} U_j$. One calls the set $\{U_j \;\mid\; j\in J\}$, covering $M$ with open sets, a \emph{open cover} of $M$.} $M$.
+  of pairwise $C^r$-compatible charts that cover\footnote{I.e. such that $M = \cup_{\alpha\in A} U_\alpha$. One calls the set $\{U_\alpha \;\mid\; \alpha\in A\}$, covering $M$ with open sets, a \emph{open cover} of $M$. Here $A$ is some index set, not necessarily countable.} $M$.
 
   Two $C^r$-atlases are \emph{equivalent} if their union is also a $C^r$-atlas. That is if any two charts in the atlases are $C^r$-compatible.
 \end{defn}
@@ -432,15 +487,14 @@ With these at hand, let's jump into the definition of smooth manifolds.
 
 In colloquial language, a differentiable manifold is a space covered by charts with differentiable transition maps.
 
+Whenever possible we will omit the differentiable structure $\cA$ from the notation and just write $M$.
+We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
+
 \begin{exe}
   Show that on a second countable differentiable manifold it is always possible to find a countable atlas.
 \end{exe}
 
-Even if we gave the general definition of $C^r$-manifolds, in these notes will be only interested in smooth manifolds. 
-Whenever possible we will omit the differentiable structure $\cA$ from the notation and just write $M$.
-We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
-
-\begin{ex}
+\begin{exe}\label{exe:subsetsmanifolds}
   $\R^n$ with the \emph{standard} smooth structure $\cA=(\R^n, \id_{\R^n})$ is trivially a smooth manifold of dimension $n$.
 
   In fact, any open subset $U\subset\R^n$ can be made into a smooth manifold in a natural way: pick the atlas $\cA=(U, \id_{\R^n}|_U)$.
@@ -448,8 +502,14 @@ We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
   In the same way, any open subset $U$ of a smooth manifold $M$ is a smooth manifold.
   Which atlas would you choose?
 
-  More generally, if $V$ is any $n$-dimensional real vector space, then the standard smooth structure on $V$ is the one induced by the smooth atlas consisting of a single chart $(V, T)$ where $T: V \to R^n$ is some linear isomorphism. Why is this independent of the choice of $T$?
-\end{ex}
+  More generally, if $V$ is any $n$-dimensional real vector space, then the standard smooth structure on $V$ is the one induced by the smooth atlas consisting of a single chart $(V, T)$ where $T: V \to R^n$ is some linear isomorphism. Why is this independent of the choice of the isomorphism $T$?
+
+  This example has a very interesting consequence.
+  The space $\mathrm{Mat}(n)$ of $n\times n$-matrices can be identified with $\R^{n^2}$ by writing the elements of the matrix as a $n^2$-vector.
+  This gives to $\mathrm{Mat}(n)$ a structure of differentiable manifold.
+  The subset of invertible matrices $GL(n) = \{ A \in \mathrm{Mat}(n) \;\mid\; \det A \neq 0\}$, widely known as the \emph{general linear group}, being an open subset of $\mathrm{Mat}(n)$ (why?) is itself a differentiable manifold.
+Can you guess if such manifold is connected or not?
+\end{exe}
 
 \begin{ex}\label{ex:S1emb}
   The unit circle
@@ -490,9 +550,57 @@ We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
   The manifold obtained in this way is diffeomorphic to the one defined in Example \ref{ex:S1emb}.
 \end{ex}
 
+\begin{ex}[Product manifolds]
+Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{product manifold} $M_1 \times M_2$ by equipping $M_1 \times M_2$ with the product topology\footnote{Open sets in the product are products of open sets from the respective topological spaces.} and cover the space with the atlas $\{ (U_1\times U_2, (\phi_1, \phi_2)) \;\mid\; (U_1, \phi_1)\in\cA_1, (U_2, \phi_2)\in \cA_2\}$.
+\end{ex}
+
 Note that smooth manifolds do not yet have a metric structure: distances between the points are not defined.
 However, they are \emph{metrizable}\footnote{This property is far more general: all the topological manifolds are metrizable.}: there exists some metric on the manifold that induces the given topology on it.
 This allows to always view manifolds as metric spaces.
+
+\begin{rmk}
+	There exist examples of topological manifolds without smooth structures.
+	It is also known that smooth manifolds of dimension $n < 4$ have exactly one smooth structure while ones of dimension $n > 4$ have finitely many\footnote{A beautiful example of this is the $7$-sphere $\bS^7$ which is known to have 28 non-diffeomorphic smooth structures.}.
+	The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
+\end{rmk}
+
+\subsection{Differentiable maps}
+
+With a well defined differentiable structure and the idea of compatible charts, we have all the ingredients to lift the definition of differentiable maps from the euclidean world.
+
+\begin{defn}
+  Let $f:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two $C^r$-manifolds of dimension $n_1$ and $n_2$ respectively.
+We say that $f$ is \emph{of class $C^p$}, or \emph{$p$-times differentiable}, ($p \leq r$) if, for any chart $(\phi_1, V_1)$ of $M_1$ and $(\phi_2, V_2)$ of $M_2$, the map
+\begin{align}
+  \phi_2 \circ f \circ \phi_1^{-1}: U_1 \to U_2,\\
+  U_1 := \phi_1(V_1 \cap f^{-1}(V_2))\subset\R^{n_1},\\
+  U_2 := \phi_2(f(V_1) \cap V_2)\subset\R^{n_2},
+\end{align}
+is $p$-times continuously differentiable.
+We denote by $C^p(M_1, M_2)$ the set of all functions $f:M_1\to M_2$ of class $C^p$.
+
+\begin{figure*}[htp]
+  \centering
+  \includegraphics{1_3-diffble_maps.pdf}
+  \caption{Maps are differentiable when they are differentiable as maps between euclidean spaces.}
+  \label{fig:1.3-differentiable_maps}
+\end{figure*}
+
+If $f:M_1\to M_2$ between two smooth manifolds is of class $C^p$ for all $p$, then we say that $f$ is \emph{smooth} or \emph{of class $C^\infty$}.
+\end{defn}
+
+\begin{defn}
+A \emph{$C^p$-diffeomorphism} $f$ between two $C^r$-manifolds $M_1$ and $M_2$, $p \leq r$, is a bijective map such that $f\in C^p(M_1, M_2)$ and $f^{-1}\in C^p(M_2, M_1)$.
+
+If $f:M_1\to M_2$ between two smooth manifolds is a $C^p$-diffeomorphism for all $p$, then we say that $f$ is a \emph{diffeomorphism}.
+Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there exists a diffeomorphism $f:M_1\to M_2$ between them.
+\end{defn}
+
+\begin{ex}
+Any chart $(V, \phi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\phi(V)\subset\R^n$.
+\end{ex}
+
+Even if we gave the general definition of $C^r$-manifolds, in these notes will be only interested in smooth manifolds.
 
 \chapter{Differential Forms}
 
