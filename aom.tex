@@ -665,7 +665,9 @@ and the topology inherited by $\R^n$, as a replacement for our local model $\R^n
   A \emph{chart} on $M$ is a pair $(U, \phi)$ consisting of an open set $U\subset M$ and a homeomorphism $\phi: U \to \phi(U)\subset \cH^n$.
 \end{defn}
 
-TODO\todo{add picture}
+\begin{figure*}
+  \includegraphics{1_4-mfld-w-bdry.pdf}
+\end{figure*}
 
 We saw in Proposition~\ref{prop:uniqdiffeoinclusion} that differentiability\footnote{In fact, also $C^r$-differentiability} is a local property, which means that is a property defined on open sets.
 To clarify what it means to have differentiable structures on manifolds with boundary, we will thus need to clarify what it means for a function defined on $\cH^n$ to be differentiable at points on $\partial\cH^n$.
@@ -680,6 +682,7 @@ With such definition at hand, one can define $C^r$-compatibility, $C^r$-atlases 
 \begin{defn}\label{def:diffmanifoldwb}
   A \emph{$C^r$ manifold with boundary} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold with boundary $M$ and a differentiable structure $\cA = \{(U_\alpha, \phi_\alpha) \mid \alpha\in A\}$ on $M$ of class $C^r$.
   
+  \marginnote{The boundary $\partial M$ as defined here can differ from its topological boundary as a subset of another topological space. For example the boundary $\partial\bS^1$ of the circle as a manifold is empty, but the boundary of the circle $\bS^1$ as a subset of $\R^2$ is $\bS^1$ itself.}
   The \emph{boundary} of $M$ is defined as
   \begin{equation}
     \partial M := \bigcup_{\alpha\in A} \phi_\alpha^{-1}\left(\phi_\alpha(V_\alpha)\cap \partial\cH^n\right).
@@ -688,18 +691,77 @@ With such definition at hand, one can define $C^r$-compatibility, $C^r$-atlases 
   A \emph{smooth manifold} of dimension $n$ is a differentiable manifold whose differentiable structure $\cA$ is of class $C^\infty$.
 \end{defn}
 
-\begin{prop}
+\begin{prop}\label{prop:bdwelldef}
   The boundary $\partial M$ is well defined\footnote{The same definition holds for topological manifolds, but showing that it is well defined is much more complicated and will be omitted.}.
 \end{prop}
 \begin{proof}
-  
+  The statement follows if we show that the transition maps send boundary pieces to boundary pieces.
+  It turns out that this fact is more general: for any diffeomorphism $f:U \to V$, where $U,V \subset\cH^n$ are relatively open, it holds that $x\in U\cap\partial\cH^n$ if and only if $f(x)\in V\cap\partial\cH^n$.
+
+  Indeed, let $x\in U\cap(\cH^n\setminus\partial\cH^n)$ be a point in the interior of $U$. Expanding $f$ in Taylor series up to the first order, we have
+  \begin{equation}
+    f(x+h) = f(x) + Df|_x h + O(\|h\|).
+  \end{equation}
+  Since the differential $D f$ at $x$ is an isomorphism, there exist an open neighborhood $\cO$ of $x$ such that $f(\cO)$ is open in $\R^n$ and thus $f(x)\in V\cap(\cH^n\cap\partial\cH^n)$.
 \end{proof}
 
+\begin{ex}
+  Let's go back to the closed interval $M=[a,b]\subset\R$. 
+  With the atlas
+  \begin{equation}
+    \cA=\left\{
+      (U_1 = [a,b), \phi_1: x\mapsto x-a),
+      (U_2 = (a,b], \phi_2: x\mapsto b-x)
+    \right\}
+  \end{equation}
+  it is a differentiable $1$-manifold with boundary $\partial M = \{a\} \cup \{b\} = \{a, b\}$.
+\end{ex}
+
+Let's go back to our observation at the beginning of this section.
+We started by observing that some objects seemed to be the ``sum'' of a boundary manifold and an interior manifold.
+Can we make sense of such observation using our newly introduced definition?
+
+\begin{prop}
+  Let $M$ be a differentiable $n$-manifold with boundary.
+  Then $M\setminus\partial M$ and $\partial M$ inherit the structure of manifolds (without boundary) of dimensions $\dim(M\setminus\partial M)=n$ and $\dim(\partial M) = n-1$.
+\end{prop}
+\begin{proof}
+  Let $\cA = \{(U_\alpha,\phi_\alpha) \mid \alpha\in A\}$ be an atlas for $M$. 
+  Then
+  \begin{equation}
+    \cA_\circ := \left\{
+      \left(
+        U_\alpha \cap (M\setminus\partial M),
+        \phi_\alpha|_{U_\alpha \cap (M\setminus\partial M)}
+        \right) \mid \alpha\in A
+      \right\}
+  \end{equation}
+  is an atlas for $M\setminus\partial M$ where none of the charts contain points in $\partial\cH^n$.
+
+  In a similar vein, an atlas for $\partial M$ is given by
+  \begin{equation}
+    \cA_\partial := \left\{
+      \left(
+        U_\alpha \cap \partial M,
+        \phi_\alpha|_{U_\alpha \cap \partial M}
+        \right) \mid \alpha\in A
+      \right\},
+  \end{equation}
+  where
+  \begin{equation}
+    \phi_\alpha|_{U_\alpha \cap \partial M} : (U_\alpha \cap \partial M) \to \partial\cH^n\simeq\R^{n-1}
+  \end{equation}
+  by the proof of Proposition~\ref{prop:bdwelldef}.
+\end{proof}
+
+EXERCISES\todo{Maybe add subsection homework sheet}
+
 \begin{fullwidth}
-Even if we gave the general definition of $C^r$-manifolds, in these notes will be only interested in smooth manifolds.
+Even though we gave the general definition of $C^r$-manifolds, in these notes will be only interested in smooth manifolds.
 From now on we always talk about smooth manifolds unless differently specified.
 
-Differentiable manifolds (without boundary)\footnote{See  Definition~\ref{def:diffmanifold}.} can be seen as a special case of differentiable manifolds with boundary\footnote{See Definition~\ref{def:diffmanifoldwb}} where the boundary happens to be empty. Therefore, with the exception of the beginning of Chapter~\ref{ch:2}, we will no-longer distinguish the two concepts: from now on, a manifold may have or may not have a boundary.
+Differentiable manifolds without boundary (cfr. Definition~\ref{def:diffmanifold}) can be thought as a special case of differentiable manifolds with boundary (cfr. Definition~\ref{def:diffmanifoldwb}) where the boundary happens to be empty.
+Therefore, with the exception of the beginning of Chapter~\ref{ch:2}, we will no-longer distinguish the two concepts: from now on, a manifold may have or may not have a boundary.
 \end{fullwidth}
 
 \subsection{Infinite dimensional manifolds $\star$}
