@@ -204,7 +204,7 @@ An old mathematical joke says that
 Sadly, this is \emph{funny because it is alarmingly close to the truth}\footnote{Cit. Lee \cite{book:lee}.}
 You will soon see that different references use different notations. I'll try to stick to the ones you used in the past courses when possible, falling back to \cite{book:lee} and \cite{book:tu} and to my personal preference when the latter disagree.
 
-\marginnote{In addition to the reference books, these lecture notes have found deep inspiration from \cite{lectures:merry} and \cite{lectures:hitchin} (both freely downloadable from the authors websites), and from the advanced book \cite{book:abrahammarsdenratiu}.}
+\marginnote{In addition to the reference books, these lecture notes have found deep inspiration from \cite{lectures:merry,lectures:teufel,lectures:hitchin} (all freely downloadable from the respective authors' websites), and from the books \cite{book:lee, book:abrahammarsdenratiu}.}
 \newthought{These lecture notes} are by no means comprehensive.
 In addition to the course recommended textbook \cite{book:tu}, you can refer to \cite{book:lee}: it is an incredibly good textbook and contains all the material of the course and much more.
 I have requested for \cite{book:tu} book to be freely available via SpringerLink using the university proxy but this will take some time to become active.
@@ -212,6 +212,9 @@ However, you can already freely access Lee's book via the University proxy on \h
 
 The idea for the cut that I want to give to this course, came from the online \href{https://www.video.uni-erlangen.de/course/id/242}{Lectures on the Geometric Anatomy of Theoretical Physics} by Frederic Schuller and by the lecture notes of Stefan Teufel's Classical Mechanics course \cite{lectures:teufel} (in German).
 In some sense I would like this course to provide the introduction to analysis and geometry that I whish was there when I prepared my \href{https://www.mseri.me/lecture-notes-hamiltonian-mechanics/}{first edition} of the Hamiltonian mechanics course.
+
+In the text, there will be some sections and remarks that are marked with a $\star$.
+These are for your interest only and are not part of the evaluated material.
 
 \mainmatter
 
@@ -385,12 +388,12 @@ Don't get scared by the first two conditions: they are only needed to make sure 
   \end{enumerate}
 \end{exe}
 
-\begin{ex}
+\begin{ex}\label{ex:uball}
   The \emph{closed} unit ball $D_1(0)$, where similarly as before
   \begin{equation}
     D_r(x) := \{z\in\R^n \;\mid\; d(z,x) \leq r\},
   \end{equation}
-  is \emph{not} a topological manifold of dimension $n$. Can you see why? In fact, this is an example of a more general concept of \emph{manifold with boundary} that we will introduce later in Chapter \todo{add ref}.
+  is \emph{not} a topological manifold of dimension $n$. Can you see why? In fact, this is an example of a more general concept of \emph{manifold with boundary} that we will introduce later in Chapter~\ref{sec:mbnd}.
 \end{ex}
 
 \begin{ex}
@@ -564,35 +567,37 @@ This allows to always view manifolds as metric spaces.
 	The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
 \end{rmk}
 
+
 \subsection{Differentiable maps}
 
 With a well defined differentiable structure and the idea of compatible charts, we have all the ingredients to lift the definition of differentiable maps from the euclidean world.
 
 \begin{defn}
   Let $f:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two $C^r$-manifolds of dimension $n_1$ and $n_2$ respectively.
-We say that $f$ is \emph{of class $C^p$}, or \emph{$p$-times differentiable}, ($p \leq r$) if, for any chart $(\phi_1, V_1)$ of $M_1$ and $(\phi_2, V_2)$ of $M_2$, the map
-\begin{align}
-  \phi_2 \circ f \circ \phi_1^{-1}: U_1 \to U_2,\\
-  U_1 := \phi_1(V_1 \cap f^{-1}(V_2))\subset\R^{n_1},\\
-  U_2 := \phi_2(f(V_1) \cap V_2)\subset\R^{n_2},
-\end{align}
-is $p$-times continuously differentiable.
-We denote by $C^p(M_1, M_2)$ the set of all functions $f:M_1\to M_2$ of class $C^p$.
+  \marginnote[2em]{Differently from your calculus classes, we are defining differentiability \emph{before} we define what the derivative is. Getting to it will require some amount of work, and will have to wait until the next chapter.}
+  We say that $f$ is \emph{of class $C^p$}, or \emph{$p$-times differentiable}, ($p \leq r$) if, for any chart $(\phi_1, V_1)$ of $M_1$ and $(\phi_2, V_2)$ of $M_2$, the map
+  \begin{align}
+    \phi_2 \circ f \circ \phi_1^{-1}: U_1 \to U_2,\\
+    U_1 := \phi_1(V_1 \cap f^{-1}(V_2))\subset\R^{n_1},\\
+    U_2 := \phi_2(f(V_1) \cap V_2)\subset\R^{n_2},
+  \end{align}
+  is $p$-times continuously differentiable.
+  We denote by $C^p(M_1, M_2)$ the set of all functions $f:M_1\to M_2$ of class $C^p$.
 
-\begin{figure*}[htp]
+\begin{figure}[htp]
   \centering
   \includegraphics{1_3-diffble_maps.pdf}
   \caption{Maps are differentiable when they are differentiable as maps between euclidean spaces.}
   \label{fig:1.3-differentiable_maps}
-\end{figure*}
+\end{figure}
 
-If $f:M_1\to M_2$ between two smooth manifolds is of class $C^p$ for all $p$, then we say that $f$ is \emph{smooth} or \emph{of class $C^\infty$}.
+  If $f:M_1\to M_2$ between two smooth manifolds is of class $C^p$ for all $p$, then we say that $f$ is \emph{smooth} or \emph{of class $C^\infty$}.
 \end{defn}
 
 \begin{defn}
 A \emph{$C^p$-diffeomorphism} $f$ between two $C^r$-manifolds $M_1$ and $M_2$, $p \leq r$, is a bijective map such that $f\in C^p(M_1, M_2)$ and $f^{-1}\in C^p(M_2, M_1)$.
 
-If $f:M_1\to M_2$ between two smooth manifolds is a $C^p$-diffeomorphism for all $p$, then we say that $f$ is a \emph{diffeomorphism}.
+If $f:M_1\to M_2$ between two smooth manifolds $M_1$ and $M_2$ is a $C^p$-diffeomorphism for all $p$, then we say that $f$ is a \emph{diffeomorphism}.
 Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there exists a diffeomorphism $f:M_1\to M_2$ between them.
 \end{defn}
 
@@ -602,11 +607,61 @@ Any chart $(V, \phi)$ of a manifold $M$ is a diffeomorphism between the manifold
 
 Even if we gave the general definition of $C^r$-manifolds, in these notes will be only interested in smooth manifolds.
 
+\begin{ex}
+  Prove the following proposition.
+  \begin{prop}
+    Let $M, N, P$ be three $C^r$-manifolds, and suppose that $\phi:M\to N$ and $\psi:N\to P$ are of class $C^r$.
+    Then $\psi\circ\phi\in C^r(M, P)$.
+  \end{prop}  
+\end{ex}
+
+\subsection{Manifolds with boundary}\label{sec:mbnd}
+
+The definition of manifolds has a serious limitation, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $n$-spheres $\bS^n$ in the homework sheet.}, it fails to describe many natural objects like a \emph{closed} interval $[a,b]\in\R$ or the \emph{closed} disk $D_1(0)$ of Example~\ref{ex:uball}.
+
+Note that in both these cases, both the interior and the boundary are smooth manifolds and their dimension differ by one\footnote{In the first case the interior $(a,b)$ is a $1$-manifold and the boundary, the set $\partial[a,b] = \{a,b\}$, is a $0$-manifold. In the second case the interior of $D_1(0)$ is the open unit ball, a $2$-manifold, and the boundary $\partial D_1(0)$ is the $1$-manifold $\bS^1$.}.
+
+Let's do a step back and think about topological manifolds: since both the closed interval and the closed disk are closed sets, we have problems to make them locally euclidean in neighbourhoods of their boundaries.
+Can we modify our local model to resemble something with a boundary?
+
+Of course this is a rhetorical question. We can generalize our definition by considering the \emph{closed upper half-spaces}
+\begin{equation}
+  \cH^n = \R_+^n = \{x=(x^1, \ldots, x^n)\in\R^n\mid x^n \geq 0\},
+\end{equation}
+with its $(n-1)$-dimensional boundary
+\begin{equation}
+  \partial\cH^n = \{x=(x^1, \ldots, x^n)\in\R^n\mid x^n = 0\}
+\end{equation}
+and the topology inherited by $\R^n$, as a replacement for our local model $\R^n$.
+
+\begin{defn}
+  A topological space $M$ is a \emph{topological manifold with boundary} of dimension $n$, or topological $n$-manifold with boundary, if it has the following properties
+  \begin{enumerate}[(i)]
+    \item $M$ is a Hausdorff space;
+    \item $M$ is second countable;
+    \item $M$ is \emph{locally} homeomorphic to $\cH^n$, any point $x\in M$ has a neighborhood that is homeomorphic to a relatively open\footnote{Recall that $U\subset\R^n_+$ is relatively open if there exist an open set $\tilde U\subset\R^n$ such that $U = \tilde U \cap \R^n_+$.} subset of $\R^n_+$.
+  \end{enumerate}
+\end{defn}
+
+\subsection{Infinite dimensional manifolds $\star$}
+\todo{See Merry, Remark 1.31.}
+
+\chapter{Tangent bundle}
+
+\chapter{Cotangent bundle}
+
+\chapter{Vector fields}
+
+\chapter{Tensor products}
+
 \chapter{Differential Forms}
 
-\chapter{Stokes' Theorem}
+\subsection{de Rahm cohomology}
 
-\chapter{de Rahm cohomology or fiber bundles}
+\chapter{Integration of forms}
+\subsection{Orientation}
+
+\subsection{Stokes' Theorem}
 
 \begin{appendices}
   \chapter{Solution to selected exercises}
