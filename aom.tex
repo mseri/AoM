@@ -448,11 +448,13 @@ We need to have extra care to ensure that these lifted definitions keep making s
 
 The solution is to introduce a little more structure to the problem.
 
+\begin{defn}\label{def:crcomp}
 We say that two charts $(U_1, \phi_1)$ and $(U_2, \phi_2)$ on a topological manifold $M$ are \emph{$C^r$-compatible} if either $U_1 \cap U_2 = \emptyset$ or if the \emph{transition map}\footnote{Both the composition maps $\phi_1 \circ \phi_2^{-1}$ and $\phi_2 \circ \phi_1^{-1}$ are called transition maps. Both maps are necessarily homeomorphisms since $\phi_1$ and $\phi_2$ are.}
 \begin{equation}
   \phi_1 \circ \phi_2^{-1} : \phi_2(U_1\cap U_2) \to \phi_1(U_1 \cap U_2)
 \end{equation}
 is a diffeomorphism of class $C^r$.
+\end{defn}
 
 \begin{figure*}[htp]
   \centering
@@ -463,7 +465,7 @@ is a diffeomorphism of class $C^r$.
 
 With these at hand, let's jump into the definition of smooth manifolds.
 
-\begin{defn}
+\begin{defn}\label{def:cratlas}
   A \emph{$C^r$-atlas} is a collection
   \begin{equation}
     \cA = \{\phi_\alpha: U_\alpha \to V_\alpha \;\mid\; \alpha\in A\}
@@ -477,12 +479,12 @@ With these at hand, let's jump into the definition of smooth manifolds.
   Show that the equivalence of atlases is really an equivalence relation.
 \end{exe}
 
-\begin{defn}
+\begin{defn}\label{def:diffstr}
   A \emph{differentiable structure}, or more precisely a \emph{$C^r$-structure}\marginnote[-1.5em]{If $r=\infty$ we simply call it \emph{smooth structure}.}, on a topological manifold is an equivalence class of $C^r$-atlases.
   \marginnote{The union of all atlases in a differentiable structure is the \emph{unique} \emph{maximal} atlas in the equivalence class. There is a one-to-one correspondence between differentiable structures and maximal differentiable atlases: for convenience and to lighten the notation, from now on, we will always regard a differentiable structure as a differentiable maximal atlas without further comments.}
 \end{defn}
 
-\begin{defn}
+\begin{defn}\label{def:diffmanifold}
   A \emph{differentiable manifold} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold $M$ and a differentiable structure $\cA$ on $M$.
   \marginnote[1em]{There are no preferred coordinate charts on a manifold: all coordinate systems compatible with the differentiable structure are on equal footing.}
   A \emph{smooth manifold} of dimension $n$ is a differentiable manifold whose differentiable structure $\cA$ is of class $C^\infty$.
@@ -605,26 +607,44 @@ Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there e
 Any chart $(V, \phi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\phi(V)\subset\R^n$.
 \end{ex}
 
-Even if we gave the general definition of $C^r$-manifolds, in these notes will be only interested in smooth manifolds.
-
-\begin{ex}
-  Prove the following proposition.
+\begin{exe}
+  Prove the following propositions and aid your reasoning by drawing the relevant figures.
   \begin{prop}
-    Let $M, N, P$ be three $C^r$-manifolds, and suppose that $\phi:M\to N$ and $\psi:N\to P$ are of class $C^r$.
-    Then $\psi\circ\phi\in C^r(M, P)$.
-  \end{prop}  
-\end{ex}
+    Let $M$ be a $C^r$-manifold of dimension $n$.
+    Then $f:M\to\R^m$ is of class $C^r$ iff for all charts $(U,\phi)$ of $M$, the function $f\circ\phi^{-1}:\phi(U)\to\R^m$ is of class $C^r$.
+  \end{prop}
+  \begin{prop}
+    Let $M$ be a $C^r$-manifold of dimension $n$.
+    Then $f:\R^m\to M$ is of class $C^r$ iff for all charts $(U,\phi)$ of $M$, the function $\phi\circ f:f^{-1}(U)\to\R^m$ is of class $C^r$.
+  \end{prop}
+  \begin{prop}
+    Let $M, N, P$ be three $C^r$-manifolds, and suppose that $f:M\to N$ and $g:N\to P$ are of class $C^r$.
+    Then $g\circ f\in C^r(M, P)$.
+  \end{prop}
+  \marginnote{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
+  \begin{prop}\label{prop:uniqdiffeoinclusion}
+    Let $M$ be a manifold and $U\subset M$ an open set.
+    Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
+  \end{prop}
+  \begin{prop}[Smoothness is a local property]\label{prop:smoothlocal}
+    Let $f:M\to N$ be a continuous function and let $\{U_i\}_{i\in I}$ be an open cover for $M$. Then $f|_{U_i}:U_i \to N$ is smooth for every $i\in I$ iff $f:M\to N$ is smooth.
+  \end{prop}
+\end{exe}
 
 \subsection{Manifolds with boundary}\label{sec:mbnd}
 
-The definition of manifolds has a serious limitation, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $n$-spheres $\bS^n$ in the homework sheet.}, it fails to describe many natural objects like a \emph{closed} interval $[a,b]\in\R$ or the \emph{closed} disk $D_1(0)$ of Example~\ref{ex:uball}.
+\newthought{The definition of manifolds has a serious limitation}, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $n$-spheres $\bS^n$ in the homework sheet.}, it fails to describe many natural objects like a \emph{closed} interval $[a,b]\in\R$ or the \emph{closed} disk $D_1(0)$ of Example~\ref{ex:uball}.
 
 Note that in both these cases, both the interior and the boundary are smooth manifolds and their dimension differ by one\footnote{In the first case the interior $(a,b)$ is a $1$-manifold and the boundary, the set $\partial[a,b] = \{a,b\}$, is a $0$-manifold. In the second case the interior of $D_1(0)$ is the open unit ball, a $2$-manifold, and the boundary $\partial D_1(0)$ is the $1$-manifold $\bS^1$.}.
 
 Let's do a step back and think about topological manifolds: since both the closed interval and the closed disk are closed sets, we have problems to make them locally euclidean in neighbourhoods of their boundaries.
 Can we modify our local model to resemble something with a boundary?
 
-Of course this is a rhetorical question. We can generalize our definition by considering the \emph{closed upper half-spaces}
+\begin{marginfigure}
+  \includegraphics{1_4-upper_space.pdf}
+\end{marginfigure}
+Of course this is a rhetorical question.
+We can generalize our definition by considering the \emph{closed upper half-spaces}
 \begin{equation}
   \cH^n = \R_+^n = \{x=(x^1, \ldots, x^n)\in\R^n\mid x^n \geq 0\},
 \end{equation}
@@ -639,14 +659,53 @@ and the topology inherited by $\R^n$, as a replacement for our local model $\R^n
   \begin{enumerate}[(i)]
     \item $M$ is a Hausdorff space;
     \item $M$ is second countable;
-    \item $M$ is \emph{locally} homeomorphic to $\cH^n$, any point $x\in M$ has a neighborhood that is homeomorphic to a relatively open\footnote{Recall that $U\subset\R^n_+$ is relatively open if there exist an open set $\tilde U\subset\R^n$ such that $U = \tilde U \cap \R^n_+$.} subset of $\R^n_+$.
+    \item $M$ is \emph{locally} homeomorphic to $\cH^n$, any point $x\in M$ has a neighborhood that is homeomorphic to a (relatively) open\footnote{Recall that $U\subset\R^n_+$ is relatively open, that is open with respect to the relative topology, if there exist an open set $\tilde U\subset\R^n$ such that $U = \tilde U \cap \R^n_+$.} subset of $\R^n_+$.
   \end{enumerate}
+
+  A \emph{chart} on $M$ is a pair $(U, \phi)$ consisting of an open set $U\subset M$ and a homeomorphism $\phi: U \to \phi(U)\subset \cH^n$.
 \end{defn}
 
-\subsection{Infinite dimensional manifolds $\star$}
-\todo{See Merry, Remark 1.31.}
+TODO\todo{add picture}
 
-\chapter{Tangent bundle}
+We saw in Proposition~\ref{prop:uniqdiffeoinclusion} that differentiability\footnote{In fact, also $C^r$-differentiability} is a local property, which means that is a property defined on open sets.
+To clarify what it means to have differentiable structures on manifolds with boundary, we will thus need to clarify what it means for a function defined on $\cH^n$ to be differentiable at points on $\partial\cH^n$.
+As it turns out, this is a minor modification of our previous definition that stems directly from the definition of the induced topology.
+
+\begin{defn}
+  Let $U\subset\cH^n$ be a relatively open set. A map $f: U\to\R^m$ is \emph{$r$-times continuously differentiable} if there exists an open set $\tilde U\in\R^n$ and a map $\tilde f\in C^r(\tilde U, \R^m)$ such that $U\subset\tilde U$ and $\tilde f|_U = f$.
+\end{defn}
+
+With such definition at hand, one can define $C^r$-compatibility, $C^r$-atlases and differentiable structures as in Definition~\ref{def:crcomp}, Definition~\ref{def:cratlas} and Definition~\ref{def:diffstr} by considering charts taking value in $\cH^n$.
+
+\begin{defn}\label{def:diffmanifoldwb}
+  A \emph{$C^r$ manifold with boundary} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold with boundary $M$ and a differentiable structure $\cA = \{(U_\alpha, \phi_\alpha) \mid \alpha\in A\}$ on $M$ of class $C^r$.
+  
+  The \emph{boundary} of $M$ is defined as
+  \begin{equation}
+    \partial M := \bigcup_{\alpha\in A} \phi_\alpha^{-1}\left(\phi_\alpha(V_\alpha)\cap \partial\cH^n\right).
+  \end{equation}
+
+  A \emph{smooth manifold} of dimension $n$ is a differentiable manifold whose differentiable structure $\cA$ is of class $C^\infty$.
+\end{defn}
+
+\begin{prop}
+  The boundary $\partial M$ is well defined\footnote{The same definition holds for topological manifolds, but showing that it is well defined is much more complicated and will be omitted.}.
+\end{prop}
+\begin{proof}
+  
+\end{proof}
+
+\begin{fullwidth}
+Even if we gave the general definition of $C^r$-manifolds, in these notes will be only interested in smooth manifolds.
+From now on we always talk about smooth manifolds unless differently specified.
+
+Differentiable manifolds (without boundary)\footnote{See  Definition~\ref{def:diffmanifold}.} can be seen as a special case of differentiable manifolds with boundary\footnote{See Definition~\ref{def:diffmanifoldwb}} where the boundary happens to be empty. Therefore, with the exception of the beginning of Chapter~\ref{ch:2}, we will no-longer distinguish the two concepts: from now on, a manifold may have or may not have a boundary.
+\end{fullwidth}
+
+\subsection{Infinite dimensional manifolds $\star$}
+TODO\todo{See Merry, Remark 1.31.}
+
+\chapter{Tangent bundle}\label{ch:2}
 
 \chapter{Cotangent bundle}
 
