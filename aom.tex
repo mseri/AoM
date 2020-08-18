@@ -320,7 +320,7 @@ With topological spaces at hand, we can give a definition of continuity and intr
 \end{marginfigure}
 
 \begin{defn}
-  A topological space $(X, \cT)$ is \emph{Hausdorff} if every two distinct points admit disjoint open neighborhoods. That is, for every pair $x\neq y$ of points in $X$, there exist open subsets $O_x, O_y\in\cT$ such that $x\in O_x$, $y\in O_y$ and $O_x \cap O_y = \emptyset$.
+  A topological space $(X, \cT)$ is \emph{Hausdorff} if every two distinct points admit disjoint open neighborhoods. That is, for every pair $x\neq y$ of points in $X$, there exist open subsets $U_x, U_y\in\cT$ such that $x\in U_x$, $y\in U_y$ and $U_x \cap U_y = \emptyset$.
 \end{defn}
 
 Topological spaces are extremely general, as such they may have very inconvenient -- someone would say nasty -- properties.
@@ -411,8 +411,9 @@ In our definition of topological manifolds, we are giving for granted that the d
 Before entering into the details of new definitions, let's recall what will be the most important tools throughout the rest of the course.
 
 \begin{defn}
-  A map $f: U \to V$ between open sets $U\subset\R^n$ and $V\subset\R^m$ is in $C^r(U,V)$ or \emph{of class $C^r$}, if it is differentiable $r$-times. It is called a $C^r$-diffeomorphism\footnote{With this definition a homeomorphism is a $C^1$-diffeomorphism} if it is bijective and of class $C^r$ with inverse of class $C^r$.
-  We say that $f$ is \emph{smooth}\marginnote{To be comprehensive, one should also include $C^\omega$, the class of analytic functions.} or of class $C^\infty$ if it is of class $C^r$ for every $r \geq 1$.
+  A map $f: U \to V$ between open sets $U\subset\R^n$ and $V\subset\R^m$ is in $C^r(U,V)$ or \emph{of class $C^r$}, if it is differentiable $r$-times.
+  It is called a $C^r$-diffeomorphism\footnote{With this definition a homeomorphism is a $C^1$-diffeomorphism} if it is bijective and of class $C^r$ with inverse of class $C^r$.
+  We say that $f$ is \emph{smooth}, or of class $C^\infty$, if it is of class $C^r$ for every $r \geq 1$.
 \end{defn}
 
 \begin{thm}[Chain rule]\label{thm:chainrule}
@@ -435,8 +436,8 @@ Then, the following holds.
 \begin{rmk}
 Theorem~\ref{thm:chainrule} has some very deep consequences. First of all \ref{thm:chainrule} \ref{thm:chainrule2} tells us that that composition preserves the regularity, that is the composition of functions  of class $C^r$ is itself a function of class $C^r$.
 
-\marginnote{Follows from the fact that $Df(x)$ is an invertibe matrix and with inverse is $D(f^{-1})(f(x))$.}
-Second, if $f:U\subset\R^n\to V\subset\R^m$ is a diffeomorphism, then \ref{thm:chainrule} \ref{thm:chainrule1} implies that $n=m$.
+\marginnote[1em]{It follows from the fact that $Df(x)$ is an invertibe matrix and with inverse is $D(f^{-1})(f(x))$.}
+Second, if $f:U\subset\R^n\to V\subset\R^m$ is a diffeomorphism, then \ref{thm:chainrule} (\ref{thm:chainrule1}) implies that $n=m$.
 \end{rmk}
 
 Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, it seems reasonable to expect that we can lift the definitions directly from $\R^n$.
@@ -449,11 +450,11 @@ We need to have extra care to ensure that these lifted definitions keep making s
 The solution is to introduce a little more structure to the problem.
 
 \begin{defn}\label{def:crcomp}
-We say that two charts $(U_1, \phi_1)$ and $(U_2, \phi_2)$ on a topological manifold $M$ are \emph{$C^r$-compatible} if either $U_1 \cap U_2 = \emptyset$ or if the \emph{transition map}\footnote{Both the composition maps $\phi_1 \circ \phi_2^{-1}$ and $\phi_2 \circ \phi_1^{-1}$ are called transition maps. Both maps are necessarily homeomorphisms since $\phi_1$ and $\phi_2$ are.}
+We say that two charts $(U_1, \phi_1)$ and $(U_2, \phi_2)$ on a topological manifold $M$ are \emph{compatible} if either $U_1 \cap U_2 = \emptyset$ or if the \emph{transition map}\footnote{Both the composition maps $\phi_1 \circ \phi_2^{-1}$ and $\phi_2 \circ \phi_1^{-1}$ are called transition maps. Both maps are necessarily homeomorphisms since $\phi_1$ and $\phi_2$ are.}
 \begin{equation}
   \phi_1 \circ \phi_2^{-1} : \phi_2(U_1\cap U_2) \to \phi_1(U_1 \cap U_2)
 \end{equation}
-is a diffeomorphism of class $C^r$.
+is a smooth diffeomorphism.
 \end{defn}
 
 \begin{figure*}[htp]
@@ -466,13 +467,13 @@ is a diffeomorphism of class $C^r$.
 With these at hand, let's jump into the definition of smooth manifolds.
 
 \begin{defn}\label{def:cratlas}
-  A \emph{$C^r$-atlas} is a collection
+  A \emph{smooth atlas} is a collection
   \begin{equation}
     \cA = \{\phi_\alpha: U_\alpha \to V_\alpha \;\mid\; \alpha\in A\}
   \end{equation}
-  of pairwise $C^r$-compatible charts that cover\footnote{I.e. such that $M = \cup_{\alpha\in A} U_\alpha$. One calls the set $\{U_\alpha \;\mid\; \alpha\in A\}$, covering $M$ with open sets, a \emph{open cover} of $M$. Here $A$ is some index set, not necessarily countable.} $M$.
+  of pairwise compatible charts that cover\footnote{I.e. such that $M = \cup_{\alpha\in A} U_\alpha$. One calls the set $\{U_\alpha \;\mid\; \alpha\in A\}$, covering $M$ with open sets, a \emph{open cover} of $M$. Here $A$ is some index set, not necessarily countable.} $M$.
 
-  Two $C^r$-atlases are \emph{equivalent} if their union is also a $C^r$-atlas. That is if any two charts in the atlases are $C^r$-compatible.
+  Two smooth atlases are \emph{equivalent} if their union is also a smooth atlas. That is if any two charts in the atlases are compatible.
 \end{defn}
 
 \begin{exe}
@@ -480,14 +481,13 @@ With these at hand, let's jump into the definition of smooth manifolds.
 \end{exe}
 
 \begin{defn}\label{def:diffstr}
-  A \emph{differentiable structure}, or more precisely a \emph{$C^r$-structure}\marginnote[-1.5em]{If $r=\infty$ we simply call it \emph{smooth structure}.}, on a topological manifold is an equivalence class of $C^r$-atlases.
+  A \emph{differentiable structure}, or more precisely a \emph{smooth structure}, on a topological manifold is an equivalence class of smooth atlases.
   \marginnote{The union of all atlases in a differentiable structure is the \emph{unique} \emph{maximal} atlas in the equivalence class. There is a one-to-one correspondence between differentiable structures and maximal differentiable atlases: for convenience and to lighten the notation, from now on, we will always regard a differentiable structure as a differentiable maximal atlas without further comments.}
 \end{defn}
 
 \begin{defn}\label{def:diffmanifold}
-  A \emph{differentiable manifold} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold $M$ and a differentiable structure $\cA$ on $M$.
+  A \emph{smooth manifold} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold $M$ and a smooth structure $\cA$ on $M$.
   \marginnote[1em]{There are no preferred coordinate charts on a manifold: all coordinate systems compatible with the differentiable structure are on equal footing.}
-  A \emph{smooth manifold} of dimension $n$ is a differentiable manifold whose differentiable structure $\cA$ is of class $C^\infty$.
 \end{defn}
 
 In colloquial language, a differentiable manifold is a space covered by charts with differentiable transition maps.
@@ -569,22 +569,44 @@ This allows to always view manifolds as metric spaces.
 	The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
 \end{rmk}
 
+\begin{tcolorbox}
+  The general definition of $C^r$-manifolds is mostly a matter of replacing occurrences of ``smooth'' in the text with $C^r$.
+  The study of these more general structures is not dissimilar from what we will see in this course, with the exception of analytic and $C^0$-manifolds, but it introduces an unnecessary extra level of verbosity.
+  In these notes we will only deal with smooth manifolds.
+\end{tcolorbox}
 
 \subsection{Differentiable maps}
 
 With a well defined differentiable structure and the idea of compatible charts, we have all the ingredients to lift the definition of differentiable maps from the euclidean world.
 
+Before considering the general definition of a differentiable map, let's look at the simpler example of differentiable functions $f:M\to\R$ between a smooth manifold $M$ and $\R$.
+
 \begin{defn}
-  Let $f:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two $C^r$-manifolds of dimension $n_1$ and $n_2$ respectively.
+  A function $f:M\to\R$ from a smooth manifold $M$ of dimension $n$ to $\R$ is \emph{smooth}, or \emph{of class $C^\infty$}, if for any chart $(\phi, V)$ of $M$ the map $f\circ\phi^{-1}:\phi(V)\subset\R^n \to \R$ is smooth as a euclidean function.
+\end{defn}
+
+\begin{marginfigure}
+  \includegraphics{1_5-diff-fun-v2.pdf}
+  \label{fig:diff-fun}
+  \caption{A function is differentiable if it is differentiable as a euclidean function through the magnifying lens provided by the charts.}
+\end{marginfigure}
+
+This, colloquially speaking, means that a function is differentiable if it is differentiable as a euclidean function through the magnifying lens (see Figure~\ref{fig:diff-fun}) provided by the charts.
+
+Which immediately gives away the general definition.
+
+\begin{defn}
+  Let $F:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two smooth manifolds of dimension $n_1$ and $n_2$ respectively.
   \marginnote[2em]{Differently from your calculus classes, we are defining differentiability \emph{before} we define what the derivative is. Getting to it will require some amount of work, and will have to wait until the next chapter.}
-  We say that $f$ is \emph{of class $C^p$}, or \emph{$p$-times differentiable}, ($p \leq r$) if, for any chart $(\phi_1, V_1)$ of $M_1$ and $(\phi_2, V_2)$ of $M_2$, the map
+  We say that $f$ is \emph{smooth}, or \emph{of class $C^\infty$}, if, for any chart $(\phi_1, V_1)$ of $M_1$ and $(\phi_2, V_2)$ of $M_2$, the map
   \begin{align}
-    \phi_2 \circ f \circ \phi_1^{-1}: U_1 \to U_2,\\
+    \phi_2 \circ F \circ \phi_1^{-1}: U_1 \to U_2,\\
     U_1 := \phi_1(V_1 \cap f^{-1}(V_2))\subset\R^{n_1},\\
     U_2 := \phi_2(f(V_1) \cap V_2)\subset\R^{n_2},
   \end{align}
-  is $p$-times continuously differentiable.
-  We denote by $C^p(M_1, M_2)$ the set of all functions $f:M_1\to M_2$ of class $C^p$.
+  is smooth as a euclidean function.
+  We denote by $C^\infty(M_1, M_2)$ the set of all functions $F:M_1\to M_2$ of class $C^\infty$.
+\end{defn}
 
 \begin{figure}[htp]
   \centering
@@ -593,14 +615,10 @@ With a well defined differentiable structure and the idea of compatible charts, 
   \label{fig:1.3-differentiable_maps}
 \end{figure}
 
-  If $f:M_1\to M_2$ between two smooth manifolds is of class $C^p$ for all $p$, then we say that $f$ is \emph{smooth} or \emph{of class $C^\infty$}.
-\end{defn}
-
 \begin{defn}
-A \emph{$C^p$-diffeomorphism} $f$ between two $C^r$-manifolds $M_1$ and $M_2$, $p \leq r$, is a bijective map such that $f\in C^p(M_1, M_2)$ and $f^{-1}\in C^p(M_2, M_1)$.
+A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
 
-If $f:M_1\to M_2$ between two smooth manifolds $M_1$ and $M_2$ is a $C^p$-diffeomorphism for all $p$, then we say that $f$ is a \emph{diffeomorphism}.
-Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there exists a diffeomorphism $f:M_1\to M_2$ between them.
+Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
 \end{defn}
 
 \begin{ex}
@@ -610,16 +628,16 @@ Any chart $(V, \phi)$ of a manifold $M$ is a diffeomorphism between the manifold
 \begin{exe}
   Prove the following propositions and aid your reasoning by drawing the relevant figures.
   \begin{prop}
-    Let $M$ be a $C^r$-manifold of dimension $n$.
-    Then $f:M\to\R^m$ is of class $C^r$ iff for all charts $(U,\phi)$ of $M$, the function $f\circ\phi^{-1}:\phi(U)\to\R^m$ is of class $C^r$.
+    Let $M$ be a smooth manifold of dimension $n$.
+    Then $F:M\to\R^m$ is smooth iff for all charts $(U,\phi)$ of $M$, the function $F\circ\phi^{-1}:\phi(U)\to\R^m$ is smooth.
   \end{prop}
   \begin{prop}
-    Let $M$ be a $C^r$-manifold of dimension $n$.
-    Then $f:\R^m\to M$ is of class $C^r$ iff for all charts $(U,\phi)$ of $M$, the function $\phi\circ f:f^{-1}(U)\to\R^m$ is of class $C^r$.
+    Let $M$ be asmooth manifold of dimension $n$.
+    Then $f:\R^m\to M$ is of class smooth iff for all charts $(U,\phi)$ of $M$, the function $\phi\circ F:F^{-1}(U)\to\R^m$ is smooth.
   \end{prop}
   \begin{prop}
-    Let $M, N, P$ be three $C^r$-manifolds, and suppose that $f:M\to N$ and $g:N\to P$ are of class $C^r$.
-    Then $g\circ f\in C^r(M, P)$.
+    Let $M, N, P$ be three smooth manifolds, and suppose that $F:M\to N$ and $G:N\to P$ are smooth.
+    Then $G\circ F\in C^\infty(M, P)$.
   \end{prop}
   \marginnote{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
   \begin{prop}\label{prop:uniqdiffeoinclusion}
@@ -627,9 +645,20 @@ Any chart $(V, \phi)$ of a manifold $M$ is a diffeomorphism between the manifold
     Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
   \end{prop}
   \begin{prop}[Smoothness is a local property]\label{prop:smoothlocal}
-    Let $f:M\to N$ be a continuous function and let $\{U_i\}_{i\in I}$ be an open cover for $M$. Then $f|_{U_i}:U_i \to N$ is smooth for every $i\in I$ iff $f:M\to N$ is smooth.
+    Let $F:M\to N$ be a continuous function and let $\{U_i\}_{i\in I}$ be an open cover for $M$. Then $F|_{U_i}:U_i \to N$ is smooth for every $i\in I$ iff $F:M\to N$ is smooth.
   \end{prop}
 \end{exe}
+
+\begin{tcolorbox}
+From now on, when we write manifold, chart, atlas, etc. we always mean smooth manifold, smooth chart, smooth atlas, etc..
+\end{tcolorbox}
+
+\subsection{Partial derivatives}
+
+\newthought{Being locally euclidean is proving to be very powerful}.
+Even though we are not yet in the position to define total derivatives of functions, we can already use the euclidean analogy in order to define partial derivatives.
+
+For simplicity, consider a smooth manifold of dimension $n$. Let $f\in\cC^\infty()$
 
 \subsection{Manifolds with boundary}\label{sec:mbnd}
 
@@ -680,7 +709,7 @@ As it turns out, this is a minor modification of our previous definition that st
 With such definition at hand, one can define $C^r$-compatibility, $C^r$-atlases and differentiable structures as in Definition~\ref{def:crcomp}, Definition~\ref{def:cratlas} and Definition~\ref{def:diffstr} by considering charts taking value in $\cH^n$.
 
 \begin{defn}\label{def:diffmanifoldwb}
-  A \emph{$C^r$ manifold with boundary} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold with boundary $M$ and a differentiable structure $\cA = \{(U_\alpha, \phi_\alpha) \mid \alpha\in A\}$ on $M$ of class $C^r$.
+  A \emph{$C^r$-manifold with boundary} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold with boundary $M$ and a differentiable structure $\cA = \{(U_\alpha, \phi_\alpha) \mid \alpha\in A\}$ on $M$ of class $C^r$.
   
   \marginnote{The boundary $\partial M$ as defined here can differ from its topological boundary as a subset of another topological space. For example the boundary $\partial\bS^1$ of the circle as a manifold is empty, but the boundary of the circle $\bS^1$ as a subset of $\R^2$ is $\bS^1$ itself.}
   The \emph{boundary} of $M$ is defined as
@@ -757,17 +786,60 @@ Can we make sense of such observation using our newly introduced definition?
 EXERCISES\todo{Maybe add subsection homework sheet}
 
 \begin{fullwidth}
-Even though we gave the general definition of $C^r$-manifolds, in these notes will be only interested in smooth manifolds.
-From now on we always talk about smooth manifolds unless differently specified.
-
-Differentiable manifolds without boundary (cfr. Definition~\ref{def:diffmanifold}) can be thought as a special case of differentiable manifolds with boundary (cfr. Definition~\ref{def:diffmanifoldwb}) where the boundary happens to be empty.
-Therefore, with the exception of the beginning of Chapter~\ref{ch:2}, we will no-longer distinguish the two concepts: from now on, a manifold may have or may not have a boundary.
+  \begin{tcolorbox}
+    Differentiable manifolds without boundary (cfr. Definition~\ref{def:diffmanifold}) can be thought as a special case of differentiable manifolds with boundary (cfr. Definition~\ref{def:diffmanifoldwb}) where the boundary happens to be empty.
+    Therefore, with the exception of the beginning of Chapter~\ref{ch:2}, we will no-longer distinguish the two concepts: from now on, a manifold may have or may not have a boundary.
+  \end{tcolorbox}
 \end{fullwidth}
 
 \subsection{Infinite dimensional manifolds $\star$}
 TODO\todo{See Merry, Remark 1.31.}
 
 \chapter{Tangent bundle}\label{ch:2}
+
+\newthought{Let's the fun begin!}
+We are left to define what derivatives of functions between manifolds are.
+And, since we saw that euclidean spaces are manifolds, we better find a definition that coincides with the one you saw in your analysis courses.
+
+\begin{marginfigure}[7em]
+  \includegraphics{2_1-embedded-sphere-tangent.pdf}
+  \label{fig:tan-embedded-sphere}
+  \caption{Tangent space to a point of a sphere $\bS^2$ embedded into the ambient space $\R^3$.}
+\end{marginfigure}
+In this chapter we will see how to associate to an $n$-dimensional smooth manifold $M$ an $n$-dimensional vector space, denoted by $T_x M$, to each point $x\in M$.
+Such vector space is called \emph{tangent space to $M$ at $x$} and, for a manifold embedded into a euclidean ambient space, it will coincide with the intuitive understanding of a tangent hyperplane to the point on the manifold, see also Figure~\ref{fig:tan-embedded-sphere}.
+As we will see, there are various different definition of tangent space but, in the end, they all turn out to be equivalent.
+
+Due to the amount of freedom and the many equivalent definitions, there is no unique way of introducing tangent spaces.
+In this chapter I will present various definitions, which we will show to be equivalent, and which will be based on the following three ideas:
+\begin{enumerate}
+  \item equivalence classes of curves through a point;
+  \item transformation laws of the components of the vectors with respect to different charts;
+  \item generalization of linear approximation into the idea of an abstract derivation.
+\end{enumerate}
+
+In fact there are even more approaches, let me mention two more that we will not cover in detail.
+\begin{itemize}
+  \item The course book \cite{book:tu} uses the space of germs of functions: this approach emphasizes the locality of the construction to its extreme, avoiding bump functions and partitions of unity, and opens the road to further algebraic generalizations. The price to pay for it is the extra level of abstraction on an already complex concept.
+  \item It is possible ``flip'' the whole construction around and start from next chapter instead: this is the approach taken by \cite{lectures:hitchin} and it is at least worth of a look if you want to see a different perspective.
+\end{itemize}
+
+\subsection{Geometric tangent vectors}
+
+
+\subsection{Speeds of curves}
+
+A map $\gamma\in\cC^1(I, M)$ from an open interval $I\subset\R$ to a smooth manifold $M$ is called \emph{$\cC^1$-curve} on $M$.
+\begin{marginfigure}
+  \includegraphics{2_2-curve-on-M.pdf}
+\end{marginfigure}
+F
+\subsection{Via charts}
+\subsection{As derivation}
+
+\subsection{A summary}
+
+\subsection{The tangent bundle}
 
 \chapter{Cotangent bundle}
 
