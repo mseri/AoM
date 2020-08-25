@@ -1,6 +1,6 @@
 
 \newthought{Let's the fun begin!}
-We are left to define what derivatives of functions between manifolds are.
+\newthought{We are left to define derivatives} of functions between manifolds.
 And, since we saw that euclidean spaces are manifolds, we better find a definition that coincides with the one you saw in your analysis courses.
 
 \begin{marginfigure}[7em]
@@ -25,26 +25,9 @@ It is also possible to ``flip'' the whole construction around, constructing diff
 This is the approach taken by \cite{lectures:hitchin} and it is at least worth of a look if you want to see a different perspective.
 
 To avoid diverging from the book too much, we will stick to derivations on the space of germs, which emphasizes the locality of derivations to an extreme.
+The equivalence between our approach and the one based on speeds of curves and on derivations will be left as homeworks.
 
-The equivalence between such approach and the one based on speeds of curves and on derivations will be left as homeworks.
-
-% \subsection{Partial derivatives}
-
-% \newthought{Being locally euclidean seems to be very powerful}.
-% Even though we are not yet in the position to define total derivatives of functions, we can already use the euclidean analogy in order to define partial derivatives.
-
-% For simplicity, consider a smooth manifold $M$ of dimension $n$ and a function $f\in\cC^\infty(M,\R^n)$.
-
-% Let $(U, \phi$) be a chart of $M$. 
-% We already said that as a function on $\R^n$, $\phi$ has $n$ components $x^1, \ldots, x^n$ defined in terms of the standard euclidean coordinates $r^1, \ldots, r^n$ as $\phi^i = r^i \circ \phi$, $1\leq i\leq n$.
-% For $p\in U$, the \emph{partial derivate $\frac{\partial f}{\partal x^i}$ of $f$ with respect to $x^i$ at $p$} can be defined as
-% \begin{equation}
-%   \frac{\partial}{\partial x^i}\big|_p f := 
-%   \frac{\partial f}{\partial x^i} (p) :=
-%   \frac{\partial f \circ \phi^{-1}}{\partial r^i} (\phi(p)) :=
-% \end{equation}
-
-\subsection{Directional derivatives}
+\subsection{Directional derivatives in euclidean spaces}
 
 Suppose that $f: U\subset\R^n\to\R^k$ is a smooth map defined on an open subset $U\subset \R^n$.
 In multivariable calculus you have seen that if $x\in U$ and $v\in\R^n$, then the vector $Df(x) v$ can be interpreted as the directional derivative\footnote{Sometimes this is denoted $D_v f(x)$ instead.} of $f$:
@@ -57,7 +40,7 @@ Then, the partial derivative is obtained as the particular case
 \end{equation}
 Of course, we can also look at the derivative by using the standard euclidean coordinates $r^1, \ldots, r^n$, in that case we would be deriving $r^i \circ f : \R^n \to \R$.
 
-Let's take it slow, and compare all these various derivatives next to each other.
+\newthought{Let's take it slow}, and compare all these various derivatives next to each other.
 For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
 \begin{marginfigure}[3.5cm]
     \includegraphics{2_3-ederivs.pdf}
@@ -70,15 +53,96 @@ For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
 \end{itemize}
 
 This notation using $D$ instead of spelling out the partial derivatives, comes with an important advantage.
-Let's use it to rewrite the chain rule form Proposition~\ref{thm:chainrule}({thm:chainrule2}):
+Let's use it to rewrite the chain rule form Proposition~\ref{thm:chainrule}(\ref{thm:chainrule2}):
 \begin{equation}
     D_j(u^i\circ g \circ f) (x) = \sum_{r=1}^k D_r(u^i\circ g)(f(x))\; D_j(u^r \circ f)(x),
-    \qquad
-    1\leq i\leq m, 1\leq j \leq n.
 \end{equation}
+where $1\leq i\leq m, 1\leq j \leq n$.
 As you cen see, we did not need to spell out explicitly the coordinate systems on $\R^n$ or $\R^k$.
 
-\subsection{Speeds of curves}
+\subsection{Germs and derivations}
+
+\newthought{To reach our goal of defining derivations on manifolds}, a direct extension of partial derivatives is not enough: we will need to introduce some more levels of abstraction.
+
+\begin{defn}
+    Let $M$ be a smooth manifold.
+    For some point $p\in M$, let $U,V\subset M$ be two neighborhoods of $p$.
+    We say that two functions $f\in C^\infty(U)$ and $g\in C^\infty(V)$ have the same \emph{germ} at $p$ if there exists a neighborhood $W\subset U\cap V$ of $p$ such that $f|_W \equiv g|_W$.
+\end{defn}
+
+Germs define an equivalence relation on the set of smooth functions defined on a neighborhood of a point $p$: $(U, f) \sim (V, g)$ if they have the same germ at $p$. Then, a germ is an equivalence class under $\sim$. We denote germs by $\underline f$ and the space of germs at a point $p\in M$ by $C_p^\infty(M)$.
+
+For $c\in\R$ and $\underline f, \underline g$ germs with representatives $(U, f), (V, g)$, we have
+\begin{itemize}
+    \item $\underline f + \underline g$ is the germ with representative $(U\cap V, f+g)$;
+    \item $\underline f \underline g$ is the germ with representative $(U\cap V, f g)$;
+    \item $c\underline f$ is the germ with representative $(U, cf)$.
+\end{itemize}
+Therefore, $C_p^\infty(M)$ is also an algebra over $\R$.
+
+Germs are the apotheosis of locality: a germ at $p$ has a well defined value at $p$ and nowhere else.
+This results in a map,
+\begin{equation}
+    \eval_p: C_p^\infty)(M) \to \R, \quad
+    \eval_p(\underline f) := f(p),
+\end{equation}
+where $(V,f)$ is any representative of $\underline f$.
+
+We can now go back to our discussion of euclidean derivations to motivate our definition of tangent vectors.
+
+\begin{ex}\label{ex:euclideanD}
+    Let $U\subset\R^n$ open\footnote{In what follows, we will think at $U$ both as an open subset of $\R^n$ and a smooth manifold depending on what is most convenient for us.} and $f\in C^\infty(U)$.
+    For $x\in U$ and $v\in\R^n$ we have seen that $Df(x)$ can be interpreted as a matrix that consumes the vector $v$ to produce a number $D(f)v$.
+    In such interpretation $f$ is fixed and only $x$ and $v$ vary, however there is no reason for this restriction.
+
+    Indeed, an alternative interpretation lets also $f$ vary and consider the action of differentiation as a map
+    \begin{equation}
+        U \times \R^n \times C^\infty(U) \to \R,\quad
+        (x,v,f) \mapsto Df(x) v.
+    \end{equation}
+    And since we are flipping around all the ideas, let us consider $x$ and $v$ fixed and instead only let $f$ vary:
+    \begin{equation}\label{eq:mapxvtoD}
+        (x,v):C^\infty(U) \to\R, \quad (x,v)(f) := Df(x)v.
+    \end{equation}.
+    By the definition \eqref{eq:diff} of the euclidean differential, we know that it is a local property: the value $Df(x)$ only depends on the germ of $f$ at $x$.
+    Thus we can rephrase \eqref{eq:mapxvtoD} by saying that $v$ defines a \emph{linear} map
+    \begin{equation}
+        v : C_p^\infty(U) \to \R, \quad
+        v(\underline f) := Df(x) v.
+    \end{equation}
+    In fact, this is not just a linear map, it is also a \emph{derivation}, in the sense that
+    \begin{equation}
+        v(\underline f \underline g) =
+            \eval_p(\underline f)v(\underline g)
+            + \eval_p(\underline g)v(\underline f).
+    \end{equation}
+    Which, expanded to its deeper meaning, is just a way to rewrite the \emph{Leibniz rule}:
+    \begin{equation}
+        D(fg)(x) v = f(x)Dg(x)v + g(x) Df(x)v.
+    \end{equation}
+\end{ex}
+
+Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a derivation on the space of germs.
+
+\begin{defn}
+    Let $M$ a smooth manifold of dimension $n$ and let $p\in M$.
+    A \emph{tangent vector at $p$} is a linear map
+    \begin{equation}
+        v: C_p^\infty(M)\to\R
+    \end{equation}
+    which is also a derivation, i.e.
+    \begin{equation}
+        v(\underline f \underline g) =
+            \eval_p(\underline f)v(\underline g)
+            + \eval_p(\underline g)v(\underline f).
+    \end{equation}
+
+    Since a tangent vector is a linear map from the vector space $C_p^\infty(M)$ to $\R$, the set of all tangent vectors at a point $p$ is itself a vector space\footnote{Exercise: why is this true?} which we denote by $T_p M$.
+\end{defn}
+
+
+
+\textcolor{red}{\hrulefill}
 
 A map $\gamma\in\cC^1(I, M)$ from an open interval $I\subset\R$ to a smooth manifold $M$ is called \emph{$\cC^1$-curve} on $M$.
 \begin{marginfigure}

@@ -290,12 +290,25 @@ Can you guess if such manifold is connected or not?
   Thus, for $p\in U$, $(x^1(p), \ldots, x^n(p))$ is a point\footnote{By abuse of notation we sometimes omit the $p$! Thus $(x^1, \ldots, x^n)$ can stand either for local coordinates or a point in $\R^n$: which one it is should be clear from the context.} in $\R^n$. The functions $x^1, \ldots, x^n$  are called \emph{(local) coordinates} on $U$.
 \end{ntn}
 
+An advantage of this new notation is that we can talk about coordinates without the need to explicitly reference charts. In other words, we can say
+\begin{quote}
+  Let $x\in M$ and choose local coordinates $(x^1, \ldots, x^n)$ about $x$...
+\end{quote}
+or even
+\begin{quote}
+  Let $x=(x^1, \ldots, x^n)\in M$ be a point in $M$...
+\end{quote}
+in place of
+\begin{quote}
+  Let $pxin M$ and $(U, \phi)$ a chart defined on a neighborhood $U$ of $x$. Let $x^i = r^i \circ\phi$ denote the components of $\phi$ with respect to the standard euclidean coordinates...
+\end{quote}
+
 \begin{ex}\label{ex:S1emb}
   The unit circle
   \begin{equation}
     \bS^1 := \{x\in\R^2 \;\mid\; \|x\|=1\}\subset\R^2
   \end{equation}
-  with the relative topology\footnote{Let $(X,\cT)$ be a topological space and $Y\subset X$. The relative topology on $Y$ is \begin{equation}\mathcal{V}:=\{V\subset Y\;\mid\; V = U \cap Y \mbox{ for some } U\in\cT\}.\end{equation}} is a $1$-dimensional topological manifold.
+  with the relative topology\footnote{Let $(X,\cT)$ be a topological space and $Y\subset X$. The relative topology on $Y$ is \begin{equation}\mathcal{V}:=\{V\subset Y\;\mid\;\exists U\in\cT \mbox{ s.t. } V = U \cap Y\}.\end{equation}} is a $1$-dimensional topological manifold.
   To provide the local homeomorphisms to $\R^n$ and define a smooth structure four $\bS^1$ it is enough to define the following four charts:
   \begin{equation}
     \begin{aligned}
@@ -401,9 +414,9 @@ With such definition at hand, one can define compatibility, smooth atlases and d
 \begin{defn}\label{def:diffmanifoldwb}
   A \emph{smooth manifold with boundary} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold with boundary $M$ and a smooth differentiable structure $\cA = \{(U_\alpha, \phi_\alpha) \mid \alpha\in A\}$ on $M$.
   
-  \marginnote{The boundary $\partial M$ as defined here can differ from its topological boundary as a subset of another topological space. For example the boundary $\partial\bS^1$ of the circle as a manifold is empty, but the boundary of the circle $\bS^1$ as a subset of $\R^2$ is $\bS^1$ itself.}
+  \marginnote[-2em]{The boundary $\partial M$ as defined by \eqref{def:bdry} can differ from its topological boundary as a subset of another topological space. For example the boundary $\partial\bS^1$ of the circle as a manifold is empty, but the boundary of the circle $\bS^1$ as a subset of $\R^2$ is $\bS^1$ itself.}
   The \emph{boundary} of $M$ is defined as
-  \begin{equation}
+  \begin{equation}\label{def:bdry}
     \partial M := \bigcup_{\alpha\in A} \phi_\alpha^{-1}\left(\phi_\alpha(V_\alpha)\cap \partial\cH^n\right).
   \end{equation}
 \end{defn}
@@ -504,7 +517,7 @@ This, colloquially speaking, means that a function is differentiable if it is di
     (fg)(x) := f(x) g(x),\qquad
     (cf)(x) := c f(x).
   \end{equation}
-  Then, the space $C^\infty(M)$ endowed with the operations above is an \emph{algebra}\footnote{I.e. a vector space where you can also multiply two elements.}.
+  Then, the space $C^\infty(M)$ endowed with the operations above is an \emph{algebra}\footnote{I.e. a vector space where you can also multiply two elements.} over $\R$.
 \end{exe}
 
 Which immediately gives away the general definition.
