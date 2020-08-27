@@ -362,6 +362,182 @@ This allows to always view manifolds as metric spaces.
   In these notes we will only deal with smooth manifolds.
 \end{tcolorbox}
 
+EXERCISES\todo{Maybe add section homework sheet}
+
+\section{Smooth maps and differentiability}
+
+With a well defined differentiable structure and the idea of compatible charts, we have all the ingredients to lift the definition of differentiable maps from the euclidean world.
+
+Before considering the general definition of a differentiable map, let's look at the simpler example of differentiable functions $f:M\to\R$ between a smooth manifold $M$ and $\R$.
+
+\begin{defn}
+  A function $f:M\to\R$ from a smooth manifold $M$ of dimension $n$ to $\R$ is \emph{smooth}, or \emph{of class $C^\infty$}, if for any chart $(\phi, V)$ of $M$ the map $f\circ\phi^{-1}:\phi(V)\subset\R^n \to \R$ is smooth as a euclidean function.
+  \begin{marginfigure}
+    \includegraphics{1_5-diff-fun-v2.pdf}
+    \label{fig:diff-fun}
+    \caption{A function is differentiable if it is differentiable as a euclidean function through the magnifying lens provided by the charts.}
+  \end{marginfigure}
+  We denote the space of smooth functions by $C^\infty(M)$.
+\end{defn}
+
+This, colloquially speaking, means that a function is differentiable if it is differentiable as a euclidean function through the magnifying lens (see Figure~\ref{fig:diff-fun}) provided by the charts.
+
+\begin{exe}
+  Define on the following operations.
+  For any $f,g\in C^\infty(M)$, $c\in\R$,
+  \begin{equation}
+    (f+g)(x) := f(x) + g(x),\qquad
+    (fg)(x) := f(x) g(x),\qquad
+    (cf)(x) := c f(x).
+  \end{equation}
+  Then, the space $C^\infty(M)$ endowed with the operations above is an \emph{algebra}\footnote{I.e. a vector space where you can also multiply two elements.} over $\R$.
+\end{exe}
+
+Which immediately gives away the general definition.
+
+\begin{defn}
+  Let $F:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two smooth manifolds of dimension $n_1$ and $n_2$ respectively.
+  We say that $f$ is \emph{smooth}, or \emph{of class $C^\infty$}, if, for any chart $(\phi_1, V_1)$ of $M_1$ and $(\phi_2, V_2)$ of $M_2$, the map
+  \begin{align}
+    \phi_2 \circ F \circ \phi_1^{-1}: U_1 \to U_2,\\
+    U_1 := \phi_1(V_1 \cap f^{-1}(V_2))\subset\R^{n_1},\\
+    U_2 := \phi_2(f(V_1) \cap V_2)\subset\R^{n_2},
+  \end{align}
+  is smooth as a euclidean function.
+  \marginnote[-6em]{Differently from your calculus classes, we are defining differentiability \emph{before} we define what the derivative is. Getting to it will require some amount of work, and will have to wait until the next chapter.}
+
+  We denote by $C^\infty(M_1, M_2)$ the set of all functions $F:M_1\to M_2$ of class $C^\infty$.
+
+  The map $\hat F := \phi_2 \circ F \circ \phi_1^{-1}$ is called the \emph{coordinate representation of $F$} with respect to the given coordinates.
+\end{defn}
+
+\begin{figure}[htp]
+  \centering
+  \includegraphics{1_3-diffble_maps.pdf}
+  \caption{Maps are differentiable when they are differentiable as maps between euclidean spaces.}
+  \label{fig:1.3-differentiable_maps}
+\end{figure}
+
+A first observation about our definition of smooth maps is that as one would hope, smooth imply continuity.
+
+\begin{exe}
+  Shoa that every smooth map is continuous.
+\end{exe}
+
+\begin{defn}
+A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
+
+Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
+\end{defn}
+
+\begin{ex}
+Any chart $(V, \phi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\phi(V)\subset\R^n$.
+\end{ex}
+
+\begin{exe}
+  Prove the following propositions and aid your reasoning by drawing the relevant figures.
+  \begin{prop}
+    Let $M$ be a smooth manifold of dimension $n$.
+    Then $F:M\to\R^m$ is smooth iff for all charts $(U,\phi)$ of $M$, the function $F\circ\phi^{-1}:\phi(U)\to\R^m$ is smooth.
+  \end{prop}
+  \begin{prop}
+    Let $M$ be a smooth manifold of dimension $n$.
+    Then $f:\R^m\to M$ is smooth iff for all charts $(U,\phi)$ of $M$, the function $\phi\circ F:F^{-1}(U)\to\R^m$ is smooth.
+  \end{prop}
+  \begin{prop}
+    Let $M, N, P$ be three smooth manifolds, and suppose that $F:M\to N$ and $G:N\to P$ are smooth.
+    Then $G\circ F\in C^\infty(M, P)$.
+  \end{prop}
+  \marginnote{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
+  \begin{prop}\label{prop:uniqdiffeoinclusion}
+    Let $M$ be a manifold and $U\subset M$ an open set.
+    Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
+  \end{prop}
+  \begin{prop}[Smoothness is a local property]\label{prop:smoothlocal}
+    Let $F:M\to N$ be a continuous function and let $\{U_i\}_{i\in I}$ be an open cover for $M$. Then $F|_{U_i}:U_i \to N$ is smooth for every $i\in I$ iff $F:M\to N$ is smooth.
+  \end{prop}
+\end{exe}
+
+The following corollary is just a restatement of Proposition~\ref{prop:smoothlocal}, but provides a useful perspective on the construction of smooth maps.
+
+\begin{prop}[Gluing lemma for smooth maps]
+  Let $M$ and $N$ be two smooth manifolds and let $\{U_\alpha\mid\alpha\in A\}$ be an open cover of $M$.
+  Suppose that for each $\alpha\in A$ we are given a smooth map $F_
+  \alpha:U_\alpha\to N$ such that the maps agree on the overlaps: $F_\alpha|_{U_\alpha\cap U_\beta} = F_\beta|_{U_\alpha\cap U_\beta}$ for all $\alpha,\beta\in A$. 
+  Then there exists a unique smooth map $F:M\to N$ such that $F|_{U_\alpha} = F_\alpha$ for each $\alpha\in A$.
+\end{prop}
+
+\begin{tcolorbox}
+From now on, when we write manifold, chart, atlas, etc. we always mean smooth manifold, smooth chart, smooth atlas, etc..
+\end{tcolorbox}
+
+\section{Partitions of unity}
+
+\newthought{Cutoff functions} are a class of smooth functions that will be of crucial importance throughout the course, and whose existence cannot be given for granted.
+Since their definition and construction does not require more than what we have just seen, let's talk about them now.
+
+First of all, recall that the \emph{support} of a smooth function $f: M \to \R$, denoted by $\supp(f)$, is defined as
+\marginnote[2em]{The bar over the set denotes its closure.}
+\begin{equation}
+  \supp(f) := \overline{\{ p\in M \;\mid\; f(p) \neq 0\}}.
+\end{equation}
+
+We will introduce those functions with a proposition, and will spend the rest of this chapter proving it.
+
+\begin{figure}[htp!]
+  \includegraphics{1_6-cutoffs.pdf}
+\end{figure}
+
+\begin{prop}[Cutoff functions]\label{prop:cutoff}
+  Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is closed and $U$ is open.
+  
+  Then, there exists a smooth function $\chi: M \to\R$, called \emph{cutoff} function, with the following properties
+  \begin{enumerate}
+    \item $0 \leq \chi \leq 1$ for all $p\in M$;
+    \item $\supp(\chi)\subset U$;
+    \item $\chi(p) = 1$ for all $p\in K$.
+  \end{enumerate}
+\end{prop}
+
+Even though it feels reasonable, we will see that the proof requires a certain amount of work.
+The starting point will be a special case of Proposition~\ref{prop:cutoff}.
+
+\begin{lem}[Cutoff functions, compact case]
+  Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is compact and $U$ is open.
+  
+  Then, there exists a smooth function $\chi: M \to\R$ with the following properties
+  \begin{enumerate}
+    \item $0 \leq \chi \leq 1$ for all $p\in M$;
+    \item $\supp(\chi)\subset U$;
+    \item $\chi(p) = 1$ for all $p\in K$.
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  \todo{Move this to the appendix?}
+\end{proof}
+
+To extend the result will still require hard work and a new tool, that will be useful throughout the course an in many courses to come.
+
+\begin{defn}
+  Let $M$ be a smooth manifold. A \emph{partition of unity} is a collection $\{\rho_\alpha \mid \alpha\in A\}$ of functions $\rho_\alpha:M\to\R$ such that
+  \begin{enumerate}
+    \item $0 \leq \rho_\alpha \leq 1$ for all $p\in M$ and $\alpha\in A$;
+    \item\label{def:pou.2} the collection $\{\rho_\alpha \mid \alpha\in A\}$ is \emph{locally finite}, that is, for any $p\in M$ there are at most finitely many $\alpha\in A$ such that $p\in\supp(\rho_\alpha)$;
+    \item for all $p\in M$ one has $\sum_{\alpha\in A} \rho_\alpha(p) = 1$.
+    \marginnote{Note that for any $p$, $\sum_{\alpha\in A} \rho_\alpha(p)$ is a finite sum by \ref{def:pou.2}. Thus, the function defined by the sum $\rho := \sum \rho_\alpha$ is a well define smooth function on $M$. We call such sum a \emph{locally finite} sum.}
+  \end{enumerate}
+\end{defn}
+
+Note that the existence of a partition of unity is a distinguished feature of differentiable manifolds: stronger structures, like analytic or holomorphic ones, in general fail to have one.
+
+Throughout the course we will be mostly interested in partitions of unity $\{\rho_\alpha \mid \alpha\in A\}$ which are \emph{subordinate} to an open cover $\{U_\alpha\mid\alpha\in A\}$, that is, such that $\supp_\alpha(\rho_\alpha) \subset U_\alpha$ for each $\alpha\in A$.
+
+\begin{thm}
+  Let $M$ be a smooth manifold. For any open cover $\{U_\alpha\mid\alpha\in A\}$ of $M$, there exists a partition of unity $\{\rho_\alpha \mid \alpha\in A\}$ subordinate to $\{U_\alpha\mid\alpha\in A\}$.
+\end{thm}
+
+The proof of this result is rather technical and will be omitted.
+
 \section{Manifolds with boundary}\label{sec:mbnd}
 
 \newthought{The definition of manifolds has a serious limitation}, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $n$-spheres $\bS^n$ in the homework sheet.}, it fails to describe many natural objects like a \emph{closed} interval $[a,b]\in\R$ or the \emph{closed} disk $D_1(0)$ of Example~\ref{ex:uball}.
@@ -484,165 +660,7 @@ Can we make sense of such observation using our newly introduced definition?
   by the proof of Proposition~\ref{prop:bdwelldef}.
 \end{proof}
 
-EXERCISES\todo{Maybe add section homework sheet}
-
 \begin{tcolorbox}
   Differentiable manifolds without boundary (cfr. Definition~\ref{def:diffmanifold}) can be thought as a special case of differentiable manifolds with boundary (cfr. Definition~\ref{def:diffmanifoldwb}) where the boundary happens to be empty.
   Therefore, with the exception of the beginning of Chapter~\ref{ch:2}, we will no-longer distinguish the two concepts: from now on, a manifold may have or may not have a boundary.
 \end{tcolorbox}
-
-\section{Differentiable maps}
-
-With a well defined differentiable structure and the idea of compatible charts, we have all the ingredients to lift the definition of differentiable maps from the euclidean world.
-
-Before considering the general definition of a differentiable map, let's look at the simpler example of differentiable functions $f:M\to\R$ between a smooth manifold $M$ and $\R$.
-
-\begin{defn}
-  A function $f:M\to\R$ from a smooth manifold $M$ of dimension $n$ to $\R$ is \emph{smooth}, or \emph{of class $C^\infty$}, if for any chart $(\phi, V)$ of $M$ the map $f\circ\phi^{-1}:\phi(V)\subset\R^n \to \R$ is smooth as a euclidean function.
-  \begin{marginfigure}
-    \includegraphics{1_5-diff-fun-v2.pdf}
-    \label{fig:diff-fun}
-    \caption{A function is differentiable if it is differentiable as a euclidean function through the magnifying lens provided by the charts.}
-  \end{marginfigure}
-  We denote the space of smooth functions by $C^\infty(M)$.
-\end{defn}
-
-This, colloquially speaking, means that a function is differentiable if it is differentiable as a euclidean function through the magnifying lens (see Figure~\ref{fig:diff-fun}) provided by the charts.
-
-\begin{exe}
-  Define on the following operations.
-  For any $f,g\in C^\infty(M)$, $c\in\R$,
-  \begin{equation}
-    (f+g)(x) := f(x) + g(x),\qquad
-    (fg)(x) := f(x) g(x),\qquad
-    (cf)(x) := c f(x).
-  \end{equation}
-  Then, the space $C^\infty(M)$ endowed with the operations above is an \emph{algebra}\footnote{I.e. a vector space where you can also multiply two elements.} over $\R$.
-\end{exe}
-
-Which immediately gives away the general definition.
-
-\begin{defn}
-  Let $F:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two smooth manifolds of dimension $n_1$ and $n_2$ respectively.
-  We say that $f$ is \emph{smooth}, or \emph{of class $C^\infty$}, if, for any chart $(\phi_1, V_1)$ of $M_1$ and $(\phi_2, V_2)$ of $M_2$, the map
-  \begin{align}
-    \phi_2 \circ F \circ \phi_1^{-1}: U_1 \to U_2,\\
-    U_1 := \phi_1(V_1 \cap f^{-1}(V_2))\subset\R^{n_1},\\
-    U_2 := \phi_2(f(V_1) \cap V_2)\subset\R^{n_2},
-  \end{align}
-  is smooth as a euclidean function.
-  \marginnote[-6em]{Differently from your calculus classes, we are defining differentiability \emph{before} we define what the derivative is. Getting to it will require some amount of work, and will have to wait until the next chapter.}
-  We denote by $C^\infty(M_1, M_2)$ the set of all functions $F:M_1\to M_2$ of class $C^\infty$.
-\end{defn}
-
-\begin{figure}[htp]
-  \centering
-  \includegraphics{1_3-diffble_maps.pdf}
-  \caption{Maps are differentiable when they are differentiable as maps between euclidean spaces.}
-  \label{fig:1.3-differentiable_maps}
-\end{figure}
-
-\begin{defn}
-A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
-
-Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
-\end{defn}
-
-\begin{ex}
-Any chart $(V, \phi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\phi(V)\subset\R^n$.
-\end{ex}
-
-\begin{exe}
-  Prove the following propositions and aid your reasoning by drawing the relevant figures.
-  \begin{prop}
-    Let $M$ be a smooth manifold of dimension $n$.
-    Then $F:M\to\R^m$ is smooth iff for all charts $(U,\phi)$ of $M$, the function $F\circ\phi^{-1}:\phi(U)\to\R^m$ is smooth.
-  \end{prop}
-  \begin{prop}
-    Let $M$ be a smooth manifold of dimension $n$.
-    Then $f:\R^m\to M$ is of class smooth iff for all charts $(U,\phi)$ of $M$, the function $\phi\circ F:F^{-1}(U)\to\R^m$ is smooth.
-  \end{prop}
-  \begin{prop}
-    Let $M, N, P$ be three smooth manifolds, and suppose that $F:M\to N$ and $G:N\to P$ are smooth.
-    Then $G\circ F\in C^\infty(M, P)$.
-  \end{prop}
-  \marginnote{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
-  \begin{prop}\label{prop:uniqdiffeoinclusion}
-    Let $M$ be a manifold and $U\subset M$ an open set.
-    Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
-  \end{prop}
-  \begin{prop}[Smoothness is a local property]\label{prop:smoothlocal}
-    Let $F:M\to N$ be a continuous function and let $\{U_i\}_{i\in I}$ be an open cover for $M$. Then $F|_{U_i}:U_i \to N$ is smooth for every $i\in I$ iff $F:M\to N$ is smooth.
-  \end{prop}
-\end{exe}
-
-\begin{tcolorbox}
-From now on, when we write manifold, chart, atlas, etc. we always mean smooth manifold, smooth chart, smooth atlas, etc..
-\end{tcolorbox}
-
-\section{Partitions of unity}
-
-\newthought{Cutoff functions} are a class of smooth functions that will be of crucial importance throughout the course, and whose existence cannot be given for granted.
-Since their definition and construction does not require more than what we have just seen, let's talk about them now.
-
-First of all, recall that the \emph{support} of a smooth function $f: M \to \R$, denoted by $\supp(f)$, is defined as
-\marginnote[2em]{The bar over the set denotes its closure.}
-\begin{equation}
-  \supp(f) := \overline{\{ p\in M \;\mid\; f(p) \neq 0\}}.
-\end{equation}
-
-We will introduce those functions with a proposition, and will spend the rest of this chapter proving it.
-
-\begin{figure}[htp!]
-  \includegraphics{1_6-cutoffs.pdf}
-\end{figure}
-
-\begin{prop}[Cutoff functions]\label{prop:cutoff}
-  Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is closed and $U$ is open.
-  
-  Then, there exists a smooth function $\chi: M \to\R$, called \emph{cutoff} function, with the following properties
-  \begin{enumerate}
-    \item $0 \leq \chi \leq 1$ for all $p\in M$;
-    \item $\supp(\chi)\subset U$;
-    \item $\chi(p) = 1$ for all $p\in K$.
-  \end{enumerate}
-\end{prop}
-
-Even though it feels reasonable, we will see that the proof requires a certain amount of work.
-The starting point will be a special case of Proposition~\ref{prop:cutoff}.
-
-\begin{lem}[Cutoff functions, compact case]
-  Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is compact and $U$ is open.
-  
-  Then, there exists a smooth function $\chi: M \to\R$ with the following properties
-  \begin{enumerate}
-    \item $0 \leq \chi \leq 1$ for all $p\in M$;
-    \item $\supp(\chi)\subset U$;
-    \item $\chi(p) = 1$ for all $p\in K$.
-  \end{enumerate}
-\end{lem}
-\begin{proof}
-  \todo{Move this to the appendix?}
-\end{proof}
-
-To extend the result will still require hard work and a new tool, that will be useful throughout the course an in many courses to come.
-
-\begin{defn}
-  Let $M$ be a smooth manifold. A \emph{partition of unity} is a collection $\{\rho_\alpha \mid \alpha\in A\}$ of functions $\rho_\alpha:M\to\R$ such that
-  \begin{enumerate}
-    \item $0 \leq \rho_\alpha \leq 1$ for all $p\in M$ and $\alpha\in A$;
-    \item\label{def:pou.2} the collection $\{\rho_\alpha \mid \alpha\in A\}$ is \emph{locally finite}, that is, for any $p\in M$ there are at most finitely many $\alpha\in A$ such that $p\in\supp(\rho_\alpha)$;
-    \item for all $p\in M$ one has $\sum_{\alpha\in A} \rho_\alpha(p) = 1$.
-    \marginnote{Note that for any $p$, $\sum_{\alpha\in A} \rho_\alpha(p)$ is a finite sum by \ref{def:pou.2}. Thus, the function defined by the sum $\rho := \sum \rho_\alpha$ is a well define smooth function on $M$. We call such sum a \emph{locally finite} sum.}
-  \end{enumerate}
-\end{defn}
-
-Note that the existence of a partition of unity is a distinguished feature of differentiable manifolds: stronger structures, like analytic or holomorphic ones, in general fail to have one.
-
-Throughout the course we will be mostly interested in partitions of unity $\{\rho_\alpha \mid \alpha\in A\}$ which are \emph{subordinate} to an open cover $\{U_\alpha\mid\alpha\in A\}$, that is, such that $\supp_\alpha(\rho_\alpha) \subset U_\alpha$ for each $\alpha\in A$.
-
-\begin{thm}
-  Let $M$ be a smooth manifold. For any open cover $\{U_\alpha\mid\alpha\in A\}$ of $M$, there exists a partition of unity $\{\rho_\alpha \mid \alpha\in A\}$ subordinate to $\{U_\alpha\mid\alpha\in A\}$.
-\end{thm}
-
-The proof of this result is rather technical and will be omitted.
