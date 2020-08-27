@@ -116,7 +116,7 @@ We can now go back to our discussion of euclidean derivations to motivate our de
         v : C_p^\infty(U) \to \R, \quad
         v([f]_p) := Df(x) v.
     \end{equation}
-    In fact, this is not just a linear map, it is also a \emph{derivation}, in the sense that
+    In fact, this is not just a linear map, it also satisfies a \emph{derivation} property, in the sense that
     \begin{equation}
         v([f]_p [g]_p) =
             \eval_p([f]_p)v([g]_p)
@@ -126,6 +126,8 @@ We can now go back to our discussion of euclidean derivations to motivate our de
     \begin{equation}
         D(fg)(x) v = f(x)Dg(x)v + g(x) Df(x)v.
     \end{equation}
+
+    Note that we have now two different interpretations for $v$: it is both a vector in $\R^n$ and a linear map $C_p^\infty(U) \to \R$ satisfying the derivation property.
 \end{ex}
 
 Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a derivation on the space of germs.
