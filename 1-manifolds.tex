@@ -160,7 +160,7 @@ Don't get scared by the first two conditions: they are only needed to make sure 
 \begin{ex}
 	Consider the set $M := \{ x\in\R^2 \;\mid\; |x^1| = |x^2| \}$ with the topology induced by $\R^2$:
    this is \emph{not} a topological manifold.
-	Since the number of connected component is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} holomorphically mapped to open connected sets in $\R$.
+	Since the number of connected component is invariant under homeomorphisms, open connected neighborhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} holomorphically mapped to open connected sets in $\R$.
 \end{ex}
 
 \marginnote{There is a caveat, the theorem holds for \emph{connected} components of a Manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}
@@ -622,16 +622,27 @@ The starting point will be a special case of Proposition~\ref{prop:cutoff}.
   \end{enumerate}
 \end{lem}
 \begin{proof}
-  \todo{}
+  \todo{Move this to the appendix?}
 \end{proof}
 
 To extend the result will still require hard work and a new tool, that will be useful throughout the course an in many courses to come.
 
 \begin{defn}
-  Let $M$ be a smooth manifold. A \emph{partition of unity} is a collection $\{\lambda_\alpha \mid \alpha\in A\}$ of functions $\lambda_\alpha:M\to\R$ such that
+  Let $M$ be a smooth manifold. A \emph{partition of unity} is a collection $\{\rho_\alpha \mid \alpha\in A\}$ of functions $\rho_\alpha:M\to\R$ such that
   \begin{enumerate}
-    \item $0 \leq \lambda_\alpha \leq 1$ for all $p\in M$ and $\alpha\in A$;
-    \item the collection $\{\lambda_\alpha \mid \alpha\in A\}$ is \emph{locally finite}, that is, for any $p\in M$ there are at most finitely many $\alpha\in A$ such that $p\in\supp(\lambda_\alpha)$;
-    \item for all $p\in M$ one has $\sum_{\alpha\in A} \lambda_\alpha(p) = 1$.
+    \item $0 \leq \rho_\alpha \leq 1$ for all $p\in M$ and $\alpha\in A$;
+    \item\label{def:pou.2} the collection $\{\rho_\alpha \mid \alpha\in A\}$ is \emph{locally finite}, that is, for any $p\in M$ there are at most finitely many $\alpha\in A$ such that $p\in\supp(\rho_\alpha)$;
+    \item for all $p\in M$ one has $\sum_{\alpha\in A} \rho_\alpha(p) = 1$.
+    \marginnote{Note that for any $p$, $\sum_{\alpha\in A} \rho_\alpha(p)$ is a finite sum by \ref{def:pou.2}. Thus, the function defined by the sum $\rho := \sum \rho_\alpha$ is a well define smooth function on $M$. We call such sum a \emph{locally finite} sum.}
   \end{enumerate}
 \end{defn}
+
+Note that the existence of a partition of unity is a distinguished feature of differentiable manifolds: stronger structures, like analytic or holomorphic ones, in general fail to have one.
+
+Throughout the course we will be mostly interested in partitions of unity $\{\rho_\alpha \mid \alpha\in A\}$ which are \emph{subordinate} to an open cover $\{U_\alpha\mid\alpha\in A\}$, that is, such that $\supp_\alpha(\rho_\alpha) \subset U_\alpha$ for each $\alpha\in A$.
+
+\begin{thm}
+  Let $M$ be a smooth manifold. For any open cover $\{U_\alpha\mid\alpha\in A\}$ of $M$, there exists a partition of unity $\{\rho_\alpha \mid \alpha\in A\}$ subordinate to $\{U_\alpha\mid\alpha\in A\}$.
+\end{thm}
+
+The proof of this result is rather technical and will be omitted.
