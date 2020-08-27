@@ -592,20 +592,21 @@ First of all, recall that the \emph{support} of a smooth function $f: M \to \R$,
 \end{equation}
 
 We will introduce those functions with a proposition, and will spend the rest of this chapter proving it.
+
+\begin{figure}[htp!]
+  \includegraphics{1_6-cutoffs.pdf}
+\end{figure}
+
 \begin{prop}[Cutoff functions]\label{prop:cutoff}
   Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is closed and $U$ is open.
   
-  Then, there exists a smooth function $\chi: M \to\R$, called \emph{cutoff function}, with the following properties
+  Then, there exists a smooth function $\chi: M \to\R$, called \emph{cutoff} function, with the following properties
   \begin{enumerate}
     \item $0 \leq \chi \leq 1$ for all $p\in M$;
     \item $\supp(\chi)\subset U$;
     \item $\chi(p) = 1$ for all $p\in K$.
   \end{enumerate}
 \end{prop}
-
-\begin{figure}
-  \includegraphics{1_6-cutoffs.pdf}
-\end{figure}
 
 Even though it feels reasonable, we will see that the proof requires a certain amount of work.
 The starting point will be a special case of Proposition~\ref{prop:cutoff}.
