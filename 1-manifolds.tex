@@ -49,7 +49,7 @@ This will allow us to define differentiability and \emph{smooth manifolds}\footn
 
 Without further ado, let's get started.
 
-\subsection{Topological manifolds}
+\section{Topological manifolds}
 
 \newthought{Since to speak of continuity we need topological spaces}, it may be a good idea to remind you what they are and set some notation.
 I will be very brief: if you need a more extensive reminder, you can refer to Appendix A of either \cite{book:tu} or \cite{book:lee}.
@@ -300,7 +300,7 @@ or even
 \end{quote}
 in place of
 \begin{quote}
-  Let $pxin M$ and $(U, \phi)$ a chart defined on a neighborhood $U$ of $x$. Let $x^i = r^i \circ\phi$ denote the components of $\phi$ with respect to the standard euclidean coordinates...
+  Let $x \in M$ and $(U, \phi)$ a chart defined on a neighborhood $U$ of $x$. Let $x^i = r^i \circ\phi$ denote the components of $\phi$ with respect to the standard euclidean coordinates...
 \end{quote}
 
 \begin{ex}\label{ex:S1emb}
@@ -362,7 +362,7 @@ This allows to always view manifolds as metric spaces.
   In these notes we will only deal with smooth manifolds.
 \end{tcolorbox}
 
-\subsection{Manifolds with boundary}\label{sec:mbnd}
+\section{Manifolds with boundary}\label{sec:mbnd}
 
 \newthought{The definition of manifolds has a serious limitation}, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $n$-spheres $\bS^n$ in the homework sheet.}, it fails to describe many natural objects like a \emph{closed} interval $[a,b]\in\R$ or the \emph{closed} disk $D_1(0)$ of Example~\ref{ex:uball}.
 
@@ -484,14 +484,14 @@ Can we make sense of such observation using our newly introduced definition?
   by the proof of Proposition~\ref{prop:bdwelldef}.
 \end{proof}
 
-EXERCISES\todo{Maybe add subsection homework sheet}
+EXERCISES\todo{Maybe add section homework sheet}
 
 \begin{tcolorbox}
   Differentiable manifolds without boundary (cfr. Definition~\ref{def:diffmanifold}) can be thought as a special case of differentiable manifolds with boundary (cfr. Definition~\ref{def:diffmanifoldwb}) where the boundary happens to be empty.
   Therefore, with the exception of the beginning of Chapter~\ref{ch:2}, we will no-longer distinguish the two concepts: from now on, a manifold may have or may not have a boundary.
 \end{tcolorbox}
 
-\subsection{Differentiable maps}
+\section{Differentiable maps}
 
 With a well defined differentiable structure and the idea of compatible charts, we have all the ingredients to lift the definition of differentiable maps from the euclidean world.
 
@@ -579,3 +579,5 @@ Any chart $(V, \phi)$ of a manifold $M$ is a diffeomorphism between the manifold
 \begin{tcolorbox}
 From now on, when we write manifold, chart, atlas, etc. we always mean smooth manifold, smooth chart, smooth atlas, etc..
 \end{tcolorbox}
+
+\section{Partitions of unity}

@@ -1,5 +1,4 @@
-
-\newthought{Let's the fun begin!}
+\section{Let's the fun begin!}
 \newthought{We are left to define derivatives} of functions between manifolds.
 And, since we saw that euclidean spaces are manifolds, we better find a definition that coincides with the one you saw in your analysis courses.
 
@@ -27,7 +26,7 @@ This is the approach taken by \cite{lectures:hitchin} and it is at least worth o
 To avoid diverging from the book too much, we will stick to derivations on the space of germs, which emphasizes the locality of derivations to an extreme.
 The equivalence between our approach and the one based on speeds of curves and on derivations will be left as homeworks.
 
-\subsection{Directional derivatives in euclidean spaces}
+\section{Directional derivatives in euclidean spaces}
 
 Suppose that $f: U\subset\R^n\to\R^k$ is a smooth map defined on an open subset $U\subset \R^n$.
 In multivariable calculus you have seen that if $x\in U$ and $v\in\R^n$, then the vector $Df(x) v$ can be interpreted as the directional derivative\footnote{Sometimes this is denoted $D_v f(x)$ instead.} of $f$:
@@ -60,7 +59,7 @@ Let's use it to rewrite the chain rule form Proposition~\ref{thm:chainrule}(\ref
 where $1\leq i\leq m, 1\leq j \leq n$.
 As you cen see, we did not need to spell out explicitly the coordinate systems on $\R^n$ or $\R^k$.
 
-\subsection{Germs and derivations}
+\section{Germs and derivations}
 
 \newthought{To reach our goal of defining derivations on manifolds}, a direct extension of partial derivatives is not enough: we will need to introduce some more levels of abstraction.
 
@@ -83,7 +82,7 @@ Therefore, $C_p^\infty(M)$ is also an algebra over $\R$.
 Germs are the apotheosis of locality: a germ at $p$ has a well defined value at $p$ and nowhere else.
 This results in a map,
 \begin{equation}
-    \eval_p: C_p^\infty)(M) \to \R, \quad
+    \eval_p: C_p^\infty(M) \to \R, \quad
     \eval_p(\underline f) := f(p),
 \end{equation}
 where $(V,f)$ is any representative of $\underline f$.
@@ -116,7 +115,7 @@ We can now go back to our discussion of euclidean derivations to motivate our de
             \eval_p(\underline f)v(\underline g)
             + \eval_p(\underline g)v(\underline f).
     \end{equation}
-    Which, expanded to its deeper meaning, is just a way to rewrite the \emph{Leibniz rule}:
+    Which, rewritten in a more familiar form, is just a way to rewrite the \emph{Leibniz rule}:
     \begin{equation}
         D(fg)(x) v = f(x)Dg(x)v + g(x) Df(x)v.
     \end{equation}
@@ -140,7 +139,36 @@ Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a d
     Since a tangent vector is a linear map from the vector space $C_p^\infty(M)$ to $\R$, the set of all tangent vectors at a point $p$ is itself a vector space\footnote{Exercise: why is this true?} which we denote by $T_p M$.
 \end{defn}
 
+Let's check that these vectors, at least satisfy the most elementary properties of derivations: one would expect the derivative of constant functions to be zero, is that the case?
 
+\begin{lem}
+    Let $M$ be a smooth manifold, let $U\subset M$ be an open set containing $p$ and let $v\in T_p M$.
+    Denote by $\underline c$ the germ of a constant function $(U, p \mapsto c)$.
+    Then $v(\underline c) = 0$.
+\end{lem}
+\begin{proof}
+    Since $\underline c = c \underline 1$, by linearity we have $v(\underline c) = c v(\underline 1)$.
+    Thus, it will be enough to show that $v(\underline 1) = 0$.
+    Since $v$ is a derivation, using the algebra properties of the space of germs we get
+    \marginnote{Keep this simple trick in mind, it will be useful in the future.}
+    \begin{equation}
+        v(\underline 1) = v(\underline 1 \underline 1) = 2 \eval_p(\underline 1)v(\underline 1) = 2 v(\underline 1).
+    \end{equation}
+    Thus, $v(\underline 1) = 0$, concluding the proof.
+\end{proof}
+
+As you can see, working with equivalent classes is doable but unnecessarily cumbersome. As we did with atlases, we would like to get it over with.
+
+\begin{defn}
+    Let $M$ be a smooth manifold and $p\in M$.
+    Let $W\subseteq M$ be any neighborhoods of $p$.
+    A \emph{derivation of $C^\infty(W)$ at $x$} is a linear map $w:C^\infty(W)\to\R$ which satisfies Leibniz rule
+    \begin{equation}
+        w(fg) = f(p)w(g) + g(p)w(f).
+    \end{equation}
+\end{defn}
+
+If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w$ of $C^\infty(W)$ for any open neighborhood $W$ of $p$. In this case $w(f) := v(\underline f)$.
 
 \textcolor{red}{\hrulefill}
 
@@ -149,9 +177,9 @@ A map $\gamma\in\cC^1(I, M)$ from an open interval $I\subset\R$ to a smooth mani
   \includegraphics{2_2-curve-on-M.pdf}
 \end{marginfigure}
 F
-\subsection{Via charts}
-\subsection{As derivation}
+\section{Via charts}
+\section{As derivation}
 
-\subsection{A summary}
+\section{A summary}
 
-\subsection{The tangent bundle}
+\section{The tangent bundle}
