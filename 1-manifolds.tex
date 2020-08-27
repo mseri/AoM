@@ -581,3 +581,56 @@ From now on, when we write manifold, chart, atlas, etc. we always mean smooth ma
 \end{tcolorbox}
 
 \section{Partitions of unity}
+
+\newthought{Cutoff functions} are a class of smooth functions that will be of crucial importance throughout the course, and whose existence cannot be given for granted.
+Since their definition and construction does not require more than what we have just seen, let's talk about them now.
+
+First of all, recall that the \emph{support} of a smooth function $f: M \to \R$, denoted by $\supp(f)$, is defined as
+\marginnote[2em]{The bar over the set denotes its closure.}
+\begin{equation}
+  \supp(f) := \overline{\{ p\in M \;\mid\; f(p) \neq 0\}}.
+\end{equation}
+
+We will introduce those functions with a proposition, and will spend the rest of this chapter proving it.
+\begin{prop}[Cutoff functions]\label{prop:cutoff}
+  Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is closed and $U$ is open.
+  
+  Then, there exists a smooth function $\chi: M \to\R$, called \emph{cutoff function}, with the following properties
+  \begin{enumerate}
+    \item $0 \leq \chi \leq 1$ for all $p\in M$;
+    \item $\supp(\chi)\subset U$;
+    \item $\chi(p) = 1$ for all $p\in K$.
+  \end{enumerate}
+\end{prop}
+
+\begin{figure}
+  \includegraphics{1_6-cutoffs.pdf}
+\end{figure}
+
+Even though it feels reasonable, we will see that the proof requires a certain amount of work.
+The starting point will be a special case of Proposition~\ref{prop:cutoff}.
+
+\begin{lem}[Cutoff functions, compact case]
+  Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is compact and $U$ is open.
+  
+  Then, there exists a smooth function $\chi: M \to\R$ with the following properties
+  \begin{enumerate}
+    \item $0 \leq \chi \leq 1$ for all $p\in M$;
+    \item $\supp(\chi)\subset U$;
+    \item $\chi(p) = 1$ for all $p\in K$.
+  \end{enumerate}
+\end{lem}
+\begin{proof}
+  \todo{}
+\end{proof}
+
+To extend the result will still require hard work and a new tool, that will be useful throughout the course an in many courses to come.
+
+\begin{defn}
+  Let $M$ be a smooth manifold. A \emph{partition of unity} is a collection $\{\lambda_\alpha \mid \alpha\in A\}$ of functions $\lambda_\alpha:M\to\R$ such that
+  \begin{enumerate}
+    \item $0 \leq \'lambda_\alpha \leq 1$ for all $p\in M$ and $\alpha\in A$;
+    \item the collection $\{\lambda_\alpha \mid \alpha\in A\}$ is \emph{locally finite}, that is, for any $p\in M$ there are at most finitely many $\alpha\in A$ such that $p\in\supp(\lambda_\alpha)$;
+    \item for all $p\in M$ one has $\sum_{\alpha\in A} \lambda_\alpha(p) = 1$.
+  \end{enumerate}
+\end{defn}
