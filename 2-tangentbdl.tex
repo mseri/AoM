@@ -69,13 +69,20 @@ As you cen see, we did not need to spell out explicitly the coordinate systems o
     We say that two functions $f\in C^\infty(U)$ and $g\in C^\infty(V)$ have the same \emph{germ} at $p$ if there exists a neighborhood $W\subset U\cap V$ of $p$ such that $f|_W \equiv g|_W$.
 \end{defn}
 
-Germs define an equivalence relation on the set of smooth functions defined on a neighborhood of a point $p$: $(U, f) \sim (V, g)$ if they have the same germ at $p$. Then, a germ is an equivalence class under $\sim$. We denote germs by $\underline f$ and the space of germs at a point $p\in M$ by $C_p^\infty(M)$.
+Germs define an equivalence relation on the set of smooth functions defined on a neighborhood of a point $p$: $(U, f) \sim_p (V, g)$ if they have the same germ at $p$. Then, a germ $[f]_p$, where $(U, f)$ is one representative for $[f]_p$, is an equivalence class in the quotient space 
+\begin{equation}
+    C_p^\infty(M) := C^\infty(M)/\sim_p.
+\end{equation} 
 
-For $c\in\R$ and $\underline f, \underline g$ germs with representatives $(U, f), (V, g)$, we have
+\begin{exe}
+    Show that $\sim_p$ defined above is an equivalence relation in $C^\infty(M)$.
+\end{exe}
+
+For $c\in\R$ and $[f]_p, [g]_p$ germs with representatives $(U, f), (V, g)$, we have
 \begin{itemize}
-    \item $\underline f + \underline g$ is the germ with representative $(U\cap V, f+g)$;
-    \item $\underline f \underline g$ is the germ with representative $(U\cap V, f g)$;
-    \item $c\underline f$ is the germ with representative $(U, cf)$.
+    \item $[f]_p + [g]_p$ is the germ with representative $(U\cap V, f+g)$;
+    \item $[f]_p [g]_p$ is the germ with representative $(U\cap V, f g)$;
+    \item $c[f]_p$ is the germ with representative $(U, cf)$.
 \end{itemize}
 Therefore, $C_p^\infty(M)$ is also an algebra over $\R$.
 
@@ -83,9 +90,9 @@ Germs are the apotheosis of locality: a germ at $p$ has a well defined value at 
 This results in a map,
 \begin{equation}
     \eval_p: C_p^\infty(M) \to \R, \quad
-    \eval_p(\underline f) := f(p),
+    \eval_p([f]_p) := f(p),
 \end{equation}
-where $(V,f)$ is any representative of $\underline f$.
+where $(V,f)$ is any representative of $[f]_p$.
 
 We can now go back to our discussion of euclidean derivations to motivate our definition of tangent vectors.
 
@@ -107,13 +114,13 @@ We can now go back to our discussion of euclidean derivations to motivate our de
     Thus we can rephrase \eqref{eq:mapxvtoD} by saying that $v$ defines a \emph{linear} map
     \begin{equation}
         v : C_p^\infty(U) \to \R, \quad
-        v(\underline f) := Df(x) v.
+        v([f]_p) := Df(x) v.
     \end{equation}
     In fact, this is not just a linear map, it is also a \emph{derivation}, in the sense that
     \begin{equation}
-        v(\underline f \underline g) =
-            \eval_p(\underline f)v(\underline g)
-            + \eval_p(\underline g)v(\underline f).
+        v([f]_p [g]_p) =
+            \eval_p([f]_p)v([g]_p)
+            + \eval_p([g]_p)v([f]_p).
     \end{equation}
     Which, rewritten in a more familiar form, is just a way to rewrite the \emph{Leibniz rule}:
     \begin{equation}
@@ -131,9 +138,9 @@ Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a d
     \end{equation}
     which is also a derivation, i.e.
     \begin{equation}
-        v(\underline f \underline g) =
-            \eval_p(\underline f)v(\underline g)
-            + \eval_p(\underline g)v(\underline f).
+        v([f]_p [g]_p) =
+            \eval_p([f]_p)v([g]_p)
+            + \eval_p([g]_p)v([f]_p).
     \end{equation}
 
     Since a tangent vector is a linear map from the vector space $C_p^\infty(M)$ to $\R$, the set of all tangent vectors at a point $p$ is itself a vector space\footnote{Exercise: why is this true?} which we denote by $T_p M$.
@@ -143,18 +150,18 @@ Let's check that these vectors, at least satisfy the most elementary properties 
 
 \begin{lem}
     Let $M$ be a smooth manifold, let $U\subset M$ be an open set containing $p$ and let $v\in T_p M$.
-    Denote by $\underline c$ the germ of a constant function $(U, p \mapsto c)$.
-    Then $v(\underline c) = 0$.
+    Denote by $[c]_p$ the germ of a constant function $(U, p \mapsto c)$.
+    Then $v([c]_p) = 0$.
 \end{lem}
 \begin{proof}
-    Since $\underline c = c \underline 1$, by linearity we have $v(\underline c) = c v(\underline 1)$.
-    Thus, it will be enough to show that $v(\underline 1) = 0$.
+    Since $[c]_p = c [1]_p$, by linearity we have $v([c]_p) = c v([1]_p)$.
+    Thus, it will be enough to show that $v([1]_p) = 0$.
     Since $v$ is a derivation, using the algebra properties of the space of germs we get
     \marginnote{Keep this simple trick in mind, it will be useful in the future.}
     \begin{equation}
-        v(\underline 1) = v(\underline 1 \underline 1) = 2 \eval_p(\underline 1)v(\underline 1) = 2 v(\underline 1).
+        v([1]_p) = v([1]_p [1]_p) = 2 \eval_p([1]_p)v([1]_p) = 2 v([1]_p).
     \end{equation}
-    Thus, $v(\underline 1) = 0$, concluding the proof.
+    Thus, $v([1]_p) = 0$, concluding the proof.
 \end{proof}
 
 As you can see, working with equivalent classes is doable but unnecessarily cumbersome. As we did with atlases, we would like to get it over with.
@@ -168,7 +175,7 @@ As you can see, working with equivalent classes is doable but unnecessarily cumb
     \end{equation}
 \end{defn}
 
-If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w$ of $C^\infty(W)$ for any open neighborhood $W$ of $p$. In this case $w(f) := v(\underline f)$.
+If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w$ of $C^\infty(W)$ for any open neighborhood $W$ of $p$. In this case $w(f) := v([f]_p)$.
 
 \textcolor{red}{\hrulefill}
 
