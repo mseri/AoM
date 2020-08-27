@@ -499,8 +499,10 @@ We will introduce those functions with a proposition, and will spend the rest of
   \end{enumerate}
 \end{prop}
 
-Even though it feels reasonable, we will see that the proof requires a certain amount of work.
-The starting point will be a special case of Proposition~\ref{prop:cutoff}.
+The proof of this proposition involves a general result which is quite technical and whose proof will be omitted.
+You can refer to \cite{book:lee, book:tu} if you are curious to see the details.
+
+Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main reason is that it involves an explicit construction of the cutoff which can be convenient to have at hand later on.
 
 \begin{lem}[Cutoff functions, compact case]
   Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is compact and $U$ is open.
@@ -513,10 +515,49 @@ The starting point will be a special case of Proposition~\ref{prop:cutoff}.
   \end{enumerate}
 \end{lem}
 \begin{proof}
-  \todo{Move this to the appendix?}
+  \newthought{Part 1}.
+  To warm up, let's do some first year analysis.
+  For any pair of real numbers $r < R$ there exists a smooth function $f: \R \to [0,1]$ such that $f(t) = 1$ for $t \leq r$, $f(t) = 0$ for $t \geq R$ and $0<f(t)<1$ for $t\in(r,R)$.
+  
+  We can construct this explicitly by means of the function
+  \begin{equation}
+    h:\R\to\R, \quad h(t):= \begin{cases}
+      e^{-1/t}, & t>0,\\
+      0, & t \leq 0.
+    \end{cases}
+  \end{equation}
+
+  \begin{exe}
+    Prove by induction that for $t>0$ and $k\geq 0$, the $k$th derivative $f^{(k)}(t)$ is of the form $p_{2k}(1/t)e^{-1/t}$ for some polynomial $p_{2k}(x)$ of degree $2k$ in $x$.
+    Use this to show that $f\in C^\infty(\R)$ and that $f^{(k)}(0) = 0$ for all $k\geq 0$.
+  \end{exe}
+
+  The function $f$ that we are seeking is then\footnote{Exercise: check that such function $f$ satisfies all the desired properties.} given by
+  \begin{equation}
+    f(t) := \frac{h(R-t)}{h(R-t) + h(t-r)}.
+  \end{equation}
+
+  \newthought{Part 2}.
+  Let's extend $f$ to $\R^n$.
+  Denote $B_r \subset \R^n$ the open ball of radius $r$ around the origin.
+  Then, for any $0 < r < R$ we seek a function $g:\R^n\to\R$ such that $g(x) = 1$ for all $x\in \overline{B_r}$, $g(x) = 0$ for all $x\in \R^n\setminus B_R$ and $0< g(x)< 1$ for all $x\in B_R\setminus\overline{B_r}$.
+  This is immediately achieved by defining $g(x) := f(\|x\|)$, where $f$ is the function defined in the previous step.
+
+  \newthought{Part 3}.
+  Let's now pick a point $p\in M$ and an arbitrary neighborhood $U$ of $p$. Choosing an appropriate chart about $p$, the previous step implies that we can choose a smaller neighborhood $V\subset U$ of $p$ with $\overline V\subset U$ and such that there exists a smooth function $\chi: M \to [0,1]$ satisfying $\chi(p) = 1$ for all $p\in\overline{V}$ and $\chi(p) = 0$ for all $p\in M\setminus U$.
+  
+  \newthought{Part 4}.
+  We are ready to complete the proof.
+  For each point $p\in K$, choose two neighborhoods $V_p \subset U_p$ such that $\overline{V_p}\subset K$ and $U_p \subset U$.
+  Since $K$ is compact, it admits a finite cover in terms of these sets: i.e. there are finitely many points $p_1, \ldots, p_N \in K$ such that $K \subset \bigcup_{i=1}^N V_{p_i}$.
+  For each $i$, choose $\chi_i: M \to [0,1]$ as in the previous step: $\chi_i(p) = 1$ for all $p\in\overline{V_{p_i}}$ and $\chi_i(p) = 0$ for all $p\in M\setminus U_{p_i}$.
+  The proof is completed by defining
+  \begin{equation}
+    \chi := 1 - \prod_{i=1}^N(1 - \chi_i(p)).
+  \end{equation}
 \end{proof}
 
-To extend the result will still require hard work and a new tool, that will be useful throughout the course an in many courses to come.
+To extend this result and prove will still require hard work and a new tool, that will be useful throughout the course an in many courses to come.
 
 \begin{defn}
   Let $M$ be a smooth manifold. A \emph{partition of unity} is a collection $\{\rho_\alpha \mid \alpha\in A\}$ of functions $\rho_\alpha:M\to\R$ such that
@@ -532,11 +573,16 @@ Note that the existence of a partition of unity is a distinguished feature of di
 
 Throughout the course we will be mostly interested in partitions of unity $\{\rho_\alpha \mid \alpha\in A\}$ which are \emph{subordinate} to an open cover $\{U_\alpha\mid\alpha\in A\}$, that is, such that $\supp_\alpha(\rho_\alpha) \subset U_\alpha$ for each $\alpha\in A$.
 
-\begin{thm}
+\begin{thm}\label{thm:partitionof1}
   Let $M$ be a smooth manifold. For any open cover $\{U_\alpha\mid\alpha\in A\}$ of $M$, there exists a partition of unity $\{\rho_\alpha \mid \alpha\in A\}$ subordinate to $\{U_\alpha\mid\alpha\in A\}$.
 \end{thm}
 
-The proof of this result is rather technical and will be omitted.
+With this result at hand, Proposition~\ref{prop:cutoff} can be shown very easily.
+
+\begin{proof}[of Proposition~\ref{prop:cutoff}.]
+  Consider the open cover of $M$ given by $\cC:=\{M\setminus K, U\}$.
+  Then Theorem~\ref{thm:partitionof1} implies that there exists a partition of unity $\{\rho_U, \rho_{M\setminus K}\}$ adapted to $\cC$. The function $\chi := \rho_U$ is our cutoff function.
+\end{proof}
 
 \section{Manifolds with boundary}\label{sec:mbnd}
 
