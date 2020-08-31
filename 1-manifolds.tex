@@ -386,8 +386,8 @@ This, colloquially speaking, means that a function is differentiable if it is di
   Define on the following operations.
   For any $f,g\in C^\infty(M)$, $c\in\R$,
   \begin{equation}
-    (f+g)(x) := f(x) + g(x),\qquad
-    (fg)(x) := f(x) g(x),\qquad
+    (f+g)(x) := f(x) + g(x),\quad
+    (fg)(x) := f(x) g(x),\quad
     (cf)(x) := c f(x).
   \end{equation}
   Then, the space $C^\infty(M)$ endowed with the operations above is an \emph{algebra}\footnote{I.e. a vector space where you can also multiply two elements.} over $\R$.
@@ -490,7 +490,6 @@ We will introduce those functions with a proposition, and will spend the rest of
 
 \begin{prop}[Cutoff functions]\label{prop:cutoff}
   Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is closed and $U$ is open.
-  
   Then, there exists a smooth function $\chi: M \to\R$, called \emph{cutoff} function, with the following properties
   \begin{enumerate}
     \item $0 \leq \chi \leq 1$ for all $p\in M$;
@@ -506,7 +505,6 @@ Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main 
 
 \begin{lem}[Cutoff functions, compact case]
   Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is compact and $U$ is open.
-  
   Then, there exists a smooth function $\chi: M \to\R$ with the following properties
   \begin{enumerate}
     \item $0 \leq \chi \leq 1$ for all $p\in M$;
@@ -565,11 +563,13 @@ To extend this result and prove will still require hard work and a new tool, tha
     \item $0 \leq \rho_\alpha \leq 1$ for all $p\in M$ and $\alpha\in A$;
     \item\label{def:pou.2} the collection $\{\rho_\alpha \mid \alpha\in A\}$ is \emph{locally finite}, that is, for any $p\in M$ there are at most finitely many $\alpha\in A$ such that $p\in\supp(\rho_\alpha)$;
     \item for all $p\in M$ one has $\sum_{\alpha\in A} \rho_\alpha(p) = 1$.
-    \marginnote{Note that for any $p$, $\sum_{\alpha\in A} \rho_\alpha(p)$ is a finite sum by \ref{def:pou.2}. Thus, the function defined by the sum $\rho := \sum \rho_\alpha$ is a well define smooth function on $M$. We call such sum a \emph{locally finite} sum.}
+    \marginnote{For any $p$, $\sum_{\alpha\in A} \rho_\alpha(p)$ is a finite sum by \ref{def:pou.2}. Thus, the function defined by the sum $\rho := \sum \rho_\alpha$ is a well define smooth function on $M$. We call such sum a \emph{locally finite} sum.}
   \end{enumerate}
 \end{defn}
 
+\begin{rmk}
 Note that the existence of a partition of unity is a distinguished feature of differentiable manifolds: stronger structures, like analytic or holomorphic ones, in general fail to have one.
+\end{rmk}
 
 Throughout the course we will be mostly interested in partitions of unity $\{\rho_\alpha \mid \alpha\in A\}$ which are \emph{subordinate} to an open cover $\{U_\alpha\mid\alpha\in A\}$, that is, such that $\supp_\alpha(\rho_\alpha) \subset U_\alpha$ for each $\alpha\in A$.
 
@@ -579,7 +579,7 @@ Throughout the course we will be mostly interested in partitions of unity $\{\rh
 
 With this result at hand, Proposition~\ref{prop:cutoff} can be shown very easily.
 
-\begin{proof}[of Proposition~\ref{prop:cutoff}.]
+\begin{proof}[Proof of Proposition~\ref{prop:cutoff}.]
   Consider the open cover of $M$ given by $\cC:=\{M\setminus K, U\}$.
   Then Theorem~\ref{thm:partitionof1} implies that there exists a partition of unity $\{\rho_U, \rho_{M\setminus K}\}$ adapted to $\cC$. The function $\chi := \rho_U$ is our cutoff function.
 \end{proof}

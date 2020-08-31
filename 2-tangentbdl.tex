@@ -150,7 +150,7 @@ Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a d
 
 Let's check that these vectors, at least satisfy the most elementary properties of derivations: one would expect the derivative of constant functions to be zero, is that the case?
 
-\begin{lem}
+\begin{lem}\label{lem:f'0is0forconst}
     Let $M$ be a smooth manifold, let $U\subset M$ be an open set containing $p$ and let $v\in T_p M$.
     Denote by $[c]_p$ the germ of a constant function $(U, p \mapsto c)$.
     Then $v([c]_p) = 0$.
@@ -177,7 +177,40 @@ As you can see, working with equivalent classes is doable but unnecessarily cumb
     \end{equation}
 \end{defn}
 
-If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w$ of $C^\infty(W)$ for any open neighborhood $W$ of $p$. In this case $w(f) := v([f]_p)$.
+If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w$ of $C^\infty(W)$ for any open neighborhood $W$ of $p$.
+In this case $w(f) := v([f]_p)$.
+Showing that the opposite is also true will require a bit of work.
+
+\begin{prop}
+    Let $M$ be a smooth manifold, $p\in M$ and $W$ any neighborhood of $x$.
+    Then there is a linear isomorphism between $T_p M$ and the space of derivations of $C^\infty(W)$ at $p$.
+\end{prop}
+\begin{proof}
+    \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighborhood $W_0\subset W$ op $p$. We are going to show that $w(f)=0$.
+
+    By Proposition~\ref{prop:cutoff}, we can find a function $\rho:M\to\R$ such that $\rho(p)=1$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$. Then $g$ is identically zero in the whole $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w(g) = 0$. Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
+    \begin{equation}
+        0 = w(g) = w(\rho f) = \rho(p) w(f) + f(p)w(\rho) = w(f).
+    \end{equation}
+
+    \newthought{Step II}. Let $[f]_p\in C_p^\infty(M)$. We want to show that it is always possible to find a representative for $[f]_p$ with domain $W$, that is, there exists $g\in C^\infty(W)\to\R$ such that $[g]_p = [f]_p$.
+    Let $(V, f)$ be any representative of $[f]_p$.
+    Since germs are local, if necessary, we can shrink $V$ so that $V\subset W$.
+    Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighborhood of $p$!
+    To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighborhood with compact closure.} a smaller neighborhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
+    Again, Proposition~\ref{prop:cutoff} comes to the rescue. Apply it with $K=\overline{U}$ and ``$U$'' equal to $V$, and consider
+    \begin{equation}
+        g:W\to\R, \quad
+        g(q) := \begin{cases}
+            \rho(q)f(q), & q\in V,\\
+            0, & q \in W\setminus V.
+        \end{cases}
+    \end{equation}
+    Since $g|_U = f$, we have $[g]_p = [f]_p$, proving the claim.
+
+    \newthought{Step III}. We can now complete the proof.
+    Let $w:X^\infty(W) \to\R$ be a derivation at $p$.
+\end{proof}
 
 \textcolor{red}{\hrulefill}
 
