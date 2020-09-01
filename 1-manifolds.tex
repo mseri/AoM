@@ -284,6 +284,7 @@ Can you guess if such manifold is connected or not?
 \begin{ntn}\label{ntn:coords}
   We will stick to the notation of \cite{book:tu}.
   In the context of manifolds, denote $r^i: \R^n\to\R$, $1\leq i\leq n$, the standard coordinates on $\R^n$. With this notation, if $e_i$ denotes the $i$th standard basis vector in $\R^n$, then $r^i(e_j) = \delta^i_j$.
+  \marginnote[-1em]{The Kronecker delta $\delta_j^i$ is defined by $\delta_j^i = 1$ if $i=j$ and $\delta_j^i = 0$ otherwise.}
 
   If $(U, \phi:U\to\R^n)$ is a chart of a manifolds, then $x^i = r^i\circ\phi$ will denote the $i$-th component of $\phi$ and denote $\phi = (x^1, \ldots, x^n)$ and, when convenient, $(U,\phi) = (U, x^1, \ldots, x^n)$.
 
@@ -292,15 +293,16 @@ Can you guess if such manifold is connected or not?
 
 An advantage of this new notation is that we can talk about coordinates without the need to explicitly reference charts. In other words, we can say
 \begin{quote}
-  Let $x\in M$ and choose local coordinates $(x^1, \ldots, x^n)$ about $x$...
+  Let $p\in M$ and choose local coordinates $(x^1, \ldots, x^n)$ about $p$...
 \end{quote}
 or even
 \begin{quote}
   Let $x=(x^1, \ldots, x^n)\in M$ be a point in $M$...
 \end{quote}
-in place of
+dropping the distinction between $p$ and $x$, both in place of
 \begin{quote}
-  Let $x \in M$ and $(U, \phi)$ a chart defined on a neighborhood $U$ of $x$. Let $x^i = r^i \circ\phi$ denote the components of $\phi$ with respect to the standard euclidean coordinates...
+  Let $p \in M$ and $(U, \phi)$ a chart defined on a neighborhood $U$ of $p$.
+  Let $x^i = r^i \circ\phi$ denote the components of $\phi$ with respect to the standard euclidean coordinates...
 \end{quote}
 
 \begin{ex}\label{ex:S1emb}
@@ -362,7 +364,8 @@ This allows to always view manifolds as metric spaces.
   In these notes we will only deal with smooth manifolds.
 \end{tcolorbox}
 
-EXERCISES\todo{Maybe add section homework sheet}
+\section{Intermission: exercises}
+\TODO
 
 \section{Smooth maps and differentiability}
 
@@ -593,11 +596,11 @@ Note that in both these cases, both the interior and the boundary are smooth man
 Let's do a step back and think about topological manifolds: since both the closed interval and the closed disk are closed sets, we have problems to make them locally euclidean in neighborhoods of their boundaries.
 Can we modify our local model to resemble something with a boundary?
 
-\begin{marginfigure}
-  \includegraphics{1_4-upper_space.pdf}
-\end{marginfigure}
 Of course this is a rhetorical question.
 We can generalize our definition by considering the \emph{closed upper half-spaces}
+\begin{marginfigure}[2em]
+  \includegraphics{1_4-upper_space.pdf}
+\end{marginfigure}
 \begin{equation}
   \cH^n = \R_+^n = \{x=(x^1, \ldots, x^n)\in\R^n\mid x^n \geq 0\},
 \end{equation}

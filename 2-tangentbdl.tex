@@ -26,7 +26,7 @@ This is the approach taken by \cite{lectures:hitchin} and it is at least worth o
 To avoid diverging from the book too much, we will stick to derivations on the space of germs, which emphasizes the locality of derivations to an extreme.
 The equivalence between our approach and the one based on speeds of curves and on derivations will be left as homeworks.
 
-\section{Directional derivatives in euclidean spaces}
+\section{Directional derivatives in euclidean spaces}\label{sec:dd}
 
 Suppose that $f: U\subset\R^n\to\R^k$ is a smooth map defined on an open subset $U\subset \R^n$.
 In multivariable calculus you have seen that if $x\in U$ and $v\in\R^n$, then the vector $Df(x) v$ can be interpreted as the directional derivative\footnote{Sometimes this is denoted $D_v f(x)$ instead.} of $f$:
@@ -314,7 +314,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
     \begin{equation}
         v = v^i \frac{\partial}{\partial x^i}\Big|_p, \quad v_i = v(x^i).
     \end{equation}
-    \marginnote[-2em]{$\leftarrow$ Since we consider upper indices in the denominator as lower indices, the equation should be read as $v = \sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\Big|_p.$}
+    \marginnote[-3em]{$\leftarrow$ Since we consider upper indices in the denominator as lower indices, the equation should be read as $v = \sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\Big|_p$. If $M=\R^n$, what we are saying here is that $v(f) = v\cdot\nabla f = Df\; v$, that is, $v$ acts as the directional derivative in its direction.}
     Thus, $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ is a basis of $T_p M$.
 \end{prop}
 \begin{proof}
@@ -337,21 +337,56 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
     \begin{align}
         \frac{\partial}{\partial x_i}\Big|_p (x^j) &= 
         \frac{\partial}{\partial x_i}\Big|_p (r^j \circ \phi)\\
-        &= D_i (r^j \circ \phi \circ \phi^{-1}) (\phi(p))
-        = D_i r^j(\phi(p)) = \delta^j_i.
+        &= D_i (r^j \circ \phi \circ \phi^{-1}) (\phi(p))\\
+        &= D_i r^j(\phi(p)) = \delta^j_i.
     \end{align}
-    \todo{CONCLUDE}
+    Thus, if
+    \begin{equation}
+        v = a_i \frac{\partial}{\partial x_i}\Big|_p,
+    \end{equation}
+    by letting $v$ act on $x^j$, $j\leq 1\leq n$, we obtain $(a_1, \ldots, a_n) = 0$, proving the linear independence.
 \end{proof}
-\textcolor{red}{\hrulefill}
 
-A map $\gamma\in\cC^1(I, M)$ from an open interval $I\subset\R$ to a smooth manifold $M$ is called \emph{$\cC^1$-curve} on $M$.
-\begin{marginfigure}
-  \includegraphics{2_2-curve-on-M.pdf}
-\end{marginfigure}
-F
-\section{Via charts}
-\section{As derivation}
+\begin{rmk}[Change of coordinates]
+    Suppose $\phi$ and $\psi$ are two different charts about $p$, with corresponding coordinates $x^i := r^i \circ \phi$ and $y^i := r^i \circ \psi$.
+    Taking $v = \frac{\partial}{\partial y^j}\Big|_p$ in the previous proposition implies that
+    \begin{equation}
+        \frac{\partial}{\partial y^j}\Big|_p = 
+        \frac{\partial}{\partial y^j}\Big|_p (x^i) \frac{\partial}{\partial x^i}\Big|_p.
+    \end{equation}
+    \marginnote[-3em]{If we start getting used to these vectors as actual derivatives and hide the dependence on $p$, then this equation can be rewritten as $\frac{\partial}{\partial y^j} = 
+    \frac{\partial x^i}{\partial y^j} \frac{\partial}{\partial x^i}$.}
 
-\section{A summary}
+    If we expand the definitions, we get
+    \begin{equation}
+        \frac{\partial}{\partial y^j}\Big|_p (x^i) =
+        D_j(x^i\circ\psi^{-1})(\psi(p)) =
+        D_j(r^i \circ \phi \circ \psi^{-1})(\psi(p)),
+    \end{equation}
+    which is the $(i,j)$th entry in the matrix $D(\phi\circ\psi^{-1})(\psi(p))$ as discussed at the beginning of Section~\ref{sec:dd}.
+
+    In other words, $D(\phi\circ\psi^{-1})(\psi(p))$ is the transition matrix from the basis $\left\{\frac{\partial}{\partial y^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ to the basis $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$.
+\end{rmk}
+
+\section{Intermission: exercises}
+\TODO
+
+\begin{exe}
+    
+\end{exe}
+
+\begin{exe}[Tangent vectors as equivalence classes of charts and vectors]
+
+    Hint: use the previous exercise!
+
+\end{exe}
+
+\begin{exe}[Tangent vectors as speed of curves.]
+    \begin{marginfigure}
+        \includegraphics{2_2-curve-on-M.pdf}
+      \end{marginfigure}
+\end{exe}
+
+\section{The derivative of a smooth map}
 
 \section{The tangent bundle}
