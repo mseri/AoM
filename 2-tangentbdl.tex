@@ -56,6 +56,7 @@ Let's use it to rewrite the chain rule form Proposition~\ref{thm:chainrule}(\ref
 \begin{equation}
     D_j(u^i\circ g \circ f) (x) = \sum_{r=1}^k D_r(u^i\circ g)(f(x))\; D_j(u^r \circ f)(x),
 \end{equation}
+\marginnote[-4em]{Using Einstein notation, since $r$ is the only index that appears both in lower and upper position, $D_j(u^i\circ g \circ f) (x) = D_r(u^i\circ g)(f(x))\; D_j(u^r \circ f)(x)$.}
 where $1\leq i\leq m, 1\leq j \leq n$.
 As you cen see, we did not need to spell out explicitly the coordinate systems on $\R^n$ or $\R^k$.
 
@@ -135,7 +136,7 @@ Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a d
 \begin{defn}
     Let $M$ a smooth manifold of dimension $n$ and let $p\in M$.
     A \emph{tangent vector at $p$} is a linear map
-    \begin{equation}
+    \begin{equation}\label{def:tangentvector}
         v: C_p^\infty(M)\to\R
     \end{equation}
     which is also a derivation, i.e.
@@ -178,7 +179,10 @@ As you can see, working with equivalent classes is doable but unnecessarily cumb
 \end{defn}
 
 If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w$ of $C^\infty(W)$ for any open neighborhood $W$ of $p$.
-In this case $w(f) := v([f]_p)$.
+In this case
+\begin{equation}\label{eq:derivfromtg}
+    w(f) := v([f]_p).
+\end{equation}
 Showing that the opposite is also true will require a bit of work.
 
 \begin{prop}
@@ -186,6 +190,9 @@ Showing that the opposite is also true will require a bit of work.
     Then there is a linear isomorphism between $T_p M$ and the space of derivations of $C^\infty(W)$ at $p$.
 \end{prop}
 \begin{proof}
+    To prove the theorem we need to invert \eqref{eq:derivfromtg} and define a tangent vector in terms of of a derivation of $C^infty(W)$ at $p$.
+    We will proceed in three steps
+
     \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighborhood $W_0\subset W$ op $p$. We are going to show that $w(f)=0$.
 
     By Proposition~\ref{prop:cutoff}, we can find a function $\rho:M\to\R$ such that $\rho(p)=1$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$. Then $g$ is identically zero in the whole $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w(g) = 0$. Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
@@ -193,7 +200,9 @@ Showing that the opposite is also true will require a bit of work.
         0 = w(g) = w(\rho f) = \rho(p) w(f) + f(p)w(\rho) = w(f).
     \end{equation}
 
-    \newthought{Step II}. Let $[f]_p\in C_p^\infty(M)$. We want to show that it is always possible to find a representative for $[f]_p$ with domain $W$, that is, there exists $g\in C^\infty(W)\to\R$ such that $[g]_p = [f]_p$.
+    \newthought{Step II}.
+    Let $[f]_p\in C_p^\infty(M)$.
+    We want to show that it is always possible to find a representative for $[f]_p$ with domain $W$, that is, there exists $g\in C^\infty(W)\to\R$ such that $[g]_p = [f]_p$.
     Let $(V, f)$ be any representative of $[f]_p$.
     Since germs are local, if necessary, we can shrink $V$ so that $V\subset W$.
     Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighborhood of $p$!
@@ -210,8 +219,129 @@ Showing that the opposite is also true will require a bit of work.
 
     \newthought{Step III}. We can now complete the proof.
     Let $w:X^\infty(W) \to\R$ be a derivation at $p$.
+    A tangent vector is a linear map $v:C_p^\infty(M)\to\R$, see \eqref{def:tangentvector}, and a derivation.
+    We would like to define one in terms of $w$.
+    Given any $[f]_p\in C_p^\infty(W)$, the previous step guarantees that there exists a representative $(W,f)$ for it, so we can define
+    \begin{equation}
+        v([f]_p) := w(f), \quad\mbox{where $(W,f)$ is any representative of $[f]_p$}.
+    \end{equation}
+    Such $v$ is a derivation by construction, so if it is well-defined, we are done.
+    To this end, assume that there exists a different representative $(W, g)$ for $[f]_p$.
+    Then, by definition, there exists a neighborhood $V\subset W$ of $p$ such that $f|_p = g|_p$.
+    By linearity, $w(f) - w(g) = w(f-g)$ and by the first step in the proof, $w(f-g) = 0$.
+    
+    The assignment $w\mapsto v$ inverts \eqref{eq:derivfromtg}, completing the proof.
 \end{proof}
 
+This seemingly innocent proposition, has some very important consequences.
+
+First of all, from now on we are free to interpret tangent vectors in $T_p M$ as derivations of $C^\infty(W)$ at $p$ for \emph{any}\footnote{In particular, it is often convenient to have $W$ coincide with the domain of a chart or with the whole manifold $M$.} open $W$ containing $p$.
+This enables us to give our first example of tangent vector.
+
+\begin{ex}\label{ex:partialderivative}
+    Let $M$ be a smooth manifold of dimension $n$ and $\phi: U \to V$ a chart on $M$.
+    As already mentioned, we write $x^i = r^i \circ \phi$ for the local coordinates\footnote{See Notation~\ref{ntn:coords}.} of $\phi$.
+    For any $p\in U$, we can define a derivation of $C^\infty(U)$ at $p$ as
+    \begin{equation}
+        \frac{\partial}{\partial x^i}\Big|_p : C^\infty(U) \to \R, \quad
+        \frac{\partial}{\partial x^i}\Big|_p (f) := D_i(f\circ\phi^{-1})(\phi(p)).
+    \end{equation}
+    We will soon see that $\left\{\frac{\partial}{\partial x^i}\Big|_p \mid 1\leq i\leq n\right\}$ forms a basis for $T_p M$.
+\end{ex}
+
+Secondly, it provides us some very useful corollaries.
+
+\begin{cor}\label{cor:tgsubspace}
+    Let $M$ be a smooth manifold and let $W\subset M$ be a non-empty open set considered as a smooth manifold.
+    Then, for any $p\in W$ there is a canonical identification $T_pW = T_p M$.
+\end{cor}
+
+\begin{cor}\label{cor:derzero}
+    Let $M$ be a smooth manifold and $p\in M$.
+    Let $W\subseteq M$ be an open neighborhoods of $p$.
+    If $f\in C^\infty(W)$ is constant in a neighborhood of $p$, then $v(f) = 0$ for all $v\in T_p M$.
+\end{cor}
+
+With these new tools at hand, we are ready to state and prove an important result on the size of the tangent spaces.
+As it turns out, $T_pM$ is a finite dimensional vector space, naturally isomorphic to $\R^n$.
+
+\begin{thm}\label{thm:dimensionTpM}
+    Let $M$ be a smooth manifold of dimension $n$ and $p\in M$.
+    Then $T_pM$ is a vector space of dimension $n$.
+\end{thm}
+
+The theorem will follow immediately once we construct a basis for $T_pM$.
+To that end, we need a preliminary result from multivariable analysis.
+
+\begin{lem}\label{lem:Taylor}
+    Let $U\subset\R^n$, $0\in U$, be a star-shaped\footnote{An open set $U\subset\R^n$ containing the origin, $0\in U$, is called \emph{star-shaped} if $U$ also contains the line segment from $0$ to $x$ for any $x\in U$.} open set.
+    Then, there exists $n$ smooth functions $g_i: U \to \R$, $1\leq i \leq n$, such that $g_i(0) = D_i h(0)$ and
+    \begin{equation}
+        h = h(0) + r^i g_i
+    \end{equation}
+    \marginnote[-1.8em]{$\leftarrow$ This is our first use of Einstein notation, this equation should be read as $h(x) = h(0) + \sum_{i=1}^n r^i(x) g_i(x)$.
+    Using the global euclidean chart, $x^i = r^i(x)$ and $h(x) = h(0) + \sum_{i=1}^n x^i g_i(x)$, which you may recognize as the first iteration of the usual Taylor-MacLaurin formula.}
+    where $r^i$ are the coordinates introduced in Notation~\ref{ntn:coords}.
+\end{lem}
+\begin{proof}
+    Fix a point $x = (x^1, \ldots, x^n) \in U$.
+    Let $\gamma_x:[0,1]\to U$ denote the line segment from $0$ to $x$, parametrized as $\gamma_x(t) = tx$.
+
+    By the chain rule,
+    \begin{equation}
+        \frac{d}{dt}(h \circ \gamma_x) (t) = \left(D_i h(t x)\right) \times \frac{d}{dt} (t x^i)' = x^i D_i h(t x).
+    \end{equation}
+    \marginnote[-2.5em]{$\leftarrow$ Again, due to Einstein notation, the right hand side should be read as $\sum_{i=1}^n x^i D_i h(t x)$.}
+    The fundamental theorem of calculus then implies
+    \begin{align}
+        h(x) - h(0) &= (h \circ \gamma_x)(1) - (h \circ \gamma_x)(0) \\
+        &= \int_0^1 (h \circ \gamma_x)(t)\;dt = x^i \int_0^1 D_i h(tx)\; dt.
+    \end{align}
+    \marginnote[-2.1em]{$\leftarrow$ For one last time, due to Einstein notation, the right hand side should be read as $\sum_{i=1}^n x^i \int_0^1 D_i h(t x)\; dt$.}
+
+    Since $x^i = r^i(x)$ by definition, the theorem follows by defining
+    \begin{equation}
+        g_i(x) := \int_0^1 D_i h(tx)\; dt.
+    \end{equation}
+\end{proof}
+
+Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
+
+\begin{prop}
+    Let $M$ be a smooth manifold of dimension $n$ and $p\in M$.
+    Let $\phi: U \to V$ be a chart on $M$ around $p$, i.e. $p\in U$.
+    Then any tangent vector $v\in T_p M$ can be uniquely written as a linear combination
+    \begin{equation}
+        v = v^i \frac{\partial}{\partial x^i}\Big|_p, \quad v_i = v(x^i).
+    \end{equation}
+    \marginnote[-2em]{$\leftarrow$ Since we consider upper indices in the denominator as lower indices, the equation should be read as $v = \sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\Big|_p.$}
+    Thus, $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ is a basis of $T_p M$.
+\end{prop}
+\begin{proof}
+    We may assume without loss of generality that $\phi(p) = 0$ and, thanks to Corollary~\ref{cor:tgsubspace}, $U$ is star-shaped.
+    Let $f\in C^\infty(U)$.
+    By Lemma~\ref{lem:Taylor} with $h = f \circ \phi^{-1}$ we get
+    \begin{equation}
+        f = f(p) + x^i (g_i \circ \phi),
+        \quad g_i(0) = D_i (f \circ \phi^{-1})(0) = \frac{\partial}{\partial x_i}\Big|_p(f).
+    \end{equation}
+    Thus, for any derivation $v$, we obtain
+    \begin{equation}
+        v(f) = v(f(p)) + v(x^i)g_i(0) + x^i(p) v(g_i\circ\phi) = v(x^i)  \frac{\partial}{\partial x_i}\Big|_p(f).
+    \end{equation}
+    The right hand side is obtained observing that $\phi(p) = 0$, and thus the components $x^i(p) = 0$ are all zero, and applying Corollary~\ref{cor:derzero} to the constant $f(p)$, which implies $v(f(p)) = 0$.
+    
+    It follows that the set $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ spans $T_p M$.
+    We now need to show that its elements are linearly independent.
+    Observe that
+    \begin{align}
+        \frac{\partial}{\partial x_i}\Big|_p (x^j) &= 
+        \frac{\partial}{\partial x_i}\Big|_p (r^j \circ \phi)\\
+        &= D_i (r^j \circ \phi \circ \phi^{-1}) (\phi(p))
+        = D_i r^j(\phi(p)) = \delta^j_i.
+    \end{align}
+    \todo{CONCLUDE}
+\end{proof}
 \textcolor{red}{\hrulefill}
 
 A map $\gamma\in\cC^1(I, M)$ from an open interval $I\subset\R$ to a smooth manifold $M$ is called \emph{$\cC^1$-curve} on $M$.

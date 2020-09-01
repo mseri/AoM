@@ -237,8 +237,13 @@ is a shorthand for
   \sum_{i,k} a^{ij}b_l^k e_i e_k.
 \end{equation}
 
-In general, we will use lower indices for basis of vector spaces\footnote{E.g., $(e_1,\ldots,e_n)$ will be the standard basis of $\R^n$.}, and upper indices for the components of a vector with respect to a basis\footnote{E.g., the $i$th-coordinate $x^i$ of $x\in\R^n$.}.
+In general, we will use lower indices for basis of vector spaces\footnote{E.g., $(e_1,\ldots,e_n)$ could be the standard basis of $\R^n$.}, and upper indices for the components of a vector with respect to a basis\footnote{E.g., the $i$th-coordinate $x^i$ of $x\in\R^n$.}.
 \marginnote[10pt]{Since the coordinates of a point $x\in\R^n$ are also its components with respect to the standard basis $(e_1, \ldots, e_n)$, for consistency they will be denoted $(x^1, \ldots, x^n)$ with upper indices.}
+
+Note that an upper index ``in the denominator'' is regarded as a lower index, so the following are to be considered equivalent:
+\begin{equation}
+  \sum_{i} a_i \frac{\partial}{\partial x^i} = a_i \frac{\partial}{\partial x^i}.
+\end{equation}
 
 \chapter{Manifolds}\label{ch:manifolds}
 \input{1-manifolds}
