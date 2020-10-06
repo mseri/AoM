@@ -387,6 +387,58 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
       \end{marginfigure}
 \end{exe}
 
-\section{The derivative of a smooth map}
+\section{The differential of a smooth map}
+
+With the constructions that we have developed so-far, it should not come a surprise that the notion of differential becomes somewhat tautological.
+
+\begin{defn}
+    Let $F: M \to N$ be a smooth map between the smooth manifolds $M$ and $N$.
+    Let $p\in M$. The \emph{differential $d F_p$ of $F$ at $p$} is the map\footnote{The differential $dF_p(v)$ is also commonly denoted $F_* v_p$, $DF(p)[v]$ or variations thereof. Unfortunately there is no real conventional notation among those.}
+    \begin{equation}
+        d F_p : T_p M \to T_{F(p)} N, \qquad d F_p (v) (f) := v(f\circ F), \quad \forall f\in C^\infty(N).
+    \end{equation}    
+\end{defn}
+
+Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F(p)$ acting on functions in $C^\infty(N)$ (why?) and, as such, is also a tangent vector in $T_F(p)N$.
+
+\begin{exe}
+    Answer the two \emph{(why?)} above.
+\end{exe}
+
+\begin{thm}[The chain rule on manifolds]
+    Let $M, N, P$ be smooth manifolds and $F: M \to N$, $G: N\to P$ be two smooth maps. Then
+    \marginnote{The alternative $D$ notation, in this case, makes the relation to the usual chain rule even more evident: $D(G\circ F)(p) = DG(F(p))\circ DF(p)$.}
+    \begin{equation}
+        d(G\circ F)_p = dG_{F(p)} \circ dF_p.
+    \end{equation}
+\end{thm}
+\begin{proof}
+    Since $dF_p : T_p M \to T_{F(p)}N$ and $dG_{F(p)}: T_{F(p)}N \to T_{G(F(p))}P$, the map $d(G\circ F)_p: T_p M \to T_{G(F(p))}P$ has the right domain and codomain.
+    Take now $v\in T_p M$ and $f\in C^\infty(L)$. We get
+    \begin{align}
+        d(G\circ F)_p(v)(f) &= v(f\circ G \circ F)
+        = dF_p (v)(f\circ G) \\
+        &\stackrel{\star}{=} dG_{F(p)}(dF_p (v))f 
+        = dG_{F(p)} \circ dF_p,
+    \end{align}
+    where in $\star$ we used the fact that $dF_p (v)\in T_{F(p)}N$.
+\end{proof}
+
+The definition we gave seems quite abstract, let's see what it looks like in coordinates.
+
+\begin{thm}
+    Let $F:M^m\to N^n$ be a smooth map between smooth manifolds.
+    Let $p\in M$, and let $\phi : U \to \phi(U)$ be a chart on $M$ about $p$ and $\psi: V \to \psi(V)$ be a chart on $N$ about $F(p)$.
+    If $(x^i)$ denote the local coordinates of $\phi$ and $(y^i)$ the ones of $\psi$, the matrix of $dF_p$ with respect to the bases $\left\{\frac{\partial}{\partial x^j}\big|_p \;\mid\; j=1,\ldots,m\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial y^j}\big|_p \;\mid\; j=1,\ldots,n\right\}$ of $T_{F(p)}N$ is given by the Jacobian matrix $D(\psi\circ F \circ\phi^{-1})(\phi(p))$.
+\end{thm}
+\begin{proof}
+    The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \phi^{-1})(\phi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\phi^{-1})(\phi(p))$. For any $j=1,\ldots,m$,
+    \begin{align}
+        dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right)
+        &= \sum_{i=1}^n dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right) (y^i) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
+        &= \sum_{i=1}^n \frac{\partial}{\partial x^j}\Big|_p (y^i \circ F) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
+        &=\sum_{i=1}^n D_j(r^i \circ \psi \circ F \circ \phi^{-1})(\phi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
+    \end{align}
+\end{proof}
 
 \section{The tangent bundle}
