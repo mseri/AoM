@@ -372,28 +372,42 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 \TODO
 
 \begin{exe}
-    
+    Let $\{V_\alpha \mid \alpha\in A\}$ be a family of vector spaces indexed by a set $A$, let $W$ be a fixed set and let $T_\alpha: V_\alpha\to W$ be a bijection for all $\alpha\in A$.
+    Assume that for any $\alpha, \beta \in A$, the composition $T_\beta^{-1}\circ T_\alpha : V_\alpha \to V_\beta$ is a linear isomorphism.
+    Show that there is a unique vector space structure on $W$ such that each $T_\alpha$ is a linear isomorphism.
 \end{exe}
 
 \begin{exe}[Tangent vectors as equivalence classes of charts and vectors]
-
-    Hint: use the previous exercise!
-
+Let $M$ be a smooth $m$-manifolds with maximal smooth atlas $\Sigma$.
+For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\phi\in\Sigma$ such that $p$ lies in the image of $\phi$.
+\begin{enumerate}
+    \item Show that
+    \begin{equation}
+        (v,\phi) \sim (w, \psi)
+        \quad\Longleftrightarrow\quad
+        D(\psi \circ \phi^{-1})(\phi(p))v = w.
+    \end{equation}
+    defines an equivalence relation on $\R^m\times\Sigma_p$.
+    \item Let $\cT_p$ denote the set of equivalence classes $[(v,\phi)]\in \R^m\times\Sigma_p/\sim$. For $\phi\in\Sigma_p$, show that the map $T_\phi:\R^m\to\cT_p$ given by $T_\phi v := [(v,\phi)]$ is a bijection.
+    Deduce\footnote{Hint: use the previous exercise!} that $\cT_p$ admits a unique vector space structure such that each $T_\phi$ is a linear isomorphism.
+    \item Let $\phi$ be a chart defined on a neighborhood of $p$ with local coordinates $x^i = r^i \circ \phi$ and let $\hat T_\phi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in \eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\phi e_i = \frac{\partial}{\partial x^i}\big|_p$.
+    Show that there exists a linear isomorphism $\mathcal{S}_p:\cT_p\to T_pM$ which in addition satisfies $\mathcal{S}_p \circ T_\phi = \hat T_\phi$ for every chart $\phi$ about $p$.
+\end{enumerate}
 \end{exe}
 
-\begin{exe}[Tangent vectors as speed of curves.]
-    \begin{marginfigure}
-        \includegraphics{2_2-curve-on-M.pdf}
-      \end{marginfigure}
-\end{exe}
+Due to $\mathcal{S}_p$ being an isomorphism, this exercise provides an alternative definition of tangent space in terms of charts and euclidean derivatives.
+We will see soon yet another possible definition.
 
 \section{The differential of a smooth map}
 
-With the constructions that we have developed so-far, it should not come a surprise that the notion of differential becomes somewhat tautological.
+In the case of a smooth map between Euclidean spaces, the total derivative of the map at a point (represented by its Jacobian matrix) is a linear map that represents the best linear approximation to the map near the given point.
+In the manifold case there is a similar linear map but, as we discussed, it makes no sense to talk about a linear map between manifolds: we need to find a suitable linear map between tangent spaces.
+
+It should not come a surprise that with the constructions developed so-far not only we have one such map, but we can directly relate it to a derivative.
 
 \begin{defn}
     Let $F: M \to N$ be a smooth map between the smooth manifolds $M$ and $N$.
-    Let $p\in M$. The \emph{differential $d F_p$ of $F$ at $p$} is the map\footnote{The differential $dF_p(v)$ is also commonly denoted $F_* v_p$, $DF(p)[v]$ or variations thereof. Unfortunately there is no real conventional notation among those.}
+    Let $p\in M$. The \emph{differential $d F_p$ of $F$ at $p$} is the map\footnote{In the differential geometry literature, the differential has many names: you can find it called \emph{tangent map}, \emph{total derivative} or \emph{derivative} of $F$. Since it ``pushes'' tangent vectors forward from the domain manifold to the codomain, it is also called the \emph{pushforward}. If that was not enough, different authors use different notation for it: besides $dF_p(v)$, you can find $F_* v_p$, $F'(p)$, $T_pF$, $DF(p)[v]$ or variations thereof.}
     \begin{equation}
         d F_p : T_p M \to T_{F(p)} N, \qquad d F_p (v) (f) := v(f\circ F), \quad \forall f\in C^\infty(N).
     \end{equation}    
@@ -424,13 +438,21 @@ Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F
     where in $\star$ we used the fact that $dF_p (v)\in T_{F(p)}N$.
 \end{proof}
 
+\begin{rmk}
+    The differential of the identity map $\id_M:M\to M$ at any point $p\in M$ is the identity map
+    \begin{equation}
+        \id_{T_pM}: T_pM \to T_pM.
+    \end{equation}
+    Indeed, $d (\id_M)_p(v)(f) = v(f\circ\id_M) = v(f)$ for any $v\in T_pM$ and any $f\in C^\infty(M)$.
+\end{rmk}
+
 The definition we gave seems quite abstract, let's see what it looks like in coordinates.
 
-\begin{thm}
+\begin{prop}\label{prop:DiffCoords}
     Let $F:M^m\to N^n$ be a smooth map between smooth manifolds.
     Let $p\in M$, and let $\phi : U \to \phi(U)$ be a chart on $M$ about $p$ and $\psi: V \to \psi(V)$ be a chart on $N$ about $F(p)$.
     If $(x^i)$ denote the local coordinates of $\phi$ and $(y^i)$ the ones of $\psi$, the matrix of $dF_p$ with respect to the bases $\left\{\frac{\partial}{\partial x^j}\big|_p \;\mid\; j=1,\ldots,m\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial y^j}\big|_p \;\mid\; j=1,\ldots,n\right\}$ of $T_{F(p)}N$ is given by the Jacobian matrix $D(\psi\circ F \circ\phi^{-1})(\phi(p))$.
-\end{thm}
+\end{prop}
 \begin{proof}
     The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \phi^{-1})(\phi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\phi^{-1})(\phi(p))$. For any $j=1,\ldots,m$,
     \begin{align}
@@ -440,5 +462,91 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
         &=\sum_{i=1}^n D_j(r^i \circ \psi \circ F \circ \phi^{-1})(\phi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
     \end{align}
 \end{proof}
+
+A particularly important consequence of this theorem is that our definition coincides with our old euclidean notions if we set $M=\R^m$ and $N=\R^n$.
+This is easily checked by taking $\phi = \id_{\R^m}$ and $\psi=\id_{\R^n}$.
+Then the coordinates $(x^1,\ldots,x^m)$ are the standard euclidean coordinates for $\R^m$ and the coordinates $(y^1,\ldots,y^n)$ the ones for $\R^n$.
+
+Let $f:U\subset\R^m\to\R^n$ be a smooth function and define the linear isomorphisms
+\begin{align}\label{def:lin_iso_Tp}
+    &T_x : \R^m \to T_x\R^m,\quad T_x e_i = \frac{\partial}{\partial x^i}\Big|_x,\\
+    &T_y : \R^n \to T_y\R^n,\quad T_y e_i' = \frac{\partial}{\partial y^i}\Big|_y
+\end{align}
+where $\{e_1,\ldots,e_m\}$ denotes the standard basis of $\R^m$ and $\{e_1',\ldots,e_m'\}$ denotes the standard basis of $\R^n$.
+
+On the one hand, we have the total derivative $Df(x):\R^m\to\R^n$ from multivariable calculus: a linear map, the Jacobian matrix of partial derivatives.
+On the other, we have the differential $df_x : T_x \R^m \to T_{f(x)}\R^m$ defined above: also a linear map, related to the Jacobian matrix of partial derivatives by Proposition~\ref{prop:DiffCoords}.
+In fact we know more, since Proposition~\ref{prop:DiffCoords} tells us that the following diagram commutes:
+\begin{equation}
+    \begin{tikzcd}[row sep=huge, column sep=huge]
+        \R^m \arrow[r, "Df(x)"] \arrow[d, "T_x"]
+        & \R^n \arrow[d, "T_{f(x)}"] \\
+        T_x\R^m \arrow[r, "df_x"]
+        & T_{f(x)}\R^n
+    \end{tikzcd}.
+\end{equation}
+
+More generally, the same kind of computation shows the following fact. For any smooth map $F:M^m \to N^n$ between smooth manifolds, if $\phi$ is a chart about $p\in M$ with coordinates $(x^i)$ and $\psi$ is a chart about $F(p)\in N$ with coordinates $(y^i)$, the following diagram commute:
+\begin{equation}
+    \begin{tikzcd}[row sep=huge, column sep=huge]
+        \R^m \arrow[r, "D(\psi \circ F \circ \phi^{-1})(\phi(x))"] \arrow[d, "T_x"]
+        & \R^n \arrow[d, "T_{F(x)}"] \\
+        T_xM \arrow[r, "dF_x"]
+        & T_{f(x)}N
+    \end{tikzcd},
+\end{equation}
+where $T_p$ and $T_{F(p)}$ are defined as above.
+
+The construction that we employed forced us to fix a basis for the spaces, if this was truly necessary it would defeat the purpose of this whole chapter.
+Fortunately for us, the following exercise shows that, at any given point, the tangent space to a vector space is \emph{canonically}\footnote{That is, independently of the choice of basis.} identified with the vector space itself.
+
+\begin{exe}
+    Let $V$ and $W$ be finite-dimensional vector spaces, endowed with their standard smooth structure (see Exercise~\ref{exe:subsetsmanifolds}).
+    \begin{enumerate}
+        \item Fix $a\in V$. For any vector $v\in V$ define a map $D_v\big|_a : C^\infty(V) \to \R$ by
+        \begin{equation}
+            D_a(v) f = \frac{d}{dt}\Big|_{t=0} f(a + tv).
+        \end{equation}
+        Show that the map $v\mapsto D_a(v) : V \to T_aV$ is an isomorphism of vector spaces.
+        \item Let $L:V\to W$ be a linear map. Show for any $a\in V$ that the following diagram commutes:
+        \begin{equation}
+        \begin{tikzcd}[row sep=huge, column sep=huge]
+            V \arrow[r, "L"] \arrow[d, "D_a"]
+            & W \arrow[d, "D_{La}"] \\
+            T_aV \arrow[r, "dL_a"]
+            & T_{La}W
+        \end{tikzcd}.
+    \end{equation}
+    \end{enumerate}
+\end{exe}
+
+In the next section we will give yet an alternative way of defining tangent vectors: less elegant but easier to compute.
+
+\section{Tangent vectors as tangents to curves}
+
+\begin{defn}
+    If $M$ is a manifold with or without boundary, we define a \emph{(parametrized) curve in M} to be a smooth\footnote{Just for simplicity, continuous would be enough.} map $\gamma : I \to M$, where $I=(a,b)\subseteq\R$ is an interval.
+\end{defn}
+\begin{marginfigure}
+    \includegraphics{2_2-curve-on-M.pdf}
+\end{marginfigure}
+Conventionally we denote the coordinate on $\R$ by $t$ and the derivative of $\gamma$ at a point $t$ by $\gamma'(t)$.
+Fix $t\in(a,b)$. 
+
+A priori we have two different ways to define the \emph{velocity vector of $\gamma$ at a time $t$}, that is, an element $\gamma'(t) \in T_{\gamma(t)}M$:
+\begin{enumerate}
+    \item We can define a derivation on $C^\infty(M)$ at $\gamma(t)$ by setting
+    \begin{equation}
+        \gamma'(t) (f) := (f\circ\gamma)'(t), \quad f\in C^\infty(M).
+    \end{equation}
+    \begin{exe}
+        Show that this is indeed a derivation on $C^\infty(M)$.
+    \end{exe}
+    \item If we think of $\gamma$ as a smooth map between manifolds, we can define the tangent vector via the differential $d\gamma_t$:
+    \begin{equation}
+        \gamma'(t):= d\gamma_t\left(\frac{\partial}{\partial t}\Big|_t\right) \in T_{\gamma(t)}M.
+    \end{equation}
+\end{enumerate}
+
 
 \section{The tangent bundle}
