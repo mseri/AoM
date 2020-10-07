@@ -540,7 +540,8 @@ For example, since $GL_n(\R)$ is an open submanifolds of the vector space $M_n(R
 \end{exe}
 
 \begin{rmk}
-    When $M$ is a smooth manifold with boundary and $p$ is an interior point, all the discussions above apply verbatim.
+    When $M$ is a smooth manifold with boundary and $p$ is an interior point, all the discussions above apply verbatim. In particular, the tangent space at a boundary point of an $n$-dimensional manifold with boundary is also an $n$-dimensional real vector space that can be identified (non-uniquely) with $R^n$ using a chart containing that point.
+
     For $p\in\partial M$ the only change that needs to be made is to substitute $\cH^n$ for $\R^n$, with the understanding that the notation $\frac{\partial}{\partial x^i}\big|_{\phi(p)}$ can be used interchangeably to denote either an element of $T_{\phi(p)}\R^n$ or of $T_{\phi(p)}\cH^n$. In the latter case, the $n$th coordinate vector $\frac{\partial}{\partial x^n}\big|_{p}$ should be interpreted as a one-sided derivative.
 \end{rmk}
 
@@ -656,5 +657,40 @@ To conclude this part, the next proposition shows that velocity vectors behave w
     Hint: use the definitions to rewrite the formula in different ways.
 \end{exe}
 
-
 \section{The tangent bundle}
+
+Instead of working separately with the various tangent spaces, we can ``glue'' them together into a big manifold.
+
+\begin{marginfigure}
+    \includegraphics{2_6-tg_bdl_proj.pdf}
+\end{marginfigure}
+\begin{defn}
+    The \emph{tangent bundle} $TM$ of $M$ is the disjoint union of the tangent spaces
+    \begin{equation}
+        TM := \bigsqcup_{p\in M}\left(\{p\}\times T_pM\right)
+           = \{(p,v) \;\mid\; p\in M,\, v\in T_pM\}.
+    \end{equation}    
+\end{defn}
+
+Elements in $TM$ are pairs\footnote{We will often abuse notation and identify $T_pM$ with with its image under the canonical injection $v\mapsto(p,v)$ and use interchangeably any of the notations $v$, $v_p$ or $(p,v)$ for a vector in $T_pM$ (depending on how much emphasis we need to put on the base point).} $(p,v)$ of a \emph{base point} $p\in M$ and a \emph{tangent vector} $v\in T_pM$.
+
+To the tangent bundle we associate a map $\pi:TM \to M$, the \emph{projection (onto the base)}, which sends each vector in a tangent space to the point at which it is tangent, that is, $\pi(p,v) = p$.
+The second component of the pre-image $\pi^{-1}(\{p\}) = \{p\}\times T_pM$ is called the \emph{fibre} over $p\in M$.
+We will come back to this later on once we talk about vector bundles.
+
+\begin{ex}
+    Let $M\subset \R^n$ be an an open set.
+    We can identify $TM$ in a natural way with $M\times\R^n$.
+    Since $M\times\R^n \subset \R^{2n}$ and thus is a manifold, we can equip the tangent bundle $TM$ with the structure of a manifold induced by this identification.
+\end{ex}
+
+As it turns out, this is a particular instance of a more general fact.
+
+\begin{thm}
+    Let $M$ be a smooth $n$-manifold.
+    The smooth structure on $M$ naturally induces a smooth structure on $TM$, making $TM$ into a smooth manifold of dimension $2n$.
+    Moreover, the map $\pi: TM \to M$ is smooth.
+\end{thm}
+\begin{proof}
+    \TODO
+\end{proof}
