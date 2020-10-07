@@ -307,7 +307,7 @@ To that end, we need a preliminary result from multivariable analysis.
 
 Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 
-\begin{prop}
+\begin{prop}\label{prop:basis_TpM}
     Let $M$ be a smooth manifold of dimension $n$ and $p\in M$.
     Let $\phi: U \to V$ be a chart on $M$ around $p$, i.e. $p\in U$.
     Then any tangent vector $v\in T_p M$ can be uniquely written as a linear combination
@@ -368,10 +368,10 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
     In other words, $D(\phi\circ\psi^{-1})(\psi(p))$ is the transition matrix from the basis $\left\{\frac{\partial}{\partial y^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ to the basis $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$.
 \end{rmk}
 
-\section{Intermission: exercises}
-\TODO
+We said in the introduction that there are multiple equivalent definition of the tangent space. In the following exercise you will provide one in terms of charts and euclidean derivatives.
+Soon, we will see yet another definition.
 
-\begin{exe}
+\begin{exe}\label{exe:vsstruct}
     Let $\{V_\alpha \mid \alpha\in A\}$ be a family of vector spaces indexed by a set $A$, let $W$ be a fixed set and let $T_\alpha: V_\alpha\to W$ be a bijection for all $\alpha\in A$.
     Assume that for any $\alpha, \beta \in A$, the composition $T_\beta^{-1}\circ T_\alpha : V_\alpha \to V_\beta$ is a linear isomorphism.
     Show that there is a unique vector space structure on $W$ such that each $T_\alpha$ is a linear isomorphism.
@@ -395,12 +395,9 @@ For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\phi\in\Si
 \end{enumerate}
 \end{exe}
 
-Due to $\mathcal{S}_p$ being an isomorphism, this exercise provides an alternative definition of tangent space in terms of charts and euclidean derivatives.
-We will see soon yet another possible definition.
-
 \section{The differential of a smooth map}
 
-In the case of a smooth map between Euclidean spaces, the total derivative of the map at a point (represented by its Jacobian matrix) is a linear map that represents the best linear approximation to the map near the given point.
+\newthought{In the case of a smooth map between Euclidean spaces}, the total derivative of the map at a point (represented by its Jacobian matrix) is a linear map that represents the best linear approximation to the map near the given point.
 In the manifold case there is a similar linear map but, as we discussed, it makes no sense to talk about a linear map between manifolds: we need to find a suitable linear map between tangent spaces.
 
 It should not come a surprise that with the constructions developed so-far not only we have one such map, but we can directly relate it to a derivative.
@@ -463,7 +460,21 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
     \end{align}
 \end{proof}
 
-A particularly important consequence of this theorem is that our definition coincides with our old euclidean notions if we set $M=\R^m$ and $N=\R^n$.
+\begin{exe}
+    Show that the matrix of $d F_p$ in terms of the coordinate bases is 
+    \begin{equation}
+        \begin{pmatrix}
+            \frac{\partial F^1}{\partial x^1} (p) & \cdot & \frac{\partial F^1}{\partial x^n} (p) \\
+            \vdots & \ddots & \vdots \\
+            \frac{\partial F^m}{\partial x^1} (p) & \cdot & \frac{\partial F^m}{\partial x^n} (p)
+        \end{pmatrix}
+    \end{equation}
+    without using the Proposition above.
+
+    \noindent Hint: show that $d F_p \left(\frac{\partial}{\partial x^i}\big|_p\right) (f) = \left(\frac{\partial F^j}{\partial x^i} (p) \frac{\partial}{\partial y^j}\big|_{F(p)}\right) (f)$.
+\end{exe}
+
+\newthought{A particularly important consequence} of this theorem is that our definition coincides with our old euclidean notions if we set $M=\R^m$ and $N=\R^n$.
 This is easily checked by taking $\phi = \id_{\R^m}$ and $\psi=\id_{\R^n}$.
 Then the coordinates $(x^1,\ldots,x^m)$ are the standard euclidean coordinates for $\R^m$ and the coordinates $(y^1,\ldots,y^n)$ the ones for $\R^n$.
 
@@ -520,33 +531,130 @@ Fortunately for us, the following exercise shows that, at any given point, the t
     \end{enumerate}
 \end{exe}
 
+An important consequence of what we have seen so-far is that we can routinely \emph{identify} tangent vectors to a finite-dimensional vector space with elements of the space itself.
+More generally, if $M$ is an open submanifold of a vector space $V$, we can combine the identifications $T_p M \simeq T_p V \simeq V$ to obtain a canonical identification of each tangent space to $M$ with $V$.
+For example, since $GL_n(\R)$ is an open submanifolds of the vector space $M_n(R)$, we can identify its tangent space at each point $X\in GL_n(\R)$ with the full space of matrices $M_n(\R)$.
+
+\begin{exe}[Tangent space of a product manifold]
+    \todo{TODO: Lee, Prop 3.14}
+\end{exe}
+
+\begin{rmk}
+    When $M$ is a smooth manifold with boundary and $p$ is an interior point, all the discussions above apply verbatim.
+    For $p\in\partial M$ the only change that needs to be made is to substitute $\cH^n$ for $\R^n$, with the understanding that the notation $\frac{\partial}{\partial x^i}\big|_{\phi(p)}$ can be used interchangeably to denote either an element of $T_{\phi(p)}\R^n$ or of $T_{\phi(p)}\cH^n$. In the latter case, the $n$th coordinate vector $\frac{\partial}{\partial x^n}\big|_{p}$ should be interpreted as a one-sided derivative.
+\end{rmk}
+
 In the next section we will give yet an alternative way of defining tangent vectors: less elegant but easier to compute.
+
 
 \section{Tangent vectors as tangents to curves}
 
 \begin{defn}
-    If $M$ is a manifold with or without boundary, we define a \emph{(parametrized) curve in M} to be a smooth\footnote{Just for simplicity, continuous would be enough.} map $\gamma : I \to M$, where $I=(a,b)\subseteq\R$ is an interval.
+    If $M$ is a manifold with or without boundary, we define a \emph{(parametrized) curve in M} to be a smooth\footnote{Continuous would be enough, but assuming it smooth simplifies the exposition.} map $\gamma : I \to M$, where $I=(a,b)\subseteq\R$ is an interval.
+    \marginnote{Conventionally, $b=-a=\epsilon>0$ (the reason will be clear in a second) and we denote the coordinate on $\R$ by $t$ and the derivative of $\gamma$ at a point $t$ by $\gamma'(t)$. We say that a curve \emph{starts at $p\in M$} If $0\in I$ and $\gamma(0) = p$.}
 \end{defn}
 \begin{marginfigure}
     \includegraphics{2_2-curve-on-M.pdf}
 \end{marginfigure}
-Conventionally we denote the coordinate on $\R$ by $t$ and the derivative of $\gamma$ at a point $t$ by $\gamma'(t)$.
-Fix $t\in(a,b)$. 
 
+Fix $t\in(a,b)$. 
 A priori we have two different ways to define the \emph{velocity vector of $\gamma$ at a time $t$}, that is, an element $\gamma'(t) \in T_{\gamma(t)}M$:
 \begin{enumerate}
     \item We can define a derivation on $C^\infty(M)$ at $\gamma(t)$ by setting
-    \begin{equation}
+    \begin{equation}\label{eq:tg_curve_der}
         \gamma'(t) (f) := (f\circ\gamma)'(t), \quad f\in C^\infty(M).
     \end{equation}
     \begin{exe}
         Show that this is indeed a derivation on $C^\infty(M)$.
     \end{exe}
     \item If we think of $\gamma$ as a smooth map between manifolds, we can define the tangent vector via the differential $d\gamma_t$:
-    \begin{equation}
+    \begin{equation}\label{eq:tg_curve_diff}
         \gamma'(t):= d\gamma_t\left(\frac{\partial}{\partial t}\Big|_t\right) \in T_{\gamma(t)}M.
     \end{equation}
 \end{enumerate}
+
+Do these definition agree?
+One way to check is to pick a chart $\phi: U \to \phi(U)$ in a neighborhood of $gamma(t)$, and compare the expressions in local coordinates. Let $(x^i)$ denote the coordinates of $\phi$ and define the curves $\gamma^i := x^i \circ \gamma : I\to\R$.
+Let's focus on \eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\circ\gamma)'(t) = (\gamma^i)'(t)$, therefore by Proposition~\ref{prop:basis_TpM} we get
+\begin{equation}\label{eq:tg_curve_vec}
+    \gamma'(t) = \sum_{i=1}^m \gamma'(t)(x^i) \frac{\partial}{\partial x^i}\Big|_\gamma(t).
+\end{equation}
+\begin{exe}
+    Show that applying Proposition~\ref{prop:DiffCoords} to \eqref{eq:tg_curve_diff} leads to the same formula as \eqref{eq:tg_curve_vec}.
+\end{exe}
+
+\begin{figure*}[htp]
+    \centering
+    \includegraphics{2_5-v_cur_full.pdf}
+    \caption{The velocity of a curve}
+    \label{fig:2_5-v_cur_full}
+\end{figure*}
+
+But how can this be well defined? Surely, there must be multiple curves with the same speed at a point which differ outside a neighborhood of the point.
+
+\begin{lem}\label{lem:equiv_tg_curves}
+    Let $M$ be a smooth manifolds and $\gamma, \delta : (-\epsilon, \epsilon) \to M$ two smooth curves with $\gamma(0) = \delta(0)$. Then, $\gamma'(0) = \delta'(0)$ as elements of $T_{\gamma(0)}M$ if and only if for some (and thus any) chart $\phi:U\to\phi(U)$, $\gamma(0)\in U$, we have $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$.
+\end{lem}
+\begin{proof}
+    Let $(x^i)$ denote the coordinates of $\phi$. The condition $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ is equivalent as stating that $(\gamma^i)'(0) = (\delta^i)'(0)$, where $\gamma^i = x^i\circ\gamma$ and $\delta^i=x^i\circ\delta$. Then, the claim follows from \eqref{eq:tg_curve_vec} and the fact that $\left\{\frac{\partial}{\partial x^i}\big|_{\gamma(0)}\right\}$ is a basis of $T_{\gamma(0)}M$.
+\end{proof}
+
+This seems to follow a pattern: until now, all the definitions of tangent vectors where in terms of classes of equivalence.
+There is still a potential problem, though. We don't yet know if \emph{every} tangent vector can be written as the velocity vector of a curve.
+
+\begin{thm}
+    Let $M$ be a smooth $n$-manifold, let $p\in M$ and let $v\in T_pM$.
+    There exists a smooth curve $\gamma: (-\epsilon,\epsilon) \to M$ such that $\gamma'(0) = v$.
+\end{thm}
+\begin{proof}
+    Let $\phi:U\to\phi(U)$ be a chart about $p$ such that $\phi(p)=0$.
+    Let $(x^i)$ denote the coordinates of $\phi$, as usual, and assume that
+    \begin{equation}
+        v = \sum_{i=1}^n a^i \frac{\partial}{\partial x^i}\Big|_p, \qquad a^i \in\R.
+    \end{equation}
+    For $\epsilon$ small enough, by continuity the vector $(ta^1, \ldots, ta^n) \in \phi(U)$ for all $|t|<\epsilon$. Therefore, the curve
+    \begin{equation}
+        \gamma: (-\epsilon, \epsilon) \to M, \quad \gamma(t):=\phi^{-1}(ta^1, \ldots, ta^n),
+    \end{equation}
+    is well-defined, smooth, satisfies $\gamma(0) = p$ and, by \eqref{eq:tg_curve_vec}, $\gamma'(0) = v$.
+\end{proof}
+
+\begin{marginfigure}
+    \includegraphics{2_4-v_cur.pdf}
+    \caption{With this definition, the coordinate tangent vectors $\partial_{x^i}\in T_p M$ become the tangent vectors defined by the curve \[t \mapsto \phi^{-1}(x^1(p), \ldots, {x^i(p) + t}, \ldots, x^n(p)).\]}
+    \label{fig:2_4-v_cur}
+\end{marginfigure}
+This means that we can actually make an alternative definition of $T_xM$ in terms of tangent to curves:
+\begin{quote}
+    a tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ for some chart centered about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
+\end{quote}
+
+In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and to endow $T_xM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
+
+To conclude this part, the next proposition shows that velocity vectors behave well under composition with smooth maps and gives us direct, explicit and effective way to compute differentials.
+
+\begin{prop}\label{prop:curves_deriv}
+    Let $F:M\to N$ b a smooth map between smooth manifolds and $\gamma:I\to M$ a smooth curve in $M$.
+    Then
+    \begin{equation}
+        d F_{\phi(t)} (\phi'(t)) = (F\circ\gamma)'(t).
+    \end{equation}
+\end{prop}
+\begin{proof}
+    We are going to use \eqref{eq:tg_curve_diff} as definition of $\gamma'(t)$.
+    Applying the chain rule we obtain:
+    \begin{align}
+        d F_{\phi(t)} (\phi'(t))
+        &= d F_{\phi(t)} \circ d\phi_t \left(\frac{\partial}{\partial t}\Big|_t\right) \\
+        &= d (F\circ\gamma)_t \left(\frac{\partial}{\partial t}\Big|_t\right) \\
+        &= (F\circ\gamma)'(t).
+    \end{align}
+\end{proof}
+
+\begin{exe}
+    Give an alternative proof of Proposition~\ref{prop:curves_deriv} using \eqref{eq:tg_curve_der} as definition for $\gamma'(t)$.
+    Hint: use the definitions to rewrite the formula in different ways.
+\end{exe}
 
 
 \section{The tangent bundle}
