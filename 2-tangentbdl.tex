@@ -347,7 +347,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
     by letting $v$ act on $x^j$, $j\leq 1\leq n$, we obtain $(a_1, \ldots, a_n) = 0$, proving the linear independence.
 \end{proof}
 
-\begin{rmk}[Change of coordinates]
+\begin{rmk}[Change of coordinates]\label{rmk:chg_coords}
     Suppose $\phi$ and $\psi$ are two different charts about $p$, with corresponding coordinates $x^i := r^i \circ \phi$ and $y^i := r^i \circ \psi$.
     Taking $v = \frac{\partial}{\partial y^j}\Big|_p$ in the previous proposition implies that
     \begin{equation}
@@ -454,9 +454,12 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
     The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \phi^{-1})(\phi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\phi^{-1})(\phi(p))$. For any $j=1,\ldots,m$,
     \begin{align}
         dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right)
-        &= \sum_{i=1}^n dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right) (y^i) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
-        &= \sum_{i=1}^n \frac{\partial}{\partial x^j}\Big|_p (y^i \circ F) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
-        &=\sum_{i=1}^n D_j(r^i \circ \psi \circ F \circ \phi^{-1})(\phi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
+        &= %\sum_{i=1}^n 
+          dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right) (y^i) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
+        &= %\sum_{i=1}^n 
+          \frac{\partial}{\partial x^j}\Big|_p (y^i \circ F) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
+        &=%\sum_{i=1}^n 
+          D_j(r^i \circ \psi \circ F \circ \phi^{-1})(\phi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
     \end{align}
 \end{proof}
 
@@ -578,7 +581,8 @@ Do these definition agree?
 One way to check is to pick a chart $\phi: U \to \phi(U)$ in a neighborhood of $gamma(t)$, and compare the expressions in local coordinates. Let $(x^i)$ denote the coordinates of $\phi$ and define the curves $\gamma^i := x^i \circ \gamma : I\to\R$.
 Let's focus on \eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\circ\gamma)'(t) = (\gamma^i)'(t)$, therefore by Proposition~\ref{prop:basis_TpM} we get
 \begin{equation}\label{eq:tg_curve_vec}
-    \gamma'(t) = \sum_{i=1}^m \gamma'(t)(x^i) \frac{\partial}{\partial x^i}\Big|_\gamma(t).
+    \gamma'(t) = %\sum_{i=1}^m
+        \gamma'(t)(x^i) \frac{\partial}{\partial x^i}\Big|_\gamma(t).
 \end{equation}
 \begin{exe}
     Show that applying Proposition~\ref{prop:DiffCoords} to \eqref{eq:tg_curve_diff} leads to the same formula as \eqref{eq:tg_curve_vec}.
@@ -674,7 +678,7 @@ Instead of working separately with the various tangent spaces, we can ``glue'' t
 
 Elements in $TM$ are pairs\footnote{We will often abuse notation and identify $T_pM$ with with its image under the canonical injection $v\mapsto(p,v)$ and use interchangeably any of the notations $v$, $v_p$ or $(p,v)$ for a vector in $T_pM$ (depending on how much emphasis we need to put on the base point).} $(p,v)$ of a \emph{base point} $p\in M$ and a \emph{tangent vector} $v\in T_pM$.
 
-To the tangent bundle we associate a map $\pi:TM \to M$, the \emph{projection (onto the base)}, which sends each vector in a tangent space to the point at which it is tangent, that is, $\pi(p,v) = p$.
+To the tangent bundle we associate a surjective map $\pi:TM \to M$, the \emph{projection (onto the base)}, which sends each vector in a tangent space to the point at which it is tangent, that is, $\pi(p,v) = p$.
 The second component of the pre-image $\pi^{-1}(\{p\}) = \{p\}\times T_pM$ is called the \emph{fibre} over $p\in M$.
 We will come back to this later on once we talk about vector bundles.
 
@@ -692,5 +696,215 @@ As it turns out, this is a particular instance of a more general fact.
     Moreover, the map $\pi: TM \to M$ is smooth.
 \end{thm}
 \begin{proof}
-    \TODO
+    \marginnote[1em]{In this proof you can see instances of a typical abuse of notation: in the expressions $\tilde x^i(x)$ we think of the $\tilde x^i$ as coordinate functions but we think of the $x$ as representing a point in $\phi(U\cap V)$.}
+    \textbf{Step 1: extending charts from $M$ to $TM$.}
+    Given a chart $(U,\phi)$ about $p\in M$, the preimage $\phi^{-1}(U) \subset TM$ is the set of all tangent vectors to $M$ at points of $U$.
+    If $(x^i)$ denotes the coordinate functions of $\phi$, we can define a map $\tilde\phi : \pi^{-1}(U) \to \phi(U)\times\R^n \subset \R^{2n}$ by
+    \begin{align}\label{eq:nat_coords}
+        \tilde\phi\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) := \left(x^1(p), \ldots, x^n(p), v^1, \ldots, v^n\right).
+    \end{align}
+    Since $\tilde\phi$ can be explicitly inverted as $\tilde\phi^{-1}\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) = v^i \frac{\partial}{\partial x^i}\Big|_{\phi^{-1}(x)}$, it defines a bijection onto it image.
+
+    \textbf{Step2: compatibility of the extended charts.}
+    Suppose we have two smooth charts $(U,\phi)$, $(V,\psi)$ for $M$.
+    Let $(\pi^{-1}(U),\tilde\phi)$, $(\pi^{-1}(V),\tilde\psi)$ be their extension\footnote{These are called \emph{bundle charts}.} to $TM$ as in the previous step.
+    By construction, both $\tilde\phi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \phi(U\cap V)\times\R^n$ and $\tilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
+    Moreover, we can take advantage of Remark~\ref{rmk:chg_coords} to write explicitly the transition map  $\tilde\psi\circ\tilde\phi^{-1}: \phi(U\cap V)\times\R^n \to \psi(U\cap V)\times\R^n$ as
+    \begin{align}
+        \tilde\psi\circ&\tilde\phi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) \\
+        &=\left(\tilde x^1(x),\ldots, \tilde x^n(x), \frac{\partial \tilde x^1}{\partial x^j}(x) v^j, \ldots, \frac{\partial \tilde x^n}{\partial x^j}(x) v^j\right)
+    \end{align}
+    Which is clearly smooth.
+
+    \todo{add picture of phi/phitilde}
+    \textbf{Step3: $TM$ is a manifold.}
+    With the procedure delineated above, a countable smooth atlas $\{(U_i, \phi_i)\}$ of $M$ induces a countable atlas $\{(\pi^{-1}(U_i), \tilde\phi_i)\}$ of $TM$.
+    First of all, $\{(\pi^{-1}(U_i)\}$ provides a countable covering of $TM$.
+    
+    We only need to show that the topology induced by the charts is Hausdorff and second countable.
+    
+    Let $(p^1, v^1), (p^2, v^2) \in TM$ be different points: either $p^1\neq p^2$, or $p^1 = p^2$ and $v^1 \neq v^2$.
+    In the first case, there are disjoint open sets $V_1, V_2 \subset U_i$ (for some $i$) containing respectively $p^1$ and $p^2$.
+    Then $\tilde\phi_i^{-1}(V_1\times\R^n)$ and $\tilde\phi_i^{-1}(V_2\times\R^n)$ are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
+    In the second case, $p=p^1=p^2$ there are disjoint open sets $V_1,V_2\subset \R^n$ containing $v^1$ and $v^2$ respectively.
+    Again the preimages $\tilde\phi^{-1}(U_i\times V_1)$ and $\tilde\phi^{-1}(U_i\times V_2)$ (for some $i$) are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
+
+    If countable basis $\{U_j\}$ is countable basis for the topology of $M$ (which is second countable) and $\{W_k\}$ is a countable basis for the topology of $\R^n$, then $\{\tilde\phi^{-1}((U_i\cap U_j)\times W_k)\}$ is a countable basis for $TM$.
+    The charts defined above make $TM$ automatically euclidean of dimension $2n$.
+
+    \textbf{Step4: $\pi$ is smooth.} With respect to the charts $(U,\phi)$ for $M$ and $(\pi^{-1}(U), \tilde\phi)$ for $TM$, the coordinate representation of $\pi$ is $\pi(x,v) = x$.
 \end{proof}
+
+The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{natural coordinates}.
+
+\begin{exe}
+    Show that the differential of a smooth map is a smooth map between manifolds. Hint: use the natural differentiable structure on the tangent bundle described above and the definition of smooth map.
+\end{exe}
+
+Even though \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not true in general with one exception.
+
+\begin{exe}
+    Let $M$ be a smooth $n$-manifold that can be covered by a single smooth chart. Then $TM$ is diffeomorphic to $M\times\R^n$. In this case the bundle $TM$ is called \emph{trivialisable} (and its base $M$ is called \emph{parallelisable}).
+\end{exe}
+
+\begin{rmk}
+    In classical mechanics, the configuration space is usually a manifold $M$.
+    The tangent bundle $TM$ corresponds to the state space, that is, the space of configurations and velocities. In symbols $x=(q,v)$ is a pair of a configuration $q = \pi(x)$ and a velocity $v\in T_q M$.
+    It turns out that the Lagrangian is a function on $TM$.
+\end{rmk}
+
+\section{Submanifolds}
+
+With differentials of smooth functions at hand, we are ready to discuss submanifolds: smaller manifolds sitting inside larger ones.
+
+\begin{defn}
+    Let $M^m$ and $N^n$ be differentiable manifolds and $F:M\to N$ a $C^1$ function.
+    \begin{enumerate}
+        \item $F$ is an \emph{immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
+        \item $F$ is a \emph{submersion} if $dF_p$ is surjective for all $p\in M$ ($\Rightarrow\; m\geq n$);
+        \item $F$ is an \emph{embedding} if $F$ is an injective immersion that is also a homeomorphism onto its range $F(M)\subset N$.
+    \end{enumerate}
+\end{defn}
+
+\begin{ex}
+    \begin{enumerate}
+        \item The prototype of an immersion is the inclusion of $\R^m$ in a higher-dimensional $\R^n$:
+        \begin{align}
+            i &: \R^m \hookrightarrow \R^n,\\
+            i &: \left(x^1, \ldots, x^m\right) \mapsto \left(x^1, \ldots, x^m, \LaTeXunderbrace{0, \ldots, 0}_{m-n}\right).
+        \end{align}
+        
+        Indeed, the $n\times m$ matrix
+        \begin{equation}
+            di_x = Di(x)
+             = \begin{pmatrix}
+                1 & 0 & \cdots & 0 \\
+                0 & 1 & \cdots & 0 \\
+                \vdots & & \ddots & \vdots \\
+                0 & \cdots & \cdots & 1 \\
+                0 & \cdots & \cdots & 0 \\
+                \vdots & & & \vdots \\
+                0 & \cdots & \cdots & 0
+             \end{pmatrix}
+        \end{equation}
+        has full rank (equal to $m$) and is therefore injective.
+        Moreover, the map $i$ is injective and continuously invertible on its range, so it is also an embedding.
+
+        \item The prototype for a submersion is the projection of $\R^m$ onto a lower-dimensional $\R^n$: $\pi\left(x^1,\ldots,x^m,x^{m+1},\ldots,x^n\right) = \left(x^1,\ldots,x^m\right)$.
+        
+        Indeed, the $m\times n$ matrix
+        \begin{equation}
+            d\pi_x = D\pi(x)
+             = \begin{pmatrix}
+                1 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+                0 & 1 & \cdots & 0 & \vdots & & \vdots \\
+                \vdots & & \ddots & \vdots & \vdots & & \vdots \\
+                0 & \cdots & \cdots & 1 & 0 & \cdots & 0
+             \end{pmatrix}
+        \end{equation}
+        has full rank (equal to $n$) and is therefore surjective.
+        Hence, $i$ is a submersion.
+
+        \item Let $n=1$, $m > 1$ and $\gamma:\R\to\R^m$ a smooth curve.
+        The map $\gamma$ is an immersion if and only if its velocity vector satisfies $\gamma'(t)\neq0$ for all $t\in\R$.
+        If the curve intersects itself, e.g $f(t_1) = f(t_2)$ for some $t_1\neq t_2$, then $f$ is not an embedding.
+    \end{enumerate}
+\end{ex}
+
+\begin{rmk}
+    Surjectivity of submersions or injectivity of immersions are properties of the differentials, not of the maps themselves.
+    
+    For example, if $U\subset M$ open, the inclusion $i: U \to M$ is both an immersion and a submersion.
+\end{rmk}
+
+\begin{defn}
+    Let $M$ an $N$ smooth manifolds such that $M\subset N$ as a set.
+    We say that $M$ is an \emph{embedded submanifold} of $N$ if the inclusion $M\hookrightarrow N$ is an embedding. If the inclusion is just an immersion, we say that $M$ is an \emph{immersed submanifold}.
+\end{defn}
+
+Before moving on, it is useful to recall some results from multivariable analysis.
+A function $f:\R^m \to \R^n$ between euclidean spaces has rank $k$ at $x\in\R^m$ if its ($n\times m$) Jacobian matrix $Df(x)$ has rank $k$.
+The function has maximal rank at $x$ if $k = \min(n,m)$.
+When $n=m$, $f$ has maximal rank at $x$ if and only if the square matrix $DF(x)$ is an invertible matrix.
+
+As for many local properties, this definition carries over to manifolds rather ``smoothly''.
+
+\begin{defn}
+    A smooth map $F:M\to N$ has \emph{rank $k$} at a point $p$ if the linear subspace $dF_p(T_pM)$ has dimension $k$ inside $T_{F(p)}N$.
+\end{defn}
+
+And the same is true for the inverse function theorem.
+Compare the following statements.
+
+\begin{thm}[Inverse function theorem]\label{thm:ift}
+    Let $U\subset\R^m$ open and $f:U \to \R^n$ be a smooth map.
+    Assume that $f$ has maximal rank at some $x\in U$, then there exists a neighborhood $\Omega\subset U$ of $x$ such that  $f\big|_\Omega : \Omega \to f(\Omega)$ is a diffeomorphism.
+\end{thm}
+
+\begin{thm}[Inverse function theorem for manifolds]\label{thm:iftm}
+    Let $F:M\to N$ be a smooth function between manifolds of the same dimension $n$.
+    Let $p\in M$ and assume that $F$ has maximal rank (i.e. rank $n$) at $p$.
+    Then there exists a neighborhood $V$ of $p$ such that the restriction $F:V\to F(V)$ is a diffeomorphism.
+\end{thm}
+\begin{proof}
+    This is a purely local statement.
+    Let $(U,\phi)$ be a chart about $p\in M$ and let $(V, \psi)$ be a chart about $F(p)\in N$.
+    Since both $\phi$ and $\psi$ are diffeomorphisms (and thus have maximal rank), the derivative of
+    \begin{equation}
+        \psi \circ F \circ \phi^{-1}: \phi(U\cap F^{-1}(V)) \to \psi(F(U)\cap V)
+    \end{equation}
+    has rank $n$ at $\phi(p)$.
+    Thus the inverse function theorem, Theorem~\ref{thm:ift}, there exists $\Omega \subset \phi(U\cap F^{-1}(V))$ such that $\psi \circ F \circ \phi^{-1}\big|_{\Omega}$ is a diffeomorphism.
+    Therefore, once again since both $\phi$ and $\psi$ are diffeomorphisms, $F\big|_W : W \to F(W)$ is also a diffeomorphism for $W := \phi^{-1}(\Omega)$.
+\end{proof}
+
+In fact, also analogues of the implicit functions theorem carry over.
+We will state them without going into the details of the proofs.
+
+\begin{prop}
+    Let $F:M^m\to N^n$ be an immersion.
+    Then for any $p\in M$, there exists a neighborhood $U$ of $p$ and a chart $(V,\psi)$ about $F(p)\in N$ such that
+    \begin{enumerate}\label{eq:slice_chart}
+        \item If $y^i = r^i\circ \psi$ are the local coordinates of $\psi$ then
+        \begin{equation}
+            F(U)\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\};
+        \end{equation}
+        \item $F\big|_U$ is an embedding.
+    \end{enumerate}
+ \end{prop}
+
+If $F$ is an embedding, and this $M$ is an embedded submanifold, then the set $F(U)$ above can be written as $F(U) = F(M)\cap W$ for some open set $W\subset N$.
+By replacing $V$ in \eqref{eq:slice_chart} with $V\cap W$, one gets 
+\begin{equation}
+    F(M)\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\}.
+\end{equation}
+In particular, this means that a $m$-dimensional submanifold is also a $m$-dimensional manifold whose charts are the ones above after we drop the final $n-m$ components.
+
+From this observation follows another interesting proposition, again consequence of the inverse and the implicit function theorems, of which we will also omit the proof.
+
+\begin{prop}
+    The following assertions are equivalent.
+    \begin{enumerate}
+        \item $M^k\subset N^n$ is a $k$-dimensional submanifold.
+        \item $M$ is locally the image of an embedding of a subset of $\R^k$. That is, for every $p\in M$ there exists $V\subset M$ open neighborhood of $p$, an open set $U\subset\R^k$ and an embedding
+        \begin{equation}
+            \phi : U \to N \quad\mbox{such that}\quad \phi(U)=V.
+        \end{equation}
+        \item $M$ is locally a level set of a submersion into $\R^{n-k}$. That is, for every $p\in M$ there exists $V\subset M$ open neighborhood of $p$ and a submersion $\Phi: V \to\R^{n-k}$ such that
+        \begin{equation}
+            M\cap V = \{q\in V \;\mid\; \Phi(q) = 0\}.
+        \end{equation}
+    \end{enumerate}
+\end{prop}
+
+Up to this point, the first manifold had the same dimension or was smaller than the second one.
+What if it is larger?
+
+\begin{defn}
+    Let $F:M^m \to N^n$ be a smooth map between smooth manifolds.
+    A point $p\in M$ is said to be a \emph{regular point} of $F$ if $F$ has rank $n$ at $p$ (which implies that $m\geq n$), while it is called a \emph{critical point} if it is not.
+
+    Similarly, a point $q\in N$ is called a \emph{regular value} if every point in $F^{-1}(q)$ is a regular point, and \emph{critical value} otherwise. If $q\not\in F(M)$, then $q$ is considered a regular value (in the sense that there is nothing to check in its preimage by $F$).
+\end{defn}
+
+\TODO
