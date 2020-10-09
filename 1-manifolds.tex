@@ -359,6 +359,28 @@ This allows to always view manifolds as metric spaces.
 	The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
 \end{rmk}
 
+Instead of always constructing a topological manifold and then specify a smooth structure, it is often convenient to combine these steps into a single construction.
+This is especially useful when the initial set is not equipped with a topology.
+In this respect, the following lemma provides a welcome shortcut: in brief it says that given a set with suitable ``charts'' that overlap smoothly, we can use the charts to define both a topology and a smooth structure on the set.
+
+\begin{lem}[Smooth manifold lemma]\label{lem:manifold_chart}
+  Let $M$ be a set. Assume that we are given a collection $\{U_\alpha\mid \alpha\in A\}$ of subsets of $M$ together with bijections $\phi_\alpha: U_\alpha\to\phi(U_\alpha)\subseteq\R^n$, where $\phi(U_\alpha)$ is an open subset of $\R^n$. Assume in addition that the following hold:
+  \begin{enumerate}
+    \item For each $\alpha, \beta \in A$, the sets $\phi_\alpha(U_\alpha \cap U_\beta)$ and $\phi_\beta(U_\alpha \cap U_\beta)$ are open in $\R^n$.
+    \item If $U_\alpha \cap U_\beta \neq 0$, the map $\phi_\beta\circ\phi_\alpha^{-1}: \phi_\alpha(U_\alpha \cap U_\beta)\to \phi_\beta(U_\alpha \cap U_\beta)$ is smooth.
+    \item Countably many of the sets $U_\alpha$ cover $M$.
+    \item If $p\neq q$ are points in $M$, either there exists $\alpha$ such that $p,q\in U_\alpha$ or there exists $\alpha,\beta$ with $U_\alpha\cap U_\beta=\emptyset$ such that $p\in U_\alpha$ and $q\in U_\beta$.
+  \end{enumerate}
+  Then $M$ has a unique smooth manifold structure such that each $(U_\alpha,\phi_\alpha)$ is a smooth chart.
+\end{lem}
+\begin{exe}
+  Prove Lemma~\ref{lem:manifold_chart}. Hint: declare all the $\phi_\alpha$ to be homeomorphisms and use the hypotheses to check the definition of a smooth manifold.
+\end{exe}
+
+\begin{ex}[Grassmannian (Manifold)]
+  \todo{Lee, Example 1.36}
+\end{ex}
+
 \begin{tcolorbox}
   The general definition of $C^r$-manifolds is mostly a matter of replacing occurrences of ``smooth'' in the text with $C^r$.
   The study of these more general structures is not dissimilar from what we will see in this course, with the exception of analytic and $C^0$-manifolds, but it introduces an unnecessary extra level of verbosity.
@@ -665,10 +687,10 @@ With such definition at hand, one can define compatibility, smooth atlases and d
   Let's go back to the closed interval $M=[a,b]\subset\R$. 
   With the atlas
   \begin{equation}
-    \cA=\left\{
-      (U_1 = [a,b), \phi_1: x\mapsto x-a),
-      (U_2 = (a,b], \phi_2: x\mapsto b-x)
-    \right\}
+    \cA=\big\{
+      \big([a,b), \; x\mapsto x-a\big),
+      \big((a,b], \; x\mapsto b-x\big)
+    \big\}
   \end{equation}
   it is a differentiable $1$-manifold with boundary $\partial M = \{a\} \cup \{b\} = \{a, b\}$.
 \end{ex}
