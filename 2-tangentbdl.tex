@@ -854,8 +854,8 @@ As for many local properties, this definition carries over to manifolds rather `
     A smooth map $F:M\to N$ has \emph{rank $k$} at a point $p$ if the linear subspace $dF_p(T_pM)$ has dimension $k$ inside $T_{F(p)}N$.
 \end{defn}
 
-And the same is true for the inverse function theorem.
-Compare the following statements.
+And the same is true for the inverse function theorem:
+compare the following statements.
 
 \begin{thm}[Inverse function theorem]\label{thm:ift}
     Let $U\subset\R^m$ open and $f:U \to \R^n$ be a smooth map.
@@ -867,17 +867,21 @@ Compare the following statements.
     Let $p\in M$ and assume that $F$ has maximal rank (i.e. rank $n$) at $p$.
     Then there exists a neighborhood $V$ of $p$ such that the restriction $F:V\to F(V)$ is a diffeomorphism.
 \end{thm}
-\begin{proof}
-    This is a purely local statement.
-    Let $(U,\phi)$ be a chart about $p\in M$ and let $(V, \psi)$ be a chart about $F(p)\in N$.
-    Since both $\phi$ and $\psi$ are diffeomorphisms (and thus have maximal rank), the derivative of
-    \begin{equation}
-        \psi \circ F \circ \phi^{-1}: \phi(U\cap F^{-1}(V)) \to \psi(F(U)\cap V)
-    \end{equation}
-    has rank $n$ at $\phi(p)$.
-    Thus the inverse function theorem, Theorem~\ref{thm:ift}, there exists $\Omega \subset \phi(U\cap F^{-1}(V))$ such that $\psi \circ F \circ \phi^{-1}\big|_{\Omega}$ is a diffeomorphism.
-    Therefore, once again since both $\phi$ and $\psi$ are diffeomorphisms, $F\big|_W : W \to F(W)$ is also a diffeomorphism for $W := \phi^{-1}(\Omega)$.
-\end{proof}
+% \begin{proof}
+%     This is a purely local statement.
+%     Let $(U,\phi)$ be a chart about $p\in M$ and let $(V, \psi)$ be a chart about $F(p)\in N$.
+%     Since both $\phi$ and $\psi$ are diffeomorphisms (and thus have maximal rank), the derivative of
+%     \begin{equation}
+%         \psi \circ F \circ \phi^{-1}: \phi(U\cap F^{-1}(V)) \to \psi(F(U)\cap V)
+%     \end{equation}
+%     has rank $n$ at $\phi(p)$.
+%     Thus the inverse function theorem, Theorem~\ref{thm:ift}, there exists $\Omega \subset \phi(U\cap F^{-1}(V))$ such that $\psi \circ F \circ \phi^{-1}\big|_{\Omega}$ is a diffeomorphism.
+%     Therefore, once again since both $\phi$ and $\psi$ are diffeomorphisms, $F\big|_W : W \to F(W)$ is also a diffeomorphism for $W := \phi^{-1}(\Omega)$.
+% \end{proof}
+\begin{exe}
+    Use the euclidean inverse function theorem\footnote{Theorem~\ref{thm:ift}.} on $\R^n$ to prove Theorem~\ref{thm:iftm}.
+\end{exe}
+
 
 In fact, also analogues of the implicit functions theorem carry over.
 We will state them without going into the details of the proofs.
