@@ -4,53 +4,52 @@ In the euclidean settings these are simply continuous maps that attach a vector 
 
 The step to abstract manifold is rather intuitive in this case: a vector field will be a map that, at each point of a manifold, picks a tangent vector at that point in a smooth way.
 
-\begin{defn}
-    A $C^p$-map $X: M \to TM$ with $\pi\circ X = \id_M$, or equivalently $X_p\in T_pM$ for all $p\in M$, is called \emph{$C^p$-vector field}.
-    We denote\footnote{Since vector fields on a manifolds are also tensor fields of type $(1,0)$, a common equivalent notation would be $\cT_0^1(M)$.
-    This note will become clear later on, after we introduce tensors.} the set of smooth vector fields by $\fX(M)$.
-\end{defn}
+\begin{definition}
+  A $C^p$-map $X: M \to TM$ with $\pi\circ X = \id_M$, or equivalently $X_p\in T_pM$ for all $p\in M$, is called \emph{$C^p$-vector field}.
+  We denote\footnote{Since vector fields on a manifolds are also tensor fields of type $(1,0)$, a common equivalent notation would be $\cT_0^1(M)$. This note will become clear later on, after we introduce tensors.} the set of smooth vector fields by $\fX(M)$.
+\end{definition}
 
-Beware of the curse of differential geometry. 
+Beware of the curse of differential geometry.
 For convenience and to be consistent with our notation for elements of the tangent bundle, we denote the value $X_p\in\{p\}\times T_p M$ of a vector field by $X_p$ instead of $X(p)$.
 Furthermore, we will often identify $X_p$ with its component in $T_pM$, thus considering it as if $X_p\in T_pM$, without explicitly projecting it to the second component.
 
 Let $M$ be a smooth $n$-manifold (with or without boundary).
 Let $X:M\to TM$ be a vector field, not necessarily smooth, and $(U, (x^i))$ a smooth coordinate chart for $M$. Then we can write the value of $X$ at any point $p\in U$ as a linear combination in terms of the coordinate basis vector:
 \begin{equation}\label{eq:vfCoordBAsis}
-    X_p = X^i(p) \frac{\partial}{\partial x^i}\Big|_p.
+  X_p = X^i(p) \frac{\partial}{\partial x^i}\Big|_p.
 \end{equation}
 This defines $n$ functions $X^i: U\to\R$, called \emph{component functions of $X$} in the chart.
 
-\begin{exe}
-    Show that, in the notation above, the restriction of $X$ to $U$ is smooth if and only if its component functions with respect to the chart are smooth.
-\end{exe}
+\begin{exercise}
+  Show that, in the notation above, the restriction of $X$ to $U$ is smooth if and only if its component functions with respect to the chart are smooth.
+\end{exercise}
 
-\begin{ex}
-    If $(U, (x^i))$ is a smooth coordinate chart for a manifold $M$, the assignment $p \mapsto \frac{\partial}{\partial x^i}\big|_p$ determines a vector field on $U$, called the \emph{$i$th-coordinate vector field} and commonly denoted $\partial_{i}$, $\partial_{x^i}$ or $\partial/\partial x^i$.
-    Despite their looks, the $\partial_{x^i}|_p$ denote genuine vectors in $T_p M$ that can be associated to euclidean vectors via a suitable chart.
-\end{ex}
+\begin{example}
+  If $(U, (x^i))$ is a smooth coordinate chart for a manifold $M$, the assignment $p \mapsto \frac{\partial}{\partial x^i}\big|_p$ determines a vector field on $U$, called the \emph{$i$th-coordinate vector field} and commonly denoted $\partial_{i}$, $\partial_{x^i}$ or $\partial/\partial x^i$.
+  Despite their looks, the $\partial_{x^i}|_p$ denote genuine vectors in $T_p M$ that can be associated to euclidean vectors via a suitable chart.
+\end{example}
 
 The space of smooth vector fields is a vector space under pointwise addition and scalar multiplication: for all $p\in M$, $X,Y\in\fX(M)$, $\alpha, \beta \in \R$, we have
 \begin{equation}
-    (\alpha X + \beta Y)_p = \alpha X_p + \beta Y_p.
+  (\alpha X + \beta Y)_p = \alpha X_p + \beta Y_p.
 \end{equation}
 The zero element of the vector space, called \emph{zero vector field}, is the vector field whose values is $0\in T_pM$ for all $p\in M$.
 Moreover, each vector field can be multiplied by smooth functions $f\in C^\infty(M)$ by defining $fX:M\to  TM$ by
 \begin{equation}
-    (fX)_p = f(p)X_p.
+  (fX)_p = f(p)X_p.
 \end{equation}
 
-\begin{prop}
-    Let $M$ be a smooth manifold with or without boundary.
-    \begin{enumerate}
-        \item If $X,Y \in \fX(M)$ and $f,g\in C^\infty(M)$, then $fX+gY \in\fX(M)$.
-        \item $\fX(M)$ is a module over the ring $C^\infty(M)$.
-    \end{enumerate}
-\end{prop}
+\begin{proposition}
+  Let $M$ be a smooth manifold with or without boundary.
+  \begin{enumerate}
+    \item If $X,Y \in \fX(M)$ and $f,g\in C^\infty(M)$, then $fX+gY \in\fX(M)$.
+    \item $\fX(M)$ is a module over the ring $C^\infty(M)$.
+  \end{enumerate}
+\end{proposition}
 
 In this sense, the basis expression \eqref{eq:vfCoordBAsis} can be also rewritten as an equation between fields instead of an equation between vectors at point:
 \begin{equation}\label{eq:vfCoordBAsis}
-    X = X^i \frac{\partial}{\partial x^i},
+  X = X^i \frac{\partial}{\partial x^i},
 \end{equation}
 where $X^i$ denotes the component of the vector field $X$ in the given coordinates.
 
@@ -58,36 +57,48 @@ There is one more way of thinking about the coordinate basis expression above.
 We have seen that differentials of smooth maps define maps between tangent bundles.
 As it turns out, we can employ differentials of diffeomorphisms to map vector fields to vector fields.
 
-\begin{defn}
-    Let $F:M\to N$ be a diffeomorphism of smooth manifolds.
-    Then, the \emph{pushforward} $F_*$ of $F$, defined by\footnote{In coordinates, this reads\begin{equation}
-        (F_* X)_q = dF_{F^{-1}(q)}(X_{F^{-1}(q)}).
+\begin{definition}
+  Let $F:M\to N$ be a diffeomorphism of smooth manifolds.
+  Then, the \emph{pushforward} $F_*$ of $F$, defined by\footnote{In coordinates, this reads\begin{equation}
+      (F_* X)_q = dF_{F^{-1}(q)}(X_{F^{-1}(q)}).
     \end{equation}}
-    \begin{equation}
-        F_*: \fX(M) \to \fX(N),\qquad
-        X \mapsto F_* X = F^{-1} \circ X \circ d F,
-    \end{equation}
-    maps (``pushes forward'') vector fields on $M$ to vector fields on $N$.
-\end{defn}
+  \begin{equation}
+    F_*: \fX(M) \to \fX(N),\qquad
+    X \mapsto F_* X = d F \circ X \circ F^{-1},
+  \end{equation}
+  maps (``pushes forward'') vector fields on $M$ to vector fields on $N$.
+\end{definition}
 
 The definition of pushforward is more easily pictured by means of the following commutative diagram:
 \begin{equation}
-    \begin{tikzcd}[row sep=huge, column sep=huge]
-        M \arrow[d, "X"]
-        & N \arrow[l, "F^{-1}"] \arrow[d, "F_*X" red]\\
-        TM \arrow[r, "d F"]
-        & TN
-    \end{tikzcd}.
+  \begin{tikzcd}[row sep=huge, column sep=huge]
+    M \arrow[d, "X"]
+    & N \arrow[l, "F^{-1}"] \arrow[d, "F_*X" red]\\
+    TM \arrow[r, "d F"]
+    & TN
+  \end{tikzcd}.
 \end{equation}
 
 Then, if $(U, \phi)$ is a coordinate chart for $M$, the restriction of a vector field $X\in\fX(M)$ to $U$ can be mapped to a vector field on $\phi(U)\subset\R^n$ via the pushforward $\phi_*$:
 \begin{align}
-    \phi_* X &: \LaTeXunderbrace{\phi(U)}_{\subset\R^n} \to \LaTeXunderbrace{T \phi(U)}_{=\phi(U)\times\R^n}, \\
-    \phi_* X &: x\mapsto (q,v(x)) \quad\mbox{with}\mbox v(x) = v^j(x)e_j \in \R^n,
+  \phi_* X & : \LaTeXunderbrace{\phi(U)}_{\subset\R^n} \to \LaTeXunderbrace{T \phi(U)}_{=\phi(U)\times\R^n}, \\
+  \phi_* X & : x\mapsto (q,v(x)) \quad\mbox{with}\mbox v(x) = v^j(x)e_j \in \R^n,
 \end{align}
 where $v^j(x)$ are the components\footnote{As we start getting used to, the chart $\phi$ here plays a twofold role: it provides the coordinates $x=\phi(p)$ on the patch $U$ and the coordinate basis of the tangent space.} of $X_p\in T_p M$ at $p=\phi^{-1}(x)$ with respect to the coordinate basis $\left\{\frac{\partial}{\partial x^i}\big|_x\right\}$.
 
 \todo{Example 8.20 Lee + Corollary 8.21}
+
+% XXX: Remember to mention it when we define pullbacks
+% An interesting property of the pushforward defined above is that
+% \begin{equation}
+%     X(f\circ F) = F_*X(f) \circ F, \quad f\in C^\infty(N).
+% \end{equation}
+
+% Indeed,
+% \begin{align}
+%     X(f^* F) = d (f\circ F) \circ X = df \circ dF \circ X = df \circ F_* X \circ F = F_* X (f) \circ X.
+% \end{align}
+% This is called natural behavior: either you can pull back the function $f$ to $M$ or push forward the vector field $X$ to $N$.
 
 While we continue to explore the twofold nature of geometric objects, it is worth looking back at our original definition of tangent vectors.
 In one of our first encounters with tangent spaces, we said that a tangent vector $v$ at a point $p\in M$ defines a derivative at that point by taking the directional derivative of a function at that point.
@@ -95,56 +106,100 @@ In one of our first encounters with tangent spaces, we said that a tangent vecto
 A vector field $X$ now provides a tangent vector and, therefore, a derivation at every point of the manifold.
 In this sense, $X\in\fX(M)$ induces a linear map on the algebra $C^\infty(M)$ of smooth functions on $M$: for $f\in C^\infty(M)$,
 \begin{equation}
-    Xf : M\to\R, \quad
-    (Xf)_p := X_p f, \quad p\in M. 
+  Xf : M\to\R, \quad
+  (Xf)_p := X_p f, \quad p\in M.
 \end{equation}
 \marginnote{Beware of the ordering: $fX\in\fX(M)$ but $Xf\in C^\infty(M)$!}
 
-\begin{ntn}
-    Let $f\in C^\infty(M)$ and let $(U, \phi)$ be a chart with coordinates $(x^i)$.
-    Then, for $X = \frac{\partial}{partial x^i}$, we denote $Xf$ by $\frac{\partial f}{partial x^i}$ and thus the following notations are for us equivalent:
-    \begin{equation}
-        \frac{\partial f}{\partial x^i}(p)
-        = \left(\frac{\partial}{\partial x^i}\right)_p(f)
-        = \frac{\partial}{\partial x^i}\Big|_p(f)
-        = D_i(f\circ\phi^{-1})(\phi(p)).
-    \end{equation}
-    If $M$ is an open subset of $\R^n$ and $\phi=\id_{\R^n}$, then the last equality shows that the notation is consistent with the usual definition of partial derivatives from multivariable analysis.
-\end{ntn}
+\begin{notation}\label{notation:derivative}
+  Let $f\in C^\infty(M)$ and let $(U, \phi)$ be a chart with coordinates $(x^i)$.
+  Then, for $X = \frac{\partial}{partial x^i}$, we denote $Xf$ by $\frac{\partial f}{partial x^i}$ and thus the following notations are for us equivalent:
+  \begin{equation}
+    \frac{\partial f}{\partial x^i}(p)
+    = \left(\frac{\partial}{\partial x^i}\right)_p(f)
+    = \frac{\partial}{\partial x^i}\Big|_p(f)
+    = D_i(f\circ\phi^{-1})(\phi(p)).
+  \end{equation}
+  If $M$ is an open subset of $\R^n$ and $\phi=\id_{\R^n}$, then the last equality shows that the notation is consistent with the usual definition of partial derivatives from multivariable analysis.
+\end{notation}
 
-\begin{exe}
-    If $X\in\fX(M)$ and $f\in C^\infty(M)$, then $Xf\in C^\infty(M)$.
-\end{exe}
+\begin{exercise}
+  If $X\in\fX(M)$ and $f\in C^\infty(M)$, then $Xf\in C^\infty(M)$.
+\end{exercise}
 
 This whole discussion allows us to extend the notion of derivation at a point to a derivation on the whole space.
-\begin{defn}
-    Let $M$ be a smooth manifold and $\emptyset\neq W\subset M$ an open set.
-    A \emph{derivation on $C^\infty(W)$} is a linear map
-    \begin{equation}
-        \cX:C^\infty(W)\to C^\infty(W)
-    \end{equation}
-    satisfying Leibniz rule:
-    \begin{equation}
-        \cX(fg) = f \cX(g) + g \cX(f).
-    \end{equation}
-\end{defn}
+\begin{definition}
+  Let $M$ be a smooth manifold and $\emptyset\neq W\subset M$ an open set.
+  A \emph{derivation on $C^\infty(W)$} is a linear map
+  \begin{equation}
+    \cX:C^\infty(W)\to C^\infty(W)
+  \end{equation}
+  satisfying Leibniz rule:
+  \begin{equation}
+    \cX(fg) = f \cX(g) + g \cX(f).
+  \end{equation}
+\end{definition}
 
 Any vector field $X\in\fX(W)$ defines a derivation $\cX$ via $\cX(f) = Xf$. In fact the opposite is also true:
-\begin{prop}
-    Let $M$ be a smooth manifold and $\emptyset\neq W\subset M$ an open set.
-    The set of derivation on $W$ and $\fX(W)$ are isomorphic as $C^\infty(W)$-modules.
-\end{prop}
+\begin{proposition}
+  Let $M$ be a smooth manifold and $\emptyset\neq W\subset M$ an open set.
+  The set of derivation on $W$ and $\fX(W)$ are isomorphic as $C^\infty(W)$-modules.
+\end{proposition}
 \begin{proof}
-    Suppose $\cX$ is a derivation on $C^\infty(W)$ and fix $p\in W$. Then $\cX$ defines a derivation on $C^\infty(W)$ at $p$, which we casually denote by $X_p$, via the formula
-    \begin{equation}
-        X_p(f) := \cX(f)(p), \quad\forall f\in C^\infty(W).
-    \end{equation}
-    We can then think of $X$ as a map $W\to TM$ via $X\mapsto X_p$.
-    \marginnote{Challenge: count how many times we are using the isomorphism between derivations at points and tangent vectors in this proof.}
-    Since $X(f)=\cX(f)$ by construction, it is a smooth function for all $f\in C^\infty(W)$ and therefore is smooth as vector field, concluding the proof.
+  Suppose $\cX$ is a derivation on $C^\infty(W)$ and fix $p\in W$. Then $\cX$ defines a derivation on $C^\infty(W)$ at $p$, which we casually denote by $X_p$, via the formula
+  \begin{equation}
+    X_p(f) := \cX(f)(p), \quad\forall f\in C^\infty(W).
+  \end{equation}
+  We can then think of $X$ as a map $W\to TM$ via $X\mapsto X_p$.
+  \marginnote{Challenge: count how many times we are using the isomorphism between derivations at points and tangent vectors in this proof.}
+  Since $X(f)=\cX(f)$ by construction, it is a smooth function for all $f\in C^\infty(W)$ and therefore is smooth as vector field, concluding the proof.
 \end{proof}
 
 Therefore, from now on, we will also interchange derivations of $C^\infty$ and vector fields, and call them with capital latin letters.
 
-Up to now, we have entangled analysis, linear algebra, topology and geometry into the picture.
-As you may have already hinted a few times above, it is time to bother a little more algebra.
+Once you have a module, it is worth checking if you can get an algebra.
+Indeed, that is going to be our next objective.
+
+We are looking for a bilinear map $\fX(W)\times\fX(W) \to \fX(W)$.
+The most natural choice is to just apply the derivatives one after the other:
+\begin{equation}
+  X Y: C^\infty(W) \to C^\infty(W), \quad
+  (X Y)(f) := X(Y(f)).
+\end{equation}
+If this satisfies the product rule, we are done.
+Let $f,g\in C^\infty(W)$, we have
+\begin{align}
+  (X Y)(fg) &= X(fY(g) + gY(f)) \\
+  &= \left(f(X Y)(g) + g(X Y)(f)\right) + \left( X(f)Y(g) +X(g)Y(f)\right).
+\end{align}
+Unfortunately for us, this is not a derivation. However, we do not seem to be so far off.
+If we carefully look at the ``error'', i.e. the term $\left( X(f)Y(g) +X(g)Y(f)\right)$, we can observe that it is symmetric with respect to $X$ and $Y$.
+One way to let it cancel out, is to consider the \emph{commutator} of the two vector fields:
+\begin{equation}\label{def:commutator}
+    [X,Y] := X Y - Y X.
+\end{equation}
+Indeed, $[X,Y]$ is a derivation.
+
+\begin{definition}
+    Let $X,Y\in\fX(W)$. We call \emph{Lie bracket} of $X$ and $Y$ the derivation given by their commutator $[X,Y] := X Y - Y X$.
+\end{definition}
+
+We will see many applications of the Lie brackets throughout the rest of the course, but before doing anything, let's find an effective way to compute it.
+
+\begin{proposition}
+    Let $(U, \phi)$ be a chart on $M$ with local coordinates $(x^i)$ and let $X,Y\in\fX(U)$.
+    If $X = X^i \frac{\partial }{\partial x^i}$ and $Y = Y^i \frac{\partial}{\partial x^i}$ are the coordinate expressions for $X$ and $Y$, then\footnote{Recall Notation~\ref{notation:derivative}!}
+    \begin{equation}
+        [X,Y] = \left(X^i\frac{\partial Y^j}{\partial x^i} - Y^i\frac{\partial X^j}{y^i}\right)\frac{\partial}{\partial x^j}.
+    \end{equation}
+\end{proposition}
+
+\begin{exercise}
+    Prove the previous proposition.
+\end{exercise}
+
+\section{Flows and integral curves}
+
+\begin{theorem}[Existence and uniqueness of solutions of ODEs]
+    \TODO
+\end{theorem}
