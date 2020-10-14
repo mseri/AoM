@@ -774,6 +774,60 @@ Even though \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not t
   It turns out that the Lagrangian is a function on $TM$.
 \end{remark}
 
+What we have seen here is our first example of vector bundle.
+
+\begin{definition}\label{def:vector_bundle}
+  A \emph{vector bundle of rank $r$} on a manifold $M$ is a manifold $E$ together with a smooth surjective map $\pi : E \to M$ such that, for all $p\in M$, the following properties hold:
+  \begin{enumerate}
+    \item the \emph{fibre over $p$} $E_p := \pi^{-1}(p)$ has the structure of vector space of dimension $r$;
+    \item there is a neighborhood $U\subset M$ of $p$ and a diffeomorphism $\Phi: \pi^{-1}(U) \to U \times \R^r$ such that
+    \begin{enumerate}
+      \item $\pi_1 \circ \Phi = \pi$ where $\pi_1: U\times\R^r\to U$ is the projection on the first factor,
+      \item for all $q\in U$, $\Phi\big|_{E_q} : E_q \to Q\times \R^r$ is an isomorphism of vector spaces.
+    \end{enumerate}
+  \end{enumerate}
+
+  The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\Phi$ is called \emph{local trivialisation}.
+
+  If there exists a trivialisation defined on the whole manifold, that is a map $\Phi: M \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}.
+\end{definition}
+
+\begin{example}
+  A simple example of vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ itself with the projection on the first component $\pi_1: E\to M$. In this case the bundle is clearly trivialisable.
+  Another example is the tangent bundle $TM$ with its projection $\pi:TM\to M$.
+  Other examples will appear throughout the course.
+\end{example}
+
+\begin{exercise}
+  Show that $\dim(E) = \dim(M) + r$.
+\end{exercise}
+\begin{exercise}
+  Show that if $\pi:E\to M$ is a vector bundle and $U\subset M$ is an open set, tjen $\pi\big|_{\pi^{-1}(U)}: \pi^{-1}(U) \to U$ is a vector bundle.
+\end{exercise}
+
+\begin{definition}
+  A \emph{section} of a vector bundle $\pi:E \to M$ is a smooth map $S:M \to E$ such that $\pi\circ S = \id_M$. We denote the set of all sections of $E$ by $\Gamma(E)$.
+  If, in the definition, $M$ is replaced by $U\subset M$, the section is called \emph{local section}. The set of local sections on $U\subset M$ is denoted $\Gamma(E|_U)$.
+\end{definition}
+
+\begin{example}
+  If $E = M\times \R^r$, then for any smooth map $F: M\to\R^r$ we have a section $S\in\Gamma(E)$ defined by $S(p) = (p, F(p))$. This is a classical euclidean vector field: a map that associates vectors to points.
+  \begin{marginfigure}
+    \includegraphics{2_9-vfield.pdf}
+  \end{marginfigure}
+  Notice, in particular, that functions $f\in C^\infty(M)$ are sections of the trivial bundle $M\times\R$.
+\end{example}
+
+\begin{definition}
+  A \emph{local frame} of a bundle $\pi:E\to M$ of rank $r$ is a family of $r$ local sections $(S_1, \ldots, S_r)\in\Gamma(E|_U)$ such that $(S_1(p), \ldots, S_r(p))$ is a basis for $E_p$ for all $p\in U$.
+  If $U=M$ then $(S_1, \ldots, S_r)$ is called \emph{local frame}.
+  Sometimes, the sections $S_j$ are called \emph{basis sections}.
+\end{definition}
+
+\begin{example}
+  A chart on a $n$-manifold $M$ with local coordinates $(x^i)$ yields a local frame $\left\{\frac{\partial}{\partial x^1}, \ldots, \frac{\partial}{\partial x^n}\right\}$ of the tangent bundle $TM$.
+\end{example}
+
 \section{Submanifolds}
 
 With differentials of smooth functions at hand, we are ready to discuss submanifolds: smaller manifolds sitting inside larger ones.

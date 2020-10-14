@@ -6,8 +6,13 @@ The step to abstract manifold is rather intuitive in this case: a vector field w
 
 \begin{definition}
   A $C^p$-map $X: M \to TM$ with $\pi\circ X = \id_M$, or equivalently $X_p\in T_pM$ for all $p\in M$, is called \emph{$C^p$-vector field}.
-  We denote\footnote{Since vector fields on a manifolds are also tensor fields of type $(1,0)$, a common equivalent notation would be $\cT_0^1(M)$. This note will become clear later on, after we introduce tensors.} the set of smooth vector fields by $\fX(M)$.
+  We denote\footnote{Alternative notations are $\cT_0^1(M)$, $\cT(M)$ and $\Gamma(TM)$. The first two are related to vector fields being tensor fields of type $(1,0)$, a topic that we will discuss in the near future.} the set of smooth vector fields by $\fX(M)$.
 \end{definition}
+
+\begin{remark}
+  A careful look at the definition shows that vector fields are sections of $TM$, indeed $\fX(M) \equiv \Gamma(TM)$.
+  This is a useful way to start understanding the bundle terminology: in some sense, sections of vector bundles are a generalisation of vector fields.
+\end{remark}
 
 Beware of the curse of differential geometry.
 For convenience and to be consistent with our notation for elements of the tangent bundle, we denote the value $X_p\in\{p\}\times T_p M$ of a vector field by $X_p$ instead of $X(p)$.
@@ -161,9 +166,9 @@ Once you have a module, it is worth checking if you can get an algebra.
 Indeed, that is going to be our next objective.
 
 We are looking for a bilinear map $\fX(W)\times\fX(W) \to \fX(W)$.
-The most natural choice is to just apply the derivatives one after the other:
+The most natural choice is to just compose the vector fields, that is, apply the derivatives one after the other:
 \begin{equation}
-  X Y: C^\infty(W) \to C^\infty(W), \quad
+  X Y := X \circ Y : C^\infty(W) \to C^\infty(W), \quad
   (X Y)(f) := X(Y(f)).
 \end{equation}
 If this satisfies the product rule, we are done.
