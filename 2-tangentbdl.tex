@@ -395,7 +395,7 @@ For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\phi\in\Si
 \end{enumerate}
 \end{exercise}
 
-\section{The differential of a smooth map}
+\section{The differential of a smooth map}\label{sec:diffsmooth}
 
 \newthought{In the case of a smooth map between Euclidean spaces}, the total derivative of the map at a point (represented by its Jacobian matrix) is a linear map that represents the best linear approximation to the map near the given point.
 In the manifold case there is a similar linear map but, as we discussed, it makes no sense to talk about a linear map between manifolds: we need to find a suitable linear map between tangent spaces.
@@ -762,24 +762,20 @@ The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{n
   Show that the differential of a smooth map is a smooth map between manifolds. Hint: use the natural differentiable structure on the tangent bundle described above and the definition of smooth map.
 \end{exercise}
 
-Even though \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not true in general with one exception.
-
-\begin{exercise}
-  Let $M$ be a smooth $n$-manifold that can be covered by a single smooth chart. Then $TM$ is diffeomorphic to $M\times\R^n$. In this case the bundle $TM$ is called \emph{trivialisable} (and its base $M$ is called \emph{parallelisable}).
-\end{exercise}
-
 \begin{remark}
   In classical mechanics, the configuration space is usually a manifold $M$.
   The tangent bundle $TM$ corresponds to the state space, that is, the space of configurations and velocities. In symbols $x=(q,v)$ is a pair of a configuration $q = \pi(x)$ and a velocity $v\in T_q M$.
   It turns out that the Lagrangian is a function on $TM$.
 \end{remark}
 
+\section{Vector bundles}
+
 What we have seen here is our first example of vector bundle.
 
 \begin{definition}\label{def:vector_bundle}
   A \emph{vector bundle of rank $r$} on a manifold $M$ is a manifold $E$ together with a smooth surjective map $\pi : E \to M$ such that, for all $p\in M$, the following properties hold:
   \begin{enumerate}
-    \item the \emph{fibre over $p$} $E_p := \pi^{-1}(p)$ has the structure of vector space of dimension $r$;
+    \item the \emph{fibre over $p$}, $E_p := \pi^{-1}(p)$, has the structure of vector space of dimension $r$;
     \item there is a neighborhood $U\subset M$ of $p$ and a diffeomorphism $\Phi: \pi^{-1}(U) \to U \times \R^r$ such that
     \begin{enumerate}
       \item $\pi_1 \circ \Phi = \pi$ where $\pi_1: U\times\R^r\to U$ is the projection on the first factor,
@@ -789,7 +785,7 @@ What we have seen here is our first example of vector bundle.
 
   The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\Phi$ is called \emph{local trivialisation}.
 
-  If there exists a trivialisation defined on the whole manifold, that is a map $\Phi: M \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}.
+  If there exists a trivialisation defined on the whole manifold, that is a map $\Phi: M \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}. In that case the base is said to be \emph{parallelisable}.
 \end{definition}
 
 \begin{example}
@@ -802,11 +798,12 @@ What we have seen here is our first example of vector bundle.
   Show that $\dim(E) = \dim(M) + r$.
 \end{exercise}
 \begin{exercise}
-  Show that if $\pi:E\to M$ is a vector bundle and $U\subset M$ is an open set, tjen $\pi\big|_{\pi^{-1}(U)}: \pi^{-1}(U) \to U$ is a vector bundle.
+  Show that if $\pi:E\to M$ is a vector bundle and $U\subset M$ is an open set, then $\pi\big|_{\pi^{-1}(U)}: \pi^{-1}(U) \to U$ is a vector bundle.
 \end{exercise}
 
 \begin{definition}
   A \emph{section} of a vector bundle $\pi:E \to M$ is a smooth map $S:M \to E$ such that $\pi\circ S = \id_M$. We denote the set of all sections of $E$ by $\Gamma(E)$.
+  
   If, in the definition, $M$ is replaced by $U\subset M$, the section is called \emph{local section}. The set of local sections on $U\subset M$ is denoted $\Gamma(E|_U)$.
 \end{definition}
 
@@ -818,6 +815,12 @@ What we have seen here is our first example of vector bundle.
   Notice, in particular, that functions $f\in C^\infty(M)$ are sections of the trivial bundle $M\times\R$.
 \end{example}
 
+Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not true in general with one exception.
+\begin{exercise}\label{ex:trivialisable}
+  Let $M$ be a smooth $n$-manifold that can be covered by a single smooth chart.
+  Show that $TM$ is diffeomorphic to $M\times\R^n$ (without applying Proposition~\ref{prop:trivialisable}).
+\end{exercise}
+
 \begin{definition}
   A \emph{local frame} of a bundle $\pi:E\to M$ of rank $r$ is a family of $r$ local sections $(S_1, \ldots, S_r)\in\Gamma(E|_U)$ such that $(S_1(p), \ldots, S_r(p))$ is a basis for $E_p$ for all $p\in U$.
   If $U=M$ then $(S_1, \ldots, S_r)$ is called \emph{local frame}.
@@ -828,6 +831,29 @@ What we have seen here is our first example of vector bundle.
   A chart on a $n$-manifold $M$ with local coordinates $(x^i)$ yields a local frame $\left\{\frac{\partial}{\partial x^1}, \ldots, \frac{\partial}{\partial x^n}\right\}$ of the tangent bundle $TM$.
 \end{example}
 
+\begin{remark}
+  In the spirit of what we have seen about the previous example, given a local frame $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ of a vector bundle $\pi: E \to M$ we can express any section $X\in\Gamma(E)$ as a linear combination of elements of the frame:
+  \begin{equation}
+    X = X^i S_i \quad\mbox{on }U,
+  \end{equation}
+  where $X^i\in C^\infty(U)$, $i=1,\ldots,r$.
+  After all, for each $p\in U\subset M$ the local frame is a basis for $E_p$.
+\end{remark}
+
+\begin{proposition}\label{prop:trivialisable}
+  A vector bundle $\pi: E\to M$ is trivialisable if and only if it admits a global frame.
+\end{proposition}
+\begin{proof}
+  Let $\Phi: E \to M\times\R^r$ be a global trivialisation and $(e_1, \ldots, e_r)$ the canonical basis for $\R^r$.
+  For $q\in M\times\R^r$, $(S_1(q), \ldots, S_r(q)) := \left(\Phi^{-1}\big|_q(e_1), \ldots, \Phi^{-1}\big|_q(e_r) \right)$ is a global frame for $E$ (why?).
+
+  Conversely, let $(S_1, \ldots, S_r)$ be a global frame for $E$. Then
+  \begin{equation}
+    \Phi: E \to M\times\R^r, \quad
+    \left(p, v^i S_i(p)\right) \mapsto \left(p, (v^1, \ldots, v^r)\right),
+  \end{equation}
+  is a global trivialisation for $E$.
+\end{proof}
 \section{Submanifolds}
 
 With differentials of smooth functions at hand, we are ready to discuss submanifolds: smaller manifolds sitting inside larger ones.
