@@ -208,37 +208,284 @@ We will see many applications of the Lie brackets throughout the rest of the cou
 Once again, a comparison with the euclidean world can open the door to a whole new world.
 Vector fields on euclidean spaces give rise to ordinary differential equations (ODEs) and to each vector field we can associate a flow, that is, the curve that solve the ODE.
 
-The classical Picard-Lindel\"of theorem, also known as existence and uniqueness of solutions of ODEs, then give us the necessary conditions to ensure that such flow exists locally or globally and it is well defined.
+The classical theorems of existence and uniqueness of solutions of ODEs, then, give us the necessary conditions to ensure that such flow exists locally or globally and it is well defined.
 For a rather detailed account you can refer to \cite[Chapters 3.2 and 3.3]{book:knauf} (which you can freely access on \href{https://link.springer.com/book/10.1007\%2F978-3-662-55774-7}{SpringerLink} via the university proxy).
 
-If $F: U \subset R^n \to R^n$ is a regular enough vector field, for each $x\in U$, you can always find a curve $\gamma:(-\epsilon, \epsilon)\to \R^n$ such that $\gamma(0)=x$ and $\frac{d}{dt} \gamma (t)= F(\gamma(t))$.
+In fact, if $X: U\subset\R^n \to \R^n$ is a vector field on an open subset $U$ of $\R^n$, and
+\begin{equation}\label{eq:XflowRn}
+  \dot u(t) = X(u(t))
+\end{equation}
+is the corresponding ODE, then we have the following implications of the euclidean theorems on existence and uniqueness of solutions:
+\begin{enumerate}[(i)]
+  \item if $X$ is continuous, then for each $x\in U$ there exists $\epsilon > 0$ and a differentiable curve $u = u_{x} : (-\epsilon, \epsilon) \to U$ with $u_x(0) = x$ that solves \eqref{eq:XflowRn};
+  \item (Picard-Lindel\"of theorem) if $X$ is locally Lipschitz continuous, then the solution $u_x$ is unique;
+  \item if $X\in C^p(U,\R^n)$, then the solution map $\Phi : (t, x) \to (t, x) := u_x (t)$ is $p$-times continuously differentiable as a function of the initial data, i.e. $\Phi(x, \cdot)\in C^p(U)$ for all $t$ in the existence domain.
+\end{enumerate}
 
-As we are getting used to, this can be extended to manifolds in a quite direct fashion.
+As we are getting used to, the whole theory can be extended to manifolds in a quite direct but perhaps surprising fashion.
 
 \begin{definition}
   Let $M$ be a manifold and let $X\in\fX(M)$.
   A smooth curve $\gamma: (a,b)\subset\R \to M$ is an \emph{integral curve} of $X$ if
-  \begin{equation}
-    \gamma'(t) = X \gamma(t) \qquad \forall t\in(a,b).
+  \begin{equation}\label{eq:integralCurve}
+    \gamma'(t) = X_{\gamma(t)} \qquad \forall t\in(a,b).
   \end{equation}
+  Conventionally, we assume that $0\in(a,b)$. In this case, if $\gamma(0)=p$, we say that $\gamma$ is an integral curve \emph{through $p$}.
 \end{definition}
+
+\begin{example}
+  \todo{Lee Example 9.1 p. 206}
+\end{example}
+
+\begin{notation}
+  If $M$ is a manifold and $(a,b)\subset\R$, also $(a,b)\times M$ is a manifold. 
+  Conventionally, for $p\in M$ we will denote $i_p : (a,b) \to (a,b)\times M$ the map $i_p(t) := (t,p)$.
+  All the following notations will denote the tangent vector in $T_{(t,p)}((a,b)\times M)$ obtained from $\frac{\partial}{\partial t}\big|_t \in T_t\R$:
+  \begin{equation}
+    \frac{\partial}{\partial t}\Big|_{(t,p)} := d (i_p)_t\left(\frac{\partial}{\partial t}\Big|_t\right) = i_p'(t).
+  \end{equation}
+\end{notation}
 
 Exercise~\ref{ex:tg_curve_iso} implies that in the euclidean case our definition (in terms of equality of tangent vectors on $T_{\gamma(t)}(M)$) coincides with the euclidean flow (defined in terms of equality of real numbers).
 Alternatively, one can pick a coordinate chart and use the pushforward to locally compare the definitions.
 
-In fact, if $X: U\subset\R^n \to \R^n$ is a vector field on an open subset $U$ of $\R^n$, and
+Indeed, if $(U, \phi)$ is a chart with coordinates\footnote{We will soon stop being so verbose and just write ``in local coordinates on $U$'' without specifying their names (unless strictly necessary)!} $(x^i)$, let $\gamma(t) = (\gamma^1(t), \ldots, \gamma^n(t))$ in these coordinates. Then, condition \eqref{eq:integralCurve} above can be written as
 \begin{equation}
-  \dot u(t) = X u(t)
+  \dot\gamma^i(t)\frac{\partial}{\partial x^i}\Big|_{\gamma(t)}
+  = X^i(\gamma(t))\frac{\partial}{\partial x^i}\Big|_{\gamma(t)},\quad i=1,\ldots,n,
 \end{equation}
-is the corresponding ODE, then we have the following implications of the euclidean theorems on existence and uniqueness of solutions:
-\begin{enumerate}
-  \item if $X$ is continuous, then for each $x_0\in U$ \TODO
-\end{enumerate}
-
-
-If $M$ is a manifold and $(a,b)\subset\R$, also $(a,b)\times M$ is a manifold. 
-Conventionally, for $p\in M$ we will denote $i_p : (a,b) \to (a,b)\times M$ the map $i_p(t) := (t,p)$.
-All the following notations will denote the tangent vector in $T_{(t,p)}((a,b)\times M)$ obtained from $\frac{\partial}{\partial t}\big|_t \in T_t\R$:
+where we use the dot to denote the derivative in $t$ for readability.
+These equations can be further rewritten as the system of partial differential equations of the same form as \eqref{eq:XflowRn}
 \begin{equation}
-  \frac{\partial}{\partial t}\Big|_{(t,p)} := d (i_p)_t\left(\frac{\partial}{\partial t}\big|_t\right) = i_p'(t).
+  \begin{cases}
+    \dot\gamma^1(t) = X^1(\gamma^1(t), \ldots, \gamma^n(t)) \\
+    \quad \vdots \\
+    \dot\gamma^n(t) = X^n(\gamma^1(t), \ldots, \gamma^n(t))
+  \end{cases},
 \end{equation}
+to which we can apply euclidean theorems of existence and uniqueness!
+Note also the terminology here, an ``integral curve'' for $X$ is the curve you obtain ``integrating'' the system of ODE associated to $X$.
+
+This immediately implies the following theorem.
+
+\begin{theorem}[Existence, uniqueness and differentiability of local solutions] %
+  \label{thm:exuniqloc}
+  Let $M$ be a smooth manifold and $X\in\fX(M)$. For every $x\in \circ M := M\setminus \partial M$, there exists $\epsilon > 0$, an open neighbourhood $U\subset\circ M$ of $x$ and a unique map $\Phi : (-\epsilon, \epsilon) \times U \to M$, $(t, p) \mapsto \Phi(t,p)$, such that
+  \begin{enumerate}[(i)]
+    \item for every $p\in U$, the curve $\Phi_p : (-\epsilon, \epsilon) \to M$, $t\mapsto \Phi_p(t) := \Phi(t, p)$ is an integral curve of $X$ through $p$, that is, $\Phi_p' = X\circ\Phi_p$ and $\Phi_p(0) = p$;
+    \item for every $t\in(-\epsilon, \epsilon)$, the map $\Phi_t: U \to M$, $p\mapsto \Phi_t(p):=\Phi(t,p)$, is a diffeomorphism from $U$ onto an open subset of $M$.
+  \end{enumerate}
+\end{theorem}
+  
+\begin{remark}
+  In some text, instead of $\Phi_p' = X\circ\Phi_p$, you read
+  \begin{equation}
+    d\Phi_{(t,p)}\left(\frac{\partial}{\partial t}\Big|_{(t,p)}\right) = X \circ \Phi(t,p).
+  \end{equation}
+  This should not scare you since by definition
+  \begin{equation}
+    d\Phi_{(t,p)}\left(\frac{\partial}{\partial t}\Big|_{(t,p)}\right) = (\Phi \circ i_p)'(t) = \Phi_p'(t).
+  \end{equation}
+\end{remark}
+
+We call the map $\Phi$ a \emph{local flow} of $X$.
+If a local flow is defined on $\R\times M$, we call it a \emph{global flow} and the associated vector field is called a \emph{complete vector field}.
+
+Every smooth vector field has a local flow about any point, but not necessarily a global flow.
+\begin{example}[A global flow may not exist]\label{ex:non-complete}
+  Let $M = R^2$ and $X = x^2 \frac{\partial}{\partial x}$.
+  Then, the unique integral curve of $X$ starting a $(1,0)$ is
+  \begin{equation}
+    \gamma(t) = \left(\frac{1}{1-t}, 0\right).
+  \end{equation}
+  Since $i_x \circ \gamma(t)$ is unbounded as $t\to 1$, this curve cannot be extended past $t=1$.
+\end{example}
+
+The previous theorem, in particular, implies that if $\gamma, \delta : (a,b)\to M$ are integral curves of $X$ with $\gamma(t) = \delta(t)$ for some $t \in(a,b)$, then $\gamma\equiv\delta$.
+
+This justifies the following definition.
+\begin{definition}
+  Let $M$ be a smooth manifold and $X\in\fX(M)$.
+  For a given $p\in M$, we denote $I_p = \left(t^-(p), t^+(p)\right) \subset\R$, $0 \in I_p$, the maximal interval on which the unique integral curve $\gamma_p : I_p \to M$ of $X$ through $p$ is defined.
+  We call such curve $\gamma_p$ the \emph{maximal integral curve through $p$}.
+\end{definition}
+
+\begin{remark}
+  It follows from the definition of maximality that for any $p\in M$ one has
+  \begin{equation}
+    t^{\pm}(\gamma_p(s)) = t^\pm(p) - s \qquad \forall s\in I_p.
+  \end{equation}
+\end{remark}
+
+Note that $I_p$ is typically larger than the domain of definition $(-\epsilon, \epsilon)$ of $\Phi_p$. By construction $\Phi_p$ never leaves the coordinate set $U$ over which it was defined, on the other hand $\gamma_p$ can in general wander all over the manifold -- even though $\gamma_p = \Phi_p$ for small enough $t$!
+
+Again, theorems about existence and uniqueness of euclidean maximal flows imply that we can extend $\Phi_p$ uniquely to a maximal flow.
+
+\begin{theorem}[Existence and uniqueness of maximal solutions] %
+  \label{thm:exuniqmax}
+  Let $M$ be a smooth manifold and $X\in\fX(M)$.
+  There exists a unique open set $\cD \subset \R\times\circ M$ and a unique smooth map $\Phi:\cD\to M$ such that
+  \begin{enumerate}[(i)]
+    \item\label{thm:exuniqmax:i} for all $p\in M$ one has $\cD\cap(\R\times\{p\}) = I_p\times\{p\}$;
+    \item\label{thm:exuniqmax:ii} $\Phi(t,p) = \gamma_p(t)$ for all $(t,p)\in\cD$.
+  \end{enumerate}
+\end{theorem}
+
+We call $\Phi$ the \emph{flow} of $X$.
+When we want to emphasize the vector field $X$, we will write $\Phi^X$.
+
+\begin{proof}
+  Both $\cD$ and $\Phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so to prove the thoerem one only needs to show that $\cD$ is open and that $\Phi$ is smooth.
+  This is done by applying the euclidean theorems to extend the local flow, finally showing that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\Phi$ is smooth.
+
+  We are going to omit the details of the proof, the interested reader can refer to \cite[Proposition 9.12]{book:lee}.
+  The statement may seem different at a first glance, but a careful look will reveal that he is just taking a slightly different perspective.
+
+  Indeed, if we reverse the roles of $t$ and $x$, we can define for any given $t\in M$ the set
+  \begin{equation}
+    M_t := \{p\in M \;\mid\; (t,p)\in\cD\}.
+  \end{equation}
+  Then Theorem~\ref{thm:exuniqmax} is equivalent to say that $M_t$ is open in $M$, $M = \cup{t>0} M_t$, and there is a well-defined smooth map $\Phi_t : M_t \to M_{-t}$ given by
+  \begin{equation}\label{eq:flowdiffeo}
+    \Phi_t(p) := \Phi(t,p), \quad p\in M_t.
+  \end{equation}
+  Which is exactly the claim in \cite[Proposition 9.12]{book:lee}.
+
+%   Both $\cD$ and $\Phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so we only need to show that $\cD$ is open and that $\Phi$ is smooth.
+%   To this end we are going to prove that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\Phi$ is smooth.
+
+%   Fix $p\in M$ and denote $J\subset I_p$ the set of all $t\in I_p$ for which there is some neighbourhood of $(t,p)$ contained in $\cD$ on which $\Phi$ is smooth. Since this is an open condition, the set $J$ is open and by Theorem~\ref{thm:exuniqloc}, $0\in J$, so $J$ is not empty.
+
+%   Suppose that $t_0\in\overline{J}$ and set $p_0 = \gamma_p(t_0)$.
+%   We are going to show that we can always extend smoothly the flow to a neighbourhood of $t_0$
+%   Applying Theorem~\ref{thm:exuniqloc} at $p_0$ we obtain a local flow $\Phi:(-\epsilon,\epsilon)\times U_0 \to M$ about $p_0$. 
+%   Since $\gamma_p$ is continuous and $t_0$ is in the closure of $J$, we can choose $t_1\in J$ such that $t_0 - t_1 \in (-\epsilon, \epsilon)$ and $\gamma_p(t_1)\in U_0$.
+
+%   In fact, we can choose a whole interval $J_0\subset J$, $t_0\in J_0$, such that $t-t_1\in(-\epsilon, \epsilon)$ for all $t\in J_0$.
+%   By the continuity of $\Phi$ at $(t_1, p)$, there exists a neighbourhood $V$ of $p$ such that $\Phi(\{t_1\}\times V)\subset U_0$.
+
+%   Let $t\in I_0$ and $q\in V$, then $t-t_1\in(-\epsilon, \epsilon)$ and thus $\Phi(t_1,q)\in U_0$ (it coincides with $\Phi$ there).
+%   But this implies that $\Phi(t-t_1, \Phi(t_1, q))$ is defined and smooth.
+%   Since the curve $s\mapsto \Phi(s-t_1, \Phi(t_1, q))$ is an integral curve of $X$ passing through $\Phi(t_1, q)$ at $t_1$, by uniqueness, the curve must be $\Phi(t,q)$ itself.
+%   That is, $\Phi(t,q) = \Phi(t-t_1, \Phi(t_1, q))$ is defined and smooth at $(t,q)$.
+%   This shows that $\Phi$ is defined and smooth on all $J_0\times V$ and, in particular, also that $t_0\in J$.
+\end{proof}
+
+\begin{remark}\label{rmk:automorphismgroup}
+  The point of view taken to define \eqref{eq:flowdiffeo} brings to the table a very important fact: $\Phi_t : M_t \to M_{-t}$ is a smooth map with smooth inverse $(\Phi_t)^{-1}:=\Phi_{-t}: M_{-t} \to M_t$.
+
+  That is, $\Phi_t$ is a diffeomorphism, $\Phi_0 = \id_M$ and, more generally, if $s,t \in \R$ then the domain $P$ of $\Phi_s \circ \Phi_t$ is contained in $M_{s+t}$ (with equality if $sm \geq 0$) and $\Phi_s \circ \Phi_t = \Phi_{s+t}$ in $P$.  
+\end{remark}
+
+For a complete vector field $X$, $\cD = \R\times M$. Furthermore, by the previous considerations either the integral curves of $X$ exist for all time or the maps $\Phi^X_t(p)$ are all diffeomorphism of the entire manifold $M$.
+
+\begin{definition}
+  We denote $\diff(M)$ the set of diffeomorphisms\footnote{Also called \emph{automorphisms} to stress that domain and codomain coincide.} $\phi: M \to M$.
+\end{definition}
+
+Remark~\ref{rmk:automorphismgroup} immediately implies that $\diff(M)$ is a group under composition (why?).
+
+\begin{definition}
+  A \emph{one-parameter group of diffeomorphisms}\footnote{If you stumble upon a one-parameter group \emph{action}, don't be scared: it is the same exact thing where $\Phi$ is required to be continuous instead of smooth.} is a smooth left $\R$-action on $M$, that is, a smooth map $\Phi:\R\times M \to M$ such that for all $s,t\in\R$ and all $p\in M$:
+  \begin{align}
+    \Phi(0,p) = p,\\
+    \Phi(t, \Phi(s, p)) = \Phi(t+s, p).
+  \end{align}
+  
+  In other words, a one-parameter group of diffeomorphism is another name for a global flow and the two properties above are exactly the group laws.
+  And, indeed, we usually denote the map $t\mapsto\Phi(t,\cdot)$ by $\Phi_t$.
+
+  \begin{marginfigure}
+    \includegraphics{3_1-vfield-infgen.pdf}
+    \caption{The name ``infinitesimal generator'' comes from the intuition that one can think of a flow as a sequence of infinitely many infinitesimally small linear steps. That is, an integral curve is well approximated on local charts by composing many small rectilinear motions, where the direction and length of each motion is determined by the value of the vector field at the point arrived at in the previous step.}
+  \end{marginfigure}
+  If $\{\Phi_t\}$ is a one-parameter group of diffeomorphisms, then we define its \emph{infinitesimal generator} as the (complete) vector field\footnote{Remember our previous remarks on the notation: this is just a scary way to write $X_p := \Phi_p'(0)$ that explicits the role of the differential and the nature of the vector field!}
+  \begin{equation}
+    X_p := d\Phi_{(0,p)}\left(\frac{\partial}{\partial t}\Big|_{(0,p)}\right).
+  \end{equation}
+  Then the flow of $X$ is simply the one-parameter group $\Phi_t$.
+\end{definition}
+
+The definition above, in fact, contains the proof of the following fact.
+\begin{proposition}
+  Let $M$ be a smooth manifold. There is a bijective correspondence between one-parameter groups of diffeomorphisms (i.e. global flows) and complete vector fields.
+\end{proposition}
+
+\begin{notation}
+  Since by construction
+  \begin{equation}
+    \frac{\partial}{\partial t}\Phi_t(p) = X(\Phi_t(p)), \quad
+    \Phi_0(p) = p, \quad \forall p\in M,
+  \end{equation}
+  it is often convenient to use the exponential notation
+  \begin{equation}
+    e^{t X} \cdot := \Phi^X_t(\cdot), \quad t\in\R,
+  \end{equation}
+  to denote the flow of a vector field $X$.
+\end{notation}
+
+\begin{exercise}
+  Show that the exponential defined above satisfies the following properties
+  \begin{align}
+    e^{0X} = \id_M, \quad (e^{tX})^{-1} = e^{-tX}, \quad e^{t X}\circ e^{s X}= e^{(t+s)X},\\
+    \frac{\partial}{\partial t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
+  \end{align}
+
+  Moreover, if $X(x) = Ax$ isd a linear vector field on $\R^n$, that is $A$ is a $n\times n$-matrix, then the corresponding flow $\Phi_t$ is the matrix exponential $\Phi_t(x) = e^{Ax}$.
+\end{exercise}
+
+There are a few cases in which we can guarantee completeness, let's have a brief look.
+
+\begin{lemma}\label{lemma:charactCompleteVF}
+  Let $X\in\fX(M)$ and assume that there exists $\epsilon >0$ such that $(-\epsilon, \epsilon)\subset I_p$ for all $p \in M$.
+  Then $X$ is complete.
+\end{lemma}
+\begin{proof}
+  Assume that this is not the case, then there is some $p\in M$ such that either $t^+(p) < \infty$ or $t_-(p)>-\infty$.
+  Say that $t^+(p) < \infty$ (the other case is nearly identical).
+  
+  Choose $t_0$ such that $t^+(p) - t_0 < \epsilon$ and set $p_0 = \gamma_p(t_0)$. By assumption, $\gamma_{p_0}(t)$ is defined for all $t\in(-\epsilon, \epsilon)$. Consider the curve
+  \begin{equation}
+    \gamma(t) := \begin{cases}
+      \gamma_p(t), & t\in I_p,\\
+      \gamma_{p_0}(t-t_0), & |t-t_0|<\epsilon.
+    \end{cases}
+  \end{equation}
+  The two definitions coincide on the overlap as
+  \begin{equation}
+    \gamma_{p_0}(t-t_0) = \Phi_{t-t_0}(p_0) = \Phi_{t-t_0}\circ\Phi_{t_0}(p) = \Phi_t(p) = \gamma_p(t),
+  \end{equation}
+  but $\gamma$ is an integral curve for $X$ through $p$ which is defined on $(t^-(p), t_0+\epsilon)$.
+  Since $t_0 + \epsilon > t^+(p)$, this contradict the maximality of $I_p$.
+\end{proof}
+
+\begin{corollary}
+  Let $X\in\fX(M)$ be a vector field with compact support, that is, such that
+  \begin{equation}
+    \supp(X):=\overline{\left\lbrace p\in M \;\mid\; X_p\neq 0 \in T_p M\right\rbrace}\subset M
+  \end{equation}
+  is a compact set. The $X$ is complete.
+\end{corollary}
+\begin{proof}[Sketch of the proof.]
+  Use the compactness to pick a finite covering of the support, define the local flow on the covering and then pick the smallest $\epsilon$ (out of the finitely many).
+\end{proof}
+
+\begin{corollary}
+  If $M$ is compact, then every vector field has compact support.
+\end{corollary}
+
+In the same fashion as Lemma~\ref{lemma:charactCompleteVF}, one can characterize non-complete vector fields.
+
+\begin{proposition}
+  Let $K\subset \circ M$ compact and $p\in K$. If $t^+(p) < \infty$, then there exists $0<\tau<t^+(p)$ such that $\gamma_p(t)\not\in K$ for all $t\in (\tau, t^+(p))$. An analogous statement holds if $t^-(p) > -\infty$.
+\end{proposition}
+
+In other terms, a maximal integral curve can not ``end'' inside a compact set that doesn't contain boundary points.
+Thus, if a solution does not exist for all times, then it must either run to infinity in finite time\footnote{Recall Example~\ref{ex:non-complete}} or hit the boundary of $M$.
+
+For simplicity we discuss only global flows in the following.
+But keep in mind that all results hold also for local flows as long as one restricts the domains appropriately.
+
+\section{The Lie derivative}
+
+\TODO
