@@ -80,7 +80,7 @@ With topological spaces at hand, we can give a definition of continuity and intr
 \end{marginfigure}
 
 \begin{definition}
-  A topological space $(X, \cT)$ is \emph{Hausdorff} if every two distinct points admit disjoint open neighborhoods. That is, for every pair $x\neq y$ of points in $X$, there exist open subsets $U_x, U_y\in\cT$ such that $x\in U_x$, $y\in U_y$ and $U_x \cap U_y = \emptyset$.
+  A topological space $(X, \cT)$ is \emph{Hausdorff} if every two distinct points admit disjoint open neighbourhoods. That is, for every pair $x\neq y$ of points in $X$, there exist open subsets $U_x, U_y\in\cT$ such that $x\in U_x$, $y\in U_y$ and $U_x \cap U_y = \emptyset$.
 \end{definition}
 
 Topological spaces are extremely general, as such they may have very inconvenient -- someone would say nasty -- properties.
@@ -108,13 +108,13 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
   \begin{enumerate}[(i)]
     \item $M$ is a Hausdorff space;
     \item $M$ is second countable;
-    \item $M$ is \emph{locally euclidean} of dimension $n$, that is\footnote{In words, any point $p\in M$ has a neighborhood that is homeomorphic to an open subset of $\R^n$.}, for any point $x\in M$ there exist an open subset $U\subset M$ with $p\in U$, and open subset $V\in\R^n$ and a homeomorphism $\phi: U\to V$.
+    \item $M$ is \emph{locally euclidean} of dimension $n$, that is\footnote{In words, any point $p\in M$ has a neighbourhood that is homeomorphic to an open subset of $\R^n$.}, for any point $x\in M$ there exist an open subset $U\subset M$ with $p\in U$, and open subset $V\in\R^n$ and a homeomorphism $\phi: U\to V$.
   \end{enumerate}
 \end{definition}
 
 \begin{notation}
-  Reusing the notation of the definition above, we call \emph{(coordinate) chart} the pair $(U, \phi)$ of a \emph{coordinate neighborhood} $U$ and an associated \emph{coordinate map}\footnote{Or \emph{coordinate system}.} $\phi: U\to V$ onto an open subset $U=\phi(V)\subseteq\R^n$ of $\R^n$.
-  Furthermore, we say that a chart is \emph{centered at $p\in U$} if $\phi(p) = 0$.
+  Reusing the notation of the definition above, we call \emph{(coordinate) chart} the pair $(U, \phi)$ of a \emph{coordinate neighbourhood} $U$ and an associated \emph{coordinate map}\footnote{Or \emph{coordinate system}.} $\phi: U\to V$ onto an open subset $U=\phi(V)\subseteq\R^n$ of $\R^n$.
+  Furthermore, we say that a chart is \emph{centred at $p\in U$} if $\phi(p) = 0$.
 \end{notation}
 
 Don't get scared by the first two conditions: they are only needed to make sure that there are not too few open sets (Hausdorff) and not too many (second countable).
@@ -160,7 +160,7 @@ Don't get scared by the first two conditions: they are only needed to make sure 
 \begin{example}
 	Consider the set $M := \{ x\in\R^2 \;\mid\; |x^1| = |x^2| \}$ with the topology induced by $\R^2$:
    this is \emph{not} a topological manifold.
-	Since the number of connected component is invariant under homeomorphisms, open connected neighborhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} holomorphically mapped to open connected sets in $\R$.
+	Since the number of connected component is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} holomorphically mapped to open connected sets in $\R$.
 \end{example}
 
 \marginnote{There is a caveat, the theorem holds for \emph{connected} components of a Manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}
@@ -221,7 +221,7 @@ is a smooth diffeomorphism.
 \begin{figure*}[htp]
   \centering
   \includegraphics{1_2-compatible-charts.pdf}
-  \caption{Charts are compatible if they coincide on the intersections of their coordinate neighborhoods.}
+  \caption{Charts are compatible if they coincide on the intersections of their coordinate neighbourhoods.}
   \label{fig:1.2-compatible-charts}
 \end{figure*}
 
@@ -302,7 +302,7 @@ or even
 \end{quote}
 dropping the distinction between $p$ and $x$, both in place of
 \begin{quote}
-  Let $p \in M$ and $(U, \phi)$ a chart defined on a neighborhood $U$ of $p$.
+  Let $p \in M$ and $(U, \phi)$ a chart defined on a neighbourhood $U$ of $p$.
   Let $x^i = r^i \circ\phi$ denote the components of $\phi$ with respect to the standard euclidean coordinates...
 \end{quote}
 
@@ -568,11 +568,11 @@ Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main 
   This is immediately achieved by defining $g(x) := f(\|x\|)$, where $f$ is the function defined in the previous step.
 
   \newthought{Part 3}.
-  Let's now pick a point $p\in M$ and an arbitrary neighborhood $U$ of $p$. Choosing an appropriate chart about $p$, the previous step implies that we can choose a smaller neighborhood $V\subset U$ of $p$ with $\overline V\subset U$ and such that there exists a smooth function $\chi: M \to [0,1]$ satisfying $\chi(p) = 1$ for all $p\in\overline{V}$ and $\chi(p) = 0$ for all $p\in M\setminus U$.
+  Let's now pick a point $p\in M$ and an arbitrary neighbourhood $U$ of $p$. Choosing an appropriate chart about $p$, the previous step implies that we can choose a smaller neighbourhood $V\subset U$ of $p$ with $\overline V\subset U$ and such that there exists a smooth function $\chi: M \to [0,1]$ satisfying $\chi(p) = 1$ for all $p\in\overline{V}$ and $\chi(p) = 0$ for all $p\in M\setminus U$.
   
   \newthought{Part 4}.
   We are ready to complete the proof.
-  For each point $p\in K$, choose two neighborhoods $V_p \subset U_p$ such that $\overline{V_p}\subset K$ and $U_p \subset U$.
+  For each point $p\in K$, choose two neighbourhoods $V_p \subset U_p$ such that $\overline{V_p}\subset K$ and $U_p \subset U$.
   Since $K$ is compact, it admits a finite cover in terms of these sets: i.e. there are finitely many points $p_1, \ldots, p_N \in K$ such that $K \subset \bigcup_{i=1}^N V_{p_i}$.
   For each $i$, choose $\chi_i: M \to [0,1]$ as in the previous step: $\chi_i(p) = 1$ for all $p\in\overline{V_{p_i}}$ and $\chi_i(p) = 0$ for all $p\in M\setminus U_{p_i}$.
   The proof is completed by defining
@@ -616,7 +616,7 @@ With this result at hand, Proposition~\ref{prop:cutoff} can be shown very easily
 
 Note that in both these cases, both the interior and the boundary are smooth manifolds and their dimension differ by one\footnote{In the first case the interior $(a,b)$ is a $1$-manifold and the boundary, the set $\partial[a,b] = \{a,b\}$, is a $0$-manifold. In the second case the interior of $D_1(0)$ is the open unit ball, a $2$-manifold, and the boundary $\partial D_1(0)$ is the $1$-manifold $\bS^1$.}.
 
-Let's do a step back and think about topological manifolds: since both the closed interval and the closed disk are closed sets, we have problems to make them locally euclidean in neighborhoods of their boundaries.
+Let's do a step back and think about topological manifolds: since both the closed interval and the closed disk are closed sets, we have problems to make them locally euclidean in neighbourhoods of their boundaries.
 Can we modify our local model to resemble something with a boundary?
 
 Of course this is a rhetorical question.
@@ -638,7 +638,7 @@ and the topology inherited by $\R^n$, as a replacement for our local model $\R^n
   \begin{enumerate}[(i)]
     \item $M$ is a Hausdorff space;
     \item $M$ is second countable;
-    \item $M$ is \emph{locally} homeomorphic to $\cH^n$, any point $x\in M$ has a neighborhood that is homeomorphic to a (relatively) open\footnote{Recall that $U\subset\R^n_+$ is relatively open, that is open with respect to the relative topology, if there exist an open set $\tilde U\subset\R^n$ such that $U = \tilde U \cap \R^n_+$.} subset of $\R^n_+$.
+    \item $M$ is \emph{locally} homeomorphic to $\cH^n$, any point $x\in M$ has a neighbourhood that is homeomorphic to a (relatively) open\footnote{Recall that $U\subset\R^n_+$ is relatively open, that is open with respect to the relative topology, if there exist an open set $\tilde U\subset\R^n$ such that $U = \tilde U \cap \R^n_+$.} subset of $\R^n_+$.
   \end{enumerate}
 
   A \emph{chart} on $M$ is a pair $(U, \phi)$ consisting of an open set $U\subset M$ and a homeomorphism $\phi: U \to \phi(U)\subset \cH^n$.
@@ -680,7 +680,7 @@ With such definition at hand, one can define compatibility, smooth atlases and d
   \begin{equation}
     f(x+h) = f(x) + Df|_x h + O(\|h\|).
   \end{equation}
-  Since the differential $D f$ at $x$ is an isomorphism, there exist an open neighborhood $\cO$ of $x$ such that $f(\cO)$ is open in $\R^n$ and thus $f(x)\in V\cap(\cH^n\cap\partial\cH^n)$.
+  Since the differential $D f$ at $x$ is an isomorphism, there exist an open neighbourhood $\cO$ of $x$ such that $f(\cO)$ is open in $\R^n$ and thus $f(x)\in V\cap(\cH^n\cap\partial\cH^n)$.
 \end{proof}
 
 \begin{example}

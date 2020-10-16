@@ -87,7 +87,7 @@ The definition of pushforward is more easily pictured by means of the following 
 Then, if $(U, \phi)$ is a coordinate chart for $M$, the restriction of a vector field $X\in\fX(M)$ to $U$ can be mapped to a vector field on $\phi(U)\subset\R^n$ via the pushforward $\phi_*$:
 \begin{align}
   \phi_* X & : \LaTeXunderbrace{\phi(U)}_{\subset\R^n} \to \LaTeXunderbrace{T \phi(U)}_{=\phi(U)\times\R^n}, \\
-  \phi_* X & : x\mapsto (q,v(x)) \quad\mbox{with}\mbox v(x) = v^j(x)e_j \in \R^n,
+  \phi_* X & : x\mapsto (q,v(x)) \quad\mbox{with}\quad v(x) = v^j(x)e_j \in \R^n,
 \end{align}
 where $v^j(x)$ are the components\footnote{As we start getting used to, the chart $\phi$ here plays a twofold role: it provides the coordinates $x=\phi(p)$ on the patch $U$ and the coordinate basis of the tangent space.} of $X_p\in T_p M$ at $p=\phi^{-1}(x)$ with respect to the coordinate basis $\left\{\frac{\partial}{\partial x^i}\big|_x\right\}$.
 
@@ -242,7 +242,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
   Conventionally, for $p\in M$ we will denote $i_p : (a,b) \to (a,b)\times M$ the map $i_p(t) := (t,p)$.
   All the following notations will denote the tangent vector in $T_{(t,p)}((a,b)\times M)$ obtained from $\frac{\partial}{\partial t}\big|_t \in T_t\R$:
   \begin{equation}
-    \frac{\partial}{\partial t}\Big|_{(t,p)} := d (i_p)_t\left(\frac{\partial}{\partial t}\Big|_t\right) = i_p'(t).
+    \frac{\partial}{\partial t}\Big|_{(t,p)} := d (i_p)_t\left(\frac{\partial}{\partial t}\Big|_t\right) = \frac{d}{d t}  i_p(t) = i_p'(t).
   \end{equation}
 \end{notation}
 
@@ -291,6 +291,15 @@ This immediately implies the following theorem.
 We call the map $\Phi$ a \emph{local flow} of $X$.
 If a local flow is defined on $\R\times M$, we call it a \emph{global flow} and the associated vector field is called a \emph{complete vector field}.
 
+\begin{example}\label{example:lineardrift}
+  Let $M=\R^n$ and $L\in\fX(M)$ defined by $L(p^1, \ldots, p^n) = (p^1, \ldots, p^n, 1, 0, 0, \ldots, 0)$.
+  Then $\Phi^L$ is a global flow, explicitly given as
+  \begin{equation}
+    \Phi^L(t,p) = (p^1+t, p^2, \ldots, p^n).
+  \end{equation}
+  Such flow $\Phi^L$ is called \emph{linear drift}.
+\end{example}
+
 Every smooth vector field has a local flow about any point, but not necessarily a global flow.
 \begin{example}[A global flow may not exist]\label{ex:non-complete}
   Let $M = R^2$ and $X = x^2 \frac{\partial}{\partial x}$.
@@ -299,6 +308,8 @@ Every smooth vector field has a local flow about any point, but not necessarily 
     \gamma(t) = \left(\frac{1}{1-t}, 0\right).
   \end{equation}
   Since $i_x \circ \gamma(t)$ is unbounded as $t\to 1$, this curve cannot be extended past $t=1$.
+
+  A somewhat simpler example is given by the vertical lines on $\cH^2$ (so a manifold with boundary). These are integral curves of $\frac{\partial}{\partial x^2}$ which cannot extend further than the boundary $\{x^2=0\}$.
 \end{example}
 
 The previous theorem, in particular, implies that if $\gamma, \delta : (a,b)\to M$ are integral curves of $X$ with $\gamma(t) = \delta(t)$ for some $t \in(a,b)$, then $\gamma\equiv\delta$.
@@ -380,7 +391,7 @@ When we want to emphasize the vector field $X$, we will write $\Phi^X$.
 For a complete vector field $X$, $\cD = \R\times M$. Furthermore, by the previous considerations either the integral curves of $X$ exist for all time or the maps $\Phi^X_t(p)$ are all diffeomorphism of the entire manifold $M$.
 
 \begin{definition}
-  We denote $\diff(M)$ the set of diffeomorphisms\footnote{Also called \emph{automorphisms} to stress that domain and codomain coincide.} $\phi: M \to M$.
+  We denote $\diff(M)$ the set of diffeomorphisms\footnote{Also called \emph{automorphisms} to stress that domain and codomain coincide.} $\varphi: M \to M$.
 \end{definition}
 
 Remark~\ref{rmk:automorphismgroup} immediately implies that $\diff(M)$ is a group under composition (why?).
@@ -388,8 +399,8 @@ Remark~\ref{rmk:automorphismgroup} immediately implies that $\diff(M)$ is a grou
 \begin{definition}
   A \emph{one-parameter group of diffeomorphisms}\footnote{If you stumble upon a one-parameter group \emph{action}, don't be scared: it is the same exact thing where $\Phi$ is required to be continuous instead of smooth.} is a smooth left $\R$-action on $M$, that is, a smooth map $\Phi:\R\times M \to M$ such that for all $s,t\in\R$ and all $p\in M$:
   \begin{align}
-    \Phi(0,p) = p,\\
-    \Phi(t, \Phi(s, p)) = \Phi(t+s, p).
+    &\Phi(0,p) = p,\\
+    &\Phi(t, \Phi(s, p)) = \Phi(t+s, p).
   \end{align}
   
   In other words, a one-parameter group of diffeomorphism is another name for a global flow and the two properties above are exactly the group laws.
@@ -397,7 +408,8 @@ Remark~\ref{rmk:automorphismgroup} immediately implies that $\diff(M)$ is a grou
 
   \begin{marginfigure}
     \includegraphics{3_1-vfield-infgen.pdf}
-    \caption{The name ``infinitesimal generator'' comes from the intuition that one can think of a flow as a sequence of infinitely many infinitesimally small linear steps. That is, an integral curve is well approximated on local charts by composing many small rectilinear motions, where the direction and length of each motion is determined by the value of the vector field at the point arrived at in the previous step.}
+    \label{fig:3_1-vfield-infgen}
+    \caption{The name ``infinitesimal generator'' comes from the intuition that one can think of a flow as a sequence of infinitely many infinitesimally small linear steps. That is, an integral curve is well approximated on local charts by composing many small rectilinear motions, where the direction and length of each motion is determined by the value of the vector field at the point arrived at in the previous step. We will soon make this step rigorous.}
   \end{marginfigure}
   If $\{\Phi_t\}$ is a one-parameter group of diffeomorphisms, then we define its \emph{infinitesimal generator} as the (complete) vector field\footnote{Remember our previous remarks on the notation: this is just a scary way to write $X_p := \Phi_p'(0)$ that explicits the role of the differential and the nature of the vector field!}
   \begin{equation}
@@ -414,7 +426,7 @@ The definition above, in fact, contains the proof of the following fact.
 \begin{notation}
   Since by construction
   \begin{equation}
-    \frac{\partial}{\partial t}\Phi_t(p) = X(\Phi_t(p)), \quad
+    \frac{d}{d t}\Phi_t(p) = X(\Phi_t(p)), \quad
     \Phi_0(p) = p, \quad \forall p\in M,
   \end{equation}
   it is often convenient to use the exponential notation
@@ -428,7 +440,7 @@ The definition above, in fact, contains the proof of the following fact.
   Show that the exponential defined above satisfies the following properties
   \begin{align}
     e^{0X} = \id_M, \quad (e^{tX})^{-1} = e^{-tX}, \quad e^{t X}\circ e^{s X}= e^{(t+s)X},\\
-    \frac{\partial}{\partial t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
+    \frac{d}{d t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
   \end{align}
 
   Moreover, if $X(x) = Ax$ isd a linear vector field on $\R^n$, that is $A$ is a $n\times n$-matrix, then the corresponding flow $\Phi_t$ is the matrix exponential $\Phi_t(x) = e^{Ax}$.
@@ -460,31 +472,141 @@ There are a few cases in which we can guarantee completeness, let's have a brief
 \end{proof}
 
 \begin{corollary}
-  Let $X\in\fX(M)$ be a vector field with compact support, that is, such that
-  \begin{equation}
-    \supp(X):=\overline{\left\lbrace p\in M \;\mid\; X_p\neq 0 \in T_p M\right\rbrace}\subset M
-  \end{equation}
-  is a compact set. The $X$ is complete.
+  Let $X\in\fX(M)$ be a vector field with compact support. The $X$ is complete.
 \end{corollary}
 \begin{proof}[Sketch of the proof.]
   Use the compactness to pick a finite covering of the support, define the local flow on the covering and then pick the smallest $\epsilon$ (out of the finitely many).
 \end{proof}
 
 \begin{corollary}
-  If $M$ is compact, then every vector field has compact support.
+  If $M$ is compact\footnote{A compact manifold without boundary is called \emph{closed manifold}.}, then every vector field has compact support.
 \end{corollary}
 
 In the same fashion as Lemma~\ref{lemma:charactCompleteVF}, one can characterize non-complete vector fields.
 
-\begin{proposition}
-  Let $K\subset \circ M$ compact and $p\in K$. If $t^+(p) < \infty$, then there exists $0<\tau<t^+(p)$ such that $\gamma_p(t)\not\in K$ for all $t\in (\tau, t^+(p))$. An analogous statement holds if $t^-(p) > -\infty$.
-\end{proposition}
+\begin{lemma}\label{lemma:charactNotCompleteVF}
+  Let $K\subset \circ M$ compact and $p\in K$.
+  If $t^+(p) < \infty$, then there exists $0<\tau<t^+(p)$ such that $\gamma_p(t)\not\in K$ for all $t\in (\tau, t^+(p))$.
+  An analogous statement holds if $t^-(p) > -\infty$.
+\end{lemma}
 
-In other terms, a maximal integral curve can not ``end'' inside a compact set that doesn't contain boundary points.
+\begin{exercise}
+  Prove Lemma~\ref{lemma:charactNotCompleteVF}.
+\end{exercise}
+
+In other words, a maximal integral curve can not ``end'' inside a compact set that doesn't contain boundary points.
 Thus, if a solution does not exist for all times, then it must either run to infinity in finite time\footnote{Recall Example~\ref{ex:non-complete}} or hit the boundary of $M$.
+
+A natural question, at this point, is what happens when we map integral curves to different manifolds via diffeomorphisms, after all it looks like the mapping to euclidean spaces via the charts behaves quite nicely.
+
+\begin{proposition}
+  Let $F: M \to N$ be a diffeomorphism between smooth manifolds, $X\in\fX(M)$ a vector field and $\gamma:I\to M$ an integral curve of $X$. Then $F\circ\gamma : I \to N$ is an integral curve of $F_* X$.
+
+  If $X$ is complete, we then have
+  \begin{equation}
+    F\circ\Phi_t^X = \Phi_t^{F_* X}\circ F.
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  We only need to show that the two curves satisfy the same ODE.
+  \begin{align*}
+    d(F\circ \gamma)_t 
+    &= dF_{\gamma(t)} \circ d\gamma_t \\
+    &= dF_{\gamma(t)} \circ (X \circ \gamma)_t \\
+    &= \LaTeXunderbrace{dF_{\gamma(t)} \circ X \circ F^{-1}} \circ F \circ \gamma(t) \\
+    &= (F_* X) \circ (F\circ \gamma)(t) \\
+    &= (F_* X)_{F\circ\gamma(t)}.
+  \end{align*}
+\end{proof}
+
+\begin{definition}
+  Let $M$ be a smooth manifold and $x\in\fX(M)$. 
+  The \emph{support of $X$} is defined as
+  \begin{equation}
+    \supp(X):=\overline{\left\lbrace p\in M \;\mid\; X_p\neq 0 \in T_p M\right\rbrace}\subset M.
+  \end{equation}
+  Points $p\in\supp(X)$ are called \emph{regular points of $X$}.
+  The points $p\in M\setminus\supp(X)$, i.e. such that $X_p = 0$, are the \emph{fixed points (or equilibrium points) of $X$}: for such points the unique integral curve through $p$ is $\gamma(t) \equiv p$ for all $t\in\R$. 
+\end{definition}
+
+We can finally justify our comment in Figure~\ref{fig:3_1-vfield-infgen}.
+The following theorem shows that every flow $\Phi^X$ admits local coordinates on its support which map it into a linear flow.
+
+\begin{theorem}[Normal form of a flow away from the fixed points]
+  Let $M$ be a smooth manifold, $X\in\fX(M)$ and $p\in\supp(X)\subset M$.
+  Then, there exists a chart $(U, \phi)$ with $p\in U$ such that
+  \begin{equation}
+    \phi_* X = L,
+  \end{equation}
+  where $L$ is the linear drift defined in Example~\ref{eq:lineardrift}.
+  Thus, locally,
+  \begin{equation}
+    \Phi_t^X = \phi^{-1} \circ \Phi_t^L \circ \phi.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  Choose a coordinate patch $(U_1, \psi)$ around $p$ (so $\psi(p) = 0$) such that $\psi_* X(0) = (1,0,0,\ldots, 0)$.
+  By continuity of $\psi_*X\in \fX(\psi(U_1))$, we can always restrict to a smaller neighbourhood $V_2\subset \psi(U_1)$ on which $(\psi_*X)^1(q) > \frac12$ for all $q\in V_2$.
+
+  Our objective is to interpolate $\psi_* X$ on $V\subset V_2$ and $L$ on $V_2^c$ to obtain a new vector field $\tilde L$ on all of $\R^n$ which is diffeomorphic to $\tilde L$.
+  If $\Omega:\R^n\to\R^n$ is such diffeomorphism, i.e. $\Omega_* \tilde  L = L$, then $\phi = \Omega\circ\psi$ is the chart we are looking for: indeed, on $U=\psi^{-1}(V)$ we have $\phi_* X = \Omega_*\psi_*X = \Omega_* \tilde L = L$.
+
+  \newthought{Interpolated vector field $\tilde{L}$}. Let $V\subset V_2$ be an open set around $0$. Pick a cutoff function $\chi\in C^\infty(\R^n)$ such that $\chi(x) = 1$ for $x\in U$ and $\chi(x) =0$ for $x\in U_2^c$.
+  Then the interpolating vector field is immediately obtained as\todo{add picture}
+  \begin{equation}
+    \tilde L = \chi \psi_*X + (1-\chi)L \fX(\R^n).
+  \end{equation}
+  Clearly its flow $\Phi_t^{\tilde L}$ is global as $\R^n$ has no boundary and the regularity of the functions involved implies that no integral curve can escape to infinity in finite time.
+
+  \marginnote{It is interesting to compare $\Omega$ with the so called M\o{}ller transformations in scattering theory (cf. \cite[Chapter 12.2]{book:knauf}).}
+  \newthought{Diffeomorphism $\Omega$}. We will now show that
+  \begin{equation}
+    \Omega = \lim_{t\to\infty} \Phi_{-t}^L \circ \Phi_t^{\tilde L}
+  \end{equation}
+  exists and defines a diffeomorphism such that $\Omega_* \tilde L = L$.
+  Since by construction $(\Phi_t^{\tilde L}(q))^1 \geq q^1 + \frac12$, every integral curve leaves $V_2$ after a finite time.
+  So, on compact sets $K\subset\R^n$, there is a finite time $t_0(K)$ after which the limit is attained (can you explain why?):
+  \begin{equation}
+    \lim_{t\to\infty} \Phi_{-t}^L \circ \Phi_t^{\tilde L}\Big|_K = \Phi_{-t_0}^L \circ \Phi_{t_0}^{\tilde L}.
+  \end{equation}
+  Thus, $\Omega$ is a well defined diffeomorphism.
+  Moreover,
+  \begin{align}
+    \Omega \circ \Phi^{\tilde L}_t &= \lim_{s\to\infty} \Phi_{-s}^L \circ \Phi^{\tilde L}_s \circ \Phi^{\tilde L}_t \\
+    &= \lim_{s\to\infty} \Phi_{-s}^L \circ \Phi^{\tilde L}_{s+t} \\
+    &= \lim_{\tau\to\infty} \Phi_{t-\tau}^L \circ \Phi^{\tilde L}_s \circ \Phi^{\tilde L}_\tau \\
+    &= \lim_{\tau\to\infty} \Phi_{t}^L \circ \Phi_{-\tau}^L \circ \Phi^{\tilde L}_s \circ \Phi^{\tilde L}_\tau = \Phi_t^L \circ \Omega,
+  \end{align}
+  and therefore the flows are diffeomorphic.
+  In particular, we also have $\Phi_p^{\tilde L} = \Omega^{-1} \circ \Phi^L_{\Omega(x)}$.
+  Differentiating this last equation we get
+  \begin{align}
+    (\tilde L \circ \Phi^{\tilde L})_p &= d\Phi^{\tilde L}_p \\
+    &= d\Omega^{-1}_(\Phi^L_{\Omega(x)}) \circ d\Phi^L_{\Omega(x)} \\
+    &= d\Omega^{-1}_(\Phi^L_{\Omega(x)}) \circ (L \circ \Phi^L)_{\Omega(x)},
+  \end{align}
+    which, at $t=0$, gives $\tilde L = d\Omega^{-1} \circ L \circ \Omega = \Omega^{-1}_* L$.
+\end{proof}
+
+\begin{remark}[Linearisation of a vector field at a fixed point]
+  Away from the fixed points, the previous theorem, tells us that the flow is locally linear.
+  Near a fixed point we can describe the flow in terms of the \emph{linearisation} of the associated vector field.
+
+  If $X\in\fX(M)$ and $p_0\in M$ with $X_{p_0} = 0$. On a chart $\phi$ centred at $p_0$ with local coordinates $(x^i)$, let $\tilde X = \phi_* X$.
+  Then we have
+  \begin{equation}
+    \tilde X_x = \underbrace{\tilde X_0}_{=0} + d\tilde X_0 x + \cO(\|x\|^2) = d\tilde X_0 x + \cO(\|x\|^2).
+  \end{equation}
+  Close to $x=0$ we can thus approximate $\tilde X_x$ by its linearisation $ d\tilde X_0 x$.
+
+  Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues of $d\tilde X_0 x$ and their geometric multiplicities (cf. \cite[Figure 9.8]{book:lee}). This is the same as you have seen in the euclidean case \cite[Chapter 5.3]{book:knauf}.
+
+  Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\tilde X_0 x$ is independent of the choice of local coordinates.
+\end{remark}
 
 For simplicity we discuss only global flows in the following.
 But keep in mind that all results hold also for local flows as long as one restricts the domains appropriately.
+
 
 \section{The Lie derivative}
 

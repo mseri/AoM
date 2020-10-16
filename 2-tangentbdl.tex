@@ -66,11 +66,11 @@ As you cen see, we did not need to spell out explicitly the coordinate systems o
 
 \begin{definition}
   Let $M$ be a smooth manifold.
-  For some point $p\in M$, let $U,V\subset M$ be two neighborhoods of $p$.
-  We say that two functions $f\in C^\infty(U)$ and $g\in C^\infty(V)$ have the same \emph{germ} at $p$ if there exists a neighborhood $W\subset U\cap V$ of $p$ such that $f|_W \equiv g|_W$.
+  For some point $p\in M$, let $U,V\subset M$ be two neighbourhoods of $p$.
+  We say that two functions $f\in C^\infty(U)$ and $g\in C^\infty(V)$ have the same \emph{germ} at $p$ if there exists a neighbourhood $W\subset U\cap V$ of $p$ such that $f|_W \equiv g|_W$.
 \end{definition}
 
-Germs define an equivalence relation on the set of smooth functions defined on a neighborhood of a point $p$: $(U, f) \sim_p (V, g)$ if they have the same germ at $p$. Then, a germ $[f]_p$, where $(U, f)$ is one representative for $[f]_p$, is an equivalence class in the quotient space 
+Germs define an equivalence relation on the set of smooth functions defined on a neighbourhood of a point $p$: $(U, f) \sim_p (V, g)$ if they have the same germ at $p$. Then, a germ $[f]_p$, where $(U, f)$ is one representative for $[f]_p$, is an equivalence class in the quotient space 
 \begin{equation}
   C_p^\infty(M) := C^\infty(M)/\sim_p.
 \end{equation} 
@@ -171,14 +171,14 @@ As you can see, working with equivalent classes is doable but unnecessarily cumb
 
 \begin{definition}
   Let $M$ be a smooth manifold and $p\in M$.
-  Let $W\subseteq M$ be any neighborhoods of $p$.
+  Let $W\subseteq M$ be any neighbourhoods of $p$.
   A \emph{derivation of $C^\infty(W)$ at $x$} is a linear map $w:C^\infty(W)\to\R$ which satisfies Leibniz rule
   \begin{equation}
     w(fg) = f(p)w(g) + g(p)w(f).
   \end{equation}
 \end{definition}
 
-If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w$ of $C^\infty(W)$ for any open neighborhood $W$ of $p$.
+If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w$ of $C^\infty(W)$ for any open neighbourhood $W$ of $p$.
 In this case
 \begin{equation}\label{eq:derivfromtg}
   w(f) := v([f]_p).
@@ -186,14 +186,14 @@ In this case
 Showing that the opposite is also true will require a bit of work.
 
 \begin{proposition}
-  Let $M$ be a smooth manifold, $p\in M$ and $W$ any neighborhood of $x$.
+  Let $M$ be a smooth manifold, $p\in M$ and $W$ any neighbourhood of $x$.
   Then there is a linear isomorphism between $T_p M$ and the space of derivations of $C^\infty(W)$ at $p$.
 \end{proposition}
 \begin{proof}
   To prove the theorem we need to invert \eqref{eq:derivfromtg} and define a tangent vector in terms of of a derivation of $C^infty(W)$ at $p$.
   We will proceed in three steps
 
-  \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighborhood $W_0\subset W$ op $p$. We are going to show that $w(f)=0$.
+  \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ op $p$. We are going to show that $w(f)=0$.
 
   By Proposition~\ref{prop:cutoff}, we can find a function $\rho:M\to\R$ such that $\rho(p)=1$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$. Then $g$ is identically zero in the whole $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w(g) = 0$. Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
   \begin{equation}
@@ -205,8 +205,8 @@ Showing that the opposite is also true will require a bit of work.
   We want to show that it is always possible to find a representative for $[f]_p$ with domain $W$, that is, there exists $g\in C^\infty(W)\to\R$ such that $[g]_p = [f]_p$.
   Let $(V, f)$ be any representative of $[f]_p$.
   Since germs are local, if necessary, we can shrink $V$ so that $V\subset W$.
-  Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighborhood of $p$!
-  To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighborhood with compact closure.} a smaller neighborhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
+  Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighbourhood of $p$!
+  To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighbourhood with compact closure.} a smaller neighbourhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
   Again, Proposition~\ref{prop:cutoff} comes to the rescue. Apply it with $K=\overline{U}$ and ``$U$'' equal to $V$, and consider
   \begin{equation}
     g:W\to\R, \quad
@@ -227,7 +227,7 @@ Showing that the opposite is also true will require a bit of work.
   \end{equation}
   Such $v$ is a derivation by construction, so if it is well-defined, we are done.
   To this end, assume that there exists a different representative $(W, g)$ for $[f]_p$.
-  Then, by definition, there exists a neighborhood $V\subset W$ of $p$ such that $f|_p = g|_p$.
+  Then, by definition, there exists a neighbourhood $V\subset W$ of $p$ such that $f|_p = g|_p$.
   By linearity, $w(f) - w(g) = w(f-g)$ and by the first step in the proof, $w(f-g) = 0$.
   
   The assignment $w\mapsto v$ inverts \eqref{eq:derivfromtg}, completing the proof.
@@ -258,8 +258,8 @@ Secondly, it provides us some very useful corollaries.
 
 \begin{corollary}\label{cor:derzero}
   Let $M$ be a smooth manifold and $p\in M$.
-  Let $W\subseteq M$ be an open neighborhoods of $p$.
-  If $f\in C^\infty(W)$ is constant in a neighborhood of $p$, then $v(f) = 0$ for all $v\in T_p M$.
+  Let $W\subseteq M$ be an open neighbourhoods of $p$.
+  If $f\in C^\infty(W)$ is constant in a neighbourhood of $p$, then $v(f) = 0$ for all $v\in T_p M$.
 \end{corollary}
 
 With these new tools at hand, we are ready to state and prove an important result on the size of the tangent spaces.
@@ -390,7 +390,7 @@ For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\phi\in\Si
   defines an equivalence relation on $\R^m\times\Sigma_p$.
   \item Let $\cT_p$ denote the set of equivalence classes $[(v,\phi)]\in \R^m\times\Sigma_p/\sim$. For $\phi\in\Sigma_p$, show that the map $T_\phi:\R^m\to\cT_p$ given by $T_\phi v := [(v,\phi)]$ is a bijection.
   Deduce\footnote{Hint: use the previous exercise!} that $\cT_p$ admits a unique vector space structure such that each $T_\phi$ is a linear isomorphism.
-  \item Let $\phi$ be a chart defined on a neighborhood of $p$ with local coordinates $x^i = r^i \circ \phi$ and let $\hat T_\phi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in \eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\phi e_i = \frac{\partial}{\partial x^i}\big|_p$.
+  \item Let $\phi$ be a chart defined on a neighbourhood of $p$ with local coordinates $x^i = r^i \circ \phi$ and let $\hat T_\phi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in \eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\phi e_i = \frac{\partial}{\partial x^i}\big|_p$.
   Show that there exists a linear isomorphism $\mathcal{S}_p:\cT_p\to T_pM$ which in addition satisfies $\mathcal{S}_p \circ T_\phi = \hat T_\phi$ for every chart $\phi$ about $p$.
 \end{enumerate}
 \end{exercise}
@@ -590,7 +590,7 @@ A priori we have two different ways to define the \emph{velocity vector of $\gam
 \end{enumerate}
 
 Do these definition agree?
-One way to check is to pick a chart $\phi: U \to \phi(U)$ in a neighborhood of $gamma(t)$, and compare the expressions in local coordinates. Let $(x^i)$ denote the coordinates of $\phi$ and define the curves $\gamma^i := x^i \circ \gamma : I\to\R$.
+One way to check is to pick a chart $\phi: U \to \phi(U)$ in a neighbourhood of $gamma(t)$, and compare the expressions in local coordinates. Let $(x^i)$ denote the coordinates of $\phi$ and define the curves $\gamma^i := x^i \circ \gamma : I\to\R$.
 Let's focus on \eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\circ\gamma)'(t) = (\gamma^i)'(t)$, therefore by Proposition~\ref{prop:basis_TpM} we get
 \begin{equation}\label{eq:tg_curve_vec}
   \gamma'(t) = %\sum_{i=1}^m
@@ -607,7 +607,7 @@ Let's focus on \eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\c
   \label{fig:2_5-v_cur_full}
 \end{figure*}
 
-But how can this be well defined? Surely, there must be multiple curves with the same speed at a point which differ outside a neighborhood of the point.
+But how can this be well defined? Surely, there must be multiple curves with the same speed at a point which differ outside a neighbourhood of the point.
 
 \begin{lemma}\label{lem:equiv_tg_curves}
   Let $M$ be a smooth manifolds and $\gamma, \delta : (-\epsilon, \epsilon) \to M$ two smooth curves with $\gamma(0) = \delta(0)$. Then, $\gamma'(0) = \delta'(0)$ as elements of $T_{\gamma(0)}M$ if and only if for some (and thus any) chart $\phi:U\to\phi(U)$, $\gamma(0)\in U$, we have $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$.
@@ -643,7 +643,7 @@ There is still a potential problem, though. We don't yet know if \emph{every} ta
 \end{marginfigure}
 This means that we can actually make an alternative definition of $T_xM$ in terms of tangent to curves:
 \begin{quote}
-  a tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ for some chart centered about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
+  a tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ for some chart $\phi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
 \end{quote}
 
 In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and to endow $T_xM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
@@ -776,7 +776,7 @@ What we have seen here is our first example of vector bundle.
   A \emph{vector bundle of rank $r$} on a manifold $M$ is a manifold $E$ together with a smooth surjective map $\pi : E \to M$ such that, for all $p\in M$, the following properties hold:
   \begin{enumerate}
     \item the \emph{fibre over $p$}, $E_p := \pi^{-1}(p)$, has the structure of vector space of dimension $r$;
-    \item there is a neighborhood $U\subset M$ of $p$ and a diffeomorphism $\Phi: \pi^{-1}(U) \to U \times \R^r$ such that
+    \item there is a neighbourhood $U\subset M$ of $p$ and a diffeomorphism $\Phi: \pi^{-1}(U) \to U \times \R^r$ such that
     \begin{enumerate}
       \item $\pi_1 \circ \Phi = \pi$ where $\pi_1: U\times\R^r\to U$ is the projection on the first factor,
       \item for all $q\in U$, $\Phi\big|_{E_q} : E_q \to Q\times \R^r$ is an isomorphism of vector spaces.
@@ -940,13 +940,13 @@ compare the following statements.
 
 \begin{theorem}[Inverse function theorem]\label{thm:ift}
   Let $U\subset\R^m$ open and $f:U \to \R^n$ be a smooth map.
-  Assume that $f$ has maximal rank at some $x\in U$, then there exists a neighborhood $\Omega\subset U$ of $x$ such that  $f\big|_\Omega : \Omega \to f(\Omega)$ is a diffeomorphism.
+  Assume that $f$ has maximal rank at some $x\in U$, then there exists a neighbourhood $\Omega\subset U$ of $x$ such that  $f\big|_\Omega : \Omega \to f(\Omega)$ is a diffeomorphism.
 \end{theorem}
 
 \begin{theorem}[Inverse function theorem for manifolds]\label{thm:iftm}
   Let $F:M\to N$ be a smooth function between manifolds of the same dimension $n$.
   Let $p\in M$ and assume that $F$ has maximal rank (i.e. rank $n$) at $p$.
-  Then there exists a neighborhood $V$ of $p$ such that the restriction $F:V\to F(V)$ is a diffeomorphism.
+  Then there exists a neighbourhood $V$ of $p$ such that the restriction $F:V\to F(V)$ is a diffeomorphism.
 \end{theorem}
 % \begin{proof}
 %   This is a purely local statement.
@@ -969,7 +969,7 @@ We will state them without going into the details of the proofs.
 
 \begin{proposition}\label{prop:slice_chart}
   Let $F:M^m\to N^n$ be an immersion.
-  Then for any $p\in M$, there exists a neighborhood $U$ of $p$ and a chart $(V,\psi)$ about $F(p)\in N$ such that
+  Then for any $p\in M$, there exists a neighbourhood $U$ of $p$ and a chart $(V,\psi)$ about $F(p)\in N$ such that
   \begin{enumerate}
     \item If $y^i = r^i\circ \psi$ are the local coordinates of $\psi$ then
     \begin{equation}\label{eq:slice_chart}
@@ -1045,11 +1045,11 @@ From this observation follows another interesting proposition, again consequence
   The following assertions are equivalent.
   \begin{enumerate}
     \item $M^k\subset N^n$ is a $k$-dimensional submanifold.
-    \item $M$ is locally the image of an embedding of a subset of $\R^k$. That is, for every $p\in M$ there exists $V\subset M$ open neighborhood of $p$, an open set $U\subset\R^k$ and an embedding
+    \item $M$ is locally the image of an embedding of a subset of $\R^k$. That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$, an open set $U\subset\R^k$ and an embedding
     \begin{equation}
       \phi : U \to N \quad\mbox{such that}\quad \phi(U)=V.
     \end{equation}
-    \item $M$ is locally a level set of a submersion into $\R^{n-k}$. That is, for every $p\in M$ there exists $V\subset M$ open neighborhood of $p$ and a submersion $\Phi: V \to\R^{n-k}$ such that
+    \item $M$ is locally a level set of a submersion into $\R^{n-k}$. That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$ and a submersion $\Phi: V \to\R^{n-k}$ such that
     \begin{equation}
       M\cap V = \{q\in V \;\mid\; \Phi(q) = 0\}.
     \end{equation}
