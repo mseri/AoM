@@ -185,9 +185,14 @@ One way to let it cancel out, is to consider the \emph{commutator} of the two ve
 \end{equation}
 Indeed, $[X,Y]$ is a derivation.
 
+\marginnote{Do not confound Lie with lie. Here Lie is the surname of Sophus Lie, an important Norwegian mathematician that lived in the second half of the 19th century.}
 \begin{definition}
     Let $X,Y\in\fX(W)$. We call \emph{Lie bracket} of $X$ and $Y$ the derivation given by their commutator $[X,Y] := X Y - Y X$.
 \end{definition}
+
+\begin{remark}
+  Note that the Lie brackets are \emph{not} uniquely determined by $X_p$ and $Y_p$: the smooth functions $X(f)$ and $Y(f)$ depend on the values of $X$ and $Y$ in a neighbourhood of $p$.
+\end{remark}
 
 We will see many applications of the Lie brackets throughout the rest of the course, but before doing anything, let's find an effective way to compute it.
 
@@ -202,6 +207,17 @@ We will see many applications of the Lie brackets throughout the rest of the cou
 \begin{exercise}
     Prove the previous proposition.
 \end{exercise}
+
+\begin{exercise}
+  Show that the Lie brackets satisfy the following properties. Let $X,Y,Z\in\fX(M)$:
+  \begin{enumerate}[(i)]
+    \item antisymmetry $[X, Y] = - [Y, X]$;
+    \item bilinearity $[X + \alpha Y, Z] = [X, Z] + \alpha [Y, Z]$ and $[X, Y + \alpha Z] = [X, Y] + \alpha [X, Z]$, for all $\alpha\in\R$;
+    \item \emph{Jacobi identity} $[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0$.
+  \end{enumerate}
+\end{exercise}
+
+\todo{lie algebra}
 
 \section{Flows and integral curves}
 
