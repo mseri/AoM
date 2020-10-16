@@ -162,10 +162,12 @@ Any vector field $X\in\fX(W)$ defines a derivation $\cX$ via $\cX(f) = Xf$. In f
 
 Therefore, from now on, we will also interchange derivations of $C^\infty$ and vector fields, and call them with capital latin letters.
 
+\section{Lie brackets}
+
 Once you have a module, it is worth checking if you can get an algebra.
 Indeed, that is going to be our next objective.
+To this end, we look for a bilinear map $\fX(W)\times\fX(W) \to \fX(W)$.
 
-We are looking for a bilinear map $\fX(W)\times\fX(W) \to \fX(W)$.
 The most natural choice is to just compose the vector fields, that is, apply the derivatives one after the other:
 \begin{equation}
   X Y := X \circ Y : C^\infty(W) \to C^\infty(W), \quad
@@ -194,6 +196,25 @@ Indeed, $[X,Y]$ is a derivation.
   Note that the Lie brackets are \emph{not} uniquely determined by $X_p$ and $Y_p$: the smooth functions $X(f)$ and $Y(f)$ depend on the values of $X$ and $Y$ in a neighbourhood of $p$.
 \end{remark}
 
+\begin{exercise}\label{ex:vfliealgebra}
+  Show that the Lie bracket $[,]$ of vector fields satisfies the following properties. Let $X,Y,Z\in\fX(M)$:
+  \begin{enumerate}[(i)]
+    \item (antisymmetry) $[X, Y] = - [Y, X]$;
+    \item (bilinearity) $[\alpha X + \beta Y, Z] = \alpha [X, Z] + \beta [Y, Z]$ and $[X, \alpha Y + \beta Z] = \alpha [X, Y] + \beta [X, Z]$, for all $\alpha,\beta \in\R$;
+    \item (\emph{Jacobi identity}) $[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{proposition}
+  For all $X, Y \in \fX(M)$ and for all $f,g\in C^\infty(M)$,
+  \begin{equation}
+    [fX, gY] = fg[x,y] + f(Xg)Y - g(Yf)X.
+  \end{equation}
+\end{proposition}
+\begin{exercise}
+  Prove the proposition.
+\end{exercise}
+
 We will see many applications of the Lie brackets throughout the rest of the course, but before doing anything, let's find an effective way to compute it.
 
 \begin{proposition}
@@ -203,21 +224,74 @@ We will see many applications of the Lie brackets throughout the rest of the cou
         [X,Y] = \left(X^i\frac{\partial Y^j}{\partial x^i} - Y^i\frac{\partial X^j}{y^i}\right)\frac{\partial}{\partial x^j}.
     \end{equation}
 \end{proposition}
-
 \begin{exercise}
-    Prove the previous proposition.
+  Prove the proposition.
 \end{exercise}
 
-\begin{exercise}
-  Show that the Lie brackets satisfy the following properties. Let $X,Y,Z\in\fX(M)$:
-  \begin{enumerate}[(i)]
-    \item antisymmetry $[X, Y] = - [Y, X]$;
-    \item bilinearity $[X + \alpha Y, Z] = [X, Z] + \alpha [Y, Z]$ and $[X, Y + \alpha Z] = [X, Y] + \alpha [X, Z]$, for all $\alpha\in\R$;
-    \item \emph{Jacobi identity} $[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0$.
+\begin{theorem}\label{thm:liealgiso}
+  Let $F:M\to N$ be a diffeomorphism between smooth manifolds with or without boundary and let $X, Y \in\fX(M)$. Then,
+  \begin{equation}
+    \left((F_* X)f\right)\circ F = X(f\circ F), \quad\mbox{and}\quad
+    F_* [X,Y] = [F_* X, F_* Y].
+  \end{equation}.
+\end{theorem}
+\begin{proof}
+  By definition, for $f\in C^\infty(N)$, $X\in\fX(M)$ and any $p\in M$
+  \begin{align}
+    X(f\circ F)(p) = X_p(f\circ F) = dF_p(X_p)f = (F_* X)_{F(p)}f = (F_*X f)(F(p)) = (F_*X f)\circ F(p).
+  \end{align}
+  Which proves the first equation.
+  Therefore,
+  \begin{align}
+    X Y (f\circ F) = X ((F_* Y) f \circ F) 
+    = ((F_* X) (F_* Y) f) \circ F,
+  \end{align}
+  and similarly for $Y X$.
+  Finally, by definition we have
+  \begin{align}
+    (F_* [X,Y] f)\circ F
+    &= [X,Y](f\circ F) \\
+    &= XY (f\circ F) - YX (f\circ F) \\
+    &= ((F_* X) (F_* Y)f)\circ F - ((F_* Y) (F_* X)f)\circ F\\
+    &= ([F_* X, F_* Y]f)\circ F,
+  \end{align}
+  completing the proof.
+\end{proof}
+
+\begin{definition}
+  A \emph{Lie algebra} (over $\R$) is a real vector space $\fg$, endowed with a bilinear antisymmetric map
+  \begin{equation}
+    \fg \times \fg \to \fg, \quad (v,w)\mapsto [v,w],
+  \end{equation}
+  called \emph{Lie bracket}, which in addition satisfies the Jacobi identity\footnote{Thus a Lie algebra is a non-associative algebra.}. 
+  The \emph{dimension} of the Lie algebra is the dimension of $\fg$ as a vector space.
+
+  If $\fg$ is a Lie algebra, then a linear subspace $\fh\subset\fg$ is called a \emph{Lie subalgebra} if $[v,w]\in\fh$ for all $v,w\in\fh$.
+\end{definition}
+
+\begin{example}
+  Exercise~\ref{ex:vfliealgebra} shows that the space $\fX(M)$ of vector fields on a manifold $M$ is a Lie algebra.
+  Since $\fX(M)$ is a $C^\infty(M)$-module and $C^\infty(M)$ is an infinite-dimensional vector space, it defines an infinite dimensional Lie algebra.
+
+  This may seem an alien concept at first, however there are many simple examples of Lie algebras. To name a few:
+  \begin{enumerate}
+    \item $\R^3$ with the cross product $[x,y]:=x\times y$ is a $3$-dimensional Lie algebra;
+    \item the set $\mathrm{Mat}(n)$ of $n\times n$-matrices with the matrix commutator $[A,B] = AB-BA$ is a $n^2$-dimensional Lie algebra, usually denoted $\mathfrak{gl}(n\R)$;
+    \item any vector space $V$ turns into an (abelian) Lie algebra by defining $[v,w]=0$;
+    \item if $V$ is a vector space, the vector space of all linear maps from $V$ to itself becomes a Lie algebra, denoted $\mathfrak{gl}(V)$, with the brackets defined by $[A,B] = A\circ B-B\circ A$. Note that with the usual identification of $n\times n$ matrices with linear maps from $\R^n$ to itself, $\mathfrak{gl}(\R^n)$ coincides with $\mathfrak{gl}(n, \R)$.
   \end{enumerate}
-\end{exercise}
+\end{example}
 
-\todo{lie algebra}
+\begin{definition}
+  Let $\fg$ and $\fh$ be two Lie algebras. A \emph{Lie algebra homomorphism} is a linear map $T:\fg\to\fh$ which preserves the Lie brackets, i.e.
+  \begin{equation}
+    [Tv, Tw]_\fh = T[v,w]_\fg, \quad \forall v,w\in\fg.
+  \end{equation}
+
+  A \emph{Lie algebra isomorphism} is a bijective Lie algebra homomorphism whose inverse is also a Lie algebra homomorphism.
+\end{definition}
+
+In Theorem~\ref{thm:liealgiso} we have thus shown that the pushforward is a Lie algebra isomorphism!
 
 \section{Flows and integral curves}
 
@@ -425,13 +499,15 @@ Remark~\ref{rmk:automorphismgroup} immediately implies that $\diff(M)$ is a grou
   \begin{marginfigure}
     \includegraphics{3_1-vfield-infgen.pdf}
     \label{fig:3_1-vfield-infgen}
-    \caption{The name ``infinitesimal generator'' comes from the intuition that one can think of a flow as a sequence of infinitely many infinitesimally small linear steps. That is, an integral curve is well approximated on local charts by composing many small rectilinear motions, where the direction and length of each motion is determined by the value of the vector field at the point arrived at in the previous step. We will soon make this step rigorous.}
+    \caption{One can think of a flow as a sequence of many infinitesimal straight motions determined by the value of the vector field, that is where ``infinitesimal generator'' comes from. We will soon make this rigorous.}
   \end{marginfigure}
-  If $\{\Phi_t\}$ is a one-parameter group of diffeomorphisms, then we define its \emph{infinitesimal generator} as the (complete) vector field\footnote{Remember our previous remarks on the notation: this is just a scary way to write $X_p := \Phi_p'(0)$ that explicits the role of the differential and the nature of the vector field!}
-  \begin{equation}
+  If $\{\Phi_t\}$ is a one-parameter group of diffeomorphisms, then we define its \emph{infinitesimal generator} as the (complete) vector field
+  \begin{equation}\label{eq:infgen}
     X_p := d\Phi_{(0,p)}\left(\frac{\partial}{\partial t}\Big|_{(0,p)}\right).
   \end{equation}
   Then the flow of $X$ is simply the one-parameter group $\Phi_t$.
+
+  Always keep in mind that \eqref{eq:infgen} is just a ``scary'' way to write $X_p := \Phi_p'(0)$ where the role of the differential and the nature of the vector field are more explicit.
 \end{definition}
 
 The definition above, in fact, contains the proof of the following fact.
@@ -447,19 +523,27 @@ The definition above, in fact, contains the proof of the following fact.
   \end{equation}
   it is often convenient to use the exponential notation
   \begin{equation}
-    e^{t X} \cdot := \Phi^X_t(\cdot), \quad t\in\R,
+    e^{t X} := \Phi^X_t, \quad t\in\R,
   \end{equation}
   to denote the flow of a vector field $X$.
+
+  One particularly interesting consequence of this notation is the following:
+  \begin{equation}
+    \left(e_*^{tX} Y\right)_q = e_*^{tX} \left( Y\big|_{e^{-tX}(q)} \right) =
+    \frac{d}{ds}\Big|_{s=0} e^{tX}\circ e^{sX}\circ e^{-t X}(q),
+  \end{equation}
+  which turns out to be a rather useful formula.
 \end{notation}
 
 \begin{exercise}
   Show that the exponential defined above satisfies the following properties
   \begin{align}
-    e^{0X} = \id_M, \quad (e^{tX})^{-1} = e^{-tX}, \quad e^{t X}\circ e^{s X}= e^{(t+s)X},\\
-    \frac{d}{d t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
+    &e^{0X} = \id_M, \quad (e^{tX})^{-1} = e^{-tX}, \\
+    &e^{t X}\circ e^{s X}= e^{(t+s)X},\\
+    &\frac{d}{d t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
   \end{align}
 
-  Moreover, if $X(x) = Ax$ isd a linear vector field on $\R^n$, that is $A$ is a $n\times n$-matrix, then the corresponding flow $\Phi_t$ is the matrix exponential $\Phi_t(x) = e^{Ax}$.
+  Moreover, if $X(x) = Ax$ is a linear vector field on $\R^n$, that is $A$ is a $n\times n$-matrix, then the corresponding flow $\Phi_t$ is the matrix exponential $\Phi_t(x) = e^{Ax}$.
 \end{exercise}
 
 There are a few cases in which we can guarantee completeness, let's have a brief look.
@@ -518,6 +602,7 @@ A natural question, at this point, is what happens when we map integral curves t
 \begin{proposition}
   Let $F: M \to N$ be a diffeomorphism between smooth manifolds, $X\in\fX(M)$ a vector field and $\gamma:I\to M$ an integral curve of $X$. Then $F\circ\gamma : I \to N$ is an integral curve of $F_* X$.
 
+  \marginnote{Sometimes to understand what one is doing, it may be convenient to rewrite things in different forms, for example I find the following quite clarificatory \begin{equation}\Phi_t^{F_* X} = F \circ \Phi_t^X \circ F^{-1},\end{equation}}
   If $X$ is complete, we then have
   \begin{equation}
     F\circ\Phi_t^X = \Phi_t^{F_* X}\circ F.
@@ -554,7 +639,7 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
   \begin{equation}
     \phi_* X = L,
   \end{equation}
-  where $L$ is the linear drift defined in Example~\ref{eq:lineardrift}.
+  where $L$ is the linear drift defined in Example~\ref{example:lineardrift}.
   Thus, locally,
   \begin{equation}
     \Phi_t^X = \phi^{-1} \circ \Phi_t^L \circ \phi.
@@ -564,44 +649,47 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
   Choose a coordinate patch $(U_1, \psi)$ around $p$ (so $\psi(p) = 0$) such that $\psi_* X(0) = (1,0,0,\ldots, 0)$.
   By continuity of $\psi_*X\in \fX(\psi(U_1))$, we can always restrict to a smaller neighbourhood $V_2\subset \psi(U_1)$ on which $(\psi_*X)^1(q) > \frac12$ for all $q\in V_2$.
 
-  Our objective is to interpolate $\psi_* X$ on $V\subset V_2$ and $L$ on $V_2^c$ to obtain a new vector field $\tilde L$ on all of $\R^n$ which is diffeomorphic to $\tilde L$.
-  If $\Omega:\R^n\to\R^n$ is such diffeomorphism, i.e. $\Omega_* \tilde  L = L$, then $\phi = \Omega\circ\psi$ is the chart we are looking for: indeed, on $U=\psi^{-1}(V)$ we have $\phi_* X = \Omega_*\psi_*X = \Omega_* \tilde L = L$.
+  Our objective is to interpolate $\psi_* X$ on $V\subset V_2$ and $L$ on $V_2^c$ to obtain a new vector field $\widetilde{L}$ on all of $\R^n$ which is diffeomorphic to $\widetilde{L}$.
+  If $\Omega:\R^n\to\R^n$ is such diffeomorphism, i.e. $\Omega_* \tilde  L = L$, then $\phi = \Omega\circ\psi$ is the chart we are looking for: indeed, on $U=\psi^{-1}(V)$ we have $\phi_* X = \Omega_*\psi_*X = \Omega_* \widetilde{L} = L$.
 
-  \newthought{Interpolated vector field $\tilde{L}$}. Let $V\subset V_2$ be an open set around $0$. Pick a cutoff function $\chi\in C^\infty(\R^n)$ such that $\chi(x) = 1$ for $x\in U$ and $\chi(x) =0$ for $x\in U_2^c$.
-  Then the interpolating vector field is immediately obtained as\todo{add picture}
+  \newthought{Interpolated vector field $\widetilde{L}$}. Let $V\subset V_2$ be an open set around $0$. Pick a cutoff function $\chi\in C^\infty(\R^n)$ such that $\chi(x) = 1$ for $x\in U$ and $\chi(x) =0$ for $x\in U_2^c$.
+  Then the interpolating vector field is immediately obtained as
   \begin{equation}
-    \tilde L = \chi \psi_*X + (1-\chi)L \fX(\R^n).
+    \widetilde{L} = \chi \psi_*X + (1-\chi)L \in \fX(\R^n).
   \end{equation}
-  Clearly its flow $\Phi_t^{\tilde L}$ is global as $\R^n$ has no boundary and the regularity of the functions involved implies that no integral curve can escape to infinity in finite time.
+  \begin{marginfigure}
+    \includegraphics{3_2-vfield-patched.pdf}
+  \end{marginfigure}
+  Clearly its flow $\Phi_t^{\widetilde{L}}$ is global as $\R^n$ has no boundary and the regularity of the functions involved implies that no integral curve can escape to infinity in finite time.
 
-  \marginnote{It is interesting to compare $\Omega$ with the so called M\o{}ller transformations in scattering theory (cf. \cite[Chapter 12.2]{book:knauf}).}
   \newthought{Diffeomorphism $\Omega$}. We will now show that
   \begin{equation}
-    \Omega = \lim_{t\to\infty} \Phi_{-t}^L \circ \Phi_t^{\tilde L}
+    \Omega = \lim_{t\to\infty} \Phi_{-t}^L \circ \Phi_t^{\widetilde{L}}
   \end{equation}
-  exists and defines a diffeomorphism such that $\Omega_* \tilde L = L$.
-  Since by construction $(\Phi_t^{\tilde L}(q))^1 \geq q^1 + \frac12$, every integral curve leaves $V_2$ after a finite time.
+  exists and defines a diffeomorphism such that $\Omega_* \widetilde{L} = L$.
+  \marginnote{It is interesting to compare $\Omega$ with the so called M\o{}ller transformations in scattering theory (cf. \cite[Chapter 12.2]{book:knauf}).}
+  Since by construction $(\Phi_t^{\widetilde{L}}(q))^1 \geq q^1 + \frac12$, every integral curve leaves $V_2$ after a finite time.
   So, on compact sets $K\subset\R^n$, there is a finite time $t_0(K)$ after which the limit is attained (can you explain why?):
   \begin{equation}
-    \lim_{t\to\infty} \Phi_{-t}^L \circ \Phi_t^{\tilde L}\Big|_K = \Phi_{-t_0}^L \circ \Phi_{t_0}^{\tilde L}.
+    \lim_{t\to\infty} \Phi_{-t}^L \circ \Phi_t^{\widetilde{L}}\Big|_K = \Phi_{-t_0}^L \circ \Phi_{t_0}^{\widetilde{L}}.
   \end{equation}
   Thus, $\Omega$ is a well defined diffeomorphism.
   Moreover,
   \begin{align}
-    \Omega \circ \Phi^{\tilde L}_t &= \lim_{s\to\infty} \Phi_{-s}^L \circ \Phi^{\tilde L}_s \circ \Phi^{\tilde L}_t \\
-    &= \lim_{s\to\infty} \Phi_{-s}^L \circ \Phi^{\tilde L}_{s+t} \\
-    &= \lim_{\tau\to\infty} \Phi_{t-\tau}^L \circ \Phi^{\tilde L}_s \circ \Phi^{\tilde L}_\tau \\
-    &= \lim_{\tau\to\infty} \Phi_{t}^L \circ \Phi_{-\tau}^L \circ \Phi^{\tilde L}_s \circ \Phi^{\tilde L}_\tau = \Phi_t^L \circ \Omega,
+    \Omega \circ \Phi^{\widetilde{L}}_t &= \lim_{s\to\infty} \Phi_{-s}^L \circ \Phi^{\widetilde{L}}_s \circ \Phi^{\widetilde{L}}_t \\
+    &= \lim_{s\to\infty} \Phi_{-s}^L \circ \Phi^{\widetilde{L}}_{s+t} \\
+    &= \lim_{\tau\to\infty} \Phi_{t-\tau}^L \circ \Phi^{\widetilde{L}}_s \circ \Phi^{\widetilde{L}}_\tau \\
+    &= \lim_{\tau\to\infty} \Phi_{t}^L \circ \Phi_{-\tau}^L \circ \Phi^{\widetilde{L}}_s \circ \Phi^{\widetilde{L}}_\tau = \Phi_t^L \circ \Omega,
   \end{align}
   and therefore the flows are diffeomorphic.
-  In particular, we also have $\Phi_p^{\tilde L} = \Omega^{-1} \circ \Phi^L_{\Omega(x)}$.
+  In particular, we also have $\Phi_p^{\widetilde{L}} = \Omega^{-1} \circ \Phi^L_{\Omega(x)}$.
   Differentiating this last equation we get
   \begin{align}
-    (\tilde L \circ \Phi^{\tilde L})_p &= d\Phi^{\tilde L}_p \\
-    &= d\Omega^{-1}_(\Phi^L_{\Omega(x)}) \circ d\Phi^L_{\Omega(x)} \\
-    &= d\Omega^{-1}_(\Phi^L_{\Omega(x)}) \circ (L \circ \Phi^L)_{\Omega(x)},
+    (\widetilde{L} \circ \Phi^{\widetilde{L}})_p &= d\Phi^{\widetilde{L}}_p \\
+    &= d\Omega^{-1}_{\Phi^L_{\Omega(x)}} \circ d\Phi^L_{\Omega(x)} \\
+    &= d\Omega^{-1}_{\Phi^L_{\Omega(x)}} \circ (L \circ \Phi^L)_{\Omega(x)},
   \end{align}
-    which, at $t=0$, gives $\tilde L = d\Omega^{-1} \circ L \circ \Omega = \Omega^{-1}_* L$.
+    which, at $t=0$, gives $\widetilde{L} = d\Omega^{-1} \circ L \circ \Omega = \Omega^{-1}_* L$.
 \end{proof}
 
 \begin{remark}[Linearisation of a vector field at a fixed point]
@@ -622,8 +710,3 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
 
 For simplicity we discuss only global flows in the following.
 But keep in mind that all results hold also for local flows as long as one restricts the domains appropriately.
-
-
-\section{The Lie derivative}
-
-\TODO

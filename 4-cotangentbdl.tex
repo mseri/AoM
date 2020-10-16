@@ -1,0 +1,26 @@
+\newthought{The dual of a vector space} should be a well-known concept from linear algebra. We recall it here just for the sake of convenience.
+
+\begin{definition}
+  Let $V$ a vector space of dimension $n\in N$.
+  Its \emph{dual space} $V^* := \cL(V, \R)$ is the $n$-dimensional real vector space of linear maps $v^*:V \to R$.
+  The elements of $V^*$ are usually called \emph{linear functionals} and for $v^*\in V^*$ and $u\in V$ it is common to write
+  \begin{equation}
+    v^*(u) =: (v^*, u) =: (v^* \mid u),
+  \end{equation}
+  even if the \emph{dual pairing} $(v^*, u)$ is \emph{not} a scalar product.
+\end{definition}
+
+Note that a scalar product $\langle,\rangle$ on a vector space $V$ provides a natural identification of $V$ and $V^*$ via the map $V\ni v \mapsto \langle v, \cdot \rangle =: v^* \in V^*$.
+Even though $\dim V = \dim V^*$ in any case, without the scalar product there is no such canonical isomorphism.
+
+In the previous chapter we defined the tangent space as a special vector space over each point in a manifold, which nicely fits in the requirements above.
+
+\begin{definition}
+  Let $M$ be a differentiable manifold and $p\in M$.
+  The dual space $T_p^*M := (T_pM)^*$ of the tangent space $T_pM$ is called the \emph{cotangent space} of $M$ at $p$.
+  The elements of $T^*_xM$ are called \emph{cotangent vectors}, \emph{covectors} or \emph{one-forms}.
+\end{definition}
+
+\begin{example}[The differential of a function]
+  \TODO
+\end{example}
