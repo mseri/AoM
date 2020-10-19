@@ -171,26 +171,6 @@ For covectors, \eqref{eq:covariant} shows that their components transform in the
 For this reason covectors are said to be \emph{covariant vectors}.
 Analogously, tangent vectors are said to be \emph{contravariant vectors}, since \eqref{eq:contravariant} shows that their components transform in the opposite way.
 
-This difference in the way vector and covector transform is also reflected in the way they are transformed by smooth maps between manifolds.
-As we have seen, the differential of a smooth map yields a linear map between tangent spaces, 
-
-\begin{definition}\label{def:pullback:oneform}
-  Let $F:M\to N$ be a smooth map and $p\in M$.
-  The \emph{pullback} of $F$ at the point $F(p)$, is the map
-  \marginnote{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
-  \begin{equation}
-    F^* : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto F^*\omega,
-  \end{equation}
-  defined by duality in the following way:
-  \begin{equation}
-    \left(F^*\omega, v\right) := \left(\omega, dF(v)\right),\quad
-    \forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
-  \end{equation}
-\end{definition}
-
-\marginnote{Equations are getting more and more ticky: this kind of dimensional analysis is extremely useful to check that you are doing the right thing.}
-Be careful in the equation above: $F^* \omega \in T^*_p M$ so $v\in T_p M$, but $\omega\in T^*_{F(p)}N$ so $df(v)\in T_{F(p)}N$ since $df: T_pM\to T_{F(p)}N$.
-
 \section{One-forms and the cotangent bundle}
 
 In analogy to Chapter~\ref{sec:tangentbundle} we can glue the cotangent space together into a vector bundle on $M$.
@@ -217,4 +197,26 @@ The differential form $\omega$ is smooth if and only if, for every smooth vector
   That is, a $1$-form $\omega\in\Gamma(TM)$ is a smooth map $\omega: p \to \omega_p \in T_p^*M$ that assigns to each point $p\in M$ a cotangent vector at $p$.
 \end{definition}
 
-Cotangent Bundle + forms as sections of the cotangent bundle
+The difference in the way vector and covector transform is also reflected in the way they are transformed by smooth maps between manifolds.
+As we have seen, the differential of a smooth map yields a linear map between tangent spaces, 
+
+\begin{definition}\label{def:pullback:oneform}
+  Let $F:M\to N$ be a smooth map and $p\in M$.
+  The \emph{pullback} of $F$ at the point $F(p)$, is the map
+  \marginnote{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
+  \begin{equation}
+    F^* : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto F^*\omega,
+  \end{equation}
+  defined by duality in the following way\footnote{Or, omitting the point of application, $\left(F^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
+  \begin{equation}
+    \left(F^*\omega_p, v\right) := \left(\omega_{F(p)}, dF_p(v)\right),\quad
+    \forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
+  \end{equation}
+\end{definition}
+\marginnote{Equations are getting more and more ticky: this kind of dimensional analysis is extremely useful to check that you are doing the right thing.}
+\noindent Let's check that the definition above makes sense: $F^* \omega_p \in T^*_p M$ so $v\in T_p M$, but $\omega_{F(p)}\in T^*_{F(p)}N$ so $df_p(v)\in T_{F(p)}N$ since $df_p: T_pM\to T_{F(p)}N$.
+
+When we discussed vector fields, we observed that pushforwards of vector fields under smooth maps are defined only in the special case of diffeomorphisms.
+The surprising thing about covectors is that covector fields always pull back to covector fields.
+
+\todo{Cotangent Bundle + forms as sections of the cotangent bundle + Example Liouville forme (Tu 17.4) + proposition 11.25 from Lee}
