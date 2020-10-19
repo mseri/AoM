@@ -238,7 +238,9 @@ We will see many applications of the Lie brackets throughout the rest of the cou
 \begin{proof}
   By definition, for $f\in C^\infty(N)$, $X\in\fX(M)$ and any $p\in M$
   \begin{align}
-    X(f\circ F)(p) = X_p(f\circ F) = dF_p(X_p)f = (F_* X)_{F(p)}f = (F_*X f)(F(p)) = (F_*X f)\circ F(p).
+    X(f\circ F)(p) &= X_p(f\circ F) \\
+    &= dF_p(X_p)f = (F_* X)_{F(p)}f \\
+    &= (F_*X f)(F(p)) = (F_*X f)\circ F(p).
   \end{align}
   Which proves the first equation.
   Therefore,
@@ -526,13 +528,6 @@ The definition above, in fact, contains the proof of the following fact.
     e^{t X} := \Phi^X_t, \quad t\in\R,
   \end{equation}
   to denote the flow of a vector field $X$.
-
-  One particularly interesting consequence of this notation is the following:
-  \begin{equation}
-    \left(e_*^{tX} Y\right)_q = e_*^{tX} \left( Y\big|_{e^{-tX}(q)} \right) =
-    \frac{d}{ds}\Big|_{s=0} e^{tX}\circ e^{sX}\circ e^{-t X}(q),
-  \end{equation}
-  which turns out to be a rather useful formula.
 \end{notation}
 
 \begin{exercise}
@@ -599,14 +594,14 @@ Thus, if a solution does not exist for all times, then it must either run to inf
 
 A natural question, at this point, is what happens when we map integral curves to different manifolds via diffeomorphisms, after all it looks like the mapping to euclidean spaces via the charts behaves quite nicely.
 
-\begin{proposition}
+\begin{proposition}\label{prop:conjpfX}
   Let $F: M \to N$ be a diffeomorphism between smooth manifolds, $X\in\fX(M)$ a vector field and $\gamma:I\to M$ an integral curve of $X$. Then $F\circ\gamma : I \to N$ is an integral curve of $F_* X$.
 
-  \marginnote{Sometimes to understand what one is doing, it may be convenient to rewrite things in different forms, for example I find the following quite clarificatory \begin{equation}\Phi_t^{F_* X} = F \circ \Phi_t^X \circ F^{-1},\end{equation}}
   If $X$ is complete, we then have
   \begin{equation}
     F\circ\Phi_t^X = \Phi_t^{F_* X}\circ F.
   \end{equation}
+  \marginnote[-6em]{Sometimes to understand what one is doing, it may be convenient to rewrite things in different forms, for example I find the following quite clarificatory \begin{equation}\label{eq:conjpfX}\Phi_t^{F_* X} = F \circ \Phi_t^X \circ F^{-1},\end{equation}}
 \end{proposition}
 \begin{proof}
   We only need to show that the two curves satisfy the same ODE.
@@ -620,6 +615,87 @@ A natural question, at this point, is what happens when we map integral curves t
   \end{align*}
 \end{proof}
 
+\begin{remark}
+  One particularly interesting consequence of Proposition~\ref{prop:conjpfX} in conjunction with the exponential notation is the following:
+  \begin{equation}\label{eq:expdiff}
+    \left(e_*^{tX} Y\right)_q =
+    \frac{d}{ds}\Big|_{s=0} \exp\left(s\, e_*^{tX} Y\right)_q =
+    \frac{d}{ds}\Big|_{s=0} e^{tX}\circ e^{sY}\circ e^{-t X}(q),
+  \end{equation}
+  where we are using the definition of integral flow in the first equality and \eqref{eq:conjpfX} in the second.
+  This turns out to be rather useful for proofs and computations.  
+\end{remark}
+
+\begin{exercise}
+  Use Theorem~\ref{thm:liealgiso} to show that the Lie bracket is the infinitesimal version of the pushforward of the second vector field along the flow of the first one, that is,
+  \begin{equation}\label{def:liebracketsecondversion}
+    [X,Y]\big|_q = \frac{\partial}{\partial t}\Big|_{t=0} (e_*^{-t X} Y)_q
+  \end{equation}
+  Hint: the identity $(F_* X)f = X(f\circ F)\circ F^{-1}$ and a Taylor expansion can help.
+\end{exercise}
+
+\begin{remark}
+  Equation~\eqref{def:liebracketsecondversion} and \eqref{eq:expdiff} imply that
+  \begin{equation}\label{eq:lbddr}
+    [X,Y]_q = \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0}e^{-tX}\circ e^{sY}\circ e^{t X}(q).
+  \end{equation}
+\end{remark}
+
+With this we can show that the Lie bracket of two vector fields is zero (i.e., they commute as operator on functions) if and only if their flows commute, that is $\Phi^X_t \circ \Phi^Y_s = \Phi^Y_s\circ \Phi^X_t$ for all $t,s\in\R$.
+
+\begin{proposition}
+  Let $M$ be a smooth manifolds and $X,Y\in\fX(M)$. Then $[X,Y]=0$ if and only if their flows commute.
+\end{proposition}
+\begin{proof}
+  First we show that $[X,Y] = 0$ implies that
+  \begin{equation}\label{eq:intcurvconst}
+    e^{-tX}_*Y = Y \quad \forall t\in\R.
+  \end{equation}
+  To this end, we are going to use \eqref{def:liebracketsecondversion} to show that $0 = [X,Y] = \frac{\partial}{\partial t}\Big|_{t=0} e_*^{-t X} Y$ implies that $\frac{\partial}{\partial t} e_*^{-t X} Y = 0$ for all $t\in\R$ (i.e., it is a constant map).
+  Indeed, for any $t$,
+  \begin{align}
+    \frac{\partial}{\partial t} e_*^{-t X} Y
+    &= \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e_*^{-(t+\epsilon) X} Y
+    = \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e_*^{-t X}e_*^{-\epsilon X} Y\\
+    &= e_*^{-tX} \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e_*^{-\epsilon X} Y
+    = e_*^{-tX} [X,Y] = 0.
+  \end{align}
+  
+  $(\Longrightarrow)$ Fix $t\in\R$. We are going to show that $\Phi_s := e^{-tX}\circ e^{sY}\circ e^{tX}$ is the flow of $Y$, i.e. $\Phi_s = = e^{sY}$.
+  We can use the previous trick, \eqref{eq:intcurvconst} and \eqref{eq:expdiff} to get, for any $s\in\R$,
+  \begin{align}
+    \frac{\partial}{\partial s} \Phi_s
+    &= \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{(s+\epsilon) Y}\circ e^{tX} \\
+    &= \LaTeXunderbrace{\frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{\epsilon Y}\circ e^{tX}}_{e^{-tX}_* Y} \circ \LaTeXunderbrace{e^{-tX}\circ e^{s Y}\circ e^{tX}}_{\Phi_s} \\
+    &= e^{-tX}_* Y \circ \Phi_s = Y \circ \Phi_s.
+  \end{align}
+  That is, $e^{-tX}\circ e^{sY}\circ e^{tX} = e^{sY}$ which is equivalent to the claim.
+
+  $(\Longleftarrow)$ Let $f\in C^\infty(M)$, by \eqref{eq:lbddr} we have
+  \begin{align}
+    [X,Y]_q &= \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0}e^{-tX}\circ e^{sY}\circ e^{t X}(q)\\
+    &= \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0} e^{sY} = 0.
+  \end{align}
+\end{proof}
+
+\begin{exercise}
+  Let $M$ be a smooth manifolds and $X,Y\in\fX(M)$.
+  Define $(\ad X) Y := [X,Y]$.
+  Use the semigroup property\footnote{We have shown it at the beginning of the previous proof!}
+  \begin{equation}
+    \frac{\partial}{\partial t} e_*^{tX} Y = e_*^{tX}[X,Y],
+  \end{equation}
+  to deduce the following \emph{formal} series expansion:
+  \begin{align}
+    e_*^{-tX} Y
+    &= \sum_{n=0}^\infty \frac{t^n}{b!}(\ad X)^n Y \\
+    &= Y + t[X,Y] + \frac{t^2}{2}[X, [X, Y]] + \frac{t^3}{6} [X,[X,[X,Y]]] + \cdots.
+  \end{align}
+\end{exercise}
+
+After this parenthesis, let's go back to our final objective: we can finally justify our comment in Figure~\ref{fig:3_1-vfield-infgen}.
+The following theorem shows that every flow $\Phi^X$ admits local coordinates on its support which map it into a linear flow.
+
 \begin{definition}
   Let $M$ be a smooth manifold and $x\in\fX(M)$. 
   The \emph{support of $X$} is defined as
@@ -629,9 +705,6 @@ A natural question, at this point, is what happens when we map integral curves t
   Points $p\in\supp(X)$ are called \emph{regular points of $X$}.
   The points $p\in M\setminus\supp(X)$, i.e. such that $X_p = 0$, are the \emph{fixed points (or equilibrium points) of $X$}: for such points the unique integral curve through $p$ is $\gamma(t) \equiv p$ for all $t\in\R$. 
 \end{definition}
-
-We can finally justify our comment in Figure~\ref{fig:3_1-vfield-infgen}.
-The following theorem shows that every flow $\Phi^X$ admits local coordinates on its support which map it into a linear flow.
 
 \begin{theorem}[Normal form of a flow away from the fixed points]
   Let $M$ be a smooth manifold, $X\in\fX(M)$ and $p\in\supp(X)\subset M$.
@@ -702,11 +775,11 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
     \tilde X_x = \underbrace{\tilde X_0}_{=0} + d\tilde X_0 x + \cO(\|x\|^2) = d\tilde X_0 x + \cO(\|x\|^2).
   \end{equation}
   Close to $x=0$ we can thus approximate $\tilde X_x$ by its linearisation $ d\tilde X_0 x$.
-
-  Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues of $d\tilde X_0 x$ and their geometric multiplicities (cf. \cite[Figure 9.8]{book:lee}). This is the same as you have seen in the euclidean case \cite[Chapter 5.3]{book:knauf}.
-
-  Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\tilde X_0 x$ is independent of the choice of local coordinates.
+  %
+  Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\tilde X_0 x$ is independent of the choice of local coordinates.} of $d\tilde X_0 x$ and their geometric multiplicities (cf. \cite[Figure 9.8]{book:lee}). This is the same as you have seen in the euclidean case \cite[Chapter 5.3]{book:knauf}.
 \end{remark}
 
-For simplicity we discuss only global flows in the following.
+\begin{tcolorbox}
+For simplicity in the rest of the course we will discuss only global flows.
 But keep in mind that all results hold also for local flows as long as one restricts the domains appropriately.
+\end{tcolorbox}
