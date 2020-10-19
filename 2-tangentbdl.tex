@@ -701,29 +701,29 @@ We will come back to this later on once we talk about vector bundles.
 
 As it turns out, this is a particular instance of a more general fact.
 
-\begin{theorem}
+\begin{theorem}\label{thm:tgbdlsmoothmfld}
   Let $M$ be a smooth $n$-manifold.
   The smooth structure on $M$ naturally induces a smooth structure on $TM$, making $TM$ into a smooth manifold of dimension $2n$.
   Moreover, the map $\pi: TM \to M$ is smooth.
 \end{theorem}
 \begin{proof}
-  \marginnote[1em]{In this proof you can see instances of a typical abuse of notation: in the expressions $\tilde x^i(x)$ we think of the $\tilde x^i$ as coordinate functions but we think of the $x$ as representing a point in $\phi(U\cap V)$.}
+  \marginnote[1em]{In this proof you can see instances of a typical abuse of notation: in the expressions $\widetilde x^i(x)$ we think of the $\widetilde x^i$ as coordinate functions but we think of the $x$ as representing a point in $\phi(U\cap V)$.}
   \newthought{Step 1: extending charts from $M$ to $TM$.}
-  Given a chart $(U,\phi)$ about $p\in M$, the preimage $\phi^{-1}(U) \subset TM$ is the set of all tangent vectors to $M$ at points of $U$.
-  If $(x^i)$ denotes the coordinate functions of $\phi$, we can define a map $\tilde\phi : \pi^{-1}(U) \to \phi(U)\times\R^n \subset \R^{2n}$ by
+  Given a chart $(U,\phi)$ about $p\in M$, the preimage $\pi^{-1}(U) \subset TM$ is the set of all tangent vectors to $M$ at points of $U$.
+  If $(x^i)$ denotes the coordinate functions of $\phi$, we can define a map $\widetilde\phi : \pi^{-1}(U) \to \phi(U)\times\R^n \subset \R^{2n}$ by
   \begin{align}\label{eq:nat_coords}
-    \tilde\phi\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) := \left(x^1(p), \ldots, x^n(p), v^1, \ldots, v^n\right).
+    \widetilde\phi\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) := \left(x^1(p), \ldots, x^n(p), v^1, \ldots, v^n\right).
   \end{align}
-  Since $\tilde\phi$ can be explicitly inverted as $\tilde\phi^{-1}\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) = v^i \frac{\partial}{\partial x^i}\Big|_{\phi^{-1}(x)}$, it defines a bijection onto it image.
+  Since $\widetilde\phi$ can be explicitly inverted as $\widetilde\phi^{-1}\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) = v^i \frac{\partial}{\partial x^i}\Big|_{\phi^{-1}(x)}$, it defines a bijection onto it image.
 
   \newthought{Step2: compatibility of the extended charts.}
   Suppose we have two smooth charts $(U,\phi)$, $(V,\psi)$ for $M$.
-  Let $(\pi^{-1}(U),\tilde\phi)$, $(\pi^{-1}(V),\tilde\psi)$ be their extension\footnote{These are called \emph{bundle charts}.} to $TM$ as in the previous step.
-  By construction, both $\tilde\phi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \phi(U\cap V)\times\R^n$ and $\tilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
-  Moreover, we can take advantage of Remark~\ref{rmk:chg_coords} to write explicitly the transition map  $\tilde\psi\circ\tilde\phi^{-1}: \phi(U\cap V)\times\R^n \to \psi(U\cap V)\times\R^n$ as
+  Let $(\pi^{-1}(U),\widetilde\phi)$, $(\pi^{-1}(V),\widetilde\psi)$ be their extension\footnote{These are called \emph{bundle charts}.} to $TM$ as in the previous step.
+  By construction, both $\widetilde\phi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \phi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
+  Moreover, we can take advantage of Remark~\ref{rmk:chg_coords} to write explicitly the transition map  $\widetilde\psi\circ\widetilde\phi^{-1}: \phi(U\cap V)\times\R^n \to \psi(U\cap V)\times\R^n$ as
   \begin{align}
-    \tilde\psi\circ&\tilde\phi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) \\
-    &=\left(\tilde x^1(x),\ldots, \tilde x^n(x), \frac{\partial \tilde x^1}{\partial x^j}(x) v^j, \ldots, \frac{\partial \tilde x^n}{\partial x^j}(x) v^j\right)
+    \widetilde\psi\circ&\widetilde\phi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) \\
+    &=\left(\widetilde x^1(x),\ldots, \widetilde x^n(x), \frac{\partial \widetilde x^1}{\partial x^j}(x) v^j, \ldots, \frac{\partial \widetilde x^n}{\partial x^j}(x) v^j\right)
   \end{align}
   Which is clearly smooth.
 
@@ -733,18 +733,18 @@ As it turns out, this is a particular instance of a more general fact.
   \end{figure*}
   
   \newthought{Step3: $TM$ is a manifold.}
-  With the procedure delineated above, a countable smooth atlas $\{(U_i, \phi_i)\}$ of $M$ induces a countable atlas $\{(\pi^{-1}(U_i), \tilde\phi_i)\}$ of $TM$.
+  With the procedure delineated above, a countable smooth atlas $\{(U_i, \phi_i)\}$ of $M$ induces a countable atlas $\{(\pi^{-1}(U_i), \widetilde\phi_i)\}$ of $TM$.
   First of all, $\{(\pi^{-1}(U_i)\}$ provides a countable covering of $TM$.
   
   We only need to show that the topology induced by the charts is Hausdorff and second countable.
   
   Let $(p^1, v^1), (p^2, v^2) \in TM$ be different points: either $p^1\neq p^2$, or $p^1 = p^2$ and $v^1 \neq v^2$.
   In the first case, there are disjoint open sets $V_1, V_2 \subset U_i$ (for some $i$) containing respectively $p^1$ and $p^2$.
-  Then $\tilde\phi_i^{-1}(V_1\times\R^n)$ and $\tilde\phi_i^{-1}(V_2\times\R^n)$ are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
+  Then $\widetilde\phi_i^{-1}(V_1\times\R^n)$ and $\widetilde\phi_i^{-1}(V_2\times\R^n)$ are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
   In the second case, $p=p^1=p^2$ there are disjoint open sets $V_1,V_2\subset \R^n$ containing $v^1$ and $v^2$ respectively.
-  Again the preimages $\tilde\phi^{-1}(U_i\times V_1)$ and $\tilde\phi^{-1}(U_i\times V_2)$ (for some $i$) are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
+  Again the preimages $\widetilde\phi^{-1}(U_i\times V_1)$ and $\widetilde\phi^{-1}(U_i\times V_2)$ (for some $i$) are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
 
-  If countable basis $\{U_j\}$ is countable basis for the topology of $M$ (which is second countable) and $\{W_k\}$ is a countable basis for the topology of $\R^n$, then $\{\tilde\phi^{-1}((U_i\cap U_j)\times W_k)\}$ is a countable basis for $TM$.
+  If countable basis $\{U_j\}$ is countable basis for the topology of $M$ (which is second countable) and $\{W_k\}$ is a countable basis for the topology of $\R^n$, then $\{\widetilde\phi^{-1}((U_i\cap U_j)\times W_k)\}$ is a countable basis for $TM$.
   The charts defined above make $TM$ automatically euclidean of dimension $2n$.
 
   \begin{exercise}
@@ -752,7 +752,7 @@ As it turns out, this is a particular instance of a more general fact.
     Can you simplify it using Lemma~\ref{lem:manifold_chart}?
   \end{exercise}
 
-  \newthought{Step4: $\pi$ is smooth.} With respect to the charts $(U,\phi)$ for $M$ and $(\pi^{-1}(U), \tilde\phi)$ for $TM$, the coordinate representation of $\pi$ is $\pi(x,v) = x$.
+  \newthought{Step4: $\pi$ is smooth.} With respect to the charts $(U,\phi)$ for $M$ and $(\pi^{-1}(U), \widetilde\phi)$ for $TM$, the coordinate representation of $\pi$ is $\pi(x,v) = x$.
 \end{proof}
 
 The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{natural coordinates}.

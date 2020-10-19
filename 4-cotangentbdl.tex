@@ -109,6 +109,17 @@ Given a covector $\omega = \omega_j\; dx^j$ and a vector $v = v^i \frac{\partial
   \omega_j v^j.
 \end{equation}
 
+\begin{exercise}
+  Let $M$ be a smooth manifold and let $f,g\in C^\infty(M)$. Show that the following properties hold:
+  \begin{enumerate}
+    \item $d(\alpha f + \beta g) = \alpha df + \beta dg$ for $\alpha,\beta\in\R$;
+    \item $d(fg) = f dg + g df$;
+    \item $d(f/g) = (g df - f dg)/g^2$ on the set where $g\neq 0$;
+    \item if $J\subseteq\R$ contains the image of $f$ and $h:J\to\R$ is smooth, then $d(h\circ f) = (h'\circ f) df$;
+    \item if $f$ is constant, then $df= 0$.
+  \end{enumerate}
+\end{exercise}
+
 \begin{remark}[The double dual]
   We said in Remark~\ref{rmk:identification} that unless we have an inner product, there is no canonical identification of a vector space with its dual.
   This is true also for the tangent and cotangent spaces.
@@ -171,6 +182,26 @@ For covectors, \eqref{eq:covariant} shows that their components transform in the
 For this reason covectors are said to be \emph{covariant vectors}.
 Analogously, tangent vectors are said to be \emph{contravariant vectors}, since \eqref{eq:contravariant} shows that their components transform in the opposite way.
 
+The difference in the way vector and covector transform is reflected also in the way they are transformed by smooth maps between manifolds.
+As we have seen, the differential of a smooth map yields a linear map between tangent spaces that pushes vectors from one space to the other.
+Its dual is going to be a map that pulls vector form one covector space to another.
+
+\begin{definition}\label{def:pullback:oneform}
+  Let $F:M\to N$ be a smooth map between smooth manifolds, let $\omega\in T^*_pM$ for some $p\in M$.
+  The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the diffetential
+  \marginnote{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
+  \begin{equation}
+    dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto F^*\omega,
+  \end{equation}
+  defined by duality in the following way\footnote{Or, omitting the point of application, $\left(F^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
+  \begin{equation}
+    \left(dF^*_p\omega, v\right) := \left(\omega, dF_p(v)\right),\quad
+    \forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
+  \end{equation}
+\end{definition}
+\marginnote{Equations are getting more and more ticky: this kind of dimensional analysis is extremely useful to check that you are doing the right thing.}
+\noindent Let's check that the definition above makes sense: $dF^*_p \omega \in T^*_p M$ so $v\in T_p M$, but $\omega\in T^*_{F(p)}N$ so $df_p(v)\in T_{F(p)}N$ since $dF_p: T_pM\to T_{F(p)}N$.
+
 \section{One-forms and the cotangent bundle}
 
 In analogy to Chapter~\ref{sec:tangentbundle} we can glue the cotangent space together into a vector bundle on $M$.
@@ -186,6 +217,26 @@ In analogy to Chapter~\ref{sec:tangentbundle} we can glue the cotangent space to
 The cotangent bundle is a vector bundle of rank $n$ with projection $\pi:T^*M\to M$, $(p,\omega)\mapsto p$.
 The cotangent spaces are the fibres of the cotangent bundle. 
 
+\begin{theorem}
+  Let $M$ be a smooth $n$-manifold.
+  The smooth structure on $M$ naturally induces a smooth structure on $T^*M$, making $T^*M$ into a smooth manifold of dimension $2n$ for which all coordinate covector fields are smooth local sections.
+\end{theorem}
+\begin{proof}
+  The proof is analogous to that of Theorem~\ref{thm:tgbdlsmoothmfld}, so we will not do it again.
+  % The atlas is obtained by an atlas $\{(U_i, \phi_i)\}$ of $M$ by defining the new atlas
+  % \begin{equation}
+  %   \left\{ T^* U_i, \left(\phi_i, d(\phi_i^{-1})^*\right)\right\}
+  % \end{equation}
+  % where
+  % \begin{align}
+  %   \left(\phi_i, (\phi_i^{-1})^*\right) : T^* U_i &\to T^*\phi(U_i),\\
+  %   (p, \omega) &\mapsto \left(\phi_i(p), d(\phi_i^{-1})^*)_p\omega \right).
+  % \end{align}
+  \begin{exercise}
+    Mimicking what we did for Theorem~\ref{thm:tgbdlsmoothmfld}, complete this proof.
+  \end{exercise}
+\end{proof}
+
 Since differential forms are dual objects to vector fields, the action of a form $\omega$ on $X\in\fX(M)$ is well defined and pointwise defines a function
 \begin{equation}
   (\omega \mid X) : p \mapsto (\omega_p \mid X_p).
@@ -195,28 +246,92 @@ The differential form $\omega$ is smooth if and only if, for every smooth vector
 \begin{definition}
   A \emph{covector field} or a \emph{(differential) $1$-form} on $M$ is a smooth section of $TM$.
   That is, a $1$-form $\omega\in\Gamma(TM)$ is a smooth map $\omega: p \to \omega_p \in T_p^*M$ that assigns to each point $p\in M$ a cotangent vector at $p$.
+  We denote the space of all smooth covector fields on $M$ by $\fX^*(M)$.
+  \marginnote[-1em]{For reasons related to tensor fields that we will understand soon, this is sometimes denoted $\cT_1^0(M)$.}
+
+  As for vector fields, we can define \emph{$C^p$-covector fields} as the $C^p$-maps $\omega:M\to T^*M$ such that $\pi\circ\omega = \id_M$.
 \end{definition}
 
-The difference in the way vector and covector transform is also reflected in the way they are transformed by smooth maps between manifolds.
-As we have seen, the differential of a smooth map yields a linear map between tangent spaces, 
+Also in this case, we will often identify for a covector field $\omega\in\fX^*(M)$ its value $\omega(p) = \omega_p \in \{p\}\times T^*_p M$ at $p\in M$ with its part in $T_p^*M$ without necessarily making this explicit in the notation by projecting on the second factor.
 
-\begin{definition}\label{def:pullback:oneform}
-  Let $F:M\to N$ be a smooth map and $p\in M$.
-  The \emph{pullback} of $F$ at the point $F(p)$, is the map
-  \marginnote{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
+\begin{example}
+  Let $f\in C^\infty(M)$, then the map
   \begin{equation}
-    F^* : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto F^*\omega,
+    df : M \to T^*M, \quad p \mapsto df|_p \in T^*_p M
   \end{equation}
-  defined by duality in the following way\footnote{Or, omitting the point of application, $\left(F^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
+  defines a $1$-form $df\in\fX^*(M)$.
+\end{example}
+
+As smooth sections of a vector bundle, covector fields can be multiplied by smooth functions: if $f\in C^\infty(M)$ and $\omega\in\fX^*(M)$, the covector field $f\omega$ is defined by
+\begin{equation}
+  (f\omega)_p = f(p)\omega_p.
+\end{equation}
+Also in this case, $\fX^*(M)$ is a module over $C^\infty(M)$.
+
+\begin{definition}
+  The pullback of covectors immediately extends to covector fields.
+  The \emph{pullback} is the map
   \begin{equation}
-    \left(F^*\omega_p, v\right) := \left(\omega_{F(p)}, dF_p(v)\right),\quad
-    \forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
+    F^*: \fX(N)^* \to \fX^*(M), \quad \omega \mapsto F^* \omega
+  \end{equation} 
+  defined by
+  \begin{equation}
+    (F^*\omega)_p := dF_p^*(\omega_{F(p)}).
+  \end{equation}
+  By definition, this acts on vectors $v\in T_p M$ by
+  \begin{equation}
+    ((F^*\omega)_p, v) = (\omega_{F(p)}, dF_p(v)) = \omega_{F(p)}(dF_p(v)).
   \end{equation}
 \end{definition}
-\marginnote{Equations are getting more and more ticky: this kind of dimensional analysis is extremely useful to check that you are doing the right thing.}
-\noindent Let's check that the definition above makes sense: $F^* \omega_p \in T^*_p M$ so $v\in T_p M$, but $\omega_{F(p)}\in T^*_{F(p)}N$ so $df_p(v)\in T_{F(p)}N$ since $df_p: T_pM\to T_{F(p)}N$.
+
+\begin{exercise}\label{ex:propdiff}
+  Let $F:M\to N$ be a smooth map between smooth manifolds.
+  Suppose $f$ is a continuous real valued function on $N$ and $\omega\in\fX^*(M)$ is a covector field on $N$. Then
+  \begin{equation}
+    F^*(f\omega) = (f\circ F)F^*\omega.
+  \end{equation}
+  If in addition $f\in C^\infty(N)$, then
+  \begin{equation}
+    F^* df = d (f\circ F) =: d (f^* g),
+  \end{equation}
+  where we introduced the \emph{pullback} of the function $f$ as $f^*g := g\circ f$.
+
+  Hint: apply the equations at a point $p\in M$ and keep rewriting the equations in different forms.
+\end{exercise}
 
 When we discussed vector fields, we observed that pushforwards of vector fields under smooth maps are defined only in the special case of diffeomorphisms.
 The surprising thing about covectors is that covector fields always pull back to covector fields.
 
-\todo{Cotangent Bundle + forms as sections of the cotangent bundle + Example Liouville forme (Tu 17.4) + proposition 11.25 from Lee}
+\begin{example}[Polar coordinates on $\R^2$]
+  We can define polar coordinates in $\R^2$ via the map
+  \begin{align}
+    \psi : \R_+\times (-\pi, \pi) &\to \R^2\setminus\{x\in\R^2\mid x^2=0 \mbox{ and } x^1 \leq 0\}\\
+    (r, \theta) &\mapsto (r\cos\theta, r\sin\theta).
+  \end{align}
+  It is immediate to check that $\psi$ is a diffeomorphism between open subsets of $\R^2$, and we can think of $\psi^{-1}$ as local coordinates for a part of $\R^2$.
+
+  On the image of $\psi$ we have the coordinate basis $\{dx^1, dx^2\}$. In order to express them in terms of the coordinate basis $\{dr,d\theta\}$, we can apply Exercise~\ref{ex:propdiff}, the properties of differentials and the formulas for the change of coordinates to get
+  \begin{align}
+    \psi^*(d x^1) &= d(x^1\circ \psi) = d(r\cos\theta) \\
+    &= \cos\theta \,dr +r\,d(\cos\theta) = \cos\theta \,dr -r\,\sin\theta\,d\theta\\
+    \psi^*(d x^2) &= d(x^2\circ \psi) = d(r\sin\theta) \\
+    &= \sin\theta \,dr +r\,d(\sin\theta) = \sin\theta \,dr +r\,\cos\theta\,d\theta.
+  \end{align}
+\end{example}
+
+\begin{example}[Tautological one-form]
+  On $T^*M$ there is a $1$-form, called\footnote{As usual there are different names: two other common ones are \emph{Liouville form} or \emph{Poincar\'e form}, but don't be suprised if you find more.} \emph{tautological one-form}, defined as follows.
+
+  A point in $T^*M$ is a covector $\omega_p\in T^*_p M$ at some point $p\in M$. If $X_{\omega_p}\in T_{\omega_p}(T^*M)$ is a tangent vector to $T^*M$ at $\omega_p$, then the pushforward $\pi_*(X_{\omega_p})\in T_p M$ is a tangent vector to $M$ at $p$.
+  Therefore, one can pair $\omega_p$ and $\pi_*(X_{\omega_p})$ to obtain a real number $\left(\omega_p\;\big|\;\pi_*(X_{\omega_p})\right)$.
+  The tautological one-form $\theta\in\fX^*(T^*M)$ is then defined as
+  \begin{equation}
+    \theta_{\omega_p}(X_{\omega_p}) := \left(\omega_p\;\Big|\;\pi_*(X_{\omega_p})\right).
+  \end{equation}
+
+  This is a very important concept in symplectic and contact geometry and in the mathematical theory of classical mechanics.
+\end{example}
+
+\section{Line integrals}
+
+\todo{Lee p.288 -- }
