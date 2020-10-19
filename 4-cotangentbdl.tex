@@ -2,25 +2,221 @@
 
 \begin{definition}
   Let $V$ a vector space of dimension $n\in N$.
-  Its \emph{dual space} $V^* := \cL(V, \R)$ is the $n$-dimensional real vector space of linear maps $v^*:V \to R$.
-  The elements of $V^*$ are usually called \emph{linear functionals} and for $v^*\in V^*$ and $u\in V$ it is common to write
+  Its \emph{dual space} $V^* := \cL(V, \R)$ is the $n$-dimensional real vector space of linear maps $\omega:V \to R$.
+  The elements of $V^*$ are usually called \emph{linear functionals} and for $\omega\in V^*$ and $v\in V$ it is common to write
   \begin{equation}
-    v^*(u) =: (v^*, u) =: (v^* \mid u),
+    \omega(v) =: (\omega, v) =: (\omega \mid v),
   \end{equation}
-  even if the \emph{dual pairing} $(v^*, u)$ is \emph{not} a scalar product.
+  even if the \emph{dual pairing} $(\omega \mid v)$ is \emph{not} a scalar product.
 \end{definition}
 
-Note that a scalar product $\langle,\rangle$ on a vector space $V$ provides a natural identification of $V$ and $V^*$ via the map $V\ni v \mapsto \langle v, \cdot \rangle =: v^* \in V^*$.
-Even though $\dim V = \dim V^*$ in any case, without the scalar product there is no such canonical isomorphism.
+\begin{remark}\label{rmk:identification}
+  Note that a scalar product $\langle,\rangle :  V\times V \to \R$ on a vector space $V$ provides a natural identification of $V$ and $V^*$ via the map $V\ni v \mapsto \langle v, \cdot \rangle =: \omega(\cdot) \in V^*$.
+  Even though $\dim V = \dim V^*$ in any case, without the scalar product there is no such canonical isomorphism.
+\end{remark}
 
 In the previous chapter we defined the tangent space as a special vector space over each point in a manifold, which nicely fits in the requirements above.
 
 \begin{definition}
   Let $M$ be a differentiable manifold and $p\in M$.
   The dual space $T_p^*M := (T_pM)^*$ of the tangent space $T_pM$ is called the \emph{cotangent space} of $M$ at $p$.
-  The elements of $T^*_xM$ are called \emph{cotangent vectors}, \emph{covectors} or \emph{one-forms}.
+  The elements of $T^*_pM$ are called \emph{cotangent vectors}, \emph{covectors} or \emph{(differential) $1$-forms} at $p$.
 \end{definition}
 
+For a function $f:\R^n\to\R$, we usually consider the gradient $\nabla f(x)$ at a point $x$ to be a vector, on a manifold however things a slightly different.
+
 \begin{example}[The differential of a function]
-  \TODO
+  Let $f\in C^\infty(M)$. Let's look carefully at its differential:
+  \begin{equation}
+    df_p: T_p M \to T_{f(p)}\R \simeq \R
+  \end{equation}
+  is a linear function from the tangent space to $\R$.
+  In other words, $df_p \in T_p^* M$.
 \end{example}
+
+Whereas tangent vectors give us a coordinate-free interpretation of derivatives (of curves), it turns out that derivatives of real-valued functions on a manifold are most naturally interpreted as cotangent vectors.
+
+Indeed, we saw that the action of $df_p$ on a tangent vector $v\in T_p M$ can be interpreted as the directional derivative of $f$ at $p$ in the direction $v$ and, by using Definition~\ref{def:tg:ascurvespeed}, we have
+\begin{equation}
+  df_p(v) = \frac{d}{dt}f(\gamma(t))\Big|_{t=0}
+\end{equation}
+for some curve $\gamma$ with $\gamma(0) = p$ and $\gamma'(0)=v$.
+We also know that the equation above can be rewritten by thinking of $v$ as a derivation, giving
+\begin{equation}
+  df_p(v) = v(f).
+\end{equation}
+That is, we can think of the dual pairing $(df\mid v)$ in a twofold way:
+\begin{itemize}
+  \item as a linear action of the covector $df$ on the vector $v$;
+  \item as the linear action of the vector $v$ as a derivation operating on the function $f$.
+\end{itemize}
+
+\begin{notation}
+  In analogy to the notation $\frac{\partial}{\partial x}\big|_p$ that we used for tangent vectors, when convenient we may write $df|_p$ instead of $df_p$.
+\end{notation}
+
+To look more concretely at differential forms, let's compute its coordinate representation.
+Let $(U,\phi)$ be a chart on $M^n$ with local coordinates $(x^i)$.
+Since the coordinate functions $x^i\in C^\infty(U)$, we can define the corresponding coordinate $1$-forms $dx^i|_p \in T_p^* M$.
+Their action on the coordinate vector fields, then, is immediately computed as
+\begin{equation}
+  \left(dx^i|_p ,\; \frac{\partial}{\partial x^j}\Big|_p\right) =
+  dx^i|_p \left(\frac{\partial}{\partial x^j}\Big|_p\right)
+  = \frac{\partial}{\partial x^j}\Big|_p x^i
+  = \delta^i_j.
+\end{equation}
+Which proves the following statement.
+
+\begin{proposition}
+  Let $(x^i)$ be local coordinates on an open subset $U\subseteq M^n$.
+  At each point $p\in U$, the covectors $(dx^1|_p, \ldots, dx^n_p)$ form a basis for the cotangent space $T_p^* M$ which is dual to the basis $\frac{\partial}{\partial x^1}\Big|_p, \ldots, \frac{\partial}{\partial x^n}\Big|_p$ for the tangent space $T_p M$.
+\end{proposition}
+
+That is, any $1$-form $\omega$ can be locally written as a linear combination
+\begin{equation}
+  \omega = \omega_i\; dx^i
+\end{equation}
+where $\omega_i:U\to\R$.
+In particular, if $f\in C^\infty(M)$, the restriction $df$ to points in $U$ should have the same form.
+Evaluating it on a coordinate vector field gives, for all $p\in U$,
+\begin{align}
+  &\underset{\shortparallel}{df_p} \left(\frac{\partial}{\partial x^j}\Big|_p\right)
+  = \omega_i\; dx^i|_p \left(\frac{\partial}{\partial x^j}\Big|_p\right) = 
+  \omega_i \delta^i_j = \omega_j \\
+  & \frac{\partial f}{\partial x^j}(p).
+\end{align}
+
+That is, the local expression for $df$ is
+\begin{equation}\label{eq:localformofthedifferential}
+  df =  \frac{\partial f}{\partial x^i} dx^i.
+\end{equation}
+
+\begin{remark}
+  In calculus 1 you have probably been told that you can cancel out differentials when applying solving differential equations.
+  This was probably accompanied by a warning that it is just a formal thing, a computational convenience.
+  We can finally make sense of that in a general context: in one dimension, \eqref{eq:localformofthedifferential}, reads as
+  \begin{equation}
+    d f = \frac{df}{dt}dt.
+  \end{equation}
+\end{remark}
+
+With the local basis, computing with covectors becomes much easier.
+Given a covector $\omega = \omega_j\; dx^j$ and a vector $v = v^i \frac{\partial}{\partial x^i}$ expressed in the respective coordinate bases for the local coordinates $(x^i)$, by linearity in both arguments the dual pairing takes the form
+\begin{equation}\label{eq:localdualpairing}
+  (\omega \mid v) =
+  \left(\omega_j\; dx^j \;\Big |\; v^i \frac{\partial}{\partial x^i} \right) =
+  \omega_j v^i \left(dx^j \;\Big |\; \frac{\partial}{\partial x^i} \right) =
+  \omega_j v^j.
+\end{equation}
+
+\begin{remark}[The double dual]
+  We said in Remark~\ref{rmk:identification} that unless we have an inner product, there is no canonical identification of a vector space with its dual.
+  This is true also for the tangent and cotangent spaces.
+  However, the situation is different for the double dual $T^{**}_pM := (T^*_pM)^*$.
+  
+  For $v\in T_p M$, the map
+  \begin{equation}
+    i_v: T_p^*M\to \R, \qquad
+    \omega \mapsto i_v(\omega) := (\omega\mid v)
+  \end{equation}
+  is linear and therefore $i_v\in T^{**}_pM$.
+
+  Furthermore the map $i : T_pM \to T_p^{**}M$, $i\mapsto i_v$, is a vector space isomorphism. Indeed, it is injective since $\ker(i) = \{0\}$ and since $\dim T_p M = \dim T^{**}_p M$ also surjective (why? I hope you remember the rank-nullity theorem).
+
+  That is, $T^{**}_pM$ can be canonically identified with $T_p M$.
+
+  So, to add up to our list of interpretations of geometric objects, we now have seen that
+  \begin{itemize}
+    \item a covector can act as a linear functional on vectors;
+    \item a vector can act as a linear functional of vectors.
+  \end{itemize}
+\end{remark}
+
+This should start giving you an idea of what is behind the following famous quote by Henri Poincar\'e:
+\begin{quote}
+  Mathematics is the art of giving the same name to different things.
+\end{quote}
+
+\section{Change of coordinates}
+
+In Remark~\ref{rmk:chg_coords} we have seen that if we have two different charts with local coordinates $(x^i)$ and $(y^i)$ on a smooth manifold $M$,
+\begin{equation}
+  \frac{\partial}{\partial x^i}\Big|_p = \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p.
+\end{equation}
+Thus, if $v\in T_pM$ has local form $v = v^i \frac{\partial}{\partial x^i}\big|_p = \widetilde v^j \frac{\partial}{\partial y^j}\big|_p$, we get 
+\begin{align}
+  & \underset{\shortparallel}{v^i \frac{\partial}{\partial x^i}\Big|_p} = v^i \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p \\
+  & \widetilde v^j \frac{\partial}{\partial y^j}\Big|_p,
+\end{align}
+or, reading off the basis elements,
+\begin{equation}\label{eq:contravariant}
+  \widetilde v^j = \frac{\partial y^j}{\partial x^i}(p) v^i.
+\end{equation}
+
+Let now $\omega\in T_p^*M$ with local form $\omega = \omega_i dx^i|_p = \widetilde \omega_j dy^j|_p$.
+In analogy to our previous computations we get
+\begin{equation}
+  \omega_i
+  = \omega\left(\frac{\partial}{\partial x^i}\Big|_p\right)
+  = \omega\left(\frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p\right)
+  = \frac{\partial y^j}{\partial x^i}(p) \widetilde\omega_j.
+\end{equation}
+That is,
+\begin{equation}\label{eq:covariant}
+  \omega_i = \frac{\partial y^j}{\partial x^i}(p) \widetilde\omega_j.
+\end{equation}
+
+There is an important difference\footnote{I have borrowed this explanation from \cite[Chapter 11]{book:lee}.} between \eqref{eq:covariant} and \eqref{eq:contravariant}.
+For covectors, \eqref{eq:covariant} shows that their components transform in the same way as (``vary with'') the coordinate partial derivatives: the Jacobian of the change of variables $\frac{\partial y^j}{\partial x^i}(p)$ multiplies the objects associated to the ``new'' coordinates $y^j$ to obtain the objects associated to the ``old'' coordinates $x^i$.
+For this reason covectors are said to be \emph{covariant vectors}.
+Analogously, tangent vectors are said to be \emph{contravariant vectors}, since \eqref{eq:contravariant} shows that their components transform in the opposite way.
+
+This difference in the way vector and covector transform is also reflected in the way they are transformed by smooth maps between manifolds.
+As we have seen, the differential of a smooth map yields a linear map between tangent spaces, 
+
+\begin{definition}\label{def:pullback:oneform}
+  Let $F:M\to N$ be a smooth map and $p\in M$.
+  The \emph{pullback} of $F$ at the point $F(p)$, is the map
+  \marginnote{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
+  \begin{equation}
+    F^* : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto F^*\omega,
+  \end{equation}
+  defined by duality in the following way:
+  \begin{equation}
+    \left(F^*\omega, v\right) := \left(\omega, dF(v)\right),\quad
+    \forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
+  \end{equation}
+\end{definition}
+
+\marginnote{Equations now start getting involved: this kind of dimensional analysis is extremely useful to check that you are doing the right thing.}
+Be careful in the equation above: $F^* \omega \in T^*_p M$ so $v\in T_p M$, but $\omega\in T^*_{F(p)}N$ so $df(v)\in T_{F(p)}N$ since $df: T_pM\to T_{F(p)}N$.
+
+
+
+\section{One-forms and the cotangent bundle}
+
+In analogy to Chapter~\ref{sec:tangentbundle} we can glue the cotangent space together into a vector bundle on $M$.
+
+\begin{definition}
+  The \emph{cotangent bundle} $T^*M$ of $M$ is the disjoint union of cotangent spaces
+  \begin{equation}
+    TM := \bigsqcup_{p\in M}\left(\{p\}\times T^*_pM\right)
+       = \{(p,\omega) \;\mid\; p\in M,\, \omega\in T^*_pM\}.
+  \end{equation}
+\end{definition}
+
+The cotangent bundle is a vector bundle of rank $n$ with projection $\pi:T^*M\to M$, $(p,\omega)\mapsto p$.
+The cotangent spaces are the fibres of the cotangent bundle. 
+
+Since differential forms are dual objects to vector fields, the action of a form $\omega$ on $X\in\fX(M)$ is well defined and pointwise defines a function
+\begin{equation}
+  (\omega \mid X) : p \mapsto (\omega_p \mid X_p).
+\end{equation}
+The differential form $\omega$ is smooth if and only if, for every smooth vector field $X\in\fX(M)$, the function $(\omega \mid X)\in C^\infty(M)$.
+
+\begin{definition}
+  A \emph{covector field} or a \emph{(differential) $1$-form} on $M$ is a smooth section of $TM$.
+  That is, a $1$-form $\omega\in\Gamma(TM)$ is a smooth map $\omega: p \to \omega_p \in T_p^*M$ that assigns to each point $p\in M$ a cotangent vector at $p$.
+\end{definition}
+
+Cotangent Bundle + forms as sections of the cotangent bundle

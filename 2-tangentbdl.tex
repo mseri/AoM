@@ -110,7 +110,7 @@ We can now go back to our discussion of euclidean derivations to motivate our de
   And since we are flipping around all the ideas, let us consider $x$ and $v$ fixed and instead only let $f$ vary:
   \begin{equation}\label{eq:mapxvtoD}
     (x,v):C^\infty(U) \to\R, \quad (x,v)(f) := Df(x)v.
-  \end{equation}.
+  \end{equation}
   By the definition \eqref{eq:diff} of the euclidean differential, we know that it is a local property: the value $Df(x)$ only depends on the germ of $f$ at $x$.
   Thus we can rephrase \eqref{eq:mapxvtoD} by saying that $v$ defines a \emph{linear} map
   \begin{equation}
@@ -190,7 +190,7 @@ Showing that the opposite is also true will require a bit of work.
   Then there is a linear isomorphism between $T_p M$ and the space of derivations of $C^\infty(W)$ at $p$.
 \end{proposition}
 \begin{proof}
-  To prove the theorem we need to invert \eqref{eq:derivfromtg} and define a tangent vector in terms of of a derivation of $C^infty(W)$ at $p$.
+  To prove the theorem we need to invert \eqref{eq:derivfromtg} and define a tangent vector in terms of of a derivation of $C^\infty(W)$ at $p$.
   We will proceed in three steps
 
   \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ op $p$. We are going to show that $w(f)=0$.
@@ -364,7 +364,6 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
     D_j(r^i \circ \phi \circ \psi^{-1})(\psi(p)),
   \end{equation}
   which is the $(i,j)$th entry in the matrix $D(\phi\circ\psi^{-1})(\psi(p))$ as discussed at the beginning of Section~\ref{sec:dd}.
-
   In other words, $D(\phi\circ\psi^{-1})(\psi(p))$ is the transition matrix from the basis $\left\{\frac{\partial}{\partial y^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ to the basis $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$.
 \end{remark}
 
@@ -402,7 +401,7 @@ In the manifold case there is a similar linear map but, as we discussed, it make
 
 It should not come a surprise that with the constructions developed so-far not only we have one such map, but we can directly relate it to a derivative.
 
-\begin{definition}
+\begin{definition}\label{def:differentialMap}
   Let $F: M \to N$ be a smooth map between the smooth manifolds $M$ and $N$.
   Let $p\in M$. The \emph{differential $d F_p$ of $F$ at $p$} is the map\footnote{In the differential geometry literature, the differential has many names: you can find it called \emph{tangent map}, \emph{total derivative} or \emph{derivative} of $F$. Since it ``pushes'' tangent vectors forward from the domain manifold to the codomain, it is also called the \emph{pushforward}. If that was not enough, different authors use different notation for it: besides $dF_p(v)$, you can find $F_* v_p$, $F'(p)$, $T_pF$, $DF(p)[v]$ or variations thereof.}
   \begin{equation}
@@ -642,9 +641,9 @@ There is still a potential problem, though. We don't yet know if \emph{every} ta
   \label{fig:2_4-v_cur}
 \end{marginfigure}
 This means that we can actually make an alternative definition of $T_xM$ in terms of tangent to curves:
-\begin{quote}
+\begin{definition}\label{def:tg:ascurvespeed}
   a tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ for some chart $\phi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
-\end{quote}
+\end{definition}
 
 In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and to endow $T_xM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
 
@@ -673,7 +672,7 @@ To conclude this part, the next proposition shows that velocity vectors behave w
   Hint: use the definitions to rewrite the formula in different ways.
 \end{exercise}
 
-\section{The tangent bundle}
+\section{The tangent bundle}\label{sec:tangentbundle}
 
 Instead of working separately with the various tangent spaces, we can ``glue'' them together into a big manifold.
 
@@ -768,7 +767,7 @@ The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{n
   It turns out that the Lagrangian is a function on $TM$.
 \end{remark}
 
-\section{Vector bundles}
+\section{Vector bundles}\label{sec:vectorbundle}
 
 What we have seen here is our first example of vector bundle.
 
@@ -789,8 +788,11 @@ What we have seen here is our first example of vector bundle.
 \end{definition}
 
 \begin{example}
-  A simple example of vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ itself with the projection on the first component $\pi_1: E\to M$. In this case the bundle is clearly trivialisable.
+  A simple example of vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ itself with the projection on the first component $\pi_1: E\to M$.
+  In this case the bundle is clearly trivialisable.
+  
   Another example is the tangent bundle $TM$ with its projection $\pi:TM\to M$.
+  In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$. 
   Other examples will appear throughout the course.
 \end{example}
 
