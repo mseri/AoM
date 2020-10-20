@@ -19,18 +19,102 @@ Keep in mind, that at a certain point, we will be interested to replace such spa
 
 \begin{definition}
   Let $V$ be a $n$-dimensional vector space and $V^*$ its dual.
+  Let
+  \begin{equation}
+    \mathrm{Mult}(V_1, \ldots, V_k)
+  \end{equation}
+  denote the space of multilinear maps $V_1\times\cdot V_k\to\R$.
+
   A multilinear map
   \begin{equation}
-    \tau : \LaTeXunderbrace{V^*\times \cdots \times V^*}_{r\mbox{ times}} \times \LaTeXunderbrace{V \times \cdot \times V}_{s\mbox{ times}} \to \R
+    \tau : \LaTeXoverbrace{V^*\times \cdots \times V^*}^{r\mbox{ times}} \times \LaTeXunderbrace{V \times \cdots \times V}_{s\mbox{ times}} \to \R
   \end{equation}
-  is called \emph{tensor of type $(r,s)$}. Similarly as we did for the dual pairing, we may write
+  is called \emph{tensor of type $(r,s)$}, $r$-contravariant $s$-covariant tensor, or $(r,s)$-tensor.
+  Similarly as we did for the dual pairing, when convenient we define the pairing
   \begin{equation}
-    \tau(\omega_1, \ldots, \omega_r; v^1, \ldots, v^s) =: \left(\tau | \omega_1, \ldots, \omega_r; v^1, \ldots, v^s \right).
+    \tau\left(\omega^1, \ldots, \omega^r; v_1, \ldots, v_s\right) 
+    =: \left(\tau \mid \omega^1, \ldots, \omega^r; v_1, \ldots, v_s \right).
   \end{equation}
 
   For tensors $\tau_1$ and $\tau_2$ of the same type $(r,s)$ and $\alpha_1, \alpha_2\in\R$ we define
   \begin{equation}
     \left(\alpha_1\tau_1 + \alpha_2\tau_2 | \ldots \right) := \alpha_1\left(\tau_1 | \ldots \right) + \alpha_2 \left(\tau_2 | \ldots \right).
   \end{equation}
-  This equips the space of tensors of type $(r,s)$ with the structure of a vector space\footnote{Be careful when reading books and papers, for these spaces the literature is wild: there are so many different conventions and notations that there is not enough space on this margin to mention them all. One common source of confusion is in the ordering of the spaces, for some authors we have just defined $(s,r)$ tensors...} which we denote $V^r_s$. In particular, $V^* = V_1^0$ and $V=V_0^1$.
+  This equips the space 
+  \begin{equation}
+    T^r_s(V) := \mathrm{Mult}(\LaTeXoverbrace{V^*,\ldots,V^*}^{r \mbox{ times}}, \LaTeXunderbrace{V, \ldots, V}_{s \mbox{ times}})
+  \end{equation}
+  of tensors of type $(r,s)$ with the structure of a vector space\footnote{Be careful when reading books and papers, for these spaces the literature is wild: there are so many different conventions and notations that there is not enough space on this margin to mention them all. Note that the book of Lee inverts the order of superscripts and subscripts in $T^r_s$.}. %of dimension $(\dim V)^{r+s}$.
+  In particular, $V^* = T_1^0(V)$ and $V=T_0^1(V)$.
 \end{definition}
+
+\begin{example}
+  \begin{itemize}
+    \item A scalar product in $\R^n$ is a $(0,2)$-tensor, i.e. an element of $T^0_2(\R^n)$.
+    \item The determinant, thought as a function of $n$ vectors, is a tensor in $T_n^0(\R^n)$.
+    \item Covectors are elements of $T_1^0(M)$ while tangent vectors are elements of $T_0^1(M)$.
+  \end{itemize}
+\end{example}
+
+Given, for example, two covectors $\omega^1, \omega^2 \in V^*$, we can define the bilinear map
+\begin{equation}
+  \omega^1\otimes \omega^2 : V\times V \to \R,\quad
+  \omega^1\otimes \omega^2(v_1, v_2) = \omega_1(v_1)\omega_2(v_2),
+\end{equation}
+called the tensor product of $\omega^1$ and $\omega^2$.
+This can be generalized immediately to general tensors in order to define new higher order tensors.
+
+\begin{definition}
+  Let $V$ an $n$-dimensional vector space, $\tau_1\in T_s^r(V)$, $\tau_2\in T_{s'}^{r'}(V)$.
+  We define the \emph{tensor product} $\tau_1\otimes\tau_2$ as the $(r+r', s+s')$-tensor defined by
+  \begin{align}
+    &\tau_1\otimes\tau_2(\omega^1,\ldots,\omega^{r+r'}, v_1,\ldots,v_{s+s'}) \\
+    &= \tau_1(\omega^1,\ldots,\omega^{r}, v_1,\ldots,v_{s}) \tau_2(\omega^{r+1},\ldots,\omega^{r+r'}, v_{s+1},\ldots,v_{s+s'}).
+  \end{align}
+\end{definition}
+
+This definition immediately implies that the map
+\begin{equation}
+  \otimes :  T_s^r(V)\times T_{s'}^{r'}(V) \to T_{s+s'}^{r+r'}(V)
+\end{equation}
+is associative and distributive but not commutative (why?).
+
+\begin{exercise}
+  Give a tensor in $T^2_0$ which is a linear combination of tensor products but cannot be written as a tensor product.
+  Justify your answer.
+  Hint: one of the examples at the beginning of the chapter can help.
+\end{exercise}
+
+In fact, this is a general fact.
+
+\begin{proposition}
+  Let $V$ be an $n$-dimensional vector space.
+  Let $(e_j)$ and $(\varepsilon^i)$ respectively denote the bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$.
+  Then, every $\tau\in V_s^r$ can be uniquely written as the linear combination\marginnote{Exercise: epand Einstein's notation to write the full sum on the left with the relevant indices.}% In the expression, all indices $j_1,\ldots,j_r$, $i_1,\ldots,i_s$ run from $1$ to $n$.}
+  \begin{equation}\label{eq:tensor:decomposition}
+    \tau = \tau^{j_1\cdots j_r}_{i_1\cdots i_n} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s},
+  \end{equation}
+  where the coefficients $\tau^{j_1\cdots j_r}_{i_1\cdots i_n}\in\R$.
+
+  Thus the $n^{r+s}$ tensor products
+  \begin{equation}
+    e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s}, \quad j_1,\ldots,j_r, i_1,\ldots,i_s = 1,\ldots,n,
+  \end{equation}
+  form a basis of $T_s^r(V)$, and $T_s^r(V)$ has dimension $n^{r+s}$.
+\end{proposition}
+
+\begin{proof}
+  
+\end{proof}
+
+\begin{remark}
+  If $V_1, \ldots, V_k$ are vector spaces, 
+  there is a canonical isomorphism such that
+  \begin{equation}
+    T^r_s(V) \simeq \LaTeXoverbrace{V\otimes \cdots \otimes V}^{r\mbox{ times}} \times \LaTeXunderbrace{V^*\otimes \cdots \otimes V^*}_{s\mbox{ times}}.
+  \end{equation}
+  This allows us to choose whichever interpretation is more convenient for the problem at hand. 
+\end{remark}
+
+
+\todo{tensor bundles}
