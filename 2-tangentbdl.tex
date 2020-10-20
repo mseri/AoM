@@ -1115,3 +1115,17 @@ To finally answer the question, we will prove one last proposition.
   Show that the above reasoning holds verbatim for $\bS^n\subset\R^{n+1}$.
 \end{exercise}
 
+\begin{exercise}
+  Show that the orthogonal matrices $O(n) := \{ Q\in GL(n) \mid Q^TQ=\id \}$ form a $n(n-1)/2$-dimensional submanifold of the $n^2$-manifold $\mathrm{Mat}(n)$ of $n\times n$-matrices.
+
+  Show also that
+  \begin{equation}
+    T_Q O(n) = \left\lbrace B \in \mathrm{Mat}(n) \mid (Q^{-1} B)^T = -Q^{-1}B \right\rbrace,
+  \end{equation}
+  and, thus, that $T_{\id} O(n)$ is the space of skew-symmetric matrices
+  \begin{equation}
+    T_{\id} O(n) = \left\{ B \in \mathrm{Mat}(n) \mid B^T = -B \right\}.
+  \end{equation}
+
+  Hint: Find a suitable map $F: \mathrm{Mat}(n) \to \mathrm{Sym}(n)$ such that $F^{-1}(\{0\}) = O(n)$. Here $\mathrm{Sym}(n)$ denotes the space of symmetric matrices.
+\end{exercise}
