@@ -345,7 +345,7 @@ dropping the distinction between $p$ and $x$, both in place of
   The manifold obtained in this way is diffeomorphic to the one defined in Example \ref{ex:S1emb}.
 \end{example}
 
-\begin{example}[Product manifolds]
+\begin{example}[Product manifolds]\label{ex:pm}
 Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{product manifold} $M_1 \times M_2$ by equipping $M_1 \times M_2$ with the product topology\footnote{Open sets in the product are products of open sets from the respective topological spaces.} and cover the space with the atlas $\{ (U_1\times U_2, (\phi_1, \phi_2)) \;\mid\; (U_1, \phi_1)\in\cA_1, (U_2, \phi_2)\in \cA_2\}$.
 \end{example}
 
@@ -377,18 +377,38 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
   Prove Lemma~\ref{lem:manifold_chart}. Hint: declare all the $\phi_\alpha$ to be homeomorphisms and use the hypotheses to check the definition of a smooth manifold.
 \end{exercise}
 
-\begin{example}[Grassmannian (Manifold)]
-  \todo{Lee, Example 1.36}
+\begin{example}
+  Lemma~\ref{lem:manifold_chart} simplifies life a lot.
+  Consider the product manifolds from Example~\ref{ex:pm}.
+  Since both $M$ and $N$ are smooth manifolds, the product manifold is a $m+n$-dimensional smooth manifold with the atlas introduced in the example.
+
+  The proof of this fact is trivial in the sense that each of the maps in the atlas satisfies all the properties of the lemma by construction, after all they are already part of the differentiable structure of a smooth manifold.
 \end{example}
+
+\begin{example}
+  Let $\R P^n$ denote the $n$-dimensional real projective space, that is, the space of lines in $\R^{n+1}$ passing through the origin.
+  Prove that $\R P^n$ is a smooth manifold of dimension $n$. 
+
+  \todo{Chapter Tu 7.5}
+\end{example}
+
+\begin{exercise}[Grassmannian (Manifold)]
+  \todo{Lee, Example 1.36, Tu, Problem 7.8}
+\end{exercise}
+
+\begin{exercise}
+  Prove that the $n$-dimensional torus
+  \begin{equation}
+    \bT^n := \LaTeXunderbrace{\bS^1\times\cdots\times\bS^1}_{n\mbox{ times}} \subset \R^{2n}
+  \end{equation}
+  is a smooth manifold of dimension $n$.
+\end{exercise}
 
 \begin{tcolorbox}
   The general definition of $C^r$-manifolds is mostly a matter of replacing occurrences of ``smooth'' in the text with $C^r$.
   The study of these more general structures is not dissimilar from what we will see in this course, with the exception of analytic and $C^0$-manifolds, but it introduces an unnecessary extra level of verbosity.
   In these notes we will only deal with smooth manifolds.
 \end{tcolorbox}
-
-\section{Intermission: exercises}
-\TODO
 
 \section{Smooth maps and differentiability}
 

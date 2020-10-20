@@ -1,0 +1,36 @@
+Many of the spaces that we have encountered so far are particular examples of a much larger class of objects.
+In this chapter we are going to introduce all the necessary algebraic concepts.
+
+We have seen that covectors in $V^*$ can be understood as real linear maps $V\to\R$ from the underlying space $V$ while, through the double dual, vectors can be understood as real linear maps $V^*\to\R$ from the dual space $V^*$.
+In practice, \emph{tensors} are just multilinear real-valued maps on cartesian products of the form $V^*\times \cdots \times V^* \times V \times \cdot \times V$.
+We have already encountered some examples: covectors, inner products and even determinants are examples of tensors.
+
+We already know a few examples besides the already mentioned covectors:
+\begin{itemize}
+  \item a scalar product is a bilinear map $\langle\cdot,\cdot\rangle:V\times V\to \R$;
+  \item the signed area spanned by two vectors is a bilinear map $\mathrm{area}: \R^2\times\R^2\to\R$, $\mathrm{area}(u,v) := u\wedge v = u^1v^2-u^2v^1$;
+  \item the determinant of a square matrix in $\mathrm{Mat}(n)$, viewed as a function $\det: \LaTeXunderbrace{\R^n\times\cdots\times\R^n}_{n\mbox{ times}}\to\R$ is a $n$-linear map.
+\end{itemize}
+
+Such functions of several vectors or covectors that are linear in each argument are also called multilinear forms or tensors.
+It should not come as a surprise that multilinear functions of tangent vectors and covectors to manifolds appear naturally in different geometrical and physical contexts.
+In this chapter we are going to discuss the general definitions and notions that interest us, some of which may be just refreshing what you have seen in multivariable analysis, in the context of general vector spaces $V$.
+Keep in mind, that at a certain point, we will be interested to replace such spaces with the tangent spaces $T_pM$ of a smooth manifold $M$.
+
+\begin{definition}
+  Let $V$ be a $n$-dimensional vector space and $V^*$ its dual.
+  A multilinear map
+  \begin{equation}
+    \tau : \LaTeXunderbrace{V^*\times \cdots \times V^*}_{r\mbox{ times}} \times \LaTeXunderbrace{V \times \cdot \times V}_{s\mbox{ times}} \to \R
+  \end{equation}
+  is called \emph{tensor of type $(r,s)$}. Similarly as we did for the dual pairing, we may write
+  \begin{equation}
+    \tau(\omega_1, \ldots, \omega_r; v^1, \ldots, v^s) =: \left(\tau | \omega_1, \ldots, \omega_r; v^1, \ldots, v^s \right).
+  \end{equation}
+
+  For tensors $\tau_1$ and $\tau_2$ of the same type $(r,s)$ and $\alpha_1, \alpha_2\in\R$ we define
+  \begin{equation}
+    \left(\alpha_1\tau_1 + \alpha_2\tau_2 | \ldots \right) := \alpha_1\left(\tau_1 | \ldots \right) + \alpha_2 \left(\tau_2 | \ldots \right).
+  \end{equation}
+  This equips the space of tensors of type $(r,s)$ with the structure of a vector space\footnote{Be careful when reading books and papers, for these spaces the literature is wild: there are so many different conventions and notations that there is not enough space on this margin to mention them all. One common source of confusion is in the ordering of the spaces, for some authors we have just defined $(s,r)$ tensors...} which we denote $V^r_s$. In particular, $V^* = V_1^0$ and $V=V_0^1$.
+\end{definition}

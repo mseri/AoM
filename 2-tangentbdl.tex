@@ -755,7 +755,7 @@ As it turns out, this is a particular instance of a more general fact.
   \newthought{Step4: $\pi$ is smooth.} With respect to the charts $(U,\phi)$ for $M$ and $(\pi^{-1}(U), \widetilde\phi)$ for $TM$, the coordinate representation of $\pi$ is $\pi(x,v) = x$.
 \end{proof}
 
-The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{natural coordinates}.
+The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{natural (or canonical) coordinates}.
 
 \begin{exercise}
   Show that the differential of a smooth map is a smooth map between manifolds. Hint: use the natural differentiable structure on the tangent bundle described above and the definition of smooth map.
@@ -788,20 +788,36 @@ What we have seen here is our first example of vector bundle.
 \end{definition}
 
 \begin{example}
-  A simple example of vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ itself with the projection on the first component $\pi_1: E\to M$.
-  In this case the bundle is clearly trivialisable.
-  
-  Another example is the tangent bundle $TM$ with its projection $\pi:TM\to M$.
-  In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$. 
-  Other examples will appear throughout the course.
+  \begin{itemize}
+    \item A simple example of vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ itself with the projection on the first component $\pi_1: E\to M$.
+    In this case the bundle is clearly trivialisable.
+    \item The tangent bundle $TM$ with its projection to the base $\pi:TM\to M$ is a vector bundle.
+    In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$. 
+    \item If $\pi_i: E_i\to M_i$, $i=1,2$, are vector bundles, then $\pi = (\pi_1, \pi_2): E_1\times E_2 \to M_1\times M_2$ is another vector bundle whose fibres are the product of the fibres of the two original bundles.
+    A particular example of this is the tangent bundle $T(M_1\times M_2)$, which is diffeomorphic to $TM_1 \times TM_2$.
+    \item Other examples will appear throughout the course.
+  \end{itemize}
 \end{example}
 
 \begin{exercise}
   Show that $\dim(E) = \dim(M) + r$.
 \end{exercise}
+
 \begin{exercise}
   Show that if $\pi:E\to M$ is a vector bundle and $U\subset M$ is an open set, then $\pi\big|_{\pi^{-1}(U)}: \pi^{-1}(U) \to U$ is a vector bundle.
 \end{exercise}
+
+\begin{example}
+  Let $\pi:E \to M$ be a vector bundle of rank $r$.
+  Assume that $E$ itself is the base space of another vector bundle $\pi_1: E_1\to E$ of rank $s$.
+  Then $\pi\circ\pi_1: E_1 \to M$ is a vector bundle of rank $r+s$ called the \emph{composite bundle}. Indeed, if $\Phi:\pi^{-1}(U)\to U\times\R^r$ is a bundle diffeomorphism for $E$ over $U\subset M$ and $\Phi_1:\pi_1^{-1}(U_1)\to U_1\times\R^s$ is a bundle diffeomorphism for $E_1$ over $U_1\subset E$ such that $V := \pi(U_1)\cap U\neq \emptyset$, then
+  \begin{equation}
+    \Psi:=(\Phi\circ\pi_1, \Phi_1): (\pi\circ\pi_1)^{-1}(V)\to (U\times\R^r)\times (U_1\times\R^s)
+  \end{equation}
+  is a bundle diffeomorphism for $\pi\circ\pi_1$ over $W$.
+
+  A particular example of this is the tangent bundle of the tangent bundle: if $M$ is a $n$-manifold, its tangent bundle $TM$ is a $2n$-manifold, and its tangent bundle $T(TM)$ is a vector bundle over $M$ of rank $3n$.
+\end{example}
 
 \begin{definition}
   A \emph{section} of a vector bundle $\pi:E \to M$ is a smooth map $S:M \to E$ such that $\pi\circ S = \id_M$. We denote the set of all sections of $E$ by $\Gamma(E)$.
@@ -815,7 +831,7 @@ What we have seen here is our first example of vector bundle.
     \includegraphics{2_9-vfield.pdf}
     \caption{A vector field ``attaches'' vectors to points.}
   \end{marginfigure}
-  Notice, in particular, that functions $f\in C^\infty(M)$ are sections of the trivial bundle $M\times\R$.
+  \noindent Notice, in particular, that functions $f\in C^\infty(M)$ are sections of the trivial bundle $M\times\R$.
 \end{example}
 
 Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not true in general with one exception.
@@ -917,7 +933,7 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
 
 \begin{remark}
   Surjectivity of submersions or injectivity of immersions are properties of the differentials, not of the maps themselves.
-  
+  %
   For example, if $U\subset M$ open, the inclusion $i: U \to M$ is both an immersion and a submersion.
 \end{remark}
 
