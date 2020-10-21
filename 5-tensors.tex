@@ -50,7 +50,8 @@ Keep in mind, that at a certain point, we will be interested to replace such spa
 
 \begin{example}
   \begin{itemize}
-    \item A scalar product in $\R^n$ is a $(0,2)$-tensor, i.e. an element of $T^0_2(\R^n)$.
+    \item An inner product on $V$, e.g. the scalar product in $\R^n$, is a $(0,2)$-tensor.
+    This means, for example that the aforementioned scalar product is an element of $T^0_2(\R^n)$.
     \item The determinant, thought as a function of $n$ vectors, is a tensor in $T_n^0(\R^n)$.
     \item Covectors are elements of $T_1^0(M)$ while tangent vectors are elements of $T_0^1(M)$.
   \end{itemize}
@@ -82,29 +83,41 @@ is associative and distributive but not commutative (why?).
 \begin{exercise}
   Give a tensor in $T^2_0$ which is a linear combination of tensor products but cannot be written as a tensor product.
   Justify your answer.
-  Hint: one of the examples at the beginning of the chapter can help.
+ {\small Hint: one of the examples at the beginning of the chapter can help.}
 \end{exercise}
 
 In fact, this is a general fact.
 
+\marginnote{A more general approach to this proposition is by proving the universal property of tensor spaces. See for instance \cite[Propositions 12.5, 12.7 and 12.8]{book:lee}.}
 \begin{proposition}
   Let $V$ be an $n$-dimensional vector space.
-  Let $(e_j)$ and $(\varepsilon^i)$ respectively denote the bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$.
+  Let $\{e_j\}$ and $\{\varepsilon^i\}$ respectively denote the bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$.
   Then, every $\tau\in V_s^r$ can be uniquely written as the linear combination\marginnote{Exercise: epand Einstein's notation to write the full sum on the left with the relevant indices.}% In the expression, all indices $j_1,\ldots,j_r$, $i_1,\ldots,i_s$ run from $1$ to $n$.}
   \begin{equation}\label{eq:tensor:decomposition}
-    \tau = \tau^{j_1\cdots j_r}_{i_1\cdots i_n} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s},
+    \tau = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s},
   \end{equation}
   where the coefficients $\tau^{j_1\cdots j_r}_{i_1\cdots i_n}\in\R$.
-
+  %
   Thus the $n^{r+s}$ tensor products
-  \begin{equation}
+  \begin{equation}\label{eq:tensor:decompo}
     e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s}, \quad j_1,\ldots,j_r, i_1,\ldots,i_s = 1,\ldots,n,
   \end{equation}
   form a basis of $T_s^r(V)$, and $T_s^r(V)$ has dimension $n^{r+s}$.
 \end{proposition}
 
 \begin{proof}
-  
+  Let $\{\beta^j\}$ and $\{b_i\}$ denote the bases of $V^*$ and $V$ that are dual to $\{e_j\}$ and $\{\varepsilon^i\}$, that is,
+  \marginnote{A linear map is uniquely specified by its action on a basis, which in particular means that these dual bases are unique.}
+  \begin{equation}
+    (\beta^j\mid e_i) = \delta^j_i = (\varepsilon^j \mid b_i).
+  \end{equation}
+  Define
+  \begin{equation}
+    \tau^{j_1\cdots j_r}_{i_1\cdots i_s} := \tau(\beta^{j_1}, \ldots, \beta^{j_r}, b_{i_1}, \ldots, b_{i_s}).
+  \end{equation}
+  Then, on any element of the form $(\beta^{j_1}, \ldots, \beta^{j_r}, b_{i_1}, \ldots, b_{i_s})$, we trivially have the decomposition \eqref{eq:tensor:decompo}. By multilinearity of all the terms involved, \eqref{eq:tensor:decomposition} holds for any element $(\omega^1, \ldots, \omega^r, v_1, \ldots, v_s)$ after decomposing it on the basis.
+
+  Uniqueness follows from the linear independence of the tensor products $e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s}$ proceeding by contradiction.
 \end{proof}
 
 \begin{remark}
@@ -116,5 +129,119 @@ In fact, this is a general fact.
   This allows us to choose whichever interpretation is more convenient for the problem at hand. 
 \end{remark}
 
+
+Let's go back for a moment to the example of inner products.
+
+\begin{definition}
+  We call \emph{pseudo-metric tensor}, any tensor $g\in T_2^0(V)$ that is
+  \begin{enumerate}
+    \item symmetric, i.e. $g(v,w) = g(v,w)$ for all $v,w\in T_0^1(V)$;
+    \item positive definite, i.e. $g(v,v)>0$ for all $v\neq 0$.
+  \end{enumerate}
+  
+  We call \emph{non-degenerate} any tensor $g\in T_2^0(V)$ such that
+  \begin{equation}
+    g(v,w) = 0 \quad\forall w\in V \qquad\Longrightarrow\qquad v=0.
+  \end{equation}
+  
+  A \emph{metric tensor} or \emph{scalar product} is a non-degenerate pseudo-metric tensor.
+  An example of non-degenerate tensor which is not a metric is the so-call \emph{symplectic form}: a skew-symmetric non-degenerate $(0,2)$-tensor which is central in classical mechanics and the study of Hamiltonian systems.
+\end{definition}
+
+\begin{example}
+  Let $V$ be a $n$-dimensional real vector space with an inner product $g(\cdot, \cdot)$.
+
+  Denote $\{e_1, \ldots, e_n\}$ the basis for $V$ and $\{e^1, \ldots, e^n\}$ the basis for its dual $V^*$.
+  As a bilinear map on $V\times V$, the inner product is uniquely associated to a matrix $[g_{ij}]$ by $g_{ij} = (g e_i, e_j)$.
+
+  We already mentioned that in this case we can canonically identify $V$ with $V^*$.
+  Indeed, the inner product defines the isomorphisms\footnote{Often called \emph{musical isomorphisms} or index raising and index lowering operators.}
+  \begin{equation}
+    {}^\flat: V \to V^*,\; v\mapsto g(v, \cdot),
+    \quad\mbox{and its inverse }
+    {}^\sharp: V^*\to V.
+  \end{equation}
+  \marginnote{That ${}^\flat$ is an isomorphism follows immediately from the linearity and the fact that non-degeneracy implies that its kernel contains only the zero vector.}
+  The matrix of ${}^\flat$, by definition, is $[g_{ij}]$, that is,
+  \begin{equation}
+    (v^\flat)_i = g_ij v^j,
+  \end{equation}
+  where the $v^j$ are the components of $v$.
+  Therefore, the matrix of ${}^\sharp$ is the inverse $[g{^ij}]$ of the inner product matrix, that is, 
+  \begin{equation}
+    (\omega^\sharp)^i = g^{ij}\omega_j,
+  \end{equation}
+  where the $\omega_j$ are the components of $\omega$.
+
+  \marginnote{To add to the confusion: in the physics literature, for $v\in V$, the components $v_j$ of $v^\flat$ are often called covariant components of $v$ while the components $v^j$ of $v$ are called its contravariant components.}
+  Note that, in general, $e^\flat_i\neq e^i$: indeed, by definition $e^\flat_i = g_{ij}e^j$.
+
+  It turns out that these operators can be applied to tensors to produce new tensors.
+  For example, if $\tau$ is a $(0,2)$-tensor we can define an associated tensor $\tau'$ of type $(1,1)$ by $\tau(\omega, v) = \tau(\omega^\sharp, v)$.
+  Its components are $(\tau')_i^j = g^{jk}\tau_{ik}$.
+\end{example}
+
+\begin{exercise}
+  Let $V$ be a vector space with an inner product.
+  \begin{enumerate}
+    \item Show that the space $T^1_1(V)$ is canonically isomorphic to the space of endomorphisms of $V$, that is, of linear maps $L:V\to V$.
+
+    \item If $\ell\in T^1_1(V)$ is the tensor associated to $A$, show that its components $\ell^j$ are just the matrix entries of $A$ seen as a matrix.
+  
+    \item Of course, given the previous example, $T^1_1(V)$ is also canonically isomorphic to the space of endomorphisms of $V^*$, that is, of linear maps $\Lambda:V^*\to V^*$.
+    Prove the claim by explicitly constructing the mapping $\ell \leftrightarrow \Lambda$.
+  \end{enumerate}
+  {\small Hint: definitions can look rather tautological when dealing with tensors... think carefully about domains and codomains, remember the musical isomorphisms and the tensor pairing.}
+\end{exercise}
+
+We are now in a good place to discuss how tensors are affected by changes of basis.
+Let $L: V\to V$ be an isomorphism, then we can define a new basis $\{\widetilde e_i\}$ of $V$ by $\widetilde e_i := L e_i$. We denote its dual basis by $\{\widetilde e^i\}$ in agreement with the notation in our previous example\footnote{Previously we used $\varepsilon^i$ in place of $e^i$ to emphasise the different nature of the bases.}.
+
+Thinking in linear algebraic terms, the linear map $\Lambda:V^*\to V^*$ that connects the dual bases is determined by
+\begin{align}
+  \delta^i_j &= (\widetilde e^i \mid \widetilde e_j) = (\Lambda e^i \mid L e_j ) =: (L^* \Lambda e^i \mid e_j)\\
+  &\mbox{that is } \Lambda = (L^*)^{-1}.
+\end{align}
+Indeed, if $[l_i^j]$ is the matrix associated to $L$, that is, $L e_i = l_i^j e_j$, then $L^* e^j = l_i^j e^i$. So the matrix $[\lambda_i^j]$ of $\Lambda$, that is, $\Lambda e^j = \lambda_k^j e^k$, must satisfy $\lambda_k^j l_i^k= \delta_i^j$. So, \emph{as matrices}, $[\lambda_i^j]$ is the inverse of $[l_i^j]$. However, don't forget that $[l_i^j]$ is the matrix of the endomorphism $L:V\to V$ while $[\lambda_i^j]$ is the matrix of the endomorphism $\Lambda: V^*\to V^*$.
+
+We can transport this fact to general tensors to obtain that the components of an arbitrary tensor $\tau\in T^r_s(V)$ transform as follows.
+Since
+\begin{align}
+  \tau
+  &=
+  \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s} \\
+  &= \widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} \, \widetilde e_{k_1}\otimes\cdots\otimes \widetilde e_{k_r}\otimes \widetilde\varepsilon^{h_1}\otimes \cdots\otimes \widetilde\varepsilon^{h_s},
+\end{align}
+applying the previous reasoning and comparing term by term we get
+\begin{align}
+  &\tau^{j_1\cdots j_r}_{i_1\cdots i_s} = \widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} l_{k_1}^{j_1}\cdots l_{k_r}^{j_r} \lambda_{i_1}^{h_1}\cdots \lambda_{i_s}^{h_s}\\
+  &\mbox{or}\\
+  &\widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \lambda_{j_1}^{k_1}\cdots \lambda_{j_r}^{k_r}\cdots l_{h_1}^{i_1}\cdots l_{h_s}^{i_s}.
+\end{align}
+
+\begin{remark}
+  An important consequence of this fact is that we can use a metric tensor, and the associated musical isomorphisms ${}^\flat$ and ${}^\sharp$, to canonically identify a tensor space $T_s^r(V)$ with $T_r^s(V)$, $T_0^{r+s}(V)$ and $T_{t+s}^0(V)$ by concatenating the correct number of maps, for example
+  \begin{align}
+    \cI = \cI_g : T_s^r (V) \to T_r^s(V) \\
+    \cI : \tau \mapsto \tau \circ (\LaTeXunderbrace{{}^\flat, \ldots, {}^\flat}_{r\mbox{ times}}, \LaTeXoverbrace{{}^\sharp, \ldots, {}^\sharp}^{s\mbox{ times}}).
+  \end{align}
+  In general, one can use the metric to raise or lower arbitrary indices, changing the tensor type from $(r,s)$ to $(r+1, s-1)$ or $(r-1, s+1)$.
+
+  A neat application of this is showing that a non-degenerate bilinear map $g\in T_2^0(V)$ can be lifted to a non-degenerate bilinear map on arbitrary tensors, that is
+  \begin{equation}
+    G: T_s^r(V)\times T_s^r(V) \to \R,
+    \quad 
+    G(\tau, \widetilde\tau) := (\cI_g(\tau)\mid \widetilde\tau).
+  \end{equation}
+  In particular, if $g$ is a metric on $V$, then $G$ is a metric on $T_s^r(V)$.
+\end{remark}
+
+\begin{exercise}
+  What do the canonical identifications of $T_s^r(V)$ with $T_0^{r+s}$ and $T_{t+s}^0$ look like?
+\end{exercise}
+
+\begin{definition}
+  
+\end{definition}
 
 \todo{tensor bundles}

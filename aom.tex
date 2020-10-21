@@ -9,6 +9,10 @@
   \setsansfont[Renderer=Basic, Scale=0.90]{TeX Gyre Heros}
   \setmonofont[Renderer=Basic]{TeX Gyre Cursor}
 
+  % \setmainfont[Mapping=tex-text,Numbers=OldStyle]{Bembo Std}
+  % \setsansfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Gill Sans}
+  % \setmonofont[Mapping=tex-text,Scale=MatchLowercase]{DejaVu Sans Mono}
+
   \renewcommand{\textls}[2][5]{%
     \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
   }
@@ -35,7 +39,6 @@
 \usepackage{enumerate}
 \usepackage{mathabx}
 \usepackage{mathtools}
-\usepackage{nccmath}
 \usepackage[english]{babel}
 \usepackage{hyperref}
 \hypersetup{
@@ -63,12 +66,17 @@
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
 \newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
-\newcommand{\cat}[1]{{\normalfont\textsf{#1}}}
-\DeclareMathOperator{\id}{id}
+
 \newcommand{\adj}[4]{\begin{tikzcd}[ampersand replacement=\&, column sep=4ex]
 					  	   #1 \colon #2	\ar[yshift=+.6ex]{r}
 					  	\& #3 \colon #4	\ar[yshift=-.4ex]{l}
 					 \end{tikzcd}}
+
+\usepackage{etoolbox}
+\newcommand{\addQEDstyle}[2]{
+  \AtBeginEnvironment{#1}{\pushQED{\qed}\renewcommand{\qedsymbol}{#2}}
+  \AtEndEnvironment{#1}{\popQED}
+}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
@@ -78,15 +86,21 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+\addQEDstyle{definintion}{$\lozenge$}
 \newtheorem{conjecture}[theorem]{Conjecture}
 
 \theoremstyle{remark}
 \newtheorem{example}[theorem]{Example}
+\addQEDstyle{example}{$\lozenge$}
 \newtheorem{remark}[theorem]{Remark}
+\addQEDstyle{remark}{$\lozenge$}
 \newtheorem{notation}[theorem]{Notation}
+\addQEDstyle{notation}{$\lozenge$}
 
 \newtheorem{exercise}[theorem]{Exercise}
+\addQEDstyle{exercise}{$\maltese$}
 \newtheorem{problem}[theorem]{Problem}
+\addQEDstyle{problem}{$\maltese$}
 
 \usepackage[
     type={CC},
@@ -135,6 +149,7 @@
 \DeclareMathOperator{\D}{D}
 \DeclareMathOperator{\diff}{Diff}
 \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\diag}{diag}
 \let\mod\relax
 \DeclareMathOperator{\mod}{mod}

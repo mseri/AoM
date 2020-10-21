@@ -473,7 +473,7 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
   \end{equation}
   without using the Proposition above.
 
-  \noindent Hint: show that $d F_p \left(\frac{\partial}{\partial x^i}\big|_p\right) (f) = \left(\frac{\partial F^j}{\partial x^i} (p) \frac{\partial}{\partial y^j}\big|_{F(p)}\right) (f)$.
+  \noindent{\small Hint: show that $d F_p \left(\frac{\partial}{\partial x^i}\big|_p\right) (f) = \left(\frac{\partial F^j}{\partial x^i} (p) \frac{\partial}{\partial y^j}\big|_{F(p)}\right) (f)$.}
 \end{exercise}
 
 \newthought{A particularly important consequence} of this theorem is that our definition coincides with our old euclidean notions if we set $M=\R^m$ and $N=\R^n$.
@@ -669,7 +669,7 @@ To conclude this part, the next proposition shows that velocity vectors behave w
 
 \begin{exercise}
   Give an alternative proof of Proposition~\ref{prop:curves_deriv} using \eqref{eq:tg_curve_der} as definition for $\gamma'(t)$.
-  Hint: use the definitions to rewrite the formula in different ways.
+ {\small Hint: use the definitions to rewrite the formula in different ways.}
 \end{exercise}
 
 \section{The tangent bundle}\label{sec:tangentbundle}
@@ -758,7 +758,7 @@ As it turns out, this is a particular instance of a more general fact.
 The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{natural (or canonical) coordinates}.
 
 \begin{exercise}
-  Show that the differential of a smooth map is a smooth map between manifolds. Hint: use the natural differentiable structure on the tangent bundle described above and the definition of smooth map.
+  Show that the differential of a smooth map is a smooth map between manifolds.{\small Hint: use the natural differentiable structure on the tangent bundle described above and the definition of smooth map.}
 \end{exercise}
 
 \begin{remark}
@@ -769,7 +769,7 @@ The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{n
 
 \section{Vector bundles}\label{sec:vectorbundle}
 
-What we have seen here is our first example of vector bundle.
+What we have seen here is our first example of vector bundle, which is just a way to call a vector space depending continuously (or smoothly) on some parameters, for example points on a manifold.
 
 \begin{definition}\label{def:vector_bundle}
   A \emph{vector bundle of rank $r$} on a manifold $M$ is a manifold $E$ together with a smooth surjective map $\pi : E \to M$ such that, for all $p\in M$, the following properties hold:
@@ -819,6 +819,13 @@ What we have seen here is our first example of vector bundle.
   A particular example of this is the tangent bundle of the tangent bundle: if $M$ is a $n$-manifold, its tangent bundle $TM$ is a $2n$-manifold, and its tangent bundle $T(TM)$ is a vector bundle over $M$ of rank $3n$.
 \end{example}
 
+To compare vector bundles is useful to define the following concept.
+\begin{definition}
+  A \emph{isomorphims} between two vector bundles $\pi_i: E_i \to M$, $i=1,2$, over the same base space $M$ is a homeomorphism $h:E_1 \to E_2$ which maps every fiber $\pi_1^{-1}(p)$ to the corresponding fiber $\pi_2^{-1}(p)$ by a linear isomorphism.
+\end{definition}
+
+Since an isomorphism preserves all the structure of a vector bundle, isomorphic bundles are often regarded as the same.
+
 \begin{definition}
   A \emph{section} of a vector bundle $\pi:E \to M$ is a smooth map $S:M \to E$ such that $\pi\circ S = \id_M$. We denote the set of all sections of $E$ by $\Gamma(E)$.
   
@@ -833,6 +840,10 @@ What we have seen here is our first example of vector bundle.
   \end{marginfigure}
   \noindent Notice, in particular, that functions $f\in C^\infty(M)$ are sections of the trivial bundle $M\times\R$.
 \end{example}
+
+One can sometimes distinguish non--isomorphic bundles by looking at the complement of their zero section: since any vector bundle isomorphism $h:E_1\to E_2$ must map the zero section of $E_1$ onto the zero section of $E_2$, the complements of the zero sections in $E_1$ and $E_2$ must be homeomorphic.
+
+If the bundles are differentiable manifolds, then the definition of isomorphism nicely generalizes: they are diffeomorphic if fibers are mapped to fibers diffeomorphically.
 
 Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not true in general with one exception.
 \begin{exercise}\label{ex:trivialisable}
@@ -873,6 +884,14 @@ Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R
   \end{equation}
   is a global trivialisation for $E$.
 \end{proof}
+
+\begin{example}
+  The cylinder $E = \bS^1\times\R$ is a trivialisable vector bundle with $\pi:E\to \bS^1$.
+  Incidentally, the cylinder is isomorphic to $TS^1$ (why?).
+\end{example}
+
+A useful generalization of vector bundles, which we will not discuss in the course, is the locally trivial fiber bundle, where $\R$ is replaced by a more general manifold.
+
 \section{Submanifolds}
 
 With differentials of smooth functions at hand, we are ready to discuss submanifolds: smaller manifolds sitting inside larger ones.
@@ -1143,5 +1162,5 @@ To finally answer the question, we will prove one last proposition.
     T_{\id} O(n) = \left\{ B \in \mathrm{Mat}(n) \mid B^T = -B \right\}.
   \end{equation}
 
-  Hint: Find a suitable map $F: \mathrm{Mat}(n) \to \mathrm{Sym}(n)$ such that $F^{-1}(\{0\}) = O(n)$. Here $\mathrm{Sym}(n)$ denotes the space of symmetric matrices.
+ {\small Hint: Find a suitable map $F: \mathrm{Mat}(n) \to \mathrm{Sym}(n)$ such that $F^{-1}(\{0\}) = O(n)$. Here $\mathrm{Sym}(n)$ denotes the space of symmetric matrices.}
 \end{exercise}
