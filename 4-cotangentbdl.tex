@@ -189,11 +189,11 @@ Its dual is going to be a map that pulls vector form one covector space to anoth
 \begin{definition}\label{def:pullback:oneform}
   Let $F:M\to N$ be a smooth map between smooth manifolds, let $\omega\in T^*_pM$ for some $p\in M$.
   The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the diffetential
-  \marginnote{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
+  \marginnote[-1.5em]{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
   \begin{equation}
     dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto F^*\omega,
   \end{equation}
-  defined by duality in the following way\footnote{Or, omitting the point of application, $\left(F^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
+  defined by duality in the following way\footnote{Or, omitting the point of application, $\left(dF^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
   \begin{equation}
     \left(dF^*_p\omega, v\right) := \left(\omega, dF_p(v)\right),\quad
     \forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
@@ -272,7 +272,7 @@ Also in this case, $\fX^*(M)$ is a module over $C^\infty(M)$.
   The pullback of covectors immediately extends to covector fields.
   The \emph{pullback} is the map
   \begin{equation}
-    F^*: \fX(N)^* \to \fX^*(M), \quad \omega \mapsto F^* \omega
+    F^*: \fX^*(N) \to \fX^*(M), \quad \omega \mapsto F^* \omega
   \end{equation} 
   defined by
   \begin{equation}

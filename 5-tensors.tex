@@ -223,7 +223,7 @@ applying the previous reasoning and comparing term by term we get
   An important consequence of this fact is that we can use a metric tensor, and the associated musical isomorphisms ${}^\flat$ and ${}^\sharp$, to canonically identify a tensor space $T_s^r(V)$ with $T_r^s(V)$, $T_0^{r+s}(V)$ and $T_{t+s}^0(V)$ by concatenating the correct number of maps, for example
   \begin{align}
     \cI = \cI_g : T_s^r (V) \to T_r^s(V) \\
-    \cI : \tau \mapsto \tau \circ (\LaTeXunderbrace{{}^\flat, \ldots, {}^\flat}_{r\mbox{ times}}, \LaTeXoverbrace{{}^\sharp, \ldots, {}^\sharp}^{s\mbox{ times}}).
+    \cI : \tau \mapsto \tau \circ (\LaTeXunderbrace{{\cdot}^\flat, \ldots, {\cdot}^\flat}_{r\mbox{ times}}, \LaTeXoverbrace{{\cdot}^\sharp, \ldots, {\cdot}^\sharp}^{s\mbox{ times}}).
   \end{align}
   In general, one can use the metric to raise or lower arbitrary indices, changing the tensor type from $(r,s)$ to $(r+1, s-1)$ or $(r-1, s+1)$.
 
@@ -242,12 +242,13 @@ applying the previous reasoning and comparing term by term we get
 
 \begin{remark}
   Interestingly, even though each of the tensor spaces $T_s^r(V)$ is generally not an algebra, the map $\otimes$ transform the collection of all tensor spaces
+  \marginnote{This is a so-called \emph{graded algebra} since $\otimes :  T_s^r(V)\times T_{s'}^{r'}(V) \to T_{s+s'}^{r+r'}(V)$ in some sense moves along the structure of the indices.}
   \begin{equation}
     T(V) := \bigoplus_{r,s\geq 0} T_s^r(V), \qquad T_0^0(V):= \R,
   \end{equation}
   to an algebra, called \emph{tensor algebra}.
   Here, for $r=s=0$ we define the tensor multiplication with a scalar as the standard multiplication: $r\otimes v = r v$ for $r\in T_0^0(V)=\R$ and $v\in T^1_0(V)=V$.
-  This is a so-called \emph{graded algebra} since $\otimes :  T_s^r(V)\times T_{s'}^{r'}(V) \to T_{s+s'}^{r+r'}(V)$ in some sense moves along the structure of the indices.
+  
 \end{remark}
 
 \section{Tensor bundles}
@@ -308,4 +309,141 @@ where $\tau^{j_1\cdots j_r}_{i_1\cdots i_s}\in C^\infty(M)$.
 Again in analogy with what we saw on tangent and cotangent bundles, we can provide a general definition of pullback and pushforward on tensor bundles.
 This will be extremely useful soon, when we start dealing with differential forms.
 
-\todo{tensor bundles}
+\begin{definition}
+  Let $F:M\to N$ be a smooth map between smooth manifolds and let $\omega \in \cT_s^0(N)$ be a $(0,s)$-tensor field on $N$. We define the \emph{pullback of $\omega$ by $F$} as the $(0,s)$-tensor field $F^*\omega \in \cT_s^0(M)$ on $M$ defined for any $p\in M$ by
+  \begin{equation}
+    F^*\omega|_p := dF^*_p(\omega|_{F(p)}),
+  \end{equation}
+  where
+  \begin{equation}
+    dF^*_p(\omega|_{F(p)})(v_1, \ldots, v_s) := \omega|_{F(p)} (dF_p v_1, \ldots, dF_p v_s), \quad\forall v_1, \ldots, v_s \in T_p M.
+  \end{equation}
+\end{definition}
+
+To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\omega \in\cT_s^0(N)$, then we define $f\otimes \omega := f\omega$ and $F^* f := f\circ F$.
+
+\begin{exercise}
+  Show that the tensor pullback satisfies the following properties.
+  Let $F:M\to N$ and $G:N\to P$ be smooth maps and $\nu, \omega \in\cT_s^0(N)$ and $f\in C^\infty(N)$, then the following hold
+  \begin{enumerate}
+    \item $F^*(f\otimes\omega) = F^*(f \omega) = (f\circ F) F^*\omega = (F^* f)(F^*\omega)$;
+    \item $F^*(\omega\otimes\nu) = F^*\omega\otimes F^*\nu$;
+    \item $F^*(\omega + \nu) = F^*\omega + F^*\nu$;
+    \item $(G\circ F)^*\omega = F^*(G^* \omega)$;
+    \item $(\id_N)^* \omega = \omega$.
+  \end{enumerate}
+\end{exercise}
+
+We can use the pullback to construct a diffeomorphism of tensor bundles of the same type out of a diffeomorphism $\Phi:M\to N$ between manifolds.
+
+\begin{proposition}
+  Let $\Phi:M\to N$ be a diffeomorphism between smooth manifolds.
+  Then $\Phi$ induces a diffeomorphism $T_s^rM \to T_s^r N$.
+\end{proposition}
+\begin{proof}
+\newthought{Step I}.
+We know that the pullback induces on the fibres a diffeomorphism of cotangent bundles. Let $p\in M$.
+We have already seen that on the fibres the pullback is a diffeomorphism:
+\begin{equation}
+  T^*N \to T^* M, \quad
+  (q,\omega) \mapsto (\Phi^*\omega)_q = \left(\Phi^{-1}(q), d\Phi^*\omega|_{\Phi^{-1}(q)}\right).
+\end{equation}
+This is immediately inverted as
+\begin{equation}
+  d^*\Phi := (\Phi^{-1})^*: T^*M \to T^*N.
+\end{equation}
+For any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
+\begin{align}
+  (d^*\Phi \omega \;\mid\; d\Phi v)_{\Phi(p)} &=  d(\Phi^{-1})^*\omega|_{\Phi(p)} (d\Phi v) \\
+  &= \omega_p(d\Phi^{-1}_{\Phi(p)} \circ d\Phi_p v ) \\
+  &= \omega_p(v) = (\omega \mid v)_p.
+\end{align}
+
+\newthought{Step II}.
+Chaining $d$ and $d^*$ on the appropriate components of the tensor, we obtain a diffeomorphism of arbitrary tensor bundles:
+\begin{equation}
+  d\Phi \otimes\cdots\otimes d\Phi \otimes d^*\Phi\otimes\cdots\otimes d^*\Phi : T_s^rM \to T_s^r N,
+\end{equation}
+defined on the product elements as
+\begin{align}
+  d\Phi &\otimes\cdots\otimes d\Phi \otimes d^*\Phi\otimes\cdots\otimes d^*\Phi (p, v_1 \otimes \cdots\otimes v_r \otimes \omega^1\otimes\cdots\otimes\omega^s) \\
+  &:= (\Phi(p), d\Phi v_1 \otimes \cdots\otimes d\Phi v_r \otimes d^*\Phi\omega^1\otimes\cdots\otimes d^*\Phi\omega^s),
+\end{align}
+which extends to the whole fibres by linearity.
+\end{proof}
+
+With this diffeomorphism at hand, we can finally define the pushforward.
+
+\begin{definition}
+  Let $F:M\to N$ be a diffeomorphism between smooth manifolds.
+  We define \emph{pushforward of $(r,s)$-tensor fields by $F$} as the map $F_*: \cT_s^r(M) \to \cT_s^r(N)$ for which the following diagram commutes:
+  \begin{equation}
+    \begin{tikzcd}[row sep=huge, column sep=huge]
+      M \arrow[r, "F"] \arrow[d, "\tau"]
+      &[10em] N \arrow[d, "F_* \tau" cyan] \\
+      \cT_s^r(M) \arrow[r, "dF \otimes\cdots\otimes dF \otimes d^*F\otimes\cdots\otimes d^*F"]
+      & \cT_s^r(N)
+    \end{tikzcd}.
+  \end{equation}
+  That is, for $\tau\in\cT_s^r(M)$ we define
+  \begin{equation}
+    F_*\tau = \LaTeXunderbrace{dF \otimes\cdots\otimes dF}_{r\mbox{ times}} \otimes \LaTeXoverbrace{d^*F\otimes\cdots\otimes d^*F}^{s\mbox{ times}} \circ \tau \circ F^{-1}.
+  \end{equation}
+\end{definition}
+
+\begin{example}
+  Let $f\in\cT_0^0(M)$, then $F_* f = f\circ \Phi^{-1}$. In line with what we had seen in the previous chapter.
+  Similarly, for $X\in\cT_0^1(M)$ we have the pushforward $F_* X = dF\circ X \circ F^{-1}$.
+  An interesting, not really surprising though (right?), property is the following: $F_* df = d(F_* f)$.
+\end{example}
+
+\begin{exercise}
+  Let $F:M\to N$ and $G:N\to P$ two diffeomorphisms of smooth manifolds.
+  \begin{enumerate}
+    \item Show that the chain rule $(F\circ G)_* = F_* \circ G_*$ holds.
+    \item Show that our previous definition of pullback is a particular case of the following general definition of a \emph{pullback of $(r,s)$-tensor fields by $F$}:
+    \begin{equation}
+      F^* := (F^{-1})_* : \cT_s^r(N) \to \cT_s^r(M).
+    \end{equation}
+  \end{enumerate}
+  {\small Hint: always work on a product tensor and extend by linearity.}
+\end{exercise}
+
+\marginnote{This property is not true for scalar products in general.
+In that case one has to require that the diffeomorphism leaves the metric invariant, which in symbols is written $g_N(F_* v, F_* w)\circ F = g_M(v,w)$ where $g_M\in T_2^0(M)$ and $g_N\in T_2^0(N)$.
+You will encounter this once you will study isometries for pseudo-Riemannian metrics or canonical transformations in classical mechanics.}
+Note that thanks to this duality between pullback and pushforward, the dual pairing is always invariant under diffeomorphisms:
+\begin{equation}
+  (F_* \omega \mid F_* v) = (\omega \mid v).
+\end{equation}
+Can you show why?
+
+
+\begin{example}[Change of coordinates for tensor fields]
+  Let, as usual,$(U,\phi)$ be a chart on $M$ with local coordinates $(x^i)$.
+  If $\{e^i:\R^n\to\R\}$ are the standard euclidean coordinates\footnote{Have a look at Notation~\ref{ntn:coords} if you don't remember what I am talking about.
+  Here we are using the notation $e^i \equiv r^i$ since now we know that $\{e^i\}$ is just the dual basis to $\{e_i\}$. } and $\{e_i\}$ are the standard basis vectors in $\R^n$, then the coordinate $1$-forms and the coordinate vector fields on $U\subset M$ are given by
+  \begin{equation}
+    dx^i = \phi^* de^i
+    \quad\mbox{and}\quad
+    \frac{\partial}{\partial x^i} = (\phi^{-1})_* e_i.
+  \end{equation}
+  This immediately exposes the transformation laws for the change of coordinates: let $(U, \psi)$ be another chart on $U$ with local coordinates $(y^i)$, then $dy^i = \psi^* de^i$ and $\frac{\partial}{\partial y^i} = (\psi^{-1})_* e_i$. If we denote $\Psi = \psi\circ\phi^{-1}$ the transition map in $\R^n$, we get
+  \begin{align}
+    \frac{\partial}{\partial x^i} &= (\phi^{-1})_* e_i \\
+    &= (\phi^{-1})_* \LaTeXunderbrace{(\Phi^{-1})_*\Phi_*}_{\id} e_i \\
+    &= (\phi^{-1}\circ \Phi^{-1})_* (\Phi_* e_i) \\
+    &= (\psi^{-1})_* ((D\Phi)_i^j e_j) \\
+    &= (D\Phi)_i^j \frac{\partial}{\partial y^j},
+  \end{align}
+  which may be easier to think about in terms of the following diagram
+  \begin{equation}\nonumber
+    \begin{tikzcd}[row sep=large, column sep=tiny]
+      & \frac{\partial}{\partial x^i} \in \cT_0^1(U) \ni (D\Phi)_j^i \frac{\partial}{\partial y^j} \arrow[dl, "\phi_*"] \arrow[dr, "\psi*"] & \\
+      e_i \in \cT_0^1(V) \arrow[rr, "\Phi_*"] & & \cT_0^1(W) \ni \LaTeXunderbrace{\Phi_* e_i}_{= (D\Phi)_i^j e_j}
+    \end{tikzcd}
+  \end{equation}
+  where $V = \phi(U)$ and $W = \psi(V)$.
+
+  From this, we immediately get $dy^j = (D\Phi)_i^j dx^i$ and, therefore, $dx^i =  (D\Phi^{-1})_j^i dy^j$.
+\end{example}
