@@ -136,7 +136,7 @@ Let's go back for a moment to the example of inner products.
   We call \emph{pseudo-metric tensor}, any tensor $g\in T_2^0(V)$ that is
   \begin{enumerate}
     \item symmetric, i.e. $g(v,w) = g(v,w)$ for all $v,w\in T_0^1(V)$;
-    \item positive definite, i.e. $g(v,v)>0$ for all $v\neq 0$.
+    \item positive definite, i.e. $g(v,v)\geq0$ for all $v\neq 0$.
   \end{enumerate}
   
   We call \emph{non-degenerate} any tensor $g\in T_2^0(V)$ such that
@@ -240,8 +240,72 @@ applying the previous reasoning and comparing term by term we get
   What do the canonical identifications of $T_s^r(V)$ with $T_0^{r+s}$ and $T_{t+s}^0$ look like?
 \end{exercise}
 
+\begin{remark}
+  Interestingly, even though each of the tensor spaces $T_s^r(V)$ is generally not an algebra, the map $\otimes$ transform the collection of all tensor spaces
+  \begin{equation}
+    T(V) := \bigoplus_{r,s\geq 0} T_s^r(V), \qquad T_0^0(V):= \R,
+  \end{equation}
+  to an algebra, called \emph{tensor algebra}.
+  Here, for $r=s=0$ we define the tensor multiplication with a scalar as the standard multiplication: $r\otimes v = r v$ for $r\in T_0^0(V)=\R$ and $v\in T^1_0(V)=V$.
+  This is a so-called \emph{graded algebra} since $\otimes :  T_s^r(V)\times T_{s'}^{r'}(V) \to T_{s+s'}^{r+r'}(V)$ in some sense moves along the structure of the indices.
+\end{remark}
+
+\section{Tensor bundles}
+
+It is time to leave the abstract world of vector spaces and start getting closer to our main focus: manifolds.
+In the previous chapters we have shown that the tangent bundle and the cotangent bundle are families of vector spaces built over $M$ that are dual to each other.
+We now have the tools to further extend this idea and define tensor bundles as families of tensor spaces build on top of the fibres of the tangent bundle.
+
 \begin{definition}
-  
+  The \emph{$(r,s)$-tensor bundle over $m$} as the bundle
+  \begin{equation}
+    T_s^r M = \bigsqcup_{p\in M}\left(\{p\}\times T_s^r(T_p M)\right)
+  \end{equation}
+  of tensors of type $(r,s)$, with the projection on the first component $\pi:T_s^r M\to M$.
 \end{definition}
+
+Here pullback and differential\footnote{Now you see why somebody calls it pushforward...} turn out to be life-saviours:
+any atlas $\{(U_i, \phi_i)\}$ of $M$ can be naturally mapped to an atlas  on $T_s^r M$ via $\{(T_s^r U_i, \widetilde\phi_i)\}$ where
+\begin{align}
+  \widetilde\phi_i : T_s^r(U_i) \to T_s^r\phi(U_i)
+\end{align}
+is defined by linearity on the fibres via
+\marginnote{Study hint: look carefully at the domains and codomains of all the maps involved and make sure that you understand how this is defined.}
+\begin{align}
+  \widetilde\phi_i&(p, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{k_1}\otimes \cdots\otimes \varepsilon^{k_s})\\
+  &:=(\phi_i(p), d\phi_p e_{j_1}\otimes\cdots\otimes d\phi_p e_{j_r}\otimes (\phi_i^{-1})^*\varepsilon^{i_1}\otimes \cdots\otimes (\phi_i^{-1})^*\varepsilon^{i_s}).
+\end{align}
+
+In analogy to the definition of vector fields, we can introduce tensor fields: these will just be local assignments of tensors to points.
+
+\begin{definition}
+  A smooth map $\tau : M \to T_s^r M$ such that $\pi\circ \tau = \id_M$ is called a \emph{tensor field} of type $(r,s)$.
+  We denote the space of tensor fields of type $(r,s)$ by $\cT_s^r(M)$ and define $\cT_0^0(M) := C^\infty(M)$.
+\end{definition}
+
+\begin{example}
+  With the definition above we have that $\fX(M) = \cT_0^1(M)$ and $\fX^*(M) = \cT_1^0(M)$.
+\end{example}
+
+Locally, we can express any tensor field in terms of the coordinate bases.
+On a chart for $M$ with local coordinates $(x^i)$, our analysis of the change of basis tells us that $\tau\in\cT_s^r(M)$ has the form
+\begin{equation}
+  \tau(p) = \tau^{j_1\cdots j_r}_{i_1\cdots i_s}(p)\; \frac{\partial}{\partial x^{j_1}}\otimes\cdots\otimes\frac{\partial}{\partial x^{j_r}}\otimes dx^{i_1}\otimes\cdots\otimes dx^{i_s},
+\end{equation}
+where $\tau^{j_1\cdots j_r}_{i_1\cdots i_s}\in C^\infty(M)$.
+
+\begin{example}
+  A non-degenerate symmetric bilinear form $g\in \cT_2^0(M)$ is a \emph{pseudo-Riemannian metric} and the pair $(M,g)$ a \emph{pseudo-Riemannian manifold}\footnote{Also called \emph{semi-Riemannian manifold}.}.
+  If $g$ is also fibre-wise positive definite, then $g$ is a \emph{Riemannian metric} and $(M,g)$ is a \emph{Riemannian manifold}.
+  From this you see that the Riemannian metric is just an inner product on the tangent bundle of the manifold.
+
+  \begin{enumerate}
+    \item The euclidean space $\R^n$ is a Riemannian manifold with the usual scalar product, which we can represent as $g = \sum_{i=1}^n dx^i\otimes dx^i$ (What is its matrix form?).
+    \item If $M=\R^4$, an example of pseudo-Riemannian metric is the Minkowski metric $g = g_ij dx^i\otimes dx^j$ where $[g_ij] = {\left(\begin{smallmatrix} -1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{smallmatrix}\right)}$. The pseudo-Riemannian manifold $(M, g)$ is the space-time manifold of special relativity, with $x^1 = t$ is the time and $(x^2, x^3, x^4) = (x,y,z)$ is the space.
+  \end{enumerate}
+\end{example}
+
+Again in analogy with what we saw on tangent and cotangent bundles, we can provide a general definition of pullback and pushforward on tensor bundles.
+This will be extremely useful soon, when we start dealing with differential forms.
 
 \todo{tensor bundles}
