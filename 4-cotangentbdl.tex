@@ -195,7 +195,7 @@ Its dual is going to be a map that pulls vector form one covector space to anoth
   \end{equation}
   defined by duality in the following way\footnote{Or, omitting the point of application, $\left(dF^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
   \begin{equation}
-    \left(dF^*_p\omega, v\right) := \left(\omega, dF_p(v)\right),\quad
+    \left(dF^*_p\omega \mid v\right) := \left(\omega \mid dF_p(v)\right),\quad
     \forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
   \end{equation}
 \end{definition}
@@ -296,7 +296,7 @@ Also in this case, $\fX^*(M)$ is a module over $C^\infty(M)$.
   \end{equation}
   where we introduced the \emph{pullback} of the function $f$ as $f^*g := g\circ f$.
 
- {\small Hint: apply the equations at a point $p\in M$ and keep rewriting the equations in different forms.}
+ \textit{\small Hint: apply the equations at a point $p\in M$ and keep rewriting the equations in different forms.}
 \end{exercise}
 
 When we discussed vector fields, we observed that pushforwards of vector fields under smooth maps are defined only in the special case of diffeomorphisms.
@@ -406,12 +406,12 @@ The idea is to use the pullback to pull the 1-form to the parameter space $\R$ a
     \begin{equation}
       \int_\delta \omega = \int_\gamma \omega.
     \end{equation}
-   {\small Hint: use the chain rule to get $\delta'(t) = \gamma'(F(t))F'(t)$ and then apply \eqref{eq:lineIntCurve}.}
+   \textit{\small Hint: use the chain rule to get $\delta'(t) = \gamma'(F(t))F'(t)$ and then apply \eqref{eq:lineIntCurve}.}
     \item Let $f\in C^\infty(M)$. Prove the fundamental theorem of calculus:
     \begin{equation}
       \int_\gamma df = f(\gamma(b)) - f(\gamma(a)).
     \end{equation}
-   {\small Hint: justify that $df_{\gamma(t)}(\gamma'(t)) = \frac{d}{ds}f(\gamma(s))\big|_{s=t}$ and then use the usual fundamental theorem of calculus on $\R$.}
+   \textit{\small Hint: justify that $df_{\gamma(t)}(\gamma'(t)) = \frac{d}{ds}f(\gamma(s))\big|_{s=t}$ and then use the usual fundamental theorem of calculus on $\R$.}
   \end{enumerate}
 \end{exercise}
 

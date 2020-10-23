@@ -83,7 +83,7 @@ is associative and distributive but not commutative (why?).
 \begin{exercise}
   Give a tensor in $T^2_0$ which is a linear combination of tensor products but cannot be written as a tensor product.
   Justify your answer.
- {\small Hint: one of the examples at the beginning of the chapter can help.}
+ \textit{\small Hint: one of the examples at the beginning of the chapter can help.}
 \end{exercise}
 
 In fact, this is a general fact.
@@ -191,7 +191,7 @@ Let's go back for a moment to the example of inner products.
     \item Of course, given the previous example, $T^1_1(V)$ is also canonically isomorphic to the space of endomorphisms of $V^*$, that is, of linear maps $\Lambda:V^*\to V^*$.
     Prove the claim by explicitly constructing the mapping $\ell \leftrightarrow \Lambda$.
   \end{enumerate}
-  {\small Hint: definitions can look rather tautological when dealing with tensors... think carefully about domains and codomains, remember the musical isomorphisms and the tensor pairing.}
+  \textit{\small Hint: definitions can look rather tautological when dealing with tensors... think carefully about domains and codomains, remember the musical isomorphisms and the tensor pairing.}
 \end{exercise}
 
 We are now in a good place to discuss how tensors are affected by changes of basis.
@@ -348,26 +348,33 @@ We have already seen that on the fibres the pullback is a diffeomorphism:
   T^*N \to T^* M, \quad
   (q,\omega) \mapsto (\Phi^*\omega)_q = \left(\Phi^{-1}(q), d\Phi^*\omega|_{\Phi^{-1}(q)}\right).
 \end{equation}
-This is immediately inverted as
+This can be inverted giving rise to the so-called \emph{cotangent lift}
 \begin{equation}
-  d^*\Phi := (\Phi^{-1})^*: T^*M \to T^*N.
+  d\Phi^\dagger :=(d\Phi)^\dagger := (\Phi^{-1})^*: T^*M \to T^*N.
 \end{equation}
+\marginnote{An aid to understand this map is the following commuting diagram:
+\begin{equation}\nonumber
+  \begin{tikzcd}[row sep=normal, column sep=normal, ampersand replacement=\&]
+    T_p^* M \arrow[d, "\pi_M"] \arrow[r, "d\Phi^\dagger"] \& T_{\Phi(p)}N \arrow[d, "\pi_N"] \\
+    M \arrow[r, "\Phi"] \& N
+  \end{tikzcd}
+\end{equation}}
 For any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
 \begin{align}
-  (d^*\Phi \omega \;\mid\; d\Phi v)_{\Phi(p)} &=  d(\Phi^{-1})^*\omega|_{\Phi(p)} (d\Phi v) \\
+  (d\Phi^\dagger \omega \;\mid\; d\Phi v)_{\Phi(p)} &=  d(\Phi^{-1})^*(\omega|_{\Phi(p)} (d\Phi v) )\\
   &= \omega_p(d\Phi^{-1}_{\Phi(p)} \circ d\Phi_p v ) \\
   &= \omega_p(v) = (\omega \mid v)_p.
 \end{align}
 
 \newthought{Step II}.
-Chaining $d$ and $d^*$ on the appropriate components of the tensor, we obtain a diffeomorphism of arbitrary tensor bundles:
+Chaining $d$ and $d^\dagger$ on the appropriate components of the tensor, we obtain a diffeomorphism of arbitrary tensor bundles:
 \begin{equation}
-  d\Phi \otimes\cdots\otimes d\Phi \otimes d^*\Phi\otimes\cdots\otimes d^*\Phi : T_s^rM \to T_s^r N,
+  d\Phi \otimes\cdots\otimes d\Phi \otimes d\Phi^\dagger \otimes\cdots\otimes d\Phi^\dagger  : T_s^rM \to T_s^r N,
 \end{equation}
 defined on the product elements as
 \begin{align}
-  d\Phi &\otimes\cdots\otimes d\Phi \otimes d^*\Phi\otimes\cdots\otimes d^*\Phi (p, v_1 \otimes \cdots\otimes v_r \otimes \omega^1\otimes\cdots\otimes\omega^s) \\
-  &:= (\Phi(p), d\Phi v_1 \otimes \cdots\otimes d\Phi v_r \otimes d^*\Phi\omega^1\otimes\cdots\otimes d^*\Phi\omega^s),
+  d\Phi &\otimes\cdots\otimes d\Phi \otimes d\Phi^\dagger \otimes\cdots\otimes d\Phi^\dagger  (p, v_1 \otimes \cdots\otimes v_r \otimes \omega^1\otimes\cdots\otimes\omega^s) \\
+  &:= (\Phi(p), d\Phi v_1 \otimes \cdots\otimes d\Phi v_r \otimes d\Phi^\dagger \omega^1\otimes\cdots\otimes d\Phi^\dagger \omega^s),
 \end{align}
 which extends to the whole fibres by linearity.
 \end{proof}
@@ -381,13 +388,13 @@ With this diffeomorphism at hand, we can finally define the pushforward.
     \begin{tikzcd}[row sep=huge, column sep=huge]
       M \arrow[r, "F"] \arrow[d, "\tau"]
       &[10em] N \arrow[d, "F_* \tau" cyan] \\
-      \cT_s^r(M) \arrow[r, "dF \otimes\cdots\otimes dF \otimes d^*F\otimes\cdots\otimes d^*F"]
+      \cT_s^r(M) \arrow[r, "dF \otimes\cdots\otimes dF \otimes dF^\dagger \otimes\cdots\otimes dF^\dagger "]
       & \cT_s^r(N)
     \end{tikzcd}.
   \end{equation}
   That is, for $\tau\in\cT_s^r(M)$ we define
   \begin{equation}
-    F_*\tau = \LaTeXunderbrace{dF \otimes\cdots\otimes dF}_{r\mbox{ times}} \otimes \LaTeXoverbrace{d^*F\otimes\cdots\otimes d^*F}^{s\mbox{ times}} \circ \tau \circ F^{-1}.
+    F_*\tau = \LaTeXunderbrace{dF \otimes\cdots\otimes dF}_{r\mbox{ times}} \otimes \LaTeXoverbrace{dF^\dagger \otimes\cdots\otimes dF^\dagger }^{s\mbox{ times}} \circ \tau \circ F^{-1}.
   \end{equation}
 \end{definition}
 
@@ -406,7 +413,7 @@ With this diffeomorphism at hand, we can finally define the pushforward.
       F^* := (F^{-1})_* : \cT_s^r(N) \to \cT_s^r(M).
     \end{equation}
   \end{enumerate}
-  {\small Hint: always work on a product tensor and extend by linearity.}
+  \textit{\small Hint: always work on a product tensor and extend by linearity.}
 \end{exercise}
 
 \marginnote{This property is not true for scalar products in general.
@@ -417,7 +424,6 @@ Note that thanks to this duality between pullback and pushforward, the dual pair
   (F_* \omega \mid F_* v) = (\omega \mid v).
 \end{equation}
 Can you show why?
-
 
 \begin{example}[Change of coordinates for tensor fields]
   Let, as usual,$(U,\phi)$ be a chart on $M$ with local coordinates $(x^i)$.
@@ -447,3 +453,10 @@ Can you show why?
 
   From this, we immediately get $dy^j = (D\Phi)_i^j dx^i$ and, therefore, $dx^i =  (D\Phi^{-1})_j^i dy^j$.
 \end{example}
+
+\begin{exercise}
+  Let $F:N\to M$ be a smooth map between smooth manifolds.
+  Show that a function $f\in C^\infty(M)$ is constant on $F(N)\subset M$ if and only if $F^* df \equiv 0$.
+
+  \textit{\small Hint: if you get stuck start by looking at a simple example, like $N=M$ and $F=\id_M$.}
+\end{exercise}
