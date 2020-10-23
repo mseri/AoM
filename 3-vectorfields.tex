@@ -4,9 +4,11 @@ In the euclidean settings these are simply continuous maps that attach a vector 
 
 The step to abstract manifold is rather intuitive in this case: a vector field will be a map that, at each point of a manifold, picks a tangent vector at that point in a smooth way.
 
-\begin{definition}
+\begin{definition}\label{def:vfield}
   A $C^p$-map $X: M \to TM$ with $\pi\circ X = \id_M$, or equivalently $X_p\in T_pM$ for all $p\in M$, is called \emph{$C^p$-vector field}.
   We denote\footnote{Alternative notations are $\cT_0^1(M)$, $\cT(M)$ and $\Gamma(TM)$. The first two are related to vector fields being tensor fields of type $(1,0)$, a topic that we will discuss in the near future.} the set of smooth vector fields by $\fX(M)$.
+
+  The map $\pi:TM \to M$ is called \emph{footpoint map} and, for reasons that will be clear later on, the equation $\pi\circ X = \id_M$ is called \emph{section property}.
 \end{definition}
 
 \begin{remark}

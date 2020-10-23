@@ -155,6 +155,139 @@ We are going to prove this very soon, but let's first look at some examples.
 
 \begin{exercise}
   The Lie algebra of $\bT^n$ is $\R^n$.
-  
+
   \textit{\small Hint: using the fact that $T(M\times N) \simeq T(M)\times T(N)$ and look at what happens in the case $n=1$.}
 \end{exercise}
+
+Before proceeding we need to introduce some more notation.
+
+\begin{definition}
+  Let $G$ be a Lie group.
+  A vector field $X\in\fX(G)$ is called \emph{left-invariant} if
+  \marginnote{That is, if for all $g,h\in G$ we have \begin{equation}
+    d(L_g)_h X_h = X_{gh}.
+  \end{equation}}
+  \begin{equation}
+    (L_g)_*X = X \quad \forall g\in G.
+  \end{equation}
+  We denote the set of left-invariant vector fields by $\fX_L(G)\subset \fX(G)$.
+\end{definition}
+
+% \begin{proposition}
+%   Let $G$ be a Lie group and let $e$ denote its identity element.
+%   Then $X\in\fX_L(G)$ if and only if $X$ is uniquely identified with its value at $e$.
+% \end{proposition}
+% \begin{proof}
+%   If $X$ is left-invariant, the by definition, for all $g\in G$ we have
+%   \begin{equation}
+%     X_g = (L_g)_* X_e.
+%   \end{equation} 
+%   On the other hand, a vector field defined by $X_g = (L_g)_* v$ for some $v\in T_eG$ is automatically left-invariant.
+% \end{proof}
+
+% In particular, this also mean that left-invariant vector fields are always complete.
+
+\begin{proposition}
+  Let $G$ be a Lie group and $X,Y\in\fX_L(G)$.
+  Then $[X,Y]\in\fX_L(G)$ and, therefore, $\fX_L(G)$ is a Lie subalgebra of $\fX(G)$.
+\end{proposition}
+\begin{exercise}
+  Prove the proposition.
+\end{exercise}
+
+\begin{remark}
+  The Lie algebra of all smooth left-invariant vector fields on a Lie group $G$, which we denoted $\fX_L(G)$, is called the \emph{Lie algebra of $G$} and is commonly denoted by $\mathrm{Lie}(G)$.
+\end{remark}
+
+A fundamental fact is that $\fX(G)$ is finite dimensional.
+
+\begin{theorem}
+  Let $G$ be a Lie group. The evaluation map 
+  \begin{equation}
+    \mathrm{eval}:\fX_L(G)\to T_eG, \quad
+    \mathrm{eval}(X) = X_e,
+  \end{equation}
+  is a vector space isomorphism.
+  Thus, $\fX_L(G)$ is finite dimensional with the same dimension as $G$.
+\end{theorem}
+\begin{proof}
+  \begin{itemize}
+    \item Linearity is immediate.
+    \item Injectivity follows almost immediately from the left-invariance. Indeed, if $\mathrm{eval}(X) = X_e = 0$ for some $X\in\fX_L(G)$, then the left-invariance of $X$ implies that $X_g = d(L_g)_e(X_e) = 0$ for every $g\in G$, thus $X\equiv0$.
+    \item Let's show that it is sujective. Fix an arbitrary $v\in \fg = T_eG$ and define the map $v^L:G\to TG$ by
+    \begin{equation}
+      v^L(g) := d(L_g)_e(v).
+    \end{equation}
+    By construction, $v^L$ satisfies the section property\footnote{If you don't know what we are talking about, have another look at Definition~\ref{def:vfield}.}, since $\d(L_g)_e:T_eG\to T_gG$.
+    \begin{itemize}
+      \item $v^L$ is a vector field: we will show that $v^L g$ is smooth for any $f\in C^\infty(G)$.
+      To this end, pick a smooth curve $\gamma:(-\epsilon,\epsilon)\to G$ such that $\gamma(0)=e$ and $\gamma'(0) = v$. The, for any $g\in G$ we have
+      \begin{align}
+        (v^L f)(g) &= v^L(g) f \\
+        &= d(L_g)_e(v) f\\
+        &= v(f\circ L_g) \\
+        &= (f\circ L_g\circ \gamma)'(0).
+      \end{align}
+      If we define $\phi:(-\delta, \delta)\times G \to \R$ by $\phi(t,g) = f\circ L_g\circ \gamma(t) = f(g\gamma(t))$, the computation above shows that $(v^Lf)(g) = \frac{\partial \phi}{\partial t}(0, g)$.
+      Since $\phi$ is the composition of smooth functions, it is smooth, and thus $v^L f$ is smooth.
+      \item $v^L$ is left-invariant. 
+      Indeed, for any $g,h\in G$, we have
+      \begin{align}
+        d(L_g)_h(v^L(h)) &= d(L_g)_h\circ d(L_h)_e(v)\\ 
+        &= d(L_g\circ L_h)_e(V)\\
+        &= d(L_{gh})_e(v)\\
+        &= v^L(gh).
+      \end{align}
+    \end{itemize}
+    Thus $v^L\in\fX_L(G)$.
+    Since $\mathrm{eval}(v^L) = v^L(e) = v$, the map $\mathrm{eval}$ is surjective, concluding the proof.
+  \end{itemize}
+\end{proof}
+
+\begin{corollary}
+  Let $G$ be a Lie group of dimension $n$.
+  Then \emph{its} Lie algebra is \emph{a} Lie algebra of dimension $n$.
+\end{corollary}
+\begin{proof}
+  We just need to define a Lie bracket on $\fg$.
+  But this is first done than said: using the notation of the previous theorem, set
+  \begin{equation}
+    [v,w] := \mathrm{eval}([v^L, w^L]), \quad \forall v,w\in\fg.
+  \end{equation}
+\end{proof}
+
+Another immediate consequence of this proposition is that every left-invariant vector field is complete.
+
+\begin{corollary}
+  Every Lie group admits a smooth global frame of  left-invariant vector fields, and therefore every Lie group is parallelizable.
+\end{corollary}
+\begin{proof}
+  Every basis for $\fX_L$ is a left-invatiant smooth global frame for $G$.
+\end{proof}
+
+\begin{proposition}
+  If $F: G\to H$ is a Lie group homomorphism, then $dF_e:\fg\to\fh$ is a Lie algebra homomorphism.
+\end{proposition}
+\begin{proof}
+  Let $v\in\fg$ and let $v^L\in\fX_L(G)$ denote the unique left-invariant vector field satisfying $v^L_e = v$.
+  Let $w := dF_e(v)$ and $w^L\in\fX_L(H)$ as above.
+  It is enough to show that $w^L_{F(g)} = (F^*v^L)_g = dF_g V^L_g$ for all $g\in G$.
+
+  Indeed, we have
+  \begin{align}
+    dF_g(v^L_g) &= dF_g\circ d(L_g)_e(v) \\
+    &=d(L_{F(g)})_{F(e)}\circ dF_e(v) \\
+    &=d(L_{F(g)})_{F(e)}(w) \\
+    &=w^L_{F(g)}.
+  \end{align}
+  The result then follows from Theorem~\ref{thm:liealgiso}.
+  If $v_1,v_2 \in\fg$ and $w_i=F^*v_i$, $i=1,2$, then
+  \begin{equation}
+    dF_e[v_1,v_2] = [w_1, w_2].
+  \end{equation}
+\end{proof}
+
+Just as we can view the tangent space as a ``linear model'' of a smooth manifold near a point, the Lie algebra of a Lie group provides a ``linear model'' of the group, which reflects many of the properties of the group.
+Because Lie groups have more structure than ordinary smooth manifolds, it should come as no surprise that their linear models have more structure than ordinary vector spaces.
+Since a finite dimensional Lie algebra is a purely linear-algebraic object, it is in many ways simpler to understand than the group itself.
+Much of the progress in the theory of Lie groups has come from a careful analysis of Lie algebras.
