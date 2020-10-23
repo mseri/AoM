@@ -1082,11 +1082,13 @@ From this observation follows another interesting proposition, again consequence
   The following assertions are equivalent.
   \begin{enumerate}
     \item $M^k\subset N^n$ is a $k$-dimensional submanifold.
-    \item $M$ is locally the image of an embedding of a subset of $\R^k$. That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$, an open set $U\subset\R^k$ and an embedding
+    \item $M$ is locally the image of an embedding of a subset of $\R^k$.
+    That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$, an open set $U\subset\R^k$ and an embedding
     \begin{equation}
       \phi : U \to N \quad\mbox{such that}\quad \phi(U)=V.
     \end{equation}
-    \item $M$ is locally a level set of a submersion into $\R^{n-k}$. That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$ and a submersion $\Phi: V \to\R^{n-k}$ such that
+    \item $M$ is locally a level set of a submersion into $\R^{n-k}$.
+    That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$ and a submersion $\Phi: V \to\R^{n-k}$ such that
     \begin{equation}
       M\cap V = \{q\in V \;\mid\; \Phi(q) = 0\}.
     \end{equation}
@@ -1151,6 +1153,15 @@ To finally answer the question, we will prove one last proposition.
 \end{exercise}
 
 \begin{exercise}
+  Let $U\subset\R^n$ open and $f:U\to\R$ smooth.
+  Define $g:U\to\R^{n+1}$ by
+  \begin{equation}
+    g(x) = (x, f(x)).
+  \end{equation} 
+  Show that $g$ is a smooth embedding and, therefore, that $g(U)$ is a smooth embedded $n$-dimensional submanifold\footnote{$g(U)$ is the the \emph{graph} of $f$!} of $\R^{n+1}$.
+\end{exercise}
+
+\begin{exercise}\label{exe:onsubmanifold}
   Show that the orthogonal matrices $O(n) := \{ Q\in GL(n) \mid Q^TQ=\id \}$ form a $n(n-1)/2$-dimensional submanifold of the $n^2$-manifold $\mathrm{Mat}(n)$ of $n\times n$-matrices.
 
   Show also that

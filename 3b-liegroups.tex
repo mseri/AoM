@@ -1,0 +1,160 @@
+In the previous chapter we have briefly touched upon the notion of Lie algebras.
+A strictly related notion, we will see in which sense, is the notion of Lie group.
+There are mathematical objects that are pervasive in mathematics, even outside the realm of differential geometry, and in physics, where they play an important role in classical mechanics\footnote{You may have heard of the celebrated Noether's theorem, which states that every smooth symmetry has a corresponding conservation law}, and in high-energy physics\footnote{Does gauge theory ring any bell?}.
+
+The theory of Lie groups and Lie algebras is vast, and in these lectures we will just briefly scratch the surface.
+
+\begin{definition}
+  A \emph{Lie group $G$} is a smooth manifold (without boundary) that is also an algebraic group, with the property that the multiplication map $G\times G \to G$, $(g,h)\mapsto gh$, and the inversion map $G\to G$, $g\mapsto g^{-1}$ are smooth.
+\end{definition}
+
+\begin{example}
+  \begin{enumerate}
+    \item $\R^n$ is a Lie group under addition.
+    \item $\R^n\setminus\{0\}$ is a Lie group under multiplication.
+    \item A manifold can be equipped with different Lie group structures. For example, the following map
+    \begin{equation}
+      m(x,y) = (x^1+y^1,\, x^2+y^2,\, x^3+y^+x^1y^2)
+    \end{equation}
+    induces\footnote{To see that this defines a group structure, identify $\R^3$ with upper triangular $3\times3$ matrices via
+    \begin{equation}
+      x = (x^1, x^2, x^3) \mapsto \begin{pmatrix}
+        1 & x^1 & x^3\\
+        0 & 1 & x^2 \\
+        0 & - & 1
+      \end{pmatrix}
+    \end{equation}
+    and observe that $m$ becomes the standard matrix multiplication.} an alternative structure of Lie group on $\R^n$ called \emph{Heisenberg group}.
+    \item The set $GL(n)$ of invertible $n\times n$ matrices is a Lie group under matrix multiplication. Indeed, it is a manifold of dimension $n^2$, the product is smooth since each matrix entry is given a polynomial and the inversion is smooth thanks to Cramer's rule.
+    \item The $n$-torus $\bT^n = \R^n/\Z^n$ is an abelian Lie group with the group structure induced by addition on $\R^n$.
+    \item Given Lie groups $(G_1, \ldots, G_k)$, their direct product is the product manifold $G_1\times \cdots\times G_k$ with the group structure given by
+    \begin{equation}
+      (g_1, \ldots, g_k)(h_1,\ldots,h_k) = (g_1h_1, \ldots g_kh_k)
+    \end{equation}
+    is a Lie group (why?).
+    \item Not all smooth manifolds can be equipped with a Lie group structure: for example, $\bS^n$ admits a Lie group structure only for $n=0,1,3$.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  A \emph{Lie group homomorphism} $F:G\to H$ is a smooth map which is also a group homomorphism. It is called \emph{Lie group isomorphism} if it is also a diffeomorphism, which implies that it has an inverse that is also a Lie group homomorphism. In this case we call $G$ and $H$ isomorphic Lie groups.
+\end{definition}
+
+\begin{example}
+  It turns out that you know plenty of examples of Lie group homomorpisms.
+  \begin{enumerate}
+    \item The map $\exp:\R\to\R\setminus\{0\}$ is a Lie group homomorphism. The image of $\exp$ is the open subgroup $\R+$ and $\exp:\R\to\R_+$ is a Lie group isomorphim with inverse $\log:\R_+\to\R$.
+    \item The map $\epsilon:\R\to\bS^1$ defined by $\epsilon(t)=e^{2\pi i t}$ is a Lie group homomorphism whose kernel is $\Z$. Similarly, the map $\epsilon^n:\R^n\to\bT^n$ defined by $\epsilon^n(x^1, \ldots, x^n)=(e^{2\pi i x^1}, \ldots, e^{2\pi i x^n})$ is a Lie group homomorphism whose kernel is $\Z^n$.
+    \item The determinant function $\det:GL(n)\to\R\setminus\{0\}$ is smooth since $\det$ is a polynomial in the entries of the matrix and it is a Lie group homomorphism since $\det (AB) = \det(A) \det(B)$.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  If $G$ is a Lie group, for any element $g\in G$, we denote by $L_g:G\to G$ the \emph{left translation} and by $R_g:G\to G$ the \emph{right translation}, respectively defined
+  \begin{equation}
+    L_g(h) = gh
+    \quad\mbox{and}\quad
+    R_g(h) = hg.
+  \end{equation}
+\end{definition}
+
+\marginnote{The fact that translations are diffeomorphisms of the groups onto itself is crucial, it implies that the group looks the same around any point. Indeed, they are \emph{homogeneous spaces}. To study the local structure of a Lie group, as we will see soon, it is enough to examine a neighbourhood of the identity element.}
+These are both diffeomorphisms, since they can be described by a composition of smooth maps. For instance,
+\begin{equation}
+  \underset{h}{G} \underset{\mapsto}{\to} \underset{(g,h)}{G\times G} \underset{\mapsto}{\to} \underset{gh}{G}.
+\end{equation}
+Moreover, $L_{g^{-1}}$ is the inverse of $L_g$.
+Similarly for $R_g$.
+
+\begin{remark}
+  For convenience, we will only consider left translations.
+  There is nothing wrong with right translations and, in fact, you can reformulate all the results that follow in terms of them.
+\end{remark}
+
+The next theorem is important for understanding many of the properties of Lie group homomorphisms.
+
+\begin{theorem}
+  Every Lie group homomorphism has constant rank.
+\end{theorem}
+\begin{proof}
+  Let $F:G\to H$ be a Lie group homomorphism and let $e$ denote the identity element of $G$.
+  
+  Fix $g\in G$.
+  We will show that $F$ has the same rank at $g$ as its rank at $e$.
+  Since $F$ is a homomorphism, for all $h\in G$ we have
+  \begin{equation}
+    F(L_g(h)) = F(gh) = F(g)F(h) = L_{F(g)}(F(h)),
+  \end{equation}
+  that is,
+  \begin{equation}
+    F\circ L_g = L_{F(g)}\circ F.
+  \end{equation}
+  Differentiating both sides at $e$ and using the chain rule, this reads
+  \begin{equation}
+    dF_g\circ d(L_g)_e = d(L_{F(g)})_{F(e)}\circ dF_e.
+  \end{equation}
+  Since the left translation is a diffeomorphism, both $d(L_g)_e$ and $d(L_{F(g)})_{F(e)}$ are isomorphisms, and as such they preserve the rank.
+  From this, it follows that $dF_g$ and $dF_e$ have the same rank.
+\end{proof}
+
+The global rank theorem then immediately implies the following corollary.
+\begin{corollary}
+  A Lie group homomorphism is a Lie group isomorphism if and only if it is bijective.
+\end{corollary}
+
+\begin{definition}
+  Let $G$ be a Lie group. A \emph{Lie subgroup} of $G$ is a subgroup $H\subset G$ endowed with a topology and a smooth structure that make it at the same time a Lie group and an immersed submanifold of $G$.
+\end{definition}
+
+\begin{example}
+  This means for example that the set $GL^+(n)$ of invertible matrices with positive determinant is a Lie group.
+\end{example}
+
+It turns out that embedded submanifolds are automatically Lie groups. In fact more than that.
+
+\begin{theorem}[Closed subgroup theorem]
+  Let $G$ be a Lie group and suppose $H$ is any subgroup of $G$.
+  The following are equivalent:
+  \begin{enumerate}
+    \item $H$ is a closed subgroup\footnote{That is, $H$ is a closed subset of $G$.};
+    \item $H$ is an embedded submanifold of $G$;
+    \item $H$ is an embedded Lie subgroup of $G$.
+  \end{enumerate}
+\end{theorem}
+
+The proof of this theorem is not hard, but especially proving the equivalence of the first two claims is rather involved, so we will skip it.
+For a proof, look at the cooresponding section in \cite[Chapter 20]{book:lee}.
+
+\begin{example}
+  \marginnote{Since the closed subgroups of $GL(n)$ play a special role in Lie groups theory, they have their own name: they are the called \emph{matrix Lie group}.}
+  Let $O(n)\subset GL(n)$ denote the set of orthogonal matrices\footnote{That is, $A$ such that $AA^T = I$.}, then $O(n)$ is closed in $GL(n)$ and by the previous theorem is a Lie subgroup.
+  You have proven this when you solved Exercise~\ref{exe:onsubmanifold}.
+\end{example}
+
+\section{Lie algebras}
+
+We are finally ready to see how Lie groups and Lie algebras ended up being related.
+
+\begin{definition}
+  Let $G$ be a Lie group.
+  We define the \emph{Lie algebra} of $G$, usually denoted $\fg$, as the tangent space to $G$ at the identity element $e$:
+  \begin{equation}
+    \fg := T_e G.
+  \end{equation}
+\end{definition}
+
+Of course, for this definition not to be completely insane, the Lie algebra of a Lie group better be a Lie algebra also in the sense of Definition~\ref{def:LieAlgebra}.
+We are going to prove this very soon, but let's first look at some examples.
+
+\begin{example}
+  \begin{enumerate}
+    \item The Lie algebra of $GL(n)$ is $\mathfrak{gl}(n)\simeq \mathrm{Mat}(n)$.
+    \item The Lie algebra of $O(n)$ is $\mathfrak{o}{n} = \{A \in \mathfrak{gl}(n) \mid A+A^T = 0\}$. You have shown it in Exercise~\ref{exe:onsubmanifold}.
+  \end{enumerate}
+\end{example}
+
+\begin{exercise}
+  The Lie algebra of $\bT^n$ is $\R^n$.
+  
+  \textit{\small Hint: using the fact that $T(M\times N) \simeq T(M)\times T(N)$ and look at what happens in the case $n=1$.}
+\end{exercise}
