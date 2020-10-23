@@ -265,6 +265,13 @@ Another immediate consequence of this proposition is that every left-invariant v
   Every basis for $\fX_L$ is a left-invatiant smooth global frame for $G$.
 \end{proof}
 
+Just as we can view the tangent space as a ``linear model'' of a smooth manifold near a point, the Lie algebra of a Lie group provides a ``linear model'' of the group, which reflects many of the properties of the group.
+Because Lie groups have more structure than ordinary smooth manifolds, it should come as no surprise that their linear models have more structure than ordinary vector spaces.
+Since a finite dimensional Lie algebra is a purely linear-algebraic object, it is in many ways simpler to understand than the group itself.
+Much of the progress in the theory of Lie groups has come from a careful analysis of Lie algebras.
+
+\todo{Introduce Lie subalgebra and Lie algebra homomorphism.}
+
 \begin{proposition}
   If $F: G\to H$ is a Lie group homomorphism, then $dF_e:\fg\to\fh$ is a Lie algebra homomorphism.
 \end{proposition}
@@ -287,7 +294,25 @@ Another immediate consequence of this proposition is that every left-invariant v
   \end{equation}
 \end{proof}
 
-Just as we can view the tangent space as a ``linear model'' of a smooth manifold near a point, the Lie algebra of a Lie group provides a ``linear model'' of the group, which reflects many of the properties of the group.
-Because Lie groups have more structure than ordinary smooth manifolds, it should come as no surprise that their linear models have more structure than ordinary vector spaces.
-Since a finite dimensional Lie algebra is a purely linear-algebraic object, it is in many ways simpler to understand than the group itself.
-Much of the progress in the theory of Lie groups has come from a careful analysis of Lie algebras.
+An immediate consequence of this proposition is the following.
+\begin{corollary}
+  Let $H\subset G$ be a Lie subgroup.
+  Then $\fh$ is a Lie subalgebra of $\fg$.
+\end{corollary}
+\begin{proof}
+  Use the inclusion $i:H\hookrightarrow G$ as the homomorphism, then $di_e:\fh = T_eH\to \fg = T_eG$ is the Lie algebra homomorphism.
+\end{proof}
+
+If we go back to the example of $GL(n)$, now we have two possibly different Lie brackets on $\mathfrak{gl}(n)=\mathrm{Mat}(n)$: the one coming from the previous corollary and the matrix commutator.
+The next result, which we will not prove, shows that they coincide.
+
+\begin{proposition}
+  The Lie bracket on $\mathfrak{gl}(n)$ is given by the matrix commutator.
+  Therefore, if $G$ is a matrix Lie group, the Lie bracket on $\fg$ is also the matrix commutator.
+\end{proposition}
+
+In fact, the correspondence between Lie subgroups and Lie subalgebras goes both ways.
+
+\begin{theorem}
+  Let $G$ be a Lie group with Lie algebra $\fg$. If $\fh$ is a Lie subalgebra of $\fg$, then there is a unique connected Lie subgroup $H$ of $G$ whose Lie algebra is $\fh$.
+\end{theorem}
