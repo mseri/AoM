@@ -14,14 +14,14 @@ The theory of Lie groups and Lie algebras is vast, and in these lectures we will
     \item $\R^n\setminus\{0\}$ is a Lie group under multiplication.
     \item A manifold can be equipped with different Lie group structures. For example, the following map
     \begin{equation}
-      m(x,y) = (x^1+y^1,\, x^2+y^2,\, x^3+y^+x^1y^2)
+      m(x,y) = (x^1+y^1,\, x^2+y^2,\, x^3+y^3+x^1y^2)
     \end{equation}
     induces\footnote{To see that this defines a group structure, identify $\R^3$ with upper triangular $3\times3$ matrices via
-    \begin{equation}
+    \begin{equation}\nonumber
       x = (x^1, x^2, x^3) \mapsto \begin{pmatrix}
         1 & x^1 & x^3\\
         0 & 1 & x^2 \\
-        0 & - & 1
+        0 & 0 & 1
       \end{pmatrix}
     \end{equation}
     and observe that $m$ becomes the standard matrix multiplication.} an alternative structure of Lie group on $\R^n$ called \emph{Heisenberg group}.
@@ -256,7 +256,17 @@ A fundamental fact is that $\fX(G)$ is finite dimensional.
   \end{equation}
 \end{proof}
 
-Another immediate consequence of this proposition is that every left-invariant vector field is complete.
+Another immediate consequence of this proposition is that every left-invariant vector field is complete, which immediately makes them all parallelizable.
+
+\begin{proposition}\label{prop:XLcomplete}
+  Let $G$ be a Lie group and $v\in\fX_L(G)$.
+  Then $v$ is complete.
+\end{proposition}
+\begin{exercise}
+  Prove the proposition.
+  
+  \textit{\small Hint: extend a curve starting at $e$ to a curve starting at $g$.}
+\end{exercise}
 
 \begin{corollary}
   Every Lie group admits a smooth global frame of  left-invariant vector fields, and therefore every Lie group is parallelizable.
@@ -270,14 +280,12 @@ Because Lie groups have more structure than ordinary smooth manifolds, it should
 Since a finite dimensional Lie algebra is a purely linear-algebraic object, it is in many ways simpler to understand than the group itself.
 Much of the progress in the theory of Lie groups has come from a careful analysis of Lie algebras.
 
-\todo{Introduce Lie subalgebra and Lie algebra homomorphism.}
-
 \begin{proposition}
-  If $F: G\to H$ is a Lie group homomorphism, then $dF_e:\fg\to\fh$ is a Lie algebra homomorphism.
+  If $F: G\to H$ is a Lie group homomorphism, then there is a map $F_*:\fg\to\fh$ which is a Lie algebra homomorphism. We call this map, the \emph{induced Lie algebra homomorphism}.
 \end{proposition}
 \begin{proof}
   Let $v\in\fg$ and let $v^L\in\fX_L(G)$ denote the unique left-invariant vector field satisfying $v^L_e = v$.
-  Let $w := dF_e(v)$ and $w^L\in\fX_L(H)$ as above.
+  Let $w := dF_e(v) =: F^*v$ and $w^L\in\fX_L(H)$ as above.
   It is enough to show that $w^L_{F(g)} = (F^*v^L)_g = dF_g V^L_g$ for all $g\in G$.
 
   Indeed, we have
@@ -306,6 +314,7 @@ An immediate consequence of this proposition is the following.
 If we go back to the example of $GL(n)$, now we have two possibly different Lie brackets on $\mathfrak{gl}(n)=\mathrm{Mat}(n)$: the one coming from the previous corollary and the matrix commutator.
 The next result, which we will not prove, shows that they coincide.
 
+\marginnote{See \cite[Proposition 8.41]{book:lee} for reference.}
 \begin{proposition}
   The Lie bracket on $\mathfrak{gl}(n)$ is given by the matrix commutator.
   Therefore, if $G$ is a matrix Lie group, the Lie bracket on $\fg$ is also the matrix commutator.
@@ -313,6 +322,152 @@ The next result, which we will not prove, shows that they coincide.
 
 In fact, the correspondence between Lie subgroups and Lie subalgebras goes both ways.
 
+\marginnote{See \cite[Theorem 8.46]{book:lee} for reference.}
 \begin{theorem}
   Let $G$ be a Lie group with Lie algebra $\fg$. If $\fh$ is a Lie subalgebra of $\fg$, then there is a unique connected Lie subgroup $H$ of $G$ whose Lie algebra is $\fh$.
 \end{theorem}
+
+We close this section by stating a deep algebraic result about Lie algebras, whose proof is way out of our reach.
+\begin{theorem}[Ado's theorem]
+  Let $\mathfrak{gl}(V)$ denote the Lie algebra of linear maps from a finite dimensional vector space $V$ to itself.
+  Every finite-dimensional real Lie algebra $\fg$ admits a faithful finite-dimensional representation, that is, there exists an injective Lie algebra homomorphism $F: \fg \to \mathfrak{gl}(V)\simeq\mathfrak{gl}(n,\R)$ for some finite dimensional vector space $V$.
+\end{theorem}
+
+\subsection{The exponential map}
+
+We have seen that there is a tight relation between flows and exponentials, so much so, that we started using formally the exponential notation to denote flows of vector fields.
+With Lie groups and Lie algebras, we will bring the construction to the next level, properly formalising the construction.
+
+\begin{definition}
+  \marginnote{There is a strict relation between one-parameter groups of diffeomorphisms and one-parameter subgroups of a Lie group. We will not discuss it here, just be aware that -- in some sense -- it mimicks what we are exploring here in the setting of infinite-dimensional Lie groups.}
+  Let $G$ be a Lie group with Lie algebra $\fg$.
+  We call \emph{one-parameter subgroup} of $G$ a Lie group homomorphism $\R\to G$.
+\end{definition}
+
+Given the introduction, the following theorem should not come as a surprise.
+\begin{theorem}
+  Let $G$ be a Lie group.
+  The one-parameter subgroups of $G$ are precisely the maximal integral curves of left-invariant vector fields starting at the identity.
+\end{theorem}
+\begin{proof}
+  \begin{itemize}
+    \item[($\Longleftarrow$)]
+    Suppose that $\gamma$ is the maximal integral curve for some $v\in\fX_L(G)$ starting at the identity $e$. 
+    Proposition~\ref{prop:XLcomplete} implies that $\gamma$ is defined on all $\R$. Since $L_g$ is a diffeomorphism for all $g\in G$ and $v$ is left-invariant, by Proposition~\ref{prop:conjpfX} $L_g$ maps integral curves of $v$ to integral curves of $v$ (why?).
+    If $g=\gamma(s)$ for some $s$, the curve $t\mapsto L_{\gamma(s)}(\gamma(t))$ is an integral curve starting at $\gamma(s)$.
+    By the group property of the flow, also $t\mapsto \gamma(t+s)$ is an integral curve starting at $\gamma(s)$, so they must be equal.
+    That is, for all $s,t\in \R$,
+    \begin{equation}
+      \gamma(s+t) = \gamma(s)\gamma(t).
+    \end{equation}
+    Which implies that $\gamma:\R\to G$ is a one-parameter subgroup.
+    \item[($\Longrightarrow$)] Let now $\gamma:\R\to G$ be a one-parameter subgroup and $v = \gamma'(0)\in \fg$.
+    The claim is that $\gamma'(t) = v^L(\gamma(t))$.
+    Since $\gamma(s)\gamma(t) = \gamma(s+t) = L_{\gamma(t)}(\gamma(s))$ we have
+    \begin{align}
+      \gamma'(t) &= \frac{d}{ds}\Big|_{s=0} \gamma(t+s) \\
+      &= \frac{d}{ds}\Big|_{s=0} L_{\gamma(t)}(\gamma(s)) \\
+      &= (dL_{\gamma(t)})_{\gamma(0)}(\gamma'(0)) \\
+      &= (dL_{\gamma(t)})_{e}(v)
+      = v^L(\gamma(t)).
+    \end{align}
+    Again, due to uniqueness of the integral curves, we obtain the claim.
+  \end{itemize}
+\end{proof}
+
+If we write $\Theta_t^v:=\Phi^{v^L}_t:G\to G$ for the flow of $v^L$, then by definition $\gamma^v = \Theta_t^v(e)$.
+
+Note that the trick employed in the proof above, can be used also to show the following.
+\begin{lemma}
+  For any $s,t\in\R$ one has $\gamma^v(st) = \gamma^{sv}(t)$, where we used the superscript to specify the generator of the subgroup.
+\end{lemma}
+
+\begin{proposition}
+  Let $G$ be a Lie group with Lie algebra $\fg$.
+  Let $\gamma:\R\to G$ be a smooth curve with $\gamma(0)=e$ and $\gamma'(0)=v\in\fg$. Then the following claims are equivalent:
+  \begin{enumerate}[(i)]
+    \item $\gamma$ is a one-parameter subgroup;
+    \item $\gamma(t) = \gamma^v(t)$ is the one-parameter subgroup generated by $v$;
+    \item the flow $\Theta_t^v$ of $v^L$ is given by $\Theta_t^v = R_{\gamma(t)}$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  We have already seen $(i) \Leftrightarrow (ii)$.
+  To see $(iii)\Rightarrow(ii)$ observe that the first implies $\gamma^v(t) = \Theta_t^v(e) = R_{\gamma(t)}e = \gamma(t)$.
+  
+  Finally, assume $(ii)$ holds and fix $g\in G$.
+  Since $v^L$ is left-invariant, $g\gamma^v = L_g \circ \gamma^v$ is another integral curve of $v^L$ starting at $g$, thus, again by uniqueness of integral curves, we have $R_{\gamma(t)}(g) = g\gamma^v(t) = \Theta_t^v(g)$. Which implies $(iii)$ by the arbitrariness of $g$.
+\end{proof}
+
+Given $v\in\fX_L(G)$, the one-parameter subgroup determined by $v$ in this way is called the one-parameter subgroup generated by $v$.
+Because left-invariant vector fields are uniquely determined by their values at the identity, it follows that each one-parameter subgroup is uniquely determined by its initial velocity in $T_eG$, and thus there are one-to-one correspondences:
+\begin{equation}
+  \{\mbox{one-parameter subgroups of }G\}
+  \leftrightarrow
+  \fX_L(G)
+  \leftrightarrow
+  T_e G.
+\end{equation}
+
+In fact, the one-parameter subgroups of $GL(n)$ follow nicely from the previous section.
+Let $A\in\mathfrak{gl}(n)$. Using its identification with $\fX(GL(n))$ we can think of the matrix $A$ as the left-invariant vector field $A^L$.
+That is, the one-parameter subgroup generated by $A$ is the integral curve of $A^L$ on $GL(n)$ starting at $e$.
+This is a good place to see where the right shift is coming from.
+
+Let $A = (A^i_j)$ and let $(X^i_j)$ denote the global coordinates on $GL(n)$ given by the matrix entries.
+Then the natural isomorphism $T_{\id}GL(n) \simeq \mathfrak{gl}(n)$ is given by the mapping
+\begin{equation}
+  A^i_j \frac{\partial }{\partial X^i_j}\Big|_{\id} \mapsto (A^i_j).
+\end{equation}
+Thus, if you remember that $v^L|_g = d(L_g)_e(v)$, the left-invariant vector field $A^L$ is given by
+\begin{equation}
+  A^L|_X = d(L_X)_{\id}(A) d(L_X)_{\id}\left(A^i_j \frac{\partial }{\partial X^i_j}\right),
+\end{equation}
+and, thus, in coordinates, its value at $X\in GL(n)$ is
+\begin{equation}
+  X^k_i A^i_j \frac{\partial }{\partial X^i_j}.
+\end{equation}
+Which means that the condition to be an integral curve, in coordinates, is $\frac{d}{dt}\gamma^i_j(t) = \gamma^i_k(t) A^k_j$ or, in matrix notation, $\gamma'(t) = \gamma(t) A$.
+By using the expansion $e^{tA} = \sum_{k\geq 0} \frac{A^k}{k!}$ one can verify that such $\gamma$ is exactly the matrix exponential.
+
+We can summarise\footnote{One should also prove convergence, if you are curious about the details you can refer to \cite[Proposition 20.2]{book:lee}.} this as follows.
+
+\begin{proposition}\label{prop:expmat}
+  Let $A\in\mathfrak{gl}(n)$, then the one-parameter subgroup of $GL(n)$ generated by $A$ is $\gamma(t) = e^{tA}$.
+\end{proposition}
+
+\marginnote{This uncovers the structure behind the structure you encountered in Exercise~\ref{exe:onsubmanifold}.}
+\begin{exercise}
+  The one-parameter subgroups of $O(n)$ are the maps of the form $e^{tA}$ for arbitrary skew-symmetric matrices $A$.
+  In particular, this shows that the exponential of any skew-symmetric matrix is orthogonal.
+\end{exercise}
+
+\begin{definition}
+  Let $G$ be a Lie group and $\fg$ its Lie algebra.
+  We define the \emph{exponential map of $G$} as the map
+  \begin{equation}
+    \exp: \fg \to G , \quad X \mapsto \gamma(1),
+  \end{equation}
+  where $\gamma$ is the one-parameter subgroup generated by $X$ or, equivalently, the integral curve of $X$ starting at the identity.
+\end{definition}
+
+\begin{exercise}
+  Let $G$ be a Lie group. For any $X\in\fX_L(G)$, $\gamma(s) =\exp(sX)$ is the one-parameter subgroup of $G$ generated by $X$.
+\end{exercise}
+
+\begin{example}
+  Proposition~\ref{prop:expmat} shows that the exponential map of $GL(n)$ is given by $\exp A = e^A$.
+  This is where its name originated.
+\end{example}
+
+This is a corollary of the properties of flows, of group properties and of the previous propositions.
+\begin{proposition}
+  The exponential map $\exp: \fg \to G$ satisfies the following.
+  For all $s,t\in\R$ and $X\in\fg$
+  \begin{enumerate}
+    \item $\exp$ is smooth;
+    \item $\exp((s+t)X) = \exp(sX)\exp(tX)$;
+    \item $\exp(-X) = (\exp(X))^{-1}$;
+    \item the flow $\Phi$ \TODO
+  \end{enumerate}
+\end{proposition}
