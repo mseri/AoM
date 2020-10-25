@@ -374,7 +374,7 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
   Then $M$ has a unique smooth manifold structure such that each $(U_\alpha,\phi_\alpha)$ is a smooth chart.
 \end{lemma}
 \begin{exercise}
-  Prove Lemma~\ref{lem:manifold_chart}.\textit{\small Hint: declare all the $\phi_\alpha$ to be homeomorphisms and use the hypotheses to check the definition of a smooth manifold.}
+  Prove Lemma~\ref{lem:manifold_chart}. \textit{\small Hint: declare all the $\phi_\alpha$ to be homeomorphisms and use the hypotheses to check the definition of a smooth manifold.}
 \end{exercise}
 
 \begin{example}
@@ -385,11 +385,37 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
   The proof of this fact is trivial in the sense that each of the maps in the atlas satisfies all the properties of the lemma by construction, after all they are already part of the differentiable structure of a smooth manifold.
 \end{example}
 
+\todo{quotient manifold}
+
 \begin{example}
   Let $\R P^n$ denote the $n$-dimensional real projective space, that is, the space of lines in $\R^{n+1}$ passing through the origin.
-  Prove that $\R P^n$ is a smooth manifold of dimension $n$. 
+  This is a notable example of quotient manifold: we are going to show that $\R P^n$ is a smooth manifold of dimension $n$. 
 
-  \todo{Chapter Tu 7.5}
+  We can define an equivalence relation on $\R^{n+1}_0:=\R^{n+1}\setminus\{0\}$ by declaring that for any $x,y\in \R^{n+1}_0$
+  \begin{equation}
+    x\sim y \quad\Longleftrightarrow\quad \exists t\neq 0 \mbox{ such that } y=tx,
+  \end{equation}
+  that is, two points are equivalent if they lie on the same line passing through the origin.
+  Then, the \emph{real projective space} is the quotient space $\R P^n := \R^{n+1}_0/\sim$.
+  For the sake of the example, let's denote the class of equivalence of a point $x=(x^0,\ldots,x^n)\in\R^{n+1}_0$ by $[x]=[x^0,\ldots,x^n]$ and the projection to the quotient by $\pi:\R^{n+1}_0\to\R P^n$.
+  
+  \todo{Margin figure for the spheres.}
+  There is a nice interpretation of this construction in terms of flattening spheres.
+  Observe that a line through the origin always intercepts a sphere $\bS^n$ at two antipodal points and, conversely, each pair of antipodal point determines a unique line through the center.
+  So we can define an equivalence relation on the sphere by identifying the antipodal points: given $x,y\in\bS^n$, $x\sim' y$ if and only if $x = \pm y$.
+  This leads to the bijection $\R P^n \simeq \bS^n/\sim$.
+  Note that by gluing antipodal points, we are identifying the north and south hemispheres, thus essentially flattening the sphere to a disk.
+
+  \begin{exercise}
+    Show that the map $n(x): \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$ induces a homeomorphism $\hat n:\R P^n \to \bS^n/\sim$.
+
+    \textit{\small Hint: find an invers map and show that both $\hat n$ and its inverse are continuous.}
+  \end{exercise}
+
+  Let's show that $\R P^n$ is a smooth $n$-manifold.
+
+
+
 \end{example}
 
 \begin{exercise}[Grassmannian (Manifold)]
