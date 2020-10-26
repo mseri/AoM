@@ -333,9 +333,20 @@ dropping the distinction between $p$ and $x$, both in place of
   is a smooth manifold of dimension $n$.
 \end{exercise}
 
+\begin{example}[Product manifolds]\label{ex:pm}
+Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{product manifold} $M_1 \times M_2$ by equipping $M_1 \times M_2$ with the product topology\footnote{Open sets in the product are products of open sets from the respective topological spaces.} and cover the space with the atlas $\{ (U_1\times U_2, (\phi_1, \phi_2)) \;\mid\; (U_1, \phi_1)\in\cA_1, (U_2, \phi_2)\in \cA_2\}$.
+\end{example}
+
 \begin{example}
   The definition of smooth manifold does not require $M$ to be embedded into some ambient space as in the examples above.
-  In fact, we can define the differentiable manifold $\bS^1$ by equipping the topological quotient space $\R/\Z$ with the two charts
+  In fact, we can define the differentiable manifold $\bS^1$ by equipping the topological quotient space\footnote{
+    There is a standard way to induce a topology on a quotient space.
+    Let $M$ be a topological space and $\pi:M\to N$ surjective.
+    The quotient topology on $N$ is given by defining $U\subset N$ to be open if and only if its preimage $\pi^{-1}(U)\subset M$ is open.
+    If $\sim$ is an equivalence relation on $M$, the quotient space $M/\sim$ is the set of equivalence classes $[p]:=\{q\in M \mid p\sim q\}$ and the projection $\pi: M\to M/\sim$, $\pi(p) = [p]$, is a surjective map. Then $U\in M/\sim$ is open if $\cup_{[p]\in U} [p] \subset M$ is open.
+    Here $\R/\Z$ denotes the quotient space $\R/\sim$ where the equivalence relation is induced by the canonical group action of $\Z$ on $\R$, that is, $x\sim y$ if and only if $x-y\in\Z$.
+    This means that $[x] = \{x+k \mid k\in\Z\}$ and in each interval $[x_0, x_0+1)$ of length $1$ contains exactly one representative per class.
+    Note that we are talking about topological spaces: the quotient, in general, does not preserve the Hausdorff property or second countability.} $\R/\Z$ with the two charts
   \begin{equation}\textstyle
     \phi_1 : \R/\Z \setminus\{[0]\} \to (0,1)
     \quad\mbox{and}\quad
@@ -345,13 +356,17 @@ dropping the distinction between $p$ and $x$, both in place of
   The manifold obtained in this way is diffeomorphic to the one defined in Example \ref{ex:S1emb}.
 \end{example}
 
-\begin{example}[Product manifolds]\label{ex:pm}
-Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{product manifold} $M_1 \times M_2$ by equipping $M_1 \times M_2$ with the product topology\footnote{Open sets in the product are products of open sets from the respective topological spaces.} and cover the space with the atlas $\{ (U_1\times U_2, (\phi_1, \phi_2)) \;\mid\; (U_1, \phi_1)\in\cA_1, (U_2, \phi_2)\in \cA_2\}$.
-\end{example}
-
 Note that smooth manifolds do not yet have a metric structure: distances between the points are not defined.
 However, they are \emph{metrizable}\footnote{This property is far more general: all the topological manifolds are metrizable.}: there exists some metric on the manifold that induces the given topology on it.
 This allows to always view manifolds as metric spaces.
+
+\begin{example}[A different smooth structure on $\R$]
+  Consider the homeomorphism $\psi:\R\to\R$, $\psi(x) = x^3$.
+  The atlas consisting of the global chart $\{\R, \psi\}$ defines a smooth structure on $\R$.
+  This chart is not smoothly compatible with the standard smooth structure on $\R$ since $\id_\R \circ \psi^{-1} (y) = y^{1/3}$ is not smooth at $y=0$.
+  Therefore, the smooth structure defined on $\R$ by $\psi$ is different from the standard one.
+  You can adapt this idea to construct many different smooth structures on topological manifolds provided that they at least have one smooth structure.
+\end{example}
 
 \begin{remark}
 	There exist examples of topological manifolds without smooth structures.
@@ -385,7 +400,31 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
   The proof of this fact is trivial in the sense that each of the maps in the atlas satisfies all the properties of the lemma by construction, after all they are already part of the differentiable structure of a smooth manifold.
 \end{example}
 
-\todo{quotient manifold}
+If $M$ is a topological space and $\sim$ an equivalence relation we have seen that it is sometimes possible to define manifolds.
+Since in general the quotient does not behave nicely it is convenient to get a few tricks to check if the manifold structure can be preserved.
+
+Continuity of the projection implies that if $M/\sim$ is Hausdorff, then $\pi^{-1}(\pi(s)) = [s]$ is closed in $M$.
+If, additionally, $\pi$ is open\footnote{That is, it maps open sets to open sets} then there is a stronger statement:
+\begin{theorem}
+  If $M$ is a topological space and $\sim$ an equivalence relation such that $\pi:M \to M/\sim$ is open, then:
+  \begin{itemize}
+    \item $\pi$ maps a basis for the topology of $M$ into a basis for the topology $M/\sim$, thus if $M$ is second countable, then $M/\sim$ is second countable;
+    \item the quotient space $M/\sim$ is Hausdorff if and only if the graph $R$ of $\sim$, i.e., the set
+    \begin{equation}
+      R := \{(x,y)\in M\times M \mid x\sim y\},
+    \end{equation}
+    is closed in $M\times M$.
+  \end{itemize}
+\end{theorem}
+
+These statements are not hard to prove, but will be omitted here.
+You can refer to \cite[Chapters 7.1--7.5]{book:tu}.
+
+In general the class of quotient space is too large to admit a good general theory of smooth manifolds, but there is a class of manifolds that has undergone lots of research and on which a lot can be said: smooth manifolds with certain smooth Lie group actions.
+Treating this will be far too much for the course, but we will provide along the way most of the necessary ingredients for you to be able to explore the topic on your own.
+For further reference, you can look at \cite[Chapter 21]{book:lee}.
+
+Before moving on, below we are going to look at a couple of simpler, notable, examples of quotient manifolds.
 
 \begin{example}
   Let $\R P^n$ denote the $n$-dimensional real projective space, that is, the space of lines in $\R^{n+1}$ passing through the origin.
