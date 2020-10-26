@@ -396,16 +396,24 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
   Lemma~\ref{lem:manifold_chart} simplifies life a lot.
   Consider the product manifolds from Example~\ref{ex:pm}.
   Since both $M$ and $N$ are smooth manifolds, the product manifold is a $m+n$-dimensional smooth manifold with the atlas introduced in the example.
-
+  
   The proof of this fact is trivial in the sense that each of the maps in the atlas satisfies all the properties of the lemma by construction, after all they are already part of the differentiable structure of a smooth manifold.
 \end{example}
 
-If $M$ is a topological space and $\sim$ an equivalence relation we have seen that it is sometimes possible to define manifolds.
+\begin{exercise}
+  Prove that the $n$-dimensional torus
+  \begin{equation}
+    \bT^n := \LaTeXunderbrace{\bS^1\times\cdots\times\bS^1}_{n\mbox{ times}} \subset \R^{2n}
+  \end{equation}
+  is a smooth manifold of dimension $n$.
+\end{exercise}
+
+If $M$ is a topological space and $\sim$ an equivalence relation we have seen that it is sometimes possible to define smooth manifolds.
 Since in general the quotient does not behave nicely it is convenient to get a few tricks to check if the manifold structure can be preserved.
 
 Continuity of the projection implies that if $M/\sim$ is Hausdorff, then $\pi^{-1}(\pi(s)) = [s]$ is closed in $M$.
-If, additionally, $\pi$ is open\footnote{That is, it maps open sets to open sets} then there is a stronger statement:
-\begin{theorem}
+If, additionally, $\pi$ is open\footnote{That is, it maps open sets to open sets.} then there is a stronger statement:
+\begin{theorem}\label{thm:openproj}
   If $M$ is a topological space and $\sim$ an equivalence relation such that $\pi:M \to M/\sim$ is open, then:
   \begin{itemize}
     \item $\pi$ maps a basis for the topology of $M$ into a basis for the topology $M/\sim$, thus if $M$ is second countable, then $M/\sim$ is second countable;
@@ -420,15 +428,16 @@ If, additionally, $\pi$ is open\footnote{That is, it maps open sets to open sets
 These statements are not hard to prove, but will be omitted here.
 You can refer to \cite[Chapters 7.1--7.5]{book:tu}.
 
-In general the class of quotient space is too large to admit a good general theory of smooth manifolds, but there is a class of manifolds that has undergone lots of research and on which a lot can be said: smooth manifolds with certain smooth Lie group actions.
+In general, however, the class of quotient space is too large to admit a good general theory of smooth manifolds.
+Yet, there is a class of manifolds that has undergone lots of research and on which a lot can be said: smooth manifolds with certain smooth Lie group actions.
 Treating this will be far too much for the course, but we will provide along the way most of the necessary ingredients for you to be able to explore the topic on your own.
 For further reference, you can look at \cite[Chapter 21]{book:lee}.
 
 Before moving on, below we are going to look at a couple of simpler, notable, examples of quotient manifolds.
 
 \begin{example}
-  Let $\R P^n$ denote the $n$-dimensional real projective space, that is, the space of lines in $\R^{n+1}$ passing through the origin.
-  This is a notable example of quotient manifold: we are going to show that $\R P^n$ is a smooth manifold of dimension $n$. 
+  Let $\RP^n$ denote the $n$-dimensional real projective space, that is, the space of lines in $\R^{n+1}$ passing through the origin.
+  This is a notable example of quotient manifold: we are going to show that $\RP^n$ is a smooth manifold of dimension $n$. 
 
   We can define an equivalence relation on $\R^{n+1}_0:=\R^{n+1}\setminus\{0\}$ by declaring that for any $x,y\in \R^{n+1}_0$
   \begin{equation}
@@ -436,38 +445,58 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   \end{equation}
   that is, two points are equivalent if they lie on the same line passing through the origin.
   Then, the \emph{real projective space} is the quotient space $\R P^n := \R^{n+1}_0/\sim$.
-  For the sake of the example, let's denote the class of equivalence of a point $x=(x^0,\ldots,x^n)\in\R^{n+1}_0$ by $[x]=[x^0,\ldots,x^n]$ and the projection to the quotient by $\pi:\R^{n+1}_0\to\R P^n$.
+  For the sake of the example, let's denote the class of equivalence of a point $x=(x^0,\ldots,x^n)\in\R^{n+1}_0$ by $[x]=[x^0,\ldots,x^n]$ and the projection to the quotient by $\pi:\R^{n+1}_0\to\RP^n$.
+  The classes of equivalence $[x]$ are called \emph{homogeneous coordinates} on $\RP^n$.
   
   \todo{Margin figure for the spheres.}
   There is a nice interpretation of this construction in terms of flattening spheres.
   Observe that a line through the origin always intercepts a sphere $\bS^n$ at two antipodal points and, conversely, each pair of antipodal point determines a unique line through the center.
   So we can define an equivalence relation on the sphere by identifying the antipodal points: given $x,y\in\bS^n$, $x\sim' y$ if and only if $x = \pm y$.
-  This leads to the bijection $\R P^n \simeq \bS^n/\sim$.
+  This leads to the bijection $\RP^n \simeq \bS^n/\sim$.
   Note that by gluing antipodal points, we are identifying the north and south hemispheres, thus essentially flattening the sphere to a disk.
 
   \begin{exercise}
-    Show that the map $n(x): \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$ induces a homeomorphism $\hat n:\R P^n \to \bS^n/\sim$.
+    Show that the map $n(x): \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$ induces a homeomorphism $\hat n:\RP^n \to \bS^n/\sim$.
 
-    \textit{\small Hint: find an invers map and show that both $\hat n$ and its inverse are continuous.}
+    \textit{\small Hint: find an inverse map and show that both $\hat n$ and its inverse are continuous.}
   \end{exercise}
 
-  Let's show that $\R P^n$ is a smooth $n$-manifold.
+  \newthought{Step 1. Let's first show that $\R P^n$ is a topological $n$-manifold}.
+  The structure of topological manifold follows immediately from the Theorem~\ref{thm:openproj} and $\pi$ being open, so let's prove that.
 
-
-
-\end{example}
-
-\begin{exercise}[Grassmannian (Manifold)]
-  \todo{Lee, Example 1.36, Tu, Problem 7.8}
-\end{exercise}
-
-\begin{exercise}
-  Prove that the $n$-dimensional torus
+  Let $U\subset\R_0^{n+1}$, since $\pi$ is continuous by construction, $\pi(U)$ is open if $\pi^{-1}(\pi(U))$ is open in $\R^{n+1}_0$.
+  By definition
   \begin{equation}
-    \bT^n := \LaTeXunderbrace{\bS^1\times\cdots\times\bS^1}_{n\mbox{ times}} \subset \R^{2n}
+    \pi^{-1}(\pi(U)) = \bigcup_{t\neq 0} tU = \bigcup_{t\neq 0}\{tp \mid p\in U\}.
   \end{equation}
-  is a smooth manifold of dimension $n$.
-\end{exercise}
+  Since multiplication by $t\neq 0$ is a homeomorphism of $\R_0^{n+1}$, the set $t U$ is open for any $t$, as is their union, $\RP^n$ is both Hausdorff and second-countable.
+
+  For each $i=0,\ldots,n$, define $\widetilde U_i := \{x\in\R^{n+1}_0 \mid x^\neq0\}$, the set where the $i$-th coordinate is not $0$, and let $U_i = \pi(\widetilde U_i)\subset \RP^n$.
+  Since $\widetilde U_i$ is open, $U_i$ is open.
+  Define
+  \begin{align}
+    &\phi_i:U_i\to\R^n,\\
+    &\phi_i([x^0, \ldots, x^n]):= \left(\frac{x^0}{x^i},\ldots,\frac{x^{i-1}}{x^i},\frac{x^{i+1}}{x^i},\ldots,\frac{x^n}{x^i}\right),
+  \end{align}
+  e.g. $\phi_0([x^0, \ldots, x^n]) = (x^1/x_0, \ldots, x^n/x_0)$.
+  This map is well defined because its value is unchanged by multiplying $x$ by a non-zero constant.
+  Moreover, $\phi_i$ is continuous: the inverses can be computed explicitly as
+  \begin{equation}
+    \phi_i^{-1}(y^1,\ldots,y^n) = \left[y^1, \ldots, y^{i-1}, 1, y^{i+1}, \ldots, y^n\right].
+  \end{equation}
+  Since $\{U_0, \ldots, U_n\}$ is an open covering of $\RP^n$, this shows tht $\RP^n$ is locally euclidean of dimension $n$.
+
+  \newthought{Let's equip $\RP^n$ with a smooth structure}.
+  We are already half-way through: we are going to show that the coordinate charts $(U_i, \phi_i)$ defined above are, in fact all smoothly compatible.
+  Without loss of generality, let's assume $i>j$.
+  Then, a brief computation shows
+  \begin{align}
+    \phi_j\circ\phi_i^{-1}& (y^1, \ldots, y^n) \\
+    &= \left(\frac{y^1}{y^j},\ldots,\frac{y^{j-1}}{y^j},\frac{y^{j+1}}{y^j},\ldots,\frac{y^{i-1}}{y^j},\frac1{y^j},\frac{y^{i+1}}{y^j}, \ldots, \frac{y^n}{y^j}\right),
+  \end{align}
+  which is a diffeomorphism from $\phi_i(U_i\cap U_j)$ to $\phi_j(U_i\cap U_j)$ since $x^j\neq 0$ on $U_j$.
+  The atlas defined by the collection $\{(U_i, \phi_i)\}$ is called \emph{standard atlas} and makes $\RP^n$ a smooth manifold. 
+\end{example}
 
 \begin{tcolorbox}
   The general definition of $C^r$-manifolds is mostly a matter of replacing occurrences of ``smooth'' in the text with $C^r$.
