@@ -23,7 +23,7 @@ Just to give you an idea, all the following approaches lead to equivalent defini
 It is also possible to ``flip'' the whole construction around, constructing differentials and cotangent spaces and using them to introduce the tangent spaces.
 This is the approach taken by \cite{lectures:hitchin} and it is at least worth of a look if you want to see a different perspective.
 
-To avoid diverging from the book too much, we will stick to derivations on the space of germs, which emphasizes the locality of derivations to an extreme.
+To avoid diverging from \cite{book:tu} too much\footnote{Since it used to be the compulsory reading material in the previous years.}, we will stick to derivations on the space of germs, which emphasizes the locality of derivations to an extreme.
 The equivalence between our approach and the one based on speeds of curves and on derivations will be left as homeworks.
 
 \section{Directional derivatives in euclidean spaces}\label{sec:dd}
@@ -47,18 +47,19 @@ For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
 \begin{itemize}
   \item $Df(x)$, the Jacobian matrix, which is a $k\times n$ matrix;
   \item $D_j f(x)$, the $j$th column of the matrix $Df(x)$, which is an element of $\R^k$;
-  \item $D(r^i\circ f)(x)$, a linear function from $\R^n to \R$, which one can think as the $i$th row of the matrix $Df(x)$;
+  \item $D(r^i\circ f)(x)$, a linear function from $\R^n \to \R$, which one can think as the $i$th row of the matrix $Df(x)$;
   \item $D_j(r^i\circ f)(x) = \frac{\partial f^i}{\partial x^j}(x)$, a number in $\R$, which corresponds to the element $(i,j)$ of the matrix $Df(x)$.
 \end{itemize}
 
 This notation using $D$ instead of spelling out the partial derivatives, comes with an important advantage.
 Let's use it to rewrite the chain rule form Proposition~\ref{thm:chainrule}(\ref{thm:chainrule2}):
 \begin{equation}
-  D_j(u^i\circ g \circ f) (x) = \sum_{r=1}^k D_r(u^i\circ g)(f(x))\; D_j(u^r \circ f)(x),
+  D_j(r^i\circ g \circ f) (x) = \sum_{l=1}^k D_l(r^i\circ g)(f(x))\; D_j(r^l \circ f)(x),
 \end{equation}
-\marginnote[-4em]{Using Einstein notation, since $r$ is the only index that appears both in lower and upper position, $D_j(u^i\circ g \circ f) (x) = D_r(u^i\circ g)(f(x))\; D_j(u^r \circ f)(x)$.}
+\marginnote[-4em]{Using Einstein notation, since $l$ is the only index that appears both in lower and upper position, $D_j(r^i\circ g \circ f) (x) = D_l(r^i\circ g)(f(x))\; D_j(r^l \circ f)(x)$.}
 where $1\leq i\leq m, 1\leq j \leq n$.
-As you cen see, we did not need to spell out explicitly the coordinate systems on $\R^n$ or $\R^k$.
+As you can see, we do not need to explicitly spell out the derivatives in local coordinates on $\R^n$ or $\R^k$ in this new formula.
+This will prove extremely convenient for the development of the theory.
 
 \section{Germs and derivations}
 
@@ -87,6 +88,10 @@ For $c\in\R$ and $[f]_p, [g]_p$ germs with representatives $(U, f), (V, g)$, we 
 \end{itemize}
 Therefore, $C_p^\infty(M)$ is also an algebra over $\R$.
 
+\begin{exercise}
+  Check that the operations above are well defined.
+\end{exercise}
+
 Germs are the apotheosis of locality: a germ at $p$ has a well defined value at $p$ and nowhere else.
 This results in a map,
 \begin{equation}
@@ -94,6 +99,9 @@ This results in a map,
   \eval_p([f]_p) := f(p),
 \end{equation}
 where $(V,f)$ is any representative of $[f]_p$.
+\begin{exercise}
+  Check that the $\eval_p$ map is well defined.
+\end{exercise}
 
 We can now go back to our discussion of euclidean derivations to motivate our definition of tangent vectors.
 
@@ -114,21 +122,21 @@ We can now go back to our discussion of euclidean derivations to motivate our de
   By the definition \eqref{eq:diff} of the euclidean differential, we know that it is a local property: the value $Df(x)$ only depends on the germ of $f$ at $x$.
   Thus we can rephrase \eqref{eq:mapxvtoD} by saying that $v$ defines a \emph{linear} map
   \begin{equation}
-    v : C_p^\infty(U) \to \R, \quad
-    v([f]_p) := Df(x) v.
+    v : C_x^\infty(U) \to \R, \quad
+    v([f]_x) := Df(x) v.
   \end{equation}
   In fact, this is not just a linear map, it also satisfies a \emph{derivation} property, in the sense that
   \begin{equation}
-    v([f]_p [g]_p) =
-      \eval_p([f]_p)v([g]_p)
-      + \eval_p([g]_p)v([f]_p).
+    v([f]_x [g]_x) =
+      \eval_x([f]_x)v([g]_x)
+      + \eval_x([g]_x)v([f]_x).
   \end{equation}
   Which, rewritten in a more familiar form, is just a way to rewrite the \emph{Leibniz rule}:
   \begin{equation}
     D(fg)(x) v = f(x)Dg(x)v + g(x) Df(x)v.
   \end{equation}
 
-  Note that we have now two different interpretations for $v$: it is both a vector in $\R^n$ and a linear map $C_p^\infty(U) \to \R$ satisfying the derivation property.
+  Note that we have now two different interpretations for $v$: it is both a vector in $\R^n$ and a linear map $C_x^\infty(U) \to \R$ satisfying the derivation property.
 \end{example}
 
 Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a derivation on the space of germs.
@@ -136,6 +144,7 @@ Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a d
 \begin{definition}
   Let $M$ a smooth manifold of dimension $n$ and let $p\in M$.
   A \emph{tangent vector at $p$} is a linear map
+  \marginnote{Keep always in mind that the value $v([f]_p)$ only depends on the value of $f$ around the point $p$.}
   \begin{equation}\label{def:tangentvector}
     v: C_p^\infty(M)\to\R
   \end{equation}
@@ -167,12 +176,14 @@ Let's check that these vectors, at least satisfy the most elementary properties 
   Thus, $v([1]_p) = 0$, concluding the proof.
 \end{proof}
 
-As you can see, working with equivalent classes is doable but unnecessarily cumbersome. As we did with atlases, we would like to get it over with.
+As you can see, working with equivalence classes is doable but unnecessarily cumbersome.
+As we did with atlases, we would like to get it over with.
 
 \begin{definition}
   Let $M$ be a smooth manifold and $p\in M$.
   Let $W\subseteq M$ be any neighbourhoods of $p$.
-  A \emph{derivation of $C^\infty(W)$ at $x$} is a linear map $w:C^\infty(W)\to\R$ which satisfies Leibniz rule
+  \marginnote{We are still talking about derivations of functsion at specific points, not to be confused with the derivations of the algebra $C^\infty(W)$ which we will introdce later and will be maps of the kind $C^\infty(W)\to C^\infty(W)$.}
+  A map $w:C^\infty(W)\to\R$ is called a \emph{derivation of $C^\infty(W)$ at $p$} if it is linear over $\R$ and satisfies Leibniz rule
   \begin{equation}
     w(fg) = f(p)w(g) + g(p)w(f).
   \end{equation}
@@ -186,7 +197,7 @@ In this case
 Showing that the opposite is also true will require a bit of work.
 
 \begin{proposition}
-  Let $M$ be a smooth manifold, $p\in M$ and $W$ any neighbourhood of $x$.
+  Let $M$ be a smooth manifold, $p\in M$ and $W$ any neighbourhood of $p$.
   Then there is a linear isomorphism between $T_p M$ and the space of derivations of $C^\infty(W)$ at $p$.
 \end{proposition}
 \begin{proof}
@@ -206,7 +217,7 @@ Showing that the opposite is also true will require a bit of work.
   Let $(V, f)$ be any representative of $[f]_p$.
   Since germs are local, if necessary, we can shrink $V$ so that $V\subset W$.
   Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighbourhood of $p$!
-  To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighbourhood with compact closure.} a smaller neighbourhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
+  To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighbourhood with compact closure. You can take it for granted or have a look at e.g. \cite[Lemm 4.65]{book:lee:topology} or \cite{book:munkres:topology}.} a smaller neighbourhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
   Again, Proposition~\ref{prop:cutoff} comes to the rescue. Apply it with $K=\overline{U}$ and ``$U$'' equal to $V$, and consider
   \begin{equation}
     g:W\to\R, \quad
@@ -239,12 +250,19 @@ First of all, from now on we are free to interpret tangent vectors in $T_p M$ as
 This enables us to give our first example of tangent vector.
 
 \begin{example}\label{ex:partialderivative}
-  Let $M$ be a smooth manifold of dimension $n$ and $\phi: U \to V$ a chart on $M$.
+  Let $M$ be a smooth manifold of dimension $n$ and $\phi: U \to V\subset\R^n$ a chart on $U\subset M$.
   As already mentioned, we write $x^i = r^i \circ \phi$ for the local coordinates\footnote{See Notation~\ref{ntn:coords}.} of $\phi$.
   For any $p\in U$, we can define a derivation of $C^\infty(U)$ at $p$ as
   \begin{equation}
     \frac{\partial}{\partial x^i}\Big|_p : C^\infty(U) \to \R, \quad
     \frac{\partial}{\partial x^i}\Big|_p (f) := D_i(f\circ\phi^{-1})(\phi(p)).
+  \end{equation}
+  From now on, it will get more and more convenient to draw commutative diagrams to see ``how things are moving around'':
+  \begin{equation}
+    \begin{tikzcd}[column sep = huge, row sep = huge]
+      M\supset U \arrow[r, "\phi" description] \arrow[d, "f" description] & V \subset\R^n \arrow [dl, "f\circ\phi^{-1}" description]\\
+      \R &
+    \end{tikzcd}
   \end{equation}
   We will soon see that $\left\{\frac{\partial}{\partial x^i}\Big|_p \mid 1\leq i\leq n\right\}$ forms a basis for $T_p M$.
 \end{example}
@@ -258,7 +276,7 @@ Secondly, it provides us some very useful corollaries.
 
 \begin{corollary}\label{cor:derzero}
   Let $M$ be a smooth manifold and $p\in M$.
-  Let $W\subseteq M$ be an open neighbourhoods of $p$.
+  Let $W\subseteq M$ be an open neighbourhood of $p$.
   If $f\in C^\infty(W)$ is constant in a neighbourhood of $p$, then $v(f) = 0$ for all $v\in T_p M$.
 \end{corollary}
 
@@ -297,7 +315,7 @@ To that end, we need a preliminary result from multivariable analysis.
     h(x) - h(0) &= (h \circ \gamma_x)(1) - (h \circ \gamma_x)(0) \\
     &= \int_0^1 (h \circ \gamma_x)(t)\;dt = x^i \int_0^1 D_i h(tx)\; dt.
   \end{align}
-  \marginnote[-2.1em]{$\leftarrow$ For one last time, due to Einstein notation, the right hand side should be read as $\sum_{i=1}^n x^i \int_0^1 D_i h(t x)\; dt$.}
+  \marginnote[-2.3em]{$\leftarrow$ For one last time, due to Einstein notation, the right hand side should be read as $\sum_{i=1}^n x^i \int_0^1 D_i h(t x)\; dt$.}
 
   Since $x^i = r^i(x)$ by definition, the theorem follows by defining
   \begin{equation}
@@ -535,7 +553,7 @@ Fortunately for us, the following exercise shows that, at any given point, the t
 
 An important consequence of what we have seen so-far is that we can routinely \emph{identify} tangent vectors to a finite-dimensional vector space with elements of the space itself.
 More generally, if $M$ is an open submanifold of a vector space $V$, we can combine the identifications $T_p M \simeq T_p V \simeq V$ to obtain a canonical identification of each tangent space to $M$ with $V$.
-For example, since $GL_n(\R)$ is an open submanifolds of the vector space $M_n(R)$, we can identify its tangent space at each point $X\in GL_n(\R)$ with the full space of matrices $M_n(\R)$.
+For example, since $GL_n(\R)$ is an open submanifolds of the vector space $M_n(\R)$, we can identify its tangent space at each point $X\in GL_n(\R)$ with the full space of matrices $M_n(\R)$.
 
 \begin{exercise}[Tangent space of a product manifold]
   Let $M_1, \ldots, M_k$ be smooth manifolds, and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
@@ -550,7 +568,7 @@ For example, since $GL_n(\R)$ is an open submanifolds of the vector space $M_n(R
 \end{exercise}
 
 \begin{remark}
-  When $M$ is a smooth manifold with boundary and $p$ is an interior point, all the discussions above apply verbatim. In particular, the tangent space at a boundary point of an $n$-dimensional manifold with boundary is also an $n$-dimensional real vector space that can be identified (non-uniquely) with $R^n$ using a chart containing that point.
+  When $M$ is a smooth manifold with boundary and $p$ is an interior point, all the discussions above apply verbatim. In particular, the tangent space at a boundary point of an $n$-dimensional manifold with boundary is also an $n$-dimensional real vector space that can be identified (non-uniquely) with $\R^n$ using a chart containing that point.
 
   For $p\in\partial M$ the only change that needs to be made is to substitute $\cH^n$ for $\R^n$, with the understanding that the notation $\frac{\partial}{\partial x^i}\big|_{\phi(p)}$ can be used interchangeably to denote either an element of $T_{\phi(p)}\R^n$ or of $T_{\phi(p)}\cH^n$. In the latter case, the $n$th coordinate vector $\frac{\partial}{\partial x^n}\big|_{p}$ should be interpreted as a one-sided derivative.
 \end{remark}
@@ -589,7 +607,7 @@ A priori we have two different ways to define the \emph{velocity vector of $\gam
 \end{enumerate}
 
 Do these definition agree?
-One way to check is to pick a chart $\phi: U \to \phi(U)$ in a neighbourhood of $gamma(t)$, and compare the expressions in local coordinates. Let $(x^i)$ denote the coordinates of $\phi$ and define the curves $\gamma^i := x^i \circ \gamma : I\to\R$.
+One way to check is to pick a chart $\phi: U \to \phi(U)$ in a neighbourhood of $\gamma(t)$, and compare the expressions in local coordinates. Let $(x^i)$ denote the coordinates of $\phi$ and define the curves $\gamma^i := x^i \circ \gamma : I\to\R$.
 Let's focus on \eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\circ\gamma)'(t) = (\gamma^i)'(t)$, therefore by Proposition~\ref{prop:basis_TpM} we get
 \begin{equation}\label{eq:tg_curve_vec}
   \gamma'(t) = %\sum_{i=1}^m
@@ -606,7 +624,8 @@ Let's focus on \eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\c
   \label{fig:2_5-v_cur_full}
 \end{figure*}
 
-But how can this be well defined? Surely, there must be multiple curves with the same speed at a point which differ outside a neighbourhood of the point.
+But how can this mapping between curves and tangent vector be well defined?
+Surely, there must be multiple curves with the same speed at a point which differ outside a neighbourhood of the point.
 
 \begin{lemma}\label{lem:equiv_tg_curves}
   Let $M$ be a smooth manifolds and $\gamma, \delta : (-\epsilon, \epsilon) \to M$ two smooth curves with $\gamma(0) = \delta(0)$. Then, $\gamma'(0) = \delta'(0)$ as elements of $T_{\gamma(0)}M$ if and only if for some (and thus any) chart $\phi:U\to\phi(U)$, $\gamma(0)\in U$, we have $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$.
@@ -616,7 +635,8 @@ But how can this be well defined? Surely, there must be multiple curves with the
 \end{proof}
 
 This seems to follow a pattern: until now, all the definitions of tangent vectors where in terms of classes of equivalence.
-There is still a potential problem, though. We don't yet know if \emph{every} tangent vector can be written as the velocity vector of a curve.
+And it would seem reasonable to identify curves that that have the same tangent vector at $0$.
+There is still a potential problem, though: we don't yet know if \emph{every} tangent vector can be written as the velocity vector of a curve.
 
 \begin{theorem}
   Let $M$ be a smooth $n$-manifold, let $p\in M$ and let $v\in T_pM$.
@@ -642,7 +662,7 @@ There is still a potential problem, though. We don't yet know if \emph{every} ta
 \end{marginfigure}
 This means that we can actually make an alternative definition of $T_xM$ in terms of tangent to curves:
 \begin{definition}\label{def:tg:ascurvespeed}
-  a tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ for some chart $\phi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
+  A tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ for some chart $\phi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
 \end{definition}
 
 In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and to endow $T_xM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
@@ -690,7 +710,7 @@ Instead of working separately with the various tangent spaces, we can ``glue'' t
 Elements in $TM$ are pairs\sidenote[][1.5em]{We will often abuse notation and identify $T_pM$ with with its image under the canonical injection $v\mapsto(p,v)$ and use interchangeably any of the notations $v$, $v_p$ or $(p,v)$ for a vector in $T_pM$ (depending on how much emphasis we need to put on the base point).} $(p,v)$ of a \emph{base point} $p\in M$ and a \emph{tangent vector} $v\in T_pM$.
 
 To the tangent bundle we associate a surjective map $\pi:TM \to M$, the \emph{projection (onto the base)}, which sends each vector in a tangent space to the point at which it is tangent, that is, $\pi(p,v) = p$.
-The second component of the pre-image $\pi^{-1}(\{p\}) = \{p\}\times T_pM$ is called the \emph{fibre} over $p\in M$.
+The second component of the pre-image $\pi^{-1}(\{p\}) = \{p\}\times T_pM$, that is $T_pM$ itself, is called the \emph{fibre} over $p\in M$.
 We will come back to this later on once we talk about vector bundles.
 
 \begin{example}
@@ -703,7 +723,7 @@ As it turns out, this is a particular instance of a more general fact.
 
 \begin{theorem}\label{thm:tgbdlsmoothmfld}
   Let $M$ be a smooth $n$-manifold.
-  The smooth structure on $M$ naturally induces a smooth structure on $TM$, making $TM$ into a smooth manifold of dimension $2n$.
+  The smooth structure on $M$ naturally\footnote{In the sense that its definition does not require to make any arbitrary choices.} induces a smooth structure on $TM$, making $TM$ into a smooth manifold of dimension $2n$.
   Moreover, the map $\pi: TM \to M$ is smooth.
 \end{theorem}
 \begin{proof}
@@ -711,6 +731,9 @@ As it turns out, this is a particular instance of a more general fact.
   \newthought{Step 1: extending charts from $M$ to $TM$.}
   Given a chart $(U,\phi)$ about $p\in M$, the preimage $\pi^{-1}(U) \subset TM$ is the set of all tangent vectors to $M$ at points of $U$.
   If $(x^i)$ denotes the coordinate functions of $\phi$, we can define a map $\widetilde\phi : \pi^{-1}(U) \to \phi(U)\times\R^n \subset \R^{2n}$ by
+  \marginnote{Keep in mind that \begin{equation}\nonumber
+    \pi^{-1}(U)= TU = \bigsqcup T_p U \subset \bigsqcup T_p M=TM.
+  \end{equation}}
   \begin{align}\label{eq:nat_coords}
     \widetilde\phi\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) := \left(x^1(p), \ldots, x^n(p), v^1, \ldots, v^n\right).
   \end{align}
@@ -719,13 +742,13 @@ As it turns out, this is a particular instance of a more general fact.
   \newthought{Step2: compatibility of the extended charts.}
   Suppose we have two smooth charts $(U,\phi)$, $(V,\psi)$ for $M$.
   Let $(\pi^{-1}(U),\widetilde\phi)$, $(\pi^{-1}(V),\widetilde\psi)$ be their extension\footnote{These are called \emph{bundle charts}.} to $TM$ as in the previous step.
-  By construction, both $\widetilde\phi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \phi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
+  By construction\footnote{They are both homeomorphisms.}, both $\widetilde\phi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \phi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
   Moreover, we can take advantage of Remark~\ref{rmk:chg_coords} to write explicitly the transition map  $\widetilde\psi\circ\widetilde\phi^{-1}: \phi(U\cap V)\times\R^n \to \psi(U\cap V)\times\R^n$ as
   \begin{align}
     \widetilde\psi\circ&\widetilde\phi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) \\
-    &=\left(\widetilde x^1(x),\ldots, \widetilde x^n(x), \frac{\partial \widetilde x^1}{\partial x^j}(x) v^j, \ldots, \frac{\partial \widetilde x^n}{\partial x^j}(x) v^j\right)
+    &=\left(\widetilde x^1(x),\ldots, \widetilde x^n(x), \frac{\partial \widetilde x^1}{\partial x^j}(x) v^j, \ldots, \frac{\partial \widetilde x^n}{\partial x^j}(x) v^j\right),
   \end{align}
-  Which is clearly smooth.
+  which is clearly smooth.
 
   \begin{figure*}[htp]
     \includegraphics{2_7-tg_bdl_coord.pdf}
@@ -735,8 +758,7 @@ As it turns out, this is a particular instance of a more general fact.
   \newthought{Step3: $TM$ is a manifold.}
   With the procedure delineated above, a countable smooth atlas $\{(U_i, \phi_i)\}$ of $M$ induces a countable atlas $\{(\pi^{-1}(U_i), \widetilde\phi_i)\}$ of $TM$.
   First of all, $\{(\pi^{-1}(U_i)\}$ provides a countable covering of $TM$.
-  
-  We only need to show that the topology induced by the charts is Hausdorff and second countable.
+  We need to show that the topology induced by those charts is Hausdorff and second countable.
   
   Let $(p^1, v^1), (p^2, v^2) \in TM$ be different points: either $p^1\neq p^2$, or $p^1 = p^2$ and $v^1 \neq v^2$.
   In the first case, there are disjoint open sets $V_1, V_2 \subset U_i$ (for some $i$) containing respectively $p^1$ and $p^2$.
@@ -758,13 +780,15 @@ As it turns out, this is a particular instance of a more general fact.
 The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{natural (or canonical) coordinates}.
 
 \begin{exercise}
-  Show that the differential of a smooth map is a smooth map between manifolds.\textit{\small Hint: use the natural differentiable structure on the tangent bundle described above and the definition of smooth map.}
+  Let $f:M\to N$ be a smooth map between smooth manifolds.
+  Show that its differential $df: TM \to TN$ is a smooth map between smooth manifolds (the respective tangent bundles).
+  \textit{\small Hint: use the natural differentiable structure on the tangent bundle described above and the definition of smooth map.}
 \end{exercise}
 
 \begin{remark}
   In classical mechanics, the configuration space is usually a manifold $M$.
   The tangent bundle $TM$ corresponds to the state space, that is, the space of configurations and velocities. In symbols $x=(q,v)$ is a pair of a configuration $q = \pi(x)$ and a velocity $v\in T_q M$.
-  It turns out that the Lagrangian is a function on $TM$.
+  It turns out that the Lagrangian is a smooth function on $TM$.
 \end{remark}
 
 \section{Vector bundles}\label{sec:vectorbundle}
@@ -778,13 +802,13 @@ What we have seen here is our first example of vector bundle, which is just a wa
     \item there is a neighbourhood $U\subset M$ of $p$ and a diffeomorphism $\Phi: \pi^{-1}(U) \to U \times \R^r$ such that
     \begin{enumerate}
       \item $\pi_1 \circ \Phi = \pi$ where $\pi_1: U\times\R^r\to U$ is the projection on the first factor,
-      \item for all $q\in U$, $\Phi\big|_{E_q} : E_q \to Q\times \R^r$ is an isomorphism of vector spaces.
+      \item for all $q\in U$, $\Phi\big|_{E_q} : E_q \to \{q\}\times \R^r$ is an isomorphism of vector spaces.
     \end{enumerate}
   \end{enumerate}
 
   The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\Phi$ is called \emph{local trivialisation}.
 
-  If there exists a trivialisation defined on the whole manifold, that is a map $\Phi: M \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}. In that case the base is said to be \emph{parallelisable}.
+  If there exists a trivialisation defined on the whole manifold, that is a map $\Phi: M \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}.
 \end{definition}
 
 \begin{example}
@@ -793,6 +817,7 @@ What we have seen here is our first example of vector bundle, which is just a wa
     In this case the bundle is clearly trivialisable.
     \item The tangent bundle $TM$ with its projection to the base $\pi:TM\to M$ is a vector bundle.
     In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$. 
+    If the tangent bundle of a manifold is trivalisable, then its base manifold is said to be \emph{parallelisable}.
     \item If $\pi_i: E_i\to M_i$, $i=1,2$, are vector bundles, then $\pi = (\pi_1, \pi_2): E_1\times E_2 \to M_1\times M_2$ is another vector bundle whose fibres are the product of the fibres of the two original bundles.
     A particular example of this is the tangent bundle $T(M_1\times M_2)$, which is diffeomorphic to $TM_1 \times TM_2$.
     \item Other examples will appear throughout the course.
@@ -804,7 +829,7 @@ What we have seen here is our first example of vector bundle, which is just a wa
 \end{exercise}
 
 \begin{exercise}
-  Show that if $\pi:E\to M$ is a vector bundle and $U\subset M$ is an open set, then $\pi\big|_{\pi^{-1}(U)}: \pi^{-1}(U) \to U$ is a vector bundle.
+  Show that if $\pi:E\to M$ is a vector bundle and $U\subset M$ is an open set, then $\pi\big|_{\pi^{-1}(U)}: \pi^{-1}(U) \to U$ is a vector bundle of the same rank.
 \end{exercise}
 
 \begin{example}
@@ -1004,6 +1029,8 @@ compare the following statements.
 In fact, also analogues of the implicit functions theorem carry over.
 We will state them without going into the details of the proofs.
 
+\todo{Add pictures}
+
 \begin{proposition}\label{prop:slice_chart}
   Let $F:M^m\to N^n$ be an immersion.
   Then for any $p\in M$, there exists a neighbourhood $U$ of $p$ and a chart $(V,\psi)$ about $F(p)\in N$ such that
@@ -1141,9 +1168,9 @@ To finally answer the question, we will prove one last proposition.
   \end{equation}
   where $\cT_p:\R^3\to T_p\R^3$ is the map defined in Exercise~\ref{ex:tg_curve_iso} and
   \begin{equation}
-    p^\perp := \big\{q\in\R^3 \;\mid\; \left\lbrace p, q\right\rbrace = 0\big\},
+    p^\perp := \big\{q\in\R^3 \;\mid\; \left\langle p, q\right\rangle = 0\big\},
   \end{equation}
-  where $\left\lbrace\cdot,\cdot\right\rbrace$ is the usual Euclidean dot product.
+  where $\left\langle\cdot,\cdot\right\rangle$ is the usual Euclidean dot product.
   Take a long deep breath and unfold the definitions in \eqref{ex:tan_sph}, here it may be useful to draw a picture\footnote{Which is generally always the case in geometry and topology, and most other mathematical fields.}. 
   Equation \eqref{ex:tan_sph} implies that the tangent space to $\bS^2$ at a point $x$  is the plane tangent to $\bS^2$ at $p$, as claimed in Figure~\ref{fig:tan-embedded-sphere}.
 \end{example}

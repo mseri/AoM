@@ -110,10 +110,12 @@
 
 \usepackage{tcolorbox}
 
-\usepackage[numbers, sort]{natbib}
-\setlength{\bibsep}{3pt}
-\renewcommand{\bibfont}{\small}
+%\usepackage[numbers, sort]{natbib}
+\usepackage[style=alphabetic,natbib=true,sorting=anyt]{biblatex}
+%\setlength{\bibsep}{3pt}
+%\renewcommand{\bibfont}{\small}
 \usepackage{doi}
+\addbibresource{aom.bib}
 
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cC}{\mathcal{C}}
@@ -244,6 +246,7 @@ However, you can already freely access Lee's book via the University proxy on \h
 The idea for the cut that I want to give to this course, came from the online \href{https://www.video.uni-erlangen.de/course/id/242}{Lectures on the Geometric Anatomy of Theoretical Physics} by Frederic Schuller, by the lecture notes of Stefan Teufel's Classical Mechanics course \cite{lectures:teufel} (in German) and by the Analysis of Manifold chapter in \cite{book:thirring}.
 In some sense I would like this course to provide the introduction to analysis and geometry that I wish was there when I prepared my \href{https://www.mseri.me/lecture-notes-hamiltonian-mechanics/}{first edition} of the Hamiltonian mechanics course.
 
+I am extremely grateful to Martijn Kluitenberg for his careful reading of the notes and his useful comments and corrections.
 % In the text, there will be some sections and remarks that are marked with a $\star$.
 % These are for your interest only and are not part of the evaluated material.
 
@@ -269,7 +272,11 @@ In general, we will use lower indices for basis of vector spaces\footnote{E.g., 
 
 Note that an upper index ``in the denominator'' is regarded as a lower index, so the following are to be considered equivalent:
 \begin{equation}
-  \sum_{i} a_i \frac{\partial}{\partial x^i} = a_i \frac{\partial}{\partial x^i}.
+  \sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i}.
+\end{equation}
+In fact, the expressions below are all equivalent and commonly used in the differential geometry literature:
+\begin{equation}
+  \sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i} = a^i \partial_{x^i} = a^i \partial_i.
 \end{equation}
 
 \chapter{Manifolds}\label{ch:manifolds}
@@ -317,7 +324,6 @@ Note that an upper index ``in the denominator'' is regarded as a lower index, so
   
 % \end{appendices}
 
-\bibliographystyle{plainnat}
-\bibliography{aom}
+\printbibliography
 \addcontentsline{toc}{chapter}{Bibliography}
 \end{document}

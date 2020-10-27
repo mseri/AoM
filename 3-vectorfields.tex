@@ -210,7 +210,7 @@ Indeed, $[X,Y]$ is a derivation.
 \begin{proposition}
   For all $X, Y \in \fX(M)$ and for all $f,g\in C^\infty(M)$,
   \begin{equation}
-    [fX, gY] = fg[x,y] + f(Xg)Y - g(Yf)X.
+    [fX, gY] = fg[X,Y] + f(Xg)Y - g(Yf)X.
   \end{equation}
 \end{proposition}
 \begin{exercise}
@@ -338,6 +338,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
   \begin{equation}
     \frac{\partial}{\partial t}\Big|_{(t,p)} := d (i_p)_t\left(\frac{\partial}{\partial t}\Big|_t\right) = \frac{d}{d t}  i_p(t) = i_p'(t).
   \end{equation}
+  In what follows we may chose any of the above notations depending of what we will find more convenient depending on the task at hand.
 \end{notation}
 
 Exercise~\ref{ex:tg_curve_iso} implies that in the euclidean case our definition (in terms of equality of tangent vectors on $T_{\gamma(t)}(M)$) coincides with the euclidean flow (defined in terms of equality of real numbers).
@@ -440,7 +441,7 @@ We call $\Phi$ the \emph{flow} of $X$.
 When we want to emphasize the vector field $X$, we will write $\Phi^X$.
 
 \begin{proof}
-  Both $\cD$ and $\Phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so to prove the thoerem one only needs to show that $\cD$ is open and that $\Phi$ is smooth.
+  Both $\cD$ and $\Phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so to prove the theorem one only needs to show that $\cD$ is open and that $\Phi$ is smooth.
   This is done by applying the euclidean theorems to extend the local flow, finally showing that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\Phi$ is smooth.
 
   We are going to omit the details of the proof, the interested reader can refer to \cite[Proposition 9.12]{book:lee}.
@@ -577,6 +578,7 @@ There are a few cases in which we can guarantee completeness, let's have a brief
 
 \begin{corollary}
   If $M$ is compact\footnote{A compact manifold without boundary is called \emph{closed manifold}.}, then every vector field has compact support.
+  So, every vector field on $M$ is complete.
 \end{corollary}
 
 In the same fashion as Lemma~\ref{lemma:charactCompleteVF}, one can characterize non-complete vector fields.

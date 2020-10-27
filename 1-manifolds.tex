@@ -17,11 +17,11 @@ If you think carefully, this abstraction step was already in the air. Think abou
   exists, and is \emph{continuously differentiable} if $x\mapsto f'(x)$ is itself a continuous function.
   
   \item (Multivariable analysis) You generalized the concepts to functions with more than one variable.
-  Continuity is practically unchanged but, now, a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is differentiable at $x=(x^1,\ldots,x^m)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix.} $T: \R^n\to\R^m$ such that
+  Continuity is practically unchanged but, now, a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is differentiable at $x=(x^1,\ldots,x^m)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix with respect to some chosen a basis.} $T: \R^n\to\R^m$ such that
   \begin{equation}\label{eq:diff}
     \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
   \end{equation}
-  The map $Df(x) := T$ is the \emph{differential} (or total derivative) of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
+  The map $Df(x) := T$ is the \emph{total derivative}\footnote{This is sometimes called (total) differential in multivariable analysis, but this terminology may become a source of confusion for us.} of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
   \begin{equation}\label{eq:jacobian}
     Df(x) = \begin{pmatrix}
       \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
@@ -37,7 +37,7 @@ If you think carefully, this abstraction step was already in the air. Think abou
   But how can we make sense of differentiability in this case? 
   
   If you have taken a course on calculus of variations, you know that you can make sense of \eqref{eq:diff} and give a notion of differentiability in the case $X$ and $Y$ are Banach spaces\footnote{Complete normed vector spaces.}.
-  In general, a topological space is \emph{not} a vector space: there is no notion of adding points, least of all one of linearity.
+  In general, a topological space is \emph{not} a vector space: there is no notion of adding points and, least of all, one of linearity.
 \end{enumerate}
 
 This is where differential geometry comes into play.
@@ -70,7 +70,7 @@ With topological spaces at hand, we can give a definition of continuity and intr
   A map $f: X \to Y$ between two topological spaces $(X,\cT)$ and $(Y, \cU)$ is called:
   \begin{itemize}
     \item \emph{continuous} if $U\in\cU$ implies that $f^{-1}(U)\in\cT$, that is, preimages of open sets under $f$ are open;
-    \item \emph{homeomorphism} if it is bijective\footnote{I.e., one-to-one.} and continuous with continuous inverse.\marginnote{The existence of an homeomorphism between two spaces can be thought as those spaces being equivalent in a loose sense: they can be deformed continuously into each other.}
+    \item \emph{homeomorphism} if it is bijective\footnote{I.e., a one to one correspondence. Formally it means that it is both injective and surjective.} and continuous with continuous inverse.\marginnote{The existence of an homeomorphism between two spaces can be thought as those spaces being equivalent in a loose sense: they can be deformed continuously into each other.}
   \end{itemize}
 \end{definition}
 
@@ -126,7 +126,7 @@ Don't get scared by the first two conditions: they are only needed to make sure 
 
 \begin{example}
   $\R^n$ is trivially\footnote{Use Exercise \ref{exe:rntopsp} and the \emph{global} chart $(\R^n, \id_{\R^n})$, where $\id_{\R^n}(x) := x$ is the identity on $\R^n$.} a topological manifold of dimension $n$.
-  More generally, any $n$-dimensional vector space\footnote{In fact, any subset of a $n$-dimensional vector space.} is a topological $n$-manifold.
+  More generally, any $n$-dimensional vector space\footnote{In fact, any open subset of a $n$-dimensional vector space.} is a topological $n$-manifold.
 \end{example}
 
 \begin{exercise}
@@ -144,7 +144,7 @@ Don't get scared by the first two conditions: they are only needed to make sure 
   j = 1,2.
   \end{equation}
   \begin{enumerate}[(a)]
-    \item Show that $\phi_1$ and $\phi_2$ are homeomorphisms with respect to the induced topology\footnote{Let $(X, \cT)$ be a topological space and $f: X\to Y$ some map. The induced topology on $Y$ is \begin{equation}\cU_f := \{f^{-1}(U) \;\mid\; U\in\cT\}.\end{equation}}.
+    \item Show that $\phi_1$ and $\phi_2$ are homeomorphisms with respect to the topology induced by the two charts\footnote{Let $(X, \cT)$ be a topological space and $f: X\to Y$ some map. The induced topology on $Y$ is \begin{equation}\cU_f := \{f^{-1}(U) \;\mid\; U\in\cT\}.\end{equation}}.
     \item Show that $M$ is locally euclidean and second countable but not Hausdorff.
   \end{enumerate}
 \end{exercise}
@@ -160,7 +160,7 @@ Don't get scared by the first two conditions: they are only needed to make sure 
 \begin{example}
 	Consider the set $M := \{ x\in\R^2 \;\mid\; |x^1| = |x^2| \}$ with the topology induced by $\R^2$:
    this is \emph{not} a topological manifold.
-	Since the number of connected component is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} holomorphically mapped to open connected sets in $\R$.
+	Since the number of connected component is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} homeomorphically mapped to open connected sets in $\R$.
 \end{example}
 
 \marginnote{There is a caveat, the theorem holds for \emph{connected} components of a Manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}
@@ -172,8 +172,8 @@ In our definition of topological manifolds, we are giving for granted that the d
 Before entering into the details of new definitions, let's recall what will be the most important tools throughout the rest of the course.
 
 \begin{definition}
-  A map $f: U \to V$ between open sets $U\subset\R^n$ and $V\subset\R^m$ is in $C^r(U,V)$ or \emph{of class $C^r$}, if it is differentiable $r$-times.
-  It is called a $C^r$-diffeomorphism\footnote{With this definition a homeomorphism is a $C^1$-diffeomorphism} if it is bijective and of class $C^r$ with inverse of class $C^r$.
+  A map $f: U \to V$ between open sets $U\subset\R^n$ and $V\subset\R^m$ is in $C^r(U,V)$ or \emph{of class $C^r$}, if it is continuously differentiable $r$-times.
+  It is called a $C^r$-diffeomorphism\footnote{With this definition a homeomorphism is a $C^0$-diffeomorphism} if it is bijective and of class $C^r$ with inverse of class $C^r$.
   We say that $f$ is \emph{smooth}, or of class $C^\infty$, if it is of class $C^r$ for every $r \geq 1$.
 \end{definition}
 
@@ -185,7 +185,7 @@ Then, the following holds.
 \begin{equation}
   D(g\circ f)(x) = D(g(f(x)) \circ Df(x).
 \end{equation}
-\item\label{thm:chainrule2} Denote $x=(x^1, \ldots, x^n)\in\R^n$ and $y=(y^2,\ldots,y^k)\in\R^k$ the coordinates on the respective euclidean spaces and $f=(f^1,\ldots,f^k)$ and $g=(g^1,\ldots,g^m)$ the components of the functions. Then the partial derivatives of $g\circ f$ are given by
+\item\label{thm:chainrule2} Denote $x=(x^1, \ldots, x^n)\in\R^n$ and $y=(y^1,\ldots,y^k)\in\R^k$ the coordinates on the respective euclidean spaces and $f=(f^1,\ldots,f^k)$ and $g=(g^1,\ldots,g^m)$ the components of the functions. Then the partial derivatives of $g\circ f$ are given by
 \begin{equation}
   \frac{\partial g^i\circ f}{\partial x^j}(x)
   = \sum_{r=1}^k \frac{\partial g^i}{\partial y^r}(f(x)) \frac{\partial f^r}{\partial x^j}(x),
@@ -196,9 +196,14 @@ Then, the following holds.
 
 \begin{remark}
 Theorem~\ref{thm:chainrule} has some very deep consequences.
-First of all \ref{thm:chainrule} \ref{thm:chainrule2} tells us that that composition preserves the regularity, that is the composition of functions  of class $C^r$ is itself a function of class $C^r$.
-Second, if $f:U\subset\R^n\to V\subset\R^m$ is a diffeomorphism, then \ref{thm:chainrule} (\ref{thm:chainrule1}) implies that $n=m$.
-\marginnote[-1.5em]{It follows from the fact that $Df(x)$ is an invertibe matrix and with inverse is $D(f^{-1})(f(x))$.}
+\begin{exercise}
+  Under the hypotheses of the previous theorem, prove the following statements.
+  \begin{enumerate}
+    \item composition preserves the regularity: that is, the composition of functions of class $C^r$ is itself a function of class $C^r$;
+    \item if $f:U\subset\R^n\to V\subset\R^m$ is a diffeomorphism, then $n=m$.
+  \end{enumerate}
+  \textit{\small Hint: is $Df(x)$ an invertible matrix? If so, what is its inverse?} %$D(f^{-1})(f(x))$.
+\end{exercise}
 \end{remark}
 
 Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, it seems reasonable to expect that we can lift the definitions directly from $\R^n$.
@@ -279,18 +284,23 @@ We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
   The space $\mathrm{Mat}(n)$ of $n\times n$-matrices can be identified with $\R^{n^2}$ by writing the elements of the matrix as a $n^2$-vector.
   This gives to $\mathrm{Mat}(n)$ a structure of differentiable manifold.
   The subset of invertible matrices $GL(n) = \{ A \in \mathrm{Mat}(n) \;\mid\; \det A \neq 0\}$, widely known as the \emph{general linear group}, being an open subset of $\mathrm{Mat}(n)$ (why?) is itself a differentiable manifold.
-Can you guess if such manifold is connected or not?
+  Can you guess if such manifold is connected or not?
 \end{exercise}
 
+\vspace{1em}
 \begin{notation}\label{ntn:coords}
   We will stick to the notation of \cite{book:tu}.
-  In the context of manifolds, denote $r^i: \R^n\to\R$, $1\leq i\leq n$, the standard coordinates on $\R^n$. With this notation, if $e_i$ denotes the $i$th standard basis vector in $\R^n$, then $r^i(e_j) = \delta^i_j$.
-  \marginnote[-1em]{The Kronecker delta $\delta_j^i$ is defined by $\delta_j^i = 1$ if $i=j$ and $\delta_j^i = 0$ otherwise.}
+  In the context of manifolds, denote $r^i: \R^n\to\R$, $1\leq i\leq n$, the standard coordinates on $\R^n$.
+  With this notation, if $e_i$ denotes the $i$th standard basis vector\footnote{Identified with the \emph{point} $(0,\ldots,0,\LaTeXunderbrace{1}_{i\mbox{th component}},0,\ldots,0) \in\R^n$.} in $\R^n$, then $r^i(e_j) = \delta^i_j$.
+  \marginnote{The Kronecker delta $\delta_j^i$ is defined by $\delta_j^i = 1$ if $i=j$ and $\delta_j^i = 0$ otherwise.}
 
   If $(U, \phi:U\to\R^n)$ is a chart of a manifolds, then $x^i = r^i\circ\phi$ will denote the $i$-th component of $\phi$ and denote $\phi = (x^1, \ldots, x^n)$ and, when convenient, $(U,\phi) = (U, x^1, \ldots, x^n)$.
 
-  Thus, for $p\in U$, $(x^1(p), \ldots, x^n(p))$ is a point\footnote{By abuse of notation we sometimes omit the $p$! Thus $(x^1, \ldots, x^n)$ can stand either for local coordinates or a point in $\R^n$: which one it is should be clear from the context.} in $\R^n$. The functions $x^1, \ldots, x^n$  are called \emph{(local) coordinates} on $U$.
+  Thus, for $p\in U$, $(x^1(p), \ldots, x^n(p))$ is a point\footnote{By abuse of notation we sometimes omit the $p$. 
+  Thus $(x^1, \ldots, x^n)$ can stand either for local coordinates or a point in $\R^n$: which one it is should be clear from the context.} in $\R^n$.
+  The functions $x^1, \ldots, x^n$  are called \emph{(local) coordinates} on $U$.
 \end{notation}
+\vspace{1em}
 
 An advantage of this new notation is that we can talk about coordinates without the need to explicitly reference charts. In other words, we can say
 \begin{quote}
@@ -312,7 +322,7 @@ dropping the distinction between $p$ and $x$, both in place of
     \bS^1 := \{x\in\R^2 \;\mid\; \|x\|=1\}\subset\R^2
   \end{equation}
   with the relative topology\footnote{Let $(X,\cT)$ be a topological space and $Y\subset X$. The relative topology on $Y$ is \begin{equation}\mathcal{V}:=\{V\subset Y\;\mid\;\exists U\in\cT \mbox{ s.t. } V = U \cap Y\}.\end{equation}} is a $1$-dimensional topological manifold.
-  To provide the local homeomorphisms to $\R^n$ and define a smooth structure four $\bS^1$ it is enough to define the following four charts:
+  To provide the local homeomorphisms to $\R$ and define a smooth structure for $\bS^1$ it is enough to define the following four charts:
   \begin{equation}
     \begin{aligned}
       &V_1 := \{ x^1 > 0 \},\quad \phi_1: V_1 \to (-1, 1), \quad \phi_1(x) := x^2,\\
@@ -322,6 +332,9 @@ dropping the distinction between $p$ and $x$, both in place of
     \end{aligned}
   \end{equation}
   What do these charts look like?
+  \begin{exercise}
+    Show that the corresponding transition functions are smooth.
+  \end{exercise}
 \end{example}
 
 \begin{exercise}
@@ -357,7 +370,7 @@ Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{p
 \end{example}
 
 Note that smooth manifolds do not yet have a metric structure: distances between the points are not defined.
-However, they are \emph{metrizable}\footnote{This property is far more general: all the topological manifolds are metrizable.}: there exists some metric on the manifold that induces the given topology on it.
+However, they are \emph{metrizable}\footnote{This property is far more general and harder to prove: all the topological manifolds are metrizable \cite{book:munkres:topology}.}: there exists some metric on the manifold that induces the given topology on it.
 This allows to always view manifolds as metric spaces.
 
 \begin{example}[A different smooth structure on $\R$]
@@ -370,7 +383,7 @@ This allows to always view manifolds as metric spaces.
 
 \begin{remark}
 	There exist examples of topological manifolds without smooth structures.
-	It is also known that smooth manifolds of dimension $n < 4$ have exactly one smooth structure while ones of dimension $n > 4$ have finitely many\footnote{A beautiful example of this is the $7$-sphere $\bS^7$ which is known to have 28 non-diffeomorphic smooth structures.}.
+	It is also known that smooth manifolds of dimension $n < 4$ have exactly one smooth structure (up to diffeomorphisms) while ones of dimension $n > 4$ have finitely many\footnote{A beautiful example of this is the $7$-sphere $\bS^7$ which is known to have 28 non-diffeomorphic smooth structures.}.
 	The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
 \end{remark}
 
@@ -448,7 +461,10 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   For the sake of the example, let's denote the class of equivalence of a point $x=(x^0,\ldots,x^n)\in\R^{n+1}_0$ by $[x]=[x^0,\ldots,x^n]$ and the projection to the quotient by $\pi:\R^{n+1}_0\to\RP^n$.
   The classes of equivalence $[x]$ are called \emph{homogeneous coordinates} on $\RP^n$.
   
-  \todo{Margin figure for the spheres.}
+  \begin{marginfigure}
+    \includegraphics{1_2_25-sphere}
+    \caption{The identification $\sim$ of antipodal points maps the sphere to a disk. Embedding $\bS^n/\sim$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^2 = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself). }
+  \end{marginfigure}
   There is a nice interpretation of this construction in terms of flattening spheres.
   Observe that a line through the origin always intercepts a sphere $\bS^n$ at two antipodal points and, conversely, each pair of antipodal point determines a unique line through the center.
   So we can define an equivalence relation on the sphere by identifying the antipodal points: given $x,y\in\bS^n$, $x\sim' y$ if and only if $x = \pm y$.
@@ -561,7 +577,7 @@ Which immediately gives away the general definition.
 A first observation about our definition of smooth maps is that as one would hope, smooth imply continuity.
 
 \begin{exercise}
-  Shoa that every smooth map is continuous.
+  Show that every smooth map is continuous.
 \end{exercise}
 
 \begin{definition}
@@ -570,9 +586,9 @@ A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bi
 Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
 \end{definition}
 
-\begin{example}
+\begin{exercise}
 Any chart $(V, \phi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\phi(V)\subset\R^n$.
-\end{example}
+\end{exercise}
 
 \begin{exercise}
   Prove the following propositions and aid your reasoning by drawing the relevant figures.
@@ -606,6 +622,12 @@ The following corollary is just a restatement of Proposition~\ref{prop:smoothloc
   \alpha:U_\alpha\to N$ such that the maps agree on the overlaps: $F_\alpha|_{U_\alpha\cap U_\beta} = F_\beta|_{U_\alpha\cap U_\beta}$ for all $\alpha,\beta\in A$. 
   Then there exists a unique smooth map $F:M\to N$ such that $F|_{U_\alpha} = F_\alpha$ for each $\alpha\in A$.
 \end{proposition}
+
+In other words, if you can define a map in a neighbourhood of each point in such a way that the locally defined maps all agree where they overlap, then the local definitions piece together to yield a global smooth map.
+We will use this construction repeatedly throughout the course.
+Sometimes, however, the local definitions are not guaranteed to agree. In this case one usually has to resort to a different tool: partitions of unity.
+These allow to surgically patch objects together and make sure that they still have the required properties.
+In the next section we will look more deeply into this.
 
 \begin{tcolorbox}
 From now on, when we write manifold, chart, atlas, etc. we always mean smooth manifold, smooth chart, smooth atlas, etc..
@@ -695,7 +717,7 @@ Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main 
   \end{equation}
 \end{proof}
 
-To extend this result and prove will still require hard work and a new tool, that will be useful throughout the course an in many courses to come.
+We are not there yet. To extend this result to our needs will need a new tool, which will be useful throughout the course an in many courses to come.
 
 \begin{definition}
   Let $M$ be a smooth manifold. A \emph{partition of unity} is a collection $\{\rho_\alpha \mid \alpha\in A\}$ of functions $\rho_\alpha:M\to\R$ such that
@@ -713,6 +735,7 @@ Note that the existence of a partition of unity is a distinguished feature of di
 
 Throughout the course we will be mostly interested in partitions of unity $\{\rho_\alpha \mid \alpha\in A\}$ which are \emph{subordinate} to an open cover $\{U_\alpha\mid\alpha\in A\}$, that is, such that $\supp_\alpha(\rho_\alpha) \subset U_\alpha$ for each $\alpha\in A$.
 
+\marginnote{We are going to omit the proof of this theorem, for its details you can refer to \cite[Proposition 13.6]{book:tu} or \cite[Theorem 2.23]{book:lee}.}
 \begin{theorem}\label{thm:partitionof1}
   Let $M$ be a smooth manifold. For any open cover $\{U_\alpha\mid\alpha\in A\}$ of $M$, there exists a partition of unity $\{\rho_\alpha \mid \alpha\in A\}$ subordinate to $\{U_\alpha\mid\alpha\in A\}$.
 \end{theorem}
@@ -773,10 +796,15 @@ As it turns out, this is a minor modification of our previous definition that st
 
 With such definition at hand, one can define compatibility, smooth atlases and differentiable structures as in Definition~\ref{def:crcomp}, Definition~\ref{def:cratlas} and Definition~\ref{def:diffstr} by considering charts taking value in $\cH^n$.
 
+\begin{exercise}
+  Explicitly state the definitions above in the case of manifolds with boundary.
+\end{exercise}
+
 \begin{definition}\label{def:diffmanifoldwb}
+  \marginnote{Remember that the differentiable structure is an equivalence class of smooth atlases.}
   A \emph{smooth manifold with boundary} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold with boundary $M$ and a smooth differentiable structure $\cA = \{(U_\alpha, \phi_\alpha) \mid \alpha\in A\}$ on $M$.
   
-  \marginnote[-2em]{The boundary $\partial M$ as defined by \eqref{def:bdry} can differ from its topological boundary as a subset of another topological space. For example the boundary $\partial\bS^1$ of the circle as a manifold is empty, but the boundary of the circle $\bS^1$ as a subset of $\R^2$ is $\bS^1$ itself.}
+  \marginnote{The boundary $\partial M$ as defined by \eqref{def:bdry} can differ from its topological boundary as a subset of another topological space. For example the boundary $\partial\bS^1$ of the circle as a manifold is empty, but the boundary of the circle $\bS^1$ as a subset of $\R^2$ is $\bS^1$ itself.}
   The \emph{boundary} of $M$ is defined as
   \begin{equation}\label{def:bdry}
     \partial M := \bigcup_{\alpha\in A} \phi_\alpha^{-1}\left(\phi_\alpha(V_\alpha)\cap \partial\cH^n\right).
@@ -784,7 +812,7 @@ With such definition at hand, one can define compatibility, smooth atlases and d
 \end{definition}
 
 \begin{proposition}\label{prop:bdwelldef}
-  The boundary $\partial M$ is well defined\footnote{The same definition holds for topological manifolds, but showing that it is well defined is much more complicated and will be omitted.}.
+  The boundary $\partial M$ is well defined\footnote{In the sense that smooth charts send boundary pieces to boundary pieces.Note that the definition of the boundary holds for topological manifolds as well, but showing that it is well defined is much more complicated and will be omitted.}.
 \end{proposition}
 \begin{proof}
   The statement follows if we show that the transition maps send boundary pieces to boundary pieces.
@@ -794,7 +822,7 @@ With such definition at hand, one can define compatibility, smooth atlases and d
   \begin{equation}
     f(x+h) = f(x) + Df|_x h + O(\|h\|).
   \end{equation}
-  Since the differential $D f$ at $x$ is an isomorphism, there exist an open neighbourhood $\cO$ of $x$ such that $f(\cO)$ is open in $\R^n$ and thus $f(x)\in V\cap(\cH^n\cap\partial\cH^n)$.
+  Since the total derivative $D f$ at $x$ is an isomorphism, there exist an open neighbourhood $\cO$ of $x$ such that $f(\cO)$ is open in $\R^n$ and thus $f(x)\in V\cap(\cH^n\cap\partial\cH^n)$.
 \end{proof}
 
 \begin{example}
@@ -846,7 +874,29 @@ Can we make sense of such observation using our newly introduced definition?
   by the proof of Proposition~\ref{prop:bdwelldef}.
 \end{proof}
 
+\begin{exercise}
+  Let $N$ denote the north pole $(0,\ldots,0,1)\in\bS^n\subset\R^{n+1}$ and let $S$ denote the south pole $(0,\ldots,0,-1)$.
+  Define the \emph{stereographic projections} $\sigma:\bS^n\setminus\{N\}\to \R^n$ by
+  \begin{marginfigure}
+    \includegraphics{1_5_8-sphere}
+  \end{marginfigure}
+  \begin{equation}
+    \sigma(x^1,\ldots,x^n) := \left(\frac{x^1}{1-x^{n+1}},\ldots,\frac{x^n}{1-x^{n+1}}\right),
+  \end{equation}
+  and $\widetilde\sigma:\bS^n\setminus\{S\}\to \R^n$, $\widetilde\sigma(x) := -\sigma(-x)$.
+  \begin{enumerate}
+    \item For any $x\in\bS^n\setminus\{N\}$, show that $\sigma(x)=u$ where $(u,0)$ is the point of intersection of the line passing through $N$ and $x$ with the hyperplane $\{x^{n+1}=0\}$.
+    Similarly, show that $\widetilde\sigma(x)$ is the point where the line through $S$ and $x$ intersects the same hyperplane.
+    \item Show that $\sigma$ is bijective and
+    \begin{equation}
+      \sigma^{-1}(u) = \left(\frac{2 u^1}{\|u\|^2+1}, \ldots,\frac{2 u^n}{\|u\|^2+1},\frac{\|u\|^2-1}{\|u\|^2+1}\right).
+    \end{equation}
+    \item Compute the transition map $\widetilde\sigma\circ\sigma^{-1}$ and verify that the atlas $\{(\bS^n\setminus\{N\},\sigma),(\bS^n\setminus\{S\},\widetilde\sigma)\}$ defines a smooth structure on $\bS^n$.
+    \item Let $n=1$. Show that this smooth structure is the same as the one defined in Example~\ref{ex:S1emb}.
+  \end{enumerate}
+\end{exercise}
+
 \begin{tcolorbox}
-  Differentiable manifolds without boundary (cfr. Definition~\ref{def:diffmanifold}) can be thought as a special case of differentiable manifolds with boundary (cfr. Definition~\ref{def:diffmanifoldwb}) where the boundary happens to be empty.
+  Differentiable manifolds without boundary (cf. Definition~\ref{def:diffmanifold}) can be thought as a special case of differentiable manifolds with boundary (cf. Definition~\ref{def:diffmanifoldwb}) where the boundary happens to be empty.
   Therefore, with the exception of the beginning of Chapter~\ref{ch:2}, we will no-longer distinguish the two concepts: from now on, a manifold may have or may not have a boundary.
 \end{tcolorbox}
