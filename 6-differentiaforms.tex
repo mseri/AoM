@@ -1,2 +1,23 @@
+In the rest of the course we will focus on a particular class of tensors, which generalizes the differential one-forms that we studied on the cotangent bundle.
+It should not be surprising then, that these will be called differential $k$-forms and that they will be alternating $(0,k)$-tensors, that is, skew-symmetric in all arguments.
+
+Geometrically, they are not dissimilar from the forms you may have seen in multivariable calculus: a $k$-form takes $k$ vectors as arguments and computes the $k$-dimensional volume spanned by these $k$-vectors.
+In this sense, they will be the key elements to define integration over $k$-dimensional manifolds, in the same way as one-forms and line integrals.
+
+\begin{definition}
+  Let $V$ be a real $n$-dimensional vector space.
+  Let $S_k$ denote the \emph{symmetric group on $k$ elements}, that is, the group of permutations of the set $\{1,\ldots,k\}$.
+  Recall that for any permutation $\sigma\in S_k$, the \emph{sign of $\sigma$}, denoted $\sgn(\sigma)$, is equal to $+1$ if $\sigma$ is even\footnote{It can be written as a composition of an even number of transpositions} and $-1$ is $\sigma$ is odd\footnote{It can be written as a composition of an odd number of transpositions}.
+
+  \marginnote{In particular, exchanging two arguments changes the sign of $\omega$.}
+  A tensor $\omega\in T_k^0(V)$, $0\leq k\leq n$, is called \emph{alternating} (or \emph{antisymmetric} or \emph{skew-symmetric}), if it changes sign whenever two of its arguments are interchanged, that is,
+  for all $v_1, \ldots, v_k\in V$ and for any permutation $\sigma\in S_k$ it holds that
+  \begin{equation}
+    \omega(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) = \sgn(\sigma) \omega(v_1, \ldots, v_k).
+  \end{equation}
+  The subspace of alternating tensors in $T_k^0(V)$ is denoted by $\Lambda_k \equiv \Lambda_k(V)$ and its elements are called \emph{exterior forms}, \emph{alternating $k$-forms} or just  \emph{$k$-forms}.
+  For $k=0$, we define $\Lambda_0 := T_0^0(V) := \R$.
+\end{definition}
+
 \section{The exterior derivative}
 \section{Poincar\'e lemma}
