@@ -132,7 +132,7 @@ Given a covector $\omega = \omega_j\; dx^j$ and a vector $v = v^i \frac{\partial
   \end{equation}
   is linear and therefore $i_v\in T^{**}_pM$.
 
-  Furthermore the map $i : T_pM \to T_p^{**}M$, $i\mapsto i_v$, is a vector space isomorphism. Indeed, it is injective since $\ker(i) = \{0\}$ and since $\dim T_p M = \dim T^{**}_p M$ also surjective (why? I hope you remember the rank-nullity theorem).
+  Furthermore the map $i : T_pM \to T_p^{**}M$, $i\mapsto i_v$, is a vector space isomorphism. Indeed, it is injective since $\ker(i) = \{0\}$ and since $\dim T_p M = \dim T^{**}_p M$ also surjective\footnote{Why? If \emph{rank-nullity theorem} does not ring a bell, make sure to look it up.}.
 
   That is, $T^{**}_pM$ can be canonically identified with $T_p M$.
 
@@ -407,8 +407,8 @@ The idea is to use the pullback to pull the 1-form to the parameter space $\R$ a
   We already saw that thanks to covariance, $\gamma^*\omega$ is immediately computed with the substitution $x=\cos t$ and $y=\sin t$ in the definition of $\omega$, so we get
   \begin{align}
     \int_\gamma \omega
-    &= \int_[0,2\pi] \frac{\cos t\, d(\sin t) - \sin t \, d(\cos t)}{\sin^2 t + \cos^2 t} \\
-    &= \int_[0,2\pi] (\cos t\, \cos t\, dt - \sin t \, (-\sin t)\, dt) \\
+    &= \int_{[0,2\pi]} \frac{\cos t\, d(\sin t) - \sin t \, d(\cos t)}{\sin^2 t + \cos^2 t} \\
+    &= \int_{[0,2\pi]} (\cos t\, \cos t\, dt - \sin t \, (-\sin t)\, dt) \\
     &= \int_0^\pi dt = 2\pi.
   \end{align} 
 \end{example}

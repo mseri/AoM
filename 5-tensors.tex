@@ -355,8 +355,8 @@ This can be inverted giving rise to the so-called \emph{cotangent lift}
 \marginnote{An aid to understand this map is the following commuting diagram:
 \begin{equation}\nonumber
   \begin{tikzcd}[row sep=normal, column sep=normal, ampersand replacement=\&]
-    T_p^* M \arrow[d, "\pi_M"] \arrow[r, "d\Phi^\dagger"] \& T_{\Phi(p)}N \arrow[d, "\pi_N"] \\
-    M \arrow[r, "\Phi"] \& N
+    T_p^* M \arrow[d, "\pi_M" left] \arrow[r, "d\Phi^\dagger"] \& T_{\Phi(p)}N \arrow[d, "\pi_N"] \\
+    M \arrow[r, "\Phi" below] \& N
   \end{tikzcd}
 \end{equation}}
 For any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
@@ -386,7 +386,7 @@ With this diffeomorphism at hand, we can finally define the pushforward.
   We define \emph{pushforward of $(r,s)$-tensor fields by $F$} as the map $F_*: \cT_s^r(M) \to \cT_s^r(N)$ for which the following diagram commutes:
   \begin{equation}
     \begin{tikzcd}[row sep=huge, column sep=huge]
-      M \arrow[r, "F"] \arrow[d, "\tau"]
+      M \arrow[r, "F"] \arrow[d, "\tau" left]
       &[10em] N \arrow[d, "F_* \tau" cyan] \\
       \cT_s^r(M) \arrow[r, "dF \otimes\cdots\otimes dF \otimes dF^\dagger \otimes\cdots\otimes dF^\dagger "]
       & \cT_s^r(N)
@@ -445,8 +445,8 @@ Can you show why?
   which may be easier to think about in terms of the following diagram
   \begin{equation}\nonumber
     \begin{tikzcd}[row sep=large, column sep=tiny]
-      & \frac{\partial}{\partial x^i} \in \cT_0^1(U) \ni (D\Phi)_j^i \frac{\partial}{\partial y^j} \arrow[dl, "\phi_*"] \arrow[dr, "\psi*"] & \\
-      e_i \in \cT_0^1(V) \arrow[rr, "\Phi_*"] & & \cT_0^1(W) \ni \LaTeXunderbrace{\Phi_* e_i}_{= (D\Phi)_i^j e_j}
+      & \frac{\partial}{\partial x^i} \in \cT_0^1(U) \ni (D\Phi)_j^i \frac{\partial}{\partial y^j} \arrow[dl, "\phi_*" description] \arrow[dr, "\psi*" description] & \\
+      e_i \in \cT_0^1(V) \arrow[rr, "\Phi_*" description] & & \cT_0^1(W) \ni \LaTeXunderbrace{\Phi_* e_i}_{= (D\Phi)_i^j e_j}
     \end{tikzcd}
   \end{equation}
   where $V = \phi(U)$ and $W = \psi(V)$.
