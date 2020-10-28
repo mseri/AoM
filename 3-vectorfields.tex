@@ -355,8 +355,37 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
   Conventionally, we assume that $0\in(a,b)$. In this case, if $\gamma(0)=p$, we say that $\gamma$ is an integral curve \emph{through $p$}.
 \end{definition}
 
+\begin{exercise}
+  \marginnote[1em]{This shows that there is a unique integral curve of $X$ starting at each point of the plane and that the images of any two integral curves are either identical or disjoint.}
+  Let $(x,y)$ be standard coordinates on $\R^2$ and let $X=\frac{\partial}{\partial x}$ be the first coordinate vector field.
+  Show that the integral curves of $X$ are the straight lines parallel to the $x$-axis, with parametrizations of the form $\gamma(t) = \alpha t + \beta$ for some constants $\alpha, \beta \in\R$.
+\end{exercise}
+
 \begin{example}
-  \todo{Lee Example 9.1 p. 206}
+  Let $(x,y)$ be standard coordinates on $\R^2$ and $Z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}$ on $\R^2$.
+  If $\gamma:\R^2\to\R$ is a smooth curve, written in standard coordinates as $\gamma(t) = (x(t), y(t))$, then the condition \eqref{eq:integralCurve} for $Z$ and $\gamma$ translates into
+  \marginnote{Make sure that you have understood why this is true.}
+  \begin{equation}
+    x'(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)} + y'(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)} = x(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)} - y(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)}.
+  \end{equation}
+  \begin{marginfigure}
+    \includegraphics{3_2_3-fields.pdf}
+  \end{marginfigure}
+  \noindent Comparing the components of the two vectors, we see that this is equivalent to the system of ODEs
+  \begin{equation}
+    \begin{cases}
+      x'(t) = - y(t)\\
+      y'(t) = x(t)
+    \end{cases},
+  \end{equation}
+  whose general solution is given by
+  \begin{equation}
+    x(t) = \alpha\cos(t) + \beta\sin(t), \quad
+    y(t) = \alpha\sin(t) + \beta\cos(t), \quad \alpha,\beta\in\R.
+  \end{equation}
+  Thus each curve of the form $\gamma(t) = (\alpha\cos(t) + \beta\sin(t), \alpha\sin(t) + \beta\cos(t))$ is an integral curve of $Z$.
+  When $\alpha=\beta=0$, this is the constant curve $\gamma(t)\equiv (0,0)$, otherwise, $\gamma$ moves counter-clockwise describing a circle.
+  \marginnote[-4em]{Since $\gamma(0) = (a,b)$, also in this case, there is a unique integral curve starting at each point $(\alpha, \beta)\in\R^2$, and the images of any two integral curves are either identical or disjoint.}
 \end{example}
 
 \begin{notation}
@@ -372,7 +401,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
 Exercise~\ref{ex:tg_curve_iso} implies that in the euclidean case our definition (in terms of equality of tangent vectors on $T_{\gamma(t)}(M)$) coincides with the euclidean flow (defined in terms of equality of real numbers).
 Alternatively, one can pick a coordinate chart and use the pushforward to locally compare the definitions.
 
-Indeed, if $(U, \phi)$ is a chart with coordinates\footnote{We will soon stop being so verbose and just write ``in local coordinates on $U$'' without specifying their names (unless strictly necessary)!} $(x^i)$, let $\gamma(t) = (\gamma^1(t), \ldots, \gamma^n(t))$ in these coordinates. Then, condition \eqref{eq:integralCurve} above can be written as
+Indeed, if $(U, \phi)$ is a chart with coordinates\footnote{We will soon stop being so verbose and just write ``in local coordinates (on $U$)'' without specifying their names unless strictly necessary!} $(x^i)$, let $\gamma(t) = (\gamma^1(t), \ldots, \gamma^n(t))$ in these coordinates. Then, condition \eqref{eq:integralCurve} above can be written as
 \begin{equation}
   \dot\gamma^i(t)\frac{\partial}{\partial x^i}\Big|_{\gamma(t)}
   = X^i(\gamma(t))\frac{\partial}{\partial x^i}\Big|_{\gamma(t)},\quad i=1,\ldots,n,
@@ -451,7 +480,7 @@ This justifies the following definition.
   \end{equation}
 \end{remark}
 
-Note that $I_p$ is typically larger than the domain of definition $(-\epsilon, \epsilon)$ of $\Phi_p$. By construction $\Phi_p$ never leaves the coordinate set $U$ over which it was defined, on the other hand $\gamma_p$ can in general wander all over the manifold -- even though $\gamma_p = \Phi_p$ for small enough $t$!
+Note that $I_p$ is typically larger than the domain of definition $(-\epsilon, \epsilon)$ of $\Phi_p$. By construction $\Phi_p$ never leaves the coordinate set $U$ over which it was defined, on the other hand $\gamma_p$ can in general wander all over the manifold -- even though $\gamma_p = \Phi_p$ for values of $t$ small enough!
 
 Again, theorems about existence and uniqueness of euclidean maximal flows imply that we can extend $\Phi_p$ uniquely to a maximal flow.
 
@@ -473,13 +502,13 @@ When we want to emphasize the vector field $X$, we will write $\Phi^X$.
   This is done by applying the euclidean theorems to extend the local flow, finally showing that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\Phi$ is smooth.
 
   We are going to omit the details of the proof, the interested reader can refer to \cite[Proposition 9.12]{book:lee}.
-  The statement may seem different at a first glance, but a careful look will reveal that he is just taking a slightly different perspective.
+  The statements may seem different at a first glance, but a careful look will reveal that he is just taking a slightly different perspective.
 
   Indeed, if we reverse the roles of $t$ and $x$, we can define for any given $t\in M$ the set
   \begin{equation}
     M_t := \{p\in M \;\mid\; (t,p)\in\cD\}.
   \end{equation}
-  Then Theorem~\ref{thm:exuniqmax} is equivalent to say that $M_t$ is open in $M$, $M = \cup{t>0} M_t$, and there is a well-defined smooth map $\Phi_t : M_t \to M_{-t}$ given by
+  Then Theorem~\ref{thm:exuniqmax} is equivalent to say that $M_t$ is open in $M$, $M = \cup_{t>0} M_t$, and there is a well-defined smooth map $\Phi_t : M_t \to M_{-t}$ given by
   \begin{equation}\label{eq:flowdiffeo}
     \Phi_t(p) := \Phi(t,p), \quad p\in M_t.
   \end{equation}
@@ -542,6 +571,9 @@ Remark~\ref{rmk:automorphismgroup} immediately implies that $\diff(M)$ is a grou
 
   Always keep in mind that \eqref{eq:infgen} is just a ``scary'' way to write $X_p := \Phi_p'(0)$ where the role of the differential and the nature of the vector field are more explicit.
 \end{definition}
+\begin{marginfigure}
+  \includegraphics{3_2_14-infgen.pdf}
+\end{marginfigure}
 
 The definition above, in fact, contains the proof of the following fact.
 \begin{proposition}
@@ -569,7 +601,7 @@ The definition above, in fact, contains the proof of the following fact.
     &\frac{d}{d t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
   \end{align}
 
-  Moreover, if $X(x) = Ax$ is a linear vector field on $\R^n$, that is $A$ is a $n\times n$-matrix, then the corresponding flow $\Phi_t$ is the matrix exponential $\Phi_t(x) = e^{Ax}$.
+  Moreover, if $X(x) = Ax$ is a linear vector field on $\R^n$, i.e., $A$ is a $n\times n$-matrix, then the corresponding flow $\Phi_t$ is the matrix exponential $\Phi_t(x) = e^{Ax}$.
 \end{exercise}
 
 There are a few cases in which we can guarantee completeness, let's have a brief look.
