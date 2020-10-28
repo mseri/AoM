@@ -188,7 +188,7 @@ Its dual is going to be a map that pulls vector form one covector space to anoth
 
 \begin{definition}\label{def:pullback:oneform}
   Let $F:M\to N$ be a smooth map between smooth manifolds, let $\omega\in T^*_pM$ for some $p\in M$.
-  The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the diffetential
+  The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the differential
   \marginnote[-1.5em]{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
   \begin{equation}
     dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto F^*\omega,
@@ -298,6 +298,27 @@ Also in this case, $\fX^*(M)$ is a module over $C^\infty(M)$.
 
  \textit{\small Hint: apply the equations at a point $p\in M$ and keep rewriting the equations in different forms.}
 \end{exercise}
+
+This exercise is particularly interesting if we look at it in relation to the pushforward.
+\begin{proposition}
+  Let $F:M\to N$ be a diffeomorphism and $X\in\fX(M)$.
+  Then, for any $f\in C^\infty(N)$,
+  \begin{equation}
+    X(f^* F) = F_*X(f) \circ F.
+\end{equation}
+\end{proposition}
+\begin{proof}
+  Indeed, for any $p\in M$,
+\begin{align}
+  F_*X(f) \circ F(p) &= ((F_*X) f) (F(p)) = (F_*X)_{F(p)} f \\
+  &= (dF \circ X \circ F^{-1})(F(p)) f = (dF\circ X)(p) f \\
+  &= dF_p(X_p) f, \\
+  X (f^*F)(p) & = X(f\circ F)(p) = X_p(f\circ F) = dF_p(X_p) f \\
+    &= d (f\circ F) \circ X = df \circ dF \circ X \\
+    & = df \circ F_* X \circ F = F_* X (f) \circ X.
+\end{align}
+\end{proof}
+In this case you often say that the vector fields are $F$-related or that they behave naturally: you can either pull back the function $f$ to $M$ or push forward the vector field $X$ to $N$.
 
 When we discussed vector fields, we observed that pushforwards of vector fields under smooth maps are defined only in the special case of diffeomorphisms.
 The surprising thing about covectors is that covector fields always pull back to covector fields.

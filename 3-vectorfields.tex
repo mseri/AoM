@@ -69,7 +69,7 @@ As it turns out, we can employ differentials of diffeomorphisms to map vector fi
   Then, the \emph{pushforward} $F_*$ of $F$, defined by\footnote{In coordinates, this reads\begin{equation}
       (F_* X)_q = dF_{F^{-1}(q)}(X_{F^{-1}(q)}).
     \end{equation}}
-  \begin{equation}
+  \begin{equation}\label{eq:pfvf}
     F_*: \fX(M) \to \fX(N),\qquad
     X \mapsto F_* X = d F \circ X \circ F^{-1},
   \end{equation}
@@ -93,19 +93,46 @@ Then, if $(U, \phi)$ is a coordinate chart for $M$, the restriction of a vector 
 \end{align}
 where $v^j(x)$ are the components\footnote{As we start getting used to, the chart $\phi$ here plays a twofold role: it provides the coordinates $x=\phi(p)$ on the patch $U$ and the coordinate basis of the tangent space.} of $X_p\in T_p M$ at $p=\phi^{-1}(x)$ with respect to the coordinate basis $\left\{\frac{\partial}{\partial x^i}\big|_x\right\}$.
 
-\todo{Example 8.20 Lee + Corollary 8.21}
-
-% XXX: Remember to mention it when we define pullbacks
-% An interesting property of the pushforward defined above is that
-% \begin{equation}
-%     X(f\circ F) = F_*X(f) \circ F, \quad f\in C^\infty(N).
-% \end{equation}
-
-% Indeed,
-% \begin{align}
-%     X(f^* F) = d (f\circ F) \circ X = df \circ dF \circ X = df \circ F_* X \circ F = F_* X (f) \circ X.
-% \end{align}
-% This is called natural behavior: either you can pull back the function $f$ to $M$ or push forward the vector field $X$ to $N$.
+\begin{example}[Computing the pushforward of a vector field]
+  Let $M$ and $N$ be the following submanifolds of $\R^2$:
+  \begin{align}
+    M &= \left\{(x,y)\in\R^2 \mid y>0,\; x+y>0\right\},\\
+    N &= \left\{(u,v)\in\R^2 \mid u>0,\; v>0 \right\}.
+  \end{align}
+  Define $F:M\to N$ as the mapping $F(x,y):=(x+y, x/y+1)$.
+  Then $F$ is a diffeomorphism: we can compute its inverse by solving $(u,v)=(x+y, x/y+1)$ in for $x$ and $y$, obtaining $(x,y)=F^{-1}(u,v)=(u-u/v, u/v)$ which is also smooth on all $N$.
+  
+  Let $X\in\fX(M)$ be given by
+  \begin{equation}
+    X_{(x,y)} = y^2\frac{\partial}{\partial x}\Big|_{(x,y)},
+  \end{equation}
+  we are now going to compute the pushforward $F_* X$.
+  
+  The differential of $F$ at a point $(x,y)\in M$ is represented by its Jacobian matrix,
+  \begin{equation}
+    DF(x,y) = \begin{pmatrix}
+      1 & 1\\
+      1/y & -x/y^2
+    \end{pmatrix},
+  \end{equation}
+  thus $dF_{F^{-1}(u,v)} = dF\circ F^{-1}(u,v)$ is represented by the matrix
+  \begin{equation}
+    DF(u-u/v, u/v) = \begin{pmatrix}
+      1 & 1\\
+      v/u & (v-v^2)/u
+    \end{pmatrix}.
+  \end{equation}
+  For any $(u,v)\in N$,
+  \begin{equation}
+    X_{F^{-1}(u,v)} = \frac{u^2}{v^2}\frac{\partial}{\partial x}\Big|_{F^{-1}(u,v)},
+  \end{equation}
+  and, thus, by \eqref{eq:pfvf} (with $p=(u,v)$) we get
+  \begin{equation}
+    (F_*X)_{(u,v)} = \frac{u^2}{v^2}\frac{\partial}{\partial u}\Big|_{(u,v)} + \frac{u}{v}\frac{\partial}{\partial v}\Big|_{(u,v)}.
+  \end{equation}
+  \marginnote[-5em]{
+  For this computation, keep in mind that the Jacobian here is a change of coordinate between the two euclidean spaces $T_{F^{-1}(u,v)}M$ and $T_{(u,v)}N$, where on the first we are using the coordinate basis $\left\{\frac{\partial}{\partial x}\Big|_{F^{-1}(u,v)},\frac{\partial}{\partial y}\Big|_{F^{-1}(u,v)}\right\}$ and on the second we are using the coordinate basis $\left\{\frac{\partial}{\partial x}\Big|_{(u,v)},\frac{\partial}{\partial y}\right\}\Big|_{(u,v)}$.}
+\end{example}
 
 While we continue to explore the twofold nature of geometric objects, it is worth looking back at our original definition of tangent vectors.
 In one of our first encounters with tangent spaces, we said that a tangent vector $v$ at a point $p\in M$ defines a derivative at that point by taking the directional derivative of a function at that point.
@@ -116,7 +143,7 @@ In this sense, $X\in\fX(M)$ induces a linear map on the algebra $C^\infty(M)$ of
   Xf : M\to\R, \quad
   (Xf)_p := X_p f, \quad p\in M.
 \end{equation}
-\marginnote{Beware of the ordering: $fX\in\fX(M)$ but $Xf\in C^\infty(M)$!}
+\marginnote[-2em]{Beware of the ordering: $fX\in\fX(M)$ but $Xf\in C^\infty(M)$!}
 
 \begin{notation}\label{notation:derivative}
   Let $f\in C^\infty(M)$ and let $(U, \phi)$ be a chart with coordinates $(x^i)$.
@@ -135,6 +162,7 @@ In this sense, $X\in\fX(M)$ induces a linear map on the algebra $C^\infty(M)$ of
 \end{exercise}
 
 This whole discussion allows us to extend the notion of derivation at a point to a derivation on the whole space.
+\marginnote[2em]{Don't confuse this with the derivations at a point, which produce real numbers. In this case we map functions to functions. }
 \begin{definition}
   Let $M$ be a smooth manifold and $\emptyset\neq W\subset M$ an open set.
   A \emph{derivation on $C^\infty(W)$} is a linear map
