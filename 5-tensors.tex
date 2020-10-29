@@ -9,7 +9,7 @@ We already know a few examples besides the already mentioned covectors:
 \begin{itemize}
   \item a scalar product is a bilinear map $\langle\cdot,\cdot\rangle:V\times V\to \R$;
   \item the signed area spanned by two vectors is a bilinear map $\mathrm{area}: \R^2\times\R^2\to\R$, $\mathrm{area}(u,v) := u\wedge v = u^1v^2-u^2v^1$;
-  \item the determinant of a square matrix in $\mathrm{Mat}(n)$, viewed as a function $\det: \LaTeXunderbrace{\R^n\times\cdots\times\R^n}_{n\mbox{ times}}\to\R$ is a $n$-linear map.
+  \item the determinant\footnote{In fact, the signed area is the determinant of the $2\times 2$ matrix $(u \, v)$...} of a square matrix in $\mathrm{Mat}(n)$, viewed as a function $\det: \LaTeXunderbrace{\R^n\times\cdots\times\R^n}_{n\mbox{ times}}\to\R$ is a $n$-linear map.
 \end{itemize}
 
 Such functions of several vectors or covectors that are linear in each argument are also called multilinear forms or tensors.
@@ -89,7 +89,7 @@ is associative and distributive but not commutative (why?).
 In fact, this is a general fact.
 
 \marginnote{A more general approach to this proposition is by proving the universal property of tensor spaces. See for instance \cite[Propositions 12.5, 12.7 and 12.8]{book:lee}.}
-\begin{proposition}
+\begin{proposition}\label{prop:tensorbasis}
   Let $V$ be an $n$-dimensional vector space.
   Let $\{e_j\}$ and $\{\varepsilon^i\}$ respectively denote the bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$.
   Then, every $\tau\in V_s^r$ can be uniquely written as the linear combination\marginnote{Exercise: epand Einstein's notation to write the full sum on the left with the relevant indices.}% In the expression, all indices $j_1,\ldots,j_r$, $i_1,\ldots,i_s$ run from $1$ to $n$.}
@@ -248,8 +248,43 @@ applying the previous reasoning and comparing term by term we get
   \end{equation}
   to an algebra, called \emph{tensor algebra}.
   Here, for $r=s=0$ we define the tensor multiplication with a scalar as the standard multiplication: $r\otimes v = r v$ for $r\in T_0^0(V)=\R$ and $v\in T^1_0(V)=V$.
-  
 \end{remark}
+
+Before moving on, there is an important operation on tensors that will come back later on and is worth to introducte in its generality.
+
+\begin{definition}
+Let $V$ be a vector space and fix $r,s\geq0$.
+For $h\leq r$ and $k\leq s$, we define the $(h,k)$-contraction of a tensor as the linear mapping $T_s^r(V)\to T_{s-1}^{r-1}(V)$ defined through
+\begin{align}
+  v_1&\otimes\cdots\otimes v_r\otimes\omega^1\otimes\cdots\otimes\omega^s \\
+  &\mapsto \omega^k(v_h)\, v_1\otimes\cdots\otimes v_{h-1}\otimes v_{h+1}\cdots\otimes v_r\otimes\omega^1\otimes\cdots\otimes\omega^{k-1}\otimes\omega^{k+1}\cdots\otimes\omega^s
+\end{align}
+and then extended by linearity, thus mapping $\tau \mapsto \widetilde\tau$ where
+\begin{align}
+  \widetilde\tau&(\nu^1,\ldots,\nu^{r-1}, v_1,\ldots,v_{s-1}) \\
+  &= \tau(\nu^1,\ldots,\LaTeXunderbrace{e^i}_{h\mbox{th index}},\ldots,\nu^{r-1},w_1,\ldots,\LaTeXunderbrace{e_i}_{k\mbox{th index}},\ldots,w_{s-1}).
+\end{align}
+\end{definition}
+
+\begin{example}
+  To understand why the two equations in the definition are equivalent it is worth looking at an example over a decomposable element.
+  For simplicity, assume $(r,s) = (2,3)$ and $\tau = v_1\otimes v_2\otimes\omega^1\otimes\omega^2\otimes\omega^3$.
+  Then $\tau$ corresponds to a multilinear function
+  \begin{equation}
+    \tau(\nu^1,\nu^2,w_1,w_2,w_3) = \nu^1(v_1)\nu^2(v_2)\omega^1(w_1)\omega^2(w_2)\omega^3(w_3).
+  \end{equation}
+  By definition, the $(1,2)$-contraction is
+  \begin{align}
+    \widetilde\tau(\nu^1,w_1,w_2) &= \tau(e^i,\nu^1,w_1,e_i,w_2) \\
+    &= e^i(v_1)\nu^1(v_2)\omega^1(w_1)\omega^2(e_i)\omega^3(w_2) \\
+    &= \LaTeXunderbrace{e^i(v_1)\omega^2(e_i)}_{=\omega^2_i e^i (v_1) =\omega^2(v_1)}\nu^1(v_2)\omega^1(w_1)\omega^3(w_2) \\
+    &= \omega^2(v_1) v_2\otimes\omega^1\otimes\omega^3 (\nu^1,w_1,w_2).
+  \end{align}
+\end{example}
+
+\begin{example}
+  For $a\in T_1^1(V)$, the contraction $\mathrm{tr} (a) := a^1_1$ is called the trace of $a$ and is the usual trace of the corresponding endomorphism $A:V\to V$.
+\end{example}
 
 \section{Tensor bundles}
 
@@ -258,7 +293,7 @@ In the previous chapters we have shown that the tangent bundle and the cotangent
 We now have the tools to further extend this idea and define tensor bundles as families of tensor spaces build on top of the fibres of the tangent bundle.
 
 \begin{definition}
-  The \emph{$(r,s)$-tensor bundle over $m$} as the bundle
+  The \emph{$(r,s)$-tensor bundle over $M$} as the bundle
   \begin{equation}
     T_s^r M = \bigsqcup_{p\in M}\left(\{p\}\times T_s^r(T_p M)\right)
   \end{equation}
