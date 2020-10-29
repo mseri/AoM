@@ -207,7 +207,7 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
   then the wedge product turns it into an associative, anticommutative\footnote{A graded algebra is anticommutative is the product satisfies a relation of the form $uv = (-1)^{kh}vu$, where $u$ and $v$ are in the spaces of the gradation with indicex $k$ and $h$ respectively.} graded algebra, called \emph{exterior algebra of $V$}.
 \end{remark}
 
-\section{Interior product}
+\section{The interior product}
 
 There is an extremely important operation that relates vectors with alternating tensors.
 
@@ -244,11 +244,11 @@ Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the ten
 The subset of $\cT_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda_k(M):= \bigsqcup_{p\in M} \Lambda_k(T_pM)$.
 \begin{definition}
   The sections of $\Lambda_k(M)$ are called \emph{differential $k$-forms}, or just $k$-forms: these are smooth tensor fields whose values at each point are alternating tensors. The integer $k$ is called the \emph{degree} of the $k$-form.
+  
   We denote the vector space of smooth $k$-forms by
   \begin{equation}
     \Omega^k(M) = \Gamma(\Lambda_k(M)).
   \end{equation}
-
   The wedge product $\wedge:\Omega^k(M)\times\Omega^h(M)\to \Omega^{k+h}(M)$ of differential forms is defined pointwise as $(\omega\wedge\nu)_p = \omega_p\wedge\nu_p$.
 \end{definition}
 
@@ -312,6 +312,16 @@ Of course, the same technique can also be used to compute the expression for a d
 
   I am very confident that it is not the first time that you see the equation above...
 \end{example}
+
+\begin{exercise}
+  Let $(x^i)$ and $(y^i)$ are two different local coordinates on some open $V\subset M$.
+  Show that the following identity holds:
+  \begin{equation}
+    dy^1\wedge dy^n = \det\left(\frac{\partial y^j}{\partial x^i}\right) dx^1\wedge dx^n.
+  \end{equation}
+\end{exercise}
+
+\section{Exterior derivative}
 
 We already saw in the previous chapters that the exterior derivative of a function $f\in\Omega^0(M)$ is a $1$-form $df\in\Omega^1(M)$.
 We are finally ready to generalise the concept to a map $d:\Omega^k(M)\to\Omega^{k+1}(M)$.
