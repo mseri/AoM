@@ -886,14 +886,22 @@ Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R
   A chart on a $n$-manifold $M$ with local coordinates $(x^i)$ yields a local frame $\left\{\frac{\partial}{\partial x^1}, \ldots, \frac{\partial}{\partial x^n}\right\}$ of the tangent bundle $TM$.
 \end{example}
 
-\begin{remark}
-  In the spirit of what we have seen about the previous example, given a local frame $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ of a vector bundle $\pi: E \to M$ we can express any section $X\in\Gamma(E)$ as a linear combination of elements of the frame:
-  \begin{equation}
-    X = X^i S_i \quad\mbox{on }U,
-  \end{equation}
-  where $X^i\in C^\infty(U)$, $i=1,\ldots,r$.
-  After all, for each $p\in U\subset M$ the local frame is a basis for $E_p$.
-\end{remark}
+In the spirit of what we have seen about the previous example, we have the following proposition.
+
+\begin{proposition}
+  Let $\pi:E \to M$ be a smooth vector bundle and $X:M\to E$ a section.
+  If $(S_i)$ is a smooth local frame for $E$ over an open subset $U\subseteq M$, then $X$ is smooth on $U$ if an only if its component functions with respect to $(S_i)$ are smooth.
+\end{proposition}
+\begin{proof}
+   Let $\Phi:\pi^{-1}(U) \to U\times\R^k$ be the local trivialization associated with the local frame $(S_i)$. Since $\Phi$ is a diffeomorphism, $X$ is smooth on $U$ if and only if $\Phi\circ X$ is smooth on $U$. If $(X^i)$ denote the component functions of $X$ with respect to $S_i$, then $\Phi\circ X (p) = (p, (X^1(p), \ldots, X^k(p)))$, so $\Phi\circ X$ is smooth if and only if the component functions $(X^i)$ are smooth.
+\end{proof}
+
+That is, given a local frame $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ of a vector bundle $\pi: E \to M$ we can express any section $X\in\Gamma(E)$ as a linear combination of elements of the frame:
+\begin{equation}
+  X = X^i S_i \quad\mbox{on }U,
+\end{equation}
+where $X^i\in C^\infty(U)$, $i=1,\ldots,r$.
+Which was to be expected: after all, for each $p\in U\subset M$, the local frame is a basis for $E_p$.
 
 \begin{proposition}\label{prop:trivialisable}
   A vector bundle $\pi: E\to M$ is trivialisable if and only if it admits a global frame.

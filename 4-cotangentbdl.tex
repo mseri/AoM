@@ -292,7 +292,7 @@ Also in this case, $\fX^*(M)$ is a module over $C^\infty(M)$.
   \end{equation}
   If in addition $f\in C^\infty(N)$, then
   \begin{equation}
-    F^* df = d (f\circ F) =: d (f^* g),
+    F^* df = d (f\circ F) =: d (F^* f),
   \end{equation}
   where we introduced the \emph{pullback} of the function $f$ as $f^*g := g\circ f$.
 
@@ -397,7 +397,7 @@ The idea is to use the pullback to pull the 1-form to the parameter space $\R$ a
   The pointwise dual pairing $\left(\gamma^*\omega \mid \frac{\partial}{\partial t}\right)\in C^\infty(I)$ and is integrated in the usual Riemannian sense.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:li}
   Let $M=\R^2\setminus\{0\}$. Let $\omega$ be the one-form
   \begin{equation}
     \omega = \frac{x dy - y dx}{x^2 + y^2}
@@ -413,7 +413,7 @@ The idea is to use the pullback to pull the 1-form to the parameter space $\R$ a
   \end{align} 
 \end{example}
 
-\begin{exercise}
+\begin{exercise}\label{exe:FTC}
   Let $M$ be a smooth manifold, $\gamma: I = [a,b]\subset \R \to M$ a smooth curve and $\omega\in\fX^*(M)$ a $1$-form.
   Show the following properties.
   \begin{enumerate}
