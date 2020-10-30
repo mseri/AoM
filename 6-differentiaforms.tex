@@ -74,7 +74,7 @@ It would be convenient to have a similar basis representation on $\Lambda_k(V)$.
   Then, for each $1\leq k \leq n$, the set of $k$-forms
   \begin{equation}
     E = \left\{
-    e^{j_1}\wedge\ldots\wedge e^{j_k} \;\mid\; 1\leq j_1<\ldots<j_k\leq n
+    e^{j_1}\wedge\cdots\wedge e^{j_k} \;\mid\; 1\leq j_1<\cdots<j_k\leq n
     \right\},
   \end{equation}
   forms a basis for the space $\Lambda_k(V) \subset T_k^0(V)$ of alternating $k$-forms.
@@ -89,7 +89,7 @@ It would be convenient to have a similar basis representation on $\Lambda_k(V)$.
   The last point of Exercise~\ref{ex:propAlt} implies that there are no non-zero alternating $k$-tensors on $V$ if $k >\dim V$, since in that case every $k$-tuple of vectors would be dependent.
   For $k\leq n$ we need to show that $E$ spans $\Lambda_k(V)$ and its vectors are linearly independent.
   
-  First of all, observe that by \eqref{equiv:permut} all the wedge products ${e^{j_1}\wedge\ldots\wedge e^{j_k}\not\in E}$ are either zero (if two indices are repeated, i.e., a base vector appears twice) or are a linear multiple of an element of $E$ (the wedge product with the indices in the same set but in increasing order).
+  First of all, observe that by~\eqref{equiv:permut} all the wedge products ${e^{j_1}\wedge\ldots\wedge e^{j_k}\not\in E}$ are either zero (if two indices are repeated, i.e., a base vector appears twice) or are a linear multiple of an element of $E$ (the wedge product with the indices in the same set but in increasing order).
 
   Let now $\{e_i\}$ denote the basis for $V$ dual to $\{e^i\}$ and $\omega\in\Lambda_k$.
   By definition of alternating form, we have
@@ -125,6 +125,11 @@ It would be convenient to have a similar basis representation on $\Lambda_k(V)$.
 \begin{remark}
   There are multiple alternative definitions of the wedge product, which are equivalent up to a multiplicative factor.
   Be careful when you consult the literature to check the conventions used.
+
+  The convention that we are using here is usually called the determinant convention and is usually the most convenient for computations. The name stems from the fact that if $(e^i)$ denotes the standard basis for ${(\R^n)}^*$, then for some vectors $v_1, \ldots, v_n \in\R^n$,
+  \begin{equation}
+    \det(\LaTeXunderbrace{v_1 \,\cdots\, v_n}_{\parbox{1.5cm}{\tiny $n\times n$ matrix with\\$v_i$ as columns}}) = e^1\wedge\cdots\wedge e^n(v_1,\ldots,v_n).
+  \end{equation}
 \end{remark}
 
 As you could see from the previous proof, Einstein notation can help but only to a certain extent.
@@ -161,15 +166,15 @@ The following proposition gives us a tool to define an exterior product of alter
     &=(\Alt_k \tau)(v_1,\ldots, v_k),
   \end{align}
   where we used the fact that $\eta$ runs over all $S_k$, as $\sigma$ does.
-  Then the result follows from \eqref{eq:detLeibniz}.
+  Then the result follows from~\eqref{eq:detLeibniz}.
 \end{proof}
 
-As we were saying, now we can take the tensor product of two forms $\omega\otimes\nu$ and use the antysimmetrisation $\Alt_{k+h}$ to to project it onto the antysimmetric subspace $\Lambda_{k+h}$ of $T_{k+h}^0(V)$.
+As we were saying, now we can take the tensor product of two forms $\omega\otimes\nu$ and use the antisymmetrisation $\Alt_{k+h}$ to to project it onto the antisymmetric subspace $\Lambda_{k+h}$ of $T_{k+h}^0(V)$.
 
 \begin{definition}[Wedge product of alternating forms]
   We can extend the wedge product (or exterior product) to alternating forms by defining, for any $k,h\in\N$,
   \begin{align}
-    \wedge &: \Lambda_k\times\Lambda_h \to \Lambda_{k+h}\\
+    \wedge : &\Lambda_k\times\Lambda_h \to \Lambda_{k+h}\\
     &(\omega, \nu) \mapsto \omega\wedge\nu := \frac{(k+h)!}{k!h!} \Alt_{k+h}(\omega\otimes\nu).
   \end{align}
 \end{definition}
@@ -191,7 +196,7 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
     \item (associative) $(\omega^1\wedge\omega^2)\wedge\omega^3 = \omega^1\wedge(\omega^2\wedge\omega^3)$ for $\omega^i\in\Lambda_{k_i}$, $i=1,\ldots, 3$;
     \item (distributive) $(\omega^1+\omega^2)\wedge\omega^3 = \omega^1\wedge\omega^3+\omega^2\wedge\omega^3$ for $\omega^1,\omega^2\in\Lambda_{k}$ and $\omega^3\in\Lambda_h$;
     \item (distributive) $\omega^1\wedge(\omega^2+\omega^3) = \omega^1\wedge\omega^2+\omega^1\wedge\omega^3$ for $\omega^1\in\Lambda_{k}$ and $\omega^2,\omega^3\in\Lambda_h$;
-    \item $\omega^1\wedge\omega^2 = (-1)^{hk}\omega^2\wedge\omega^1$ for $\omega^1\in\Lambda_{k}$ and $\omega^2\in\Lambda_h$.
+    \item $\omega^1\wedge\omega^2 = {(-1)}^{hk}\omega^2\wedge\omega^1$ for $\omega^1\in\Lambda_{k}$ and $\omega^2\in\Lambda_h$.
   \end{enumerate}
 \end{proposition}
 \begin{exercise}
@@ -204,7 +209,7 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
   \begin{equation}
     \Lambda(V) = \bigoplus_{k=0}^n \Lambda_k(V),
   \end{equation}
-  then the wedge product turns it into an associative, anticommutative\footnote{A graded algebra is anticommutative is the product satisfies a relation of the form $uv = (-1)^{kh}vu$, where $u$ and $v$ are in the spaces of the gradation with indicex $k$ and $h$ respectively.} graded algebra, called \emph{exterior algebra of $V$}.
+  then the wedge product turns it into an associative, anticommutative\footnote{A graded algebra is anticommutative is the product satisfies a relation of the form $uv = {(-1)}^{kh}vu$, where $u$ and $v$ are in the spaces of the gradation with indicex $k$ and $h$ respectively.} graded algebra, called \emph{exterior algebra of $V$}.
 \end{remark}
 
 \section{The interior product}
@@ -219,19 +224,23 @@ There is an extremely important operation that relates vectors with alternating 
   \end{equation}
 \end{definition}
 
-In other words, $i_v\omega$ is obtained from $\omega$ by inserting $v$ into ``the first slot''. By convention $i_v\omega = 0$ if $\omega\in\Lambda_0$.
+In other words, $i_v\omega$ is obtained from $\omega$ by inserting $v$ into ``the first slot''.
+By convention $i_v\omega = 0$ if $\omega\in\Lambda_0$.
 
 \begin{lemma}
   Let $V$ be a real $n$-dimensional vector space and $v\in V$.
   Then the following hold.
   \begin{enumerate}
-    \item $\iota_v\circ \iota_v = 0$;
+    \item $\iota_v\circ \iota_v = 0$ and, thus, $\iota_v\circ\iota_u = \iota_u\circ\iota_v$;
     \item if $\omega\in\Lambda_k$ and $\nu\in\Lambda_h$,
     \begin{equation}
-      \iota_v(\omega\wedge\nu) = (\iota_v\omega)\wedge\eta + (-1)^k\omega\wedge(\iota_v\eta).
+      \iota_v(\omega\wedge\nu) = (\iota_v\omega)\wedge\eta + {(-1)}^k\omega\wedge(\iota_v\eta).
     \end{equation}
   \end{enumerate}
 \end{lemma}
+\begin{exercise}
+  Prove the Lemma.
+\end{exercise}
 
 \section{Forms, determinants and volumes}
 
@@ -241,7 +250,7 @@ In other words, $i_v\omega$ is obtained from $\omega$ by inserting $v$ into ``th
 
 It is time to turn our attention back to smooth manifolds.
 Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the tensor fields $\cT_s^r(M)$ as the space of $(r,s)$-tensor bundles $T_s^r(M)$ over $M$.
-The subset of $\cT_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda_k(M):= \bigsqcup_{p\in M} \Lambda_k(T_pM)$.
+The subset of $\cT_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda_k(M):= \bigsqcup_{p\in M} \Lambda_k(T_p M)$.
 \begin{definition}
   The sections of $\Lambda_k(M)$ are called \emph{differential $k$-forms}, or just $k$-forms: these are smooth tensor fields whose values at each point are alternating tensors. The integer $k$ is called the \emph{degree} of the $k$-form.
   
@@ -249,7 +258,7 @@ The subset of $\cT_k^0(M)$ consisting of alternating $k$-tensors is denoted by $
   \begin{equation}
     \Omega^k(M) = \Gamma(\Lambda_k(M)).
   \end{equation}
-  The wedge product $\wedge:\Omega^k(M)\times\Omega^h(M)\to \Omega^{k+h}(M)$ of differential forms is defined pointwise as $(\omega\wedge\nu)_p = \omega_p\wedge\nu_p$.
+  The wedge product $\wedge:\Omega^k(M)\times\Omega^h(M)\to \Omega^{k+h}(M)$ of differential forms is defined pointwise as ${(\omega\wedge\nu)}_p = \omega_p\wedge\nu_p$.
 \end{definition}
 
 \begin{example}
@@ -310,7 +319,7 @@ Of course, the same technique can also be used to compute the expression for a d
     &= r dr\wedge d\theta.
   \end{align}
 
-  I am very confident that it is not the first time that you see the equation above...
+  I am very confident that it is not the first time that you see the equation above\ldots
 \end{example}
 
 \begin{exercise}
@@ -326,6 +335,16 @@ Of course, the same technique can also be used to compute the expression for a d
 We already saw in the previous chapters that the exterior derivative of a function $f\in\Omega^0(M)$ is a $1$-form $df\in\Omega^1(M)$.
 We are finally ready to generalise the concept to a map $d:\Omega^k(M)\to\Omega^{k+1}(M)$.
 
-
+\begin{definition}
+  Let $\omega\in\Omega^k(U)$ for some open subset $U\subset\R^n$ and let $(e^i)$ denote the standard basis for ${(\R^n)}^*$. If
+  \begin{equation}
+    \omega = \omega_I de^I, \quad \omega_I\in C^\infty(U),
+  \end{equation}
+  then its \emph{exterior deriative} $d\omega \in\Omega^k(M)$ is defined by
+  \begin{equation}
+    d\omega := d\omega_I \wedge de^I = \sum_{1\leq i_1 < \cdots < i_k \leq n} d\omega_{i_1,\ldots,i_k}\wedge de^{i_1}\wedge\cdots\wedge de^{i_k}.
+  \end{equation}
+  5
+\end{definition}
 
 \section{Poincar\'e lemma}
