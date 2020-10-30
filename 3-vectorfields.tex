@@ -358,7 +358,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
 \begin{exercise}
   \marginnote[1em]{This shows that there is a unique integral curve of $X$ starting at each point of the plane and that the images of any two integral curves are either identical or disjoint.}
   Let $(x,y)$ be standard coordinates on $\R^2$ and let $X=\frac{\partial}{\partial x}$ be the first coordinate vector field.
-  Show that the integral curves of $X$ are the straight lines parallel to the $x$-axis, with parametrizations of the form $\gamma(t) = \alpha t + \beta$ for some constants $\alpha, \beta \in\R$.
+  Show that the integral curves of $X$ are the straight lines parallel to the $x$-axis, with parametrizations of the form $\gamma(t) = t + \alpha$ for some constants $\alpha \in\R$.
 \end{exercise}
 
 \begin{example}
@@ -380,10 +380,10 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
   \end{equation}
   whose general solution is given by
   \begin{equation}
-    x(t) = \alpha\cos(t) + \beta\sin(t), \quad
+    x(t) = \alpha\cos(t) - \beta\sin(t), \quad
     y(t) = \alpha\sin(t) + \beta\cos(t), \quad \alpha,\beta\in\R.
   \end{equation}
-  Thus each curve of the form $\gamma(t) = (\alpha\cos(t) + \beta\sin(t), \alpha\sin(t) + \beta\cos(t))$ is an integral curve of $Z$.
+  Thus each curve of the form $\gamma(t) = (\alpha\cos(t) -  \beta\sin(t), \alpha\sin(t) + \beta\cos(t))$ is an integral curve of $Z$.
   When $\alpha=\beta=0$, this is the constant curve $\gamma(t)\equiv (0,0)$, otherwise, $\gamma$ moves counter-clockwise describing a circle.
   \marginnote[-4em]{Since $\gamma(0) = (a,b)$, also in this case, there is a unique integral curve starting at each point $(\alpha, \beta)\in\R^2$, and the images of any two integral curves are either identical or disjoint.}
 \end{example}
@@ -407,7 +407,7 @@ Indeed, if $(U, \phi)$ is a chart with coordinates\footnote{We will soon stop be
   = X^i(\gamma(t))\frac{\partial}{\partial x^i}\Big|_{\gamma(t)},\quad i=1,\ldots,n,
 \end{equation}
 where we use the dot to denote the derivative in $t$ for readability.
-These equations can be further rewritten as the system of partial differential equations of the same form as \eqref{eq:XflowRn}
+These equations can be further rewritten as the system of ordinary differential equations of the same form as \eqref{eq:XflowRn}
 \begin{equation}
   \begin{cases}
     \dot\gamma^1(t) = X^1(\gamma^1(t), \ldots, \gamma^n(t)) \\
@@ -422,7 +422,7 @@ This immediately implies the following theorem.
 
 \begin{theorem}[Existence, uniqueness and differentiability of local solutions] %
   \label{thm:exuniqloc}
-  Let $M$ be a smooth manifold and $X\in\fX(M)$. For every $x\in \circ M := M\setminus \partial M$, there exists $\epsilon > 0$, an open neighbourhood $U\subset\circ M$ of $x$ and a unique map $\Phi : (-\epsilon, \epsilon) \times U \to M$, $(t, p) \mapsto \Phi(t,p)$, such that
+  Let $M$ be a smooth manifold and $X\in\fX(M)$. For every $x\in \mathring M := M\setminus \partial M$, there exists $\epsilon > 0$, an open neighbourhood $U\subset\mathring M$ of $x$ and a unique map $\Phi : (-\epsilon, \epsilon) \times U \to M$, $(t, p) \mapsto \Phi(t,p)$, such that
   \begin{enumerate}[(i)]
     \item for every $p\in U$, the curve $\Phi_p : (-\epsilon, \epsilon) \to M$, $t\mapsto \Phi_p(t) := \Phi(t, p)$ is an integral curve of $X$ through $p$, that is, $\Phi_p' = X\circ\Phi_p$ and $\Phi_p(0) = p$;
     \item for every $t\in(-\epsilon, \epsilon)$, the map $\Phi_t: U \to M$, $p\mapsto \Phi_t(p):=\Phi(t,p)$, is a diffeomorphism from $U$ onto an open subset of $M$.
@@ -449,12 +449,12 @@ If a local flow is defined on $\R\times M$, we call it a \emph{global flow} and 
   \begin{equation}
     \Phi^L(t,p) = (p^1+t, p^2, \ldots, p^n).
   \end{equation}
-  Such flow $\Phi^L$ is called \emph{linear drift}.
+  Linear motions along a coordinate, like $\Phi^L$, are sometimes called linear drifts.
 \end{example}
 
 Every smooth vector field has a local flow about any point, but not necessarily a global flow.
 \begin{example}[A global flow may not exist]\label{ex:non-complete}
-  Let $M = R^2$ and $X = x^2 \frac{\partial}{\partial x}$.
+  Let $M = \R^2$ and $X = x^2 \frac{\partial}{\partial x}$.
   Then, the unique integral curve of $X$ starting a $(1,0)$ is
   \begin{equation}
     \gamma(t) = \left(\frac{1}{1-t}, 0\right).
@@ -480,7 +480,7 @@ This justifies the following definition.
   \end{equation}
 \end{remark}
 
-Note that $I_p$ is typically larger than the domain of definition $(-\epsilon, \epsilon)$ of $\Phi_p$. By construction $\Phi_p$ never leaves the coordinate set $U$ over which it was defined, on the other hand $\gamma_p$ can in general wander all over the manifold -- even though $\gamma_p = \Phi_p$ for values of $t$ small enough!
+Note that $I_p$ is typically larger than the domain of definition $(-\epsilon, \epsilon)$ of $\Phi_p$. By construction $\Phi_p$ never leaves the coordinate set $U$ over which it was defined, on the other hand $\gamma_p$ can in general wander all over the manifold\todo{Add picture!} -- even though $\gamma_p = \Phi_p$ for values of $t$ small enough!
 
 Again, theorems about existence and uniqueness of euclidean maximal flows imply that we can extend $\Phi_p$ uniquely to a maximal flow.
 
@@ -537,16 +537,16 @@ When we want to emphasize the vector field $X$, we will write $\Phi^X$.
 \begin{remark}\label{rmk:automorphismgroup}
   The point of view taken to define \eqref{eq:flowdiffeo} brings to the table a very important fact: $\Phi_t : M_t \to M_{-t}$ is a smooth map with smooth inverse $(\Phi_t)^{-1}:=\Phi_{-t}: M_{-t} \to M_t$.
 
-  That is, $\Phi_t$ is a diffeomorphism, $\Phi_0 = \id_M$ and, more generally, if $s,t \in \R$ then the domain $P$ of $\Phi_s \circ \Phi_t$ is contained in $M_{s+t}$ (with equality if $sm \geq 0$) and $\Phi_s \circ \Phi_t = \Phi_{s+t}$ in $P$.  
+  That is, $\Phi_t$ is a diffeomorphism, $\Phi_0 = \id_M$ and, more generally, if $s,t \in \R$ then the domain $P$ of $\Phi_s \circ \Phi_t$ is contained\footnote{Equality holds if $st \geq 0$, that is, if they have the same sign.} in $M_{s+t}$ and $\Phi_s \circ \Phi_t = \Phi_{s+t}$ in $P$.  
 \end{remark}
 
-For a complete vector field $X$, $\cD = \R\times M$. Furthermore, by the previous considerations either the integral curves of $X$ exist for all time or the maps $\Phi^X_t(p)$ are all diffeomorphism of the entire manifold $M$.
+For a complete vector field $X$, $\cD = \R\times M$.
 
 \begin{definition}
   We denote $\diff(M)$ the set of diffeomorphisms\footnote{Also called \emph{automorphisms} to stress that domain and codomain coincide.} $\varphi: M \to M$.
-\end{definition}
 
-Remark~\ref{rmk:automorphismgroup} immediately implies that $\diff(M)$ is a group under composition (why?).
+  Note that $\diff(M)$ is a group under composition, where the identity element is just the identity map.
+\end{definition}
 
 \begin{definition}
   A \emph{one-parameter group of diffeomorphisms}\footnote{If you stumble upon a one-parameter group \emph{action}, don't be scared: it is the same exact thing where $\Phi$ is required to be continuous instead of smooth.} is a smooth left $\R$-action on $M$, that is, a smooth map $\Phi:\R\times M \to M$ such that for all $s,t\in\R$ and all $p\in M$:
@@ -555,22 +555,23 @@ Remark~\ref{rmk:automorphismgroup} immediately implies that $\diff(M)$ is a grou
     &\Phi(t, \Phi(s, p)) = \Phi(t+s, p).
   \end{align}
   
-  In other words, a one-parameter group of diffeomorphism is another name for a global flow and the two properties above are exactly the group laws.
+  In other words, a one-parameter group of diffeomorphism is another name for global flow and the two properties above are exactly the group laws.
   And, indeed, we usually denote the map $t\mapsto\Phi(t,\cdot)$ by $\Phi_t$.
 
-  \begin{marginfigure}
-    \includegraphics{3_1-vfield-infgen.pdf}
-    \label{fig:3_1-vfield-infgen}
-    \caption{One can think of a flow as a sequence of many infinitesimal straight motions determined by the value of the vector field, that is where ``infinitesimal generator'' comes from. We will soon make this rigorous.}
-  \end{marginfigure}
   If $\{\Phi_t\}$ is a one-parameter group of diffeomorphisms, then we define its \emph{infinitesimal generator} as the (complete) vector field\footnote{In a more compact form, we have just written $X_p = \frac{d}{dt}|_{t=0}\Phi_t(p)$.}
   \begin{equation}\label{eq:infgen}
     X_p := d\Phi_{(0,p)}\left(\frac{\partial}{\partial t}\Big|_{(0,p)}\right).
   \end{equation}
-  Then the flow of $X$ is simply the one-parameter group $\Phi_t$.
+  Hence, the flow of $X$ is simply the one-parameter group $\Phi_t$.
 
   Always keep in mind that \eqref{eq:infgen} is just a ``scary'' way to write $X_p := \Phi_p'(0)$ where the role of the differential and the nature of the vector field are more explicit.
 \end{definition}
+\begin{marginfigure}
+  \includegraphics{3_1-vfield-infgen.pdf}%
+  \caption{One can think of a flow as a sequence of many infinitesimal straight motions determined by the value of the vector field, that is where ``infinitesimal generator'' comes from. We will soon make this rigorous.}%
+  \label{fig:3_1-vfield-infgen}
+\end{marginfigure}
+
 \begin{marginfigure}
   \includegraphics{3_2_14-infgen.pdf}
 \end{marginfigure}
@@ -708,7 +709,7 @@ A natural question, at this point, is what happens when we map integral curves t
 With this we can show that the Lie bracket of two vector fields is zero (i.e., they commute as operator on functions) if and only if their flows commute, that is $\Phi^X_t \circ \Phi^Y_s = \Phi^Y_s\circ \Phi^X_t$ for all $t,s\in\R$.
 
 \begin{proposition}
-  Let $M$ be a smooth manifolds and $X,Y\in\fX(M)$. Then $[X,Y]=0$ if and only if their flows commute.
+  Let $M$ be a smooth manifold and $X,Y\in\fX(M)$. Then $[X,Y]=0$ if and only if their flows commute.
 \end{proposition}
 \begin{proof}
   First we show that $[X,Y] = 0$ implies that
@@ -725,7 +726,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
     = e_*^{-tX} [X,Y] = 0.
   \end{align}
   
-  $(\Longrightarrow)$ Fix $t\in\R$. We are going to show that $\Phi_s := e^{-tX}\circ e^{sY}\circ e^{tX}$ is the flow of $Y$, i.e. $\Phi_s = = e^{sY}$.
+  $(\Longrightarrow)$ Fix $t\in\R$. We are going to show that $\Phi_s := e^{-tX}\circ e^{sY}\circ e^{tX}$ is the flow of $Y$, i.e. $\Phi_s = e^{sY}$.
   We can use the previous trick, \eqref{eq:intcurvconst} and \eqref{eq:expdiff} to get, for any $s\in\R$,
   \begin{align}
     \frac{\partial}{\partial s} \Phi_s
@@ -761,7 +762,7 @@ After this parenthesis, let's go back to our final objective: we can finally jus
 The following theorem shows that every flow $\Phi^X$ admits local coordinates on its support which map it into a linear flow.
 
 \begin{definition}
-  Let $M$ be a smooth manifold and $x\in\fX(M)$. 
+  Let $M$ be a smooth manifold and $X\in\fX(M)$. 
   The \emph{support of $X$} is defined as
   \begin{equation}
     \supp(X):=\overline{\left\lbrace p\in M \;\mid\; X_p\neq 0 \in T_p M\right\rbrace}\subset M.
@@ -783,7 +784,7 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
   \end{equation}
 \end{theorem}
 \begin{proof}
-  Choose a coordinate patch $(U_1, \psi)$ around $p$ (so $\psi(p) = 0$) such that $\psi_* X(0) = (1,0,0,\ldots, 0)$.
+  Choose\todo{Add clarification note on how to construct it and example.} a coordinate patch $(U_1, \psi)$ centered at $p$ (so $\psi(p) = 0$) such that $\psi_* X(0) = (1,0,0,\ldots, 0)$.
   By continuity of $\psi_*X\in \fX(\psi(U_1))$, we can always restrict to a smaller neighbourhood $V_2\subset \psi(U_1)$ on which $(\psi_*X)^1(q) > \frac12$ for all $q\in V_2$.
 
   Our objective is to interpolate $\psi_* X$ on $V\subset V_2$ and $L$ on $V_2^c$ to obtain a new vector field $\widetilde{L}$ on all of $\R^n$ which is diffeomorphic to $\widetilde{L}$.

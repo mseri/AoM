@@ -23,7 +23,7 @@ Keep in mind, that at a certain point, we will be interested to replace such spa
   \begin{equation}
     \mathrm{Mult}(V_1, \ldots, V_k)
   \end{equation}
-  denote the space of multilinear maps $V_1\times\cdot V_k\to\R$.
+  denote the space of multilinear maps $V_1\times\cdots\times V_k\to\R$.
 
   A multilinear map
   \begin{equation}
@@ -44,7 +44,7 @@ Keep in mind, that at a certain point, we will be interested to replace such spa
   \begin{equation}
     T^r_s(V) := \mathrm{Mult}(\LaTeXoverbrace{V^*,\ldots,V^*}^{r \mbox{ times}}, \LaTeXunderbrace{V, \ldots, V}_{s \mbox{ times}})
   \end{equation}
-  of tensors of type $(r,s)$ with the structure of a vector space\footnote{Be careful when reading books and papers, for these spaces the literature is wild: there are so many different conventions and notations that there is not enough space on this margin to mention them all. Note that the book of Lee inverts the order of superscripts and subscripts in $T^r_s$.}. %of dimension $(\dim V)^{r+s}$.
+  of tensors of type $(r,s)$ with the structure of a vector space\footnote{Be careful when reading books and papers, for tensor spaces the literature is wild: there are so many different conventions and notations that there is not enough space on this margin to mention them all. Note that the book of Lee inverts the order of superscripts and subscripts in $T^r_s$.}. %of dimension $(\dim V)^{r+s}$.
   In particular, $V^* = T_1^0(V)$ and $V=T_0^1(V)$.
 \end{definition}
 
@@ -91,8 +91,8 @@ In fact, this is a general fact.
 \marginnote{A more general approach to this proposition is by proving the universal property of tensor spaces. See for instance \cite[Propositions 12.5, 12.7 and 12.8]{book:lee}.}
 \begin{proposition}\label{prop:tensorbasis}
   Let $V$ be an $n$-dimensional vector space.
-  Let $\{e_j\}$ and $\{\varepsilon^i\}$ respectively denote the bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$.
-  Then, every $\tau\in V_s^r$ can be uniquely written as the linear combination\marginnote{Exercise: epand Einstein's notation to write the full sum on the left with the relevant indices.}% In the expression, all indices $j_1,\ldots,j_r$, $i_1,\ldots,i_s$ run from $1$ to $n$.}
+  Let $\{e_j\}$ and $\{\varepsilon^i\}$ respectively denote the bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$ respectively.
+  Then, every $\tau\in V_s^r$ can be uniquely written as the linear combination\marginnote{Exercise: expand Einstein's notation to write the full sum on the left with the relevant indices.}% In the expression, all indices $j_1,\ldots,j_r$, $i_1,\ldots,i_s$ run from $1$ to $n$.}
   \begin{equation}\label{eq:tensor:decomposition}
     \tau = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s},
   \end{equation}
@@ -115,18 +115,21 @@ In fact, this is a general fact.
   \begin{equation}
     \tau^{j_1\cdots j_r}_{i_1\cdots i_s} := \tau(\beta^{j_1}, \ldots, \beta^{j_r}, b_{i_1}, \ldots, b_{i_s}).
   \end{equation}
-  Then, on any element of the form $(\beta^{j_1}, \ldots, \beta^{j_r}, b_{i_1}, \ldots, b_{i_s})$, we trivially have the decomposition \eqref{eq:tensor:decompo}. By multilinearity of all the terms involved, \eqref{eq:tensor:decomposition} holds for any element $(\omega^1, \ldots, \omega^r, v_1, \ldots, v_s)$ after decomposing it on the basis.
+  Then, on any element of the form $(\beta^{j_1}, \ldots, \beta^{j_r}, b_{i_1}, \ldots, b_{i_s})$, we trivially have the decomposition \eqref{eq:tensor:decomposition}. By multilinearity of all the terms involved, \eqref{eq:tensor:decomposition} holds for any element $(\omega^1, \ldots, \omega^r, v_1, \ldots, v_s)$ after decomposing it on the basis.
 
   Uniqueness follows from the linear independence of the tensor products $e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s}$ proceeding by contradiction.
 \end{proof}
 
+\begin{exercise}
+Formalize in details the last step of the proof: uniqueness follows from the linear independence of the tensor products.
+\end{exercise}
+
 \begin{remark}
-  If $V_1, \ldots, V_k$ are vector spaces, 
-  there is a canonical isomorphism such that
+  There is a canonical isomorphism such that
   \begin{equation}
     T^r_s(V) \simeq \LaTeXoverbrace{V\otimes \cdots \otimes V}^{r\mbox{ times}} \times \LaTeXunderbrace{V^*\otimes \cdots \otimes V^*}_{s\mbox{ times}}.
   \end{equation}
-  This allows us to choose whichever interpretation is more convenient for the problem at hand. 
+  This allows us to choose whichever interpretation is more convenient for the problem at hand: being it a multilinear map on a cross product of spaces or an element of the tensor product of spaces.
 \end{remark}
 
 
@@ -145,7 +148,7 @@ Let's go back for a moment to the example of inner products.
   \end{equation}
   
   A \emph{metric tensor} or \emph{scalar product} is a non-degenerate pseudo-metric tensor.
-  An example of non-degenerate tensor which is not a metric is the so-call \emph{symplectic form}: a skew-symmetric non-degenerate $(0,2)$-tensor which is central in classical mechanics and the study of Hamiltonian systems.
+  An example of non-degenerate tensor which is not a metric is the so-called \emph{symplectic form}: a skew-symmetric non-degenerate $(0,2)$-tensor which is central in classical mechanics and the study of Hamiltonian systems.
 \end{definition}
 
 \begin{example}
@@ -164,10 +167,10 @@ Let's go back for a moment to the example of inner products.
   \marginnote{That ${}^\flat$ is an isomorphism follows immediately from the linearity and the fact that non-degeneracy implies that its kernel contains only the zero vector.}
   The matrix of ${}^\flat$, by definition, is $[g_{ij}]$, that is,
   \begin{equation}
-    (v^\flat)_i = g_ij v^j,
+    (v^\flat)_i = g_{ij} v^j,
   \end{equation}
   where the $v^j$ are the components of $v$.
-  Therefore, the matrix of ${}^\sharp$ is the inverse $[g{^ij}]$ of the inner product matrix, that is, 
+  Therefore, the matrix of ${}^\sharp$ is the inverse\footnote{Using lower indices for matrix entries and upper indices for the entries of the inverse is very common. It turns out to be an especially convenient notation, which simplifies many formulas in general relativity and classical mechanics.} $[g^{ij}]$ of the inner product matrix, that is, 
   \begin{equation}
     (\omega^\sharp)^i = g^{ij}\omega_j,
   \end{equation}
@@ -186,7 +189,7 @@ Let's go back for a moment to the example of inner products.
   \begin{enumerate}
     \item Show that the space $T^1_1(V)$ is canonically isomorphic to the space of endomorphisms of $V$, that is, of linear maps $L:V\to V$.
 
-    \item If $\ell\in T^1_1(V)$ is the tensor associated to $A$, show that its components $\ell^j$ are just the matrix entries of $A$ seen as a matrix.
+    \item If $\ell\in T^1_1(V)$ is the tensor associated to $A$, show that its components $\ell_i^j$ are just the matrix entries of $A$ seen as a matrix.
   
     \item Of course, given the previous example, $T^1_1(V)$ is also canonically isomorphic to the space of endomorphisms of $V^*$, that is, of linear maps $\Lambda:V^*\to V^*$.
     Prove the claim by explicitly constructing the mapping $\ell \leftrightarrow \Lambda$.
@@ -241,7 +244,7 @@ applying the previous reasoning and comparing term by term we get
 \end{exercise}
 
 \begin{remark}
-  Interestingly, even though each of the tensor spaces $T_s^r(V)$ is generally not an algebra, the map $\otimes$ transform the collection of all tensor spaces
+  Interestingly, even though each of the tensor spaces $T_s^r(V)$ is generally not an algebra, the map $\otimes$ transforms the collection of all tensor spaces
   \marginnote{This is a so-called \emph{graded algebra} since $\otimes :  T_s^r(V)\times T_{s'}^{r'}(V) \to T_{s+s'}^{r+r'}(V)$ in some sense moves along the structure of the indices.}
   \begin{equation}
     T(V) := \bigoplus_{r,s\geq 0} T_s^r(V), \qquad T_0^0(V):= \R,
@@ -337,7 +340,7 @@ where $\tau^{j_1\cdots j_r}_{i_1\cdots i_s}\in C^\infty(M)$.
 
   \begin{enumerate}
     \item The euclidean space $\R^n$ is a Riemannian manifold with the usual scalar product, which we can represent as $g = \sum_{i=1}^n dx^i\otimes dx^i$ (What is its matrix form?).
-    \item If $M=\R^4$, an example of pseudo-Riemannian metric is the Minkowski metric $g = g_ij dx^i\otimes dx^j$ where $[g_ij] = {\left(\begin{smallmatrix} -1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{smallmatrix}\right)}$. The pseudo-Riemannian manifold $(M, g)$ is the space-time manifold of special relativity, with $x^1 = t$ is the time and $(x^2, x^3, x^4) = (x,y,z)$ is the space.
+    \item If $M=\R^4$, an example of pseudo-Riemannian metric is the Minkowski metric $g = g_{ij} dx^i\otimes dx^j$ where $[g_{ij}] = {\left(\begin{smallmatrix} -1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{smallmatrix}\right)}$. The pseudo-Riemannian manifold $(M, g)$ is the space-time manifold of special relativity, with $x^1 = t$ is the time and $(x^2, x^3, x^4) = (x,y,z)$ is the space.
   \end{enumerate}
 \end{example}
 
@@ -434,7 +437,7 @@ With this diffeomorphism at hand, we can finally define the pushforward.
 \end{definition}
 
 \begin{example}
-  Let $f\in\cT_0^0(M)$, then $F_* f = f\circ \Phi^{-1}$. In line with what we had seen in the previous chapter.
+  Let $f\in\cT_0^0(M)$, then $F_* f = f\circ F^{-1}$. In line with what we had seen in the previous chapter.
   Similarly, for $X\in\cT_0^1(M)$ we have the pushforward $F_* X = dF\circ X \circ F^{-1}$.
   An interesting, not really surprising though (right?), property is the following: $F_* df = d(F_* f)$.
 \end{example}
@@ -461,7 +464,7 @@ Note that thanks to this duality between pullback and pushforward, the dual pair
 Can you show why?
 
 \begin{example}[Change of coordinates for tensor fields]
-  Let, as usual,$(U,\phi)$ be a chart on $M$ with local coordinates $(x^i)$.
+  Let, as usual, $(U,\phi)$ be a chart on $M$ with local coordinates $(x^i)$.
   If $\{e^i:\R^n\to\R\}$ are the standard euclidean coordinates\footnote{Have a look at Notation~\ref{ntn:coords} if you don't remember what I am talking about.
   Here we are using the notation $e^i \equiv r^i$ since now we know that $\{e^i\}$ is just the dual basis to $\{e_i\}$. } and $\{e_i\}$ are the standard basis vectors in $\R^n$, then the coordinate $1$-forms and the coordinate vector fields on $U\subset M$ are given by
   \begin{equation}
@@ -469,7 +472,7 @@ Can you show why?
     \quad\mbox{and}\quad
     \frac{\partial}{\partial x^i} = (\phi^{-1})_* e_i.
   \end{equation}
-  This immediately exposes the transformation laws for the change of coordinates: let $(U, \psi)$ be another chart on $U$ with local coordinates $(y^i)$, then $dy^i = \psi^* de^i$ and $\frac{\partial}{\partial y^i} = (\psi^{-1})_* e_i$. If we denote $\Psi = \psi\circ\phi^{-1}$ the transition map in $\R^n$, we get
+  This immediately exposes the transformation laws for the change of coordinates: let $(U, \psi)$ be another chart on $U$ with local coordinates $(y^i)$, then $dy^i = \psi^* de^i$ and $\frac{\partial}{\partial y^i} = (\psi^{-1})_* e_i$. If we denote $\Phi = \psi\circ\phi^{-1}$ the transition map in $\R^n$, we get
   \begin{align}
     \frac{\partial}{\partial x^i} &= (\phi^{-1})_* e_i \\
     &= (\phi^{-1})_* \LaTeXunderbrace{(\Phi^{-1})_*\Phi_*}_{\id} e_i \\

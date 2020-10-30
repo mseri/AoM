@@ -4,8 +4,10 @@ There are mathematical objects that are pervasive in mathematics, even outside t
 
 The theory of Lie groups and Lie algebras is vast, and in these lectures we will just briefly scratch the surface.
 
+\section{Lie groups}
+
 \begin{definition}
-  A \emph{Lie group $G$} is a smooth manifold (without boundary) that is also an algebraic group, with the property that the multiplication map $\mu: G\times G \to G$, $\mu:(g,h)\mapsto gh$, and the inversion map $\iota:G\to G$, $iota: g\mapsto g^{-1}$ are smooth.
+  A \emph{Lie group $G$} is a smooth manifold (without boundary) that is also an algebraic group, with the property that the multiplication map $\mu: G\times G \to G$, $\mu:(g,h)\mapsto gh$, and the inversion map $\iota:G\to G$, $\iota: g\mapsto g^{-1}$ are smooth.
 \end{definition}
 
 \begin{example}
@@ -234,7 +236,7 @@ A fundamental fact is that $\fX(G)$ is finite dimensional.
     By construction, $v^L$ satisfies the section property\footnote{If you don't know what we are talking about, have another look at Definition~\ref{def:vfield}.}, since $\d(L_g)_e:T_eG\to T_gG$.
     \begin{itemize}
       \item $v^L$ is a vector field: we will show that $v^L g$ is smooth for any $f\in C^\infty(G)$.
-      To this end, pick a smooth curve $\gamma:(-\epsilon,\epsilon)\to G$ such that $\gamma(0)=e$ and $\gamma'(0) = v$. The, for any $g\in G$ we have
+      To this end, pick a smooth curve $\gamma:(-\epsilon,\epsilon)\to G$ such that $\gamma(0)=e$ and $\gamma'(0) = v$. Then, for any $g\in G$ we have
       \begin{align}
         (v^L f)(g) &= v^L(g) f \\
         &= d(L_g)_e(v) f\\
@@ -354,7 +356,7 @@ With Lie groups and Lie algebras, we will bring the construction to the next lev
 \begin{definition}
   \marginnote{There is a strict relation between one-parameter groups of diffeomorphisms and one-parameter subgroups of a Lie group. We will not discuss it here, just be aware that -- in some sense -- it mimicks what we are exploring here in the setting of infinite-dimensional Lie groups.}
   Let $G$ be a Lie group with Lie algebra $\fg$.
-  We call \emph{one-parameter subgroup} of $G$ a Lie group homomorphism $\R\to G$.
+  We call a \emph{one-parameter subgroup} of $G$ a Lie group homomorphism $\R\to G$.
 \end{definition}
 
 Given the introduction, the following theorem should not come as a surprise.
