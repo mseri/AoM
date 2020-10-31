@@ -361,7 +361,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
   Show that the integral curves of $X$ are the straight lines parallel to the $x$-axis, with parametrizations of the form $\gamma(t) = t + \alpha$ for some constants $\alpha \in\R$.
 \end{exercise}
 
-\begin{example}
+\begin{example}\label{ex:rotation}
   Let $(x,y)$ be standard coordinates on $\R^2$ and $Z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}$ on $\R^2$.
   If $\gamma:\R^2\to\R$ is a smooth curve, written in standard coordinates as $\gamma(t) = (x(t), y(t))$, then the condition \eqref{eq:integralCurve} for $Z$ and $\gamma$ translates into
   \marginnote{Make sure that you have understood why this is true.}
@@ -789,11 +789,11 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
   \end{equation}
 \end{theorem}
 \begin{proof}
-  Choose\footnote{This can always be done via a parametrisation of the hyperplane orthogonal to $X$ by $(x^2, \ldots, x^{n}) = (0,\ldots,0)$, where the $(x^i)$ denote the local coordinates. \textcolor{red}{TODO add explicit example.}} a coordinate patch $(U_1, \psi)$ centred at $p$ (so $\psi(p) = 0$) such that $\psi_* X(0) = (1,0,0,\ldots, 0)$.
+  Choose\footnote{This can always be done via a parametrisation of the hyperplane transversal to $X$ by $(x^2, \ldots, x^{n}) = (0,\ldots,0)$, where the $(x^i)$ denote the local coordinates. Cf. Example~\ref{ex:hyplin}.} a coordinate patch $(U_1, \psi)$ centred at $p$ (so $\psi(p) = 0$) such that $\psi_* X(0) = (1,0,0,\ldots, 0)$.
   By continuity of $\psi_*X\in \fX(\psi(U_1))$, we can always restrict to a smaller neighbourhood $V_2\subset \psi(U_1)$ on which $(\psi_*X)^1(q) > \frac12$ for all $q\in V_2$.
 
   Our objective is to interpolate $\psi_* X$ on $V\subset V_2$ and $L$ on $V_2^c$ to obtain a new vector field $\widetilde{L}$ on all of $\R^n$ which is diffeomorphic to $\widetilde{L}$.
-  If $\Omega:\R^n\to\R^n$ is such diffeomorphism, i.e. $\Omega_* \tilde  L = L$, then $\phi = \Omega\circ\psi$ is the chart we are looking for: indeed, on $U=\psi^{-1}(V)$ we have $\phi_* X = \Omega_*\psi_*X = \Omega_* \widetilde{L} = L$.
+  If $\Omega:\R^n\to\R^n$ is such diffeomorphism, i.e. $\Omega_* \widetilde  L = L$, then $\phi = \Omega\circ\psi$ is the chart we are looking for: indeed, on $U=\psi^{-1}(V)$ we have $\phi_* X = \Omega_*\psi_*X = \Omega_* \widetilde{L} = L$.
 
   \newthought{Interpolated vector field $\widetilde{L}$}. Let $V\subset V_2$ be an open set around $0$. Pick a cutoff function $\chi\in C^\infty(\R^n)$ such that $\chi(x) = 1$ for $x\in U$ and $\chi(x) =0$ for $x\in U_2^c$.
   Then the interpolating vector field is immediately obtained as
@@ -835,18 +835,33 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
     which, at $t=0$, gives $\widetilde{L} = d\Omega^{-1} \circ L \circ \Omega = \Omega^{-1}_* L$.
 \end{proof}
 
+\begin{example}\label{ex:hyplin}
+Let $Z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}$ on $\R^2$ be the vector field from Example~\ref{ex:rotation}, where we already computed its flow.
+
+The point $(1,0)\in\R^2$ is a regular point of $Z$, since $Z_{(1,0)} = \frac{\partial}{\partial y}\Big|_{(1,0)} \neq 0$.
+Since $Z$ has a nonzero $y$ coordinate, we can consider the as the transversal ``hypersurface'', a line in this case, the $x$-axis, parametrised by $H(s) = (s,0)$.
+We can then define the map $\Psi(t,s) = \Phi_t\circ H(s) : \R^2\to\R^2$ where $\Phi_t$ is the flow of $Z$, it turns out that then the coordinate map would just be the inverse of $\Psi$.
+
+In this case: $\Psi(t,s) = \Phi_t(s,0) = (s\cos t, s\sin t)$.
+Solving locally for $(t,s)$ as functions of $x$ and $y$ we get, in a neighbourhood of $(1,0)$:
+\begin{equation}
+  (t,s) = \Psi^{-1}(x,y) = \left(\arctan(y/x), \sqrt{x^2+y^2}\right).
+\end{equation}
+In this new coordinates, which are just polar coordinates labelled with different symbols, you can directly check that $Z = \frac{\partial}{\partial t}$ as claimed.
+\end{example}
+
 \begin{remark}[Linearisation of a vector field at a fixed point]
-  Away from the fixed points, the previous theorem, tells us that the flow is locally linear.
+  Away from the fixed points, the previous theorem tells us that the flow is locally linear.
   Near a fixed point we can describe the flow in terms of the \emph{linearisation} of the associated vector field.
 
-  If $X\in\fX(M)$ and $p_0\in M$ with $X_{p_0} = 0$. On a chart $\phi$ centred at $p_0$ with local coordinates $(x^i)$, let $\tilde X = \phi_* X$.
+  If $X\in\fX(M)$ and $p_0\in M$ with $X_{p_0} = 0$. On a chart $\phi$ centred at $p_0$ with local coordinates $(x^i)$, let $\widetilde X = \phi_* X$.
   Then we have
   \begin{equation}
-    \tilde X_x = \underbrace{\tilde X_0}_{=0} + d\tilde X_0 x + \cO(\|x\|^2) = d\tilde X_0 x + \cO(\|x\|^2).
+    \widetilde X_x = \underbrace{\widetilde X_0}_{=0} + d\widetilde X_0 x + \cO(\|x\|^2) = d\widetilde X_0 x + \cO(\|x\|^2).
   \end{equation}
-  Close to $x=0$ we can thus approximate $\tilde X_x$ by its linearisation $ d\tilde X_0 x$.
+  Close to $x=0$ we can thus approximate $\widetilde X_x$ by its linearisation $ d\widetilde X_0 x$.
   %
-  Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\tilde X_0 x$ is independent of the choice of local coordinates.} of $d\tilde X_0 x$ and their geometric multiplicities (cf. \cite[Figure 9.8]{book:lee}). This is the same as you have seen in the euclidean case \cite[Chapter 5.3]{book:knauf}.
+  Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\widetilde X_0 x$ is independent of the choice of local coordinates.} of $d\widetilde X_0 x$ and their geometric multiplicities (cf. \cite[Figure 9.8]{book:lee}). This is the same as you have seen in the euclidean case \cite[Chapter 5.3]{book:knauf}.
 \end{remark}
 
 \begin{tcolorbox}
