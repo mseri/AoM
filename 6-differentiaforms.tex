@@ -107,12 +107,13 @@ It would be convenient to have a similar basis representation on $\Lambda^k(V)$.
     &=\omega\left(e^{i_1}(v_q) e_{i_1}, \ldots, e^{i_k}(v_k) e_{i_k}\right)\\
     &=e^{i_1}(v_1)\cdots e^{i_k}(v_k)\; \omega(e_{i_1}, \ldots, e_{i_k})\\
     &=e^{i_1}(v_1)\cdots e^{i_k}(v_k) \frac1{k!} \sum_{\sigma\in S_k}\sgn(\sigma)\; \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k).}}\right) \\
-    \overset{\mbox{\eqref{eq:altchar}}}{}
+    \overset{\mbox{\small\eqref{eq:altchar}}}{}
     &= \frac1{k!} \left(e^{i_1}\otimes \cdots \otimes e^{i_k} \;\mid\; v_1, \ldots, v_k\right) \sum_{\sigma\in S_k}\sgn(\sigma)\; \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k)}}\right) \\
-    \overset{(i_{\sigma(l)} \mapsto j_l)}{}
+    \overset{[i_{\sigma(l)} \mapsto j_l]}{}
     &= \frac1{k!} \omega\left(e_{j_1}, \ldots, e_{j_k}\right) \sum_{\sigma\in S_k} \sgn(\sigma) \;\left(e^{j_{\sigma^{-1}(1)}}\otimes \cdots \otimes e^{j_{\sigma^{-1}(k)}} \;\mid\; v_1, \ldots, v_k\right)\\
+    \overset{\mbox{\small\eqref{eq:detLeibniz}}}{}
     &= \frac1{k!} \omega\left(e_{j_1}, \ldots, e_{j_k}\right) \left( e^{j_1}\wedge \cdots \wedge e^{j_k} \;\mid\; v_1, \ldots, v_k\right) \\
-    \overset{\mbox{dedup.}}{}
+    \overset{\mbox{\small dedup.}}{}
     &= \sum_{j_1=1}^{n-k+1}\sum_{j_2=j_1+1}^{n-k+2}\cdots \sum_{j_k=j_{k-1}+1}^{n} \omega\left(e_{j_1}, \ldots, e_{j_k}\right) \left(e^{j_1}\wedge \cdots \wedge e^{j_k} \;\mid\; v_1, \ldots, v_k\right).
   \end{align}
   That is,
@@ -174,8 +175,8 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
 \begin{definition}[Wedge product of alternating forms]
   We can extend the wedge product (or exterior product) to alternating forms by defining, for any $k,h\in\N$,
   \begin{align}
-    \wedge : &\Lambda^k\times\Lambda^h \to \Lambda^{k+h}\\
-    &(\omega, \nu) \mapsto \omega\wedge\nu := \frac{(k+h)!}{k!h!} \Alt_{k+h}(\omega\otimes\nu).
+    \wedge : \Lambda^k\times\Lambda^h &\to \Lambda^{k+h}\\
+    (\omega, \nu) &\mapsto \omega\wedge\nu := \frac{(k+h)!}{k!h!} \Alt_{k+h}(\omega\otimes\nu).
   \end{align}
 \end{definition}
 
