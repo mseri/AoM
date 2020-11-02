@@ -12,7 +12,7 @@ Such vector space is called \emph{tangent space to $M$ at $x$} and, for a manifo
 As we will see, there are various different definition of tangent space but, in the end, they all turn out to be equivalent.
 
 Due to the amount of freedom and the many equivalent definitions, there is no unique way of introducing tangent spaces.
-Just to give you an idea, all the following approaches lead to equivalent definitions (see also \cite{book:lee}):
+Just to give you an idea, all the following approaches lead to equivalent definitions (see also~\cite{book:lee}):
 \begin{enumerate}
   \item equivalence classes of curves through a point;
   \item transformation laws of the components of vectors with respect to different charts;
@@ -21,9 +21,9 @@ Just to give you an idea, all the following approaches lead to equivalent defini
 \end{enumerate}
 
 It is also possible to ``flip'' the whole construction around, constructing differentials and cotangent spaces and using them to introduce the tangent spaces.
-This is the approach taken by \cite{lectures:hitchin} and it is at least worth of a look if you want to see a different perspective.
+This is the approach taken by~\cite{lectures:hitchin} and it is at least worth of a look if you want to see a different perspective.
 
-To avoid diverging from \cite{book:tu} too much\footnote{Since it used to be the compulsory reading material in the previous years.}, we will stick to derivations on the space of germs, which emphasizes the locality of derivations to an extreme.
+To avoid diverging from~\cite{book:tu} too much\footnote{Since it used to be the compulsory reading material in the previous years.}, we will stick to derivations on the space of germs, which emphasizes the locality of derivations to an extreme.
 The equivalence between our approach and the one based on speeds of curves and on derivations will be left as homeworks.
 
 \section{Directional derivatives in euclidean spaces}\label{sec:dd}
@@ -119,8 +119,8 @@ We can now go back to our discussion of euclidean derivations to motivate our de
   \begin{equation}\label{eq:mapxvtoD}
     (x,v):C^\infty(U) \to\R, \quad (x,v)(f) := Df(x)v.
   \end{equation}
-  By the definition \eqref{eq:diff} of the euclidean differential, we know that it is a local property: the value $Df(x)$ only depends on the germ of $f$ at $x$.
-  Thus we can rephrase \eqref{eq:mapxvtoD} by saying that $v$ defines a \emph{linear} map
+  By the definition~\eqref{eq:diff} of the euclidean differential, we know that it is a local property: the value $Df(x)$ only depends on the germ of $f$ at $x$.
+  Thus we can rephrase~\eqref{eq:mapxvtoD} by saying that $v$ defines a \emph{linear} map
   \begin{equation}
     v : C_x^\infty(U) \to \R, \quad
     v([f]_x) := Df(x) v.
@@ -201,7 +201,7 @@ Showing that the opposite is also true will require a bit of work.
   Then there is a linear isomorphism between $T_p M$ and the space of derivations of $C^\infty(W)$ at $p$.
 \end{proposition}
 \begin{proof}
-  To prove the theorem we need to invert \eqref{eq:derivfromtg} and define a tangent vector in terms of of a derivation of $C^\infty(W)$ at $p$.
+  To prove the theorem we need to invert~\eqref{eq:derivfromtg} and define a tangent vector in terms of of a derivation of $C^\infty(W)$ at $p$.
   We will proceed in three steps
 
   \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ op $p$. We are going to show that $w(f)=0$.
@@ -217,7 +217,7 @@ Showing that the opposite is also true will require a bit of work.
   Let $(V, f)$ be any representative of $[f]_p$.
   Since germs are local, if necessary, we can shrink $V$ so that $V\subset W$.
   Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighbourhood of $p$!
-  To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighbourhood with compact closure. You can take it for granted or have a look at e.g. \cite[Lemm 4.65]{book:lee:topology} or \cite{book:munkres:topology}.} a smaller neighbourhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
+  To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighbourhood with compact closure. You can take it for granted or have a look at e.g.~\cite[Lemm 4.65]{book:lee:topology} or~\cite{book:munkres:topology}.} a smaller neighbourhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
   Again, Proposition~\ref{prop:cutoff} comes to the rescue. Apply it with $K=\overline{U}$ and ``$U$'' equal to $V$, and consider
   \begin{equation}
     g:W\to\R, \quad
@@ -230,7 +230,7 @@ Showing that the opposite is also true will require a bit of work.
 
   \newthought{Step III}. We can now complete the proof.
   Let $w:X^\infty(W) \to\R$ be a derivation at $p$.
-  A tangent vector is a linear map $v:C_p^\infty(M)\to\R$, see \eqref{def:tangentvector}, and a derivation.
+  A tangent vector is a linear map $v:C_p^\infty(M)\to\R$, see~\eqref{def:tangentvector}, and a derivation.
   We would like to define one in terms of $w$.
   Given any $[f]_p\in C_p^\infty(W)$, the previous step guarantees that there exists a representative $(W,f)$ for it, so we can define
   \begin{equation}
@@ -241,7 +241,7 @@ Showing that the opposite is also true will require a bit of work.
   Then, by definition, there exists a neighbourhood $V\subset W$ of $p$ such that $f|_p = g|_p$.
   By linearity, $w(f) - w(g) = w(f-g)$ and by the first step in the proof, $w(f-g) = 0$.
   
-  The assignment $w\mapsto v$ inverts \eqref{eq:derivfromtg}, completing the proof.
+  The assignment $w\mapsto v$ inverts~\eqref{eq:derivfromtg}, completing the proof.
 \end{proof}
 
 This seemingly innocent proposition, has some very important consequences.
@@ -407,7 +407,7 @@ For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\phi\in\Si
   defines an equivalence relation on $\R^m\times\Sigma_p$.
   \item Let $\cT_p$ denote the set of equivalence classes $[(v,\phi)]\in \R^m\times\Sigma_p/\sim$. For $\phi\in\Sigma_p$, show that the map $T_\phi:\R^m\to\cT_p$ given by $T_\phi v := [(v,\phi)]$ is a bijection.
   Deduce\footnote{Hint: use the previous exercise!} that $\cT_p$ admits a unique vector space structure such that each $T_\phi$ is a linear isomorphism.
-  \item Let $\phi$ be a chart defined on a neighbourhood of $p$ with local coordinates $x^i = r^i \circ \phi$ and let $\hat T_\phi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in \eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\phi e_i = \frac{\partial}{\partial x^i}\big|_p$.
+  \item Let $\phi$ be a chart defined on a neighbourhood of $p$ with local coordinates $x^i = r^i \circ \phi$ and let $\hat T_\phi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in~\eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\phi e_i = \frac{\partial}{\partial x^i}\big|_p$.
   Show that there exists a linear isomorphism $\mathcal{S}_p:\cT_p\to T_pM$ which in addition satisfies $\mathcal{S}_p \circ T_\phi = \hat T_\phi$ for every chart $\phi$ about $p$.
 \end{enumerate}
 \end{exercise}
@@ -608,13 +608,13 @@ A priori we have two different ways to define the \emph{velocity vector of $\gam
 
 Do these definition agree?
 One way to check is to pick a chart $\phi: U \to \phi(U)$ in a neighbourhood of $\gamma(t)$, and compare the expressions in local coordinates. Let $(x^i)$ denote the coordinates of $\phi$ and define the curves $\gamma^i := x^i \circ \gamma : I\to\R$.
-Let's focus on \eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\circ\gamma)'(t) = (\gamma^i)'(t)$, therefore by Proposition~\ref{prop:basis_TpM} we get
+Let's focus on~\eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\circ\gamma)'(t) = (\gamma^i)'(t)$, therefore by Proposition~\ref{prop:basis_TpM} we get
 \begin{equation}\label{eq:tg_curve_vec}
   \gamma'(t) = %\sum_{i=1}^m
     \gamma'(t)(x^i) \frac{\partial}{\partial x^i}\Big|_\gamma(t).
 \end{equation}
 \begin{exercise}
-  Show that applying Proposition~\ref{prop:DiffCoords} to \eqref{eq:tg_curve_diff} leads to the same formula as \eqref{eq:tg_curve_vec}.
+  Show that applying Proposition~\ref{prop:DiffCoords} to~\eqref{eq:tg_curve_diff} leads to the same formula as~\eqref{eq:tg_curve_vec}.
 \end{exercise}
 
 \begin{figure*}[htp]
@@ -631,7 +631,7 @@ Surely, there must be multiple curves with the same speed at a point which diffe
   Let $M$ be a smooth manifolds and $\gamma, \delta : (-\epsilon, \epsilon) \to M$ two smooth curves with $\gamma(0) = \delta(0)$. Then, $\gamma'(0) = \delta'(0)$ as elements of $T_{\gamma(0)}M$ if and only if for some (and thus any) chart $\phi:U\to\phi(U)$, $\gamma(0)\in U$, we have $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$.
 \end{lemma}
 \begin{proof}
-  Let $(x^i)$ denote the coordinates of $\phi$. The condition $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ is equivalent as stating that $(\gamma^i)'(0) = (\delta^i)'(0)$, where $\gamma^i = x^i\circ\gamma$ and $\delta^i=x^i\circ\delta$. Then, the claim follows from \eqref{eq:tg_curve_vec} and the fact that $\left\{\frac{\partial}{\partial x^i}\big|_{\gamma(0)}\right\}$ is a basis of $T_{\gamma(0)}M$.
+  Let $(x^i)$ denote the coordinates of $\phi$. The condition $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ is equivalent as stating that $(\gamma^i)'(0) = (\delta^i)'(0)$, where $\gamma^i = x^i\circ\gamma$ and $\delta^i=x^i\circ\delta$. Then, the claim follows from~\eqref{eq:tg_curve_vec} and the fact that $\left\{\frac{\partial}{\partial x^i}\big|_{\gamma(0)}\right\}$ is a basis of $T_{\gamma(0)}M$.
 \end{proof}
 
 This seems to follow a pattern: until now, all the definitions of tangent vectors where in terms of classes of equivalence.
@@ -652,7 +652,7 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
   \begin{equation}
     \gamma: (-\epsilon, \epsilon) \to M, \quad \gamma(t):=\phi^{-1}(ta^1, \ldots, ta^n),
   \end{equation}
-  is well-defined, smooth, satisfies $\gamma(0) = p$ and, by \eqref{eq:tg_curve_vec}, $\gamma'(0) = v$.
+  is well-defined, smooth, satisfies $\gamma(0) = p$ and, by~\eqref{eq:tg_curve_vec}, $\gamma'(0) = v$.
 \end{proof}
 
 \begin{marginfigure}
@@ -677,7 +677,7 @@ To conclude this part, the next proposition shows that velocity vectors behave w
   \end{equation}
 \end{proposition}
 \begin{proof}
-  We are going to use \eqref{eq:tg_curve_diff} as definition of $\gamma'(t)$.
+  We are going to use~\eqref{eq:tg_curve_diff} as definition of $\gamma'(t)$.
   Applying the chain rule we obtain:
   \begin{align}
     d F_{\phi(t)} (\phi'(t))
@@ -688,7 +688,7 @@ To conclude this part, the next proposition shows that velocity vectors behave w
 \end{proof}
 
 \begin{exercise}
-  Give an alternative proof of Proposition~\ref{prop:curves_deriv} using \eqref{eq:tg_curve_der} as definition for $\gamma'(t)$.
+  Give an alternative proof of Proposition~\ref{prop:curves_deriv} using~\eqref{eq:tg_curve_der} as definition for $\gamma'(t)$.
  \textit{\small Hint: use the definitions to rewrite the formula in different ways.}
 \end{exercise}
 
@@ -777,7 +777,7 @@ As it turns out, this is a particular instance of a more general fact.
   \newthought{Step4: $\pi$ is smooth.} With respect to the charts $(U,\phi)$ for $M$ and $(\pi^{-1}(U), \widetilde\phi)$ for $TM$, the coordinate representation of $\pi$ is $\pi(x,v) = x$.
 \end{proof}
 
-The coordinates $(x^i, v^i)$ defined by \eqref{eq:nat_coords} are called \emph{natural (or canonical) coordinates}.
+The coordinates $(x^i, v^i)$ defined by~\eqref{eq:nat_coords} are called \emph{natural (or canonical) coordinates}.
 
 \begin{exercise}
   Let $f:M\to N$ be a smooth map between smooth manifolds.
@@ -1053,7 +1053,7 @@ We will state them without going into the details of the proofs.
  \end{proposition}
 
 If $F$ is an embedding, and this $M$ is an embedded submanifold, then the set $F(U)$ above can be written as $F(U) = F(M)\cap W$ for some open set $W\subset N$.
-By replacing $V$ in \eqref{eq:slice_chart} with $V\cap W$, one gets 
+By replacing $V$ in~\eqref{eq:slice_chart} with $V\cap W$, one gets 
 \begin{equation}
   F(M)\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\}.
 \end{equation}
@@ -1180,8 +1180,8 @@ To finally answer the question, we will prove one last proposition.
     p^\perp := \big\{q\in\R^3 \;\mid\; \left\langle p, q\right\rangle = 0\big\},
   \end{equation}
   where $\left\langle\cdot,\cdot\right\rangle$ is the usual Euclidean dot product.
-  Take a long deep breath and unfold the definitions in \eqref{ex:tan_sph}, here it may be useful to draw a picture\footnote{Which is generally always the case in geometry and topology, and most other mathematical fields.}. 
-  Equation \eqref{ex:tan_sph} implies that the tangent space to $\bS^2$ at a point $x$  is the plane tangent to $\bS^2$ at $p$, as claimed in Figure~\ref{fig:tan-embedded-sphere}.
+  Take a long deep breath and unfold the definitions in~\eqref{ex:tan_sph}, here it may be useful to draw a picture\footnote{Which is generally always the case in geometry and topology, and most other mathematical fields.}. 
+  Equation~\eqref{ex:tan_sph} implies that the tangent space to $\bS^2$ at a point $x$  is the plane tangent to $\bS^2$ at $p$, as claimed in Figure~\ref{fig:tan-embedded-sphere}.
 \end{example}
 
 \begin{exercise}

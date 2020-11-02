@@ -54,7 +54,7 @@ Moreover, each vector field can be multiplied by smooth functions $f\in C^\infty
   \end{enumerate}
 \end{proposition}
 
-In this sense, the basis expression \eqref{eq:vfCoordBAsis} can be also rewritten as an equation between fields instead of an equation between vectors at point:
+In this sense, the basis expression~\eqref{eq:vfCoordBAsis} can be also rewritten as an equation between fields instead of an equation between vectors at point:
 \begin{equation}\label{eq:vfCoordBAsis}
   X = X^i \frac{\partial}{\partial x^i},
 \end{equation}
@@ -126,7 +126,7 @@ where $v^j(x)$ are the components\footnote{As we start getting used to, the char
   \begin{equation}
     X_{F^{-1}(u,v)} = \frac{u^2}{v^2}\frac{\partial}{\partial x}\Big|_{F^{-1}(u,v)},
   \end{equation}
-  and, thus, by \eqref{eq:pfvf} (with $p=(u,v)$) we get
+  and, thus, by~\eqref{eq:pfvf} (with $p=(u,v)$) we get
   \begin{equation}
     (F_*X)_{(u,v)} = \frac{u^2}{v^2}\frac{\partial}{\partial u}\Big|_{(u,v)} + \frac{u}{v}\frac{\partial}{\partial v}\Big|_{(u,v)}.
   \end{equation}
@@ -331,7 +331,7 @@ Once again, a comparison with the euclidean world can open the door to a whole n
 Vector fields on euclidean spaces give rise to ordinary differential equations (ODEs) and to each vector field we can associate a flow, that is, the curve that solve the ODE.
 
 The classical theorems of existence and uniqueness of solutions of ODEs, then, give us the necessary conditions to ensure that such flow exists locally or globally and it is well defined.
-For a rather detailed account you can refer to \cite[Chapters 3.2 and 3.3]{book:knauf} (which you can freely access on \href{https://link.springer.com/book/10.1007\%2F978-3-662-55774-7}{SpringerLink} via the university proxy).
+For a rather detailed account you can refer to~\cite[Chapters 3.2 and 3.3]{book:knauf} (which you can freely access on \href{https://link.springer.com/book/10.1007\%2F978-3-662-55774-7}{SpringerLink} via the university proxy).
 
 In fact, if $X: U\subset\R^n \to \R^n$ is a vector field on an open subset $U$ of $\R^n$, and
 \begin{equation}\label{eq:XflowRn}
@@ -339,7 +339,7 @@ In fact, if $X: U\subset\R^n \to \R^n$ is a vector field on an open subset $U$ o
 \end{equation}
 is the corresponding ODE, then we have the following implications of the euclidean theorems on existence and uniqueness of solutions:
 \begin{enumerate}[(i)]
-  \item if $X$ is continuous, then for each $x\in U$ there exists $\epsilon > 0$ and a differentiable curve $u = u_{x} : (-\epsilon, \epsilon) \to U$ with $u_x(0) = x$ that solves \eqref{eq:XflowRn};
+  \item if $X$ is continuous, then for each $x\in U$ there exists $\epsilon > 0$ and a differentiable curve $u = u_{x} : (-\epsilon, \epsilon) \to U$ with $u_x(0) = x$ that solves~\eqref{eq:XflowRn};
   \item (Picard-Lindel\"of theorem) if $X$ is locally Lipschitz continuous, then the solution $u_x$ is unique;
   \item if $X\in C^p(U,\R^n)$, then the solution map $\Phi : (t, x) \to (t, x) := u_x (t)$ is $p$-times continuously differentiable as a function of the initial data, i.e. $\Phi(x, \cdot)\in C^p(U)$ for all $t$ in the existence domain.
 \end{enumerate}
@@ -363,7 +363,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
 
 \begin{example}\label{ex:rotation}
   Let $(x,y)$ be standard coordinates on $\R^2$ and $Z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}$ on $\R^2$.
-  If $\gamma:\R^2\to\R$ is a smooth curve, written in standard coordinates as $\gamma(t) = (x(t), y(t))$, then the condition \eqref{eq:integralCurve} for $Z$ and $\gamma$ translates into
+  If $\gamma:\R^2\to\R$ is a smooth curve, written in standard coordinates as $\gamma(t) = (x(t), y(t))$, then the condition~\eqref{eq:integralCurve} for $Z$ and $\gamma$ translates into
   \marginnote{Make sure that you have understood why this is true.}
   \begin{equation}
     x'(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)} + y'(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)} = x(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)} - y(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)}.
@@ -401,13 +401,13 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
 Exercise~\ref{ex:tg_curve_iso} implies that in the euclidean case our definition (in terms of equality of tangent vectors on $T_{\gamma(t)}(M)$) coincides with the euclidean flow (defined in terms of equality of real numbers).
 Alternatively, one can pick a coordinate chart and use the pushforward to locally compare the definitions.
 
-Indeed, if $(U, \phi)$ is a chart with coordinates\footnote{We will soon stop being so verbose and just write ``in local coordinates (on $U$)'' without specifying their names unless strictly necessary!} $(x^i)$, let $\gamma(t) = (\gamma^1(t), \ldots, \gamma^n(t))$ in these coordinates. Then, condition \eqref{eq:integralCurve} above can be written as
+Indeed, if $(U, \phi)$ is a chart with coordinates\footnote{We will soon stop being so verbose and just write ``in local coordinates (on $U$)'' without specifying their names unless strictly necessary!} $(x^i)$, let $\gamma(t) = (\gamma^1(t), \ldots, \gamma^n(t))$ in these coordinates. Then, condition~\eqref{eq:integralCurve} above can be written as
 \begin{equation}
   \dot\gamma^i(t)\frac{\partial}{\partial x^i}\Big|_{\gamma(t)}
   = X^i(\gamma(t))\frac{\partial}{\partial x^i}\Big|_{\gamma(t)},\quad i=1,\ldots,n,
 \end{equation}
 where we use the dot to denote the derivative in $t$ for readability.
-These equations can be further rewritten as the system of ordinary differential equations of the same form as \eqref{eq:XflowRn}
+These equations can be further rewritten as the system of ordinary differential equations of the same form as~\eqref{eq:XflowRn}
 \begin{equation}
   \begin{cases}
     \dot\gamma^1(t) = X^1(\gamma^1(t), \ldots, \gamma^n(t)) \\
@@ -506,7 +506,7 @@ When we want to emphasize the vector field $X$, we will write $\Phi^X$.
   Both $\cD$ and $\Phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so to prove the theorem one only needs to show that $\cD$ is open and that $\Phi$ is smooth.
   This is done by applying the euclidean theorems to extend the local flow, finally showing that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\Phi$ is smooth.
 
-  We are going to omit the details of the proof, the interested reader can refer to \cite[Proposition 9.12]{book:lee}.
+  We are going to omit the details of the proof, the interested reader can refer to~\cite[Proposition 9.12]{book:lee}.
   The statements may seem different at a first glance, but a careful look will reveal that he is just taking a slightly different perspective.
 
   Indeed, if we reverse the roles of $t$ and $x$, we can define for any given $t\in M$ the set
@@ -517,7 +517,7 @@ When we want to emphasize the vector field $X$, we will write $\Phi^X$.
   \begin{equation}\label{eq:flowdiffeo}
     \Phi_t(p) := \Phi(t,p), \quad p\in M_t.
   \end{equation}
-  Which is exactly the claim in \cite[Proposition 9.12]{book:lee}.
+  Which is exactly the claim in~\cite[Proposition 9.12]{book:lee}.
 
 %   Both $\cD$ and $\Phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so we only need to show that $\cD$ is open and that $\Phi$ is smooth.
 %   To this end we are going to prove that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\Phi$ is smooth.
@@ -540,7 +540,7 @@ When we want to emphasize the vector field $X$, we will write $\Phi^X$.
 \end{proof}
 
 \begin{remark}\label{rmk:automorphismgroup}
-  The point of view taken to define \eqref{eq:flowdiffeo} brings to the table a very important fact: $\Phi_t : M_t \to M_{-t}$ is a smooth map with smooth inverse $(\Phi_t)^{-1}:=\Phi_{-t}: M_{-t} \to M_t$.
+  The point of view taken to define~\eqref{eq:flowdiffeo} brings to the table a very important fact: $\Phi_t : M_t \to M_{-t}$ is a smooth map with smooth inverse $(\Phi_t)^{-1}:=\Phi_{-t}: M_{-t} \to M_t$.
 
   That is, $\Phi_t$ is a diffeomorphism, $\Phi_0 = \id_M$ and, more generally, if $s,t \in \R$ then the domain $P$ of $\Phi_s \circ \Phi_t$ is contained\footnote{Equality holds if $st \geq 0$, that is, if they have the same sign.} in $M_{s+t}$ and $\Phi_s \circ \Phi_t = \Phi_{s+t}$ in $P$.  
 \end{remark}
@@ -569,7 +569,7 @@ For a complete vector field $X$, $\cD = \R\times M$.
   \end{equation}
   Hence, the flow of $X$ is simply the one-parameter group $\Phi_t$.
 
-  Always keep in mind that \eqref{eq:infgen} is just a ``scary'' way to write $X_p := \Phi_p'(0)$ where the role of the differential and the nature of the vector field are more explicit.
+  Always keep in mind that~\eqref{eq:infgen} is just a ``scary'' way to write $X_p := \Phi_p'(0)$ where the role of the differential and the nature of the vector field are more explicit.
 \end{definition}
 \begin{marginfigure}
   \includegraphics{3_1-vfield-infgen.pdf}%
@@ -692,7 +692,7 @@ A natural question, at this point, is what happens when we map integral curves t
     \frac{d}{ds}\Big|_{s=0} \exp\left(s\, e_*^{tX} Y\right)_q =
     \frac{d}{ds}\Big|_{s=0} e^{tX}\circ e^{sY}\circ e^{-t X}(q),
   \end{equation}
-  where we are using the definition of integral flow in the first equality and \eqref{eq:conjpfX} in the second.
+  where we are using the definition of integral flow in the first equality and~\eqref{eq:conjpfX} in the second.
   This turns out to be rather useful for proofs and computations.  
 \end{remark}
 
@@ -705,7 +705,7 @@ A natural question, at this point, is what happens when we map integral curves t
 \end{exercise}
 
 \begin{remark}
-  Equation~\eqref{def:liebracketsecondversion} and \eqref{eq:expdiff} imply that
+  Equation~\eqref{def:liebracketsecondversion} and~\eqref{eq:expdiff} imply that
   \begin{equation}\label{eq:lbddr}
     [X,Y]_q = \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0}e^{-tX}\circ e^{sY}\circ e^{t X}(q).
   \end{equation}
@@ -721,7 +721,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   \begin{equation}\label{eq:intcurvconst}
     e^{-tX}_*Y = Y \quad \forall t\in\R.
   \end{equation}
-  To this end, we are going to use \eqref{def:liebracketsecondversion} to show that $0 = [X,Y] = \frac{\partial}{\partial t}\Big|_{t=0} e_*^{-t X} Y$ implies that $\frac{\partial}{\partial t} e_*^{-t X} Y = 0$ for all $t\in\R$ (i.e., it is a constant map).
+  To this end, we are going to use~\eqref{def:liebracketsecondversion} to show that $0 = [X,Y] = \frac{\partial}{\partial t}\Big|_{t=0} e_*^{-t X} Y$ implies that $\frac{\partial}{\partial t} e_*^{-t X} Y = 0$ for all $t\in\R$ (i.e., it is a constant map).
   Indeed, for any $t$,
   \begin{align}
     \frac{\partial}{\partial t} e_*^{-t X} Y
@@ -732,7 +732,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   \end{align}
   
   $(\Longrightarrow)$ Fix $t\in\R$. We are going to show that $\Phi_s := e^{-tX}\circ e^{sY}\circ e^{tX}$ is the flow of $Y$, i.e. $\Phi_s = e^{sY}$.
-  We can use the previous trick, \eqref{eq:intcurvconst} and \eqref{eq:expdiff} to get, for any $s\in\R$,
+  We can use the previous trick,~\eqref{eq:intcurvconst} and~\eqref{eq:expdiff} to get, for any $s\in\R$,
   \begin{align}
     \frac{\partial}{\partial s} \Phi_s
     &= \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{(s+\epsilon) Y}\circ e^{tX} \\
@@ -741,7 +741,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   \end{align}
   That is, $e^{-tX}\circ e^{sY}\circ e^{tX} = e^{sY}$ which is equivalent to the claim.
 
-  $(\Longleftarrow)$ Let $f\in C^\infty(M)$, by \eqref{eq:lbddr} we have
+  $(\Longleftarrow)$ Let $f\in C^\infty(M)$, by~\eqref{eq:lbddr} we have
   \begin{align}
     [X,Y]_q &= \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0}e^{-tX}\circ e^{sY}\circ e^{t X}(q)\\
     &= \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0} e^{sY} = 0.
@@ -810,7 +810,7 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
     \Omega = \lim_{t\to\infty} \Phi_{-t}^L \circ \Phi_t^{\widetilde{L}}
   \end{equation}
   exists and defines a diffeomorphism such that $\Omega_* \widetilde{L} = L$.
-  \marginnote{It is interesting to compare $\Omega$ with the so called M\o{}ller transformations in scattering theory (cf. \cite[Chapter 12.2]{book:knauf}).}
+  \marginnote{It is interesting to compare $\Omega$ with the so called M\o{}ller transformations in scattering theory (cf.~\cite[Chapter 12.2]{book:knauf}).}
   Since by construction $(\Phi_t^{\widetilde{L}}(q))^1 \geq q^1 + \frac12$, every integral curve leaves $V_2$ after a finite time.
   So, on compact sets $K\subset\R^n$, there is a finite time $t_0(K)$ after which the limit is attained (can you explain why?):
   \begin{equation}
@@ -861,7 +861,7 @@ In this new coordinates, which are just polar coordinates labelled with differen
   \end{equation}
   Close to $x=0$ we can thus approximate $\widetilde X_x$ by its linearisation $ d\widetilde X_0 x$.
   %
-  Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\widetilde X_0 x$ is independent of the choice of local coordinates.} of $d\widetilde X_0 x$ and their geometric multiplicities (cf. \cite[Figure 9.8]{book:lee}). This is the same as you have seen in the euclidean case \cite[Chapter 5.3]{book:knauf}.
+  Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\widetilde X_0 x$ is independent of the choice of local coordinates.} of $d\widetilde X_0 x$ and their geometric multiplicities (cf.~\cite[Figure 9.8]{book:lee}). This is the same as you have seen in the euclidean case~\cite[Chapter 5.3]{book:knauf}.
 \end{remark}
 
 \begin{tcolorbox}

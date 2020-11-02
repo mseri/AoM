@@ -413,7 +413,7 @@ This local definition immediately extends to global one via the following theore
     \phi_1^*\left(d(\phi_{1*}\omega)_{\phi_1(U_1\cap U_2)}\right) =
     \phi_2^*\left(d(\phi_{2*}\omega)_{\phi_2(U_1\cap U_2)}\right).
   \end{equation}
-  Therefore, the exterior derivative $d\omega\in\Omega^k(M)$ is uniquely defined by the local definition \eqref{eq:localdw}.
+  Therefore, the exterior derivative $d\omega\in\Omega^k(M)$ is uniquely defined by the local definition~\eqref{eq:localdw}.
 \end{corollary}
 \begin{proof}
   Follows from Theorem~\ref{thm:differentialpushforward} applied with $F = \phi_1\circ\phi_2^{-1} : \phi_2(U) \to \phi_1(U)$, where $U=U_1\cap U_2$.
@@ -473,7 +473,7 @@ Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alp
 
 Generalize the previous computation to show that
 \begin{equation}
-  \bigwedge_{k=1}^{2n} \alpha^k = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}}.
+  \bigwedge_{k=1}^{2n} \alpha^k := \alpha^1\wedge\cdots\wedge\alpha^{2n} = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}} =: \frac{(-1)^{\binom{n}{2}}}{n!} \wedge^{n} \omega.
 \end{equation}
 \end{exercise}
 
@@ -500,7 +500,7 @@ However, its power lies in the fact that we can extend it to $k$-forms with impo
 Since the exterior derivative raises the degree of the form and the interior product decreases it, the net effect of the formula above, is indeed, the production of a $k$-form, so $\cL_X\omega \in \Omega^k(M)$.
 
 \begin{exercise}
-  Show that on functions the definition from \eqref{eq:cartanmagicf} coincide with the one that  we gave at the beginning of this section.
+  Show that on functions the definition from~\eqref{eq:cartanmagicf} coincide with the one that  we gave at the beginning of this section.
 \end{exercise}
 
 \begin{exercise}\label{exe:liederandwedge}
@@ -561,6 +561,33 @@ Even though it is a bit impractical for computational purposes, flows are hard t
 
   \newthought{Step IV}. The statement follows from Theorem~\ref{thm:pullbacksdifferentialforms} and Exercise~\ref{exe:liederandwedge} since every $k$-form can be locally written as $\omega = \omega_I dx^I$.
 \end{proof}
+
+\begin{remark}
+  The Lie derivative can be extended on any tensor bundle $T_s^r(M)$ with the following definition.
+  This $T\in\cT_r^s(M)$, for any $p\in M$
+  \begin{equation}
+    (\cL_X T)_p := \frac{d}{dt}\Big|_{t=0}\left((\Phi_t^X)^* T\right)_p,
+  \end{equation}
+  where as usual $\Phi_t^X$ denotes the maximal integral curve\footnote{Remember, this is a diffeomorphims from a neighbourhood of $p$ onto a neighbourhood of $\Phi_t^X(p)$.} for $X$ with initial point $p$.
+
+  In general, for $\tau\in\cT_r^s(M)$ and $\sigma\in\cT_{r'}^{s'}$, the Lie derivative satisfies
+  \begin{equation}
+    \cL_X(\tau\otimes\sigma) = (\cL_X\tau)\otimes\sigma + \tau\otimes\cL_X(\sigma),
+  \end{equation}
+  and commutes with contractions.
+
+  Incidentally, it also satisfies
+  \begin{equation}
+    \cL_XY = [X,Y],
+  \end{equation}
+  and so it can be considered as a generalization of the Lie brackets.
+
+  One nice little perk of the general definition, is that it makes it relatively straightforward to show that
+  \begin{equation}
+    \cL_X(\omega(Y)) = (\cL_X\omega)(Y) + \omega([X,Y]),
+  \end{equation}
+  which is often very useful in computations.
+\end{remark}
 
 \section{Poincar\'e lemma}
 
@@ -716,7 +743,7 @@ If we could assume $K$ to be smooth, the theorem would follow from
   F^* = (H\circ j_0)^* = j_0^*\circ H^* = j_1^*\circ H^* = (H\circ j_1)^* = G^*.
 \end{equation}
 
-In fact this is the case, thanks to the Whitney Approximation Theorem for homotopies\footnote{This is a deep result related to the Whitney Embedding Theorem from Remark~\ref{rmk:WhitneyET} and is out of the scope of our course, for more details refer to \cite[Chapter 6 and Theorems 6.26 and 9.27]{book:lee}.} which says that if two smooth maps are homotopic then they are also smoothly homotopic, in the sense that the map $K$ is smooth.
+In fact this is the case, thanks to the Whitney Approximation Theorem for homotopies\footnote{This is a deep result related to the Whitney Embedding Theorem from Remark~\ref{rmk:WhitneyET} and is out of the scope of our course, for more details refer to~\cite[Chapter 6 and Theorems 6.26 and 9.27]{book:lee}.} which says that if two smooth maps are homotopic then they are also smoothly homotopic, in the sense that the map $K$ is smooth.
 \end{proof}
 
 \begin{corollary}\label{cor:deRhamIso}
