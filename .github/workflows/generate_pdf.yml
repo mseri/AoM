@@ -3,11 +3,17 @@ on: [push]
 jobs:
   latex-job:
     runs-on: ubuntu-latest
-    name: A job to Compile Latex file
-    steps:
-    - uses: actions/checkout@v2
+    
+    name: Compile And Upload PDF
 
-    - name: Compilation
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Remove font customizations
+      run: sed -i .bak '8,10d' aom.tex
+
+    - name: LaTeX Compilation
       uses: vinay0410/tectonic-action@master
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
