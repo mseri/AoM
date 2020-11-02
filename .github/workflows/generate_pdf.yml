@@ -10,14 +10,30 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Cached Infra
+      uses: actions/cache@v2
+      env:
+        cache-name: cached-tectonic
+      with:
+        path: |
+          ~/.cache
+        key: ${{ env.cache-name }}-${{ hashFiles('~/.cache/Tectonic/manifests/*.txt') }}
+        restore-keys: |
+          ${{ env.cache-name }}-
+
     - name: Remove font customizations
       run: sed -i.bak '8,10d' aom.tex
 
     - name: LaTeX Compilation
-      uses: vinay0410/tectonic-action@master
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: vinay0410/tectonic-action@v1.1.2
       with:
         tex_path: 'aom.tex'
-        push: 'yes'
-
+        push: 'no'
+    
+    - name: Upload PDF
+      if: ${{ success() }}
+      uses: actions/upload-artifact@v2
+      with:
+        path: aom.pdf
+        name: aom.pdf
+        if-no-files-found: error
