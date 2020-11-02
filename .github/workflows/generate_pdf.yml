@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Remove font customizations
-      run: sed -i .bak '8,10d' aom.tex
+      run: sed -i.bak '8,10d' aom.tex
 
     - name: LaTeX Compilation
       uses: vinay0410/tectonic-action@master
