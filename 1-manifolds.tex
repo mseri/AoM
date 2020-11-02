@@ -352,8 +352,8 @@ dropping the distinction between $p$ and $x$, both in place of
     There is a standard way to induce a topology on a quotient space.
     Let $M$ be a topological space and $\pi:M\to N$ surjective.
     The \emph{quotient topology} on $N$ is given by defining $U\subset N$ to be open if and only if its preimage $\pi^{-1}(U)\subset M$ is open.
-    If $\sim$ is an equivalence relation on $M$, the quotient space $M/\sim$ is the set of equivalence classes $[p]:=\{q\in M \mid p\sim q\}$ and the projection $\pi: M\to M/\sim$, $\pi(p) = [p]$, is a surjective map. Then $U\in M/\sim$ is open if $\cup_{[p]\in U} [p] \subset M$ is open.
-    Here $\R/\Z$ denotes the quotient space $\R/\sim$ where the equivalence relation is induced by the canonical group action of $\Z$ on $\R$, that is, $x\sim y$ if and only if $x-y\in\Z$.
+    If $\sim$ is an equivalence relation on $M$, the quotient space $M/\!\sim$ is the set of equivalence classes $[p]:=\{q\in M \mid p\sim q\}$ and the projection $\pi: M\to M/\!\sim$, $\pi(p) = [p]$, is a surjective map. Then $U\in M/\!\sim$ is open if $\cup_{[p]\in U} [p] \subset M$ is open.
+    Here $\R/\Z$ denotes the quotient space $\R/\!\sim$ where the equivalence relation is induced by the canonical group action of $\Z$ on $\R$, that is, $x\sim y$ if and only if $x-y\in\Z$.
     This means that $[x] = \{x+k \mid k\in\Z\}$ and in each interval $[x_0, x_0+1)$ of length $1$ contains exactly one representative per class.
     Note that we are talking about topological spaces: the quotient, in general, does not preserve the Hausdorff property or second countability.} $\R/\Z$ with the two charts
   \begin{equation}\textstyle
@@ -402,7 +402,7 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
   Then $M$ has a unique smooth manifold structure such that each $(U_\alpha,\phi_\alpha)$ is a smooth chart.
 \end{lemma}
 \begin{exercise}
-  Prove Lemma~\ref{lem:manifold_chart}. \textit{\small Hint: declare all the $\phi_\alpha$ to be homeomorphisms and use the hypotheses to check the definition of a smooth manifold.}
+  Prove Lemma~\ref{lem:manifold_chart}.\\textit{\small Hint: declare all the $\phi_\alpha$ to be homeomorphisms and use the hypotheses to check the definition of a smooth manifold.}
 \end{exercise}
 
 \begin{example}
@@ -424,15 +424,15 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
 If $M$ is a topological space and $\sim$ an equivalence relation we have seen that it is sometimes possible to define smooth manifolds.
 Since in general the quotient does not behave nicely it is convenient to get a few tricks to check if the manifold structure can be preserved.
 
-Continuity of the projection implies that if $M/\sim$ is Hausdorff, then $\pi^{-1}(\pi(s)) = [s]$ is closed in $M$.
+Continuity of the projection implies that if $M/\!\sim$ is Hausdorff, then $\pi^{-1}(\pi(s)) = [s]$ is closed in $M$.
 If, additionally, $\pi$ is open\footnote{That is, it maps open sets to open sets.} then there is a stronger statement:
 \marginnote[4em]{These statements are not hard to prove, but their proofs will be omitted here.
 You can refer to~\cite[Chapters 7.1--7.5]{book:tu}.}
 \begin{theorem}\label{thm:openproj}
-  If $M$ is a topological space and $\sim$ an equivalence relation such that $\pi:M \to M/\sim$ is open, then:
+  If $M$ is a topological space and $\sim$ an equivalence relation such that $\pi:M \to M/\!\sim$ is open, then:
   \begin{itemize}
-    \item $\pi$ maps a basis for the topology of $M$ into a basis for the topology $M/\sim$, thus if $M$ is second countable, then $M/\sim$ is second countable;
-    \item the quotient space $M/\sim$ is Hausdorff if and only if the graph $R$ of $\sim$, i.e., the set
+    \item $\pi$ maps a basis for the topology of $M$ into a basis for the topology $M/\!\sim$, thus if $M$ is second countable, then $M/\!\sim$ is second countable;
+    \item the quotient space $M/\!\sim$ is Hausdorff if and only if the graph $R$ of $\sim$, i.e., the set
     \begin{equation}
       R := \{(x,y)\in M\times M \mid x\sim y\},
     \end{equation}
@@ -456,23 +456,22 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
     x\sim y \quad\Longleftrightarrow\quad \exists t\neq 0 \mbox{ such that } y=tx,
   \end{equation}
   that is, two points are equivalent if they lie on the same line passing through the origin.
-  Then, the \emph{real projective space} is the quotient space $\R P^n := \R^{n+1}_0/\sim$.
+  Then, the \emph{real projective space} is the quotient space $\R P^n := \R^{n+1}_0/\!\sim$.
   For the sake of the example, let's denote the class of equivalence of a point $x=(x^0,\ldots,x^n)\in\R^{n+1}_0$ by $[x]=[x^0,\ldots,x^n]$ and the projection to the quotient by $\pi:\R^{n+1}_0\to\RP^n$.
   The classes of equivalence $[x]$ are called \emph{homogeneous coordinates} on $\RP^n$.
   
   \begin{marginfigure}
     \includegraphics{1_2_25-sphere}
-    \caption{The identification $\sim$ of antipodal points maps the sphere to a disk. Embedding $\bS^n/\sim$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^2 = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself). }
+    \caption{The identification $\sim$ of antipodal points maps the sphere to a disk. Embedding $\bS^n/\!\sim$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^2 = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself). }
   \end{marginfigure}
   There is a nice interpretation of this construction in terms of flattening spheres.
   Observe that a line through the origin always intercepts a sphere $\bS^n$ at two antipodal points and, conversely, each pair of antipodal point determines a unique line through the center.
   So we can define an equivalence relation on the sphere by identifying the antipodal points: given $x,y\in\bS^n$, $x\sim' y$ if and only if $x = \pm y$.
-  This leads to the bijection $\RP^n \simeq \bS^n/\sim$.
+  This leads to the bijection $\RP^n \simeq \bS^n/\!\sim$.
   Note that by gluing antipodal points, we are identifying the north and south hemispheres, thus essentially flattening the sphere to a disk.
 
   \begin{exercise}
-    Show that the map $n: \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$ induces a homeomorphism $\hat n:\RP^n \to \bS^n/\sim$.
-
+    Show that the map $n: \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$ induces a homeomorphism $\hat n:\RP^n \to \bS^n/\!\sim$.\\
     \textit{\small Hint: find an inverse map and show that both $\hat n$ and its inverse are continuous.}
   \end{exercise}
 
@@ -902,14 +901,14 @@ Can we make sense of such observation using our newly introduced definition?
 \end{proof}
 
 \begin{example}
-  \begin{marginfigure}
-  \includegraphics{1_5_9-cyl1}
-  \end{marginfigure}
   Consider the cone
   \begin{equation}
     \cC = \{p=(p^1,p^2,p^3)\in\R^3 \mid (p^1)^2 + (p^2)^2 = (p^3)^2, \quad 0< p^3\leq 1\},
   \end{equation}
   with boundary $\partial\cC = \{p\in\cC \mid x^3 = 1\}$.
+  \begin{marginfigure}
+  \includegraphics{1_5_9-cyl1}
+  \end{marginfigure}
   We can describe the cone with the following atlas $\cA = \{(U_i,\phi_i)\mid i=1,2,3\}$:
   \begin{itemize}
     \item $U_1 := \{p\in\cC\mid p^3 < 1\}$ with $x = (x^1, x^2) = \phi_1(p) = (p^1,p^2+1)$, thus
@@ -942,7 +941,8 @@ Can we make sense of such observation using our newly introduced definition?
 
   Show that $M$ is a topological manifold with boundary in which each point of $\mathring M = \bS^{n-1}$ is a boundary point and each point in $\{x\in\R^n\mid\|x\|<1\}$ is an interior point.
 
-  Give a smooth structure to $M$ such that every smooth interior chart is a smooth chart for the standard smooth structure on $\mathring M$. \textit{\small Hint: consider the map $\pi\circ\sigma^{-1}:\R^n\to\R^n$ where $\sigma:\bS^n\to\R^n$ is the stereographic projection from Exercise~\ref{ex:stereo} and $\pi:\R^{n+1}\to\R^n$ is a projection that omits one of the first $n$ coordinates.}
+  Give a smooth structure to $M$ such that every smooth interior chart is a smooth chart for the standard smooth structure on $\mathring M$.\\
+  \textit{\small Hint: consider the map $\pi\circ\sigma^{-1}:\R^n\to\R^n$ where $\sigma:\bS^n\to\R^n$ is the stereographic projection from Exercise~\ref{ex:stereo} and $\pi:\R^{n+1}\to\R^n$ is a projection that omits one of the first $n$ coordinates.}
 \end{exercise}
 
 \begin{tcolorbox}

@@ -24,7 +24,7 @@ It is also possible to ``flip'' the whole construction around, constructing diff
 This is the approach taken by~\cite{lectures:hitchin} and it is at least worth of a look if you want to see a different perspective.
 
 To avoid diverging from~\cite{book:tu} too much\footnote{Since it used to be the compulsory reading material in the previous years.}, we will stick to derivations on the space of germs, which emphasizes the locality of derivations to an extreme.
-The equivalence between our approach and the one based on speeds of curves and on derivations will be left as homeworks.
+The equivalence between our approach and the one based on charts will be left as homework, while we will look into the equivalence with the speed of curves and with derivations together.
 
 \section{Directional derivatives in euclidean spaces}\label{sec:dd}
 
@@ -73,7 +73,7 @@ This will prove extremely convenient for the development of the theory.
 
 Germs define an equivalence relation on the set of smooth functions defined on a neighbourhood of a point $p$: $(U, f) \sim_p (V, g)$ if they have the same germ at $p$. Then, a germ $[f]_p$, where $(U, f)$ is one representative for $[f]_p$, is an equivalence class in the quotient space 
 \begin{equation}
-  C_p^\infty(M) := C^\infty(M)/\sim_p.
+  C_p^\infty(M) := C^\infty(M)/\!\sim_p.
 \end{equation} 
 
 \begin{exercise}
@@ -385,7 +385,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   In other words, $D(\phi\circ\psi^{-1})(\psi(p))$ is the transition matrix from the basis $\left\{\frac{\partial}{\partial y^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ to the basis $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$.
 \end{remark}
 
-We said in the introduction that there are multiple equivalent definition of the tangent space. In the following exercise you will provide one in terms of charts and euclidean derivatives.
+\newthought{We already mentioned} that there are multiple equivalent definition of the tangent space. In the following exercise you will provide one in terms of charts and euclidean derivatives.
 Soon, we will see yet another definition.
 
 \begin{exercise}\label{exe:vsstruct}
@@ -405,7 +405,7 @@ For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\phi\in\Si
     D(\psi \circ \phi^{-1})(\phi(p))v = w.
   \end{equation}
   defines an equivalence relation on $\R^m\times\Sigma_p$.
-  \item Let $\cT_p$ denote the set of equivalence classes $[(v,\phi)]\in \R^m\times\Sigma_p/\sim$. For $\phi\in\Sigma_p$, show that the map $T_\phi:\R^m\to\cT_p$ given by $T_\phi v := [(v,\phi)]$ is a bijection.
+  \item Let $\cT_p$ denote the set of equivalence classes $[(v,\phi)]\in \R^m\times\Sigma_p/\!\sim$. For $\phi\in\Sigma_p$, show that the map $T_\phi:\R^m\to\cT_p$ given by $T_\phi v := [(v,\phi)]$ is a bijection.
   Deduce\footnote{Hint: use the previous exercise!} that $\cT_p$ admits a unique vector space structure such that each $T_\phi$ is a linear isomorphism.
   \item Let $\phi$ be a chart defined on a neighbourhood of $p$ with local coordinates $x^i = r^i \circ \phi$ and let $\hat T_\phi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in~\eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\phi e_i = \frac{\partial}{\partial x^i}\big|_p$.
   Show that there exists a linear isomorphism $\mathcal{S}_p:\cT_p\to T_pM$ which in addition satisfies $\mathcal{S}_p \circ T_\phi = \hat T_\phi$ for every chart $\phi$ about $p$.
@@ -688,7 +688,7 @@ To conclude this part, the next proposition shows that velocity vectors behave w
 \end{proof}
 
 \begin{exercise}
-  Give an alternative proof of Proposition~\ref{prop:curves_deriv} using~\eqref{eq:tg_curve_der} as definition for $\gamma'(t)$.
+  Give an alternative proof of Proposition~\ref{prop:curves_deriv} using~\eqref{eq:tg_curve_der} as definition for $\gamma'(t)$.\\
  \textit{\small Hint: use the definitions to rewrite the formula in different ways.}
 \end{exercise}
 
@@ -781,7 +781,7 @@ The coordinates $(x^i, v^i)$ defined by~\eqref{eq:nat_coords} are called \emph{n
 
 \begin{exercise}
   Let $f:M\to N$ be a smooth map between smooth manifolds.
-  Show that its differential $df: TM \to TN$ is a smooth map between smooth manifolds (the respective tangent bundles).
+  Show that its differential $df: TM \to TN$ is a smooth map between smooth manifolds (the respective tangent bundles).\\
   \textit{\small Hint: use the natural differentiable structure on the tangent bundle described above and the definition of smooth map.}
 \end{exercise}
 
@@ -1208,6 +1208,5 @@ To finally answer the question, we will prove one last proposition.
   \begin{equation}
     T_{\id} O(n) = \left\{ B \in \mathrm{Mat}(n) \mid B^T = -B \right\}.
   \end{equation}
-
- \textit{\small Hint: Find a suitable map $F: \mathrm{Mat}(n) \to \mathrm{Sym}(n)$ such that $F^{-1}(\{0\}) = O(n)$. Here $\mathrm{Sym}(n)$ denotes the space of symmetric matrices.}
+  \textit{\small Hint: Find a suitable map $F: \mathrm{Mat}(n) \to \mathrm{Sym}(n)$ such that $F^{-1}(\{0\}) = O(n)$. Here $\mathrm{Sym}(n)$ denotes the space of symmetric matrices.}
 \end{exercise}
