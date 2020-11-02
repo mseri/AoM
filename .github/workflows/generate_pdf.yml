@@ -17,7 +17,7 @@ jobs:
       with:
         path: |
           ~/.cache
-        key: ${{ env.cache-name }}-${{ hashFiles('~/.cache/Tectonic/manifests/*.txt') }}
+        key: ${{ env.cache-name }}-${{ hashFiles('.cachefile') }}
         restore-keys: |
           ${{ env.cache-name }}-
 
