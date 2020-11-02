@@ -902,6 +902,9 @@ Can we make sense of such observation using our newly introduced definition?
 \end{proof}
 
 \begin{example}
+  \begin{marginfigure}
+  \includegraphics{1_5_9-cyl1}
+  \end{marginfigure}
   Consider the cone
   \begin{equation}
     \cC = \{p=(p^1,p^2,p^3)\in\R^3 \mid (p^1)^2 + (p^2)^2 = (p^3)^2, \quad 0< p^3\leq 1\},
@@ -913,20 +916,25 @@ Can we make sense of such observation using our newly introduced definition?
     \begin{equation}
       \phi_1^{-1}(x) = \left(x^1, x^2-1, \sqrt{(x^1)^2 + (x^2-1)^2}\right).
     \end{equation}
-    \item $U_2 = \{p\in\cC\mid 1/2 < p^3 \leq 1, \; (p^1, p^2) \neq (0, p^3)$ with $\phi_2$ defined as follows. Let
+    \item $U_2 = \{p\in\cC\mid 1/2 < p^3 \leq 1, \; (p^1, p^2) \neq (0, p^3)\}$ with $\phi_2$ defined as follows. Let
     \begin{equation}
       q = \psi(p) = \left(\frac{p^1}{p^3}, \frac{p^2}{p^3}, p^3\right)
       \quad\mbox{and}\quad
       \sigma(q) = \left(\frac{2q^1}{1-q^2}, 1-q^3\right),
     \end{equation}
-    then $x = \phi_2(p) = (\sigma\circ\psi)(p)$, $\phi_2(U_2) = \R\times[0,1/2) \subset\cH^2$.
+    then $x = \phi_2(p) = (\sigma\circ\psi)(p)$ and $\phi_2(U_2) = \R\times[0,1/2) \subset\cH^2$.
     \item $U_3 = \{p\in\cC\mid 1/2 < p^3 \leq 1, \; (p^1, p^2) \neq (0, -p^3)$ and $\phi_3$ defined similarly as in the previous point.
   \end{itemize}
+  \begin{marginfigure}
+  \includegraphics{1_5_9-cyl2}
+  \caption{Compare $\phi$ with the stereographic projections from Exercise~\ref{ex:stereo}. Do you notice any similarity?}
+  \end{marginfigure}
   The boundary is given by $\partial\cC = \phi_2^{-1}(\R\times\{0\}) \cup \phi_3^{-1}(\R\times\{0\})$.
 \end{example}
 
 \begin{exercise}
-  Explicitly define $\phi_3$ from the previous example, make a plot of all the three charts and show that the boundary is indeed $\partial\cC = \phi_2^{-1}(\R\times\{0\}) \cup \phi_3^{-1}(\R\times\{0\})$ as claimed.
+  Explicitly define $\phi_3$ from the previous example.
+  Why is $\phi_1$ not appearing in $\partial \cC$?
 \end{exercise}
 
 \begin{exercise}
