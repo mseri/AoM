@@ -1,0 +1,451 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{book:abrahammarsdenratiu}{book}{}
+      \name{author}{3}{}{%
+        {{hash=a662cea2e646a5fd5025f8ebbdaaae10}{%
+           family={Abraham},
+           familyi={A\bibinitperiod},
+           given={Ralph},
+           giveni={R\bibinitperiod}}}%
+        {{hash=02d8e9c18a21963d5d0460f3bfef567f}{%
+           family={Marsden},
+           familyi={M\bibinitperiod},
+           given={Jerold\bibnamedelima E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=1887ef8423f419033e7a7aa700f5ca03}{%
+           family={Ratiu},
+           familyi={R\bibinitperiod},
+           given={Tudor\bibnamedelima S.},
+           giveni={T\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, New York}%
+      }
+      \strng{namehash}{2a647dd3e00e15bb547f20c5113ce125}
+      \strng{fullhash}{2a647dd3e00e15bb547f20c5113ce125}
+      \strng{bibnamehash}{2a647dd3e00e15bb547f20c5113ce125}
+      \strng{authorbibnamehash}{2a647dd3e00e15bb547f20c5113ce125}
+      \strng{authornamehash}{2a647dd3e00e15bb547f20c5113ce125}
+      \strng{authorfullhash}{2a647dd3e00e15bb547f20c5113ce125}
+      \field{labelalpha}{AMR04}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{series}{Applied mathematical sciences}
+      \field{title}{Manifolds, tensor analysis, and applications}
+      \field{volume}{75}
+      \field{year}{2004}
+      \verb{doi}
+      \verb 10.1007/978-1-4612-1029-0
+      \endverb
+    \endentry
+    \entry{book:arnold}{book}{}
+      \name{author}{1}{}{%
+        {{hash=792a2142e186bdd494bf17f95f32ab79}{%
+           family={Arnold},
+           familyi={A\bibinitperiod},
+           given={Vladimir\bibnamedelima I.},
+           giveni={V\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, New York}%
+      }
+      \strng{namehash}{792a2142e186bdd494bf17f95f32ab79}
+      \strng{fullhash}{792a2142e186bdd494bf17f95f32ab79}
+      \strng{bibnamehash}{792a2142e186bdd494bf17f95f32ab79}
+      \strng{authorbibnamehash}{792a2142e186bdd494bf17f95f32ab79}
+      \strng{authornamehash}{792a2142e186bdd494bf17f95f32ab79}
+      \strng{authorfullhash}{792a2142e186bdd494bf17f95f32ab79}
+      \field{labelalpha}{Arn89}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd edition}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Mathematical methods of classical mechanics}
+      \field{volume}{60}
+      \field{year}{1989}
+      \verb{doi}
+      \verb 10.1007/978-1-4757-2063-1
+      \endverb
+    \endentry
+    \entry{book:bonfigliolifulci}{book}{}
+      \name{author}{2}{}{%
+        {{hash=9bbdd2bd9ed7dc42e3328938055abce0}{%
+           family={Bonfiglioli},
+           familyi={B\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bc22ceb3999a239f41c7e962ce48fd0f}{%
+           family={Fulci},
+           familyi={F\bibinitperiod},
+           given={Roberta},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{5385c1e584ae09e295d9d2ecfd774571}
+      \strng{fullhash}{5385c1e584ae09e295d9d2ecfd774571}
+      \strng{bibnamehash}{5385c1e584ae09e295d9d2ecfd774571}
+      \strng{authorbibnamehash}{5385c1e584ae09e295d9d2ecfd774571}
+      \strng{authornamehash}{5385c1e584ae09e295d9d2ecfd774571}
+      \strng{authorfullhash}{5385c1e584ae09e295d9d2ecfd774571}
+      \field{labelalpha}{BF12}
+      \field{sortinit}{B}
+      \field{sortinithash}{276475738cc058478c1677046f857703}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Topics in Noncommutative Algebra}
+      \field{year}{2012}
+      \verb{doi}
+      \verb 10.1007/978-3-642-22597-0
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/book/10.1007%2F978-3-642-22597-0
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/book/10.1007%2F978-3-642-22597-0
+      \endverb
+    \endentry
+    \entry{lectures:hitchin}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=d0af63589d0e61aaeda653b8860bf668}{%
+           family={Hitchin},
+           familyi={H\bibinitperiod},
+           given={Nigel},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{d0af63589d0e61aaeda653b8860bf668}
+      \strng{fullhash}{d0af63589d0e61aaeda653b8860bf668}
+      \strng{bibnamehash}{d0af63589d0e61aaeda653b8860bf668}
+      \strng{authorbibnamehash}{d0af63589d0e61aaeda653b8860bf668}
+      \strng{authornamehash}{d0af63589d0e61aaeda653b8860bf668}
+      \strng{authorfullhash}{d0af63589d0e61aaeda653b8860bf668}
+      \field{labelalpha}{Hit14}
+      \field{sortinit}{H}
+      \field{sortinithash}{5f15a7bc777ad49ff15aa4d2831b1681}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Unpublished lecture notes}
+      \field{title}{Differentiable manifolds}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://people.maths.ox.ac.uk/hitchin/files/LectureNotes/Differentiable_manifolds/manifolds2014.pdf
+      \endverb
+      \verb{url}
+      \verb https://people.maths.ox.ac.uk/hitchin/files/LectureNotes/Differentiable_manifolds/manifolds2014.pdf
+      \endverb
+    \endentry
+    \entry{book:knauf}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9a3dd08d6e1a58606049ffd1bd306bd6}{%
+           family={Knauf},
+           familyi={K\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, New York}%
+      }
+      \strng{namehash}{9a3dd08d6e1a58606049ffd1bd306bd6}
+      \strng{fullhash}{9a3dd08d6e1a58606049ffd1bd306bd6}
+      \strng{bibnamehash}{9a3dd08d6e1a58606049ffd1bd306bd6}
+      \strng{authorbibnamehash}{9a3dd08d6e1a58606049ffd1bd306bd6}
+      \strng{authornamehash}{9a3dd08d6e1a58606049ffd1bd306bd6}
+      \strng{authorfullhash}{9a3dd08d6e1a58606049ffd1bd306bd6}
+      \field{labelalpha}{Kna18}
+      \field{sortinit}{K}
+      \field{sortinithash}{9fd838a31ba64d981e8f44562bd33f89}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{UNITEXT}
+      \field{title}{Mathematical physics: classical mechanics}
+      \field{volume}{109}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1007/978-3-662-55774-7
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/book/10.1007%2F978-3-662-55774-7
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/book/10.1007%2F978-3-662-55774-7
+      \endverb
+    \endentry
+    \entry{book:lee:topology}{book}{}
+      \name{author}{1}{}{%
+        {{hash=32fbdee07151a2283306531745546911}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={John\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{32fbdee07151a2283306531745546911}
+      \strng{fullhash}{32fbdee07151a2283306531745546911}
+      \strng{bibnamehash}{32fbdee07151a2283306531745546911}
+      \strng{authorbibnamehash}{32fbdee07151a2283306531745546911}
+      \strng{authornamehash}{32fbdee07151a2283306531745546911}
+      \strng{authorfullhash}{32fbdee07151a2283306531745546911}
+      \field{labelalpha}{Lee11}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to Topological Manifolds}
+      \field{year}{2011}
+      \verb{doi}
+      \verb 10.1007/978-1-4419-7940-7
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/book/10.1007/978-1-4419-7940-7
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/book/10.1007/978-1-4419-7940-7
+      \endverb
+    \endentry
+    \entry{book:lee}{book}{}
+      \name{author}{1}{}{%
+        {{hash=32fbdee07151a2283306531745546911}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={John\bibnamedelima M.},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, New York}%
+      }
+      \strng{namehash}{32fbdee07151a2283306531745546911}
+      \strng{fullhash}{32fbdee07151a2283306531745546911}
+      \strng{bibnamehash}{32fbdee07151a2283306531745546911}
+      \strng{authorbibnamehash}{32fbdee07151a2283306531745546911}
+      \strng{authornamehash}{32fbdee07151a2283306531745546911}
+      \strng{authorfullhash}{32fbdee07151a2283306531745546911}
+      \field{labelalpha}{Lee13}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Introduction to Smooth Manifolds}
+      \field{volume}{218}
+      \field{year}{2013}
+      \verb{doi}
+      \verb 10.1007/978-1-4419-9982-5
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/book/10.1007/978-1-4419-9982-5
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/book/10.1007/978-1-4419-9982-5
+      \endverb
+    \endentry
+    \entry{book:McInerney}{book}{}
+      \name{author}{1}{}{%
+        {{hash=bef419e9621a47e7b327d465eb8ec17a}{%
+           family={McInerney},
+           familyi={M\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{bef419e9621a47e7b327d465eb8ec17a}
+      \strng{fullhash}{bef419e9621a47e7b327d465eb8ec17a}
+      \strng{bibnamehash}{bef419e9621a47e7b327d465eb8ec17a}
+      \strng{authorbibnamehash}{bef419e9621a47e7b327d465eb8ec17a}
+      \strng{authornamehash}{bef419e9621a47e7b327d465eb8ec17a}
+      \strng{authorfullhash}{bef419e9621a47e7b327d465eb8ec17a}
+      \field{labelalpha}{McI13}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{First Steps in Differential Geometry}
+      \field{year}{2013}
+      \verb{doi}
+      \verb 10.1007/978-1-4614-7732-7
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/book/10.1007/978-1-4614-7732-7
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/book/10.1007/978-1-4614-7732-7
+      \endverb
+    \endentry
+    \entry{lectures:merry}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8d7ebf70d21bdd08061e63dfb55c2a0a}{%
+           family={Merry},
+           familyi={M\bibinitperiod},
+           given={Will},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{8d7ebf70d21bdd08061e63dfb55c2a0a}
+      \strng{fullhash}{8d7ebf70d21bdd08061e63dfb55c2a0a}
+      \strng{bibnamehash}{8d7ebf70d21bdd08061e63dfb55c2a0a}
+      \strng{authorbibnamehash}{8d7ebf70d21bdd08061e63dfb55c2a0a}
+      \strng{authornamehash}{8d7ebf70d21bdd08061e63dfb55c2a0a}
+      \strng{authorfullhash}{8d7ebf70d21bdd08061e63dfb55c2a0a}
+      \field{labelalpha}{Mer19}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Unpublished lecture notes}
+      \field{title}{Lecture notes on Differential Geometry}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://www.merry.io/courses/differential-geometry/
+      \endverb
+      \verb{url}
+      \verb https://www.merry.io/courses/differential-geometry/
+      \endverb
+    \endentry
+    \entry{book:munkres:topology}{book}{}
+      \name{author}{1}{}{%
+        {{hash=9357bb87897cb34de20366e6cca786c3}{%
+           family={Munkres},
+           familyi={M\bibinitperiod},
+           given={J.R.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall, Incorporated}%
+      }
+      \strng{namehash}{9357bb87897cb34de20366e6cca786c3}
+      \strng{fullhash}{9357bb87897cb34de20366e6cca786c3}
+      \strng{bibnamehash}{9357bb87897cb34de20366e6cca786c3}
+      \strng{authorbibnamehash}{9357bb87897cb34de20366e6cca786c3}
+      \strng{authornamehash}{9357bb87897cb34de20366e6cca786c3}
+      \strng{authorfullhash}{9357bb87897cb34de20366e6cca786c3}
+      \field{labelalpha}{Mun00}
+      \field{sortinit}{M}
+      \field{sortinithash}{cfd219b90152c06204fab207bc6c7cab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780131816299}
+      \field{title}{Topology}
+      \field{year}{2000}
+    \endentry
+    \entry{lectures:teufel}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=91396cef9166c4f47cfbe40ba6179b13}{%
+           family={Teufel},
+           familyi={T\bibinitperiod},
+           given={Stefan},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{91396cef9166c4f47cfbe40ba6179b13}
+      \strng{fullhash}{91396cef9166c4f47cfbe40ba6179b13}
+      \strng{bibnamehash}{91396cef9166c4f47cfbe40ba6179b13}
+      \strng{authorbibnamehash}{91396cef9166c4f47cfbe40ba6179b13}
+      \strng{authornamehash}{91396cef9166c4f47cfbe40ba6179b13}
+      \strng{authorfullhash}{91396cef9166c4f47cfbe40ba6179b13}
+      \field{labelalpha}{Teu13}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Unpublished lecture notes}
+      \field{title}{Mathematische Physik: Klassische Mechanik}
+      \field{year}{2013}
+      \verb{urlraw}
+      \verb https://www.math.uni-tuebingen.de/de/forschung/maphy/personen/stefanteufel/skripte/skript2013.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.math.uni-tuebingen.de/de/forschung/maphy/personen/stefanteufel/skripte/skript2013.pdf
+      \endverb
+    \endentry
+    \entry{book:thirring}{book}{}
+      \name{author}{1}{}{%
+        {{hash=abe7ad95d7885afdb493fee7ab36189e}{%
+           family={Thirring},
+           familyi={T\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{abe7ad95d7885afdb493fee7ab36189e}
+      \strng{fullhash}{abe7ad95d7885afdb493fee7ab36189e}
+      \strng{bibnamehash}{abe7ad95d7885afdb493fee7ab36189e}
+      \strng{authorbibnamehash}{abe7ad95d7885afdb493fee7ab36189e}
+      \strng{authornamehash}{abe7ad95d7885afdb493fee7ab36189e}
+      \strng{authorfullhash}{abe7ad95d7885afdb493fee7ab36189e}
+      \field{labelalpha}{Thi03}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3rd}
+      \field{isbn}{9780387406152}
+      \field{title}{Classical Mathematical Physics: Dynamical Systems and Field Theories}
+      \field{year}{2003}
+    \endentry
+    \entry{book:tu}{book}{}
+      \name{author}{1}{}{%
+        {{hash=c37642edbd89e50fd3e8867fb6e209e5}{%
+           family={Tu},
+           familyi={T\bibinitperiod},
+           given={Loring\bibnamedelima W.},
+           giveni={L\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer, New York}%
+      }
+      \strng{namehash}{c37642edbd89e50fd3e8867fb6e209e5}
+      \strng{fullhash}{c37642edbd89e50fd3e8867fb6e209e5}
+      \strng{bibnamehash}{c37642edbd89e50fd3e8867fb6e209e5}
+      \strng{authorbibnamehash}{c37642edbd89e50fd3e8867fb6e209e5}
+      \strng{authornamehash}{c37642edbd89e50fd3e8867fb6e209e5}
+      \strng{authorfullhash}{c37642edbd89e50fd3e8867fb6e209e5}
+      \field{labelalpha}{Tu11}
+      \field{sortinit}{T}
+      \field{sortinithash}{6f7aff9db9dcfeb7f95fd5bbd2f78df9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{An Introduction to Manifolds}
+      \field{year}{2011}
+      \verb{doi}
+      \verb 10.1007/978-1-4419-7400-6
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/book/10.1007%2F978-1-4419-7400-6
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/book/10.1007%2F978-1-4419-7400-6
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
