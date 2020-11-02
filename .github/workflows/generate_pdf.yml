@@ -1,0 +1,17 @@
+on: [push]
+
+jobs:
+  latex-job:
+    runs-on: ubuntu-latest
+    name: A job to Compile Latex file
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Compilation
+      uses: vinay0410/tectonic-action@master
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tex_path: 'aom.tex'
+        push: 'yes'
+
