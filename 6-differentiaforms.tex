@@ -17,7 +17,7 @@ In addition to their role in integration, differential forms provide a framework
   \begin{equation}
     \omega(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) = \sgn(\sigma) \omega(v_1, \ldots, v_k).
   \end{equation}
-  The subspace of alternating tensors in $T_k^0(V)$ is denoted by $\Lambda^k \equiv \Lambda^k(V) \subset T_k^0(V)$ and its elements are called \emph{exterior forms}, \emph{alternating $k$-forms} or just  \emph{$k$-forms}.
+  The subspace of alternating tensors in $T_k^0(V)$ is denoted\footnote{Some authors also use $\Lambda^k(v^*)$ or $\Lambda_k(V^*)$ to denote the same space.} by $\Lambda^k \equiv \Lambda^k(V) \subset T_k^0(V)$ and its elements are called \emph{exterior forms}, \emph{alternating $k$-forms} or just  \emph{$k$-forms}.
   For $k=0$, we define $\Lambda^0 := T_0^0(V) := \R$.
 \end{definition} 
 
@@ -69,7 +69,7 @@ According to Proposition~\ref{prop:tensorbasis} we have the basis representation
 in $T_k^0(V)$.
 It would be convenient to have a similar basis representation on $\Lambda^k(V)$.
 
-\begin{proposition}
+\begin{proposition}\label{prop:dimLkV}
   Let $V$ be a real $n$-dimensional vector space, let $(e^j)$ denote a basis for $V^*$.
   Then, for each $1\leq k \leq n$, the set of $k$-forms
   \begin{equation}
@@ -331,6 +331,25 @@ Of course, the same technique can also be used to compute the expression for a d
   \end{equation}
 \end{exercise}
 
+The previous exercise is a particular case of the following statement.
+
+\begin{proposition}\label{prop:wedgeToJDet}
+  Let $F:M\to N$ be a smooth map between $n$-manifolds.
+  Let $(x^i)$ and $(y^i)$ denote, respectively, smooth coordinates on open subsets $U\subseteq M$ and $V\subseteq N$.
+  Let $u$ be a continuous real-valued function on $V$.
+  Then, on $U\cap F^{-1}(V)$, the following holds:
+  \begin{equation}
+    F^*(u\, dy^1\wedge\cdots\wedge dy^n)
+    = (u\circ f) (\det DF) dx^1\wedge\cdots\wedge dx^n,
+  \end{equation}
+  where $DF$ represents the Jacobian matrix of $F$ in these coordinates.
+\end{proposition}
+
+\begin{exercise}
+  Prove the Proposition~\ref{prop:wedgeToJDet}.\\
+  \textit{\small Hint: look at Theorem~\ref{thm:pullbacksdifferentialforms}.}
+\end{exercise}
+
 Of course, also the interior product extends naturally to vector fields and differential forms, simply by letting it act pointwise: if $X\in\fX(M)$ and $\omega\in\Omega^k(M)$, then the $k-1$-form $\iota_X\omega\equiv X\iprod\omega$ is defined by $(X\iprod\omega)_p = X_p \iprod \omega_p$.
 
 \begin{exercise}
@@ -463,10 +482,10 @@ For $\omega\in\Omega^k(M)$, we call $i^*\omega \in \Omega^k(N)$ the restriction 
 The previous exercise, then, implies that restriction and exterior derivative commute, that is, $i^*d\omega = d(i^*\omega)$.
 
 \begin{example}[Exterior derivatives and vector calculus in $\R^3$]
-  \TODO
+  \todo{Add this, maybe mention Hodge star}
 \end{example}
 
-\begin{exercise}
+\begin{exercise}\label{exe:symplectic}
 The form $\omega := \sum_{i=1}^n \alpha^i\wedge \alpha^{i+n}\in\omega^2(\R^{2n})$ is called \emph{symplectic form} and plays a central role in classical mechanics. There one usually calls the first $n$ coordinates the \emph{momentum coordinates} the remaining $n$ coordinates the \emph{position coordinates}.
 
 Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alpha^3\wedge\alpha^4$.
@@ -583,10 +602,14 @@ Even though it is a bit impractical for computational purposes, flows are hard t
   and so it can be considered as a generalization of the Lie brackets.
 
   One nice little perk of the general definition, is that it makes it relatively straightforward to show that
-  \begin{equation}
+  \begin{equation}\label{eq:cLXwBrackets}
     \cL_X(\omega(Y)) = (\cL_X\omega)(Y) + \omega([X,Y]),
   \end{equation}
   which is often very useful in computations.
+
+  One can think to the Lie derivative as a mean to ``differentiate'' a tensor field (or a differential form) with respect to a vector field.
+  Note that it does not allow us differentiate a tensor field (or a differential form) with respect to a single tangent vector: the value of $\cL_X(\tau)$ at a point depends on the values of $X$ in a neighbourhood of the point, not just on the germ at $X$.
+  %This stems from the fact that $X\to\cL_X$ is not $C^\infty(M)$-linear: you can see this by using~\eqref{eq:cLXwBrackets} and show that $\cL_{fX}(\omega)(Y) = f\cL_X(\omega)(Y) + Y(f)\omega(X)$, and in general there is no reason for the correction $Y(f)\omega(X)$ to vanish.
 \end{remark}
 
 \section{Poincar\'e lemma}

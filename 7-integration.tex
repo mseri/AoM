@@ -9,4 +9,149 @@ If for a curve an orientation is simply a choice of a direction along it, so we 
 Not just that, you have seen already that in $\R^n$ there is a standard orientation, but in other vector spaces we may need to make arbitrary choices.
 For manifolds, the situation is much more complicated: for example, on a M\"obius strip it is impossible to make any such choice, as it turns out, it is non-orientable.
 
+Let's get there step by step.
+
+\begin{definition}
+  Let $V$ be a one-dimensional vector space. Then $V\setminus\{0\}$ has two components.
+  An \emph{orientation} of $V$ is a choice of one of these components, which one then labels as ``positive'' and ``negative''.
+  A \emph{positive basis} of $V$ then is a choice of any non-zero vector belonging to the positive component, while a \emph{negative basis} of $V$ is a choice of any non-zero vector belonging to the negative component.
+\end{definition}
+
+\begin{example}
+  The standard orientation of $\R$ is give by declaring that the positive numbers are the positive components of $\R\setminus\{0\}$.
+  A common choice as positive basis for $\R$ is $\{e_1 \equiv 1\}$ while a negative basis could be $\{-e_1\}$.
+\end{example}
+
+Let $V$ be a $n$-dimensional vector space.
+How can we generalize in a meaningful way the definition above?
+
+By Proposition~\eqref{prop:dimLkV}, the space $\Lambda^n(V)$ is a one-dimensional vector space.
+Moreover, if $\{e_1,\ldots,e_n\}$ is a basis for $V$, then $e_1\wedge\cdots\wedge e_n$ is a basis for $\Lambda^n(V)$.
+
+Looks like we are getting somewhere.
+
+\begin{definition}
+  Let $V$ be a $n$-dimensional vector space.
+  An \emph{orientation} on $V$ is a choice of orientation on $\Lambda^n(V)$.
+  \marginnote{It should be clear from this that the orientation is, in fact, an equivalence class of ordered bases.}
+  Therefore there are exactly two orientations: we say that a basis $\{e_1,\ldots,e_n\}$ of $V$ is \emph{positive} (or positively oriented) if $e_1\wedge\cdots\wedge e_n$ is a positive basis of $\Lambda^n(V)$ and \emph{negative} (or negatively oriented) otherwise.
+\end{definition}
+
+\begin{example}
+  If $e_i$ is the standard $i$th basis vector in $\R^n$, the standard orientation of $\R^n$ is given by declaring that $e_1\wedge\cdots e_n$ is a positive basis of $\Lambda^n(\R^n)$ and thus that $\{e_1,\ldots,e_n\}$ is a positive basis of $\R^n$.
+\end{example}
+
+The key in the preservation of orientation now resides only in the way different bases are transformed by $n$-forms, as the following lemma shows.
+
+\begin{lemma}\label{lemma:orient}
+  Let $V$ be a $n$-dimensional vector space and let $0\neq \omega\in\Lambda^n(V)$.
+  Then, all bases $\{v_1, \ldots, v_n\}$ for which $\omega(v_1,\ldots v_n) > 0$ give the same orientation for $V$.
+\end{lemma}
+\begin{proof}
+  Let $\{v_1, \ldots, v_n\}$ and $\{w_1, \ldots, w_n\}$ denote two different basis for $V$, then there exists a linear isomorphism $\Phi$ such that $v = \Phi w$, that is $v_i = \Phi_{i}^j w_j$.
+  By definition and by multilinearity we then have
+  \begin{equation}\label{eq:posorie}
+    \omega(v_1,\ldots v_n) = \omega(\Phi w_1,\ldots \Phi w_n) = \det(\Phi)\omega(w_1,\ldots w_n) > 0,
+  \end{equation} that is the positivity of $\omega$ on the bases characterize the set of bases.
+\end{proof}
+
+\begin{exercise}
+  Let $V$ be a $n$-dimensional vector space, prove that two nonzero $n$-forms on $V$ determine the same orientation if and only if each is a positive multiple of the other.
+\end{exercise}
+
+\begin{remark}
+  Of course, if $V$ is a vector space, then an orientation on $V$ canonically determines an orientation on the dual space $V^*$ by declaring that the basis dual to a positive basis is itself positive.
+\end{remark}
+
+We are almost there.
+The tangent space is a vector space and $n$-forms act naturally on tangent vectors, this seems likely to be the right place to define an orientation for a manifold, at least pointwise.
+As usual, one does need to make sure that all the local orientations just defined on the tangent bundle are gluing together coherently.
+
+\begin{remark}
+  If we look at a single chart $(U,\phi)$, by Lemma~\ref{lemma:orient} each chart in the atlas determines an orientation at each point of its domain, which will be positive if $\det(D\phi)>0$ and negative otherwise.
+  This procedure can be repeated for each chart in an atlas for $M$.
+  Thus, in order to get a globally consistent ordering, we need to worry about the overlaps between charts.
+\end{remark}
+
+\begin{definition}
+  We call an atlas $\cA = \{(U_i,\phi_i)\}$ \emph{oriented} if all the charts have the same orientation, that is, if $\det(D\Phi_{ij}) > 0$ for all the transition functions $\Phi_{ij} := \phi_i\circ\phi_j^{-1}$.
+
+  A manifold $M$ with an oriented atlas is called \emph{oriented manifold}.
+  If an orientation exists, we say tht $M$ is \emph{orientable}, in this case we call the equivalence class of atlases with the same orientation an \emph{orientation}.
+  Otherwise we say that the manifold is \emph{nonorientable}.
+\end{definition}
+
+An immediate consequence of Lemma~\ref{lemma:orient} is that if a manifold is orientable, there are exactly two different orientations.
+
+\begin{definition}
+  Given an orientation on a manifold, we say that any chart from the same equivalence class of atlases is \emph{positively oriented}, while we call all other charts \emph{negatively oriented}.
+\end{definition}
+
+And as for vector spaces, an orientation on $\Lambda^n(M)$ determines the orientation of the manifold.
+
+\begin{theorem}
+  Let $M$ be a $n$-dimensional smooth manifold.
+  A nowhere vanishing volume form $\omega\in\Omega^n(M)$ uniquely determines an orientation.
+\end{theorem}
+\begin{proof}
+  Let $\phi$ and $\psi$ be two different charts with overlapping domains (otherwise there is nothing to check) and with local coordinates $(x^i)$ and $(y^i)$ respectively.
+  Define the transition map $\Phi := \psi\circ\phi^{-1}$, so that $(y^1,\ldots,y^n) = \Phi(x)$.
+  Since $d y^j = (D\phi)_i^j dx^i$, we have that locally
+  \begin{align}
+    \omega &= \widetilde \omega (y) dy^1\wedge\cdots\wedge dy^n \\
+    &= (\widetilde\omega \circ \Phi)(x) \det(\Phi|_x) dx^{1}\wedge\cdots\wedge dx^{n} \\
+    &= \omega(x) dx^{1}\wedge\cdots\wedge dx^{n},
+  \end{align}
+  where we used Proposition~\ref{prop:wedgeToJDet} and Theorem~\ref{thm:pullbacksdifferentialforms}.
+  Thus, $\omega(x)$ and $\widetilde\omega(y)$ have the same sign if and only if $\det(D\Phi|_x) > 0$.
+\end{proof}
+
+\begin{definition}
+  Let $M$ be a $n$-dimensional smooth manifold.
+  If $(U,\phi)$ is a chart with local coordinates $(x^i)$ such that, in the coordinate representation, $\omega = \omega(x) dx^1\wedge\cdots\wedge dx^n$ with $\omega(x) > 0$, then we say that the chart $\phi$ is \emph{positively oriented} with respect to $\omega$, otherwise we say that it is \emph{negatively oriented}.  
+\end{definition}
+
+\begin{example}
+  The euclidean space $\R^n$ is orientable with orientation given by the continuous global frame $\frac{\partial}{\partial r^i},\ldots,\frac{\partial}{\partial r^n}$.
+\end{example}
+
+\begin{example}\label{exe:orientsphere}
+  Let $M = \bS^1\subset \R^2$.
+  This is an orientable manifold and we can find an orientation using the stereographic projections from Exercise~\ref{ex:stereo}.
+  Let $U_1 = \bS^1\setminus\{N\}$ and $U_2 = \bS^1\setminus\{S\}$, with the associated diffeomorphisms
+  \begin{equation}
+    \phi_1(p) = \frac{2p^1}{1-p^2}
+    \quad\mbox{and}\quad
+    \phi_2(p) = \frac{2p^1}{1+p^2}.
+  \end{equation}
+  Let's pick a pointwise orientation by choosing as basis $X_p\in T_pM$ given by $X_p = -p^2 \frac{\partial}{\partial p^1} + p^1 \frac{\partial}{\partial p^2}$.
+  Then, on $U_1$,
+  \begin{align}
+    (\phi_1)_*(X) &= (d\phi_1)_p(X) \\
+    &= \left(\begin{smallmatrix}
+      \frac{2}{1-p^2} & \frac{2p^1}{(1-p^2)^2}
+    \end{smallmatrix}\right)
+    \left(\begin{smallmatrix}
+      -p^2 \\ p^1
+    \end{smallmatrix}\right) \frac{\partial}{\partial x}\Big|_{\phi_1(p)}\\
+    &= \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\phi_1(p)},
+  \end{align}
+  and $\frac{2}{1-p^2}>0$.
+  If we perform the same computation on $U_2$, however, we obtain $(\phi_2)_*(X) = -\frac{2}{1+p^2}\frac{\partial}{\partial x}\Big|_{\phi_2(p)}$, with the negative coefficient $-\frac{2}{1+p^2} < 0$ (check!), corresponding to the opposite orientation on $U_2$.
+  Of course, in this case, not all is lost: by choosing $\widetilde\phi_2(p) = \phi_2(-p^1, p^2)$ we obtain $(\widetilde\phi_2)_*(X) = \frac{2}{1+p^2} \frac{\partial}{\partial x}\Big|_{\widetilde\phi_2(p)}$ with the positive coefficient $\frac{2}{1+p^2} > 0$ (check!), which shows that $X_p$ defines an orientation on the whole $\bS^1$.
+\end{example}
+
+\begin{exercise}
+  Check that the Jacobian determinant $\det(D(\phi_2\circ \phi_1^{-1}))$ of the transition chart from Exercise~\ref{exe:orientsphere} is negative, while $\det(D(\widetilde\phi_2\circ \phi_1^{-1}))$ is positive.
+\end{exercise}
+
+\begin{lemma}
+  A pointwise orientation $(X_1, \ldots, X_n)$ on a manifold $M$ is continuous if and only if each point $p\in M$ has a coordinate neighbourhood $(U, (x^i))$ on which 
+\end{lemma}
+
+
+
+
+
+
 \section{Stokes' Theorem}
