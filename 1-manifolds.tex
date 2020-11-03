@@ -805,10 +805,13 @@ and the topology inherited by $\R^n$, as a replacement for our local model $\R^n
   \includegraphics{1_4-mfld-w-bdry.pdf}
 \end{figure}
 
-\begin{example}
-A M\"obius strip $E$ is a (compact) $2$-manifold with boundary. As a topological space it is the quotient $\R\times[0,1]$ via the identification $(x,y)\sim(x+1, 1-y)$.
-The projection $\pi: [(x,y)] \mapsto e^{2\pi i z}$ is a continuous surjective map to $\bS^1$. Given $x_0\in\R$, we can choose charts $[(x,y)]\mapsto e^{x+i\pi y}$ for $x\in(x_0 - \epsilon, x_0 + \epsilon)$ and any $\epsilon < 1/2$.
-\marginnote{Note that $\partial E$ is diffeomorphic to $\bS^1$. In fact, this is actually an example of a non-trivial fiber bundle, something that will make sense only a few chapters from now. In this case,$E$ is a bundle of intervals over a circle.}
+\begin{example}\label{ex:mobius}
+A M\"obius strip $M$ is a connected $2$-manifold with boundary.
+As a topological space it is the quotient\footnote{Think of a strip of paper whose ends have been glued with a twist.} $\R\times[0,1]$ via the identification $(x,y)\sim(x+1, 1-y)$.
+The projection $\pi: [(x,y)] \mapsto (\cos(2\pi x), \sin(2\pi x))$ is a continuous surjective map to $\bS^1$.
+Given $x_0\in\R$, we can choose charts $[(x,y)]\mapsto (e^x\cos(\pi y), e^x\sin(\pi y))$ for $x\in(x_0 - \epsilon, x_0 + \epsilon)$ and any $\epsilon < 1/2$.
+\marginnote{Note that $\partial M$ is diffeomorphic to $\bS^1$. In fact, this is actually an example of a non-trivial fiber bundle, something that will make sense only a few chapters from now.
+In this case, $M$ is a bundle of intervals over a circle.}
 \end{example}
 
 We saw in Proposition~\ref{prop:uniqdiffeoinclusion} that differentiability is a local property, which means that is a property defined on open sets.

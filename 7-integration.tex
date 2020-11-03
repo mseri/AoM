@@ -7,7 +7,7 @@ Indeed, the sign of the integral of a differential $n$-form is only fixed after 
 
 If for a curve an orientation is simply a choice of a direction along it, so we can make sense of it in terms of clockwise or counter-clockwise, generalising the concept will require an extra abstraction step.
 Not just that, you have seen already that in $\R^n$ there is a standard orientation, but in other vector spaces we may need to make arbitrary choices.
-For manifolds, the situation is much more complicated: for example, on a M\"obius strip it is impossible to make any such choice, as it turns out, it is non-orientable.
+For manifolds, the situation is much more complicated: for example, on a M\"obius strip\footnote{Cf. Example~\ref{ex:mobius}.} it is impossible to make any such choice, as it turns out, it is non-orientable.
 
 Let's get there step by step.
 
@@ -87,11 +87,13 @@ An immediate consequence of Lemma~\ref{lemma:orient} is that if a manifold is or
   Given an orientation on a manifold, we say that any chart from the same equivalence class of atlases is \emph{positively oriented}, while we call all other charts \emph{negatively oriented}.
 \end{definition}
 
-And as for vector spaces, an orientation on $\Lambda^n(M)$ determines the orientation of the manifold.
+If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ determines the orientation of the manifold.
+\marginnote{If it is not connected, then we need to deal with each connected component separately.}
 
 \begin{theorem}
   Let $M$ be a $n$-dimensional smooth manifold.
-  A nowhere vanishing volume form $\omega\in\Omega^n(M)$ uniquely determines an orientation.
+  A nowhere-vanishing $n$-form $\omega\in\Omega^n(M)$ uniquely determines an orientation.
+  For this reason, nowhere vanishing $n$-forms on a smooth $n$-manifold are called \emph{volume forms}.
 \end{theorem}
 \begin{proof}
   Let $\phi$ and $\psi$ be two different charts with overlapping domains (otherwise there is nothing to check) and with local coordinates $(x^i)$ and $(y^i)$ respectively.
@@ -110,6 +112,18 @@ And as for vector spaces, an orientation on $\Lambda^n(M)$ determines the orient
   Let $M$ be a $n$-dimensional smooth manifold.
   If $(U,\phi)$ is a chart with local coordinates $(x^i)$ such that, in the coordinate representation, $\omega = \omega(x) dx^1\wedge\cdots\wedge dx^n$ with $\omega(x) > 0$, then we say that the chart $\phi$ is \emph{positively oriented} with respect to $\omega$, otherwise we say that it is \emph{negatively oriented}.  
 \end{definition}
+
+\begin{remark}
+  In fact, this definition can be immediately extended to vector bundles.
+  Given a real vector bundle $\pi: E \to M$, an orientation of $E$ means that for each fiber $E_p$, there is an orientation of the vector space $E_p$ such that each trivialization map
+  \begin{equation}
+    \phi_{U}:\pi^{-1}(U)\to U\times \R^{n},
+  \end{equation}
+  with $\R^n$ equipped with its standard orientation, is fiberwise orientation-preserving.
+  \marginnote[-2em]{Otherwise said, we can cover the manifold by (continuous) local frames whose local trivializations are orientation preserving.}
+
+  With this definition, the orientability of $M$ coincides with the orientability of the bundle $M\to TM$.
+\end{remark}
 
 \begin{example}
   The euclidean space $\R^n$ is orientable with orientation given by the continuous global frame $\frac{\partial}{\partial r^i},\ldots,\frac{\partial}{\partial r^n}$.
@@ -145,13 +159,149 @@ And as for vector spaces, an orientation on $\Lambda^n(M)$ determines the orient
   Check that the Jacobian determinant $\det(D(\phi_2\circ \phi_1^{-1}))$ of the transition chart from Exercise~\ref{exe:orientsphere} is negative, while $\det(D(\widetilde\phi_2\circ \phi_1^{-1}))$ is positive.
 \end{exercise}
 
-\begin{lemma}
-  A pointwise orientation $(X_1, \ldots, X_n)$ on a manifold $M$ is continuous if and only if each point $p\in M$ has a coordinate neighbourhood $(U, (x^i))$ on which 
-\end{lemma}
+\begin{marginfigure}
+  \includegraphics{7_1-mobius_strip.pdf}
+\end{marginfigure}
 
+\begin{exercise}
+  Consider the open M\"obius strip $M$, a variation of Example~\ref{ex:mobius} defined as the quotient of $\R\times(-1,1)$ via the identification $(x,y) \sim (x+1, -y)$, and denote $\pi: \R\times(-1,1)\to M$ the corresponding projection map.
+  The M\"obius strip inherits the differentiable structure from $\R^2$, so we need to show that there is no orientable atlas which is also compatible with the differentiable structure on $M$.
+  \begin{enumerate}
+    \item Define the map $\sigma:\R\times(-1,1)\to\R\times(-1,1)$ by $\sigma(x,y) = (x+1, -y)$ and show that $\pi\circ\sigma = \sigma$.
+    \item If $\nu\in\Omega^2(M)$ define $f$ by $\pi^* \nu = f \omega$ where $\omega$ is an area\footnote{I.e. a volume $2$-form.} form on $\R\times(-1,1)$.
+    Show that $f(x+1, y) = - f(x,y)$.
+    \item Conclude that $f$ must vanish at some point of $\R\times(-1,1)$, which implies that $M$ is nonorientable.
+  \end{enumerate}
+\end{exercise}
 
+What about orientation on the boundaries?
 
+Let's first look at the tangent space. 
 
+Let $M$ be a smooth $n$-manifold with boundary and $p\in \partial M$.
+Then, we have three types of possible vectors:
+\begin{enumerate}
+  \item tangent boundary vectors: $X\in T_p(\partial M)\subset T_p M$ tangent to the boundary, forming an $(n-1)$-dimensional subspace of $T_p M$;
+  \item inward pointing vectors: $X\in T_pM$ such that $X = \phi^{-1}_*(Y)$ where $\phi^{-1}: V\subset \cH^n \to M$ and $Y$ is some vector $Y = (Y^1, \ldots, Y_n)$ with $Y_n > 0$;
+  \item outward pointing vectors: $X\in T_pM$ such that $-X$ is inward pointing.
+\end{enumerate}
+Thus, a vector field along $\partial M$ is a function $X:\partial M\to T_pM$ (not to $T_p\partial M$).
 
+\begin{proposition}
+  On a smooth manifold $M$ with boundary, there is a smooth outward pointing vector field along $\partial M$.  
+\end{proposition}
+\begin{proof}
+  Pick an open cover of $\partial M$ with coordinate charts $\{(U_\alpha, (x^1_\alpha,\ldots,x^n_\alpha) \mid \alpha\in I\}$. Then $X_\alpha = -\frac{\partial}{\partial x^n_\alpha}$ on $U_\alpha\cap \partial M$ is smooth and outward pointing.
+  Choose a partition of unity $\{\rho_\alpha \mid \alpha\in I\}$ on $\partial M$ subordinate to the open cover $\{U_\alpha\cap \partial M \mid \alpha\in I\}$.
+  Then $X:= \sum_{\alpha\in I}\rho_\alpha U_\alpha$ is a smooth ouwtard pointing vector field along $\partial M$.
+\end{proof}
+
+We can use this to introduce a notion of induced orientation on $\partial M$.
+
+\begin{proposition}
+  Let $M$ be an oriented $n$-manifold with boundary.
+  If $\omega$ is a volume form on $M$ and $X$ a smooth outward-pointing vector field on $\partial M$, then $\iota_X\omega$ is a smooth nowhere-vanishing $(n-1)$-form on $\partial M$ and, thus, $M$ is orientable.
+\end{proposition}
+\begin{proof}
+  Since both $omega$ and $X$ are smooth, the contraction $\iota_X\omega$ is also smooth.
+  We need to check that it cannot vanish.
+
+  Assume that $\iota_X\omega$ does vanish at some point $p\in\partial M$, that is, $(\iota_X)(v_1, \ldots, v_{n-1}) = 0$ for all $v_1, \ldots, v_{n-1}\in T_p(\partial M)$.
+  Let $\{e_1,\ldots,e_{n-1}\}$ be a basis for $T_p(\partial M)$.
+  Then $\{X_p,e_1,\ldots,e_{n-1}\}$ is a basis for $T_p M$ such that
+  \begin{equation}
+    \omega_p(X_p, e_1, \ldots, e_{n-1}) = (\iota_X\omega)_p(e_1, \ldots, e_{n-1}) = 0.
+  \end{equation}
+  Then, by Exercise~\ref{ex:zeroform}, $\omega_p\equiv0$ reaching a contradiction.
+  
+  Therefore, $\iota_X\omega$ is non-vanishing on $\partial M$ which means that $\partial M$ is orientable.
+\end{proof}
+
+\begin{exercise}
+  Let $M$ be an oriented manifold with boundary, $\omega$ an orientation for $M$ and $X$ a smooth outward pointing vector field along $\partial M$.
+  Prove the following statements.
+  \begin{enumerate}
+    \item It $\sigma$ is another orientation form on $M$, then $\sigma = f\omega$ for some everywhere positive $f\in C^\infty(M)$. Prove that  $\iota_X\sigma = f\iota_X \omega$ on $\partial M$.
+    \item Show that if $Y$ is another smooth outward pointing vector field along $\partial M$, then there is an everywhere positive $f\in C^\infty(M)$ such that $\iota_Y\sigma = f \iota_X \omega$ on $\partial M$.
+  \end{enumerate}
+\end{exercise}
+
+Note that if $(U_i, \phi_i)$ is a positively oriented atlas on $M$, then $(U_i|_{\partial M}, \phi_i|_{\partial M})$ can be negatively oriented. 
+Let $\omega = dx^1\wedge\cdots\wedge dx^n$ be a positive volume form on $M$ on one of the charts, then $-\frac{\partial}{\partial x^n}$ is an outward pointing on $\partial \cH^n$ and we have
+\begin{align}
+  \iota_{-\frac{\partial}{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n)
+  &= -\iota_{\frac{\partial}{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n) \\
+  &= -(-1)^{n-1} dx^1\wedge\cdots\wedge dx^{n-1}\wedge \iota_{\frac{\partial}{\partial x^n}} (dx^n) \\
+  &= (-1)^n dx^1\wedge\cdots\wedge dx^{n-1}.
+\end{align}
+Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$, the one on $\partial \cH^2$ is the standard orientation on $\R$ given by $dx^1$ and the one on $\partial \cH^3$ is $-dx^1\wedge dx^2$, which is the clockwise orientation in the $(x^1, x^2)$-plane, etc.
+
+\begin{example}
+  The closed interval $[a,b]\subset\R$ with standard euclidean coordinate $x$ has a standard orientation given by the vector field $\frac{\partial}{\partial x}$. 
+  Therefore, the boundary orientation at $b$ is $\iota_{\frac{\partial}{\partial x}}(dx) = +1$ and the one at $a$ is $\iota_{-\frac{\partial}{\partial x}}(dx) = -1$.
+\end{example}
+
+\begin{exercise}
+  \begin{enumerate}
+    \item Prove that $\bS^n$ is orientable.
+    \item Prove that any Lie group is orientable.
+    \item Prove that $\RP^n$ is orientable if and only if $n$ is odd. \\
+      \textit{\small Hint: the antipodal map $x\mapsto -x$ on $\bS^n$ can help.}
+  \end{enumerate}
+\end{exercise}
 
 \section{Stokes' Theorem}
+
+To avoid unnecessary complications, we will only integrate $n$-forms with compact support.
+Armed with our experience with line integrals, fond memories of multivariable analysis and our recent discoveries, we are finally ready to talk about integrals.
+Let's keep things simple and go one step at a time.
+
+\begin{definition}\label{def:intnform:chart}
+  Let $M$ be a smooth $n$-manifold and $(U,\phi)$ be a chart from an oriented atlas of $M$.
+  If $\omega\in\Omega^n(M)$ be a $n$-form with compact support in $U$, we define the integral of $\omega$ as
+  \begin{equation}
+    \int_M \omega = \int_U \omega := \int_{\phi(U)} \phi_*\omega := \int_{\cH^n} \omega(p) d^n p,
+  \end{equation}
+  where $d^n p$ denotes the $n$-dimensional Lebesgue measure on $\R^n$ and on the chart
+  \begin{equation}
+    \phi_*\omega = \omega(p) e^1\wedge \cdots\wedge e^n\in\Omega^n(\cH^n).
+  \end{equation}
+\end{definition}
+
+To make sure that this definition makes sense, let's show that the integral is well-defined.
+
+\begin{lemma}\label{lemma:intindep:chart}
+  Up to orientation, the integral $\int_M\omega$ is independent on the chosen chart.
+\end{lemma}
+\begin{proof}
+  Let $\phi$ and $\psi$ be two charts on $U$ with the same orientation and local coordinates $p$ and $q$, let $\Phi = \psi\circ\phi^{-1}$ be the corresponding transition map.
+  Then,
+  \begin{align}
+    \int_{\phi(U)} \phi_*\omega & = \int \omega(p)\, d^n p \\
+    &= \int (\widetilde\omega \circ \Phi)(p) \det(D\Phi|_p) d^n p \\
+    &\overset{(*)}{=} \int \widetilde\omega(q) d^n q\\
+    &= \int_{\psi(U)} \psi_*\omega,
+  \end{align}
+  where $\omega(p)$ and $\widetilde\omega(q)$ are the local expressions for $\omega$ in the two coordinates and on $(*)$ we used the classical euclidean change of variables.
+\end{proof}
+
+To be able to integrate charts which are not supported in the domain of a single chart, we now need the help of a partition of unity.
+
+\begin{definition}
+  Let $M$ be a smooth oriented manifold and $\cA = \{(U_i,\phi_i)\}$ a positively oriented atlas.
+  If $\omega \in \Omega^n(M)$ has compact support, then the \emph{integral} of $\omega$ over $M$ is
+  \begin{equation}\label{eq:intnform}
+    \int_M \omega := \sum_{j=1}^N \int_{U_j}\rho_j\omega,
+  \end{equation}
+  where $\{\rho_j\mid j=1,\ldots, N\}$ is a partition of unity subordinate to a finite cover of $\supp \omega$ by charts $\{U_j\}$ and such that $\sum_{j=1}^N \rho_j(p) = 1$ for $p\in\supp\omega$.
+  Then, the terms on the right hand side of \eqref{eq:intnform} are all integrals as in Definition~\ref{def:intnform:chart}.
+\end{definition}
+
+\begin{lemma}
+  The value of $\int_M\omega$ is independent from the choice of the atlas and the choice of partition of unity.
+\end{lemma}
+\begin{proof}
+  The independence from the choice of the charts was demonstrated in Lemma~\ref{lemma:intindep:chart}.
+  Let $\{\widetilde\rho_j\}$ be another partition of unity adapted to a (possibly different) covering $\{V_j\}$ with $\sum \widetilde\rho_j(p) = 1$ for $p\in\supp\omega$.
+  \TODO
+\end{proof}

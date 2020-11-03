@@ -151,6 +151,10 @@ This should start giving you an idea of what is behind the following famous quot
 \section{Change of coordinates}
 
 In Remark~\ref{rmk:chg_coords} we have seen that if we have two different charts with local coordinates $(x^i)$ and $(y^i)$ on a smooth manifold $M$,
+\marginnote{Let's denote the two charts respectively by $\phi$ and $\psi$, then if $\Phi = \psi\circ\phi^{-1}$ is the corresponding transition map, one has \begin{equation}
+  \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p = (D\Phi(p))_i^j \frac{\partial}{\partial y^j}\Big|_p,
+\end{equation}
+where $D\Phi$ is the Jacobian matrix of the transition map.}
 \begin{equation}
   \frac{\partial}{\partial x^i}\Big|_p = \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p.
 \end{equation}

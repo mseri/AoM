@@ -48,7 +48,7 @@ For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
   \item $Df(x)$, the Jacobian matrix, which is a $k\times n$ matrix;
   \item $D_j f(x)$, the $j$th column of the matrix $Df(x)$, which is an element of $\R^k$;
   \item $D(r^i\circ f)(x)$, a linear function from $\R^n \to \R$, which one can think as the $i$th row of the matrix $Df(x)$;
-  \item $D_j(r^i\circ f)(x) = \frac{\partial f^i}{\partial x^j}(x)$, a number in $\R$, which corresponds to the element $(i,j)$ of the matrix $Df(x)$.
+  \item $D_j(r^i\circ f)(x) = \frac{\partial f^i}{\partial x^j}(x)$, a number in $\R$, which corresponds to the $(i,j)$th element $(Df(x))_j^i$ of the matrix $Df(x)$.
 \end{itemize}
 
 This notation using $D$ instead of spelling out the partial derivatives, comes with an important advantage.
@@ -937,6 +937,9 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
     \item $F$ is an \emph{embedding} if $F$ is an injective immersion that is also a homeomorphism onto its range $F(M)\subset N$.
   \end{enumerate}
 \end{definition}
+\begin{marginfigure}
+  \includegraphics{2_8_1-immersion-embedding}
+\end{marginfigure}
 
 \begin{example}
   \begin{enumerate}
