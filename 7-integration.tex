@@ -48,10 +48,10 @@ The key in the preservation of orientation now resides only in the way different
   Then, all bases $\{v_1, \ldots, v_n\}$ for which $\omega(v_1,\ldots v_n) > 0$ give the same orientation for $V$.
 \end{lemma}
 \begin{proof}
-  Let $\{v_1, \ldots, v_n\}$ and $\{w_1, \ldots, w_n\}$ denote two different basis for $V$, then there exists a linear isomorphism $\Phi$ such that $v = \Phi w$, that is $v_i = \Phi_{i}^j w_j$.
+  Let $\{v_1, \ldots, v_n\}$ and $\{w_1, \ldots, w_n\}$ denote two different basis for $V$, then there exists a linear isomorphism $\varphi$ such that $v = \varphi w$, that is $v_i = \varphi_{i}^j w_j$.
   By definition and by multilinearity we then have
   \begin{equation}\label{eq:posorie}
-    \omega(v_1,\ldots v_n) = \omega(\Phi w_1,\ldots \Phi w_n) = \det(\Phi)\omega(w_1,\ldots w_n) > 0,
+    \omega(v_1,\ldots v_n) = \omega(\varphi w_1,\ldots \varphi w_n) = \det(\varphi)\omega(w_1,\ldots w_n) > 0,
   \end{equation} that is the positivity of $\omega$ on the bases characterize the set of bases.
 \end{proof}
 
@@ -68,13 +68,13 @@ The tangent space is a vector space and $n$-forms act naturally on tangent vecto
 As usual, one does need to make sure that all the local orientations just defined on the tangent bundle are gluing together coherently.
 
 \begin{remark}
-  If we look at a single chart $(U,\phi)$, by Lemma~\ref{lemma:orient} each chart in the atlas determines an orientation at each point of its domain, which will be positive if $\det(D\phi)>0$ and negative otherwise.
+  If we look at a single chart $(U,\varphi)$, by Lemma~\ref{lemma:orient} each chart in the atlas determines an orientation at each point of its domain, which will be positive if $\det(D\varphi)>0$ and negative otherwise.
   This procedure can be repeated for each chart in an atlas for $M$.
   Thus, in order to get a globally consistent ordering, we need to worry about the overlaps between charts.
 \end{remark}
 
 \begin{definition}
-  We call an atlas $\cA = \{(U_i,\phi_i)\}$ \emph{oriented} if all the charts have the same orientation, that is, if $\det(D\Phi_{ij}) > 0$ for all the transition functions $\Phi_{ij} := \phi_i\circ\phi_j^{-1}$.
+  We call an atlas $\cA = \{(U_i,\varphi_i)\}$ \emph{oriented} if all the charts have the same orientation, that is, if $\det(D\varphi_{ij}) > 0$ for all the transition functions $\varphi_{ij} := \varphi_i\circ\varphi_j^{-1}$.
 
   A manifold $M$ with an oriented atlas is called \emph{oriented manifold}.
   If an orientation exists, we say tht $M$ is \emph{orientable}, in this case we call the equivalence class of atlases with the same orientation an \emph{orientation}.
@@ -96,28 +96,28 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
   For this reason, nowhere vanishing $n$-forms on a smooth $n$-manifold are called \emph{volume forms}.
 \end{theorem}
 \begin{proof}
-  Let $\phi$ and $\psi$ be two different charts with overlapping domains (otherwise there is nothing to check) and with local coordinates $(x^i)$ and $(y^i)$ respectively.
-  Define the transition map $\Phi := \psi\circ\phi^{-1}$, so that $(y^1,\ldots,y^n) = \Phi(x)$.
-  Since $d y^j = (D\phi)_i^j dx^i$, we have that locally
+  Let $\varphi$ and $\psi$ be two different charts with overlapping domains (otherwise there is nothing to check) and with local coordinates $(x^i)$ and $(y^i)$ respectively.
+  Define the transition map $\varphi := \psi\circ\varphi^{-1}$, so that $(y^1,\ldots,y^n) = \varphi(x)$.
+  Since $d y^j = (D\varphi)_i^j dx^i$, we have that locally
   \begin{align}
     \omega &= \widetilde \omega (y) dy^1\wedge\cdots\wedge dy^n \\
-    &= (\widetilde\omega \circ \Phi)(x) \det(\Phi|_x) dx^{1}\wedge\cdots\wedge dx^{n} \\
+    &= (\widetilde\omega \circ \varphi)(x) \det(\varphi|_x) dx^{1}\wedge\cdots\wedge dx^{n} \\
     &= \omega(x) dx^{1}\wedge\cdots\wedge dx^{n},
   \end{align}
   where we used Proposition~\ref{prop:wedgeToJDet} and Theorem~\ref{thm:pullbacksdifferentialforms}.
-  Thus, $\omega(x)$ and $\widetilde\omega(y)$ have the same sign if and only if $\det(D\Phi|_x) > 0$.
+  Thus, $\omega(x)$ and $\widetilde\omega(y)$ have the same sign if and only if $\det(D\varphi|_x) > 0$.
 \end{proof}
 
 \begin{definition}
   Let $M$ be a $n$-dimensional smooth manifold.
-  If $(U,\phi)$ is a chart with local coordinates $(x^i)$ such that, in the coordinate representation, $\omega = \omega(x) dx^1\wedge\cdots\wedge dx^n$ with $\omega(x) > 0$, then we say that the chart $\phi$ is \emph{positively oriented} with respect to $\omega$, otherwise we say that it is \emph{negatively oriented}.  
+  If $(U,\varphi)$ is a chart with local coordinates $(x^i)$ such that, in the coordinate representation, $\omega = \omega(x) dx^1\wedge\cdots\wedge dx^n$ with $\omega(x) > 0$, then we say that the chart $\varphi$ is \emph{positively oriented} with respect to $\omega$, otherwise we say that it is \emph{negatively oriented}.  
 \end{definition}
 
 \begin{remark}
   In fact, this definition can be immediately extended to vector bundles.
   Given a real vector bundle $\pi: E \to M$, an orientation of $E$ means that for each fiber $E_p$, there is an orientation of the vector space $E_p$ such that each trivialization map
   \begin{equation}
-    \phi_{U}:\pi^{-1}(U)\to U\times \R^{n},
+    \varphi_{U}:\pi^{-1}(U)\to U\times \R^{n},
   \end{equation}
   with $\R^n$ equipped with its standard orientation, is fiberwise orientation-preserving.
   \marginnote[-2em]{Otherwise said, we can cover the manifold by (continuous) local frames whose local trivializations are orientation preserving.}
@@ -134,29 +134,29 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
   This is an orientable manifold and we can find an orientation using the stereographic projections from Exercise~\ref{ex:stereo}.
   Let $U_1 = \bS^1\setminus\{N\}$ and $U_2 = \bS^1\setminus\{S\}$, with the associated diffeomorphisms
   \begin{equation}
-    \phi_1(p) = \frac{2p^1}{1-p^2}
+    \varphi_1(p) = \frac{2p^1}{1-p^2}
     \quad\mbox{and}\quad
-    \phi_2(p) = \frac{2p^1}{1+p^2}.
+    \varphi_2(p) = \frac{2p^1}{1+p^2}.
   \end{equation}
   Let's pick a pointwise orientation by choosing as basis $X_p\in T_pM$ given by $X_p = -p^2 \frac{\partial}{\partial p^1} + p^1 \frac{\partial}{\partial p^2}$.
   Then, on $U_1$,
   \begin{align}
-    (\phi_1)_*(X) &= (d\phi_1)_p(X) \\
+    (\varphi_1)_*(X) &= (d\varphi_1)_p(X) \\
     &= \left(\begin{smallmatrix}
       \frac{2}{1-p^2} & \frac{2p^1}{(1-p^2)^2}
     \end{smallmatrix}\right)
     \left(\begin{smallmatrix}
       -p^2 \\ p^1
-    \end{smallmatrix}\right) \frac{\partial}{\partial x}\Big|_{\phi_1(p)}\\
-    &= \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\phi_1(p)},
+    \end{smallmatrix}\right) \frac{\partial}{\partial x}\Big|_{\varphi_1(p)}\\
+    &= \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\varphi_1(p)},
   \end{align}
   and $\frac{2}{1-p^2}>0$.
-  If we perform the same computation on $U_2$, however, we obtain $(\phi_2)_*(X) = -\frac{2}{1+p^2}\frac{\partial}{\partial x}\Big|_{\phi_2(p)}$, with the negative coefficient $-\frac{2}{1+p^2} < 0$ (check!), corresponding to the opposite orientation on $U_2$.
-  Of course, in this case, not all is lost: by choosing $\widetilde\phi_2(p) = \phi_2(-p^1, p^2)$ we obtain $(\widetilde\phi_2)_*(X) = \frac{2}{1+p^2} \frac{\partial}{\partial x}\Big|_{\widetilde\phi_2(p)}$ with the positive coefficient $\frac{2}{1+p^2} > 0$ (check!), which shows that $X_p$ defines an orientation on the whole $\bS^1$.
+  If we perform the same computation on $U_2$, however, we obtain $(\varphi_2)_*(X) = -\frac{2}{1+p^2}\frac{\partial}{\partial x}\Big|_{\varphi_2(p)}$, with the negative coefficient $-\frac{2}{1+p^2} < 0$ (check!), corresponding to the opposite orientation on $U_2$.
+  Of course, in this case, not all is lost: by choosing $\widetilde\varphi_2(p) = \varphi_2(-p^1, p^2)$ we obtain $(\widetilde\varphi_2)_*(X) = \frac{2}{1+p^2} \frac{\partial}{\partial x}\Big|_{\widetilde\varphi_2(p)}$ with the positive coefficient $\frac{2}{1+p^2} > 0$ (check!), which shows that $X_p$ defines an orientation on the whole $\bS^1$.
 \end{example}
 
 \begin{exercise}
-  Check that the Jacobian determinant $\det(D(\phi_2\circ \phi_1^{-1}))$ of the transition chart from Exercise~\ref{exe:orientsphere} is negative, while $\det(D(\widetilde\phi_2\circ \phi_1^{-1}))$ is positive.
+  Check that the Jacobian determinant $\det(D(\varphi_2\circ \varphi_1^{-1}))$ of the transition chart from Exercise~\ref{exe:orientsphere} is negative, while $\det(D(\widetilde\varphi_2\circ \varphi_1^{-1}))$ is positive.
 \end{exercise}
 
 \begin{marginfigure}
@@ -182,7 +182,7 @@ Let $M$ be a smooth $n$-manifold with boundary and $p\in \partial M$.
 Then, we have three types of possible vectors:
 \begin{enumerate}
   \item tangent boundary vectors: $X\in T_p(\partial M)\subset T_p M$ tangent to the boundary, forming an $(n-1)$-dimensional subspace of $T_p M$;
-  \item inward pointing vectors: $X\in T_pM$ such that $X = \phi^{-1}_*(Y)$ where $\phi^{-1}: V\subset \cH^n \to M$ and $Y$ is some vector $Y = (Y^1, \ldots, Y_n)$ with $Y_n > 0$;
+  \item inward pointing vectors: $X\in T_pM$ such that $X = \varphi^{-1}_*(Y)$ where $\varphi^{-1}: V\subset \cH^n \to M$ and $Y$ is some vector $Y = (Y^1, \ldots, Y_n)$ with $Y_n > 0$;
   \item outward pointing vectors: $X\in T_pM$ such that $-X$ is inward pointing.
 \end{enumerate}
 Thus, a vector field along $\partial M$ is a function $X:\partial M\to T_pM$ (not to $T_p\partial M$).
@@ -226,12 +226,12 @@ We can use this to introduce a notion of induced orientation on $\partial M$.
   \end{enumerate}
 \end{exercise}
 
-Note that if $(U_i, \phi_i)$ is a positively oriented atlas on $M$, then $(U_i|_{\partial M}, \phi_i|_{\partial M})$ can be negatively oriented. 
+Note that if $(U_i, \varphi_i)$ is a positively oriented atlas on $M$, then $(U_i|_{\partial M}, \varphi_i|_{\partial M})$ can be negatively oriented. 
 Let $\omega = dx^1\wedge\cdots\wedge dx^n$ be a positive volume form on $M$ on one of the charts, then $-\frac{\partial}{\partial x^n}$ is an outward pointing on $\partial \cH^n$ and we have
 \begin{align}
-  \iota_{-\frac{\partial}{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n)
-  &= -\iota_{\frac{\partial}{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n) \\
-  &= -(-1)^{n-1} dx^1\wedge\cdots\wedge dx^{n-1}\wedge \iota_{\frac{\partial}{\partial x^n}} (dx^n) \\
+  \iota_{-{\partial}/\!{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n)
+  &= -\iota_{{\partial}/\!{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n) \\
+  &= -(-1)^{n-1} dx^1\wedge\cdots\wedge dx^{n-1}\wedge \iota_{{\partial}/\!{\partial x^n}} (dx^n) \\
   &= (-1)^n dx^1\wedge\cdots\wedge dx^{n-1}.
 \end{align}
 Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$, the one on $\partial \cH^2$ is the standard orientation on $\R$ given by $dx^1$ and the one on $\partial \cH^3$ is $-dx^1\wedge dx^2$, which is the clockwise orientation in the $(x^1, x^2)$-plane, etc.
@@ -250,58 +250,103 @@ Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$,
   \end{enumerate}
 \end{exercise}
 
-\section{Stokes' Theorem}
+\section{Integrals on manifolds}
 
 To avoid unnecessary complications, we will only integrate $n$-forms with compact support.
 Armed with our experience with line integrals, fond memories of multivariable analysis and our recent discoveries, we are finally ready to talk about integrals.
 Let's keep things simple and go one step at a time.
 
 \begin{definition}\label{def:intnform:chart}
-  Let $M$ be a smooth $n$-manifold and $(U,\phi)$ be a chart from an oriented atlas of $M$.
+  Let $M$ be a smooth $n$-manifold and $(U,\varphi)$ be a chart from an oriented atlas of $M$.
   If $\omega\in\Omega^n(M)$ be a $n$-form with compact support in $U$, we define the integral of $\omega$ as
   \begin{equation}
-    \int_M \omega = \int_U \omega := \int_{\phi(U)} \phi_*\omega := \int_{\cH^n} \omega(p) d^n p,
+    \int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\cH^n} \omega(p) d^n p,
   \end{equation}
   where $d^n p$ denotes the $n$-dimensional Lebesgue measure on $\R^n$ and on the chart
   \begin{equation}
-    \phi_*\omega = \omega(p) e^1\wedge \cdots\wedge e^n\in\Omega^n(\cH^n).
+    \varphi_*\omega = \omega(p) e^1\wedge \cdots\wedge e^n\in\Omega^n(\cH^n).
   \end{equation}
 \end{definition}
 
-To make sure that this definition makes sense, let's show that the integral is well-defined.
+To make sure that this definition makes sense, let's show that the integral is well-defined, that is, up to orientation it does not depend on the chosen chart.
 
 \begin{lemma}\label{lemma:intindep:chart}
-  Up to orientation, the integral $\int_M\omega$ is independent on the chosen chart.
+  Suppose $\omega\in\Omega^n(M)$ with compact support $\supp \omega \subset U\cap V$, where $(U, \varphi)$ and $(V, \psi)$ are two positively oriented charts on the oriented manifold $M$.
+  Then, the value of the integral $\int_M\omega$ is independent on the chosen chart.
 \end{lemma}
 \begin{proof}
-  Let $\phi$ and $\psi$ be two charts on $U$ with the same orientation and local coordinates $p$ and $q$, let $\Phi = \psi\circ\phi^{-1}$ be the corresponding transition map.
+  Let $\varphi$ and $\psi$ be two charts on $U$ with the same orientation and local coordinates $p$ and $q$, let $\varphi = \psi\circ\varphi^{-1}$ be the corresponding transition map.
   Then,
   \begin{align}
-    \int_{\phi(U)} \phi_*\omega & = \int \omega(p)\, d^n p \\
-    &= \int (\widetilde\omega \circ \Phi)(p) \det(D\Phi|_p) d^n p \\
+    \int_{\varphi(U)} \varphi_*\omega &= \int \omega(p)\, d^n p \\
+    &\overset{(\star)}{=} \int (\widetilde\omega \circ \varphi)(p) \det(D\varphi|_p) d^n p \\
     &\overset{(*)}{=} \int \widetilde\omega(q) d^n q\\
     &= \int_{\psi(U)} \psi_*\omega,
   \end{align}
-  where $\omega(p)$ and $\widetilde\omega(q)$ are the local expressions for $\omega$ in the two coordinates and on $(*)$ we used the classical euclidean change of variables.
+  where $\omega(p)$ and $\widetilde\omega(q)$ are the local expressions for $\omega$ in the two coordinate charts, in $(\star)$ we applied Proposition~\ref{prop:wedgeToJDet} and in $(*)$ we used the classical euclidean change of variables.
 \end{proof}
 
 To be able to integrate charts which are not supported in the domain of a single chart, we now need the help of a partition of unity.
 
 \begin{definition}
-  Let $M$ be a smooth oriented manifold and $\cA = \{(U_i,\phi_i)\}$ a positively oriented atlas.
-  If $\omega \in \Omega^n(M)$ has compact support, then the \emph{integral} of $\omega$ over $M$ is
+  Let $M$ be a smooth oriented manifold and $\cA = \{(U_i,\varphi_i)\}$ a positively oriented atlas.
+  If $\omega \in \Omega^n(M)$ has compact support, then the \emph{integral of $\omega$} is defined as
   \begin{equation}\label{eq:intnform}
     \int_M \omega := \sum_{j=1}^N \int_{U_j}\rho_j\omega,
   \end{equation}
   where $\{\rho_j\mid j=1,\ldots, N\}$ is a partition of unity subordinate to a finite cover of $\supp \omega$ by charts $\{U_j\}$ and such that $\sum_{j=1}^N \rho_j(p) = 1$ for $p\in\supp\omega$.
-  Then, the terms on the right hand side of \eqref{eq:intnform} are all integrals as in Definition~\ref{def:intnform:chart}.
+  \marginnote{The terms on the right hand side of \eqref{eq:intnform} are all integrals as in Definition~\ref{def:intnform:chart}.}
 \end{definition}
+
+The definition above makes sense only if the value of the integral is independent of the chosen partition, but with the help of the previous lemma this is easily checked.
 
 \begin{lemma}
   The value of $\int_M\omega$ is independent from the choice of the atlas and the choice of partition of unity.
 \end{lemma}
 \begin{proof}
   The independence from the choice of the charts was demonstrated in Lemma~\ref{lemma:intindep:chart}.
-  Let $\{\widetilde\rho_j\}$ be another partition of unity adapted to a (possibly different) covering $\{V_j\}$ with $\sum \widetilde\rho_j(p) = 1$ for $p\in\supp\omega$.
-  \TODO
+  Let $\{\widetilde\rho_j\}$ be another partition of unity adapted to a (possibly different) finite cover by charts $\{(V_j, psi_j)\}$ with $\sum \widetilde\rho_j(p) = 1$ for $p\in\supp\omega$.
+  Then we have,
+  \begin{align}
+    \sum_j \int_{\varphi_j(U_j)} (\varphi_j)_*\left(\rho_j \omega\right)
+    &= \sum_j \int_{\varphi_j(U_j)} (\varphi_j)_*\left(\rho_j \sum_k \widetilde\rho_k\omega\right) \\
+    &= \sum_{j,k} \int_{\phi_j(U_j\cap V_k)} (\varphi_j)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
+    &\overset{(!)}{=} \sum_{j,k} \int_{\psi_k(U_j\cap V_k)} (\psi_k)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
+    &= \sum_k \int_{\psi_k(U_j\cap V_k)} (\psi_k)_*\left(\rho_j \widetilde\rho_k \sum_j\rho_j \omega\right) \\
+    &= \sum_k \int_{\psi_k(V_k)} (\psi_k)_*\left( \widetilde\rho_k \omega\right),
+  \end{align}
+  where in $(!)$ we used Lemma~\ref{lemma:intindep:chart}.
 \end{proof}
+
+\begin{example}
+  Let $M=[a,b]\subset \R$
+\end{example}
+
+\begin{theorem}[Global change of variable]
+  
+\end{theorem}
+\begin{proof}
+  
+\end{proof}
+
+This justifies the following definition.
+
+\begin{definition}[Integral on submanifolds]
+  
+\end{definition}
+
+\begin{remark}[Volumes, Measures and Riesz Representation]
+  
+\end{remark}
+
+\begin{exercise}[Fubini's theorem]
+  
+\end{exercise}
+
+\section{Stokes' Theorem}
+
+Theorem, corollary, a few remarks and comparisons, proof, exercises and examples.
+
+Invariance under diffeotopies and diffeomorphisms.
+
+More exercises and examples.

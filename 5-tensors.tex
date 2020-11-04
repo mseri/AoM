@@ -304,15 +304,15 @@ We now have the tools to further extend this idea and define tensor bundles as f
 \end{definition}
 
 Here pullback and differential\footnote{Now you see why somebody calls it pushforward...} turn out to be life-saviours:
-any atlas $\{(U_i, \phi_i)\}$ of $M$ can be naturally mapped to an atlas  on $T_s^r M$ via $\{(T_s^r U_i, \widetilde\phi_i)\}$ where
+any atlas $\{(U_i, \varphi_i)\}$ of $M$ can be naturally mapped to an atlas  on $T_s^r M$ via $\{(T_s^r U_i, \widetilde\varphi_i)\}$ where
 \begin{align}
-  \widetilde\phi_i : T_s^r(U_i) \to T_s^r\phi(U_i)
+  \widetilde\varphi_i : T_s^r(U_i) \to T_s^r\varphi(U_i)
 \end{align}
 is defined by linearity on the fibres via
 \marginnote{Study hint: look carefully at the domains and codomains of all the maps involved and make sure that you understand how this is defined.}
 \begin{align}
-  \widetilde\phi_i&(p, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{k_1}\otimes \cdots\otimes \varepsilon^{k_s})\\
-  &:=(\phi_i(p), d\phi_p e_{j_1}\otimes\cdots\otimes d\phi_p e_{j_r}\otimes (\phi_i^{-1})^*\varepsilon^{i_1}\otimes \cdots\otimes (\phi_i^{-1})^*\varepsilon^{i_s}).
+  \widetilde\varphi_i&(p, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{k_1}\otimes \cdots\otimes \varepsilon^{k_s})\\
+  &:=(\varphi_i(p), d\varphi_p e_{j_1}\otimes\cdots\otimes d\varphi_p e_{j_r}\otimes (\varphi_i^{-1})^*\varepsilon^{i_1}\otimes \cdots\otimes (\varphi_i^{-1})^*\varepsilon^{i_s}).
 \end{align}
 
 In analogy to the definition of vector fields, we can introduce tensor fields: these will just be local assignments of tensors to points.
@@ -380,11 +380,11 @@ To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\
   \end{enumerate}
 \end{exercise}
 
-We can use the pullback to construct a diffeomorphism of tensor bundles of the same type out of a diffeomorphism $\Phi:M\to N$ between manifolds.
+We can use the pullback to construct a diffeomorphism of tensor bundles of the same type out of a diffeomorphism $\varphi:M\to N$ between manifolds.
 
 \begin{proposition}
-  Let $\Phi:M\to N$ be a diffeomorphism between smooth manifolds.
-  Then $\Phi$ induces a diffeomorphism $T_s^rM \to T_s^r N$.
+  Let $\varphi:M\to N$ be a diffeomorphism between smooth manifolds.
+  Then $\varphi$ induces a diffeomorphism $T_s^rM \to T_s^r N$.
 \end{proposition}
 \begin{proof}
 \newthought{Step I}.
@@ -392,35 +392,35 @@ We know that the pullback induces on the fibres a diffeomorphism of cotangent bu
 We have already seen that on the fibres the pullback is a diffeomorphism:
 \begin{equation}
   T^*N \to T^* M, \quad
-  (q,\omega) \mapsto (\Phi^*\omega)_q = \left(\Phi^{-1}(q), d\Phi^*\omega|_{\Phi^{-1}(q)}\right).
+  (q,\omega) \mapsto (\varphi^*\omega)_q = \left(\varphi^{-1}(q), d\varphi^*\omega|_{\varphi^{-1}(q)}\right).
 \end{equation}
 This can be inverted giving rise to the so-called \emph{cotangent lift}
 \begin{equation}
-  d\Phi^\dagger :=(d\Phi)^\dagger := (\Phi^{-1})^*: T^*M \to T^*N.
+  d\varphi^\dagger :=(d\varphi)^\dagger := (\varphi^{-1})^*: T^*M \to T^*N.
 \end{equation}
 \marginnote{An aid to understand this map is the following commuting diagram:
 \begin{equation}\nonumber
   \begin{tikzcd}[row sep=normal, column sep=normal, ampersand replacement=\&]
-    T_p^* M \arrow[d, "\pi_M" left] \arrow[r, "d\Phi^\dagger"] \& T_{\Phi(p)}N \arrow[d, "\pi_N"] \\
-    M \arrow[r, "\Phi" below] \& N
+    T_p^* M \arrow[d, "\pi_M" left] \arrow[r, "d\varphi^\dagger"] \& T_{\varphi(p)}N \arrow[d, "\pi_N"] \\
+    M \arrow[r, "\varphi" below] \& N
   \end{tikzcd}
 \end{equation}}
 For any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
 \begin{align}
-  (d\Phi^\dagger \omega \;\mid\; d\Phi v)_{\Phi(p)} &=  d(\Phi^{-1})^*(\omega|_{\Phi(p)} (d\Phi v) )\\
-  &= \omega_p(d\Phi^{-1}_{\Phi(p)} \circ d\Phi_p v ) \\
+  (d\varphi^\dagger \omega \;\mid\; d\varphi v)_{\varphi(p)} &=  d(\varphi^{-1})^*(\omega|_{\varphi(p)} (d\varphi v) )\\
+  &= \omega_p(d\varphi^{-1}_{\varphi(p)} \circ d\varphi_p v ) \\
   &= \omega_p(v) = (\omega \mid v)_p.
 \end{align}
 
 \newthought{Step II}.
 Chaining $d$ and $d^\dagger$ on the appropriate components of the tensor, we obtain a diffeomorphism of arbitrary tensor bundles:
 \begin{equation}
-  d\Phi \otimes\cdots\otimes d\Phi \otimes d\Phi^\dagger \otimes\cdots\otimes d\Phi^\dagger  : T_s^rM \to T_s^r N,
+  d\varphi \otimes\cdots\otimes d\varphi \otimes d\varphi^\dagger \otimes\cdots\otimes d\varphi^\dagger  : T_s^rM \to T_s^r N,
 \end{equation}
 defined on the product elements as
 \begin{align}
-  d\Phi &\otimes\cdots\otimes d\Phi \otimes d\Phi^\dagger \otimes\cdots\otimes d\Phi^\dagger  (p, v_1 \otimes \cdots\otimes v_r \otimes \omega^1\otimes\cdots\otimes\omega^s) \\
-  &:= (\Phi(p), d\Phi v_1 \otimes \cdots\otimes d\Phi v_r \otimes d\Phi^\dagger \omega^1\otimes\cdots\otimes d\Phi^\dagger \omega^s),
+  d\varphi &\otimes\cdots\otimes d\varphi \otimes d\varphi^\dagger \otimes\cdots\otimes d\varphi^\dagger  (p, v_1 \otimes \cdots\otimes v_r \otimes \omega^1\otimes\cdots\otimes\omega^s) \\
+  &:= (\varphi(p), d\varphi v_1 \otimes \cdots\otimes d\varphi v_r \otimes d\varphi^\dagger \omega^1\otimes\cdots\otimes d\varphi^\dagger \omega^s),
 \end{align}
 which extends to the whole fibres by linearity.
 \end{proof}
@@ -472,32 +472,32 @@ Note that thanks to this duality between pullback and pushforward, the dual pair
 Can you show why?
 
 \begin{example}[Change of coordinates for tensor fields]
-  Let, as usual, $(U,\phi)$ be a chart on $M$ with local coordinates $(x^i)$.
+  Let, as usual, $(U,\varphi)$ be a chart on $M$ with local coordinates $(x^i)$.
   If $\{e^i:\R^n\to\R\}$ are the standard euclidean coordinates\footnote{Have a look at Notation~\ref{ntn:coords} if you don't remember what I am talking about.
   Here we are using the notation $e^i \equiv r^i$ since now we know that $\{e^i\}$ is just the dual basis to $\{e_i\}$. } and $\{e_i\}$ are the standard basis vectors in $\R^n$, then the coordinate $1$-forms and the coordinate vector fields on $U\subset M$ are given by
   \begin{equation}
-    dx^i = \phi^* de^i
+    dx^i = \varphi^* de^i
     \quad\mbox{and}\quad
-    \frac{\partial}{\partial x^i} = (\phi^{-1})_* e_i.
+    \frac{\partial}{\partial x^i} = (\varphi^{-1})_* e_i.
   \end{equation}
-  This immediately exposes the transformation laws for the change of coordinates: let $(U, \psi)$ be another chart on $U$ with local coordinates $(y^i)$, then $dy^i = \psi^* de^i$ and $\frac{\partial}{\partial y^i} = (\psi^{-1})_* e_i$. If we denote $\Phi = \psi\circ\phi^{-1}$ the transition map in $\R^n$, we get
+  This immediately exposes the transformation laws for the change of coordinates: let $(U, \psi)$ be another chart on $U$ with local coordinates $(y^i)$, then $dy^i = \psi^* de^i$ and $\frac{\partial}{\partial y^i} = (\psi^{-1})_* e_i$. If we denote $\varphi = \psi\circ\varphi^{-1}$ the transition map in $\R^n$, we get
   \begin{align}
-    \frac{\partial}{\partial x^i} &= (\phi^{-1})_* e_i \\
-    &= (\phi^{-1})_* \LaTeXunderbrace{(\Phi^{-1})_*\Phi_*}_{\id} e_i \\
-    &= (\phi^{-1}\circ \Phi^{-1})_* (\Phi_* e_i) \\
-    &= (\psi^{-1})_* ((D\Phi)_i^j e_j) \\
-    &= (D\Phi)_i^j \frac{\partial}{\partial y^j},
+    \frac{\partial}{\partial x^i} &= (\varphi^{-1})_* e_i \\
+    &= (\varphi^{-1})_* \LaTeXunderbrace{(\varphi^{-1})_*\varphi_*}_{\id} e_i \\
+    &= (\varphi^{-1}\circ \varphi^{-1})_* (\varphi_* e_i) \\
+    &= (\psi^{-1})_* ((D\varphi)_i^j e_j) \\
+    &= (D\varphi)_i^j \frac{\partial}{\partial y^j},
   \end{align}
   which may be easier to think about in terms of the following diagram
   \begin{equation}\nonumber
     \begin{tikzcd}[row sep=large, column sep=tiny]
-      & \frac{\partial}{\partial x^i} \in \cT_0^1(U) \ni (D\Phi)_j^i \frac{\partial}{\partial y^j} \arrow[dl, "\phi_*" description] \arrow[dr, "\psi*" description] & \\
-      e_i \in \cT_0^1(V) \arrow[rr, "\Phi_*" description] & & \cT_0^1(W) \ni \LaTeXunderbrace{\Phi_* e_i}_{= (D\Phi)_i^j e_j}
+      & \frac{\partial}{\partial x^i} \in \cT_0^1(U) \ni (D\varphi)_j^i \frac{\partial}{\partial y^j} \arrow[dl, "\varphi_*" description] \arrow[dr, "\psi*" description] & \\
+      e_i \in \cT_0^1(V) \arrow[rr, "\varphi_*" description] & & \cT_0^1(W) \ni \LaTeXunderbrace{\varphi_* e_i}_{= (D\varphi)_i^j e_j}
     \end{tikzcd}
   \end{equation}
-  where $V = \phi(U)$ and $W = \psi(V)$.
+  where $V = \varphi(U)$ and $W = \psi(V)$.
 
-  From this, we immediately get $dy^j = (D\Phi)_i^j dx^i$ and, therefore, $dx^i =  (D\Phi^{-1})_j^i dy^j$.
+  From this, we immediately get $dy^j = (D\varphi)_i^j dx^i$ and, therefore, $dx^i =  (D\varphi^{-1})_j^i dy^j$.
 \end{example}
 
 \begin{exercise}

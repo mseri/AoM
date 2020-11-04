@@ -242,8 +242,8 @@ A fundamental fact is that $\fX(G)$ is finite dimensional.
         &= v(f\circ L_g) \\
         &= (f\circ L_g\circ \gamma)'(0).
       \end{align}
-      If we define $\phi:(-\delta, \delta)\times G \to \R$ by $\phi(t,g) = f\circ L_g\circ \gamma(t) = f(g\gamma(t))$, the computation above shows that $(v^Lf)(g) = \frac{\partial \phi}{\partial t}(0, g)$.
-      Since $\phi$ is the composition of smooth functions, it is smooth, and thus $v^L f$ is smooth.
+      If we define $\varphi:(-\delta, \delta)\times G \to \R$ by $\varphi(t,g) = f\circ L_g\circ \gamma(t) = f(g\gamma(t))$, the computation above shows that $(v^Lf)(g) = \frac{\partial \varphi}{\partial t}(0, g)$.
+      Since $\varphi$ is the composition of smooth functions, it is smooth, and thus $v^L f$ is smooth.
       \item $v^L$ is left-invariant. 
       Indeed, for any $g,h\in G$, we have
       \begin{align}
@@ -388,7 +388,7 @@ Given the introduction, the following theorem should not come as a surprise.
   \end{itemize}
 \end{proof}
 
-If we write $\Theta_t^v:=\Phi^{v^L}_t:G\to G$ for the flow of $v^L$, then by definition $\gamma^v = \Theta_t^v(e)$.
+If we write $\Theta_t^v:=\varphi^{v^L}_t:G\to G$ for the flow of $v^L$, then by definition $\gamma^v = \Theta_t^v(e)$.
 
 Note that the trick employed in the proof above, can be used also to show the following.
 \begin{lemma}

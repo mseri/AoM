@@ -86,12 +86,12 @@ The definition of pushforward is more easily pictured by means of the following 
   \end{tikzcd}.
 \end{equation}
 
-Then, if $(U, \phi)$ is a coordinate chart for $M$, the restriction of a vector field $X\in\fX(M)$ to $U$ can be mapped to a vector field on $\phi(U)\subset\R^n$ via the pushforward $\phi_*$:
+Then, if $(U, \varphi)$ is a coordinate chart for $M$, the restriction of a vector field $X\in\fX(M)$ to $U$ can be mapped to a vector field on $\varphi(U)\subset\R^n$ via the pushforward $\varphi_*$:
 \begin{align}
-  \phi_* X & : \LaTeXunderbrace{\phi(U)}_{\subset\R^n} \to \LaTeXunderbrace{T \phi(U)}_{=\phi(U)\times\R^n}, \\
-  \phi_* X & : x\mapsto (q,v(x)) \quad\mbox{with}\quad v(x) = v^j(x)e_j \in \R^n,
+  \varphi_* X & : \LaTeXunderbrace{\varphi(U)}_{\subset\R^n} \to \LaTeXunderbrace{T \varphi(U)}_{=\varphi(U)\times\R^n}, \\
+  \varphi_* X & : x\mapsto (q,v(x)) \quad\mbox{with}\quad v(x) = v^j(x)e_j \in \R^n,
 \end{align}
-where $v^j(x)$ are the components\footnote{As we start getting used to, the chart $\phi$ here plays a twofold role: it provides the coordinates $x=\phi(p)$ on the patch $U$ and the coordinate basis of the tangent space.} of $X_p\in T_p M$ at $p=\phi^{-1}(x)$ with respect to the coordinate basis $\left\{\frac{\partial}{\partial x^i}\big|_x\right\}$.
+where $v^j(x)$ are the components\footnote{As we start getting used to, the chart $\varphi$ here plays a twofold role: it provides the coordinates $x=\varphi(p)$ on the patch $U$ and the coordinate basis of the tangent space.} of $X_p\in T_p M$ at $p=\varphi^{-1}(x)$ with respect to the coordinate basis $\left\{\frac{\partial}{\partial x^i}\big|_x\right\}$.
 
 \begin{example}[Computing the pushforward of a vector field]
   Let $M$ and $N$ be the following submanifolds of $\R^2$:
@@ -146,15 +146,15 @@ In this sense, $X\in\fX(M)$ induces a linear map on the algebra $C^\infty(M)$ of
 \marginnote[-2em]{Beware of the ordering: $fX\in\fX(M)$ but $Xf\in C^\infty(M)$!}
 
 \begin{notation}\label{notation:derivative}
-  Let $f\in C^\infty(M)$ and let $(U, \phi)$ be a chart with coordinates $(x^i)$.
+  Let $f\in C^\infty(M)$ and let $(U, \varphi)$ be a chart with coordinates $(x^i)$.
   Then, for $X = \frac{\partial}{\partial x^i}$, we denote $Xf$ by $\frac{\partial f}{\partial x^i}$ and thus the following notations are for us equivalent:
   \begin{equation}
     \frac{\partial f}{\partial x^i}(p)
     = \left(\frac{\partial}{\partial x^i}\right)_p(f)
     = \frac{\partial}{\partial x^i}\Big|_p(f)
-    = D_i(f\circ\phi^{-1})(\phi(p)).
+    = D_i(f\circ\varphi^{-1})(\varphi(p)).
   \end{equation}
-  If $M$ is an open subset of $\R^n$ and $\phi=\id_{\R^n}$, then the last equality shows that the notation is consistent with the usual definition of partial derivatives from multivariable analysis.
+  If $M$ is an open subset of $\R^n$ and $\varphi=\id_{\R^n}$, then the last equality shows that the notation is consistent with the usual definition of partial derivatives from multivariable analysis.
 \end{notation}
 
 \begin{exercise}
@@ -248,7 +248,7 @@ Indeed, $[X,Y]$ is a derivation.
 We will see many applications of the Lie brackets throughout the rest of the course, but before doing anything, let's find an effective way to compute it.
 
 \begin{proposition}
-    Let $(U, \phi)$ be a chart on $M$ with local coordinates $(x^i)$ and let $X,Y\in\fX(U)$.
+    Let $(U, \varphi)$ be a chart on $M$ with local coordinates $(x^i)$ and let $X,Y\in\fX(U)$.
     If $X = X^i \frac{\partial }{\partial x^i}$ and $Y = Y^i \frac{\partial}{\partial x^i}$ are the coordinate expressions for $X$ and $Y$, then\footnote{Recall Notation~\ref{notation:derivative}!}
     \begin{equation}
         [X,Y] = \left(X^i\frac{\partial Y^j}{\partial x^i} - Y^i\frac{\partial X^j}{y^i}\right)\frac{\partial}{\partial x^j}.
@@ -341,7 +341,7 @@ is the corresponding ODE, then we have the following implications of the euclide
 \begin{enumerate}[(i)]
   \item if $X$ is continuous, then for each $x\in U$ there exists $\epsilon > 0$ and a differentiable curve $u = u_{x} : (-\epsilon, \epsilon) \to U$ with $u_x(0) = x$ that solves~\eqref{eq:XflowRn};
   \item (Picard-Lindel\"of theorem) if $X$ is locally Lipschitz continuous, then the solution $u_x$ is unique;
-  \item if $X\in C^p(U,\R^n)$, then the solution map $\Phi : (t, x) \to (t, x) := u_x (t)$ is $p$-times continuously differentiable as a function of the initial data, i.e. $\Phi(x, \cdot)\in C^p(U)$ for all $t$ in the existence domain.
+  \item if $X\in C^p(U,\R^n)$, then the solution map $\varphi : (t, x) \to (t, x) := u_x (t)$ is $p$-times continuously differentiable as a function of the initial data, i.e. $\varphi(x, \cdot)\in C^p(U)$ for all $t$ in the existence domain.
 \end{enumerate}
 
 As we are getting used to, the whole theory can be extended to manifolds in a quite direct but perhaps surprising fashion.
@@ -401,7 +401,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
 Exercise~\ref{ex:tg_curve_iso} implies that in the euclidean case our definition (in terms of equality of tangent vectors on $T_{\gamma(t)}(M)$) coincides with the euclidean flow (defined in terms of equality of real numbers).
 Alternatively, one can pick a coordinate chart and use the pushforward to locally compare the definitions.
 
-Indeed, if $(U, \phi)$ is a chart with coordinates\footnote{We will soon stop being so verbose and just write ``in local coordinates (on $U$)'' without specifying their names unless strictly necessary!} $(x^i)$, let $\gamma(t) = (\gamma^1(t), \ldots, \gamma^n(t))$ in these coordinates. Then, condition~\eqref{eq:integralCurve} above can be written as
+Indeed, if $(U, \varphi)$ is a chart with coordinates\footnote{We will soon stop being so verbose and just write ``in local coordinates (on $U$)'' without specifying their names unless strictly necessary!} $(x^i)$, let $\gamma(t) = (\gamma^1(t), \ldots, \gamma^n(t))$ in these coordinates. Then, condition~\eqref{eq:integralCurve} above can be written as
 \begin{equation}
   \dot\gamma^i(t)\frac{\partial}{\partial x^i}\Big|_{\gamma(t)}
   = X^i(\gamma(t))\frac{\partial}{\partial x^i}\Big|_{\gamma(t)},\quad i=1,\ldots,n,
@@ -422,34 +422,34 @@ This immediately implies the following theorem.
 
 \begin{theorem}[Existence, uniqueness and differentiability of local solutions] %
   \label{thm:exuniqloc}
-  Let $M$ be a smooth manifold and $X\in\fX(M)$. For every $x\in \mathring M := M\setminus \partial M$, there exists $\epsilon > 0$, an open neighbourhood $U\subset\mathring M$ of $x$ and a unique map $\Phi : (-\epsilon, \epsilon) \times U \to M$, $(t, p) \mapsto \Phi(t,p)$, such that
+  Let $M$ be a smooth manifold and $X\in\fX(M)$. For every $x\in \mathring M := M\setminus \partial M$, there exists $\epsilon > 0$, an open neighbourhood $U\subset\mathring M$ of $x$ and a unique map $\varphi : (-\epsilon, \epsilon) \times U \to M$, $(t, p) \mapsto \varphi(t,p)$, such that
   \begin{enumerate}[(i)]
-    \item for every $p\in U$, the curve $\Phi_p : (-\epsilon, \epsilon) \to M$, $t\mapsto \Phi_p(t) := \Phi(t, p)$ is an integral curve of $X$ through $p$, that is, $\Phi_p' = X\circ\Phi_p$ and $\Phi_p(0) = p$;
-    \item for every $t\in(-\epsilon, \epsilon)$, the map $\Phi_t: U \to M$, $p\mapsto \Phi_t(p):=\Phi(t,p)$, is a diffeomorphism from $U$ onto an open subset of $M$.
+    \item for every $p\in U$, the curve $\varphi_p : (-\epsilon, \epsilon) \to M$, $t\mapsto \varphi_p(t) := \varphi(t, p)$ is an integral curve of $X$ through $p$, that is, $\varphi_p' = X\circ\varphi_p$ and $\varphi_p(0) = p$;
+    \item for every $t\in(-\epsilon, \epsilon)$, the map $\varphi_t: U \to M$, $p\mapsto \varphi_t(p):=\varphi(t,p)$, is a diffeomorphism from $U$ onto an open subset of $M$.
   \end{enumerate}
 \end{theorem}
   
 \begin{remark}
-  In some text, instead of $\Phi_p' = X\circ\Phi_p$, you read
+  In some text, instead of $\varphi_p' = X\circ\varphi_p$, you read
   \begin{equation}
-    d\Phi_{(t,p)}\left(\frac{\partial}{\partial t}\Big|_{(t,p)}\right) = X \circ \Phi(t,p).
+    d\varphi_{(t,p)}\left(\frac{\partial}{\partial t}\Big|_{(t,p)}\right) = X \circ \varphi(t,p).
   \end{equation}
   This should not scare you since by definition
   \begin{equation}
-    d\Phi_{(t,p)}\left(\frac{\partial}{\partial t}\Big|_{(t,p)}\right) = (\Phi \circ i_p)'(t) = \Phi_p'(t).
+    d\varphi_{(t,p)}\left(\frac{\partial}{\partial t}\Big|_{(t,p)}\right) = (\varphi \circ i_p)'(t) = \varphi_p'(t).
   \end{equation}
 \end{remark}
 
-We call the map $\Phi$ a \emph{local flow} of $X$.
+We call the map $\varphi$ a \emph{local flow} of $X$.
 If a local flow is defined on $\R\times M$, we call it a \emph{global flow} and the associated vector field is called a \emph{complete vector field}.
 
 \begin{example}\label{example:lineardrift}
   Let $M=\R^n$ and $L\in\fX(M)$ defined by $L(p^1, \ldots, p^n) = (p^1, \ldots, p^n, 1, 0, 0, \ldots, 0)$.
-  Then $\Phi^L$ is a global flow, explicitly given as
+  Then $\varphi^L$ is a global flow, explicitly given as
   \begin{equation}
-    \Phi^L(t,p) = (p^1+t, p^2, \ldots, p^n).
+    \varphi^L(t,p) = (p^1+t, p^2, \ldots, p^n).
   \end{equation}
-  Linear motions along a coordinate, like $\Phi^L$, are sometimes called linear drifts.
+  Linear motions along a coordinate, like $\varphi^L$, are sometimes called linear drifts.
 \end{example}
 
 Every smooth vector field has a local flow about any point, but not necessarily a global flow.
@@ -484,27 +484,27 @@ This justifies the following definition.
 \begin{marginfigure}
   \includegraphics{3_2_10-Ip}
 \end{marginfigure}
-Note that $I_p$ is typically larger than the domain of definition $(-\epsilon, \epsilon)$ of $\Phi_p$.
-By construction $\Phi_p$ never leaves the coordinate set $U$ over which it was defined, on the other hand $\gamma_p$ can in general wander all over the manifold (even though $\gamma_p = \Phi_p$ for values of $t$ small enough)!
+Note that $I_p$ is typically larger than the domain of definition $(-\epsilon, \epsilon)$ of $\varphi_p$.
+By construction $\varphi_p$ never leaves the coordinate set $U$ over which it was defined, on the other hand $\gamma_p$ can in general wander all over the manifold (even though $\gamma_p = \varphi_p$ for values of $t$ small enough)!
 
-Again, theorems about existence and uniqueness of euclidean maximal flows imply that we can extend $\Phi_p$ uniquely to a maximal flow.
+Again, theorems about existence and uniqueness of euclidean maximal flows imply that we can extend $\varphi_p$ uniquely to a maximal flow.
 
 \begin{theorem}[Existence and uniqueness of maximal solutions] %
   \label{thm:exuniqmax}
   Let $M$ be a smooth manifold and $X\in\fX(M)$.
-  There exists a unique open set $\cD \subset \R\times\circ M$ and a unique smooth map $\Phi:\cD\to M$ such that
+  There exists a unique open set $\cD \subset \R\times\circ M$ and a unique smooth map $\varphi:\cD\to M$ such that
   \begin{enumerate}[(i)]
     \item\label{thm:exuniqmax:i} for all $p\in M$ one has $\cD\cap(\R\times\{p\}) = I_p\times\{p\}$;
-    \item\label{thm:exuniqmax:ii} $\Phi(t,p) = \gamma_p(t)$ for all $(t,p)\in\cD$.
+    \item\label{thm:exuniqmax:ii} $\varphi(t,p) = \gamma_p(t)$ for all $(t,p)\in\cD$.
   \end{enumerate}
 \end{theorem}
 
-We call $\Phi$ the \emph{flow} of $X$.
-When we want to emphasize the vector field $X$, we will write $\Phi^X$.
+We call $\varphi$ the \emph{flow} of $X$.
+When we want to emphasize the vector field $X$, we will write $\varphi^X$.
 
 \begin{proof}
-  Both $\cD$ and $\Phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so to prove the theorem one only needs to show that $\cD$ is open and that $\Phi$ is smooth.
-  This is done by applying the euclidean theorems to extend the local flow, finally showing that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\Phi$ is smooth.
+  Both $\cD$ and $\varphi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so to prove the theorem one only needs to show that $\cD$ is open and that $\varphi$ is smooth.
+  This is done by applying the euclidean theorems to extend the local flow, finally showing that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\varphi$ is smooth.
 
   We are going to omit the details of the proof, the interested reader can refer to~\cite[Proposition 9.12]{book:lee}.
   The statements may seem different at a first glance, but a careful look will reveal that he is just taking a slightly different perspective.
@@ -513,36 +513,36 @@ When we want to emphasize the vector field $X$, we will write $\Phi^X$.
   \begin{equation}
     M_t := \{p\in M \;\mid\; (t,p)\in\cD\}.
   \end{equation}
-  Then Theorem~\ref{thm:exuniqmax} is equivalent to say that $M_t$ is open in $M$, $M = \cup_{t>0} M_t$, and there is a well-defined smooth map $\Phi_t : M_t \to M_{-t}$ given by
+  Then Theorem~\ref{thm:exuniqmax} is equivalent to say that $M_t$ is open in $M$, $M = \cup_{t>0} M_t$, and there is a well-defined smooth map $\varphi_t : M_t \to M_{-t}$ given by
   \begin{equation}\label{eq:flowdiffeo}
-    \Phi_t(p) := \Phi(t,p), \quad p\in M_t.
+    \varphi_t(p) := \varphi(t,p), \quad p\in M_t.
   \end{equation}
   Which is exactly the claim in~\cite[Proposition 9.12]{book:lee}.
 
-%   Both $\cD$ and $\Phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so we only need to show that $\cD$ is open and that $\Phi$ is smooth.
-%   To this end we are going to prove that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\Phi$ is smooth.
+%   Both $\cD$ and $\varphi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so we only need to show that $\cD$ is open and that $\varphi$ is smooth.
+%   To this end we are going to prove that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\varphi$ is smooth.
 
-%   Fix $p\in M$ and denote $J\subset I_p$ the set of all $t\in I_p$ for which there is some neighbourhood of $(t,p)$ contained in $\cD$ on which $\Phi$ is smooth. Since this is an open condition, the set $J$ is open and by Theorem~\ref{thm:exuniqloc}, $0\in J$, so $J$ is not empty.
+%   Fix $p\in M$ and denote $J\subset I_p$ the set of all $t\in I_p$ for which there is some neighbourhood of $(t,p)$ contained in $\cD$ on which $\varphi$ is smooth. Since this is an open condition, the set $J$ is open and by Theorem~\ref{thm:exuniqloc}, $0\in J$, so $J$ is not empty.
 
 %   Suppose that $t_0\in\overline{J}$ and set $p_0 = \gamma_p(t_0)$.
 %   We are going to show that we can always extend smoothly the flow to a neighbourhood of $t_0$
-%   Applying Theorem~\ref{thm:exuniqloc} at $p_0$ we obtain a local flow $\Phi:(-\epsilon,\epsilon)\times U_0 \to M$ about $p_0$. 
+%   Applying Theorem~\ref{thm:exuniqloc} at $p_0$ we obtain a local flow $\varphi:(-\epsilon,\epsilon)\times U_0 \to M$ about $p_0$. 
 %   Since $\gamma_p$ is continuous and $t_0$ is in the closure of $J$, we can choose $t_1\in J$ such that $t_0 - t_1 \in (-\epsilon, \epsilon)$ and $\gamma_p(t_1)\in U_0$.
 
 %   In fact, we can choose a whole interval $J_0\subset J$, $t_0\in J_0$, such that $t-t_1\in(-\epsilon, \epsilon)$ for all $t\in J_0$.
-%   By the continuity of $\Phi$ at $(t_1, p)$, there exists a neighbourhood $V$ of $p$ such that $\Phi(\{t_1\}\times V)\subset U_0$.
+%   By the continuity of $\varphi$ at $(t_1, p)$, there exists a neighbourhood $V$ of $p$ such that $\varphi(\{t_1\}\times V)\subset U_0$.
 
-%   Let $t\in I_0$ and $q\in V$, then $t-t_1\in(-\epsilon, \epsilon)$ and thus $\Phi(t_1,q)\in U_0$ (it coincides with $\Phi$ there).
-%   But this implies that $\Phi(t-t_1, \Phi(t_1, q))$ is defined and smooth.
-%   Since the curve $s\mapsto \Phi(s-t_1, \Phi(t_1, q))$ is an integral curve of $X$ passing through $\Phi(t_1, q)$ at $t_1$, by uniqueness, the curve must be $\Phi(t,q)$ itself.
-%   That is, $\Phi(t,q) = \Phi(t-t_1, \Phi(t_1, q))$ is defined and smooth at $(t,q)$.
-%   This shows that $\Phi$ is defined and smooth on all $J_0\times V$ and, in particular, also that $t_0\in J$.
+%   Let $t\in I_0$ and $q\in V$, then $t-t_1\in(-\epsilon, \epsilon)$ and thus $\varphi(t_1,q)\in U_0$ (it coincides with $\varphi$ there).
+%   But this implies that $\varphi(t-t_1, \varphi(t_1, q))$ is defined and smooth.
+%   Since the curve $s\mapsto \varphi(s-t_1, \varphi(t_1, q))$ is an integral curve of $X$ passing through $\varphi(t_1, q)$ at $t_1$, by uniqueness, the curve must be $\varphi(t,q)$ itself.
+%   That is, $\varphi(t,q) = \varphi(t-t_1, \varphi(t_1, q))$ is defined and smooth at $(t,q)$.
+%   This shows that $\varphi$ is defined and smooth on all $J_0\times V$ and, in particular, also that $t_0\in J$.
 \end{proof}
 
 \begin{remark}\label{rmk:automorphismgroup}
-  The point of view taken to define~\eqref{eq:flowdiffeo} brings to the table a very important fact: $\Phi_t : M_t \to M_{-t}$ is a smooth map with smooth inverse $(\Phi_t)^{-1}:=\Phi_{-t}: M_{-t} \to M_t$.
+  The point of view taken to define~\eqref{eq:flowdiffeo} brings to the table a very important fact: $\varphi_t : M_t \to M_{-t}$ is a smooth map with smooth inverse $(\varphi_t)^{-1}:=\varphi_{-t}: M_{-t} \to M_t$.
 
-  That is, $\Phi_t$ is a diffeomorphism, $\Phi_0 = \id_M$ and, more generally, if $s,t \in \R$ then the domain $P$ of $\Phi_s \circ \Phi_t$ is contained\footnote{Equality holds if $st \geq 0$, that is, if they have the same sign.} in $M_{s+t}$ and $\Phi_s \circ \Phi_t = \Phi_{s+t}$ in $P$.  
+  That is, $\varphi_t$ is a diffeomorphism, $\varphi_0 = \id_M$ and, more generally, if $s,t \in \R$ then the domain $P$ of $\varphi_s \circ \varphi_t$ is contained\footnote{Equality holds if $st \geq 0$, that is, if they have the same sign.} in $M_{s+t}$ and $\varphi_s \circ \varphi_t = \varphi_{s+t}$ in $P$.  
 \end{remark}
 
 For a complete vector field $X$, $\cD = \R\times M$.
@@ -554,22 +554,22 @@ For a complete vector field $X$, $\cD = \R\times M$.
 \end{definition}
 
 \begin{definition}
-  A \emph{one-parameter group of diffeomorphisms}\footnote{If you stumble upon a one-parameter group \emph{action}, don't be scared: it is the same exact thing where $\Phi$ is required to be continuous instead of smooth.} is a smooth left $\R$-action on $M$, that is, a smooth map $\Phi:\R\times M \to M$ such that for all $s,t\in\R$ and all $p\in M$:
+  A \emph{one-parameter group of diffeomorphisms}\footnote{If you stumble upon a one-parameter group \emph{action}, don't be scared: it is the same exact thing where $\varphi$ is required to be continuous instead of smooth.} is a smooth left $\R$-action on $M$, that is, a smooth map $\varphi:\R\times M \to M$ such that for all $s,t\in\R$ and all $p\in M$:
   \begin{align}
-    &\Phi(0,p) = p,\\
-    &\Phi(t, \Phi(s, p)) = \Phi(t+s, p).
+    &\varphi(0,p) = p,\\
+    &\varphi(t, \varphi(s, p)) = \varphi(t+s, p).
   \end{align}
   
   In other words, a one-parameter group of diffeomorphism is another name for global flow and the two properties above are exactly the group laws.
-  And, indeed, we usually denote the map $t\mapsto\Phi(t,\cdot)$ by $\Phi_t$.
+  And, indeed, we usually denote the map $t\mapsto\varphi(t,\cdot)$ by $\varphi_t$.
 
-  If $\{\Phi_t\}$ is a one-parameter group of diffeomorphisms, then we define its \emph{infinitesimal generator} as the (complete) vector field\footnote{In a more compact form, we have just written $X_p = \frac{d}{dt}|_{t=0}\Phi_t(p)$.}
+  If $\{\varphi_t\}$ is a one-parameter group of diffeomorphisms, then we define its \emph{infinitesimal generator} as the (complete) vector field\footnote{In a more compact form, we have just written $X_p = \frac{d}{dt}|_{t=0}\varphi_t(p)$.}
   \begin{equation}\label{eq:infgen}
-    X_p := d\Phi_{(0,p)}\left(\frac{\partial}{\partial t}\Big|_{(0,p)}\right).
+    X_p := d\varphi_{(0,p)}\left(\frac{\partial}{\partial t}\Big|_{(0,p)}\right).
   \end{equation}
-  Hence, the flow of $X$ is simply the one-parameter group $\Phi_t$.
+  Hence, the flow of $X$ is simply the one-parameter group $\varphi_t$.
 
-  Always keep in mind that~\eqref{eq:infgen} is just a ``scary'' way to write $X_p := \Phi_p'(0)$ where the role of the differential and the nature of the vector field are more explicit.
+  Always keep in mind that~\eqref{eq:infgen} is just a ``scary'' way to write $X_p := \varphi_p'(0)$ where the role of the differential and the nature of the vector field are more explicit.
 \end{definition}
 \begin{marginfigure}
   \includegraphics{3_1-vfield-infgen.pdf}%
@@ -589,12 +589,12 @@ The definition above, in fact, contains the proof of the following fact.
 \begin{notation}
   Since by construction
   \begin{equation}
-    \frac{d}{d t}\Phi_t(p) = X(\Phi_t(p)), \quad
-    \Phi_0(p) = p, \quad \forall p\in M,
+    \frac{d}{d t}\varphi_t(p) = X(\varphi_t(p)), \quad
+    \varphi_0(p) = p, \quad \forall p\in M,
   \end{equation}
   it is often convenient to use the exponential notation
   \begin{equation}
-    e^{t X} := \Phi^X_t, \quad t\in\R,
+    e^{t X} := \varphi^X_t, \quad t\in\R,
   \end{equation}
   to denote the flow of a vector field $X$.
 \end{notation}
@@ -607,7 +607,7 @@ The definition above, in fact, contains the proof of the following fact.
     &\frac{d}{d t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
   \end{align}
 
-  Moreover, if $X(x) = Ax$ is a linear vector field on $\R^n$, i.e., $A$ is a $n\times n$-matrix, then the corresponding flow $\Phi_t$ is the matrix exponential $\Phi_t(x) = e^{Ax}$.
+  Moreover, if $X(x) = Ax$ is a linear vector field on $\R^n$, i.e., $A$ is a $n\times n$-matrix, then the corresponding flow $\varphi_t$ is the matrix exponential $\varphi_t(x) = e^{Ax}$.
 \end{exercise}
 
 There are a few cases in which we can guarantee completeness, let's have a brief look.
@@ -629,7 +629,7 @@ There are a few cases in which we can guarantee completeness, let's have a brief
   \end{equation}
   The two definitions coincide on the overlap as
   \begin{equation}
-    \gamma_{p_0}(t-t_0) = \Phi_{t-t_0}(p_0) = \Phi_{t-t_0}\circ\Phi_{t_0}(p) = \Phi_t(p) = \gamma_p(t),
+    \gamma_{p_0}(t-t_0) = \varphi_{t-t_0}(p_0) = \varphi_{t-t_0}\circ\varphi_{t_0}(p) = \varphi_t(p) = \gamma_p(t),
   \end{equation}
   but $\gamma$ is an integral curve for $X$ through $p$ which is defined on $(t^-(p), t_0+\epsilon)$.
   Since $t_0 + \epsilon > t^+(p)$, this contradict the maximality of $I_p$.
@@ -669,9 +669,9 @@ A natural question, at this point, is what happens when we map integral curves t
 
   If $X$ is complete, we then have
   \begin{equation}
-    F\circ\Phi_t^X = \Phi_t^{F_* X}\circ F.
+    F\circ\varphi_t^X = \varphi_t^{F_* X}\circ F.
   \end{equation}
-  \marginnote[-6em]{Sometimes to understand what one is doing, it may be convenient to rewrite things in different forms, for example I find the following quite clarificatory \begin{equation}\label{eq:conjpfX}\Phi_t^{F_* X} = F \circ \Phi_t^X \circ F^{-1},\end{equation}}
+  \marginnote[-6em]{Sometimes to understand what one is doing, it may be convenient to rewrite things in different forms, for example I find the following quite clarificatory \begin{equation}\label{eq:conjpfX}\varphi_t^{F_* X} = F \circ \varphi_t^X \circ F^{-1},\end{equation}}
 \end{proposition}
 \begin{proof}
   We only need to show that the two curves satisfy the same ODE.
@@ -711,7 +711,7 @@ A natural question, at this point, is what happens when we map integral curves t
   \end{equation}
 \end{remark}
 
-With this we can show that the Lie bracket of two vector fields is zero (i.e., they commute as operator on functions) if and only if their flows commute, that is $\Phi^X_t \circ \Phi^Y_s = \Phi^Y_s\circ \Phi^X_t$ for all $t,s\in\R$.
+With this we can show that the Lie bracket of two vector fields is zero (i.e., they commute as operator on functions) if and only if their flows commute, that is $\varphi^X_t \circ \varphi^Y_s = \varphi^Y_s\circ \varphi^X_t$ for all $t,s\in\R$.
 
 \begin{proposition}
   Let $M$ be a smooth manifold and $X,Y\in\fX(M)$. Then $[X,Y]=0$ if and only if their flows commute.
@@ -731,13 +731,13 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
     = e_*^{-tX} [X,Y] = 0.
   \end{align}
   
-  $(\Longrightarrow)$ Fix $t\in\R$. We are going to show that $\Phi_s := e^{-tX}\circ e^{sY}\circ e^{tX}$ is the flow of $Y$, i.e. $\Phi_s = e^{sY}$.
+  $(\Longrightarrow)$ Fix $t\in\R$. We are going to show that $\varphi_s := e^{-tX}\circ e^{sY}\circ e^{tX}$ is the flow of $Y$, i.e. $\varphi_s = e^{sY}$.
   We can use the previous trick,~\eqref{eq:intcurvconst} and~\eqref{eq:expdiff} to get, for any $s\in\R$,
   \begin{align}
-    \frac{\partial}{\partial s} \Phi_s
+    \frac{\partial}{\partial s} \varphi_s
     &= \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{(s+\epsilon) Y}\circ e^{tX} \\
-    &= \LaTeXunderbrace{\frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{\epsilon Y}\circ e^{tX}}_{e^{-tX}_* Y} \circ \LaTeXunderbrace{e^{-tX}\circ e^{s Y}\circ e^{tX}}_{\Phi_s} \\
-    &= e^{-tX}_* Y \circ \Phi_s = Y \circ \Phi_s.
+    &= \LaTeXunderbrace{\frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{\epsilon Y}\circ e^{tX}}_{e^{-tX}_* Y} \circ \LaTeXunderbrace{e^{-tX}\circ e^{s Y}\circ e^{tX}}_{\varphi_s} \\
+    &= e^{-tX}_* Y \circ \varphi_s = Y \circ \varphi_s.
   \end{align}
   That is, $e^{-tX}\circ e^{sY}\circ e^{tX} = e^{sY}$ which is equivalent to the claim.
 
@@ -764,7 +764,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 \end{exercise}
 
 After this parenthesis, let's go back to our final objective: we can finally justify our comment in Figure~\ref{fig:3_1-vfield-infgen}.
-The following theorem shows that every flow $\Phi^X$ admits local coordinates on its support which map it into a linear flow.
+The following theorem shows that every flow $\varphi^X$ admits local coordinates on its support which map it into a linear flow.
 
 \begin{definition}
   Let $M$ be a smooth manifold and $X\in\fX(M)$. 
@@ -778,14 +778,14 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
 
 \begin{theorem}[Normal form of a flow away from the fixed points]
   Let $M$ be a smooth manifold, $X\in\fX(M)$ and $p\in\supp(X)\subset M$.
-  Then, there exists a chart $(U, \phi)$ with $p\in U$ such that
+  Then, there exists a chart $(U, \varphi)$ with $p\in U$ such that
   \begin{equation}
-    \phi_* X = L,
+    \varphi_* X = L,
   \end{equation}
   where $L$ is the linear drift defined in Example~\ref{example:lineardrift}.
   Thus, locally,
   \begin{equation}
-    \Phi_t^X = \phi^{-1} \circ \Phi_t^L \circ \phi.
+    \varphi_t^X = \varphi^{-1} \circ \varphi_t^L \circ \varphi.
   \end{equation}
 \end{theorem}
 \begin{proof}
@@ -793,7 +793,7 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
   By continuity of $\psi_*X\in \fX(\psi(U_1))$, we can always restrict to a smaller neighbourhood $V_2\subset \psi(U_1)$ on which $(\psi_*X)^1(q) > \frac12$ for all $q\in V_2$.
 
   Our objective is to interpolate $\psi_* X$ on $V\subset V_2$ and $L$ on $V_2^c$ to obtain a new vector field $\widetilde{L}$ on all of $\R^n$ which is diffeomorphic to $\widetilde{L}$.
-  If $\Omega:\R^n\to\R^n$ is such diffeomorphism, i.e. $\Omega_* \widetilde  L = L$, then $\phi = \Omega\circ\psi$ is the chart we are looking for: indeed, on $U=\psi^{-1}(V)$ we have $\phi_* X = \Omega_*\psi_*X = \Omega_* \widetilde{L} = L$.
+  If $\Omega:\R^n\to\R^n$ is such diffeomorphism, i.e. $\Omega_* \widetilde  L = L$, then $\varphi = \Omega\circ\psi$ is the chart we are looking for: indeed, on $U=\psi^{-1}(V)$ we have $\varphi_* X = \Omega_*\psi_*X = \Omega_* \widetilde{L} = L$.
 
   \newthought{Interpolated vector field $\widetilde{L}$}. Let $V\subset V_2$ be an open set around $0$. Pick a cutoff function $\chi\in C^\infty(\R^n)$ such that $\chi(x) = 1$ for $x\in U$ and $\chi(x) =0$ for $x\in U_2^c$.
   Then the interpolating vector field is immediately obtained as
@@ -803,34 +803,34 @@ The following theorem shows that every flow $\Phi^X$ admits local coordinates on
   \begin{marginfigure}
     \includegraphics{3_2-vfield-patched.pdf}
   \end{marginfigure}
-  Clearly its flow $\Phi_t^{\widetilde{L}}$ is global as $\R^n$ has no boundary and the regularity of the functions involved implies that no integral curve can escape to infinity in finite time.
+  Clearly its flow $\varphi_t^{\widetilde{L}}$ is global as $\R^n$ has no boundary and the regularity of the functions involved implies that no integral curve can escape to infinity in finite time.
 
   \newthought{Diffeomorphism $\Omega$}. We will now show that
   \begin{equation}
-    \Omega = \lim_{t\to\infty} \Phi_{-t}^L \circ \Phi_t^{\widetilde{L}}
+    \Omega = \lim_{t\to\infty} \varphi_{-t}^L \circ \varphi_t^{\widetilde{L}}
   \end{equation}
   exists and defines a diffeomorphism such that $\Omega_* \widetilde{L} = L$.
   \marginnote{It is interesting to compare $\Omega$ with the so called M\o{}ller transformations in scattering theory (cf.~\cite[Chapter 12.2]{book:knauf}).}
-  Since by construction $(\Phi_t^{\widetilde{L}}(q))^1 \geq q^1 + \frac12$, every integral curve leaves $V_2$ after a finite time.
+  Since by construction $(\varphi_t^{\widetilde{L}}(q))^1 \geq q^1 + \frac12$, every integral curve leaves $V_2$ after a finite time.
   So, on compact sets $K\subset\R^n$, there is a finite time $t_0(K)$ after which the limit is attained (can you explain why?):
   \begin{equation}
-    \lim_{t\to\infty} \Phi_{-t}^L \circ \Phi_t^{\widetilde{L}}\Big|_K = \Phi_{-t_0}^L \circ \Phi_{t_0}^{\widetilde{L}}.
+    \lim_{t\to\infty} \varphi_{-t}^L \circ \varphi_t^{\widetilde{L}}\Big|_K = \varphi_{-t_0}^L \circ \varphi_{t_0}^{\widetilde{L}}.
   \end{equation}
   Thus, $\Omega$ is a well defined diffeomorphism.
   Moreover,
   \begin{align}
-    \Omega \circ \Phi^{\widetilde{L}}_t &= \lim_{s\to\infty} \Phi_{-s}^L \circ \Phi^{\widetilde{L}}_s \circ \Phi^{\widetilde{L}}_t \\
-    &= \lim_{s\to\infty} \Phi_{-s}^L \circ \Phi^{\widetilde{L}}_{s+t} \\
-    &= \lim_{\tau\to\infty} \Phi_{t-\tau}^L \circ \Phi^{\widetilde{L}}_s \circ \Phi^{\widetilde{L}}_\tau \\
-    &= \lim_{\tau\to\infty} \Phi_{t}^L \circ \Phi_{-\tau}^L \circ \Phi^{\widetilde{L}}_s \circ \Phi^{\widetilde{L}}_\tau = \Phi_t^L \circ \Omega,
+    \Omega \circ \varphi^{\widetilde{L}}_t &= \lim_{s\to\infty} \varphi_{-s}^L \circ \varphi^{\widetilde{L}}_s \circ \varphi^{\widetilde{L}}_t \\
+    &= \lim_{s\to\infty} \varphi_{-s}^L \circ \varphi^{\widetilde{L}}_{s+t} \\
+    &= \lim_{\tau\to\infty} \varphi_{t-\tau}^L \circ \varphi^{\widetilde{L}}_s \circ \varphi^{\widetilde{L}}_\tau \\
+    &= \lim_{\tau\to\infty} \varphi_{t}^L \circ \varphi_{-\tau}^L \circ \varphi^{\widetilde{L}}_s \circ \varphi^{\widetilde{L}}_\tau = \varphi_t^L \circ \Omega,
   \end{align}
   and therefore the flows are diffeomorphic.
-  In particular, we also have $\Phi_p^{\widetilde{L}} = \Omega^{-1} \circ \Phi^L_{\Omega(x)}$.
+  In particular, we also have $\varphi_p^{\widetilde{L}} = \Omega^{-1} \circ \varphi^L_{\Omega(x)}$.
   Differentiating this last equation we get
   \begin{align}
-    (\widetilde{L} \circ \Phi^{\widetilde{L}})_p &= d\Phi^{\widetilde{L}}_p \\
-    &= d\Omega^{-1}_{\Phi^L_{\Omega(x)}} \circ d\Phi^L_{\Omega(x)} \\
-    &= d\Omega^{-1}_{\Phi^L_{\Omega(x)}} \circ (L \circ \Phi^L)_{\Omega(x)},
+    (\widetilde{L} \circ \varphi^{\widetilde{L}})_p &= d\varphi^{\widetilde{L}}_p \\
+    &= d\Omega^{-1}_{\varphi^L_{\Omega(x)}} \circ d\varphi^L_{\Omega(x)} \\
+    &= d\Omega^{-1}_{\varphi^L_{\Omega(x)}} \circ (L \circ \varphi^L)_{\Omega(x)},
   \end{align}
     which, at $t=0$, gives $\widetilde{L} = d\Omega^{-1} \circ L \circ \Omega = \Omega^{-1}_* L$.
 \end{proof}
@@ -840,9 +840,9 @@ Let $Z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}$ on $\R^2$ 
 
 The point $(1,0)\in\R^2$ is a regular point of $Z$, since $Z_{(1,0)} = \frac{\partial}{\partial y}\Big|_{(1,0)} \neq 0$.
 Since $Z$ has a nonzero $y$ coordinate, we can consider the as the transversal ``hypersurface'', a line in this case, the $x$-axis, parametrised by $H(s) = (s,0)$.
-We can then define the map $\Psi(t,s) = \Phi_t\circ H(s) : \R^2\to\R^2$ where $\Phi_t$ is the flow of $Z$, it turns out that then the coordinate map would just be the inverse of $\Psi$.
+We can then define the map $\Psi(t,s) = \varphi_t\circ H(s) : \R^2\to\R^2$ where $\varphi_t$ is the flow of $Z$, it turns out that then the coordinate map would just be the inverse of $\Psi$.
 
-In this case: $\Psi(t,s) = \Phi_t(s,0) = (s\cos t, s\sin t)$.
+In this case: $\Psi(t,s) = \varphi_t(s,0) = (s\cos t, s\sin t)$.
 Solving locally for $(t,s)$ as functions of $x$ and $y$ we get, in a neighbourhood of $(1,0)$:
 \begin{equation}
   (t,s) = \Psi^{-1}(x,y) = \left(\arctan(y/x), \sqrt{x^2+y^2}\right).
@@ -854,7 +854,7 @@ In this new coordinates, which are just polar coordinates labelled with differen
   Away from the fixed points, the previous theorem tells us that the flow is locally linear.
   Near a fixed point we can describe the flow in terms of the \emph{linearisation} of the associated vector field.
 
-  If $X\in\fX(M)$ and $p_0\in M$ with $X_{p_0} = 0$. On a chart $\phi$ centred at $p_0$ with local coordinates $(x^i)$, let $\widetilde X = \phi_* X$.
+  If $X\in\fX(M)$ and $p_0\in M$ with $X_{p_0} = 0$. On a chart $\varphi$ centred at $p_0$ with local coordinates $(x^i)$, let $\widetilde X = \varphi_* X$.
   Then we have
   \begin{equation}
     \widetilde X_x = \underbrace{\widetilde X_0}_{=0} + d\widetilde X_0 x + \cO(\|x\|^2) = d\widetilde X_0 x + \cO(\|x\|^2).

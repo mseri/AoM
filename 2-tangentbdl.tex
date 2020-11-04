@@ -250,17 +250,17 @@ First of all, from now on we are free to interpret tangent vectors in $T_p M$ as
 This enables us to give our first example of tangent vector.
 
 \begin{example}\label{ex:partialderivative}
-  Let $M$ be a smooth manifold of dimension $n$ and $\phi: U \to V\subset\R^n$ a chart on $U\subset M$.
-  As already mentioned, we write $x^i = r^i \circ \phi$ for the local coordinates\footnote{See Notation~\ref{ntn:coords}.} of $\phi$.
+  Let $M$ be a smooth manifold of dimension $n$ and $\varphi: U \to V\subset\R^n$ a chart on $U\subset M$.
+  As already mentioned, we write $x^i = r^i \circ \varphi$ for the local coordinates\footnote{See Notation~\ref{ntn:coords}.} of $\varphi$.
   For any $p\in U$, we can define a derivation of $C^\infty(U)$ at $p$ as
   \begin{equation}
     \frac{\partial}{\partial x^i}\Big|_p : C^\infty(U) \to \R, \quad
-    \frac{\partial}{\partial x^i}\Big|_p (f) := D_i(f\circ\phi^{-1})(\phi(p)).
+    \frac{\partial}{\partial x^i}\Big|_p (f) := D_i(f\circ\varphi^{-1})(\varphi(p)).
   \end{equation}
   From now on, it will get more and more convenient to draw commutative diagrams to see ``how things are moving around'':
   \begin{equation}
     \begin{tikzcd}[column sep = huge, row sep = huge]
-      M\supset U \arrow[r, "\phi" description] \arrow[d, "f" description] & V \subset\R^n \arrow [dl, "f\circ\phi^{-1}" description]\\
+      M\supset U \arrow[r, "\varphi" description] \arrow[d, "f" description] & V \subset\R^n \arrow [dl, "f\circ\varphi^{-1}" description]\\
       \R &
     \end{tikzcd}
   \end{equation}
@@ -327,7 +327,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 
 \begin{proposition}\label{prop:basis_TpM}
   Let $M$ be a smooth manifold of dimension $n$ and $p\in M$.
-  Let $\phi: U \to V$ be a chart on $M$ around $p$, i.e. $p\in U$.
+  Let $\varphi: U \to V$ be a chart on $M$ around $p$, i.e. $p\in U$.
   Then any tangent vector $v\in T_p M$ can be uniquely written as a linear combination
   \begin{equation}
     v = v^i \frac{\partial}{\partial x^i}\Big|_p, \quad v_i = v(x^i).
@@ -336,27 +336,27 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   Thus, $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ is a basis of $T_p M$.
 \end{proposition}
 \begin{proof}
-  We may assume without loss of generality that $\phi(p) = 0$ and, thanks to Corollary~\ref{cor:tgsubspace}, $U$ is star-shaped.
+  We may assume without loss of generality that $\varphi(p) = 0$ and, thanks to Corollary~\ref{cor:tgsubspace}, $U$ is star-shaped.
   Let $f\in C^\infty(U)$.
-  By Lemma~\ref{lem:Taylor} with $h = f \circ \phi^{-1}$ we get
+  By Lemma~\ref{lem:Taylor} with $h = f \circ \varphi^{-1}$ we get
   \begin{equation}
-    f = f(p) + x^i (g_i \circ \phi),
-    \quad g_i(0) = D_i (f \circ \phi^{-1})(0) = \frac{\partial}{\partial x_i}\Big|_p(f).
+    f = f(p) + x^i (g_i \circ \varphi),
+    \quad g_i(0) = D_i (f \circ \varphi^{-1})(0) = \frac{\partial}{\partial x_i}\Big|_p(f).
   \end{equation}
   Thus, for any derivation $v$, we obtain
   \begin{equation}
-    v(f) = v(f(p)) + v(x^i)g_i(0) + x^i(p) v(g_i\circ\phi) = v(x^i)  \frac{\partial}{\partial x_i}\Big|_p(f).
+    v(f) = v(f(p)) + v(x^i)g_i(0) + x^i(p) v(g_i\circ\varphi) = v(x^i)  \frac{\partial}{\partial x_i}\Big|_p(f).
   \end{equation}
-  The right hand side is obtained observing that $\phi(p) = 0$, and thus the components $x^i(p) = 0$ are all zero, and applying Corollary~\ref{cor:derzero} to the constant $f(p)$, which implies $v(f(p)) = 0$.
+  The right hand side is obtained observing that $\varphi(p) = 0$, and thus the components $x^i(p) = 0$ are all zero, and applying Corollary~\ref{cor:derzero} to the constant $f(p)$, which implies $v(f(p)) = 0$.
   
   It follows that the set $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ spans $T_p M$.
   We now need to show that its elements are linearly independent.
   Observe that
   \begin{align}
     \frac{\partial}{\partial x_i}\Big|_p (x^j) &= 
-    \frac{\partial}{\partial x_i}\Big|_p (r^j \circ \phi)\\
-    &= D_i (r^j \circ \phi \circ \phi^{-1}) (\phi(p))\\
-    &= D_i r^j(\phi(p)) = \delta^j_i.
+    \frac{\partial}{\partial x_i}\Big|_p (r^j \circ \varphi)\\
+    &= D_i (r^j \circ \varphi \circ \varphi^{-1}) (\varphi(p))\\
+    &= D_i r^j(\varphi(p)) = \delta^j_i.
   \end{align}
   Thus, if
   \begin{equation}
@@ -366,7 +366,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 \end{proof}
 
 \begin{remark}[Change of coordinates]\label{rmk:chg_coords}
-  Suppose $\phi$ and $\psi$ are two different charts about $p$, with corresponding coordinates $x^i := r^i \circ \phi$ and $y^i := r^i \circ \psi$.
+  Suppose $\varphi$ and $\psi$ are two different charts about $p$, with corresponding coordinates $x^i := r^i \circ \varphi$ and $y^i := r^i \circ \psi$.
   Taking $v = \frac{\partial}{\partial y^j}\Big|_p$ in the previous proposition implies that
   \begin{equation}
     \frac{\partial}{\partial y^j}\Big|_p = 
@@ -379,10 +379,10 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   \begin{equation}
     \frac{\partial}{\partial y^j}\Big|_p (x^i) =
     D_j(x^i\circ\psi^{-1})(\psi(p)) =
-    D_j(r^i \circ \phi \circ \psi^{-1})(\psi(p)),
+    D_j(r^i \circ \varphi \circ \psi^{-1})(\psi(p)),
   \end{equation}
-  which is the $(i,j)$th entry in the matrix $D(\phi\circ\psi^{-1})(\psi(p))$ as discussed at the beginning of Section~\ref{sec:dd}.
-  In other words, $D(\phi\circ\psi^{-1})(\psi(p))$ is the transition matrix from the basis $\left\{\frac{\partial}{\partial y^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ to the basis $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$.
+  which is the $(i,j)$th entry in the matrix $D(\varphi\circ\psi^{-1})(\psi(p))$ as discussed at the beginning of Section~\ref{sec:dd}.
+  In other words, $D(\varphi\circ\psi^{-1})(\psi(p))$ is the transition matrix from the basis $\left\{\frac{\partial}{\partial y^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ to the basis $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$.
 \end{remark}
 
 \newthought{We already mentioned} that there are multiple equivalent definition of the tangent space. In the following exercise you will provide one in terms of charts and euclidean derivatives.
@@ -396,19 +396,19 @@ Soon, we will see yet another definition.
 
 \begin{exercise}[Tangent vectors as equivalence classes of charts and vectors]
 Let $M$ be a smooth $m$-manifolds with maximal smooth atlas $\Sigma$.
-For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\phi\in\Sigma$ such that $p$ lies in the image of $\phi$.
+For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\varphi\in\Sigma$ such that $p$ lies in the image of $\varphi$.
 \begin{enumerate}
   \item Show that
   \begin{equation}
-    (v,\phi) \sim (w, \psi)
+    (v,\varphi) \sim (w, \psi)
     \quad\Longleftrightarrow\quad
-    D(\psi \circ \phi^{-1})(\phi(p))v = w.
+    D(\psi \circ \varphi^{-1})(\varphi(p))v = w.
   \end{equation}
   defines an equivalence relation on $\R^m\times\Sigma_p$.
-  \item Let $\cT_p$ denote the set of equivalence classes $[(v,\phi)]\in \R^m\times\Sigma_p/\!\sim$. For $\phi\in\Sigma_p$, show that the map $T_\phi:\R^m\to\cT_p$ given by $T_\phi v := [(v,\phi)]$ is a bijection.
-  Deduce\footnote{Hint: use the previous exercise!} that $\cT_p$ admits a unique vector space structure such that each $T_\phi$ is a linear isomorphism.
-  \item Let $\phi$ be a chart defined on a neighbourhood of $p$ with local coordinates $x^i = r^i \circ \phi$ and let $\hat T_\phi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in~\eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\phi e_i = \frac{\partial}{\partial x^i}\big|_p$.
-  Show that there exists a linear isomorphism $\mathcal{S}_p:\cT_p\to T_pM$ which in addition satisfies $\mathcal{S}_p \circ T_\phi = \hat T_\phi$ for every chart $\phi$ about $p$.
+  \item Let $\cT_p$ denote the set of equivalence classes $[(v,\varphi)]\in \R^m\times\Sigma_p/\!\sim$. For $\varphi\in\Sigma_p$, show that the map $T_\varphi:\R^m\to\cT_p$ given by $T_\varphi v := [(v,\varphi)]$ is a bijection.
+  Deduce\footnote{Hint: use the previous exercise!} that $\cT_p$ admits a unique vector space structure such that each $T_\varphi$ is a linear isomorphism.
+  \item Let $\varphi$ be a chart defined on a neighbourhood of $p$ with local coordinates $x^i = r^i \circ \varphi$ and let $\hat T_\varphi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in~\eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\varphi e_i = \frac{\partial}{\partial x^i}\big|_p$.
+  Show that there exists a linear isomorphism $\mathcal{S}_p:\cT_p\to T_pM$ which in addition satisfies $\mathcal{S}_p \circ T_\varphi = \hat T_\varphi$ for every chart $\varphi$ about $p$.
 \end{enumerate}
 \end{exercise}
 
@@ -464,11 +464,11 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
 
 \begin{proposition}\label{prop:DiffCoords}
   Let $F:M^m\to N^n$ be a smooth map between smooth manifolds.
-  Let $p\in M$, and let $\phi : U \to \phi(U)$ be a chart on $M$ about $p$ and $\psi: V \to \psi(V)$ be a chart on $N$ about $F(p)$.
-  If $(x^i)$ denote the local coordinates of $\phi$ and $(y^i)$ the ones of $\psi$, the matrix of $dF_p$ with respect to the bases $\left\{\frac{\partial}{\partial x^j}\big|_p \;\mid\; j=1,\ldots,m\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial y^j}\big|_p \;\mid\; j=1,\ldots,n\right\}$ of $T_{F(p)}N$ is given by the Jacobian matrix $D(\psi\circ F \circ\phi^{-1})(\phi(p))$.
+  Let $p\in M$, and let $\varphi : U \to \varphi(U)$ be a chart on $M$ about $p$ and $\psi: V \to \psi(V)$ be a chart on $N$ about $F(p)$.
+  If $(x^i)$ denote the local coordinates of $\varphi$ and $(y^i)$ the ones of $\psi$, the matrix of $dF_p$ with respect to the bases $\left\{\frac{\partial}{\partial x^j}\big|_p \;\mid\; j=1,\ldots,m\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial y^j}\big|_p \;\mid\; j=1,\ldots,n\right\}$ of $T_{F(p)}N$ is given by the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$.
 \end{proposition}
 \begin{proof}
-  The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \phi^{-1})(\phi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\phi^{-1})(\phi(p))$. For any $j=1,\ldots,m$,
+  The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$. For any $j=1,\ldots,m$,
   \begin{align}
     dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right)
     &= %\sum_{i=1}^n 
@@ -476,7 +476,7 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
     &= %\sum_{i=1}^n 
       \frac{\partial}{\partial x^j}\Big|_p (y^i \circ F) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
     &=%\sum_{i=1}^n 
-      D_j(r^i \circ \psi \circ F \circ \phi^{-1})(\phi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
+      D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
   \end{align}
 \end{proof}
 
@@ -495,7 +495,7 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
 \end{exercise}
 
 \newthought{A particularly important consequence} of this theorem is that our definition coincides with our old euclidean notions if we set $M=\R^m$ and $N=\R^n$.
-This is easily checked by taking $\phi = \id_{\R^m}$ and $\psi=\id_{\R^n}$.
+This is easily checked by taking $\varphi = \id_{\R^m}$ and $\psi=\id_{\R^n}$.
 Then the coordinates $(x^1,\ldots,x^m)$ are the standard euclidean coordinates for $\R^m$ and the coordinates $(y^1,\ldots,y^n)$ the ones for $\R^n$.
 
 Let $f:U\subset\R^m\to\R^n$ be a smooth function and define the linear isomorphisms
@@ -517,10 +517,10 @@ In fact we know more, since Proposition~\ref{prop:DiffCoords} tells us that the 
   \end{tikzcd}.
 \end{equation}
 
-More generally, the same kind of computation shows the following fact. For any smooth map $F:M^m \to N^n$ between smooth manifolds, if $\phi$ is a chart about $p\in M$ with coordinates $(x^i)$ and $\psi$ is a chart about $F(p)\in N$ with coordinates $(y^i)$, the following diagram commute:
+More generally, the same kind of computation shows the following fact. For any smooth map $F:M^m \to N^n$ between smooth manifolds, if $\varphi$ is a chart about $p\in M$ with coordinates $(x^i)$ and $\psi$ is a chart about $F(p)\in N$ with coordinates $(y^i)$, the following diagram commute:
 \begin{equation}
   \begin{tikzcd}[row sep=huge, column sep=huge]
-    \R^m \arrow[r, "D(\psi \circ F \circ \phi^{-1})(\phi(x))"] \arrow[d, "T_x"]
+    \R^m \arrow[r, "D(\psi \circ F \circ \varphi^{-1})(\varphi(x))"] \arrow[d, "T_x"]
     & \R^n \arrow[d, "T_{F(x)}"] \\
     T_xM \arrow[r, "dF_x"]
     & T_{f(x)}N
@@ -570,7 +570,7 @@ For example, since $GL_n(\R)$ is an open submanifolds of the vector space $M_n(\
 \begin{remark}
   When $M$ is a smooth manifold with boundary and $p$ is an interior point, all the discussions above apply verbatim. In particular, the tangent space at a boundary point of an $n$-dimensional manifold with boundary is also an $n$-dimensional real vector space that can be identified (non-uniquely) with $\R^n$ using a chart containing that point.
 
-  For $p\in\partial M$ the only change that needs to be made is to substitute $\cH^n$ for $\R^n$, with the understanding that the notation $\frac{\partial}{\partial x^i}\big|_{\phi(p)}$ can be used interchangeably to denote either an element of $T_{\phi(p)}\R^n$ or of $T_{\phi(p)}\cH^n$. In the latter case, the $n$th coordinate vector $\frac{\partial}{\partial x^n}\big|_{p}$ should be interpreted as a one-sided derivative.
+  For $p\in\partial M$ the only change that needs to be made is to substitute $\cH^n$ for $\R^n$, with the understanding that the notation $\frac{\partial}{\partial x^i}\big|_{\varphi(p)}$ can be used interchangeably to denote either an element of $T_{\varphi(p)}\R^n$ or of $T_{\varphi(p)}\cH^n$. In the latter case, the $n$th coordinate vector $\frac{\partial}{\partial x^n}\big|_{p}$ should be interpreted as a one-sided derivative.
 \end{remark}
 
 In the next section we will give yet an alternative way of defining tangent vectors: less elegant but easier to compute.
@@ -607,7 +607,7 @@ A priori we have two different ways to define the \emph{velocity vector of $\gam
 \end{enumerate}
 
 Do these definition agree?
-One way to check is to pick a chart $\phi: U \to \phi(U)$ in a neighbourhood of $\gamma(t)$, and compare the expressions in local coordinates. Let $(x^i)$ denote the coordinates of $\phi$ and define the curves $\gamma^i := x^i \circ \gamma : I\to\R$.
+One way to check is to pick a chart $\varphi: U \to \varphi(U)$ in a neighbourhood of $\gamma(t)$, and compare the expressions in local coordinates. Let $(x^i)$ denote the coordinates of $\varphi$ and define the curves $\gamma^i := x^i \circ \gamma : I\to\R$.
 Let's focus on~\eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\circ\gamma)'(t) = (\gamma^i)'(t)$, therefore by Proposition~\ref{prop:basis_TpM} we get
 \begin{equation}\label{eq:tg_curve_vec}
   \gamma'(t) = %\sum_{i=1}^m
@@ -628,10 +628,10 @@ But how can this mapping between curves and tangent vector be well defined?
 Surely, there must be multiple curves with the same speed at a point which differ outside a neighbourhood of the point.
 
 \begin{lemma}\label{lem:equiv_tg_curves}
-  Let $M$ be a smooth manifolds and $\gamma, \delta : (-\epsilon, \epsilon) \to M$ two smooth curves with $\gamma(0) = \delta(0)$. Then, $\gamma'(0) = \delta'(0)$ as elements of $T_{\gamma(0)}M$ if and only if for some (and thus any) chart $\phi:U\to\phi(U)$, $\gamma(0)\in U$, we have $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$.
+  Let $M$ be a smooth manifolds and $\gamma, \delta : (-\epsilon, \epsilon) \to M$ two smooth curves with $\gamma(0) = \delta(0)$. Then, $\gamma'(0) = \delta'(0)$ as elements of $T_{\gamma(0)}M$ if and only if for some (and thus any) chart $\varphi:U\to\varphi(U)$, $\gamma(0)\in U$, we have $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$.
 \end{lemma}
 \begin{proof}
-  Let $(x^i)$ denote the coordinates of $\phi$. The condition $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ is equivalent as stating that $(\gamma^i)'(0) = (\delta^i)'(0)$, where $\gamma^i = x^i\circ\gamma$ and $\delta^i=x^i\circ\delta$. Then, the claim follows from~\eqref{eq:tg_curve_vec} and the fact that $\left\{\frac{\partial}{\partial x^i}\big|_{\gamma(0)}\right\}$ is a basis of $T_{\gamma(0)}M$.
+  Let $(x^i)$ denote the coordinates of $\varphi$. The condition $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ is equivalent as stating that $(\gamma^i)'(0) = (\delta^i)'(0)$, where $\gamma^i = x^i\circ\gamma$ and $\delta^i=x^i\circ\delta$. Then, the claim follows from~\eqref{eq:tg_curve_vec} and the fact that $\left\{\frac{\partial}{\partial x^i}\big|_{\gamma(0)}\right\}$ is a basis of $T_{\gamma(0)}M$.
 \end{proof}
 
 This seems to follow a pattern: until now, all the definitions of tangent vectors where in terms of classes of equivalence.
@@ -643,26 +643,26 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
   There exists a smooth curve $\gamma: (-\epsilon,\epsilon) \to M$ such that $\gamma'(0) = v$.
 \end{theorem}
 \begin{proof}
-  Let $\phi:U\to\phi(U)$ be a chart about $p$ such that $\phi(p)=0$.
-  Let $(x^i)$ denote the coordinates of $\phi$, as usual, and assume that
+  Let $\varphi:U\to\varphi(U)$ be a chart about $p$ such that $\varphi(p)=0$.
+  Let $(x^i)$ denote the coordinates of $\varphi$, as usual, and assume that
   \begin{equation}
     v = \sum_{i=1}^n a^i \frac{\partial}{\partial x^i}\Big|_p, \qquad a^i \in\R.
   \end{equation}
-  For $\epsilon$ small enough, by continuity the vector $(ta^1, \ldots, ta^n) \in \phi(U)$ for all $|t|<\epsilon$. Therefore, the curve
+  For $\epsilon$ small enough, by continuity the vector $(ta^1, \ldots, ta^n) \in \varphi(U)$ for all $|t|<\epsilon$. Therefore, the curve
   \begin{equation}
-    \gamma: (-\epsilon, \epsilon) \to M, \quad \gamma(t):=\phi^{-1}(ta^1, \ldots, ta^n),
+    \gamma: (-\epsilon, \epsilon) \to M, \quad \gamma(t):=\varphi^{-1}(ta^1, \ldots, ta^n),
   \end{equation}
   is well-defined, smooth, satisfies $\gamma(0) = p$ and, by~\eqref{eq:tg_curve_vec}, $\gamma'(0) = v$.
 \end{proof}
 
 \begin{marginfigure}
   \includegraphics{2_4-v_cur.pdf}
-  \caption{With this definition, the coordinate tangent vectors $\partial_{x^i}\in T_p M$ become the tangent vectors defined by the curve \[t \mapsto \phi^{-1}(x^1(p), \ldots, {x^i(p) + t}, \ldots, x^n(p)).\]}
+  \caption{With this definition, the coordinate tangent vectors $\partial_{x^i}\in T_p M$ become the tangent vectors defined by the curve \[t \mapsto \varphi^{-1}(x^1(p), \ldots, {x^i(p) + t}, \ldots, x^n(p)).\]}
   \label{fig:2_4-v_cur}
 \end{marginfigure}
 This means that we can actually make an alternative definition of $T_xM$ in terms of tangent to curves:
 \begin{definition}\label{def:tg:ascurvespeed}
-  A tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\phi\circ \gamma)'(0) = (\phi\circ\delta)'(0)$ for some chart $\phi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
+  A tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ for some chart $\varphi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
 \end{definition}
 
 In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and to endow $T_xM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
@@ -673,15 +673,15 @@ To conclude this part, the next proposition shows that velocity vectors behave w
   Let $F:M\to N$ b a smooth map between smooth manifolds and $\gamma:I\to M$ a smooth curve in $M$.
   Then
   \begin{equation}
-    d F_{\phi(t)} (\phi'(t)) = (F\circ\gamma)'(t).
+    d F_{\varphi(t)} (\varphi'(t)) = (F\circ\gamma)'(t).
   \end{equation}
 \end{proposition}
 \begin{proof}
   We are going to use~\eqref{eq:tg_curve_diff} as definition of $\gamma'(t)$.
   Applying the chain rule we obtain:
   \begin{align}
-    d F_{\phi(t)} (\phi'(t))
-    &= d F_{\phi(t)} \circ d\phi_t \left(\frac{\partial}{\partial t}\Big|_t\right) \\
+    d F_{\varphi(t)} (\varphi'(t))
+    &= d F_{\varphi(t)} \circ d\varphi_t \left(\frac{\partial}{\partial t}\Big|_t\right) \\
     &= d (F\circ\gamma)_t \left(\frac{\partial}{\partial t}\Big|_t\right) \\
     &= (F\circ\gamma)'(t).
   \end{align}
@@ -727,25 +727,25 @@ As it turns out, this is a particular instance of a more general fact.
   Moreover, the map $\pi: TM \to M$ is smooth.
 \end{theorem}
 \begin{proof}
-  \marginnote[1em]{In this proof you can see instances of a typical abuse of notation: in the expressions $\widetilde x^i(x)$ we think of the $\widetilde x^i$ as coordinate functions but we think of the $x$ as representing a point in $\phi(U\cap V)$.}
+  \marginnote[1em]{In this proof you can see instances of a typical abuse of notation: in the expressions $\widetilde x^i(x)$ we think of the $\widetilde x^i$ as coordinate functions but we think of the $x$ as representing a point in $\varphi(U\cap V)$.}
   \newthought{Step 1: extending charts from $M$ to $TM$.}
-  Given a chart $(U,\phi)$ about $p\in M$, the preimage $\pi^{-1}(U) \subset TM$ is the set of all tangent vectors to $M$ at points of $U$.
-  If $(x^i)$ denotes the coordinate functions of $\phi$, we can define a map $\widetilde\phi : \pi^{-1}(U) \to \phi(U)\times\R^n \subset \R^{2n}$ by
+  Given a chart $(U,\varphi)$ about $p\in M$, the preimage $\pi^{-1}(U) \subset TM$ is the set of all tangent vectors to $M$ at points of $U$.
+  If $(x^i)$ denotes the coordinate functions of $\varphi$, we can define a map $\widetilde\varphi : \pi^{-1}(U) \to \varphi(U)\times\R^n \subset \R^{2n}$ by
   \marginnote{Keep in mind that \begin{equation}\nonumber
     \pi^{-1}(U)= TU = \bigsqcup T_p U \subset \bigsqcup T_p M=TM.
   \end{equation}}
   \begin{align}\label{eq:nat_coords}
-    \widetilde\phi\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) := \left(x^1(p), \ldots, x^n(p), v^1, \ldots, v^n\right).
+    \widetilde\varphi\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) := \left(x^1(p), \ldots, x^n(p), v^1, \ldots, v^n\right).
   \end{align}
-  Since $\widetilde\phi$ can be explicitly inverted as $\widetilde\phi^{-1}\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) = v^i \frac{\partial}{\partial x^i}\Big|_{\phi^{-1}(x)}$, it defines a bijection onto it image.
+  Since $\widetilde\varphi$ can be explicitly inverted as $\widetilde\varphi^{-1}\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) = v^i \frac{\partial}{\partial x^i}\Big|_{\varphi^{-1}(x)}$, it defines a bijection onto it image.
 
   \newthought{Step2: compatibility of the extended charts.}
-  Suppose we have two smooth charts $(U,\phi)$, $(V,\psi)$ for $M$.
-  Let $(\pi^{-1}(U),\widetilde\phi)$, $(\pi^{-1}(V),\widetilde\psi)$ be their extension\footnote{These are called \emph{bundle charts}.} to $TM$ as in the previous step.
-  By construction\footnote{They are both homeomorphisms.}, both $\widetilde\phi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \phi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
-  Moreover, we can take advantage of Remark~\ref{rmk:chg_coords} to write explicitly the transition map  $\widetilde\psi\circ\widetilde\phi^{-1}: \phi(U\cap V)\times\R^n \to \psi(U\cap V)\times\R^n$ as
+  Suppose we have two smooth charts $(U,\varphi)$, $(V,\psi)$ for $M$.
+  Let $(\pi^{-1}(U),\widetilde\varphi)$, $(\pi^{-1}(V),\widetilde\psi)$ be their extension\footnote{These are called \emph{bundle charts}.} to $TM$ as in the previous step.
+  By construction\footnote{They are both homeomorphisms.}, both $\widetilde\varphi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \varphi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
+  Moreover, we can take advantage of Remark~\ref{rmk:chg_coords} to write explicitly the transition map  $\widetilde\psi\circ\widetilde\varphi^{-1}: \varphi(U\cap V)\times\R^n \to \psi(U\cap V)\times\R^n$ as
   \begin{align}
-    \widetilde\psi\circ&\widetilde\phi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) \\
+    \widetilde\psi\circ&\widetilde\varphi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) \\
     &=\left(\widetilde x^1(x),\ldots, \widetilde x^n(x), \frac{\partial \widetilde x^1}{\partial x^j}(x) v^j, \ldots, \frac{\partial \widetilde x^n}{\partial x^j}(x) v^j\right),
   \end{align}
   which is clearly smooth.
@@ -756,17 +756,17 @@ As it turns out, this is a particular instance of a more general fact.
   \end{figure*}
   
   \newthought{Step3: $TM$ is a manifold.}
-  With the procedure delineated above, a countable smooth atlas $\{(U_i, \phi_i)\}$ of $M$ induces a countable atlas $\{(\pi^{-1}(U_i), \widetilde\phi_i)\}$ of $TM$.
+  With the procedure delineated above, a countable smooth atlas $\{(U_i, \varphi_i)\}$ of $M$ induces a countable atlas $\{(\pi^{-1}(U_i), \widetilde\varphi_i)\}$ of $TM$.
   First of all, $\{(\pi^{-1}(U_i)\}$ provides a countable covering of $TM$.
   We need to show that the topology induced by those charts is Hausdorff and second countable.
   
   Let $(p^1, v^1), (p^2, v^2) \in TM$ be different points: either $p^1\neq p^2$, or $p^1 = p^2$ and $v^1 \neq v^2$.
   In the first case, there are disjoint open sets $V_1, V_2 \subset U_i$ (for some $i$) containing respectively $p^1$ and $p^2$.
-  Then $\widetilde\phi_i^{-1}(V_1\times\R^n)$ and $\widetilde\phi_i^{-1}(V_2\times\R^n)$ are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
+  Then $\widetilde\varphi_i^{-1}(V_1\times\R^n)$ and $\widetilde\varphi_i^{-1}(V_2\times\R^n)$ are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
   In the second case, $p=p^1=p^2$ there are disjoint open sets $V_1,V_2\subset \R^n$ containing $v^1$ and $v^2$ respectively.
-  Again the preimages $\widetilde\phi^{-1}(U_i\times V_1)$ and $\widetilde\phi^{-1}(U_i\times V_2)$ (for some $i$) are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
+  Again the preimages $\widetilde\varphi^{-1}(U_i\times V_1)$ and $\widetilde\varphi^{-1}(U_i\times V_2)$ (for some $i$) are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
 
-  If countable basis $\{U_j\}$ is countable basis for the topology of $M$ (which is second countable) and $\{W_k\}$ is a countable basis for the topology of $\R^n$, then $\{\widetilde\phi^{-1}((U_i\cap U_j)\times W_k)\}$ is a countable basis for $TM$.
+  If countable basis $\{U_j\}$ is countable basis for the topology of $M$ (which is second countable) and $\{W_k\}$ is a countable basis for the topology of $\R^n$, then $\{\widetilde\varphi^{-1}((U_i\cap U_j)\times W_k)\}$ is a countable basis for $TM$.
   The charts defined above make $TM$ automatically euclidean of dimension $2n$.
 
   \begin{exercise}
@@ -774,7 +774,7 @@ As it turns out, this is a particular instance of a more general fact.
     Can you simplify it using Lemma~\ref{lem:manifold_chart}?
   \end{exercise}
 
-  \newthought{Step4: $\pi$ is smooth.} With respect to the charts $(U,\phi)$ for $M$ and $(\pi^{-1}(U), \widetilde\phi)$ for $TM$, the coordinate representation of $\pi$ is $\pi(x,v) = x$.
+  \newthought{Step4: $\pi$ is smooth.} With respect to the charts $(U,\varphi)$ for $M$ and $(\pi^{-1}(U), \widetilde\varphi)$ for $TM$, the coordinate representation of $\pi$ is $\pi(x,v) = x$.
 \end{proof}
 
 The coordinates $(x^i, v^i)$ defined by~\eqref{eq:nat_coords} are called \emph{natural (or canonical) coordinates}.
@@ -799,16 +799,16 @@ What we have seen here is our first example of vector bundle, which is just a wa
   A \emph{vector bundle of rank $r$} on a manifold $M$ is a manifold $E$ together with a smooth surjective map $\pi : E \to M$ such that, for all $p\in M$, the following properties hold:
   \begin{enumerate}
     \item the \emph{fibre over $p$}, $E_p := \pi^{-1}(p)$, has the structure of vector space of dimension $r$;
-    \item there is a neighbourhood $U\subset M$ of $p$ and a diffeomorphism $\Phi: \pi^{-1}(U) \to U \times \R^r$ such that
+    \item there is a neighbourhood $U\subset M$ of $p$ and a diffeomorphism $\varphi: \pi^{-1}(U) \to U \times \R^r$ such that
     \begin{enumerate}
-      \item $\pi_1 \circ \Phi = \pi$ where $\pi_1: U\times\R^r\to U$ is the projection on the first factor,
-      \item for all $q\in U$, $\Phi\big|_{E_q} : E_q \to \{q\}\times \R^r$ is an isomorphism of vector spaces.
+      \item $\pi_1 \circ \varphi = \pi$ where $\pi_1: U\times\R^r\to U$ is the projection on the first factor,
+      \item for all $q\in U$, $\varphi\big|_{E_q} : E_q \to \{q\}\times \R^r$ is an isomorphism of vector spaces.
     \end{enumerate}
   \end{enumerate}
 
-  The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\Phi$ is called \emph{local trivialisation}.
+  The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\varphi$ is called \emph{local trivialisation}.
 
-  If there exists a trivialisation defined on the whole manifold, that is a map $\Phi: M \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}.
+  If there exists a trivialisation defined on the whole manifold, that is a map $\varphi: M \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}.
 \end{definition}
 
 \begin{example}
@@ -835,9 +835,9 @@ What we have seen here is our first example of vector bundle, which is just a wa
 \begin{example}
   Let $\pi:E \to M$ be a vector bundle of rank $r$.
   Assume that $E$ itself is the base space of another vector bundle $\pi_1: E_1\to E$ of rank $s$.
-  Then $\pi\circ\pi_1: E_1 \to M$ is a vector bundle of rank $r+s$ called the \emph{composite bundle}. Indeed, if $\Phi:\pi^{-1}(U)\to U\times\R^r$ is a bundle diffeomorphism for $E$ over $U\subset M$ and $\Phi_1:\pi_1^{-1}(U_1)\to U_1\times\R^s$ is a bundle diffeomorphism for $E_1$ over $U_1\subset E$ such that $V := \pi(U_1)\cap U\neq \emptyset$, then
+  Then $\pi\circ\pi_1: E_1 \to M$ is a vector bundle of rank $r+s$ called the \emph{composite bundle}. Indeed, if $\varphi:\pi^{-1}(U)\to U\times\R^r$ is a bundle diffeomorphism for $E$ over $U\subset M$ and $\varphi_1:\pi_1^{-1}(U_1)\to U_1\times\R^s$ is a bundle diffeomorphism for $E_1$ over $U_1\subset E$ such that $V := \pi(U_1)\cap U\neq \emptyset$, then
   \begin{equation}
-    \Psi:=(\Phi\circ\pi_1, \Phi_1): (\pi\circ\pi_1)^{-1}(V)\to (U\times\R^r)\times (U_1\times\R^s)
+    \Psi:=(\varphi\circ\pi_1, \varphi_1): (\pi\circ\pi_1)^{-1}(V)\to (U\times\R^r)\times (U_1\times\R^s)
   \end{equation}
   is a bundle diffeomorphism for $\pi\circ\pi_1$ over $W$.
 
@@ -893,7 +893,7 @@ In the spirit of what we have seen about the previous example, we have the follo
   If $(S_i)$ is a smooth local frame for $E$ over an open subset $U\subseteq M$, then $X$ is smooth on $U$ if an only if its component functions with respect to $(S_i)$ are smooth.
 \end{proposition}
 \begin{proof}
-   Let $\Phi:\pi^{-1}(U) \to U\times\R^k$ be the local trivialization associated with the local frame $(S_i)$. Since $\Phi$ is a diffeomorphism, $X$ is smooth on $U$ if and only if $\Phi\circ X$ is smooth on $U$. If $(X^i)$ denote the component functions of $X$ with respect to $S_i$, then $\Phi\circ X (p) = (p, (X^1(p), \ldots, X^k(p)))$, so $\Phi\circ X$ is smooth if and only if the component functions $(X^i)$ are smooth.
+   Let $\varphi:\pi^{-1}(U) \to U\times\R^k$ be the local trivialization associated with the local frame $(S_i)$. Since $\varphi$ is a diffeomorphism, $X$ is smooth on $U$ if and only if $\varphi\circ X$ is smooth on $U$. If $(X^i)$ denote the component functions of $X$ with respect to $S_i$, then $\varphi\circ X (p) = (p, (X^1(p), \ldots, X^k(p)))$, so $\varphi\circ X$ is smooth if and only if the component functions $(X^i)$ are smooth.
 \end{proof}
 
 That is, given a local frame $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ of a vector bundle $\pi: E \to M$ we can express any section $X\in\Gamma(E)$ as a linear combination of elements of the frame:
@@ -907,12 +907,12 @@ Which was to be expected: after all, for each $p\in U\subset M$, the local frame
   A vector bundle $\pi: E\to M$ is trivialisable if and only if it admits a global frame.
 \end{proposition}
 \begin{proof}
-  Let $\Phi: E \to M\times\R^r$ be a global trivialisation and $(e_1, \ldots, e_r)$ the canonical basis for $\R^r$.
-  For $q\in M\times\R^r$, $(S_1(q), \ldots, S_r(q)) := \left(\Phi^{-1}\big|_q(e_1), \ldots, \Phi^{-1}\big|_q(e_r) \right)$ is a global frame for $E$ (why?).
+  Let $\varphi: E \to M\times\R^r$ be a global trivialisation and $(e_1, \ldots, e_r)$ the canonical basis for $\R^r$.
+  For $q\in M\times\R^r$, $(S_1(q), \ldots, S_r(q)) := \left(\varphi^{-1}\big|_q(e_1), \ldots, \varphi^{-1}\big|_q(e_r) \right)$ is a global frame for $E$ (why?).
 
   Conversely, let $(S_1, \ldots, S_r)$ be a global frame for $E$. Then
   \begin{equation}
-    \Phi: E \to M\times\R^r, \quad
+    \varphi: E \to M\times\R^r, \quad
     \left(p, v^i S_i(p)\right) \mapsto \left(p, (v^1, \ldots, v^r)\right),
   \end{equation}
   is a global trivialisation for $E$.
@@ -1023,14 +1023,14 @@ compare the following statements.
 \end{theorem}
 % \begin{proof}
 %   This is a purely local statement.
-%   Let $(U,\phi)$ be a chart about $p\in M$ and let $(V, \psi)$ be a chart about $F(p)\in N$.
-%   Since both $\phi$ and $\psi$ are diffeomorphisms (and thus have maximal rank), the derivative of
+%   Let $(U,\varphi)$ be a chart about $p\in M$ and let $(V, \psi)$ be a chart about $F(p)\in N$.
+%   Since both $\varphi$ and $\psi$ are diffeomorphisms (and thus have maximal rank), the derivative of
 %   \begin{equation}
-%     \psi \circ F \circ \phi^{-1}: \phi(U\cap F^{-1}(V)) \to \psi(F(U)\cap V)
+%     \psi \circ F \circ \varphi^{-1}: \varphi(U\cap F^{-1}(V)) \to \psi(F(U)\cap V)
 %   \end{equation}
-%   has rank $n$ at $\phi(p)$.
-%   Thus the inverse function theorem, Theorem~\ref{thm:ift}, there exists $\Omega \subset \phi(U\cap F^{-1}(V))$ such that $\psi \circ F \circ \phi^{-1}\big|_{\Omega}$ is a diffeomorphism.
-%   Therefore, once again since both $\phi$ and $\psi$ are diffeomorphisms, $F\big|_W : W \to F(W)$ is also a diffeomorphism for $W := \phi^{-1}(\Omega)$.
+%   has rank $n$ at $\varphi(p)$.
+%   Thus the inverse function theorem, Theorem~\ref{thm:ift}, there exists $\Omega \subset \varphi(U\cap F^{-1}(V))$ such that $\psi \circ F \circ \varphi^{-1}\big|_{\Omega}$ is a diffeomorphism.
+%   Therefore, once again since both $\varphi$ and $\psi$ are diffeomorphisms, $F\big|_W : W \to F(W)$ is also a diffeomorphism for $W := \varphi^{-1}(\Omega)$.
 % \end{proof}
 \begin{exercise}
   Use the euclidean inverse function theorem\footnote{Theorem~\ref{thm:ift}.} on $\R^n$ to prove Theorem~\ref{thm:iftm}.
@@ -1124,12 +1124,12 @@ From this observation follows another interesting proposition, again consequence
     \item $M$ is locally the image of an embedding of a subset of $\R^k$.
     That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$, an open set $U\subset\R^k$ and an embedding
     \begin{equation}
-      \phi : U \to N \quad\mbox{such that}\quad \phi(U)=V.
+      \varphi : U \to N \quad\mbox{such that}\quad \varphi(U)=V.
     \end{equation}
     \item $M$ is locally a level set of a submersion into $\R^{n-k}$.
-    That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$ and a submersion $\Phi: V \to\R^{n-k}$ such that
+    That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$ and a submersion $\varphi: V \to\R^{n-k}$ such that
     \begin{equation}
-      M\cap V = \{q\in V \;\mid\; \Phi(q) = 0\}.
+      M\cap V = \{q\in V \;\mid\; \varphi(q) = 0\}.
     \end{equation}
   \end{enumerate}
 \end{proposition}
@@ -1141,7 +1141,7 @@ From this observation follows another interesting proposition, again consequence
 
 \begin{example}\label{ex:s2}
   The sphere $\bS^2 = \{x\in\R^3 \mid \|x\| = 1\}$ is a $2$-dimensional submanifold of $\R^3$.
-  This is immediate using the third condition in the Proposition~\ref{prop:submanifolds_and_R}: let $\Phi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\Phi$ is smooth, $\bS^2 = \{F(x)=0\}$ and $dF_x(v)= 2x\cdot v \neq 0$ for $x\in\bS^2$.
+  This is immediate using the third condition in the Proposition~\ref{prop:submanifolds_and_R}: let $\varphi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\varphi$ is smooth, $\bS^2 = \{F(x)=0\}$ and $dF_x(v)= 2x\cdot v \neq 0$ for $x\in\bS^2$.
 \end{example}
 
 \begin{example}

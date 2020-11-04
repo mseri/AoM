@@ -56,7 +56,7 @@ That is, we can think of the dual pairing $(df\mid v)$ in a twofold way:
 \end{notation}
 
 To look more concretely at differential forms, let's compute its coordinate representation.
-Let $(U,\phi)$ be a chart on $M^n$ with local coordinates $(x^i)$.
+Let $(U,\varphi)$ be a chart on $M^n$ with local coordinates $(x^i)$.
 Since the coordinate functions $x^i\in C^\infty(U)$, we can define the corresponding coordinate $1$-forms $dx^i|_p \in T_p^* M$.
 Their action on the coordinate vector fields, then, is immediately computed as
 \begin{equation}
@@ -151,10 +151,10 @@ This should start giving you an idea of what is behind the following famous quot
 \section{Change of coordinates}
 
 In Remark~\ref{rmk:chg_coords} we have seen that if we have two different charts with local coordinates $(x^i)$ and $(y^i)$ on a smooth manifold $M$,
-\marginnote{Let's denote the two charts respectively by $\phi$ and $\psi$, then if $\Phi = \psi\circ\phi^{-1}$ is the corresponding transition map, one has \begin{equation}
-  \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p = (D\Phi(p))_i^j \frac{\partial}{\partial y^j}\Big|_p,
+\marginnote{Let's denote the two charts respectively by $\varphi$ and $\psi$, then if $\varphi = \psi\circ\varphi^{-1}$ is the corresponding transition map, one has \begin{equation}
+  \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p = (D\varphi(p))_i^j \frac{\partial}{\partial y^j}\Big|_p,
 \end{equation}
-where $D\Phi$ is the Jacobian matrix of the transition map.}
+where $D\varphi$ is the Jacobian matrix of the transition map.}
 \begin{equation}
   \frac{\partial}{\partial x^i}\Big|_p = \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p.
 \end{equation}
@@ -227,14 +227,14 @@ The cotangent spaces are the fibres of the cotangent bundle.
 \end{theorem}
 \begin{proof}
   The proof is analogous to that of Theorem~\ref{thm:tgbdlsmoothmfld}, so we will not do it again.
-  % The atlas is obtained by an atlas $\{(U_i, \phi_i)\}$ of $M$ by defining the new atlas
+  % The atlas is obtained by an atlas $\{(U_i, \varphi_i)\}$ of $M$ by defining the new atlas
   % \begin{equation}
-  %   \left\{ T^* U_i, \left(\phi_i, d(\phi_i^{-1})^*\right)\right\}
+  %   \left\{ T^* U_i, \left(\varphi_i, d(\varphi_i^{-1})^*\right)\right\}
   % \end{equation}
   % where
   % \begin{align}
-  %   \left(\phi_i, (\phi_i^{-1})^*\right) : T^* U_i &\to T^*\phi(U_i),\\
-  %   (p, \omega) &\mapsto \left(\phi_i(p), d(\phi_i^{-1})^*)_p\omega \right).
+  %   \left(\varphi_i, (\varphi_i^{-1})^*\right) : T^* U_i &\to T^*\varphi(U_i),\\
+  %   (p, \omega) &\mapsto \left(\varphi_i(p), d(\varphi_i^{-1})^*)_p\omega \right).
   % \end{align}
   \begin{exercise}
     Mimicking what we did for Theorem~\ref{thm:tgbdlsmoothmfld}, complete this proof.
@@ -371,7 +371,7 @@ The pullback is a rather pervasive concept, and does provide us a new way to exp
   \end{equation}
   with the projection $\pi_1:F^* E \to M$.
   The fibre of $F^*E$ over $p\in M$, then, is $\{p\}\times E_{F(p)}$, which under $\Pi_2:F^* E \to E$ is diffeomorphic to $E_{F(p)}$.
-  If $\Phi : \pi^{-1}(U) \to U\times\R^r$ is a bundle diffeomorphism for $E$, then $\Phi\circ\pi_2: \Pi_1^{-1}(F^{-1}(U)) \to U\times\R^r$ is a bundle diffeomorphism for $F^*E$.
+  If $\varphi : \pi^{-1}(U) \to U\times\R^r$ is a bundle diffeomorphism for $E$, then $\varphi\circ\pi_2: \Pi_1^{-1}(F^{-1}(U)) \to U\times\R^r$ is a bundle diffeomorphism for $F^*E$.
   This $F^*E$ is a vector bundle of rank $r$ over $M$. 
   In summary, the following diagram commutes:
   \begin{equation}
