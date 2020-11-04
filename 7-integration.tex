@@ -358,7 +358,7 @@ This result can be nicely formalized as follows.
 
 This justifies the following definition.
 
-\begin{definition}[Integral on submanifolds]
+\begin{definition}[Integral on submanifolds]\label{def:insm}
   Let $M$ a smooth $m$-manifold, $N$ an oriented smooth $n$-manifold and $J:N\to M$ a smooth map\footnote{If $N\subset M$ is a submanifold, then $J:N\hookrightarrow M$ is just the inclusion map.}.
   If $\omega\in\Omega^m(M)$ has compact support, we define
   \begin{equation}
@@ -371,7 +371,7 @@ This justifies the following definition.
   where $partial M$ is understood to have the induced orientation.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:intint}
   Let $M=[a,b]\subset \R$ equipped with the canonical global atlas $\{(M, \id_\R|_M)\}$ and $f\in C^\infty_0(M)$, i.e., smooth with compact support\footnote{Which does not mean $f(a) = f(b)=0$ since $[a,b]$ is itself compact.}.
   Then, $df\in\Omega^1(M)$ and $\supp df \subset \supp f$ is compact as well and we have
   \begin{equation}
@@ -379,14 +379,282 @@ This justifies the following definition.
   \end{equation}
 \end{example}
 
-\begin{exercise}[Fubini's theorem]
-  
+\begin{exercise}[Fubini's theorem]\label{exe:fubini}
+  Let $M^m$ and $N^n$ be oriented manifolds. Endow $M\times N$ with the product orientation, that is\footnote{An equivalent way is to say that if $v_1,\ldots,v_m\in T_pM$ and $w_1, \ldots, w_n\in T_q N$ are positively oriented bases in the respective spaces, then \begin{equation}
+    (v_1,0),\ldots,(v_n,0),(0,w_1), \ldots, (0,w_n)\in T_{(p,q)}M\times N
+  \end{equation}is defined to be a positively oriented basis in the product.}, if $\pi_M : M\times N to M$ and $\pi_N: M\times N \to N$ are the canonical projections on the elements of the product, and $\omega$ and $\eta$ respectively define orientations on $M$ and $N$, then the orientation on $M\times N$ is defined to be the orientation defined by $\pi_M^* \omega \wedge \pi_N^* \eta$.
+
+  If $\alpha\in\Omega^m(M)$ and $\beta\in\Omega^n(N)$ have compact support, show that
+  \begin{equation}
+    \alpha\times\beta := (\pi_M^*\alpha)\wedge(\pi_N^*\beta)
+  \end{equation}
+  has compact support and is a $(m+n)$-form on $M\times N$.
+  Then, prove Fubini's theorem:
+  \begin{equation}
+    \int_{M\times N}\alpha\times\beta = \left(\int_M\alpha\right)\left(\int_N\beta\right).
+  \end{equation}
 \end{exercise}
+
+\begin{exercise}
+  Let $\{e_1,\ldots,e_{n+1}\}$ be the standard basis of $\R^{n+1}$ and $\Omega_{n+1} := e_1\wedge\cdots\wedge e_{n+1}$ the induced volume form.
+  On $\bS^n$ define $\omega_n\in\Omega^n(\bS^n)$ by
+  \begin{equation}
+    \omega_n(s)(v_1, \ldots, v_n) = \Omega_{n+1}(s, v_1, \ldots, v_n)
+  \end{equation}
+  for $s\in\bS^n$ and $v_1,\ldots,v_n\in T_s\bS^n$.
+
+  In this exercise we are going to define a canonical volume $\omega_n$ on $\bS^n$ and prove that 
+  \begin{equation}
+    \int_{\bS^n} \omega_n = \frac{2^{m+1}\pi^n}{(2m-1)!}, \quad\mbox{if } n=2m,\; m\geq 1,
+  \end{equation}
+  and
+  \begin{equation}
+    \int_{\bS^n} \omega_n = \frac{2\pi^{m+1}}{m!}, \quad\mbox{if } n=2m+1,\; m\geq 0.
+  \end{equation}
+
+  \begin{enumerate}
+    \item Show that $\omega_n$ is a volume form on $\bS^n$. In fact it is the so-called standard volume form on $\bS^n$.
+    \item Let $f:\R_+\times\R^{n+1}\setminus\{0\}\to \R^{n+1}\setminus\{0\}$ be given by $f(t,s) = ts$, where $\R_+$ is defined to be the set $\{t\in\R \mid t >0\}$.
+    Show that if $\R_+$ is oriented by $dt$, $\bS^n$ is oriented by $\omega_n$ and $\R^{n+1}$ is oriented by $\Omega_{n+1}$, then the Jacobian determinant $\det(Df(t,s))= t^n$.
+    Conclude that $f$ is orientation preserving.
+    \item Let $M$ be the annulus $M = \{x\in\R^{n+1} \mid 0<a<\|x\|<b<\infty\}$. Consider the restriction $f|_{(a,b)\times \bS^n}$ and show that for $x\in\R^{n+1}$,
+    \begin{equation}
+      f^*\left(e^{-\|x\|^2}\Omega_{n+1}\right) = t^n e^{-t^2}(dt \times \omega_n),
+    \end{equation}
+    where $dt\times\omega_n$ is a product volume form as in Exercise~\ref{exe:fubini}.
+    \item Show that
+    \begin{equation}
+      \int_{\R^{n+1}}e^{-\|x\|^2}\Omega_{n+1} = \int_a^b t^ne^{-t^2} dt \int_{\bS^n}\omega_n.
+    \end{equation}
+    \item Consider the limits $a\to0^+$ and $b\to+\infty$ and show that
+    \begin{equation}
+      \int_0^\infty t^n e^{-t^2} dt \int_{\bS^n}\omega_n = \left(\int_{-\infty}^{+\infty} e^{-u^2} du\right)^{n+1}.
+    \end{equation}
+    \item Assume to know that $\int_{-\infty}^{\infty} e^{-u^2}du = \sqrt{\pi}$. Show that
+    \begin{equation}
+      \int_0^\infty t^{2m} e^{-t^2}dt = \frac{(2m-1)!!\sqrt{\pi}}{2^{m+1}}
+      \quad\mbox{and}\quad
+      \int_0^\infty t^{2m+1} e^{-t^2}dt = \frac{m!}{2},
+    \end{equation}
+    and use them to deduce the required formulas for $\int_{\bS^n}\omega_n$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{remark}
+  The integral defined in this section can be extended rather immediately to measurable functions.
+  Let $\omega\in\Omega^n(M)$ be a positive volume form and let $f:M\to[0,\infty)$ be measurable.
+  Then one can define
+  \begin{align}
+    \int_M f \omega
+    &= \sum_i \int_{\varphi_i(U_i)} (\varphi_i)_*(\rho_i f\omega) \\
+    &= \sum_i \int_{\varphi_i(U_i)} (\rho_i f \circ\varphi_i^{-1}) (\varphi_i)_*\omega \\
+    &= \sum_i \int_{\varphi_i(U_i)} (\rho_i f \circ\varphi_i^{-1})(x) \omega(x) d^n x,
+  \end{align}
+  where the last integral is a Lebesgue integral on $\R^n$.
+  One then calls $f:M\to \R$ integrable, saying $f\in L^1(M,\omega)$, if $\int_M|f|\omega < \infty$ and defines its integral as $\int_M f\omega := \int_M f^+\omega - \int_M f^-\omega$, where $f^\pm$ denote the positive and negative components of $f$ as in the euclidean case.
+\end{remark}
 
 \section{Stokes' Theorem}
 
-Theorem, corollary, a few remarks and comparisons, proof, exercises and examples.
+Stokes' theorem states that if $\omega$ is an $(n-1)$-form on an orientable $n$-manifold $M$, then the integral of $d\omega$ over $M$ equals the integral of $\omega$ over $\partial M$, generalising our observations for the line integral.
+This is a beautiful and very important results, with deep consequences. The most immediate ones are the classical theorems of Gauss, Green and Stokes, which are just a special cases of this result.
 
-Invariance under diffeotopies and diffeomorphisms.
+We are going to state the theorem, discuss some of its consequences and then give its proof.
 
-More exercises and examples.
+\begin{theorem}\label{thm:Stokes}
+  Let $M$ be an oriented $n$-manifold with boundary and let $\omega\in\Omega^{n-1}(M)$ be compactly supported.
+  Then,
+  \begin{equation}\label{eq:Stokes}
+    \int_M d\omega = \int_{\partial M} \omega.
+  \end{equation}
+  \marginnote{Here, $\partial M$ inherits the orientation from $M$ as in Definition~\ref{def:insm}, $\omega$ on the right-hand side is interpreted as $i^*\omega$ where $i:\partial M \hookrightarrow M$ is the inclusion of the boundary and if $\partial M =\emptyset$ then the right-hand side is interpreted as $0$.}
+\end{theorem}
+
+\marginnote{On a similar note, the fact that $dd\omega =0$ for every $\omega\in\Lambda^n(M)$ corresponds to the fact that a boundary has no boundary, that is $\partial\partial M = \emptyset$ for any $M$: indeed, for any $\omega\in\Lambda^n(M)$ one has \begin{equation}
+  0=\int_M dd\omega = \int_{\partial M}d\omega = \int_{\partial\partial M} \omega.
+\end{equation}}
+\begin{corollary}
+  Let $M$ be an oriented $n$-manifold without boundary and let $\omega\in\Omega^{n-1}(M)$ be compactly supported.
+  Then,
+  \begin{equation}
+    \int_M d\omega = 0.
+  \end{equation}
+  That is, the integral of a compactly supported exact form over a manifold without boundary vanishes.
+\end{corollary}
+
+\begin{corollary}
+  Let $M$ be a compact oriented $n$-manifold with boundary and let $\omega\in\Omega^{n-1}(M)$ be closed.
+  Then,
+  \begin{equation}
+    \int_{\partial M} \omega = 0.
+  \end{equation}
+  That is, the integral of a closed form on the boundary of a compact manifold vanishes.
+\end{corollary}
+
+\begin{corollary}[Green's theorem]
+  Suppose $D$ is a compact regular domain in $\R^2$ and $P,Q\in C^\infty(D)$, then
+  \begin{equation}
+    \int_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial x}\right)dxdy = \int_{\partial D}(Pdx + Qdy).
+  \end{equation}
+\end{corollary}
+
+\begin{corollary}
+  Let $M$ a smooth $m$-manifold, $N$ an oriented submanifold of dimension $n$. Let $J:N\to M$ be a smooth map\footnote{If $N\subset M$ is a submanifold, then $J:N\hookrightarrow M$ is just the inclusion map.}.
+  If $\omega\in\Omega^{n-1}(M)$ has compact support, we define
+  \begin{equation}
+    \int_N d\omega = \int_{\partial N} \omega,
+  \end{equation}
+  where $\partial N$ inherits the orientation from $N$.
+\end{corollary}
+
+\begin{remark}
+  The requirement of compactness in Stokes' theorem may seem there just to avoid technicalities involving the convergence of the integral, however, it also avoid subtleties due to the boundary as shown in the following example.
+  Let $M=(a,b)$, thus $\partial M = \emptyset$, and $f(x)=x$.
+  Then.
+  \begin{equation}
+    b-a = \int_a^b df \neq \int_{\partial M} f = 0.
+  \end{equation}
+  But this does not contradict Stokes' theorem since $f$ is not compactly supported.
+
+  If you close the interval, then $f$ becomes with compact support and we are back in the case of Example~\ref{ex:intint} where we had already seen Stokes' theorem.
+\end{remark}
+
+\begin{proof}
+  \newthought{Part I: euclidean boundary case}.
+  Let's start with a special case: suppose $M = \cH^n$ itself.
+  Since $\omega$ has compact support, there is $R > 0$ such that $\supp \omega \subset A = [-R,R]^{n-1}\times[0,R]$ is enclosed within the rectangle $A$.
+  We can write $\omega$ in standard coordinates to get
+  \begin{equation}
+    \omega = \sum_{j=1}^n \omega^j dx^1 \wedge \cdots\wedge \widehat{dx}^j \wedge \cdots\wedge dx^n
+  \end{equation}
+  where the hat means that the corresponding element $dx^j$ is omitted.
+  Therefore\footnote{Exercise: explicitly write down the steps of the computation.},
+  \begin{equation}
+    d\omega = \sum_{j=1}^n (-1)^{j-1} \frac{\partial \omega^j}{\partial x^j}dx^1\wedge\cdots\wedge dx^n,
+  \end{equation}
+  and we end up with the integral
+  \begin{align}
+    \int_{\cH^n} d\omega
+    &= \sum_{j=1}^n (-1)^{j-1} \int_A\frac{\partial \omega^j}{\partial x^j}dx^1\wedge\cdots\wedge dx^n \\
+    &= \sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) dx^1\cdots dx^n.
+  \end{align}
+  The last are genuine euclidean integrals and we can change the order of integration in each term to always integrate the $x^j$ term first.
+  The usual euclidean fundamental theorem of calculus then, for the terms with $i\neq n$, implies
+  \begin{align}
+    \int_{\cH^n} d\omega
+    &= \sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) dx^1\cdots dx^n \\
+    &=\sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) dx^j dx^1\cdots\widehat{dx^j}\cdots dx^n \\
+    &=\sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\omega^j(x) \Big|_{x^i=-R}^{x^i=R} dx^1\cdots\widehat{dx^j}\cdots dx^n \\
+    &= 0
+  \end{align}
+  since $R$ is larger than the support of $\omega$ at each coordinate.
+  The only term that may not be zero is the $i=n$ one.
+  In that case, for the same reasons,
+  \begin{align}
+    \int_{\cH^n} d\omega
+    &=(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{0}^{R}\frac{\partial \omega^n}{\partial x^j}(x) dx^n dx^1\cdots dx^{n-1} \\
+    &=(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots \omega^n(x)\Big|_{x^n=0}^{x^n=R} dx^n dx^1\cdots dx^{n-1} \\
+    &=(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots \omega^n(x^1, \ldots, x^{n-1}, 0) dx^1\cdots dx^{n-1}.\label{ex:lhsHn}
+  \end{align}
+  We now need to compare this with the right-hand side of~\eqref{eq:Stokes}.
+  To this end, compute he following
+  \begin{equation}
+    \int_{\partial \cH^n}\omega = \sum_{j=1}^n \int_{A\cap\cH^n} \omega_j(x^1, \ldots, x^{n-1}, 0) dx^1 \wedge \cdots\wedge \widehat{dx}^j \wedge \cdots\wedge dx^n.
+  \end{equation}
+  Since $x^n$ vanishes on $\partial\cH^n$, the pullback of $dx^n$ to the boundary is zero, and thus the only surviving term in the sum is the last one, that is,
+  \begin{equation}\label{eq:rhsHn}
+    \int_{\partial \cH^n}\omega = \int_{A\cap\cH^n} \omega_n(x^1, \ldots, x^{n-1}, 0) dx^1 \wedge\cdots\wedge dx^{n-1}.
+  \end{equation}
+  Since coordinates $(x^1, \ldots, x^{n-1})$ are positively oriented for $\cH^n$ when $n$ is even and negatively oriented when $n$ is odd, we obtain the equality of \eqref{eq:lhsHn} and \eqref{eq:rhsHn}.
+
+  \newthought{Part II: euclidean case}.
+  If $M=\R^n$ the considerations above apply without the need to make an exception for the case $i=n$, so all the terms vanish on the left-hand side of~\eqref{eq:Stokes} while the right-hand side is trivially zero due to the empty boundary.
+
+  \newthought{Part III: ``arbitrary'' $M$ but $\supp\omega$ is contained in a single chart}.
+  Let $(U,\varphi)$ denote a chart such that $\supp \omega \subset U$.
+  Without loss of generality assume that $\varphi$ is a positively oriented boundary chart, then
+  \begin{align}
+    \int_M d\omega
+    &= \int_{\cH^n}(\phi^{-1})^* dw \\
+    &= \int_{\cH^n} d\left((\phi^{-1})^* \omega\right) \\
+    &\overset{(!)}{=} \int_{\partial \cH^n}(\phi^{-1})^* w \\
+    &= \int_{\partial M} w , 
+  \end{align}
+  where in the $(!)$ step we applied the computations above and where $\partial \cH^n$ has the orientation induced by $\cH^n$.
+  For a negatively oriented smooth boundary chart, the computation applies with an extra negative sign on each side of the equation.
+  For an interior chart, we get the same computations with $\R^n$ in place of $\cH^n$.
+
+  \newthought{Part IV: ``arbitrary'' $M$ and $\omega$}.
+  Let finally $\omega\in\Omega^{n-1}(M)$ with compact support.
+  Without loss of generality, let $\{(U_i, \varphi_i)\mid i\in I\}$ be a finite cover of $\supp \omega$ by positively oriented charts and $\{\rho_i\}$ a subordinate partition of unity with $\sum \rho_i(p) = 1$ for all $p\in\supp \omega$.
+  For convenience, set $\omega_i := \rho_i\omega$.
+  Then, by applying the previous arguments for each $i$ we get
+  \begin{align}
+    \int_{\partial M} \omega
+    &= \sum_i \int_{\partial M} \omega_i 
+     = \sum_i \int_M d(\rho_i \omega) \\
+    &= \sum_i \int_M (d\rho_i \wedge\omega + \rho_i\, d\omega) \\
+    &= \int_M d\left(\sum_i \rho_i\right)\wedge\omega + \int_M \left(\sum_i \rho_i\right) d\omega \\ 
+    &= 0 + \int_M d\omega,
+  \end{align}
+  concluding the proof.
+\end{proof}
+
+\begin{example}
+  Consider the annulus $M=\{(x,y)\in\R^2 \mid 1/2\leq x^2+y^2 \leq 1\}$ and the $1$-form $\omega = \frac{-y dx + x dy}{x^2 + y^2} = d\theta$ where $(x,y) = (\rho\cos\theta, \rho\sin\theta)$.
+  
+  Then $d\omega = 0$ and therefore $\int_M d\omega = 0$.
+  Furthermore,
+  \begin{align}
+    \int_{\partial M}\omega
+    &= \int_{x^2 + y^2 =1} \omega + \int_{x^2+y^2 =1/2}\omega \\ 
+    &= \int_{0}^{2\pi} d\theta - \int_0^{2\pi}d \theta \\
+    &= 2\pi - 2\pi = 0.
+  \end{align}
+
+  An important consequence of this is that while locally $\omega$ is the differential of the angle function $\theta$, this cannot be exact on all $M$: indeed, if $\omega = d\nu$, we would have
+  \begin{equation}
+    2\pi = \int_{\bS^1}\omega = \int_{\bS^1}d\nu = \int_{\partial\bS^1}\nu = 0.
+  \end{equation}
+
+  Moreover, since $2\pi = \int_{\bS^1}\omega$, Stokes' theorem also implies that $\bS^1$ is not the boundary of a compact regular domain in $\R^2\setminus\{0\}$.
+\end{example}
+
+In fact this example is a particular case of the following corollary of Stokes' theorem.
+
+\begin{corollary}
+  Suppose $M$ is a smooth manifolds with or without boundary,$S\subseteq M$ is an oriented compact smooth $k$-submanifold (without boundary) and $\omega$ is a closed $k$-form on $M$.
+  If $\int_S\omega \neq 0$ then the following are true:
+  \begin{enumerate}
+    \item $\omega$ is not exact on $M$;
+    \item $S$ is not the boundary of an oriented compact smooth submanifold with boundary in $M$.
+  \end{enumerate}
+\end{corollary}
+\begin{exercise}
+  Prove this corollary. \\
+  \textit{\small Hint: look at the previous corollaries.}
+\end{exercise}
+
+\begin{exercise}
+  Let $F:M\to N$ be a diffeomorphism between smooth manifolds and let $\omega\in\Omega^n(N)$ be compactly supported.
+  Then,
+  \begin{equation}
+    \int_M F^*\omega = \int_N \omega.
+  \end{equation}
+\end{exercise}
+
+\begin{corollary}
+  Let $F:M\to M$ be a diffeomorphism and $\omega\in\Omega^n(M)$ an invariant volume form, that is, $F^*\omega =\omega$.
+  Then, for all compactly supported smooth functions $f\in C^\infty_0(M)$, the following holds
+  \begin{equation}
+    \int_M f\omega = \int_M (f\circ F)\omega.
+  \end{equation}
+\end{corollary}
+\begin{proof}
+  Follows form the previous exercise by observing
+  \begin{equation}
+    F^*(f\omega) = (f\circ F) F^*\omega = (f\circ F)\omega.
+  \end{equation}
+\end{proof}
+
+This corollary has deep consequences in classical mechanics, which I am going to teach in the master and you are welcome to attend!
