@@ -483,8 +483,66 @@ For $\omega\in\Omega^k(M)$, we call $i^*\omega \in \Omega^k(N)$ the restriction 
 The previous exercise, then, implies that restriction and exterior derivative commute, that is, $i^*d\omega = d(i^*\omega)$.
 
 \begin{example}[Exterior derivatives and vector calculus in $\R^3$]
-  \todo{TODO: Add this, maybe mention Hodge star}
+  Let $M=\R^3$. Any smooth $1$-form $\omega\in\Omega^1(\R^3)$ can be written as
+  \begin{equation}
+    \omega = P dx + Q dy + R dz
+  \end{equation}
+  for some smooth functions $P,Q,R\in C^\infty(\R^3)$.
+  Using the properties of wedge product, we can compute its exterior derivative and get the two form
+  \begin{align}
+    d\omega &= \left(\frac{\partial P}{\partial x} dx + \frac{\partial P}{\partial y} dy + \frac{\partial P}{\partial z} dz \right) \wedge dx \\
+      &\quad+\left(\frac{\partial Q}{\partial x} dx + \frac{\partial Q}{\partial y} dy + \frac{\partial Q}{\partial z} dz \right) \wedge dy \\
+      &\quad+\left(\frac{\partial R}{\partial x} dx + \frac{\partial R}{\partial y} dy + \frac{\partial R}{\partial z} dz \right) \wedge dz \\
+    &= \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx \wedge dy + 
+    \left(\frac{\partial R}{\partial x} - \frac{\partial P}{\partial z}\right) dx \wedge dz + \left(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}\right) dy \wedge dz.
+  \end{align}
+  Similarly, an arbitrary $2$-form $\eta\in\Omega^2(\R^3)$ can be written as
+  \begin{equation}
+    \eta = u dx\wedge dy + v dx\wedge dz + w dy\wedge dz,
+  \end{equation}
+  and one can check (do it!)
+  \begin{equation}
+    d\eta = \left(\frac{\partial u}{\partial z}-\frac{\partial v}{\partial y} + \frac{\partial w}{\partial x}\right) dx\wedge dy \wedge dz.
+  \end{equation}
+  If you compare the results we obtained above with the gradient ($\nabla$), divergence ($\nabla\cdot$) and curl ($\nabla\times$) from multivariable analysis, you would likely notice that the components of the $2$-form $\d\omega$ are exactly the componentes of the curl of the vector field with components $(P, Q, R)$.
+  Similarly, the formula for the divergence will look very close to the formula for $d\eta$. 
+  What is going on?
+  
+  The standard euclidean metric on $\R^n$ is the metric associated to the metric tensor\footnote{Cf. Definition~\ref{def:metric}.} $g_{ij} = \delta_{ij}$.
+  We can use the musical isomorphisms\footnote{Cf. Example~\ref{ex:musicaliso}.} to identify vector fields and $1$-forms, obtaining for the components with respect to cartesian coordinates that $v_i = v^i$.
+  
+  Moreover, the interior multiplication yields another map $\beta: \fX(\R^3)\to\Omega^2(\R^3)$ defined by $\beta(X) = \iota_X (dx\wedge dy\wedge dz)$, which is linear over $C^\infty(\R^3)$ (why?) and, thus, corresponds to a smooth bundle homomorphism from $T\R^3$ to $\Lambda^2(\R^3)$ (why?).
+
+  In a similar fashion, we can also define a smooth bundle isomorphism $\star: C^\infty(\R^3) \to \Omega^3(\R^3)$ via
+  \begin{equation}
+    \star(f) = f dx\wedge dy\wedge dz.
+  \end{equation}
+
+  If $f\in C^\infty(\R^3)$ and $v\in\cT_0^1(\R^3)$, we can use the exterior derivatives to observe that the following diagram commutes
+  \begin{equation}\label{diag:comm:r3ops}
+    \begin{tikzcd}
+      C^\infty(\R^3) \arrow[d, "\id"] \arrow[r, "\nabla"] &
+      \fX(\R^3) \arrow[d, "{}^\flat"] \arrow[r, "\nabla\times"] &
+      \fX(\R^3) \arrow[d, "\beta"] \arrow[r, "\nabla\cdot"] &
+      C^\infty(\R^3) \arrow[d, "\star"] \\
+      \Omega^0(\R^3) \arrow[r, "d"] &
+      \Omega^1(\R^3) \arrow[r, "d"] &
+      \Omega^2(\R^3) \arrow[r, "d"] &
+      \Omega^3(\R^3)
+    \end{tikzcd}.
+  \end{equation}
+
+  The interest and need to generalize the operations of vector calculus in $\R^3$ to higher dimensional spaces have been one of the drives to develop the theory of differential forms.
+  In particular, the curl is well-defined as an operator on vector fields only in dimension $3$, while with the exterior derivative we can now generalize its meaning in all dimensions.
 \end{example}
+
+\begin{exercise}
+  Show that the diagram~\eqref{diag:comm:r3ops} commutes and use it to give a quick proof that $\nabla\times\circ \nabla \equiv 0$ and that $\nabla\cdot \circ \nabla\times \equiv 0$.
+  For example,
+  \begin{equation}
+    df = \frac{\partial f}{\partial x^i} = (\nabla f)_i dx^i = (\nabla f)^\flat.
+  \end{equation}
+\end{exercise}
 
 \begin{exercise}\label{exe:symplectic}
 The form $\omega := \sum_{i=1}^n \alpha^i\wedge \alpha^{i+n}\in\omega^2(\R^{2n})$ is called \emph{symplectic form} and plays a central role in classical mechanics. There one usually calls the first $n$ coordinates the \emph{momentum coordinates} the remaining $n$ coordinates the \emph{position coordinates}.

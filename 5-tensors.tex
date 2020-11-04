@@ -17,6 +17,8 @@ It should not come as a surprise that multilinear functions of tangent vectors a
 In this chapter we are going to discuss the general definitions and notions that interest us, some of which may be just refreshing what you have seen in multivariable analysis, in the context of general vector spaces $V$.
 Keep in mind, that at a certain point, we will be interested to replace such spaces with the tangent spaces $T_pM$ of a smooth manifold $M$.
 
+\section{Tensors}
+
 \begin{definition}
   Let $V$ be a $n$-dimensional vector space and $V^*$ its dual.
   Let
@@ -135,7 +137,7 @@ Formalize in details the last step of the proof: uniqueness follows from the lin
 
 Let's go back for a moment to the example of inner products.
 
-\begin{definition}
+\begin{definition}\label{def:metric}
   We call \emph{pseudo-metric tensor}, any tensor $g\in T_2^0(V)$ that is
   \begin{enumerate}
     \item symmetric, i.e. $g(v,w) = g(v,w)$ for all $v,w\in T_0^1(V)$;
@@ -151,9 +153,9 @@ Let's go back for a moment to the example of inner products.
   An example of non-degenerate tensor which is not a metric is the so-called \emph{symplectic form}: a skew-symmetric non-degenerate $(0,2)$-tensor which is central in classical mechanics and the study of Hamiltonian systems.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:musicaliso}
   Let $V$ be a $n$-dimensional real vector space with an inner product $g(\cdot, \cdot)$.
-
+  %
   Denote $\{e_1, \ldots, e_n\}$ the basis for $V$ and $\{e^1, \ldots, e^n\}$ the basis for its dual $V^*$.
   As a bilinear map on $V\times V$, the inner product is uniquely associated to a matrix $[g_{ij}]$ by $g_{ij} = (g e_i, e_j)$.
 
