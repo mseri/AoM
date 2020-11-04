@@ -37,7 +37,7 @@ jobs:
     
     - name: Define env
       run: |
-        echo "GITHUB_TAG=$(git describe --always)" >> $GITHUB_ENV
+        echo "GITHUB_TAG=$(git describe --always --tags)" >> $GITHUB_ENV
         echo "BUILD_DATE=$(date +'%Y_%m_%d')" >> $GITHUB_ENV
 
     - name: Cached Infra
@@ -77,5 +77,5 @@ jobs:
       with:
         upload_url: ${{ needs.create_draft_release.outputs.upload_url }}
         asset_path: aom.pdf
-        asset_name: aom-${{ env.GITHUB_TAG }}-${{ env.BUILD_DATE }}.pdf
+        asset_name: aom-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
         asset_content_type: application/pdf
