@@ -203,7 +203,7 @@ We can use this to introduce a notion of induced orientation on $\partial M$.
   If $\omega$ is a volume form on $M$ and $X$ a smooth outward-pointing vector field on $\partial M$, then $\iota_X\omega$ is a smooth nowhere-vanishing $(n-1)$-form on $\partial M$ and, thus, $M$ is orientable.
 \end{proposition}
 \begin{proof}
-  Since both $omega$ and $X$ are smooth, the contraction $\iota_X\omega$ is also smooth.
+  Since both $\omega$ and $X$ are smooth, the contraction $\iota_X\omega$ is also smooth.
   We need to check that it cannot vanish.
 
   Assume that $\iota_X\omega$ does vanish at some point $p\in\partial M$, that is, $(\iota_X)(v_1, \ldots, v_{n-1}) = 0$ for all $v_1, \ldots, v_{n-1}\in T_p(\partial M)$.
@@ -236,7 +236,7 @@ Let $\omega = dx^1\wedge\cdots\wedge dx^n$ be a positive volume form on $M$ on o
 \end{align}
 Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$, the one on $\partial \cH^2$ is the standard orientation on $\R$ given by $dx^1$ and the one on $\partial \cH^3$ is $-dx^1\wedge dx^2$, which is the clockwise orientation in the $(x^1, x^2)$-plane, etc.
 
-\begin{example}
+\begin{example}\label{ex:int:bdryo}
   The closed interval $[a,b]\subset\R$ with standard euclidean coordinate $x$ has a standard orientation given by the vector field $\frac{\partial}{\partial x}$. 
   Therefore, the boundary orientation at $b$ is $\iota_{\frac{\partial}{\partial x}}(dx) = +1$ and the one at $a$ is $\iota_{-\frac{\partial}{\partial x}}(dx) = -1$.
 \end{example}
@@ -266,6 +266,13 @@ Let's keep things simple and go one step at a time.
   \begin{equation}
     \varphi_*\omega = \omega(p) e^1\wedge \cdots\wedge e^n\in\Omega^n(\cH^n).
   \end{equation}
+
+  If $M$ is an oriented $0$-dimensional manifold and $f$ is a $0$-form (that is, a smooth function) than we defined the integral to be the sum
+  \begin{equation}
+    \int_M f = \sum_{p\in M} \pm f(p),
+  \end{equation}
+  where we take the positive sign at points where the orientation is positive and the negative sign at points where it is negative.
+  The compactness assumption here implies that there are only finitely many nonzero terms in the sum.
 \end{definition}
 
 To make sure that this definition makes sense, let's show that the integral is well-defined, that is, up to orientation it does not depend on the chosen chart.
@@ -300,7 +307,7 @@ To be able to integrate charts which are not supported in the domain of a single
 
 The definition above makes sense only if the value of the integral is independent of the chosen partition, but with the help of the previous lemma this is easily checked.
 
-\begin{lemma}
+\begin{lemma}\label{lemma:intinman}
   The value of $\int_M\omega$ is independent from the choice of the atlas and the choice of partition of unity.
 \end{lemma}
 \begin{proof}
@@ -318,26 +325,59 @@ The definition above makes sense only if the value of the integral is independen
   where in $(!)$ we used Lemma~\ref{lemma:intindep:chart}.
 \end{proof}
 
-\begin{example}
-  Let $M=[a,b]\subset \R$
-\end{example}
-
+This result can be nicely formalized as follows.
 \begin{theorem}[Global change of variable]
-  
+  Suppose $M$ and $N$ are oriented $n$-manifolds and $F:M\to N$ is an orientation preserving diffeomorphism.
+  If $\omega\in\Omega^n(N)$ has compact support, then $F^*\omega$ has compact support and the following holds
+  \begin{equation}
+    \int_N \omega = \int_M F^* \omega.
+  \end{equation}
 \end{theorem}
 \begin{proof}
-  
+  First of all, observe that $\supp(F^*\omega) = F^{-1}(\supp(\omega))$ which is compact since manifolds are Hausdorff spaces and $F$ is continuous.
+
+  Let now $\{(U_i,\varphi_i)\}$ be an atlas of a positively oriented chart on $M$ and $\{\rho_i\}$ a subordinate partition of unity.
+  Then, $\{(F(U_i),\varphi_i\circ F^{-1})\}$ is an atlas of positively oriented charts for $N$ and $\{\rho_i \circ F^{-1}\}$ is a partition of unity subordinate to the covering $\{(F(U_i)\}$.
+  By Lemma~\ref{lemma:intinman} we have,
+  \begin{align}
+    \int_M F^*\omega &= \sum_i \int_M \rho_i F^*\omega \\
+    &= \sum_i \int_{\R^n}(\varphi_i)_*(\rho_i F^*\omega)\\
+    &= \sum_i \int_{\R^n}(\varphi_i)_*(F^{-1})_*(\rho_i \circ F^{-1}) \omega \\
+    &= \sum_i \int_{\R^n}(\varphi_i \circ F^{-1})_*(\rho_i \circ F^{-1}) \omega \\
+    &= \int_N\omega,
+  \end{align}
+  which shows the commutativity of the following diagram
+  \begin{equation}
+    \begin{tikzcd}
+      \Omega^n(M) \arrow[rr, "F^*", yshift=0.5ex] \arrow[dr, "\int_M"] & & \Omega^n(N)\arrow[ll, "F_*", yshift=0.5ex] \arrow[dl, "\int_N"] \\
+      & \R &
+    \end{tikzcd}
+  \end{equation}
+  and concludes the proof.
 \end{proof}
 
 This justifies the following definition.
 
 \begin{definition}[Integral on submanifolds]
-  
+  Let $M$ a smooth $m$-manifold, $N$ an oriented smooth $n$-manifold and $J:N\to M$ a smooth map\footnote{If $N\subset M$ is a submanifold, then $J:N\hookrightarrow M$ is just the inclusion map.}.
+  If $\omega\in\Omega^m(M)$ has compact support, we define
+  \begin{equation}
+    \int_N \omega := \int_N J^*\omega.
+  \end{equation}
+  In particular, if $M$ is compact, oriented, smooth $m$-manifold, $\omega$ is a $(m-1)$-form on $M$ and $i:\partial M\hookrightarrow M$ is the inclusion of the boundary in $M$, we can interpret unambiguously
+  \begin{equation}
+    \int_{\partial M} \omega := \int_{\partial M} i^* \omega,
+  \end{equation}
+  where $partial M$ is understood to have the induced orientation.
 \end{definition}
 
-\begin{remark}[Volumes, Measures and Riesz Representation]
-  
-\end{remark}
+\begin{example}
+  Let $M=[a,b]\subset \R$ equipped with the canonical global atlas $\{(M, \id_\R|_M)\}$ and $f\in C^\infty_0(M)$, i.e., smooth with compact support\footnote{Which does not mean $f(a) = f(b)=0$ since $[a,b]$ is itself compact.}.
+  Then, $df\in\Omega^1(M)$ and $\supp df \subset \supp f$ is compact as well and we have
+  \begin{equation}
+    \int_M df = \int_a^b \frac{\partial f}{\partial x} dx = f(b)- f(a) = \int_{\partial M} f.
+  \end{equation}
+\end{example}
 
 \begin{exercise}[Fubini's theorem]
   
