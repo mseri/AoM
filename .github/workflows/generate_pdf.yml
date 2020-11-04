@@ -1,7 +1,27 @@
 on: [push]
 
 jobs:
+  create_draft_release:
+    runs-on: ubuntu-latest
+
+    outputs:
+      upload_url: ${{ steps.create_draft_release.outputs.upload_url }}
+
+    steps:
+      - name: Create draft release on tags
+        id: create_draft_release
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        uses: actions/create-release@v1.1.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          draft: true
+          prerelease: false
+
   latex-job:
+    needs: create_draft_release
     runs-on: ubuntu-latest
     
     name: Compile And Upload PDF
@@ -9,6 +29,16 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    
+    - name: Set git user
+      run: |
+        git config --global user.name github-actions
+        git config --global user.email github-actions-bot@users.noreply.github.com
+    
+    - name: Define env
+      run: |
+        echo "GITHUB_TAG=$(git describe --always)" >> $GITHUB_ENV
+        echo "BUILD_DATE=$(date +'%Y_%m_%d')" >> $GITHUB_ENV
 
     - name: Cached Infra
       uses: actions/cache@v2
@@ -37,3 +67,15 @@ jobs:
         path: aom.pdf
         name: aom.pdf
         if-no-files-found: error
+    
+    - name: Upload release
+        if: ${{ success() && startsWith(github.ref, 'refs/tags/') }}
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.create_draft_release.outputs.upload_url }}
+          asset_path: aom.pdf
+          asset_name: aom-${{ env.GITHUB_TAG }}-${{ env.BUILD_DATE }}.pdf
+          asset_content_type: application/pdf
