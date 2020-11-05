@@ -56,7 +56,7 @@ I will be very brief: if you need a more extensive reminder, you can refer to Ap
 
 \begin{definition}
   Let $M$ be some set and $\cT$ a set of subsets of $M$.
-  A pair $(M, \cT)$ is a \emph{topological space}\footnote{In such case the elements $O\in\cT$ of $\cT$ are all subsets of $M$ called \emph{open} subsets and $\cT$ is a topology on $X$.} if
+  A pair $(M, \cT)$ is a \emph{topological space}\footnote{In such case the elements $O\in\cT$ of $\cT$ are all subsets of $M$ called \emph{open} subsets and $\cT$ is a topology on $M$.} if
   \begin{enumerate}[(i)]
     \item $M$ and $\emptyset$ are open, i.e., $M\in \cT$ and $\emptyset\in\cT$;
     \item arbitrary unions of families of open subsets are open;
@@ -99,7 +99,7 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
 
 \begin{exercise}[Euclidean space $\R^n$]\label{exe:rntopsp}
   Let's consider on $\R^n$ the metric topology\footnote{See comment above.} induced by the Euclidean metric $d: \R^n \times \R^n \to [0, +\infty)$, $d(x,y) := \sqrt{\sum_{i=1}^n (x^i-y^i)^2}$.
-  The topological space defined on $\R^n$ is Hausdorff and second countable.
+  Show that the topological space defined on $\R^n$ is Hausdorff and second countable.
 \end{exercise}
 
 \begin{definition}[Topological manifold]
@@ -108,7 +108,7 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
   \begin{enumerate}[(i)]
     \item $M$ is a Hausdorff space;
     \item $M$ is second countable;
-    \item $M$ is \emph{locally euclidean} of dimension $n$, that is\footnote{In words, any point $p\in M$ has a neighbourhood that is homeomorphic to an open subset of $\R^n$.}, for any point $x\in M$ there exist an open subset $U\subset M$ with $p\in U$, and open subset $V\in\R^n$ and a homeomorphism $\varphi: U\to V$.
+    \item $M$ is \emph{locally euclidean} of dimension $n$, that is\footnote{In words, any point $p\in M$ has a neighbourhood that is homeomorphic to an open subset of $\R^n$.}, for any point $p\in M$ there exist an open subset $U\subset M$ with $p\in U$, and open subset $V\in\R^n$ and a homeomorphism $\varphi: U\to V$.
   \end{enumerate}
 \end{definition}
 
@@ -361,7 +361,7 @@ dropping the distinction between $p$ and $x$, both in place of
     \quad\mbox{and}\quad
     \varphi_2 : \R/\Z \setminus\{[\frac12]\} \to (-\frac12,\frac12)
   \end{equation}
-  which map $[x]\in\R/\Z$ to its representation in $(0,1)$ or $[-\frac12, \frac12)$ respectively.
+  which map $[x]\in\R/\Z$ to its representation in $[0,1)$ or $[-\frac12, \frac12)$ respectively.
   The manifold obtained in this way is diffeomorphic to the one defined in Example~\ref{ex:S1emb}.
 \end{example}
 
@@ -402,7 +402,8 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
   Then $M$ has a unique smooth manifold structure such that each $(U_\alpha,\varphi_\alpha)$ is a smooth chart.
 \end{lemma}
 \begin{exercise}
-  Prove Lemma~\ref{lem:manifold_chart}.\\textit{\small Hint: declare all the $\varphi_\alpha$ to be homeomorphisms and use the hypotheses to check the definition of a smooth manifold.}
+  Prove Lemma~\ref{lem:manifold_chart}.\\
+  \textit{\small Hint: declare all the $\varphi_\alpha$ to be homeomorphisms and use the hypotheses to check the definition of a smooth manifold.}
 \end{exercise}
 
 \begin{example}
@@ -456,7 +457,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
     x\sim y \quad\Longleftrightarrow\quad \exists t\neq 0 \mbox{ such that } y=tx,
   \end{equation}
   that is, two points are equivalent if they lie on the same line passing through the origin.
-  Then, the \emph{real projective space} is the quotient space $\R P^n := \R^{n+1}_0/\!\sim$.
+  Then, the \emph{real projective space} is the quotient space $\RP^n := \R^{n+1}_0/\!\sim$.
   For the sake of the example, let's denote the class of equivalence of a point $x=(x^0,\ldots,x^n)\in\R^{n+1}_0$ by $[x]=[x^0,\ldots,x^n]$ and the projection to the quotient by $\pi:\R^{n+1}_0\to\RP^n$.
   The classes of equivalence $[x]$ are called \emph{homogeneous coordinates} on $\RP^n$.
   
@@ -475,7 +476,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
     \textit{\small Hint: find an inverse map and show that both $\hat n$ and its inverse are continuous.}
   \end{exercise}
 
-  \newthought{Step 1. Let's first show that $\R P^n$ is a topological $n$-manifold}.
+  \newthought{Step 1. Let's first show that $\RP^n$ is a topological $n$-manifold}.
   The structure of topological manifold follows immediately from the Theorem~\ref{thm:openproj} and $\pi$ being open, so let's prove that.
 
   Let $U\subset\R_0^{n+1}$, since $\pi$ is continuous by construction, $\pi(U)$ is open if $\pi^{-1}(\pi(U))$ is open in $\R^{n+1}_0$.
