@@ -6,6 +6,8 @@ In this sense, they will be the key elements to define integration over $k$-dime
 
 In addition to their role in integration, differential forms provide a framework for generalizing such diverse concepts from multivariable calculus as the cross product, curl, divergence, and Jacobian determinant. 
 
+\section{Differential forms}
+
 \begin{definition}
   Let $V$ be a real $n$-dimensional vector space.
   Let $S_k$ denote the \emph{symmetric group on $k$ elements}, that is, the group of permutations of the set $\{1,\ldots,k\}$.
@@ -513,9 +515,9 @@ The previous exercise, then, implies that restriction and exterior derivative co
   
   Moreover, the interior multiplication yields another map $\beta: \fX(\R^3)\to\Omega^2(\R^3)$ defined by $\beta(X) = \iota_X (dx\wedge dy\wedge dz)$, which is linear over $C^\infty(\R^3)$ (why?) and, thus, corresponds to a smooth bundle homomorphism from $T\R^3$ to $\Lambda^2(\R^3)$ (why?).
 
-  In a similar fashion, we can also define a smooth bundle isomorphism $\star: C^\infty(\R^3) \to \Omega^3(\R^3)$ via
+  In a similar fashion, we can also define a smooth bundle isomorphism $(\bigstar): C^\infty(\R^3) \to \Omega^3(\R^3)$ via
   \begin{equation}
-    \star(f) = f dx\wedge dy\wedge dz.
+    (\bigstar)(f) = f dx\wedge dy\wedge dz.
   \end{equation}
 
   If $f\in C^\infty(\R^3)$ and $v\in\cT_0^1(\R^3)$, we can use the exterior derivatives to observe that the following diagram commutes
@@ -524,7 +526,7 @@ The previous exercise, then, implies that restriction and exterior derivative co
       C^\infty(\R^3) \arrow[d, "\id"] \arrow[r, "\nabla"] &
       \fX(\R^3) \arrow[d, "{}^\flat"] \arrow[r, "\nabla\times"] &
       \fX(\R^3) \arrow[d, "\beta"] \arrow[r, "\nabla\cdot"] &
-      C^\infty(\R^3) \arrow[d, "\star"] \\
+      C^\infty(\R^3) \arrow[d, "(\bigstar)"] \\
       \Omega^0(\R^3) \arrow[r, "d"] &
       \Omega^1(\R^3) \arrow[r, "d"] &
       \Omega^2(\R^3) \arrow[r, "d"] &
@@ -671,7 +673,7 @@ Even though it is a bit impractical for computational purposes, flows are hard t
   %This stems from the fact that $X\to\cL_X$ is not $C^\infty(M)$-linear: you can see this by using~\eqref{eq:cLXwBrackets} and show that $\cL_{fX}(\omega)(Y) = f\cL_X(\omega)(Y) + Y(f)\omega(X)$, and in general there is no reason for the correction $Y(f)\omega(X)$ to vanish.
 \end{remark}
 
-\section{Poincar\'e lemma}
+\section{De Rham cohomology and Poincar\'e lemma}
 
 \begin{definition}
 We say that a smooth differential form $\omega\in\Omega^k(M)$ is \emph{closed} if $d\omega = 0$, and \emph{exact} if there exists a smooth $(k-1)$-form $\nu$ on $M$ such that $\omega = d\eta$.

@@ -286,11 +286,11 @@ To make sure that this definition makes sense, let's show that the integral is w
   Then,
   \begin{align}
     \int_{\varphi(U)} \varphi_*\omega &= \int \omega(p)\, d^n p \\
-    &\overset{(\star)}{=} \int (\widetilde\omega \circ \varphi)(p) \det(D\varphi|_p) d^n p \\
-    &\overset{(*)}{=} \int \widetilde\omega(q) d^n q\\
+    &\overset{((\bigstar))}{=} \int (\widetilde\omega \circ \varphi)(p) \det(D\varphi|_p) d^n p \\
+    &\overset{((\clubsuit))}{=} \int \widetilde\omega(q) d^n q\\
     &= \int_{\psi(U)} \psi_*\omega,
   \end{align}
-  where $\omega(p)$ and $\widetilde\omega(q)$ are the local expressions for $\omega$ in the two coordinate charts, in $(\star)$ we applied Proposition~\ref{prop:wedgeToJDet} and in $(*)$ we used the classical euclidean change of variables.
+  where $\omega(p)$ and $\widetilde\omega(q)$ are the local expressions for $\omega$ in the two coordinate charts, in $((\bigstar))$ we applied Proposition~\ref{prop:wedgeToJDet} and in $((\clubsuit))$ we used the classical euclidean change of variables.
 \end{proof}
 
 To be able to integrate charts which are not supported in the domain of a single chart, we now need the help of a partition of unity.
@@ -318,11 +318,11 @@ The definition above makes sense only if the value of the integral is independen
     \sum_j \int_{\varphi_j(U_j)} (\varphi_j)_*\left(\rho_j \omega\right)
     &= \sum_j \int_{\varphi_j(U_j)} (\varphi_j)_*\left(\rho_j \sum_k \widetilde\rho_k\omega\right) \\
     &= \sum_{j,k} \int_{\phi_j(U_j\cap V_k)} (\varphi_j)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
-    &\overset{(!)}{=} \sum_{j,k} \int_{\psi_k(U_j\cap V_k)} (\psi_k)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
+    &\overset{((\spadesuit))}{=} \sum_{j,k} \int_{\psi_k(U_j\cap V_k)} (\psi_k)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
     &= \sum_k \int_{\psi_k(U_j\cap V_k)} (\psi_k)_*\left(\rho_j \widetilde\rho_k \sum_j\rho_j \omega\right) \\
     &= \sum_k \int_{\psi_k(V_k)} (\psi_k)_*\left( \widetilde\rho_k \omega\right),
   \end{align}
-  where in $(!)$ we used Lemma~\ref{lemma:intindep:chart}.
+  where in $((\spadesuit))$ we used Lemma~\ref{lemma:intindep:chart}.
 \end{proof}
 
 This result can be nicely formalized as follows.
@@ -577,10 +577,10 @@ We are going to state the theorem, discuss some of its consequences and then giv
     \int_M d\omega
     &= \int_{\cH^n}(\phi^{-1})^* dw \\
     &= \int_{\cH^n} d\left((\phi^{-1})^* \omega\right) \\
-    &\overset{(!)}{=} \int_{\partial \cH^n}(\phi^{-1})^* w \\
+    &\overset{((\spadesuit))}{=} \int_{\partial \cH^n}(\phi^{-1})^* w \\
     &= \int_{\partial M} w , 
   \end{align}
-  where in the $(!)$ step we applied the computations above and where $\partial \cH^n$ has the orientation induced by $\cH^n$.
+  where in the $((\spadesuit))$ step we applied the computations above and where $\partial \cH^n$ has the orientation induced by $\cH^n$.
   For a negatively oriented smooth boundary chart, the computation applies with an extra negative sign on each side of the equation.
   For an interior chart, we get the same computations with $\R^n$ in place of $\cH^n$.
 
