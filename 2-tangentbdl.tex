@@ -1088,6 +1088,14 @@ The proposition above shows that an immersion is always a local embedding.
   Finally, with the inclusion $i:M\hookrightarrow N$ one has that $\psi \circ i\circ \sigma^{-1} (p^1,\ldots,p^n) = (p^1,\ldots,p^n,0,\ldots,0)$ which is smooth.
 \end{proof}
 
+A non-trivial consequence of the previous lemma is the following proposition\footnote{Refer to \cite[Proposition 5.8 and Proposition 5.31]{book:lee}.}.
+
+\marginnote{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
+\begin{proposition}\label{prop:uniqdiffeoinclusion}
+  Let $M$ be a manifold and $U\subset M$ an open set.
+  Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
+\end{proposition}
+
 Up to this point, the first manifold had the same dimension or was smaller than the second one.
 What if it is larger?
 
@@ -1149,6 +1157,15 @@ From this observation follows another interesting proposition, again consequence
   Then $M$ is \emph{not} a submanifold, but it can be equipped with a manifold structure.
   For example with the global atlas $\{(M,\; (x^1,x^2)\mapsto x^1)\}$, $M$ is a manifold diffeomorphic to $\R$.
 \end{example}
+
+\begin{exercise}
+  A real-valued function $f:M\to\R$ on a manifold has a local maximum at $p\in M$ if there is a neighbourhood $U\subset M$ of $p$ such that $f(p) \geq f(q)$ for all $q\in U$.
+  \begin{enumerate}
+    \item Show that if a differentiable function $f:(a,b)\to\R$, has a local maximum at $x\in (a,b)$, then $f'(x) = 0$.
+    \item Prove that a local maximum of a function $f\in C^\infty(M)$ is a critical point of $f$.\\
+    \textit{\small Hint: choose $X_p\in T_pM$ and let $\gamma(t)$ be a curve in $M$ starting at $p$ with initial velocity $X_p$. The $f\circ \gamma$ is a real-valued function with local maximum at $0$...}
+  \end{enumerate}
+\end{exercise}
 
 We still have a question pending since the beginning of the chapter.
 Is the tangent space to a sphere the one that we naively imagine (see Figure~\ref{fig:tan-embedded-sphere})?

@@ -129,22 +129,25 @@ Don't get scared by the first two conditions: they are only needed to make sure 
   More generally, any $n$-dimensional vector space\footnote{In fact, any open subset of a $n$-dimensional vector space.} is a topological $n$-manifold.
 \end{example}
 
-\begin{exercise}
-	Even though $\R^n$ with the euclidean topology is Hausdorff, being Hausdorff does not follow from being locally euclidean. A famous counterexample is the following\footnote{See also Problem 5.1 in~\cite{book:tu}.}.
+\begin{exercise}[The line with two origins]
+	Even though $\R^n$ with the euclidean topology is Hausdorff, being Hausdorff does not follow from being locally euclidean. A famous counterexample is the following\footnote{See also \cite[Problem 1-1]{book:lee} and \cite[Problem 5.1]{book:tu}.}.
   \begin{marginfigure}
     \includegraphics{1_ex_1_0_11.pdf}
     \label{fig:hausdorff-not-locally-euclidean}
     \caption{A locally euclidean space which is not Hausdorff.}
   \end{marginfigure}
-  Let $A_1, A_2$ be two point not on the real line $\R$ and define $M:= (\R\setminus\{0\})\cup\{A_1,A_2\}$.
-  Define the two charts
-  \begin{equation}
-  \varphi_j:(\R\setminus\{0\})\cup\{A_j\} \to \R, \quad
-  \varphi_j(x) = \begin{cases} x &\mbox{if } x\neq A_j\\ 0 & \mbox{if } x = A_j \end{cases}, \quad
-  j = 1,2.
-  \end{equation}
+  Let $P, Q$ be two point not on the real line $\R$ and define $M:= (\R\setminus\{0\})\cup\{O_1,O_2\}$.
+  Induce a topology on $M$ by taking as basis the collection of all open intervals in $\R$ that do not contain $0$, along with all the sets of the form $(-a, 0)\cup\{O_1\}\cup(0,a)$ and $(-a, 0)\cup\{O_2\}\cup(0,a)$, for $a>0$.
   \begin{enumerate}[(a)]
-    \item Show that $\varphi_1$ and $\varphi_2$ are homeomorphisms with respect to the topology induced by the two charts\footnote{Let $(X, \cT)$ be a topological space and $f: X\to Y$ some map. The induced topology on $Y$ is \begin{equation}\cU_f := \{f^{-1}(U) \;\mid\; U\in\cT\}.\end{equation}}.
+    \item Check that this forms a basis\footnote{That is, the basis elements cover $M$ and for any $B_1, B_2$ on the basis, for all $x \in I = B_1\cap B_2$, there is an element $B_3$ of the basis such that $x\in B_3$ and $B_3\subset I$.} for a topology on $M$.
+    \item Define the two charts
+    \begin{equation}
+    \varphi_j:(\R\setminus\{0\})\cup\{O_j\} \to \R, \quad
+    \varphi_j(x) = \begin{cases} x &\mbox{if } x\neq O_j\\ 0 & \mbox{if } x = O_j \end{cases}, \quad
+    j = 1,2.
+    \end{equation}
+    Show that $\varphi_1$ and $\varphi_2$ are homeomorphisms with respect to the aforementioned topology. 
+    %induced by the two charts\footnote{Let $(X, \cT)$ be a topological space and $f: X\to Y$ some map. The induced topology on $Y$ is \begin{equation}\cU_f := \{f^{-1}(U) \;\mid\; U\in\cT\}.\end{equation}}.
     \item Show that $M$ is locally euclidean and second countable but not Hausdorff.
   \end{enumerate}
 \end{exercise}
@@ -338,6 +341,11 @@ dropping the distinction between $p$ and $x$, both in place of
 \end{example}
 
 \begin{exercise}
+  Let $\{(U_\alpha, \varphi_\alpha)\}$ be the maximal atlas on a manifold $M$.
+  For any open set $U\subseteq M$ and any point $p\in U$, prove the existence of a coordinate open set $U_\alpha$ such that $p\in U_\alpha\subset U$.
+\end{exercise}
+
+\begin{exercise}
   Let $f: \R^n \to \R^m$ be a smooth map.
   Show that its graph
   \begin{equation}
@@ -348,7 +356,7 @@ dropping the distinction between $p$ and $x$, both in place of
 
 \begin{example}
   The definition of smooth manifold does not require $M$ to be embedded into some ambient space as in the examples above.
-  In fact, we can define the differentiable manifold $\bS^1$ by equipping the topological quotient space\footnote{
+  In fact, we can define the differentiable manifold $\bS^1$ by equipping the topological quotient space\sidenote[][-11em]{
     There is a standard way to induce a topology on a quotient space.
     Let $M$ be a topological space and $\pi:M\to N$ surjective.
     The \emph{quotient topology} on $N$ is given by defining $U\subset N$ to be open if and only if its preimage $\pi^{-1}(U)\subset M$ is open.
@@ -380,6 +388,23 @@ This allows to always view manifolds as metric spaces.
   Therefore, the smooth structure defined on $\R$ by $\psi$ is different from the standard one.
   You can adapt this idea to construct many different smooth structures on topological manifolds provided that they at least have one smooth structure.
 \end{example}
+
+\begin{exercise}
+  For $r>0$, let $\phi_r:\R\to\R$ be the map given by
+  \begin{equation}
+    \phi_r(t) := \begin{cases}
+      t, & \mbox{if } t<0,\\
+      rt, & \mbox{if } t\geq0.
+    \end{cases}
+  \end{equation}
+  Let $\cA_r$ denote the maximal atlas on $\R$ containing the chart $(\R, \phi_r)$.
+  \begin{enumerate}
+    \item Show that the differentiable structures on $\R$ defined by $\cA_r$ and $\cA_s$, $0<r<s$, are different.
+    This shows that there are uncountably many families of different differential structures on $\R$.
+    \item Let $M_r$ be the manifold $\R$ equipped with the atlas $\cA_r$.
+    Show that $M_r$ and $M_s$ are diffeomorphic for $r,s >0$.
+  \end{enumerate}
+\end{exercise}
 
 \begin{remark}
 	There exist examples of topological manifolds without smooth structures.
@@ -424,6 +449,16 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
 
 If $M$ is a topological space and $\sim$ an equivalence relation we have seen that it is sometimes possible to define smooth manifolds.
 Since in general the quotient does not behave nicely it is convenient to get a few tricks to check if the manifold structure can be preserved.
+
+In this case it is convenient to have some tools to check continuity of functions.
+
+\marginnote{For a proof refer to \cite[Proposition 7.1]{book:tu} or \cite[Theorem 3.70]{book:lee:topology}.}
+\begin{proposition}
+  Assume $F:X\to Y$ is a map between topological spaces and $\sim$ is an equivalence relation on $X$.
+  Let $F$ be constant on each equivalence class $[p]\in X/\!\sim$, and denote $\widetilde F:X/\!\sim\to Y$, $\widetilde F([p]) := F(p)$ for $p\in X$, the map induced by $F$ on the quotient.
+
+  Then, $\widetilde F$ is continuous if and only if $F$ is continuous.
+\end{proposition}
 
 Continuity of the projection implies that if $M/\!\sim$ is Hausdorff, then $\pi^{-1}(\pi(s)) = [s]$ is closed in $M$.
 If, additionally, $\pi$ is open\footnote{That is, it maps open sets to open sets.} then there is a stronger statement:
@@ -471,7 +506,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   This leads to the bijection $\RP^n \simeq \bS^n/\!\sim$.
   Note that by gluing antipodal points, we are identifying the north and south hemispheres, thus essentially flattening the sphere to a disk.
 
-  \begin{exercise}
+  \begin{exercise}\label{exe:RPSN}
     Show that the map $n: \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$ induces a homeomorphism $\hat n:\RP^n \to \bS^n/\!\sim$.\\
     \textit{\small Hint: find an inverse map and show that both $\hat n$ and its inverse are continuous.}
   \end{exercise}
@@ -512,6 +547,11 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   which is a diffeomorphism from $\varphi_i(U_i\cap U_j)$ to $\varphi_j(U_i\cap U_j)$ since $x^j\neq 0$ on $U_j$.
   The atlas defined by the collection $\{(U_i, \varphi_i)\}$ is called \emph{standard atlas} and makes $\RP^n$ a smooth manifold. 
 \end{example}
+
+\begin{exercise}
+  Show that the real projective space $\RP^n$ is compact.\\
+  \textit{\small Hint: use Exercise~\ref{exe:RPSN}.}
+\end{exercise}
 
 \begin{exercise}\label{ex:stereo}
   Let $N$ denote the north pole $(0,\ldots,0,1)\in\bS^n\subset\R^{n+1}$ and let $S$ denote the south pole $(0,\ldots,0,-1)$.
@@ -570,7 +610,23 @@ This, colloquially speaking, means that a function is differentiable if it is di
   Then, the space $C^\infty(M)$ endowed with the operations above is an \emph{algebra}\footnote{I.e. a vector space where you can also multiply two elements.} over $\R$.
 \end{exercise}
 
-Which immediately gives away the general definition.
+The following theorem can be very convenient when you work with smooth functions.
+
+\begin{proposition}
+  Let $M$ be a smooth $n$-manifold and $f:M\to\R$ a real-valued function on $M$. Then, the following are equivalent:
+  \begin{enumerate}[(i)]
+    \item $f\in C^\infty(M)$;
+    \item $M$ has an atlas $\cA$ such that for every chart $(U, \varphi)\in\cA$, $f\circ \varphi^{-1} : \R^n\supset\varphi(U)\to \R$ is $C^\infty$;
+    \item for every chart $(V,\psi)$ on $M$, the function $f\circ\psi^{-1} : \R^n\supset\psi(U)\to \R$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{exercise}
+  Prove the proposition.\\
+  \textit{\small Hint: go cyclic, for example show $(ii)\Rightarrow(i)$, $(i)\Rightarrow(iii)$, $(iii)\Rightarrow(ii)$.}
+\end{exercise}
+
+At this point, the generalization of smooth functions to smooth maps between manifolds should not come as a surprise.
 
 \begin{definition}
   Let $F:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two smooth manifolds of dimension $n_1$ and $n_2$ respectively.
@@ -625,14 +681,17 @@ Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manif
     Let $M, N, P$ be three smooth manifolds, and suppose that $F:M\to N$ and $G:N\to P$ are smooth.
     Then $G\circ F\in C^\infty(M, P)$.
   \end{proposition}
-  \marginnote{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
-  \begin{proposition}\label{prop:uniqdiffeoinclusion}
-    Let $M$ be a manifold and $U\subset M$ an open set.
-    Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
-  \end{proposition}
+  
   \begin{proposition}[Smoothness is a local property]\label{prop:smoothlocal}
     Let $F:M\to N$ be a continuous function and let $\{U_i\}_{i\in I}$ be an open cover for $M$. Then $F|_{U_i}:U_i \to N$ is smooth for every $i\in I$ iff $F:M\to N$ is smooth.
   \end{proposition}
+\end{exercise}
+
+\begin{exercise}
+  Prove that $\R^2\setminus\{(0,0)\}$ is a two-dimensional manifold and construct a diffeomorphism from this manifold to the circular cylinder
+  \begin{equation}
+    C := \{ (x,y,z)\in\R^3 \mid x^2+y^2 = 1\}\subset\R^3.
+  \end{equation}
 \end{exercise}
 
 The following corollary is just a restatement of Proposition~\ref{prop:smoothlocal}, but provides a useful perspective on the construction of smooth maps.
