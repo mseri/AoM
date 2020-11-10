@@ -17,7 +17,7 @@ If you think carefully, this abstraction step was already in the air. Think abou
   exists, and is \emph{continuously differentiable} if $x\mapsto f'(x)$ is itself a continuous function.
   
   \item (Multivariable analysis) You generalized the concepts to functions with more than one variable.
-  Continuity is practically unchanged but, now, a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is differentiable at $x=(x^1,\ldots,x^m)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix with respect to some chosen basis.} $T: \R^n\to\R^m$ such that
+  Continuity is practically unchanged but, now, a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is differentiable at $x=(x^1,\ldots,x^n)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix with respect to some chosen basis.} $T: \R^n\to\R^m$ such that
   \begin{equation}\label{eq:diff}
     \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
   \end{equation}
@@ -136,14 +136,14 @@ Don't get scared by the first two conditions: they are only needed to make sure 
     \label{fig:hausdorff-not-locally-euclidean}
     \caption{A locally euclidean space which is not Hausdorff.}
   \end{marginfigure}
-  Let $P, Q$ be two point not on the real line $\R$ and define $M:= (\R\setminus\{0\})\cup\{O_1,O_2\}$.
-  Induce a topology on $M$ by taking as basis the collection of all open intervals in $\R$ that do not contain $0$, along with all the sets of the form $(-a, 0)\cup\{O_1\}\cup(0,a)$ and $(-a, 0)\cup\{O_2\}\cup(0,a)$, for $a>0$.
+  Let $A_1, A_2$ be two point not on the real line $\R$ and define $M:= (\R\setminus\{0\})\cup\{A_1,A_2\}$.
+  Induce a topology on $M$ by taking as basis the collection of all open intervals in $\R$ that do not contain $0$, along with all the sets of the form $(-a, 0)\cup\{A_1\}\cup(0,a)$ and $(-a, 0)\cup\{A_2\}\cup(0,a)$, for $a>0$.
   \begin{enumerate}[(a)]
     \item Check that this forms a basis\footnote{That is, the basis elements cover $M$ and for any $B_1, B_2$ on the basis, for all $x \in I = B_1\cap B_2$, there is an element $B_3$ of the basis such that $x\in B_3$ and $B_3\subset I$.} for a topology on $M$.
     \item Define the two charts
     \begin{equation}
-    \varphi_j:(\R\setminus\{0\})\cup\{O_j\} \to \R, \quad
-    \varphi_j(x) = \begin{cases} x &\mbox{if } x\neq O_j\\ 0 & \mbox{if } x = O_j \end{cases}, \quad
+    \varphi_j:(\R\setminus\{0\})\cup\{A_j\} \to \R, \quad
+    \varphi_j(x) = \begin{cases} x &\mbox{if } x\neq A_j\\ 0 & \mbox{if } x = A_j \end{cases}, \quad
     j = 1,2.
     \end{equation}
     Show that $\varphi_1$ and $\varphi_2$ are homeomorphisms with respect to the aforementioned topology. 
@@ -166,9 +166,9 @@ Don't get scared by the first two conditions: they are only needed to make sure 
 	Since the number of connected component is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} homeomorphically mapped to open connected sets in $\R$.
 \end{example}
 
-\marginnote[2em]{There is a caveat, the theorem holds for \emph{connected} components of a manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}
 \newthought{There is still an elephant in the room} in need of a comment.
 In our definition of topological manifolds, we are giving for granted that the dimension of the manifold is well defined, that is, if we have two different charts, $\varphi_1: U \to \R^n$ and $\varphi_2: U \to \R^m$, then necessarily $m=n$. Luckily this is true! The result is called \emph{Invariance Domain Theorem} and, since its proof requires advanced concepts of algebraic topology, we will not pursue it further in the course.
+\marginnote[-2em]{There is a caveat, the theorem holds for \emph{connected} components of a manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}
 
 \section{Differentiable manifolds}
 
@@ -176,7 +176,7 @@ Before entering into the details of new definitions, let's recall what will be t
 
 \begin{definition}
   A map $f: U \to V$ between open sets $U\subset\R^n$ and $V\subset\R^m$ is in $C^r(U,V)$ or \emph{of class $C^r$}, if it is continuously differentiable $r$-times.
-  It is called a $C^r$-diffeomorphism\footnote{With this definition a homeomorphism is a $C^0$-diffeomorphism} if it is bijective and of class $C^r$ with inverse of class $C^r$.
+  It is called a $C^r$-\emph{diffeomorphism}\footnote{With this definition a homeomorphism is a $C^0$-diffeomorphism} if it is bijective and of class $C^r$ with inverse of class $C^r$.
   We say that $f$ is \emph{smooth}, or of class $C^\infty$, if it is of class $C^r$ for every $r \geq 1$.
 \end{definition}
 
@@ -265,8 +265,8 @@ In colloquial language, a differentiable manifold is just a space covered by cha
 
 \begin{notation}
   Whenever possible we will omit the differentiable structure $\cA$ from the notation and just write $M$.
+  We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
 \end{notation}
-We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
 
 \begin{exercise}
   Show that on a second countable differentiable manifold it is always possible to find a countable atlas.
@@ -297,7 +297,7 @@ We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
   With this notation, if $e_i$ denotes the $i$th standard basis vector\footnote{Identified with the \emph{point} $(0,\ldots,0,\LaTeXunderbrace{1}_{i\mbox{th component}},0,\ldots,0) \in\R^n$.} in $\R^n$, then $r^i(e_j) = \delta^i_j$.
   \marginnote{The Kronecker delta $\delta_j^i$ is defined by $\delta_j^i = 1$ if $i=j$ and $\delta_j^i = 0$ otherwise.}
 
-  If $(U, \varphi:U\to\R^n)$ is a chart of a manifolds, then $x^i = r^i\circ\varphi$ will denote the $i$-th component of $\varphi$ and denote $\varphi = (x^1, \ldots, x^n)$ and, when convenient, $(U,\varphi) = (U, x^1, \ldots, x^n)$.
+  If $(U, \varphi:U\to\R^n)$ is a chart of a manifold, then $x^i = r^i\circ\varphi$ will denote the $i$-th component of $\varphi$ and denote $\varphi = (x^1, \ldots, x^n)$ and, when convenient, $(U,\varphi) = (U, x^1, \ldots, x^n)$.
 
   Thus, for $p\in U$, $(x^1(p), \ldots, x^n(p))$ is a point\footnote{By abuse of notation we sometimes omit the $p$. 
   Thus $(x^1, \ldots, x^n)$ can stand either for local coordinates or a point in $\R^n$: which one it is should be clear from the context.} in $\R^n$.
@@ -511,7 +511,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
     \textit{\small Hint: find an inverse map and show that both $\hat n$ and its inverse are continuous.}
   \end{exercise}
 
-  \newthought{Step 1. Let's first show that $\RP^n$ is a topological $n$-manifold}.
+  \newthought{Let's first show that $\RP^n$ is a topological $n$-manifold}.
   The structure of topological manifold follows immediately from the Theorem~\ref{thm:openproj} and $\pi$ being open, so let's prove that.
 
   Let $U\subset\R_0^{n+1}$, since $\pi$ is continuous by construction, $\pi(U)$ is open if $\pi^{-1}(\pi(U))$ is open in $\R^{n+1}_0$.
