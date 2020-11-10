@@ -265,6 +265,38 @@
       \verb https://link.springer.com/book/10.1007/978-1-4419-9982-5
       \endverb
     \endentry
+    \entry{book:lieber}{book}{}
+      \name{author}{1}{}{%
+        {{hash=4bb40197191d432b9476e8566c55fb76}{%
+           family={Lieber},
+           familyi={L\bibinitperiod},
+           given={Lillian\bibnamedelima R.},
+           giveni={L\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Holt, Rinehart}%
+        {Winston}%
+      }
+      \strng{namehash}{4bb40197191d432b9476e8566c55fb76}
+      \strng{fullhash}{4bb40197191d432b9476e8566c55fb76}
+      \strng{bibnamehash}{4bb40197191d432b9476e8566c55fb76}
+      \strng{authorbibnamehash}{4bb40197191d432b9476e8566c55fb76}
+      \strng{authornamehash}{4bb40197191d432b9476e8566c55fb76}
+      \strng{authorfullhash}{4bb40197191d432b9476e8566c55fb76}
+      \field{labelalpha}{Lie45}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Einstein Theory of Relativity}
+      \field{year}{1945}
+      \verb{urlraw}
+      \verb https://archive.org/details/einsteintheoryof032414mbp
+      \endverb
+      \verb{url}
+      \verb https://archive.org/details/einsteintheoryof032414mbp
+      \endverb
+    \endentry
     \entry{book:McInerney}{book}{}
       \name{author}{1}{}{%
         {{hash=bef419e9621a47e7b327d465eb8ec17a}{%
