@@ -196,6 +196,7 @@ Then, the following holds.
 \end{equation}
 \end{enumerate}
 \end{theorem}
+\marginnote[-5em]{Using Einstein's notation, this could be written as \begin{equation}\frac{\partial (g^i\circ f)}{\partial x^j}(x) = \frac{\partial g^i}{\partial y^r}(f(x)) \frac{\partial f^r}{\partial x^j}(x).\end{equation}}
 
 Theorem~\ref{thm:chainrule} has some very deep consequences.
 \begin{exercise}
@@ -207,8 +208,8 @@ Theorem~\ref{thm:chainrule} has some very deep consequences.
   \textit{\small Hint: is $Df(x)$ an invertible matrix? If so, what is its inverse?} %$D(f^{-1})(f(x))$.
 \end{exercise}
 
-Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, it seems reasonable to expect that we can lift the definitions directly from $\R^n$.
-If we are given a continuous map between two topological manifolds, we can locally view it as a continuous map between two Euclidean spaces.
+Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, it seems reasonable to expect that we can lift the definitions directly from $\R^n$ using the charts to obtain functions between euclidean spaces:
+for example, if we are given a continuous map between two topological manifolds, we can locally view it as a continuous map between two Euclidean spaces.
 Generalizing this further, we could conceivably say that our original map is differentiable if the local map is.
 
 \newthought{As usual, the devil is in the details}: a topological manifold is only homeomorphic to a Euclidean space, and a different choice of homeomorphism might affect whether the local map is differentiable or not.
@@ -345,7 +346,7 @@ dropping the distinction between $p$ and $x$, both in place of
   For any open set $U\subseteq M$ and any point $p\in U$, prove the existence of a coordinate open set $U_\alpha$ such that $p\in U_\alpha\subset U$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}[\textit{[homework 1]}]
   Let $f: \R^n \to \R^m$ be a smooth map.
   Show that its graph
   \begin{equation}
@@ -383,13 +384,17 @@ This allows to always view manifolds as metric spaces.
 
 \begin{example}[A different smooth structure on $\R$]
   Consider the homeomorphism $\psi:\R\to\R$, $\psi(x) = x^3$.
-  The atlas consisting of the global chart $\{\R, \psi\}$ defines a smooth structure on $\R$.
+  The atlas consisting of the global chart $(\R, \psi)$ defines a smooth structure on $\R$.
   This chart is not smoothly compatible with the standard smooth structure on $\R$ since $\id_\R \circ \psi^{-1} (y) = y^{1/3}$ is not smooth at $y=0$.
   Therefore, the smooth structure defined on $\R$ by $\psi$ is different from the standard one.
   You can adapt this idea to construct many different smooth structures on topological manifolds provided that they at least have one smooth structure.
 \end{example}
 
 \begin{exercise}
+  Show that there exists a diffeomorphism between the smooth structures $(\R, \id_\R)$ and $(\R, \psi)$ from the previous example.
+\end{exercise}
+
+\begin{exercise}[\textit{[homework 1]}]
   For $r>0$, let $\phi_r:\R\to\R$ be the map given by
   \begin{equation}
     \phi_r(t) := \begin{cases}
@@ -553,7 +558,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   \textit{\small Hint: use Exercise~\ref{exe:RPSN}.}
 \end{exercise}
 
-\begin{exercise}\label{ex:stereo}
+\begin{exercise}[Stereographic projections \textit{[homework 1]}]\label{ex:stereo}
   Let $N$ denote the north pole $(0,\ldots,0,1)\in\bS^n\subset\R^{n+1}$ and let $S$ denote the south pole $(0,\ldots,0,-1)$.
   Define the \emph{stereographic projections} $\sigma:\bS^n\setminus\{N\}\to \R^n$ by
   \begin{marginfigure}
@@ -588,7 +593,7 @@ With a well defined differentiable structure and the idea of compatible charts, 
 Before considering the general definition of a differentiable map, let's look at the simpler example of differentiable functions $f:M\to\R$ between a smooth manifold $M$ and $\R$.
 
 \begin{definition}
-  A function $f:M\to\R$ from a smooth manifold $M$ of dimension $n$ to $\R$ is \emph{smooth}, or \emph{of class $C^\infty$}, if for any chart $(\varphi, V)$ of $M$ the map $f\circ\varphi^{-1}:\varphi(V)\subset\R^n \to \R$ is smooth as a euclidean function.
+  A function $f:M\to\R$ from a smooth manifold $M$ of dimension $n$ to $\R$ is \emph{smooth}, or \emph{of class $C^\infty$}, if for any smooth chart $(\varphi, V)$ for $M$ the map $f\circ\varphi^{-1}:\varphi(V)\subset\R^n \to \R$ is smooth as a euclidean function on the open subset $\varphi(V)\subset\R^n$.
   \begin{marginfigure}
     \includegraphics{1_5-diff-fun-v2.pdf}
     \label{fig:diff-fun}
@@ -617,13 +622,13 @@ The following theorem can be very convenient when you work with smooth functions
   \begin{enumerate}[(i)]
     \item $f\in C^\infty(M)$;
     \item $M$ has an atlas $\cA$ such that for every chart $(U, \varphi)\in\cA$, $f\circ \varphi^{-1} : \R^n\supset\varphi(U)\to \R$ is $C^\infty$;
-    \item for every chart $(V,\psi)$ on $M$, the function $f\circ\psi^{-1} : \R^n\supset\psi(U)\to \R$.
+    \item for every point $p\in M$, there exists a smooth chart $(V,\psi)$ for $M$ such that $p\in V$ and the function $f\circ\psi^{-1} : \R^n\supset\psi(V)\to \R$ is $C^\infty$ on the open subset $\psi(V)\subset\R^n$.
   \end{enumerate}
 \end{proposition}
 
 \begin{exercise}
   Prove the proposition.\\
-  \textit{\small Hint: go cyclic, for example show $(ii)\Rightarrow(i)$, $(i)\Rightarrow(iii)$, $(iii)\Rightarrow(ii)$.}
+  \textit{\small Hint: go cyclic, for example show $(i)\Rightarrow(ii)$, $(ii)\Rightarrow(iii)$, $(iii)\Rightarrow(i)$.}
 \end{exercise}
 
 At this point, the generalization of smooth functions to smooth maps between manifolds should not come as a surprise.
@@ -651,7 +656,11 @@ At this point, the generalization of smooth functions to smooth maps between man
   \label{fig:1.3-differentiable_maps}
 \end{figure}
 
-A first observation about our definition of smooth maps is that as one would hope, smooth imply continuity.
+For a very simple and familiar example, consider the real valued function $f(x,y)= x^2+y^2$ defined on $\R^2$.
+In polar coordinates on $U=\{(x,y)\in\R^2\mid x>0\}$, $f$ has the coordinate representation $\hat f (\rho, \theta) = \rho^2$.
+Very often, where there is no ambiguity, we will simply identify $f$ and $\hat f$ and just write ``in the local coordinates $(\rho,\theta)$ on $U$, $f(\rho,\theta) = \rho^2$.''
+
+A first observation about our definition of smooth maps is that as one would hope, smoothness implies continuity.
 
 \begin{exercise}
   Show that every smooth map is continuous.
@@ -659,7 +668,7 @@ A first observation about our definition of smooth maps is that as one would hop
 
 \begin{definition}
 A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
-
+%
 Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
 \end{definition}
 
@@ -687,7 +696,7 @@ Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manif
   \end{proposition}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}[\textit{[homework 1]}]
   Prove that $\R^2\setminus\{(0,0)\}$ is a two-dimensional manifold and construct a diffeomorphism from this manifold to the circular cylinder
   \begin{equation}
     C := \{ (x,y,z)\in\R^3 \mid x^2+y^2 = 1\}\subset\R^3.
@@ -999,13 +1008,13 @@ Can we make sense of such observation using our newly introduced definition?
   Why is $\varphi_1$ not appearing in $\partial \cC$?
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}[\textit{[homework 1]}]
   Let $M = D_1\subset \R^n$ be the $n$-dimensional closed unit ball from Example~\ref{ex:uball}.
-
-  Show that $M$ is a topological manifold with boundary in which each point of $\mathring M = \bS^{n-1}$ is a boundary point and each point in $\{x\in\R^n\mid\|x\|<1\}$ is an interior point.
-
-  Give a smooth structure to $M$ such that every smooth interior chart is a smooth chart for the standard smooth structure on $\mathring M$.\\
-  \textit{\small Hint: consider the map $\pi\circ\sigma^{-1}:\R^n\to\R^n$ where $\sigma:\bS^n\to\R^n$ is the stereographic projection from Exercise~\ref{ex:stereo} and $\pi:\R^{n+1}\to\R^n$ is a projection that omits one of the first $n$ coordinates.}
+  \begin{enumerate}[(a)]
+    \item Show that $M$ is a topological manifold with boundary in which each point of $\mathring M = \bS^{n-1}$ is a boundary point and each point in $\{x\in\R^n\mid\|x\|<1\}$ is an interior point.
+    \item Give a smooth structure to $M$ such that every smooth interior chart is a smooth chart for the standard smooth structure on $\mathring M$.\\
+    \textit{\small Hint: consider the map $\pi\circ\sigma^{-1}:\R^n\to\R^n$ where $\sigma:\bS^n\to\R^n$ is the stereographic projection from Exercise~\ref{ex:stereo} and $\pi:\R^{n+1}\to\R^n$ is a projection that omits one of the first $n$ coordinates.}
+  \end{enumerate}
 \end{exercise}
 
 \begin{tcolorbox}
