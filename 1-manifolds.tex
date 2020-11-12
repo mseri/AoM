@@ -512,7 +512,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   Note that by gluing antipodal points, we are identifying the north and south hemispheres, thus essentially flattening the sphere to a disk.
 
   \begin{exercise}\label{exe:RPSN}
-    Show that the map $n: \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$ induces a homeomorphism $\hat n:\RP^n \to \bS^n/\!\sim$.\\
+    Show that the map $n: \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$, induces a homeomorphism $\hat n:\RP^n \to \bS^n/\!\sim$.\\
     \textit{\small Hint: find an inverse map and show that both $\hat n$ and its inverse are continuous.}
   \end{exercise}
 
@@ -526,7 +526,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   \end{equation}
   Since multiplication by $t\neq 0$ is a homeomorphism of $\R_0^{n+1}$, the set $t U$ is open for any $t$, as is their union, $\RP^n$ is both Hausdorff and second-countable.
 
-  For each $i=0,\ldots,n$, define $\widetilde U_i := \{x\in\R^{n+1}_0 \mid x^\neq0\}$, the set where the $i$-th coordinate is not $0$, and let $U_i = \pi(\widetilde U_i)\subset \RP^n$.
+  For each $i=0,\ldots,n$, define $\widetilde U_i := \{x\in\R^{n+1}_0 \mid x^i\neq0\}$, the set where the $i$-th coordinate is not $0$, and let $U_i = \pi(\widetilde U_i)\subset \RP^n$.
   Since $\widetilde U_i$ is open, $U_i$ is open.
   Define
   \begin{align}
@@ -592,20 +592,20 @@ With a well defined differentiable structure and the idea of compatible charts, 
 
 Before considering the general definition of a differentiable map, let's look at the simpler example of differentiable functions $f:M\to\R$ between a smooth manifold $M$ and $\R$.
 
+\begin{marginfigure}
+  \includegraphics{1_5-diff-fun-v2.pdf}
+  \label{fig:diff-fun}
+  \caption{A function is differentiable if it is differentiable as a euclidean function through the magnifying lens provided by the charts.}
+\end{marginfigure}
 \begin{definition}
   A function $f:M\to\R$ from a smooth manifold $M$ of dimension $n$ to $\R$ is \emph{smooth}, or \emph{of class $C^\infty$}, if for any smooth chart $(\varphi, V)$ for $M$ the map $f\circ\varphi^{-1}:\varphi(V)\subset\R^n \to \R$ is smooth as a euclidean function on the open subset $\varphi(V)\subset\R^n$.
-  \begin{marginfigure}
-    \includegraphics{1_5-diff-fun-v2.pdf}
-    \label{fig:diff-fun}
-    \caption{A function is differentiable if it is differentiable as a euclidean function through the magnifying lens provided by the charts.}
-  \end{marginfigure}
   We denote the space of smooth functions by $C^\infty(M)$.
 \end{definition}
 
 This, colloquially speaking, means that a function is differentiable if it is differentiable as a euclidean function through the magnifying lens (see Figure~\ref{fig:diff-fun}) provided by the charts.
 
 \begin{exercise}
-  Define on the following operations.
+  Define the following operations on $C^\infty(M)$.
   For any $f,g\in C^\infty(M)$, $c\in\R$,
   \begin{equation}
     (f+g)(x) := f(x) + g(x),\quad
@@ -635,11 +635,11 @@ At this point, the generalization of smooth functions to smooth maps between man
 
 \begin{definition}
   Let $F:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two smooth manifolds of dimension $n_1$ and $n_2$ respectively.
-  We say that $f$ is \emph{smooth}, or \emph{of class $C^\infty$}, if, for any chart $(\varphi_1, V_1)$ of $M_1$ and $(\varphi_2, V_2)$ of $M_2$, the map
+  We say that $F$ is \emph{smooth}, or \emph{of class $C^\infty$}, if, for any chart $(\varphi_1, V_1)$ of $M_1$ and $(\varphi_2, V_2)$ of $M_2$, the map
   \begin{align}
     \varphi_2 \circ F \circ \varphi_1^{-1}: U_1 \to U_2,\\
-    U_1 := \varphi_1(V_1 \cap f^{-1}(V_2))\subset\R^{n_1},\\
-    U_2 := \varphi_2(f(V_1) \cap V_2)\subset\R^{n_2},
+    U_1 := \varphi_1(V_1 \cap F^{-1}(V_2))\subset\R^{n_1},\\
+    U_2 := \varphi_2(F(V_1) \cap V_2)\subset\R^{n_2},
   \end{align}
   is smooth as a euclidean function.
   \marginnote[-6em]{Differently from your calculus classes, we are defining differentiability \emph{before} we define what the derivative is. Getting to it will require some amount of work, and will have to wait until the next chapter.}
