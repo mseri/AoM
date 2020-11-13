@@ -130,6 +130,46 @@
       \verb https://link.springer.com/book/10.1007%2F978-3-642-22597-0
       \endverb
     \endentry
+    \entry{book:guillemin-haine}{book}{}
+      \name{author}{2}{}{%
+        {{hash=bbc2a3c5f70c5a8262803780ca18f613}{%
+           family={Guillemin},
+           familyi={G\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=a6886d7ee93bf93562455ca12fd79b76}{%
+           family={Haine},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {{WORLD} {SCIENTIFIC}}%
+      }
+      \strng{namehash}{813dcd968b45f2e93143d31e0ccef03f}
+      \strng{fullhash}{813dcd968b45f2e93143d31e0ccef03f}
+      \strng{bibnamehash}{813dcd968b45f2e93143d31e0ccef03f}
+      \strng{authorbibnamehash}{813dcd968b45f2e93143d31e0ccef03f}
+      \strng{authornamehash}{813dcd968b45f2e93143d31e0ccef03f}
+      \strng{authorfullhash}{813dcd968b45f2e93143d31e0ccef03f}
+      \field{labelalpha}{GH19}
+      \field{sortinit}{G}
+      \field{sortinithash}{5e8d2bf9d38de41b1528bd307546008f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{title}{Differential Forms}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1142/11058
+      \endverb
+      \verb{urlraw}
+      \verb http://web.archive.org/web/20200525224100/https://math.mit.edu/classes/18.952/2018SP/files/18.952_book.pdf
+      \endverb
+      \verb{url}
+      \verb http://web.archive.org/web/20200525224100/https://math.mit.edu/classes/18.952/2018SP/files/18.952_book.pdf
+      \endverb
+    \endentry
     \entry{lectures:hitchin}{misc}{}
       \name{author}{1}{}{%
         {{hash=d0af63589d0e61aaeda653b8860bf668}{%
@@ -193,6 +233,74 @@
       \endverb
       \verb{url}
       \verb https://link.springer.com/book/10.1007%2F978-3-662-55774-7
+      \endverb
+    \endentry
+    \entry{book:lang}{book}{}
+      \name{author}{1}{}{%
+        {{hash=88c92ddced8d93c4ed4df52ee477b0c6}{%
+           family={Lang},
+           familyi={L\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{fullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{bibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorbibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authornamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorfullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \field{labelalpha}{Lan02}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Introduction to Differential Manifolds}
+      \field{year}{2002}
+      \verb{doi}
+      \verb 10.1007/b97450
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007%2Fb97450
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007%2Fb97450
+      \endverb
+    \endentry
+    \entry{book:lang:infinite}{book}{}
+      \name{author}{1}{}{%
+        {{hash=88c92ddced8d93c4ed4df52ee477b0c6}{%
+           family={Lang},
+           familyi={L\bibinitperiod},
+           given={Serge},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{fullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{bibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorbibnamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authornamehash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \strng{authorfullhash}{88c92ddced8d93c4ed4df52ee477b0c6}
+      \field{labelalpha}{Lan99}
+      \field{sortinit}{L}
+      \field{sortinithash}{2c7981aaabc885868aba60f0c09ee20f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fundamentals of Differential Geometry}
+      \field{year}{1999}
+      \verb{doi}
+      \verb 10.1007/978-1-4612-0541-8
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007%2F978-1-4612-0541-8
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007%2F978-1-4612-0541-8
       \endverb
     \endentry
     \entry{book:lee:topology}{book}{}
@@ -385,6 +493,33 @@
       \field{isbn}{9780131816299}
       \field{title}{Topology}
       \field{year}{2000}
+    \endentry
+    \entry{nlab:urysohn_metrization_theorem}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0a89dfdd854d93d67b3632032621fd61}{%
+           family={{nLab authors}},
+           familyi={n\bibinitperiod}}}%
+      }
+      \strng{namehash}{0a89dfdd854d93d67b3632032621fd61}
+      \strng{fullhash}{0a89dfdd854d93d67b3632032621fd61}
+      \strng{bibnamehash}{0a89dfdd854d93d67b3632032621fd61}
+      \strng{authorbibnamehash}{0a89dfdd854d93d67b3632032621fd61}
+      \strng{authornamehash}{0a89dfdd854d93d67b3632032621fd61}
+      \strng{authorfullhash}{0a89dfdd854d93d67b3632032621fd61}
+      \field{labelalpha}{nLa20}
+      \field{sortinit}{n}
+      \field{sortinithash}{f7242c3ed3dc50029fca1be76c497c7c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{{{U}}rysohn metrization theorem}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb http://ncatlab.org/nlab/show/Urysohn%20metrization%20theorem/10
+      \endverb
+      \verb{url}
+      \verb http://ncatlab.org/nlab/show/Urysohn%20metrization%20theorem/10
+      \endverb
     \endentry
     \entry{lectures:teufel}{misc}{}
       \name{author}{1}{}{%

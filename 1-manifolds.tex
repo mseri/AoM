@@ -104,7 +104,7 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
 
 \begin{definition}[Topological manifold]
   A topological space\footnote{From now on, if we say that $X$ is a topological space we are implying that there is a topology $\cT$ defined on $X$.} $M$ is a \emph{topological manifold} of dimension $n$, or topological $n$-manifold, if it has the following properties
-  \marginnote[0.5em]{Note that the finite dimensionality is a somewhat artificial restriction: manifolds can be infinitely dimensional. For example, the space of continuous functions between manifolds is a so-called infinite-dimensional Banach manifold.\vspace{1em}}
+  \marginnote[0.5em]{Note that the finite dimensionality is a somewhat artificial restriction: manifolds can be infinitely dimensional~\cite{book:lang:infinite}. For example, the space of continuous functions between manifolds is a so-called infinite-dimensional Banach manifold.\vspace{1em}}
   \begin{enumerate}[(i)]
     \item $M$ is a Hausdorff space;
     \item $M$ is second countable;
@@ -379,7 +379,7 @@ Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{p
 \end{example}
 
 Note that smooth manifolds do not yet have a metric structure: distances between the points are not defined.
-However, they are \emph{metrizable}\footnote{In fact, all the topological manifolds are metrizable. This property is far more general and harder to prove~\cite[Theorem 34.1 and Exercise 1 of Chapter 4.36]{book:munkres:topology}.}: there exists some metric on the manifold that induces the given topology on it.
+However, they are \emph{metrizable}\footnote{In fact, all the topological manifolds are metrizable. This property is far more general and harder to prove~\cite[Theorem 34.1 and Exercise 1 of Chapter 4.36]{book:munkres:topology} or \cite{nlab:urysohn_metrization_theorem}. Note that not all topological spaces are metrizable, for example a space with more than one point endowed with the discrete topology is not. And even if a topological space is metrizable, the metric will be far from unique: for example, proportional metrics generate the same collection of open sets.}: there exists some metric on the manifold that induces the given topology on it.
 This allows to always view manifolds as metric spaces.
 
 \begin{example}[A different smooth structure on $\R$]
@@ -684,7 +684,7 @@ Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manif
   \end{proposition}
   \begin{proposition}
     Let $M$ be a smooth manifold of dimension $n$.
-    Then $f:\R^m\to M$ is smooth iff for all charts $(U,\varphi)$ of $M$, the function $\varphi\circ F:F^{-1}(U)\to\R^m$ is smooth.
+    Then $F:\R^m\to M$ is smooth iff for all charts $(U,\varphi)$ of $M$, the function $\varphi\circ F:F^{-1}(U)\to\R^m$ is smooth.
   \end{proposition}
   \begin{proposition}
     Let $M, N, P$ be three smooth manifolds, and suppose that $F:M\to N$ and $G:N\to P$ are smooth.
@@ -777,8 +777,8 @@ Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main 
   \end{equation}
 
   \begin{exercise}
-    Prove by induction that for $t>0$ and $k\geq 0$, the $k$th derivative $f^{(k)}(t)$ is of the form $p_{2k}(1/t)e^{-1/t}$ for some polynomial $p_{2k}(x)$ of degree $2k$ in $x$.
-    Use this to show that $f\in C^\infty(\R)$ and that $f^{(k)}(0) = 0$ for all $k\geq 0$.
+    Prove by induction that for $t>0$ and $k\geq 0$, the $k$th derivative $h^{(k)}(t)$ is of the form $p_{2k}(1/t)e^{-1/t}$ for some polynomial $p_{2k}(x)$ of degree $2k$ in $x$.
+    Use this to show that $h\in C^\infty(\R)$ and that $h^{(k)}(0) = 0$ for all $k\geq 0$.
   \end{exercise}
 
   The function $f$ that we are seeking is then\footnote{Exercise: check that such function $f$ satisfies all the desired properties.} given by
