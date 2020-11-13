@@ -385,6 +385,40 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   In other words, $D(\varphi\circ\psi^{-1})(\psi(p))$ is the transition matrix from the basis $\left\{\frac{\partial}{\partial y^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ to the basis $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$.
 \end{remark}
 
+\begin{example}
+  The transition map between the standard euclidean coordinates and the polar coordinates on appropriate open sets in $\R^2$ is given by $(x,y) = (\rho\cos(\theta), \rho\sin(\theta))$. Let $p\in\R^2$ denote the point with coordinates $(\rho, \theta) = (3, \pi)$ and $v\in T_p\R^2$ the tangent vector with polar coordinate representation
+  \begin{equation}
+    v = 5\frac{\partial}{\partial \rho}\Big|_p - \frac{\partial}{\partial \theta}\Big|_p.
+  \end{equation}
+  Applying the equations in Remark~\ref{rmk:chg_coords}, we get
+  \begin{align}
+    \frac{\partial}{\partial \rho}\Big|_p
+    &= \cos(\pi)\frac{\partial}{\partial x}\Big|_p + \sin(\pi)\frac{\partial}{\partial y}\Big|_p = - \frac{\partial}{\partial x}\Big|_p \\
+    \frac{\partial}{\partial \theta}\Big|_p
+    &= -3\sin(\pi)\frac{\partial}{\partial x}\Big|_p + 3\cos(\pi)\frac{\partial}{\partial y}\Big|_p = -3 \frac{\partial}{\partial y}\Big|_p,
+  \end{align}
+  and thus, the vector $v$ in standard coordinates is represented by
+  \begin{equation}
+    v = - 5 \frac{\partial}{\partial x}\Big|_p + 3 \frac{\partial}{\partial y}\Big|_p.
+  \end{equation}
+\end{example}
+
+\begin{exercise}
+  Let $(x,y)$ denote the standard coordinates on $\R^2$.
+  \begin{enumerate}[(a)]
+    \item Show that $(\widetilde{x}, \widetilde{y})$, where 
+    \begin{equation}
+      \widetilde{x} = x
+      \quad\mbox{and}\quad
+      \widetilde{y} = y + x^3,
+    \end{equation}
+    are global smooth coordinates in $\R^2$.
+    \item Let $p=(1,0)\in\R^2$ in standard coordinates.
+    Show that $\frac{\partial}{\partial x}\Big|_p \neq \frac{\partial}{\partial \widetilde x}\Big|_p$ even though the respective coordinate functions are identically equal.
+  \end{enumerate}
+  This shows that the coordinate vectors in the tangent space depend on the whole coordinate system and not just on the single coordinate function they are associated to.
+\end{exercise}
+
 \newthought{We already mentioned} that there are multiple equivalent definition of the tangent space. In the following exercise you will provide one in terms of charts and euclidean derivatives.
 Soon, we will see yet another definition.
 
