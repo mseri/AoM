@@ -70,7 +70,7 @@ With topological spaces at hand, we can give a definition of continuity and intr
   A map $f: X \to Y$ between two topological spaces $(X,\cT)$ and $(Y, \cU)$ is called:
   \begin{itemize}
     \item \emph{continuous} if $U\in\cU$ implies that $f^{-1}(U)\in\cT$, that is, preimages of open sets under $f$ are open;
-    \item \emph{homeomorphism} if it is bijective\footnote{I.e., a one to one correspondence. Formally it means that it is both injective and surjective.} and continuous with continuous inverse.\marginnote{The existence of an homeomorphism between two spaces can be thought as those spaces being equivalent in a loose sense: they can be deformed continuously into each other.}
+    \item \emph{homeomorphism} if it is bijective\footnote{I.e., a one to one correspondence. Formally it means that it is both injective and surjective.} and continuous with continuous inverse.\marginnote{The existence of a homeomorphism between two spaces can be thought as those spaces being equivalent in a loose sense: they can be deformed continuously into each other.}
   \end{itemize}
 \end{definition}
 
@@ -103,7 +103,7 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
 \end{exercise}
 
 \begin{definition}[Topological manifold]
-  A topological space\footnote{From now on, if we say that $X$ is a topological space we are implying that there is a topology $\cT$ defined on $X$.} $M$ is a \emph{topological manifold} of dimension $n$, or topological $n$-manifold, if it has the following properties
+  A topological space\footnote{From now on, if we say that $X$ is a topological space we are implying that there is a topology $\cT$ defined on $X$.} $M$ is a \emph{topological manifold} of dimension $n$, or topological $n$-manifold, if it has the following properties:
   \marginnote[0.5em]{Note that the finite dimensionality is a somewhat artificial restriction: manifolds can be infinitely dimensional~\cite{book:lang:infinite}. For example, the space of continuous functions between manifolds is a so-called infinite-dimensional Banach manifold.\vspace{1em}}
   \begin{enumerate}[(i)]
     \item $M$ is a Hausdorff space;
@@ -120,7 +120,7 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
 Don't get scared by the first two conditions: they are only needed to make sure that there are not too few open sets (Hausdorff) and not too many (second countable).
 
 \begin{example}
-  With our definition, a countable collections of points with the discrete topology is a $0$-dimensional topological manifolds.
+  With our definition, a countable collections of points with the discrete topology is a $0$-dimensional topological manifold.
   An uncountable collection of points with the discrete topology, however, is not!
 \end{example}
 
@@ -136,7 +136,7 @@ Don't get scared by the first two conditions: they are only needed to make sure 
     \label{fig:hausdorff-not-locally-euclidean}
     \caption{A locally euclidean space which is not Hausdorff.}
   \end{marginfigure}
-  Let $A_1, A_2$ be two point not on the real line $\R$ and define $M:= (\R\setminus\{0\})\cup\{A_1,A_2\}$.
+  Let $A_1, A_2$ be two points not on the real line $\R$ and define $M:= (\R\setminus\{0\})\cup\{A_1,A_2\}$.
   Induce a topology on $M$ by taking as basis the collection of all open intervals in $\R$ that do not contain $0$, along with all the sets of the form $(-a, 0)\cup\{A_1\}\cup(0,a)$ and $(-a, 0)\cup\{A_2\}\cup(0,a)$, for $a>0$.
   \begin{enumerate}[(a)]
     \item Check that this forms a basis\footnote{That is, the basis elements cover $M$ and for any $B_1, B_2$ on the basis, for all $x \in I = B_1\cap B_2$, there is an element $B_3$ of the basis such that $x\in B_3$ and $B_3\subset I$.} for a topology on $M$.
@@ -163,11 +163,11 @@ Don't get scared by the first two conditions: they are only needed to make sure 
 \begin{example}
 	Consider the set $M := \{ x\in\R^2 \;\mid\; |x^1| = |x^2| \}$ with the topology induced by $\R^2$:
    this is \emph{not} a topological manifold.
-	Since the number of connected component is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} homeomorphically mapped to open connected sets in $\R$.
+	Since the number of connected components is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} homeomorphically mapped to open connected sets in $\R$.
 \end{example}
 
 \newthought{There is still an elephant in the room} in need of a comment.
-In our definition of topological manifolds, we are giving for granted that the dimension of the manifold is well defined, that is, if we have two different charts, $\varphi_1: U \to \R^n$ and $\varphi_2: U \to \R^m$, then necessarily $m=n$. Luckily this is true! The result is called \emph{Invariance Domain Theorem} and, since its proof requires advanced concepts of algebraic topology, we will not pursue it further in the course.
+In our definition of topological manifolds, we are taking for granted that the dimension of the manifold is well--defined, that is, if we have two different charts, $\varphi_1: U \to \R^n$ and $\varphi_2: U \to \R^m$, then necessarily $m=n$. Luckily this is true! The result is called \emph{Invariance Domain Theorem} and, since its proof requires advanced concepts of algebraic topology, we will not pursue it further in the course.
 \marginnote[-2em]{There is a caveat, the theorem holds for \emph{connected} components of a manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}
 
 \section{Differentiable manifolds}
@@ -213,7 +213,7 @@ for example, if we are given a continuous map between two topological manifolds,
 Generalizing this further, we could conceivably say that our original map is differentiable if the local map is.
 
 \newthought{As usual, the devil is in the details}: a topological manifold is only homeomorphic to a Euclidean space, and a different choice of homeomorphism might affect whether the local map is differentiable or not.
-We need to have extra care to ensure that these lifted definitions keep making sense when we use different charts that overlap.
+We need to take extra care to ensure that these lifted definitions keep making sense when we use different charts that overlap.
 
 The solution is to introduce a little more structure to the problem.
 
@@ -239,7 +239,7 @@ With these at hand, let's jump into the definition of smooth manifolds.
   \begin{equation}
     \cA = \{\varphi_\alpha: U_\alpha \to V_\alpha \;\mid\; \alpha\in A\}
   \end{equation}
-  of pairwise compatible charts that cover\footnote{I.e. such that $M = \cup_{\alpha\in A} U_\alpha$. One calls the set $\{U_\alpha \;\mid\; \alpha\in A\}$, covering $M$ with open sets, a \emph{open cover} of $M$. Here $A$ is some index set, not necessarily countable.} $M$.
+  of pairwise compatible charts that cover\footnote{I.e. such that $M = \cup_{\alpha\in A} U_\alpha$. One calls the set $\{U_\alpha \;\mid\; \alpha\in A\}$, covering $M$ with open sets, an \emph{open cover} of $M$. Here $A$ is some index set, not necessarily countable.} $M$.
 
   Two smooth atlases are \emph{equivalent} if their union is also a smooth atlas. That is if any two charts in the atlases are compatible.
 \end{definition}
@@ -363,7 +363,7 @@ dropping the distinction between $p$ and $x$, both in place of
     The \emph{quotient topology} on $N$ is given by defining $U\subset N$ to be open if and only if its preimage $\pi^{-1}(U)\subset M$ is open.
     If $\sim$ is an equivalence relation on $M$, the quotient space $M/\!\sim$ is the set of equivalence classes $[p]:=\{q\in M \mid p\sim q\}$ and the projection $\pi: M\to M/\!\sim$, $\pi(p) = [p]$, is a surjective map. Then $U\in M/\!\sim$ is open if $\cup_{[p]\in U} [p] \subset M$ is open.
     Here $\R/\Z$ denotes the quotient space $\R/\!\sim$ where the equivalence relation is induced by the canonical group action of $\Z$ on $\R$, that is, $x\sim y$ if and only if $x-y\in\Z$.
-    This means that $[x] = \{x+k \mid k\in\Z\}$ and in each interval $[x_0, x_0+1)$ of length $1$ contains exactly one representative per class.
+    This means that $[x] = \{x+k \mid k\in\Z\}$ and each interval $[x_0, x_0+1)$ of length $1$ contains exactly one representative per class.
     Note that we are talking about topological spaces: the quotient, in general, does not preserve the Hausdorff property or second countability.} $\R/\Z$ with the two charts
   \begin{equation}\textstyle
     \varphi_1 : \R/\Z \setminus\{[0]\} \to (0,1)
@@ -375,7 +375,7 @@ dropping the distinction between $p$ and $x$, both in place of
 \end{example}
 
 \begin{example}[Product manifolds]\label{ex:pm}
-Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{product manifold} $M_1 \times M_2$ by equipping $M_1 \times M_2$ with the product topology\footnote{Open sets in the product are products of open sets from the respective topological spaces.} and cover the space with the atlas $\{ (U_1\times U_2, (\varphi_1, \varphi_2)) \;\mid\; (U_1, \varphi_1)\in\cA_1, (U_2, \varphi_2)\in \cA_2\}$.
+Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{product manifold} $M_1 \times M_2$ by equipping $M_1 \times M_2$ with the product topology\footnote{Open sets in the product are products of open sets from the respective topological spaces.} and covering the space with the atlas $\{ (U_1\times U_2, (\varphi_1, \varphi_2)) \;\mid\; (U_1, \varphi_1)\in\cA_1, (U_2, \varphi_2)\in \cA_2\}$.
 \end{example}
 
 Note that smooth manifolds do not yet have a metric structure: distances between the points are not defined.
@@ -419,7 +419,7 @@ This allows to always view manifolds as metric spaces.
 
 Instead of always constructing a topological manifold and then specify a smooth structure, it is often convenient to combine these steps into a single construction.
 This is especially useful when the initial set is not equipped with a topology.
-In this respect, the following lemma provides a welcome shortcut: in brief it says that given a set with suitable ``charts'' that overlap smoothly, we can use the charts to define both a topology and a smooth structure on the set.
+In this respect, the following lemma provides a welcome shortcut: in brief it says that given a set with suitable ``charts'' that overlap smoothly, we can use those to define both a topology and a smooth structure on the set.
 
 \begin{lemma}[Smooth manifold lemma]\label{lem:manifold_chart}
   Let $M$ be a set. Assume that we are given a collection $\{U_\alpha\mid \alpha\in A\}$ of subsets of $M$ together with bijections $\varphi_\alpha: U_\alpha\to\varphi(U_\alpha)\subseteq\R^n$, where $\varphi(U_\alpha)$ is an open subset of $\R^n$. Assume in addition that the following hold:
@@ -427,7 +427,7 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
     \item For each $\alpha, \beta \in A$, the sets $\varphi_\alpha(U_\alpha \cap U_\beta)$ and $\varphi_\beta(U_\alpha \cap U_\beta)$ are open in $\R^n$.
     \item If $U_\alpha \cap U_\beta \neq 0$, the map $\varphi_\beta\circ\varphi_\alpha^{-1}: \varphi_\alpha(U_\alpha \cap U_\beta)\to \varphi_\beta(U_\alpha \cap U_\beta)$ is smooth.
     \item Countably many of the sets $U_\alpha$ cover $M$.
-    \item If $p\neq q$ are points in $M$, either there exists $\alpha$ such that $p,q\in U_\alpha$ or there exists $\alpha,\beta$ with $U_\alpha\cap U_\beta=\emptyset$ such that $p\in U_\alpha$ and $q\in U_\beta$.
+    \item If $p\neq q$ are points in $M$, either there exists $\alpha$ such that $p,q\in U_\alpha$ or there exist $\alpha,\beta$ with $U_\alpha\cap U_\beta=\emptyset$ such that $p\in U_\alpha$ and $q\in U_\beta$.
   \end{enumerate}
   Then $M$ has a unique smooth manifold structure such that each $(U_\alpha,\varphi_\alpha)$ is a smooth chart.
 \end{lemma}
@@ -508,7 +508,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   There is a nice interpretation of this construction in terms of flattening spheres.
   Observe that a line through the origin always intercepts a sphere $\bS^n$ at two antipodal points and, conversely, each pair of antipodal point determines a unique line through the center.
   So we can define an equivalence relation on the sphere by identifying the antipodal points: given $x,y\in\bS^n$, $x\sim' y$ if and only if $x = \pm y$.
-  This leads to the bijection $\RP^n \simeq \bS^n/\!\sim$.
+  This leads to the bijection $\RP^n \simeq \bS^n/\!\sim'$.
   Note that by gluing antipodal points, we are identifying the north and south hemispheres, thus essentially flattening the sphere to a disk.
 
   \begin{exercise}\label{exe:RPSN}
@@ -534,7 +534,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
     &\varphi_i([x^0, \ldots, x^n]):= \left(\frac{x^0}{x^i},\ldots,\frac{x^{i-1}}{x^i},\frac{x^{i+1}}{x^i},\ldots,\frac{x^n}{x^i}\right),
   \end{align}
   e.g. $\varphi_0([x^0, \ldots, x^n]) = (x^1/x_0, \ldots, x^n/x_0)$.
-  This map is well defined because its value is unchanged by multiplying $x$ by a non-zero constant.
+  This map is well--defined because its value is unchanged by multiplying $x$ by a non-zero constant.
   Moreover, $\varphi_i$ is continuous: the inverses can be computed explicitly as
   \begin{equation}
     \varphi_i^{-1}(y^1,\ldots,y^n) = \left[y^1, \ldots, y^{i-1}, 1, y^{i+1}, \ldots, y^n\right].
@@ -588,7 +588,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 
 \section{Smooth maps and differentiability}
 
-With a well defined differentiable structure and the idea of compatible charts, we have all the ingredients to lift the definition of differentiable maps from the euclidean world.
+With a well--defined differentiable structure and the idea of compatible charts, we have all the ingredients to lift the definition of differentiable maps from the euclidean world.
 
 Before considering the general definition of a differentiable map, let's look at the simpler example of differentiable functions $f:M\to\R$ between a smooth manifold $M$ and $\R$.
 
@@ -910,7 +910,7 @@ With such definition at hand, one can define compatibility, smooth atlases and d
 \end{definition}
 
 \begin{proposition}\label{prop:bdwelldef}
-  The boundary $\partial M$ is well defined\footnote{In the sense that smooth charts send boundary pieces to boundary pieces.Note that the definition of the boundary holds for topological manifolds as well, but showing that it is well defined is much more complicated and will be omitted.}.
+  The boundary $\partial M$ is well--defined\footnote{In the sense that smooth charts send boundary pieces to boundary pieces.Note that the definition of the boundary holds for topological manifolds as well, but showing that it is well--defined is much more complicated and will be omitted.}.
 \end{proposition}
 \begin{proof}
   The statement follows if we show that the transition maps send boundary pieces to boundary pieces.
