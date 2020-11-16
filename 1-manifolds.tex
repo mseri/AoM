@@ -423,7 +423,7 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
 
 \begin{lemma}[Smooth manifold lemma]\label{lem:manifold_chart}
   Let $M$ be a set. Assume that we are given a collection $\{U_\alpha\mid \alpha\in A\}$ of subsets of $M$ together with bijections $\varphi_\alpha: U_\alpha\to\varphi(U_\alpha)\subseteq\R^n$, where $\varphi(U_\alpha)$ is an open subset of $\R^n$. Assume in addition that the following hold:
-  \begin{enumerate}
+  \begin{enumerate}[(i)]
     \item For each $\alpha, \beta \in A$, the sets $\varphi_\alpha(U_\alpha \cap U_\beta)$ and $\varphi_\beta(U_\alpha \cap U_\beta)$ are open in $\R^n$.
     \item If $U_\alpha \cap U_\beta \neq 0$, the map $\varphi_\beta\circ\varphi_\alpha^{-1}: \varphi_\alpha(U_\alpha \cap U_\beta)\to \varphi_\beta(U_\alpha \cap U_\beta)$ is smooth.
     \item Countably many of the sets $U_\alpha$ cover $M$.
@@ -742,7 +742,7 @@ We will introduce those functions with a proposition, and will spend the rest of
 \begin{proposition}[Cutoff functions]\label{prop:cutoff}
   Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is closed and $U$ is open.
   Then, there exists a smooth function $\chi: M \to\R$, called \emph{cutoff} function, with the following properties
-  \begin{enumerate}
+  \begin{enumerate}[(i)]
     \item $0 \leq \chi \leq 1$ for all $p\in M$;
     \item $\supp(\chi)\subset U$;
     \item $\chi(p) = 1$ for all $p\in K$.
@@ -757,7 +757,7 @@ Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main 
 \begin{lemma}[Cutoff functions, compact case]
   Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is compact and $U$ is open.
   Then, there exists a smooth function $\chi: M \to\R$ with the following properties
-  \begin{enumerate}
+  \begin{enumerate}[(i)]
     \item $0 \leq \chi \leq 1$ for all $p\in M$;
     \item $\supp(\chi)\subset U$;
     \item $\chi(p) = 1$ for all $p\in K$.
@@ -806,11 +806,11 @@ Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main 
   \end{equation}
 \end{proof}
 
-We are not there yet. To extend this result to our needs will need a new tool, which will be useful throughout the course an in many courses to come.
+We are not there yet. To extend this result to our needs will need a new tool, which will be useful throughout the course and in many courses to come.
 
 \begin{definition}
   Let $M$ be a smooth manifold. A \emph{partition of unity} is a collection $\{\rho_\alpha \mid \alpha\in A\}$ of functions $\rho_\alpha:M\to\R$ such that
-  \begin{enumerate}
+  \begin{enumerate}[(i)]
     \item $0 \leq \rho_\alpha \leq 1$ for all $p\in M$ and $\alpha\in A$;
     \item\label{def:pou.2} the collection $\{\rho_\alpha \mid \alpha\in A\}$ is \emph{locally finite}, that is, for any $p\in M$ there are at most finitely many $\alpha\in A$ such that $p\in\supp(\rho_\alpha)$;
     \item for all $p\in M$ one has $\sum_{\alpha\in A} \rho_\alpha(p) = 1$.
@@ -824,8 +824,8 @@ Note that the existence of a partition of unity is a distinguished feature of di
 
 Throughout the course we will be mostly interested in partitions of unity $\{\rho_\alpha \mid \alpha\in A\}$ which are \emph{subordinate} to an open cover $\{U_\alpha\mid\alpha\in A\}$, that is, such that $\supp_\alpha(\rho_\alpha) \subset U_\alpha$ for each $\alpha\in A$.
 
-\marginnote{We are going to omit the proof of this theorem, for its details you can refer to~\cite[Proposition 13.6]{book:tu} or~\cite[Theorem 2.23]{book:lee}.}
 \begin{theorem}\label{thm:partitionof1}
+  \marginnote[1.5em]{We are going to omit the proof of this theorem, for its details you can refer to~\cite[Proposition 13.6]{book:tu} or~\cite[Theorem 2.23]{book:lee}.}
   Let $M$ be a smooth manifold. For any open cover $\{U_\alpha\mid\alpha\in A\}$ of $M$, there exists a partition of unity $\{\rho_\alpha \mid \alpha\in A\}$ subordinate to $\{U_\alpha\mid\alpha\in A\}$.
 \end{theorem}
 
@@ -838,9 +838,9 @@ With this result at hand, Proposition~\ref{prop:cutoff} can be shown very easily
 
 \section{Manifolds with boundary}\label{sec:mbnd}
 
-\newthought{The definition of manifolds has a serious limitation}, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $n$-spheres $\bS^n$ in the homework sheet.}, it fails to describe many natural objects like a \emph{closed} interval $[a,b]\in\R$ or the \emph{closed} disk $D_1(0)$ of Example~\ref{ex:uball}.
-
-Note that in both these cases, both the interior and the boundary are smooth manifolds and their dimension differ by one\footnote{In the first case the interior $(a,b)$ is a $1$-manifold and the boundary, the set $\partial[a,b] = \{a,b\}$, is a $0$-manifold. In the second case the interior of $D_1(0)$ is the open unit ball, a $2$-manifold, and the boundary $\partial D_1(0)$ is the $1$-manifold $\bS^1$.}.
+\newthought{The definition of manifolds has a serious limitation}, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $n
+2$-spheres $\bS^2$ from the homework sheet.}, it fails to describe many natural objects like a \emph{closed} interval $[a,b]\in\R$ or the \emph{closed} disk $D_1(0)$ of Example~\ref{ex:uball}.
+Note that in each of these cases, both the interior and the boundary are smooth manifolds and their dimension differ by one\footnote{In the first case the interior $(a,b)$ is a $1$-manifold and the boundary, the set $\partial[a,b] = \{a,b\}$, is a $0$-manifold. In the second case the interior of $D_1(0)$ is the open unit ball, a $2$-manifold, and the boundary $\partial D_1(0)$ is the $1$-manifold $\bS^1$.}.
 
 Let's do a step back and think about topological manifolds: since both the closed interval and the closed disk are closed sets, we have problems to make them locally euclidean in neighbourhoods of their boundaries.
 Can we modify our local model to resemble something with a boundary?
@@ -851,7 +851,7 @@ We can generalize our definition by considering the \emph{closed upper half-spac
   \includegraphics{1_4-upper_space.pdf}
 \end{marginfigure}
 \begin{equation}
-  \cH^n = \R_+^n = \{x=(x^1, \ldots, x^n)\in\R^n\mid x^n \geq 0\},
+  \cH^n = \{x=(x^1, \ldots, x^n)\in\R^n\mid x^n \geq 0\},
 \end{equation}
 with its $(n-1)$-dimensional boundary
 \begin{equation}
@@ -864,7 +864,7 @@ and the topology inherited by $\R^n$, as a replacement for our local model $\R^n
   \begin{enumerate}[(i)]
     \item $M$ is a Hausdorff space;
     \item $M$ is second countable;
-    \item $M$ is \emph{locally} homeomorphic to $\cH^n$, any point $x\in M$ has a neighbourhood that is homeomorphic to a (relatively) open\footnote{Recall that $U\subset\R^n_+$ is relatively open, that is open with respect to the relative topology, if there exist an open set $\widetilde U\subset\R^n$ such that $U = \widetilde U \cap \R^n_+$.} subset of $\R^n_+$.
+    \item $M$ is \emph{locally homeomorphic to $\cH^n$}, any point $x\in M$ has a neighbourhood that is homeomorphic to a (relatively) open\footnote{Recall that $U\subset\cH^n$ is relatively open, that is open with respect to the relative topology, if there exist an open set $\widetilde U\subset\R^n$ such that $U = \widetilde U \cap \cH^n$.} subset of $\cH^n$.
   \end{enumerate}
 
   A \emph{chart} on $M$ is a pair $(U, \varphi)$ consisting of an open set $U\subset M$ and a homeomorphism $\varphi: U \to \varphi(U)\subset \cH^n$.
@@ -941,7 +941,7 @@ Can we make sense of such observation using our newly introduced definition?
 
 \begin{proposition}
   Let $M$ be a differentiable $n$-manifold with boundary.
-  Then $M\setminus\partial M$ and $\partial M$ inherit the structure of manifolds (without boundary) of dimensions $\dim(M\setminus\partial M)=n$ and $\dim(\partial M) = n-1$.
+  Then $\mathring M := M\setminus\partial M$ and $\partial M$ inherit the structure of manifolds (without boundary) of dimensions $\dim(\mathring M)=n$ and $\dim(\partial M) = n-1$.
 \end{proposition}
 \begin{proof}
   Let $\cA = \{(U_\alpha,\varphi_\alpha) \mid \alpha\in A\}$ be an atlas for $M$. 
@@ -949,12 +949,12 @@ Can we make sense of such observation using our newly introduced definition?
   \begin{equation}
     \cA_\circ := \left\{
       \left(
-        U_\alpha \cap (M\setminus\partial M),
-        \varphi_\alpha|_{U_\alpha \cap (M\setminus\partial M)}
+        U_\alpha \cap \mathring M,
+        \varphi_\alpha|_{U_\alpha \cap \mathring M}
         \right) \mid \alpha\in A
       \right\}
   \end{equation}
-  is an atlas for $M\setminus\partial M$ where none of the charts contain points in $\partial\cH^n$.
+  is an atlas for $\mathring M$ where none of the charts contain points in $\partial\cH^n$.
 
   In a similar vein, an atlas for $\partial M$ is given by
   \begin{equation}
@@ -977,7 +977,7 @@ Can we make sense of such observation using our newly introduced definition?
   \begin{equation}
     \cC = \{p=(p^1,p^2,p^3)\in\R^3 \mid (p^1)^2 + (p^2)^2 = (p^3)^2, \quad 0< p^3\leq 1\},
   \end{equation}
-  with boundary $\partial\cC = \{p\in\cC \mid x^3 = 1\}$.
+  with boundary $\partial\cC = \{p\in\cC \mid p^3 = 1\}$.
   \begin{marginfigure}
   \includegraphics{1_5_9-cyl1}
   \end{marginfigure}
@@ -1010,8 +1010,8 @@ Can we make sense of such observation using our newly introduced definition?
 
 \begin{exercise}[\textit{[homework 1]}]
   Let $M = D_1\subset \R^n$ be the $n$-dimensional closed unit ball from Example~\ref{ex:uball}.
-  \begin{enumerate}[(a)]
-    \item Show that $M$ is a topological manifold with boundary in which each point of $\mathring M = \bS^{n-1}$ is a boundary point and each point in $\{x\in\R^n\mid\|x\|<1\}$ is an interior point.
+  \begin{enumerate}
+    \item Show that $M$ is a topological manifold with boundary in which each point of $\partial M = \bS^{n-1}$ is a boundary point and each point in $\mathring M = \{x\in\R^n\mid\|x\|<1\}$ is an interior point.
     \item Give a smooth structure to $M$ such that every smooth interior chart is a smooth chart for the standard smooth structure on $\mathring M$.\\
     \textit{\small Hint: consider the map $\pi\circ\sigma^{-1}:\R^n\to\R^n$ where $\sigma:\bS^n\to\R^n$ is the stereographic projection from Exercise~\ref{ex:stereo} and $\pi:\R^{n+1}\to\R^n$ is a projection that omits one of the first $n$ coordinates.}
   \end{enumerate}

@@ -13,7 +13,7 @@ As we will see, there are various different definition of tangent space but, in 
 
 Due to the amount of freedom and the many equivalent definitions, there is no unique way of introducing tangent spaces.
 Just to give you an idea, all the following approaches lead to equivalent definitions (see also~\cite{book:lee}):
-\begin{enumerate}
+\begin{enumerate}[a)]
   \item equivalence classes of curves through a point;
   \item transformation laws of the components of vectors with respect to different charts;
   \item generalization of linear approximation into the idea of an abstract derivation;
@@ -405,7 +405,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 
 \begin{exercise}
   Let $(x,y)$ denote the standard coordinates on $\R^2$.
-  \begin{enumerate}[(a)]
+  \begin{enumerate}
     \item Show that $(\widetilde{x}, \widetilde{y})$, where 
     \begin{equation}
       \widetilde{x} = x
@@ -626,7 +626,7 @@ In this section we will further explore these thoughts.
 
 Fix $t\in(a,b)$. 
 A priori we have two different ways to define the \emph{velocity vector of $\gamma$ at a time $t$}, that is, an element $\gamma'(t) \in T_{\gamma(t)}M$:
-\begin{enumerate}
+\begin{enumerate}[(i)]
   \item We can define a derivation on $C^\infty(M)$ at $\gamma(t)$ by setting
   \begin{equation}\label{eq:tg_curve_der}
     \gamma'(t) (f) := (f\circ\gamma)'(t), \quad f\in C^\infty(M).
@@ -838,7 +838,7 @@ What we have seen here is our first example of vector bundle, which is just a wa
 
 \begin{definition}\label{def:vector_bundle}
   A \emph{vector bundle of rank $r$} on a manifold $M$ is a manifold $E$ together with a smooth surjective map $\pi : E \to M$ such that, for all $p\in M$, the following properties hold:
-  \begin{enumerate}
+  \begin{enumerate}[(i)]
     \item the \emph{fibre over $p$}, $E_p := \pi^{-1}(p)$, has the structure of vector space of dimension $r$;
     \item there is a neighbourhood $U\subset M$ of $p$ and a diffeomorphism $\varphi: \pi^{-1}(U) \to U \times \R^r$ such that
     \begin{enumerate}
@@ -972,11 +972,11 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
 
 \begin{definition}
   Let $M^m$ and $N^n$ be differentiable manifolds and $F:M\to N$ a $C^1$ function.
-  \begin{enumerate}
+  \begin{itemize}
     \item $F$ is an \emph{immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
     \item $F$ is a \emph{submersion} if $dF_p$ is surjective for all $p\in M$ ($\Rightarrow\; m\geq n$);
     \item $F$ is an \emph{embedding} if $F$ is an injective immersion that is also a homeomorphism onto its range $F(M)\subset N$.
-  \end{enumerate}
+  \end{itemize}
 \end{definition}
 \begin{marginfigure}
   \includegraphics{2_8_1-immersion-embedding}
@@ -1087,7 +1087,7 @@ We will state them without going into the details of the proofs.
 \begin{proposition}\label{prop:slice_chart}
   Let $F:M^m\to N^n$ be an immersion.
   Then for any $p\in M$, there exists a neighbourhood $U$ of $p$ and a chart $(V,\psi)$ about $F(p)\in N$ such that
-  \begin{enumerate}
+  \begin{enumerate}[(i)]
     \item If $y^i = r^i\circ \psi$ are the local coordinates of $\psi$ then
     \begin{equation}\label{eq:slice_chart}
       F(U)\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\};
@@ -1168,7 +1168,7 @@ From this observation follows another interesting proposition, again consequence
 
 \begin{proposition}\label{prop:submanifolds_and_R}
   The following assertions are equivalent.
-  \begin{enumerate}
+  \begin{enumerate}[(i)]
     \item $M^k\subset N^n$ is a $k$-dimensional submanifold.
     \item $M$ is locally the image of an embedding of a subset of $\R^k$.
     That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$, an open set $U\subset\R^k$ and an embedding
