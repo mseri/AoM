@@ -11,7 +11,7 @@ In this chapter we will see how to associate to an $n$-dimensional smooth manifo
 Such vector space is called \emph{tangent space to $M$ at $x$} and, for a manifold embedded into a euclidean ambient space, it will coincide with the intuitive understanding of a tangent hyperplane to the point on the manifold, see also Figure~\ref{fig:tan-embedded-sphere}.
 As we will see, there are various different definition of tangent space but, in the end, they all turn out to be equivalent.
 
-Due to the amount of freedom and the many equivalent definitions, there is no unique way of introducing tangent spaces.
+Due to a certain amount of freedom in terms of different ``perspectives'' leading to different but equivalent definitions, there is no unique way of introducing tangent spaces.
 Just to give you an idea, all the following approaches lead to equivalent definitions (see also~\cite{book:lee}):
 \begin{itemize}
   \item equivalence classes of curves through a point;
@@ -204,7 +204,7 @@ Showing that the opposite is also true will require a bit of work.
   To prove the theorem we need to invert~\eqref{eq:derivfromtg} and define a tangent vector in terms of of a derivation of $C^\infty(W)$ at $p$.
   We will proceed in three steps
 
-  \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ op $p$. We are going to show that $w(f)=0$.
+  \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ of $p$. We are going to show that $w(f)=0$.
 
   By Proposition~\ref{prop:cutoff}, we can find a function $\rho:M\to\R$ such that $\rho(p)=1$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$. Then $g$ is identically zero in the whole $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w(g) = 0$. Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
   \begin{equation}
@@ -217,7 +217,7 @@ Showing that the opposite is also true will require a bit of work.
   Let $(V, f)$ be any representative of $[f]_p$.
   Since germs are local, if necessary, we can shrink $V$ so that $V\subset W$.
   Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighbourhood of $p$!
-  To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighbourhood with compact closure. You can take it for granted or have a look at e.g.~\cite[Lemm 4.65]{book:lee:topology} or~\cite{book:munkres:topology}.} a smaller neighbourhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
+  To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighbourhood with compact closure. You can take it for granted or have a look at e.g.~\cite[Lemma 4.65]{book:lee:topology} or~\cite{book:munkres:topology}.} a smaller neighbourhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
   Again, Proposition~\ref{prop:cutoff} comes to the rescue. Apply it with $K=\overline{U}$ and ``$U$'' equal to $V$, and consider
   \begin{equation}
     g:W\to\R, \quad
@@ -307,7 +307,7 @@ To that end, we need a preliminary result from multivariable analysis.
 
   By the chain rule,
   \begin{equation}
-    \frac{d}{dt}(h \circ \gamma_x) (t) = \left(D_i h(t x)\right) \times \frac{d}{dt} (t x^i)' = x^i D_i h(t x).
+    \frac{d}{dt}(h \circ \gamma_x) (t) = \left(D_i h(t x)\right) \cdot \frac{d}{dt} (t x^i)' = x^i D_i h(t x).
   \end{equation}
   \marginnote[-2.5em]{$\leftarrow$ Again, due to Einstein notation, the right hand side should be read as $\sum_{i=1}^n x^i D_i h(t x)$.}
   The fundamental theorem of calculus then implies
@@ -336,7 +336,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   Thus, $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ is a basis of $T_p M$.
 \end{proposition}
 \begin{proof}
-  We may assume without loss of generality that $\varphi(p) = 0$ and, thanks to Corollary~\ref{cor:tgsubspace}, $U$ is star-shaped.
+  We may assume without loss of generality that $\varphi(p) = 0$ and, thanks to Corollary~\ref{cor:tgsubspace}, that $U$ is star-shaped.
   Let $f\in C^\infty(U)$.
   By Lemma~\ref{lem:Taylor} with $h = f \circ \varphi^{-1}$ we get
   \begin{equation}
@@ -361,9 +361,9 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   \end{align}
   Thus, if
   \begin{equation}
-    v = a_i \frac{\partial}{\partial x_i}\Big|_p,
+    v = a^i \frac{\partial}{\partial x_i}\Big|_p = 0,
   \end{equation}
-  by letting $v$ act on $x^j$, $j\leq 1\leq n$, we obtain $(a_1, \ldots, a_n) = 0$, proving the linear independence.
+  by letting $v$ act on $x^j$, $j\leq 1\leq n$, we obtain $(a^1, \ldots, a^n) = 0$, proving the linear independence.
 \end{proof}
 
 \begin{remark}[Change of coordinates]\label{rmk:chg_coords}
@@ -373,10 +373,10 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
     \frac{\partial}{\partial y^j}\Big|_p = 
     \frac{\partial}{\partial y^j}\Big|_p (x^i) \frac{\partial}{\partial x^i}\Big|_p.
   \end{equation}
-  \marginnote[-3em]{If we start getting used to these vectors as actual derivatives and hide the dependence on $p$, then this equation can be rewritten as $\frac{\partial}{\partial y^j} = 
+  \marginnote[-3em]{If we start getting used to think of these vectors as actual derivatives and hide the dependence on $p$, then the equation on the left can be rewritten as $\frac{\partial}{\partial y^j} = 
   \frac{\partial x^i}{\partial y^j} \frac{\partial}{\partial x^i}$.}
-
-  If we expand the definitions, we get
+  %
+  Expanding the definitions, we get
   \begin{equation}
     \frac{\partial}{\partial y^j}\Big|_p (x^i) =
     D_j(x^i\circ\psi^{-1})(\psi(p)) =
@@ -477,12 +477,12 @@ Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F
 \end{theorem}
 \begin{proof}
   Since $dF_p : T_p M \to T_{F(p)}N$ and $dG_{F(p)}: T_{F(p)}N \to T_{G(F(p))}P$, the map $d(G\circ F)_p: T_p M \to T_{G(F(p))}P$ has the right domain and codomain.
-  Take now $v\in T_p M$ and $f\in C^\infty(L)$. We get
+  Take now $v\in T_p M$ and $f\in C^\infty(P)$. We get
   \begin{align}
     d(G\circ F)_p(v)(f) &= v(f\circ G \circ F)
     = dF_p (v)(f\circ G) \\
     &\stackrel{(\bigstar)}{=} dG_{F(p)}(dF_p (v))f 
-    = dG_{F(p)} \circ dF_p,
+    = dG_{F(p)} \circ dF_p (v)(f),
   \end{align}
   where in $(\bigstar)$ we used the fact that $dF_p (v)\in T_{F(p)}N$.
 \end{proof}
@@ -528,7 +528,7 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
   \textit{\small Hint: show that $d F_p \left(\frac{\partial}{\partial x^i}\big|_p\right) (f) = \left(\frac{\partial F^j}{\partial x^i} (p) \frac{\partial}{\partial y^j}\big|_{F(p)}\right) (f)$.}
 \end{exercise}
 
-\newthought{A particularly important consequence} of this theorem is that our definition coincides with our old euclidean notions if we set $M=\R^m$ and $N=\R^n$.
+\newthought{A particularly important consequence} of this theorem is that if we set $M=\R^m$ and $N=\R^n$ our definition coincides with the euclidean notion.
 This is easily checked by taking $\varphi = \id_{\R^m}$ and $\psi=\id_{\R^n}$.
 Then the coordinates $(x^1,\ldots,x^m)$ are the standard euclidean coordinates for $\R^m$ and the coordinates $(y^1,\ldots,y^n)$ the ones for $\R^n$.
 
@@ -611,7 +611,7 @@ In the next section we will give yet an alternative way of defining tangent vect
 \section{Tangent vectors as tangents to curves}
 
 Exercise~\ref{ex:tg_curve_iso} may have left some thoughts hanging in the air...
-From the look of it, it seems that there is a relation between tangent spaces and the velocity of uniform motions from mechanics courses.
+From the look of it, it seems that there is a relation between tangent spaces and the velocity of a body moving with constant speed.
 In this section we will further explore these thoughts.
 
 \begin{definition}
@@ -643,7 +643,7 @@ One way to check is to pick a chart $\varphi: U \to \varphi(U)$ in a neighbourho
 Let's focus on~\eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\circ\gamma)'(t) = (\gamma^i)'(t)$, therefore by Proposition~\ref{prop:basis_TpM} we get
 \begin{equation}\label{eq:tg_curve_vec}
   \gamma'(t) = %\sum_{i=1}^m
-    \gamma'(t)(x^i) \frac{\partial}{\partial x^i}\Big|_\gamma(t).
+    \gamma'(t)(x^i) \frac{\partial}{\partial x^i}\Big|_{\gamma(t)}.
 \end{equation}
 \begin{exercise}
   Show that applying Proposition~\ref{prop:DiffCoords} to~\eqref{eq:tg_curve_diff} leads to the same formula as~\eqref{eq:tg_curve_vec}.
@@ -692,21 +692,14 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
   \caption{With this definition, the coordinate tangent vectors $\partial_{x^i}\in T_p M$ become the tangent vectors defined by the curve \[t \mapsto \varphi^{-1}(x^1(p), \ldots, {x^i(p) + t}, \ldots, x^n(p)).\]}
   \label{fig:2_4-v_cur}
 \end{marginfigure}
-This means that we can actually make an alternative definition of $T_xM$ in terms of tangent to curves:
+This means that we can actually make an alternative definition of $T_xM$ in terms of tangents to curves:
 \begin{definition}\label{def:tg:ascurvespeed}
   A tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ for some chart $\varphi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
 \end{definition}
 
 In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and to endow $T_xM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
 
-\begin{exercise}
-  Let $M$ be a smooth $n$-dimensional manifold.
-  Let $p_1,\ldots,p_k$ be distinct points of $M$ and let $v_i\in T_{p_i}M$, $i=1,\ldots,k$, be tangent vectors at those points.
-  Show that there is a vector field $X$ on $M$ such that $X_{p_i} = v_i$, $i=1,\ldots, k$.\\
-  \textit{\small Hint: bump functions may be handy here.}
-\end{exercise}
-
-To conclude this part, the next proposition shows that velocity vectors behave well under composition with smooth maps and gives us direct, explicit and effective way to compute differentials.
+To conclude this part, the next proposition shows that velocity vectors behave well under composition with smooth maps and give us a direct, explicit and effective way to compute differentials.
 
 \begin{proposition}\label{prop:curves_deriv}
   Let $F:M\to N$ b a smooth map between smooth manifolds and $\gamma:I\to M$ a smooth curve in $M$.
