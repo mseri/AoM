@@ -206,7 +206,7 @@ Showing that the opposite is also true will require a bit of work.
 
   \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ of $p$. We are going to show that $w(f)=0$.
 
-  By Proposition~\ref{prop:cutoff}, we can find a function $\rho:M\to\R$ such that $\rho(p)=1$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$. Then $g$ is identically zero in the whole $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w(g) = 0$. Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
+  By Proposition~\ref{prop:cutoff}, we can find a cutoff function $\rho:M\to\R$ such that $\rho(p)=1$ inside $W_0$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$. Then $g$ is identically zero in the whole $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w(g) = 0$. Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
   \begin{equation}
     0 = w(g) = w(\rho f) = \rho(p) w(f) + f(p)w(\rho) = w(f).
   \end{equation}
@@ -229,7 +229,7 @@ Showing that the opposite is also true will require a bit of work.
   Since $g|_U = f$, we have $[g]_p = [f]_p$, proving the claim.
 
   \newthought{Step III}. We can now complete the proof.
-  Let $w:X^\infty(W) \to\R$ be a derivation at $p$.
+  Let $w:C^\infty(W) \to\R$ be a derivation at $p$.
   A tangent vector is a linear map $v:C_p^\infty(M)\to\R$, see~\eqref{def:tangentvector}, and a derivation.
   We would like to define one in terms of $w$.
   Given any $[f]_p\in C_p^\infty(W)$, the previous step guarantees that there exists a representative $(W,f)$ for it, so we can define
