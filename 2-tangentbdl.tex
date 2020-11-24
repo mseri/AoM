@@ -748,7 +748,7 @@ Instead of working separately with the various tangent spaces, we can ``glue'' t
   \end{equation}  
 \end{definition}
 
-Elements in $TM$ are pairs\sidenote[][1.5em]{We will often abuse notation and identify $T_pM$ with with its image under the canonical injection $v\mapsto(p,v)$ and use interchangeably any of the notations $v$, $v_p$ or $(p,v)$ for a vector in $T_pM$ (depending on how much emphasis we need to put on the base point).} $(p,v)$ of a \emph{base point} $p\in M$ and a \emph{tangent vector} $v\in T_pM$.
+Elements in $TM$ are pairs\footnote{We will often abuse notation and identify $T_pM$ with with its image under the canonical injection $v\mapsto(p,v)$ and use interchangeably any of the notations $v$, $v_p$ or $(p,v)$ for a vector in $T_pM$ (depending on how much emphasis we need to put on the base point).} $(p,v)$ of a \emph{base point} $p\in M$ and a \emph{tangent vector} $v\in T_pM$.
 
 To the tangent bundle we associate a surjective map $\pi:TM \to M$, the \emph{projection (onto the base)}, which sends each vector in a tangent space to the point at which it is tangent, that is, $\pi(p,v) = p$.
 The second component of the pre-image $\pi^{-1}(\{p\}) = \{p\}\times T_pM$, that is $T_pM$ itself, is called the \emph{fibre} over $p\in M$.
@@ -1131,7 +1131,7 @@ The proposition above shows that an immersion is always a local embedding.
 
 A non-trivial consequence of the previous lemma is the following proposition\footnote{Refer to \cite[Proposition 5.8 and Proposition 5.31]{book:lee}.}.
 
-\marginnote{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
+\marginnote[1em]{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
 \begin{proposition}\label{prop:uniqdiffeoinclusion}
   Let $M$ be a manifold and $U\subset M$ an open set.
   Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
@@ -1140,17 +1140,19 @@ A non-trivial consequence of the previous lemma is the following proposition\foo
 Up to this point, the first manifold had the same dimension or was smaller than the second one.
 What if it is larger?
 
-\begin{marginfigure}
-  \includegraphics{2_8-crit_pts.pdf}
-  \caption{Beware of the subtleties here. The map $F=\pi_x\circ i$ for the inclusion $i:\bT^2\hookrightarrow\R^3$ and the projection $\pi_x(x,y,z)=x$.
-  So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if $d i_p: T_p\bT^2\hookrightarrow T_p\R^3$ is, which happens when the image of $T_p\bT^2$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
-\end{marginfigure}
 \begin{definition}
   Let $F:M^m \to N^n$ be a smooth map between smooth manifolds.
   A point $p\in M$ is said to be a \emph{regular point} of $F$ if $F$ has rank $n$ at $p$ (which implies that $m\geq n$), while it is called a \emph{critical point} if it is not.
 
   Similarly, a point $q\in N$ is called a \emph{regular value} if every point in $F^{-1}(q)$ is a regular point, and \emph{critical value} otherwise. If $q\not\in F(M)$, then $q$ is considered a regular value (in the sense that there is nothing to check in its preimage by $F$).
+  Cf. Figure~\ref{fig:2_8-crit_pts}.
 \end{definition}
+\begin{marginfigure}[12em]
+  \includegraphics{2_8-crit_pts.pdf}
+  \caption{Beware of the subtleties here. The map $F=\pi_x\circ i$ for the inclusion $i:\bT^2\hookrightarrow\R^3$ and the projection $\pi_x(x,y,z)=x$.
+  So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if $d i_p: T_p\bT^2\hookrightarrow T_p\R^3$ is, which happens when the image of $T_p\bT^2$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
+  \label{fig:2_8-crit_pts}
+\end{marginfigure}
 
 With this definition at hand, we are ready to state one of the most important theorems in this lecture. Differently from most previous ones, the statement is not local.
 
