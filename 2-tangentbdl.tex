@@ -500,7 +500,7 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
 \begin{proposition}\label{prop:DiffCoords}
   Let $F:M^m\to N^n$ be a smooth map between smooth manifolds.
   Let $p\in M$, and let $\varphi : U \to \varphi(U)$ be a chart on $M$ about $p$ and $\psi: V \to \psi(V)$ be a chart on $N$ about $F(p)$.
-  If $(x^i)$ denote the local coordinates of $\varphi$ and $(y^i)$ the ones of $\psi$, the matrix of $dF_p$ with respect to the bases $\left\{\frac{\partial}{\partial x^j}\big|_p \;\mid\; j=1,\ldots,m\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial y^j}\big|_p \;\mid\; j=1,\ldots,n\right\}$ of $T_{F(p)}N$ is given by the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$.
+  If $(x^i)$ denotes the local coordinates of $\varphi$ and $(y^i)$ the ones of $\psi$, the matrix of $dF_p$ with respect to the bases $\left\{\frac{\partial}{\partial x^j}\big|_p \;\mid\; j=1,\ldots,m\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial y^j}\big|_p \;\mid\; j=1,\ldots,n\right\}$ of $T_{F(p)}N$ is given by the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$.
 \end{proposition}
 \begin{proof}
   The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$. For any $j=1,\ldots,m$,
@@ -533,10 +533,12 @@ This is easily checked by taking $\varphi = \id_{\R^m}$ and $\psi=\id_{\R^n}$.
 Then the coordinates $(x^1,\ldots,x^m)$ are the standard euclidean coordinates for $\R^m$ and the coordinates $(y^1,\ldots,y^n)$ the ones for $\R^n$.
 
 Let $f:U\subset\R^m\to\R^n$ be a smooth function and define the linear isomorphisms
-\begin{align}\label{def:lin_iso_Tp}
-  &T_x : \R^m \to T_x\R^m,\quad T_x e_i = \frac{\partial}{\partial x^i}\Big|_x,\\
+\begin{equation}\label{def:lin_iso_Tp}
+  \begin{split}
+  &T_x : \R^m \to T_x\R^m,\quad T_x e_i = \frac{\partial}{\partial x^i}\Big|_x\\
   &T_y : \R^n \to T_y\R^n,\quad T_y e_i' = \frac{\partial}{\partial y^i}\Big|_y
-\end{align}
+  \end{split},
+\end{equation}
 where $\{e_1,\ldots,e_m\}$ denotes the standard basis of $\R^m$ and $\{e_1',\ldots,e_m'\}$ denotes the standard basis of $\R^n$.
 
 On the one hand, we have the total derivative $Df(x):\R^m\to\R^n$ from multivariable calculus: a linear map, the Jacobian matrix of partial derivatives.
@@ -551,18 +553,18 @@ In fact we know more, since Proposition~\ref{prop:DiffCoords} tells us that the 
   \end{tikzcd}.
 \end{equation}
 
-More generally, the same kind of computation shows the following fact. For any smooth map $F:M^m \to N^n$ between smooth manifolds, if $\varphi$ is a chart about $p\in M$ with coordinates $(x^i)$ and $\psi$ is a chart about $F(p)\in N$ with coordinates $(y^i)$, the following diagram commute:
+More generally, the same kind of reasoning shows the following fact. For any smooth map $F:M^m \to N^n$ between smooth manifolds, if $\varphi$ is a chart about $p\in M$ with coordinates $(x^i)$ and $\psi$ is a chart about $F(p)\in N$ with coordinates $(y^i)$, the following diagram commutes:
 \begin{equation}
   \begin{tikzcd}[row sep=huge, column sep=huge]
     \R^m \arrow[r, "D(\psi \circ F \circ \varphi^{-1})(\varphi(x))"] \arrow[d, "T_x"]
     & \R^n \arrow[d, "T_{F(x)}"] \\
     T_xM \arrow[r, "dF_x"]
-    & T_{f(x)}N
+    & T_{F(x)}N
   \end{tikzcd},
 \end{equation}
-where $T_p$ and $T_{F(p)}$ are defined as above.
+where $T_p$ and $T_{F(x)}$ are defined as above.
 
-The construction that we employed forced us to fix a basis for the spaces, if this was truly necessary it would defeat the purpose of this whole chapter.
+\newthought{An aspect of the construction above is particularly disturbing}: it forced us to fix a basis on the spaces; if this was truly necessary it would defeat the purpose of this whole chapter.
 Fortunately for us, the following exercise shows that, at any given point, the tangent space to a vector space is \emph{canonically}\footnote{That is, independently of the choice of basis.} identified with the vector space itself.
 
 \begin{exercise}[\textit{[homework 2]}]\label{ex:tg_curve_iso}
@@ -590,7 +592,7 @@ More generally, if $M$ is an open submanifold of a vector space $V$, we can comb
 For example, since $GL_n(\R)$ is an open submanifolds of the vector space $M_n(\R)$, we can identify its tangent space at each point $X\in GL_n(\R)$ with the full space of matrices $M_n(\R)$.
 
 \begin{exercise}[Tangent space of a product manifold]
-  Let $M_1, \ldots, M_k$ be smooth manifolds (without boundary\footnote{The statement is true also if one (only one!) of the $M_i$ spaces is a smooth manifold with boundary. If there is more than one manifold with boundary, the product space will have ``corners'' that cannot be mapped to half spaces and thus is not a smooth manifold, as a simple example you can consider the closed square $[0,1]\times [0,1]$.}), and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
+  Let $M_1, \ldots, M_k$ be smooth manifolds (without boundary\sidenote[][-8em]{The statement is true also if one (only one!) of the $M_i$ spaces is a smooth manifold with boundary. If there is more than one manifold with boundary, the product space will have ``corners'' that cannot be mapped to half spaces and thus is not a smooth manifold, as a simple example you can consider the closed square $[0,1]\times [0,1]$.}), and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
   For any point $p=(p_1,\ldots,p_k)\in M_1\times\cdots\times M_k$, the map
   \begin{align}
     \sigma &: T_p(M_1\times\cdots\times M_k) \to T_p M_1\times\cdots\times T_p M_k\\
@@ -615,7 +617,7 @@ From the look of it, it seems that there is a relation between tangent spaces an
 In this section we will further explore these thoughts.
 
 \begin{definition}
-  If $M$ is a manifold with or without boundary, we define a \emph{(parametrized) curve in M} to be a smooth\footnote{Continuous would be enough, but assuming it smooth simplifies the exposition.} map $\gamma : I \to M$, where $I=(a,b)\subseteq\R$ is an interval.
+  If $M$ is a manifold with or without boundary, we define a \emph{(parametrized) curve in M} to be a smooth\footnote{Continuously differentiable would be enough, but assuming it smooth simplifies the exposition.} map $\gamma : I \to M$, where $I=(a,b)\subseteq\R$ is an interval.
   \marginnote{Conventionally, $b=-a=\epsilon>0$ (the reason will be clear in a second) and we denote the coordinate on $\R$ by $t$ and the derivative of $\gamma$ at a point $t$ by $\gamma'(t)$. We say that a curve \emph{starts at $p\in M$} If $0\in I$ and $\gamma(0) = p$.}
 \end{definition}
 \begin{marginfigure}
@@ -692,12 +694,12 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
   \caption{With this definition, the coordinate tangent vectors $\partial_{x^i}\in T_p M$ become the tangent vectors defined by the curve \[t \mapsto \varphi^{-1}(x^1(p), \ldots, {x^i(p) + t}, \ldots, x^n(p)).\]}
   \label{fig:2_4-v_cur}
 \end{marginfigure}
-This means that we can actually make an alternative definition of $T_xM$ in terms of tangents to curves:
+This means that we can actually give an alternative definition of $T_xM$ in terms of tangents to curves:
 \begin{definition}\label{def:tg:ascurvespeed}
   A tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ for some chart $\varphi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
 \end{definition}
 
-In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and to endow $T_xM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
+In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and endow $T_pM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
 
 To conclude this part, the next proposition shows that velocity vectors behave well under composition with smooth maps and give us a direct, explicit and effective way to compute differentials.
 
@@ -769,7 +771,7 @@ As it turns out, this is a particular instance of a more general fact.
   \begin{align}\label{eq:nat_coords}
     \widetilde\varphi\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) := \left(x^1(p), \ldots, x^n(p), v^1, \ldots, v^n\right).
   \end{align}
-  Since $\widetilde\varphi$ can be explicitly inverted as $\widetilde\varphi^{-1}\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) = v^i \frac{\partial}{\partial x^i}\Big|_{\varphi^{-1}(x)}$, it defines a bijection onto it image.
+  Since $\widetilde\varphi$ can be explicitly inverted as $\widetilde\varphi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) = v^i \frac{\partial}{\partial x^i}\Big|_{\varphi^{-1}(x)}$, it defines a bijection onto its image.
 
   \newthought{Step2: compatibility of the extended charts.}
   Suppose we have two smooth charts $(U,\varphi)$, $(V,\psi)$ for $M$.
@@ -795,10 +797,10 @@ As it turns out, this is a particular instance of a more general fact.
   Let $(p^1, v^1), (p^2, v^2) \in TM$ be different points: either $p^1\neq p^2$, or $p^1 = p^2$ and $v^1 \neq v^2$.
   In the first case, there are disjoint open sets $V_1, V_2 \subset U_i$ (for some $i$) containing respectively $p^1$ and $p^2$.
   Then $\widetilde\varphi_i^{-1}(V_1\times\R^n)$ and $\widetilde\varphi_i^{-1}(V_2\times\R^n)$ are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
-  In the second case, $p=p^1=p^2$ there are disjoint open sets $V_1,V_2\subset \R^n$ containing $v^1$ and $v^2$ respectively.
-  Again the preimages $\widetilde\varphi^{-1}(U_i\times V_1)$ and $\widetilde\varphi^{-1}(U_i\times V_2)$ (for some $i$) are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
+  In the second case, $p=p^1=p^2$ but there are disjoint open sets $V_1,V_2\subset \R^n$ containing $v^1$ and $v^2$ respectively;
+  again, the preimages $\widetilde\varphi^{-1}(U_i\times V_1)$ and $\widetilde\varphi^{-1}(U_i\times V_2)$ (for some $i$) are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
 
-  If countable basis $\{U_j\}$ is countable basis for the topology of $M$ (which is second countable) and $\{W_k\}$ is a countable basis for the topology of $\R^n$, then $\{\widetilde\varphi^{-1}((U_i\cap U_j)\times W_k)\}$ is a countable basis for $TM$.
+  The countable basis $\{U_j\}$ is a countable basis for the topology of $M$ (which is second countable), taking a countable basis $\{W_k\}$ for the topology of $\R^n$, we can define a countable basis for $TM$ as $\{\widetilde\varphi^{-1}((U_i\cap U_j)\times W_k)\}$.
   The charts defined above make $TM$ automatically euclidean of dimension $2n$.
 
   \begin{exercise}
