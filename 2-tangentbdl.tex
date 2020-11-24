@@ -292,7 +292,7 @@ The theorem will follow immediately once we construct a basis for $T_pM$.
 To that end, we need a preliminary result from multivariable analysis.
 
 \begin{lemma}\label{lem:Taylor}
-  Let $U\subset\R^n$, $0\in U$, be a star-shaped\footnote{An open set $U\subset\R^n$ containing the origin, $0\in U$, is called \emph{star-shaped} if $U$ also contains the line segment from $0$ to $x$ for any $x\in U$.} open set.
+  Let $U\subset\R^n$, $0\in U$, be a star-shaped\footnote{An open set $U\subset\R^n$ containing the origin, $0\in U$, is called \emph{star-shaped} if $U$ also contains the line segment from $0$ to $x$ for any $x\in U$.} open set and $h\in C^\infty(U)$.
   Then, there exists $n$ smooth functions $g_i: U \to \R$, $1\leq i \leq n$, such that $g_i(0) = D_i h(0)$ and
   \begin{equation}
     h = h(0) + r^i g_i
@@ -313,7 +313,7 @@ To that end, we need a preliminary result from multivariable analysis.
   The fundamental theorem of calculus then implies
   \begin{align}
     h(x) - h(0) &= (h \circ \gamma_x)(1) - (h \circ \gamma_x)(0) \\
-    &= \int_0^1 (h \circ \gamma_x)(t)\;dt = x^i \int_0^1 D_i h(tx)\; dt.
+    &= \int_0^1 \frac{d}{dt}(h \circ \gamma_x)(t)\;dt = x^i \int_0^1 D_i h(tx)\; dt.
   \end{align}
   \marginnote[-2.3em]{$\leftarrow$ For one last time, due to Einstein notation, the right hand side should be read as $\sum_{i=1}^n x^i \int_0^1 D_i h(t x)\; dt$.}
 
@@ -481,7 +481,7 @@ Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F
   \begin{align}
     d(G\circ F)_p(v)(f) &= v(f\circ G \circ F)
     = dF_p (v)(f\circ G) \\
-    &\stackrel{(\bigstar)}{=} dG_{F(p)}(dF_p (v))f 
+    &\stackrel{(\bigstar)}{=} dG_{F(p)}(dF_p (v))(f)
     = dG_{F(p)} \circ dF_p (v)(f),
   \end{align}
   where in $(\bigstar)$ we used the fact that $dF_p (v)\in T_{F(p)}N$.
@@ -500,7 +500,7 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
 \begin{proposition}\label{prop:DiffCoords}
   Let $F:M^m\to N^n$ be a smooth map between smooth manifolds.
   Let $p\in M$, and let $\varphi : U \to \varphi(U)$ be a chart on $M$ about $p$ and $\psi: V \to \psi(V)$ be a chart on $N$ about $F(p)$.
-  If $(x^i)$ denotes the local coordinates of $\varphi$ and $(y^i)$ the ones of $\psi$, the matrix of $dF_p$ with respect to the bases $\left\{\frac{\partial}{\partial x^j}\big|_p \;\mid\; j=1,\ldots,m\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial y^j}\big|_p \;\mid\; j=1,\ldots,n\right\}$ of $T_{F(p)}N$ is given by the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$.
+  If $(x^i)$ denotes the local coordinates of $\varphi$ and $(y^i)$ the ones of $\psi$, the matrix of $dF_p$ with respect to the bases $\left\{\frac{\partial}{\partial x^j}\big|_p \;\mid\; j=1,\ldots,m\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial y^j}\big|_{F(p)} \;\mid\; j=1,\ldots,n\right\}$ of $T_{F(p)}N$ is given by the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$.
 \end{proposition}
 \begin{proof}
   The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$. For any $j=1,\ldots,m$,
@@ -554,6 +554,13 @@ In fact we know more, since Proposition~\ref{prop:DiffCoords} tells us that the 
 \end{equation}
 
 More generally, the same kind of reasoning shows the following fact. For any smooth map $F:M^m \to N^n$ between smooth manifolds, if $\varphi$ is a chart about $p\in M$ with coordinates $(x^i)$ and $\psi$ is a chart about $F(p)\in N$ with coordinates $(y^i)$, the following diagram commutes:
+\marginnote{Recall that the following commutes: \begin{equation}
+  \begin{tikzcd}[row sep=huge, column sep=huge, ampersand replacement=\&]
+    M \arrow[r, "F"] \arrow[d, "\varphi"] \& N \arrow[d, "\psi"]\\
+    \R^m \arrow[r, "\psi \circ F \circ \varphi^{-1}"]
+    \& \R^n
+  \end{tikzcd}.
+\end{equation}}
 \begin{equation}
   \begin{tikzcd}[row sep=huge, column sep=huge]
     \R^m \arrow[r, "D(\psi \circ F \circ \varphi^{-1})(\varphi(x))"] \arrow[d, "T_x"]
