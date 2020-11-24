@@ -108,7 +108,7 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
   \begin{enumerate}[(i)]
     \item $M$ is a Hausdorff space;
     \item $M$ is second countable;
-    \item $M$ is \emph{locally euclidean} of dimension $n$, that is\footnote{In words, any point $p\in M$ has a neighbourhood that is homeomorphic to an open subset of $\R^n$.}, for any point $p\in M$ there exist an open subset $U\subset M$ with $p\in U$, and open subset $V\in\R^n$ and a homeomorphism $\varphi: U\to V$.
+    \item $M$ is \emph{locally euclidean} of dimension $n$, that is\footnote{In words, any point $p\in M$ has a neighbourhood that is homeomorphic to an open subset of $\R^n$.}, for any point $p\in M$ there exist an open subset $U\subset M$ with $p\in U$, and open subset $V\subset\R^n$ and a homeomorphism $\varphi: U\to V$.
   \end{enumerate}
 \end{definition}
 
@@ -281,7 +281,7 @@ In colloquial language, a differentiable manifold is just a space covered by cha
   In the same way, show that any open subset $U$ of a smooth manifold $M$ is a smooth manifold.
   Which atlas would you choose?
 
-  More generally, if $V$ is any $n$-dimensional real vector space, then the standard smooth structure on $V$ is the one induced by the smooth atlas consisting of a single chart $(V, T)$ where $T: V \to R^n$ is some linear isomorphism.
+  More generally, if $V$ is any $n$-dimensional real vector space, then the standard smooth structure on $V$ is the one induced by the smooth atlas consisting of a single chart $(V, T)$ where $T: V \to \R^n$ is some linear isomorphism.
   Why is this independent of the choice of the isomorphism $T$?
 
   This fact has a very interesting consequence.
@@ -680,11 +680,11 @@ Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manif
   Prove the following propositions and aid your reasoning by drawing the relevant figures.
   \begin{proposition}
     Let $M$ be a smooth manifold of dimension $n$.
-    Then $F:M\to\R^m$ is smooth iff for all charts $(U,\varphi)$ of $M$, the function $F\circ\varphi^{-1}:\varphi(U)\to\R^m$ is smooth.
+    Then $F:M\to\R^m$ is smooth iff for all smooth charts $(U,\varphi)$ of $M$, the function $F\circ\varphi^{-1}:\varphi(U)\to\R^m$ is smooth.
   \end{proposition}
   \begin{proposition}
     Let $M$ be a smooth manifold of dimension $n$.
-    Then $F:\R^m\to M$ is smooth iff for all charts $(U,\varphi)$ of $M$, the function $\varphi\circ F:F^{-1}(U)\to\R^m$ is smooth.
+    Then $F:\R^m\to M$ is smooth iff for all smooth charts $(U,\varphi)$ of $M$, the function $\varphi\circ F:F^{-1}(U)\to\R^n$ is smooth.
   \end{proposition}
   \begin{proposition}
     Let $M, N, P$ be three smooth manifolds, and suppose that $F:M\to N$ and $G:N\to P$ are smooth.
@@ -994,7 +994,7 @@ Can we make sense of such observation using our newly introduced definition?
       \sigma(q) = \left(\frac{2q^1}{1-q^2}, 1-q^3\right),
     \end{equation}
     then $x = \varphi_2(p) = (\sigma\circ\psi)(p)$ and $\varphi_2(U_2) = \R\times[0,1/2) \subset\cH^2$.
-    \item $U_3 = \{p\in\cC\mid 1/2 < p^3 \leq 1, \; (p^1, p^2) \neq (0, -p^3)$ and $\varphi_3$ defined similarly as in the previous point.
+    \item $U_3 = \{p\in\cC\mid 1/2 < p^3 \leq 1, \; (p^1, p^2) \neq (0, -p^3) \}$ and $\varphi_3$ defined similarly as in the previous point.
   \end{itemize}
   \begin{marginfigure}
   \includegraphics{1_5_9-cyl2}
