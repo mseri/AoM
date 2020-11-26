@@ -781,16 +781,16 @@ As it turns out, this is a particular instance of a more general fact.
   Since $\widetilde\varphi$ can be explicitly inverted as $\widetilde\varphi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) = v^i \frac{\partial}{\partial x^i}\Big|_{\varphi^{-1}(x)}$, it defines a bijection onto its image.
 
   \newthought{Step2: compatibility of the extended charts.}
-  Suppose we have two smooth charts $(U,\varphi)$, $(V,\psi)$ for $M$.
+  Suppose we have two smooth charts $(U,\varphi)$, $(V,\psi)$ for $M$ with the respective local coordinates $(x^i)$ and $(y^i)$.
   Let $(\pi^{-1}(U),\widetilde\varphi)$, $(\pi^{-1}(V),\widetilde\psi)$ be their extension\footnote{These are called \emph{bundle charts}.} to $TM$ as in the previous step.
   By construction\footnote{They are both homeomorphisms.}, both $\widetilde\varphi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \varphi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
   Moreover, we can take advantage of Remark~\ref{rmk:chg_coords} to write explicitly the transition map  $\widetilde\psi\circ\widetilde\varphi^{-1}: \varphi(U\cap V)\times\R^n \to \psi(U\cap V)\times\R^n$ as
   \begin{align}
     \widetilde\psi\circ&\widetilde\varphi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) \\
-    &=\left(\widetilde x^1(x),\ldots, \widetilde x^n(x), \frac{\partial \widetilde x^1}{\partial x^j}(x) v^j, \ldots, \frac{\partial \widetilde x^n}{\partial x^j}(x) v^j\right),
+    &=\left(y^1(p),\ldots, y^n(p), \frac{\partial y^1}{\partial x^j}(p) v^j, \ldots, \frac{\partial y^n}{\partial x^j}(p) v^j\right),
   \end{align}
-  which is clearly smooth.
-
+  where $p = \phi^{-1}(x)$, which is clearly smooth.
+  
   \begin{figure*}[htp]
     \includegraphics{2_7-tg_bdl_coord.pdf}
     \caption{Coordinates for the tangent bundle}
@@ -801,11 +801,13 @@ As it turns out, this is a particular instance of a more general fact.
   First of all, $\{(\pi^{-1}(U_i)\}$ provides a countable covering of $TM$.
   We need to show that the topology induced by those charts is Hausdorff and second countable.
   
-  Let $(p^1, v^1), (p^2, v^2) \in TM$ be different points: either $p^1\neq p^2$, or $p^1 = p^2$ and $v^1 \neq v^2$.
-  In the first case, there are disjoint open sets $V_1, V_2 \subset U_i$ (for some $i$) containing respectively $p^1$ and $p^2$.
-  Then $\widetilde\varphi_i^{-1}(V_1\times\R^n)$ and $\widetilde\varphi_i^{-1}(V_2\times\R^n)$ are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
-  In the second case, $p=p^1=p^2$ but there are disjoint open sets $V_1,V_2\subset \R^n$ containing $v^1$ and $v^2$ respectively;
-  again, the preimages $\widetilde\varphi^{-1}(U_i\times V_1)$ and $\widetilde\varphi^{-1}(U_i\times V_2)$ (for some $i$) are disjoint open sets containing respectively $(p^1, v^1)$ and $(p^2, v^2)$.
+  Let $(p_1, v_1), (p_2, v_2) \in TM$ be different points: either $p_1\neq p_2$, or $p_1 = p_2$ and $v_1 \neq v_2$.
+  \begin{itemize}
+    \item In the first case, there are disjoint open sets $V_1, V_2 \subset U_i$ (for some $i$) containing respectively $p_1$ and $p_2$.
+    Then $\widetilde\varphi_i^{-1}(\varphi_i(V_1)\times\R^n)$ and $\widetilde\varphi_i^{-1}(\varphi_i(V_2)\times\R^n)$ are disjoint open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$.
+    \item In the second case, $p=p_1=p_2$ but there are disjoint open sets $V_1,V_2\subset \R^n$ containing $v_1$ and $v_2$ respectively;
+    again, the preimages $\widetilde\varphi_i^{-1}(\varphi_i(U_i)\times V_1)$ and $\widetilde\varphi_i^{-1}(\varphi_i(U_2)\times V_2)$ (for some $i$ such that $p\in U_i$) are disjoint open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$.
+  \end{itemize}
 
   The countable basis $\{U_j\}$ is a countable basis for the topology of $M$ (which is second countable), taking a countable basis $\{W_k\}$ for the topology of $\R^n$, we can define a countable basis for $TM$ as $\{\widetilde\varphi^{-1}((U_i\cap U_j)\times W_k)\}$.
   The charts defined above make $TM$ automatically euclidean of dimension $2n$.
@@ -919,7 +921,7 @@ Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R
 
 \begin{definition}
   A \emph{local frame} of a bundle $\pi:E\to M$ of rank $r$ is a family of $r$ local sections $(S_1, \ldots, S_r)\in\Gamma(E|_U)$ such that $(S_1(p), \ldots, S_r(p))$ is a basis for $E_p$ for all $p\in U$.
-  If $U=M$ then $(S_1, \ldots, S_r)$ is called \emph{local frame}.
+  If $U=M$ then $(S_1, \ldots, S_r)$ is called \emph{global frame}.
   Sometimes, the sections $S_j$ are called \emph{basis sections}.
 \end{definition}
 
