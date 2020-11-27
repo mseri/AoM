@@ -478,7 +478,7 @@ Every smooth vector field has a local flow about any point, but not necessarily 
   A somewhat simpler example is given by the vertical lines on $\cH^2$ (so a manifold with boundary). These are integral curves of $\frac{\partial}{\partial x^2}$ which cannot extend further than the boundary $\{x^2=0\}$.
 \end{example}
 
-The previous theorem, in particular, implies that if $\gamma, \delta : (a,b)\to M$ are integral curves of $X$ with $\gamma(t) = \delta(t)$ for some $t \in(a,b)$, then $\gamma\equiv\delta$.
+Theorem~\ref{thm:exuniqloc}, in particular, implies that if $\gamma, \delta : (a,b)\to M$ are integral curves of $X$ with $\gamma(t) = \delta(t)$ for some $t \in(a,b)$, then $\gamma\equiv\delta$.
 
 This justifies the following definition.
 \begin{definition}
@@ -493,7 +493,6 @@ This justifies the following definition.
     t^{\pm}(\gamma_p(s)) = t^\pm(p) - s \qquad \forall s\in I_p.
   \end{equation}
 \end{remark}
-
 
 \begin{marginfigure}
   \includegraphics{3_2_10-Ip}
@@ -560,6 +559,16 @@ When we want to emphasize the vector field $X$, we will write $\varphi^X$.
 \end{remark}
 
 For a complete vector field $X$, $\cD = \R\times M$.
+
+\begin{exercise}
+  Let $M = \{x\in\R^2 \mid \|x\|<1\}$. Explicitly find a vector field $Z\in\fX(M)$, the associated maximal flow $\phi^X: \cD \to M$ and its domain $\cD$, so that
+  \begin{enumerate}[a)]
+    \item $Z$ is complete;
+    \item $Z$ is not complete.
+  \end{enumerate}
+\end{exercise}
+
+%\section{Infinitesimal generators} % TODO: for next year add this section title
 
 \begin{definition}
   We denote $\diff(M)$ the set of diffeomorphisms\footnote{Also called \emph{automorphisms} to stress that domain and codomain coincide.} $\varphi: M \to M$.
@@ -879,6 +888,17 @@ In this new coordinates, which are just polar coordinates labelled with differen
   %
   Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\widetilde X_0 x$ is independent of the choice of local coordinates.} of $d\widetilde X_0 x$ and their geometric multiplicities (cf.~\cite[Figure 9.8]{book:lee}). This is the same as you have seen in the euclidean case~\cite[Chapter 5.3]{book:knauf}.
 \end{remark}
+
+\begin{exercise}
+  Let $M=\R^2$ with coordinates $(q,p)\in\R^2$ and $H\in C^\infty(\R^2)$.
+  Discuss the possible local behaviour near the fixed-points of the following types of vector fields by considering their linearisation:
+  \begin{itemize}
+    \item gradient flows $\displaystyle X_G(q,p) := \begin{pmatrix}\frac{\partial}{\partial q} H(q,p)\\\frac{\partial}{\partial p} H(q,p)\end{pmatrix}$;
+    \item hamiltonian flows $\displaystyle X_H(q,p) := \begin{pmatrix}\frac{\partial}{\partial p} H(q,p)\\-\frac{\partial}{\partial q} H(q,p)\end{pmatrix}$.
+  \end{itemize}
+  Sketch in all cases the vector field and the local flow.
+\end{exercise}
+
 
 \begin{tcolorbox}
 For simplicity in the rest of the course we will discuss only global flows.
