@@ -901,7 +901,7 @@ Since an isomorphism preserves all the structure of a vector bundle, isomorphic 
 \end{definition}
 
 \begin{example}
-  If $E = M\times \R^r$, then for any smooth map $F: M\to\R^r$ we have a section $S\in\Gamma(E)$ defined by $S(p) = (p, F(p))$. This is a classical euclidean vector field: a map that associates vectors to points.
+  If $E = M\times \R^r$, $M\subset\R^n$, then for any smooth map $F: M\to\R^r$ we have a section $S\in\Gamma(E)$ defined by $S(p) = (p, F(p))$. This is a classical euclidean vector field: a map that associates vectors to points.
   \begin{marginfigure}
     \includegraphics{2_9-vfield.pdf}
     \caption{A vector field ``attaches'' vectors to points.}
@@ -911,7 +911,7 @@ Since an isomorphism preserves all the structure of a vector bundle, isomorphic 
 
 One can sometimes distinguish non--isomorphic bundles by looking at the complement of their zero section: since any vector bundle isomorphism $h:E_1\to E_2$ must map the zero section of $E_1$ onto the zero section of $E_2$, the complements of the zero sections in $E_1$ and $E_2$ must be homeomorphic.
 
-If the bundles are differentiable manifolds, then the definition of isomorphism nicely generalizes: they are diffeomorphic if fibers are mapped to fibers diffeomorphically.
+If the bundles are differentiable manifolds, then the definition of isomorphism nicely generalizes: they are \emph{diffeomorphic} if fibres are mapped to fibres diffeomorphically.
 
 Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not true in general with one exception.
 \begin{exercise}\label{ex:trivialisable}
@@ -989,7 +989,7 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
     \item The prototype of an immersion is the inclusion of $\R^m$ in a higher-dimensional $\R^n$:
     \begin{align}
       i &: \R^m \hookrightarrow \R^n,\\
-      i &: \left(x^1, \ldots, x^m\right) \mapsto \left(x^1, \ldots, x^m, \LaTeXunderbrace{0, \ldots, 0}_{m-n}\right).
+      i &: \left(x^1, \ldots, x^m\right) \mapsto \left(x^1, \ldots, x^m, \LaTeXunderbrace{0, \ldots, 0}_{n-m}\right).
     \end{align}
     
     Indeed, the $n\times m$ matrix
@@ -1008,9 +1008,9 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
     has full rank (equal to $m$) and is therefore injective.
     Moreover, the map $i$ is injective and continuously invertible on its range, so it is also an embedding.
 
-    \item The prototype for a submersion is the projection of $\R^m$ onto a lower-dimensional $\R^n$: $\pi\left(x^1,\ldots,x^m,x^{m+1},\ldots,x^n\right) = \left(x^1,\ldots,x^m\right)$.
+    \item The prototype for a submersion is the projection of $\R^m$ onto a lower-dimensional $\R^n$: $\pi\left(x^1,\ldots,x^n,x^{n+1},\ldots,x^m\right) = \left(x^1,\ldots,x^n\right)$.
     
-    Indeed, the $m\times n$ matrix
+    Indeed, the $n\times m$ matrix
     \begin{equation}
       d\pi_x = D\pi(x)
        = \begin{pmatrix}
@@ -1042,7 +1042,7 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
 
 Before moving on, it is useful to recall some results from multivariable analysis.
 A function $f:\R^m \to \R^n$ between euclidean spaces has rank $k$ at $x\in\R^m$ if its ($n\times m$) Jacobian matrix $Df(x)$ has rank $k$.
-The function has maximal rank at $x$ if $k = \min(n,m)$.
+The function has \emph{maximal rank} at $x$ if $k = \min(n,m)$.
 When $n=m$, $f$ has maximal rank at $x$ if and only if the square matrix $DF(x)$ is an invertible matrix.
 
 As for many local properties, this definition carries over to manifolds rather ``smoothly''.
@@ -1083,7 +1083,7 @@ compare the following statements.
 In fact, also analogues of the implicit functions theorem carry over.
 We will state them without going into the details of the proofs.
 
-\begin{marginfigure}[5.5em]
+\begin{marginfigure}
   \includegraphics{2_8_9-mapping.pdf}
 \end{marginfigure}
 \begin{proposition}\label{prop:slice_chart}
