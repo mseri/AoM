@@ -549,14 +549,33 @@ The previous exercise, then, implies that restriction and exterior derivative co
 \end{exercise}
 
 \begin{exercise}\label{exe:symplectic}
-The form $\omega := \sum_{i=1}^n \alpha^i\wedge \alpha^{i+n}\in\omega^2(\R^{2n})$ is called \emph{symplectic form} and plays a central role in classical mechanics. There one usually calls the first $n$ coordinates the \emph{momentum coordinates} the remaining $n$ coordinates the \emph{position coordinates}.
+  Let $V$ a vector space of dimension $k$.
+  A symplectic form on $V$ is an element $\omega\in\Lambda^2(V)$ which is non-degenerate in the sense that $\iota_v(\omega) = 0$ if and only if $v=0$.
+  Cf. Definition~\ref{def:metric}.
+  A \emph{symplectic manifold} is a smooth manifold $M$ equipped with a closed differential 2-form $\omega$ such tht $\omega_q$ is a symplectic form on $T_q M$ for every $p\in M$.
+  \begin{enumerate}[a)]
+    \item Prove that if a symplectic form exists, then $k=2n$ for some $n\in\N$, i.e., it must be an even number.
+    \item Let $M$ be a smooth manifold. Define a $1$-form $\eta\in\Omega^1(T^*M)$ on the cotangent bundle of $M$ as
+    \begin{equation}
+      \lambda_{(q,p)}(\xi) = p(d\pi_{(q,p)} \xi),
+      \quad
+      q\in M, \;
+      p\in T_q^*M, \;
+      \xi\in T_{(q,p)}(T^*M), 
+    \end{equation}
+    where $\pi:T^*M\to M$ is the projection to the base.
+    Show that $\omega := d\lambda$ is a symplectic form on $T^* M$, that is, every cotangent bundle is a symplectic manifold.
+  \end{enumerate}
 
-Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alpha^3\wedge\alpha^4$.
+  For example, $\omega = \sum_{i=1}^n \alpha^i\wedge \alpha^{i+n}\in\Omega^2(\R^{2n})$ is a symplectic form and plays a central role in classical mechanics. There one usually calls $(\alpha^{n+1},\ldots,\alpha^{2n})$ the \emph{position coordinates} and $(\alpha^{1},\ldots,\alpha^{n})$ the \emph{momentum coordinates}.
+  \begin{enumerate}
+    \item[c)] Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alpha^3\wedge\alpha^4$.
 
-Generalize the previous computation to show that
-\begin{equation}
-  \bigwedge_{k=1}^{2n} \alpha^k := \alpha^1\wedge\cdots\wedge\alpha^{2n} = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}} =: \frac{(-1)^{\binom{n}{2}}}{n!} \wedge^{n} \omega.
-\end{equation}
+    \item[d)] Generalize the previous computation to show that
+    \begin{equation}
+      \bigwedge_{k=1}^{2n} \alpha^k := \alpha^1\wedge\cdots\wedge\alpha^{2n} = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}} =: \frac{(-1)^{\binom{n}{2}}}{n!} \wedge^{n} \omega.
+    \end{equation}
+  \end{enumerate}
 \end{exercise}
 
 \section{Lie derivative}
