@@ -4,10 +4,11 @@ In the euclidean settings these are simply continuous maps that attach a vector 
 
 \section{Vector fields}
 
-The step to abstract manifold is rather intuitive in this case: a vector field will be a map that, at each point of a manifold, picks a tangent vector at that point in a smooth way.
+\newthought{The step to abstract manifolds} is rather intuitive in this case: a vector field will be a map that, at each point of a manifold, picks a tangent vector at that point in a smooth way.
 
 \begin{definition}\label{def:vfield}
   A $C^p$-map $X: M \to TM$ with $\pi\circ X = \id_M$, or equivalently $X_p\in T_pM$ for all $p\in M$, is called \emph{$C^p$-vector field}.
+  The vector field is smooth if it is $C^p$ for all $p\geq 1$.
   We denote\footnote{Alternative notations are $\cT_0^1(M)$, $\cT(M)$ and $\Gamma(TM)$. The first two are related to vector fields being tensor fields of type $(1,0)$, a topic that we will discuss in the near future.} the set of smooth vector fields by $\fX(M)$.
 
   The map $\pi:TM \to M$ is called \emph{footpoint map} and the equation $\pi\circ X = \id_M$ is called \emph{section property}.
@@ -34,8 +35,10 @@ This defines $n$ functions $X^i: U\to\R$, called \emph{component functions of $X
 \end{exercise}
 
 \begin{example}
-  If $(U, (x^i))$ is a smooth coordinate chart for a manifold $M$, the assignment $p \mapsto \frac{\partial}{\partial x^i}\big|_p$ determines a vector field on $U$, called the \emph{$i$th-coordinate vector field} and commonly denoted $\partial_{i}$, $\partial_{x^i}$ or $\partial/\partial x^i$.
+  If $(U, (x^i))$ is a smooth coordinate chart for a $n$-manifold $M$, the assignment $p \mapsto \frac{\partial}{\partial x^i}\big|_p$ determines a vector field on $U$, called the \emph{$i$th-coordinate vector field} and commonly denoted $\partial_{i}$, $\partial_{x^i}$ or $\partial/\partial x^i$.
   Despite their looks, the $\partial_{x^i}|_p$ denote genuine vectors in $T_p M$ that can be associated to euclidean vectors via a suitable chart.
+
+  The set $\{\frac{\partial}{\partial x^1}\big|_p, \ldots, \frac{\partial}{\partial x^n}\big|_p\}$ is a local frame for $TM$.
 \end{example}
 
 The space of smooth vector fields is a vector space under pointwise addition and scalar multiplication: for all $p\in M$, $X,Y\in\fX(M)$, $\alpha, \beta \in \R$, we have
@@ -56,13 +59,13 @@ Moreover, each vector field can be multiplied by smooth functions $f\in C^\infty
   \end{enumerate}
 \end{proposition}
 
-In this sense, the basis expression~\eqref{eq:vfCoordBAsis} can be also rewritten as an equation between fields instead of an equation between vectors at point:
+In this sense, the basis expression~\eqref{eq:vfCoordBAsis} can be also rewritten as an equation between vector fields instead of an equation between vectors at point:
 \begin{equation}\label{eq:vfCoordBAsis}
   X = X^i \frac{\partial}{\partial x^i},
 \end{equation}
 where $X^i$ denotes the component of the vector field $X$ in the given coordinates.
 
-There is one more way of thinking about the coordinate basis expression above.
+\newthought{There is one more way} of thinking about the coordinate basis expression above.
 We have seen that differentials of smooth maps define maps between tangent bundles.
 As it turns out, we can employ differentials of diffeomorphisms to map vector fields to vector fields.
 
@@ -143,7 +146,7 @@ where $v^j(x)$ are the components\footnote{As we start getting used to, the char
   \textit{\small Hint: bump functions may be handy here.}
 \end{exercise}
 
-While we continue to explore the twofold nature of geometric objects, it is worth looking back at our original definition of tangent vectors.
+\newthought{While we continue to explore} the twofold nature of geometric objects, it is worth looking back at our original definition of tangent vectors.
 In one of our first encounters with tangent spaces, we said that a tangent vector $v$ at a point $p\in M$ defines a derivative at that point by taking the directional derivative of a function at that point.
 \marginnote{Clearly all of the definitions above hold if instead of $M$ we consider open subsets $U\subset M$.}
 A vector field $X$ now provides a tangent vector and, therefore, a derivation at every point of the manifold.
@@ -195,11 +198,11 @@ Any vector field $X\in\fX(W)$ defines a derivation $\cX$ via $\cX(f) = Xf$. In f
   The set of derivation on $W$ and $\fX(W)$ are isomorphic as $C^\infty(W)$-modules.
 \end{proposition}
 \begin{proof}
-  Suppose $\cX$ is a derivation on $C^\infty(W)$ and fix $p\in W$. Then $\cX$ defines a derivation on $C^\infty(W)$ at $p$, which we casually denote by $X_p$, via the formula
+  Suppose $\cX$ is a derivation on $C^\infty(W)$ and fix $p\in W$. Then $\cX$ defines a derivation on $C^\infty(W)$ \emph{at $p$}, which we casually denote by $X_p$, via the formula
   \begin{equation}
     X_p(f) := \cX(f)(p), \quad\forall f\in C^\infty(W).
   \end{equation}
-  We can then think of $X$ as a map $W\to TM$ via $X\mapsto X_p$.
+  We can then think of $X$ as a map $W\to TW$ via $X\mapsto X_p$.
   \marginnote{Challenge: count how many times we are using the isomorphism between derivations at points and tangent vectors in this proof.}
   Since $X(f)=\cX(f)$ by construction, it is a smooth function for all $f\in C^\infty(W)$ and therefore is smooth as vector field, concluding the proof.
 \end{proof}
@@ -208,7 +211,7 @@ Therefore, from now on, we will also interchange derivations of $C^\infty$ and v
 
 \section{Lie brackets}
 
-Once you have a module, it is worth checking if you can get an algebra.
+\newthought{Once you have a module}, it is worth checking if you can get an algebra.
 Indeed, that is going to be our next objective.
 To this end, we look for a bilinear map $\fX(W)\times\fX(W) \to \fX(W)$.
 
@@ -265,7 +268,7 @@ We will see many applications of the Lie brackets throughout the rest of the cou
     Let $(U, \varphi)$ be a chart on $M$ with local coordinates $(x^i)$ and let $X,Y\in\fX(U)$.
     If $X = X^i \frac{\partial }{\partial x^i}$ and $Y = Y^i \frac{\partial}{\partial x^i}$ are the coordinate expressions for $X$ and $Y$, then\footnote{Recall Notation~\ref{notation:derivative}!}
     \begin{equation}
-        [X,Y] = \left(X^i\frac{\partial Y^j}{\partial x^i} - Y^i\frac{\partial X^j}{y^i}\right)\frac{\partial}{\partial x^j}.
+        [X,Y] = \left(X^i\frac{\partial Y^j}{\partial x^i} - Y^i\frac{\partial X^j}{\partial x^i}\right)\frac{\partial}{\partial x^j}.
     \end{equation}
 \end{proposition}
 \begin{exercise}[\textit{[homework 2]}]
@@ -273,7 +276,7 @@ We will see many applications of the Lie brackets throughout the rest of the cou
 \end{exercise}
 
 \begin{theorem}\label{thm:liealgiso}
-  Let $F:M\to N$ be a diffeomorphism between smooth manifolds with or without boundary and let $X, Y \in\fX(M)$. Then,
+  Let $F:M\to N$ be a diffeomorphism between smooth manifolds with or without boundary and let $X, Y \in\fX(M)$. Then, for all $f\in C^\infty(N)$,
   \begin{equation}
     \left((F_* X)f\right)\circ F = X(f\circ F), \quad\mbox{and}\quad
     F_* [X,Y] = [F_* X, F_* Y].
@@ -284,7 +287,7 @@ We will see many applications of the Lie brackets throughout the rest of the cou
   \begin{align}
     X(f\circ F)(p) &= X_p(f\circ F) \\
     &= dF_p(X_p)f = (F_* X)_{F(p)}f \\
-    &= (F_*X f)(F(p)) = (F_*X f)\circ F(p).
+    &= ((F_*X) f)(F(p)) = ((F_*X) f)\circ F(p).
   \end{align}
   Which proves the first equation.
   Therefore,
@@ -322,7 +325,7 @@ We will see many applications of the Lie brackets throughout the rest of the cou
   This may seem an alien concept at first, however there are many simple examples of Lie algebras. To name a few:
   \begin{enumerate}
     \item $\R^3$ with the cross product $[x,y]:=x\times y$ is a $3$-dimensional Lie algebra;
-    \item the set $\mathrm{Mat}(n)$ of $n\times n$-matrices with the matrix commutator $[A,B] = AB-BA$ is a $n^2$-dimensional Lie algebra, usually denoted $\mathfrak{gl}(n\R)$;
+    \item the set $\mathrm{Mat}(n)$ of $n\times n$-matrices with the matrix commutator $[A,B] = AB-BA$ is a $n^2$-dimensional Lie algebra, usually denoted $\mathfrak{gl}(n, \R)$;
     \item any vector space $V$ turns into an (abelian) Lie algebra by defining $[v,w]=0$;
     \item if $V$ is a vector space, the vector space of all linear maps from $V$ to itself becomes a Lie algebra, denoted $\mathfrak{gl}(V)$, with the brackets defined by $[A,B] = A\circ B-B\circ A$. Note that with the usual identification of $n\times n$ matrices with linear maps from $\R^n$ to itself, $\mathfrak{gl}(\R^n)$ coincides with $\mathfrak{gl}(n, \R)$.
   \end{enumerate}

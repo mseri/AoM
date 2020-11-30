@@ -1060,14 +1060,14 @@ And the same is true for the inverse function theorem:
 compare the following statements.
 
 \begin{theorem}[Inverse function theorem]\label{thm:ift}
-  Let $U\subset\R^m$ open and $f:U \to \R^n$ be a smooth map.
-  Assume that $f$ has maximal rank at some $x\in U$, then there exists a neighbourhood $\Omega\subset U$ of $x$ such that  $f\big|_\Omega : \Omega \to f(\Omega)$ is a diffeomorphism.
+  Let $U\subset\R^n$ open and $f:U \to \R^n$ be a smooth map.
+  Assume that $f$ has maximal rank at some $x\in U$, then there exists an open neighbourhood $\Omega\subset U$ of $x$ such that  $f\big|_\Omega : \Omega \to f(\Omega)$ is a diffeomorphism.
 \end{theorem}
 
 \begin{theorem}[Inverse function theorem for manifolds]\label{thm:iftm}
   Let $F:M\to N$ be a smooth function between manifolds of the same dimension $n$.
   Let $p\in M$ and assume that $F$ has maximal rank (i.e. rank $n$) at $p$.
-  Then there exists a neighbourhood $V$ of $p$ such that the restriction $F:V\to F(V)$ is a diffeomorphism.
+  Then there exists an open neighbourhood $V$ of $p$ such that the restriction $F:V\to F(V)$ is a diffeomorphism.
 \end{theorem}
 % \begin{proof}
 %   This is a purely local statement.
@@ -1081,7 +1081,7 @@ compare the following statements.
 %   Therefore, once again since both $\varphi$ and $\psi$ are diffeomorphisms, $F\big|_W : W \to F(W)$ is also a diffeomorphism for $W := \varphi^{-1}(\Omega)$.
 % \end{proof}
 \begin{exercise}
-  Use the euclidean inverse function theorem\footnote{Theorem~\ref{thm:ift}.} on $\R^n$ to prove Theorem~\ref{thm:iftm}.
+  Use the euclidean inverse function theorem (Theorem~\ref{thm:ift}) on $\R^n$ to prove Theorem~\ref{thm:iftm}.
 \end{exercise}
 
 
@@ -1090,6 +1090,7 @@ We will state them without going into the details of the proofs.
 
 \begin{marginfigure}
   \includegraphics{2_8_9-mapping.pdf}
+  \caption{Theorem~\ref{prop:slice_chart} in a picture.}
 \end{marginfigure}
 \begin{proposition}\label{prop:slice_chart}
   Let $F:M^m\to N^n$ be an immersion.
@@ -1144,20 +1145,20 @@ A non-trivial consequence of the previous lemma is the following proposition\foo
   Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
 \end{proposition}
 
-Up to this point, the first manifold had the same dimension or was smaller than the second one.
+\newthought{Up to this point}, the first manifold either had the same dimension or was smaller than the second one.
 What if it is larger?
 
 \begin{definition}
-  Let $F:M^m \to N^n$ be a smooth map between smooth manifolds.
-  A point $p\in M$ is said to be a \emph{regular point} of $F$ if $F$ has rank $n$ at $p$ (which implies that $m\geq n$), while it is called a \emph{critical point} if it is not.
+  Let $F:M^m \to N^n$, $m\geq n$, be a smooth map between smooth manifolds.
+  A point $p\in M$ is said to be a \emph{regular point} of $F$ if $F$ has rank $n$ at $p$, while it is called a \emph{critical point} if it is not.
 
   Similarly, a point $q\in N$ is called a \emph{regular value} if every point in $F^{-1}(q)$ is a regular point, and \emph{critical value} otherwise. If $q\not\in F(M)$, then $q$ is considered a regular value (in the sense that there is nothing to check in its preimage by $F$).
   Cf. Figure~\ref{fig:2_8-crit_pts}.
 \end{definition}
-\begin{marginfigure}[12em]
+\begin{marginfigure}
   \includegraphics{2_8-crit_pts.pdf}
   \caption{Beware of the subtleties here. The map $F=\pi_x\circ i$ for the inclusion $i:\bT^2\hookrightarrow\R^3$ and the projection $\pi_x(x,y,z)=x$.
-  So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if $d i_p: T_p\bT^2\hookrightarrow T_p\R^3$ is, which happens when the image of $T_p\bT^2$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
+  So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if the image of $T_p\bT^2$ by $d i_p: T_p\bT^2\hookrightarrow T_p\R^3$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
   \label{fig:2_8-crit_pts}
 \end{marginfigure}
 
@@ -1165,29 +1166,29 @@ With this definition at hand, we are ready to state one of the most important th
 
 \begin{theorem}[Implicit function theorem for manifolds]\label{thm:impl_fun}
   Let $m\geq n$ and let $F: M^m \to N^n$ be a smooth map between smooth manifolds.
-  If $q\in N$ is a regular value of $F$ and $P := F^{-1}(q)$ is not empty, then $P$ is a topological manifold of dimension $n-k$. 
+  If $q\in N$ is a regular value of $F$ and $P := F^{-1}(q)$ is not empty, then $P$ is a topological manifold of dimension $m-n$. 
   Moreover, there exists a smooth structure on $P$ which makes it into a smooth embedded submanifold of $M$.
 \end{theorem}
 
 \begin{remark}
-  If $F:M\to N$ is a submersion, Theorem~\ref{thm:impl_fun} implies that any $p\in M$ belongs to the $(n-k)$-dimensional embedded submanifold $F^{-1}(F(p))$.
+  If $F:M\to N$ is a submersion, Theorem~\ref{thm:impl_fun} implies that any $p\in M$ belongs to the $(m-n)$-dimensional embedded submanifold $F^{-1}(F(p))$.
 \end{remark}
 
-From this observation follows another interesting proposition, again consequence of the inverse and the implicit function theorems, of which we will also omit the proof.
+We can gather this observation and the previous results (the inverse and the implicit function theorems) into the following proposition (of which we are also omitting the proof).
 
 \begin{proposition}\label{prop:submanifolds_and_R}
   The following assertions are equivalent.
   \begin{enumerate}[(i)]
-    \item $M^k\subset N^n$ is a $k$-dimensional submanifold.
-    \item $M$ is locally the image of an embedding of a subset of $\R^k$.
-    That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$, an open set $U\subset\R^k$ and an embedding
+    \item $P^k\subset N^n$ is a $k$-dimensional submanifold\footnote{So, $k \leq n$.}.
+    \item $P$ is locally the image of an embedding of a subset of $\R^k$.
+    That is, for every $p\in P$ there exists $V\subset P$ open neighbourhood of $p$, an open set $U\subset\R^k$ and an embedding
     \begin{equation}
       \varphi : U \to N \quad\mbox{such that}\quad \varphi(U)=V.
     \end{equation}
-    \item $M$ is locally a level set of a submersion into $\R^{n-k}$.
-    That is, for every $p\in M$ there exists $V\subset M$ open neighbourhood of $p$ and a submersion $\varphi: V \to\R^{n-k}$ such that
+    \item $P$ is locally a level set of a submersion into $\R^{n-k}$.
+    That is, for every $p\in P$ there exists $V\subset P$ open neighbourhood of $p$ and a submersion $\psi: V \to\R^{n-k}$ such that
     \begin{equation}
-      M\cap V = \{q\in V \;\mid\; \varphi(q) = 0\}.
+      N\cap V = \{q\in V \;\mid\; \psi(q) = 0\}.
     \end{equation}
   \end{enumerate}
 \end{proposition}
@@ -1198,14 +1199,14 @@ From this observation follows another interesting proposition, again consequence
 \end{remark}
 
 \begin{example}\label{ex:s2}
-  The sphere $\bS^2 = \{x\in\R^3 \mid \|x\| = 1\}$ is a $2$-dimensional submanifold of $\R^3$.
-  This is immediate using the third condition in the Proposition~\ref{prop:submanifolds_and_R}: let $\varphi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\varphi$ is smooth, $\bS^2 = \{F(x)=0\}$ and $dF_x(v)= 2x\cdot v \neq 0$ for $x\in\bS^2$.
+  The sphere $\bS^2 = \{x\in\R^3 \mid \|x\| = 1\}$ is a $2$-dimensional submanifold of $N=\R^3$.
+  This is immediate using the third condition in the Proposition~\ref{prop:submanifolds_and_R}: let $\psi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\psi$ is smooth, $\bS^2 = \{x\in\R^3\mid\psi(x)=0\}$ and $d\psi_x(v)= 2x\cdot v \neq 0$ for $x\in\bS^2$.
 \end{example}
 
 \begin{example}
-  Let $N = \R^2$ and $M = \{ x\in M \;\mid\; x^2 = |x^1| \}$.
-  Then $M$ is \emph{not} a submanifold, but it can be equipped with a manifold structure.
-  For example with the global atlas $\{(M,\; (x^1,x^2)\mapsto x^1)\}$, $M$ is a manifold diffeomorphic to $\R$.
+  Let $N = \R^2$ and $P = \{ x\in N \;\mid\; x^2 = |x^1| \}$.
+  Then $P$ is \emph{not} a submanifold, but it can be equipped with a manifold structure.
+  For example with the global atlas $\{(P,\; (x^1,x^2)\mapsto x^1)\}$, $P$ is a manifold diffeomorphic to $\R$.
 \end{example}
 
 \begin{exercise}
@@ -1217,10 +1218,10 @@ From this observation follows another interesting proposition, again consequence
   \end{enumerate}
 \end{exercise}
 
-Of course, we can also define subbundles.
+\newthought{Of course, we can also define subbundles}.
 \begin{definition}
   Let $\pi:E \to M$ be a rank-$n$ vector bundle and $F\subset E$ a submanifold.
-  If for all $p\in M$, the intersection $F_p := F\cap E_p$ is a $k$-dimensional subspace of the vector space $E_p$ and $\pi|_F : F \to M$ defines a rank-$k$ vector bundle, then $\pi|F: F \to M$ is called a \emph{subbundle} of $E$.
+  If for all $p\in M$, the intersection $F_p := F\cap E_p$ is a $k$-dimensional subspace of the vector space $E_p$ and $\pi|_F : F \to M$ defines a rank-$k$ vector bundle, then $\pi|_F: F \to M$ is called a \emph{subbundle} of $E$.
 \end{definition}
 
 \begin{exercise}[\textit{[homework 2]}]
@@ -1235,7 +1236,7 @@ Of course, we can also define subbundles.
   \end{enumerate}
 \end{exercise}
 
-We still have a question pending since the beginning of the chapter.
+\newthought{We still have a question pending} since the beginning of the chapter.
 Is the tangent space to a sphere the one that we naively imagine (see Figure~\ref{fig:tan-embedded-sphere})?
 To finally answer the question, we will prove one last proposition.
 
@@ -1248,12 +1249,12 @@ To finally answer the question, we will prove one last proposition.
   \end{equation}
 \end{proposition}
 \begin{proof}
-  Both $d i_p(T_p P)\subset T_p M$ and $\ker dF_p \subset T_p M$ are linear subspaces of the same dimension $n-k$, therefore we only need to show that one contains the other, e.g. $d i_p(T_p P) \subset \ker dF_p$.
+  Both $d i_p(T_p P)\subset T_p M$ and $\ker dF_p \subset T_p M$ are linear subspaces of the same dimension $m-n$, therefore we only need to show that one contains the other, e.g. $d i_p(T_p P) \subset \ker dF_p$.
 
   Take $f\in C^\infty(N)$ and $v\in T_p P$. By the chain rule\footnote{Proposition~\ref{thm:chainrule_mfld}} we get
-  \begin{equation}
+  \begin{align}
     (d F_p \circ d i_p)(v)(f) = d(F\circ i)_p(v)(f) = v(f\circ F\circ i).
-  \end{equation}
+  \end{align}
   Since $F\circ i\big|_{P} \equiv q$ constant, $f\circ F\circ i\in C^\infty(P)$ is the constant function $p \mapsto f(q)$ and by Corollary~\ref{cor:derzero} we have $v(f\circ F\circ i)=0$.
 \end{proof}
 
@@ -1261,7 +1262,7 @@ To finally answer the question, we will prove one last proposition.
   We have seen in Example~\ref{ex:s2} that $\bS^2 = F^{-1}(0)$ is a smooth manifold of dimension $2$.
   Denoting the inclusion by $i:\bS^2 \hookrightarrow\R^3$, one has
   \begin{equation}\label{ex:tan_sph}
-    di_x(T_x\bS^2) = \cT_p(p^\perp)
+    di_p(T_p\bS^2) = \cT_p(p^\perp)
   \end{equation}
   where $\cT_p:\R^3\to T_p\R^3$ is the map defined in Exercise~\ref{ex:tg_curve_iso} and
   \begin{equation}
@@ -1269,7 +1270,7 @@ To finally answer the question, we will prove one last proposition.
   \end{equation}
   where $\left\langle\cdot,\cdot\right\rangle$ is the usual Euclidean dot product.
   Take a long deep breath and unfold the definitions in~\eqref{ex:tan_sph}, here it may be useful to draw a picture\footnote{Which is generally always the case in geometry and topology, and most other mathematical fields.}. 
-  Equation~\eqref{ex:tan_sph} implies that the tangent space to $\bS^2$ at a point $x$  is the plane tangent to $\bS^2$ at $p$, as claimed in Figure~\ref{fig:tan-embedded-sphere}.
+  Equation~\eqref{ex:tan_sph} implies that the tangent space to $\bS^2$ at a point $p$  is the plane tangent to $\bS^2$ at $p$, as claimed in Figure~\ref{fig:tan-embedded-sphere}.
 \end{example}
 
 \begin{exercise}
