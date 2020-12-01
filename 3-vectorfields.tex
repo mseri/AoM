@@ -607,7 +607,16 @@ For a complete vector field $X$, $\cD = \R\times M$.
   \includegraphics{3_2_14-infgen.pdf}
 \end{marginfigure}
 
-The definition above, in fact, contains the proof of the following fact.
+\begin{exercise}
+  Show that the following are one-parameter groups of diffeomorphisms and compute their infinitesimal generators.
+  \begin{enumerate}[a)]
+    \item $\phi_t:\R\to\R$, $\phi_t(x) = x + t$;
+    \item $\phi_t:\R\to\R$, $\phi_t(x) = e^t x$;
+    \item $\phi_t:\R^2\to\R^2$, $\phi_t(x,y) = (x\cos(t) - y\sin(t), x\sin(t)+y\cos(t))$.
+  \end{enumerate}
+\end{exercise}
+
+The definition above contains the proof of the following fact.
 \begin{proposition}
   Let $M$ be a smooth manifold. There is a bijective correspondence between one-parameter groups of diffeomorphisms (i.e. global flows) and complete vector fields.
 \end{proposition}
@@ -685,7 +694,7 @@ In the same fashion as Lemma~\ref{lemma:charactCompleteVF}, one can characterize
   Prove Lemma~\ref{lemma:charactNotCompleteVF}.
 \end{exercise}
 
-In other words, a maximal integral curve can not ``end'' inside a compact set that doesn't contain boundary points.
+In other words, a maximal integral curve cannot ``end'' inside a compact set that doesn't contain boundary points.
 Thus, if a solution does not exist for all times, then it must either run to infinity in finite time\footnote{Recall Example~\ref{ex:non-complete}} or hit the boundary of $M$.
 
 \section{Normal forms}
@@ -791,8 +800,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   \end{align}
 \end{exercise}
 
-After this parenthesis, let's go back to our final objective: we can finally justify our comment in Figure~\ref{fig:3_1-vfield-infgen}.
-The following theorem shows that every flow $\varphi^X$ admits local coordinates on its support which map it into a linear flow.
+\newthought{We can finally justify} our comment in Figure~\ref{fig:3_1-vfield-infgen}: the following theorem shows that every flow $\varphi^X$ admits local coordinates on its support which map it into a linear flow.
 
 \begin{definition}
   Let $M$ be a smooth manifold and $X\in\fX(M)$. 
