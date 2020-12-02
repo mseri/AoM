@@ -397,7 +397,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
 
 \begin{example}\label{ex:rotation}
   Let $(x,y)$ be standard coordinates on $\R^2$ and $Z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}$ on $\R^2$.
-  If $\gamma:\R^2\to\R$ is a smooth curve, written in standard coordinates as $\gamma(t) = (x(t), y(t))$, then the condition~\eqref{eq:integralCurve} for $Z$ and $\gamma$ translates into
+  If $\gamma:\R\to\R^2$ is a smooth curve, written in standard coordinates as $\gamma(t) = (x(t), y(t))$, then the condition~\eqref{eq:integralCurve} for $Z$ and $\gamma$ translates into
   \marginnote{Make sure that you have understood why this is true.}
   \begin{equation}
     x'(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)} + y'(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)} = x(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)} - y(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)}.
@@ -456,7 +456,7 @@ This immediately implies the following theorem.
 
 \begin{theorem}[Existence, uniqueness and differentiability of local solutions] %
   \label{thm:exuniqloc}
-  Let $M$ be a smooth manifold and $X\in\fX(M)$. For every $x\in \mathring M := M\setminus \partial M$, there exists $\epsilon > 0$, an open neighbourhood $U\subset\mathring M$ of $x$ and a unique map $\varphi : (-\epsilon, \epsilon) \times U \to M$, $(t, p) \mapsto \varphi(t,p)$, such that
+  Let $M$ be a smooth manifold and $X\in\fX(M)$. For every $p\in \mathring M := M\setminus \partial M$, there exists $\epsilon > 0$, an open neighbourhood $U\subset\mathring M$ of $p$ and a unique map $\varphi : (-\epsilon, \epsilon) \times U \to M$, $(t, p) \mapsto \varphi(t,p)$, such that
   \begin{enumerate}[(i)]
     \item for every $p\in U$, the curve $\varphi_p : (-\epsilon, \epsilon) \to M$, $t\mapsto \varphi_p(t) := \varphi(t, p)$ is an integral curve of $X$ through $p$, that is, $\varphi_p' = X\circ\varphi_p$ and $\varphi_p(0) = p$;
     \item for every $t\in(-\epsilon, \epsilon)$, the map $\varphi_t: U \to M$, $p\mapsto \varphi_t(p):=\varphi(t,p)$, is a diffeomorphism from $U$ onto an open subset of $M$.
@@ -504,7 +504,7 @@ This justifies the following definition.
 \begin{definition}
   Let $M$ be a smooth manifold and $X\in\fX(M)$.
   For a given $p\in M$, we denote $I_p = \left(t^-(p), t^+(p)\right) \subset\R$, $0 \in I_p$, the maximal interval on which the unique integral curve $\gamma_p : I_p \to M$ of $X$ through $p$ is defined.
-  We call such curve $\gamma_p$ the \emph{maximal integral curve through $p$}.
+  We call such curve $\gamma_p$ the \emph{maximal integral curve} of $X$ through $p$.
 \end{definition}
 
 \begin{remark}
@@ -525,7 +525,7 @@ Again, theorems about existence and uniqueness of euclidean maximal flows imply 
 \begin{theorem}[Existence and uniqueness of maximal solutions] %
   \label{thm:exuniqmax}
   Let $M$ be a smooth manifold and $X\in\fX(M)$.
-  There exists a unique open set $\cD \subset \R\times\circ M$ and a unique smooth map $\varphi:\cD\to M$ such that
+  There exists a unique open set $\cD \subset \R\times\mathring M$ and a unique smooth map $\varphi:\cD\to M$ such that
   \begin{enumerate}[(i)]
     \item\label{thm:exuniqmax:i} for all $p\in M$ one has $\cD\cap(\R\times\{p\}) = I_p\times\{p\}$;
     \item\label{thm:exuniqmax:ii} $\varphi(t,p) = \gamma_p(t)$ for all $(t,p)\in\cD$.
@@ -582,7 +582,7 @@ For a complete vector field $X$, $\cD = \R\times M$.
 
 \begin{exercise}
   Let $M = \{x\in\R^2 \mid \|x\|<1\}$. Explicitly find a vector field $Z\in\fX(M)$, the associated maximal flow $\phi^X: \cD \to M$ and its domain $\cD$, so that
-  \begin{enumerate}[a)]
+  \begin{enumerate}
     \item $Z$ is complete;
     \item $Z$ is not complete.
   \end{enumerate}
@@ -626,7 +626,7 @@ For a complete vector field $X$, $\cD = \R\times M$.
 
 \begin{exercise}
   Show that the following are one-parameter groups of diffeomorphisms and compute their infinitesimal generators.
-  \begin{enumerate}[a)]
+  \begin{enumerate}
     \item $\phi_t:\R\to\R$, $\phi_t(x) = x + t$;
     \item $\phi_t:\R\to\R$, $\phi_t(x) = e^t x$;
     \item $\phi_t:\R^2\to\R^2$, $\phi_t(x,y) = (x\cos(t) - y\sin(t), x\sin(t)+y\cos(t))$.
