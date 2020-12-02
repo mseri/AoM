@@ -275,6 +275,23 @@ We will see many applications of the Lie brackets throughout the rest of the cou
   Prove the proposition.
 \end{exercise}
 
+\begin{example}
+  Take the following vector fields on $\fX(\R^2)$:
+  \begin{equation}
+    X := (x+1)y \frac{\partial}{\partial x} - y \frac{\partial}{\partial y},\qquad
+    Y := 3y \frac{\partial}{\partial y}.
+  \end{equation}
+  Then, the previous proposition implies
+  \begin{align}
+    [X,Y] 
+    &= (x+1)y  \frac{\partial\; 0}{\partial x} \frac{\partial}{\partial x} - y \frac{\partial\; 0}{\partial y} \frac{\partial}{\partial x} \\
+    &\quad + (x+1)y  \frac{\partial\; 3y}{\partial x} \frac{\partial}{\partial y} - y \frac{\partial\; 3y}{\partial y} \frac{\partial}{\partial y} \\
+    &\quad - 3y \frac{\partial\; (x+1)y}{\partial y} \frac{\partial}{\partial x} + 3y \frac{\partial\; y}{\partial y} \frac{\partial}{\partial y} \\
+    &= - 3y \frac{\partial}{\partial y} -3 y(x+1) \frac{\partial}{\partial x} + 3y \frac{\partial}{\partial y} \\
+    &= -3(x+1)y \frac{\partial}{\partial x}.
+  \end{align}
+\end{example}
+
 \begin{theorem}\label{thm:liealgiso}
   Let $F:M\to N$ be a diffeomorphism between smooth manifolds with or without boundary and let $X, Y \in\fX(M)$. Then, for all $f\in C^\infty(N)$,
   \begin{equation}
@@ -589,7 +606,11 @@ For a complete vector field $X$, $\cD = \R\times M$.
   In other words, a one-parameter group of diffeomorphism is another name for global flow and the two properties above are exactly the group laws.
   And, indeed, we usually denote the map $t\mapsto\varphi(t,\cdot)$ by $\varphi_t$.
 
-  If $\{\varphi_t\}$ is a one-parameter group of diffeomorphisms, then we define its \emph{infinitesimal generator} as the (complete) vector field\footnote{In a more compact form, we have just written $X_p = \frac{d}{dt}|_{t=0}\varphi_t(p)$.}
+
+  \begin{marginfigure}
+    \includegraphics{3_2_14-infgen.pdf}
+  \end{marginfigure}
+  If $\{\varphi_t\}$ is a one-parameter group of diffeomorphisms, then we define its \emph{infinitesimal generator} as the (complete) vector field\footnote{Or, more compactly, ${X_p = \frac{d}{dt}\big|_{t=0}\varphi_t(p)}$.}
   \begin{equation}\label{eq:infgen}
     X_p := d\varphi_{(0,p)}\left(\frac{\partial}{\partial t}\Big|_{(0,p)}\right).
   \end{equation}
@@ -601,10 +622,6 @@ For a complete vector field $X$, $\cD = \R\times M$.
   \includegraphics{3_1-vfield-infgen.pdf}%
   \caption{One can think of a flow as a sequence of many infinitesimal straight motions determined by the value of the vector field, that is where ``infinitesimal generator'' comes from. We will soon make this rigorous.}%
   \label{fig:3_1-vfield-infgen}
-\end{marginfigure}
-
-\begin{marginfigure}
-  \includegraphics{3_2_14-infgen.pdf}
 \end{marginfigure}
 
 \begin{exercise}

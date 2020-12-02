@@ -553,7 +553,7 @@ In fact we know more, since Proposition~\ref{prop:DiffCoords} tells us that the 
   \end{tikzcd}.
 \end{equation}
 
-More generally, the same kind of reasoning shows the following fact. For any smooth map $F:M^m \to N^n$ between smooth manifolds, if $\varphi$ is a chart about $p\in M$ with coordinates $(x^i)$ and $\psi$ is a chart about $F(p)\in N$ with coordinates $(y^i)$, the following diagram commutes:
+More generally, the same kind of reasoning shows the following fact. For any smooth map $F:M^m \to N^n$ between smooth manifolds, if $\varphi$ is a chart about $x\in M$ with coordinates $(x^i)$ and $\psi$ is a chart about $y=F(x)\in N$ with coordinates $(y^i)$, the following diagram commutes:
 \marginnote{Recall that the following commutes: \begin{equation}
   \begin{tikzcd}[row sep=huge, column sep=huge, ampersand replacement=\&]
     M \arrow[r, "F"] \arrow[d, "\varphi"] \& N \arrow[d, "\psi"]\\
@@ -569,7 +569,7 @@ More generally, the same kind of reasoning shows the following fact. For any smo
     & T_{F(x)}N
   \end{tikzcd},
 \end{equation}
-where $T_p$ and $T_{F(x)}$ are defined as above.
+where $T_x$ and $T_{F(p)}$ are defined as above.
 
 \newthought{An aspect of the construction above is particularly disturbing}: it forced us to fix a basis on the spaces; if this was truly necessary it would defeat the purpose of this whole chapter.
 Fortunately for us, the following exercise shows that, at any given point, the tangent space to a vector space is \emph{canonically}\footnote{That is, independently of the choice of basis.} identified with the vector space itself.
@@ -1047,7 +1047,7 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
 
 Before moving on, it is useful to recall some results from multivariable analysis.
 A function $f:\R^m \to \R^n$ between euclidean spaces has rank $k$ at $x\in\R^m$ if its ($n\times m$) Jacobian matrix $Df(x)$ has rank $k$.
-The function has \emph{maximal rank} at $x$ if $k = \min(n,m)$.
+The function has \emph{maximal rank}\footnote{Alternatively, it is of \emph{full rank}.} at $x$ if $k = \min(n,m)$.
 When $n=m$, $f$ has maximal rank at $x$ if and only if the square matrix $DF(x)$ is an invertible matrix.
 
 As for many local properties, this definition carries over to manifolds rather ``smoothly''.
@@ -1227,9 +1227,9 @@ We can gather this observation and the previous results (the inverse and the imp
 \begin{exercise}[\textit{[homework 2]}]
   Let $M$ be a smooth $m$-manifold and $N$ a smooth $n$-manifold.
   Let $F:M\to N$ be an embedding and denote $\widetilde M = F(M)\subset N$.
-  \begin{enumerate}[(a)]
-    \item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\Big|_{\widetilde M}$, is a subbundle of $TN\Big|_{\widetilde M}$ by providing explicit local trivialisations in terms of the charts $(U, \varphi)$ for $M$.
-    \item Assume that there exist a smooth function $\Phi:N\to\R^{n-k}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that
+  \begin{enumerate}
+    \item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\big|_{\widetilde M}$, is a subbundle of $TN\big|_{\widetilde M}$ by providing explicit local trivialisations in terms of the charts $(U, \varphi)$ for $M$.
+    \item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that
     \begin{equation}
       T\widetilde{M} = \{(p,v)\in TN|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\}.
     \end{equation}
