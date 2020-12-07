@@ -152,7 +152,7 @@ We are finally ready to see how Lie groups and Lie algebras ended up being relat
 
 \begin{definition}
   Let $G$ be a Lie group.
-  We define the \emph{Lie algebra} of $G$, usually denoted $\fg$, as the tangent space to $G$ at the identity element $e$:
+  We define the \emph{Lie algebra} of $G$, usually denoted\marginnote{Sometimes you find $\mathrm{Lie}(G)$.} $\fg$, as the tangent space to $G$ at the identity element $e$:
   \begin{equation}
     \fg := T_e G.
   \end{equation}
@@ -164,7 +164,7 @@ We are going to prove this very soon, but let's first look at some examples.
 \begin{example}
   \begin{enumerate}
     \item The Lie algebra of $GL(n)$ is $\mathfrak{gl}(n)\simeq \mathrm{Mat}(n)$.
-    \item The Lie algebra of $O(n)$ is $\mathfrak{o}{n} = \{A \in \mathfrak{gl}(n) \mid A+A^T = 0\}$. You have shown it in Exercise~\ref{exe:onsubmanifold}.
+    \item The Lie algebra of $O(n)$ is $\mathfrak{o}(n) = \{A \in \mathfrak{gl}(n) \mid A+A^T = 0\}$. You have shown it in Exercise~\ref{exe:onsubmanifold}.
   \end{enumerate}
 \end{example}
 
@@ -180,9 +180,10 @@ Before proceeding we need to introduce some more notation.
   A vector field $X\in\fX(G)$ is called \emph{left-invariant} if
   \marginnote{That is, if for all $g,h\in G$ we have \begin{equation}
     d(L_g)_h X_h = X_{gh}.
-  \end{equation}}
+  \end{equation}
+  Indeed, ${X = (L_g)_* X = d(L_g)\circ X \circ (L_{g})^{-1}}$ if and only if $X \circ L_{g} = d(L_g)\circ X$.}
   \begin{equation}
-    (L_g)_*X = X \quad \forall g\in G.
+    (L_g)_*X = X\circ L_g \qquad \forall g\in G.
   \end{equation}
   We denote the set of left-invariant vector fields by $\fX_L(G)\subset \fX(G)$.
 \end{definition}
@@ -210,10 +211,11 @@ Before proceeding we need to introduce some more notation.
 \end{exercise}
 
 \begin{remark}
-  The Lie algebra of all smooth left-invariant vector fields on a Lie group $G$, which we denoted $\fX_L(G)$, is called the \emph{Lie algebra of $G$} and is commonly denoted by $\mathrm{Lie}(G)$.
+  The Lie algebra of all smooth left-invariant vector fields on a Lie group $G$, which we denoted $\fX_L(G)$ and is a subalgebra of $\fX(G)$, is also called the \emph{Lie algebra of $G$}.
+  In the next theorem we are going to see that this is isomorphic to the one defined above in terms of tangent at the identity.
 \end{remark}
 
-A fundamental fact is that $\fX(G)$ is finite dimensional.
+A fundamental difference with the Lie algebra of vector fields is that $\fX_L(G)$ is finite dimensional.
 
 \begin{theorem}
   Let $G$ be a Lie group. The evaluation map 
@@ -225,24 +227,26 @@ A fundamental fact is that $\fX(G)$ is finite dimensional.
   Thus, $\fX_L(G)$ is finite dimensional with the same dimension as $G$.
 \end{theorem}
 \begin{proof}
-  \begin{itemize}
-    \item Linearity is immediate.
-    \item Injectivity follows almost immediately from the left-invariance. Indeed, if $\mathrm{eval}(X) = X_e = 0$ for some $X\in\fX_L(G)$, then the left-invariance of $X$ implies that $X_g = d(L_g)_e(X_e) = 0$ for every $g\in G$, thus $X\equiv0$.
-    \item Let's show that it is sujective. Fix an arbitrary $v\in \fg = T_eG$ and define the map $v^L:G\to TG$ by
+    \newthought{Linearity}. Immediate (why?).
+
+    \newthought{Injectivity}. Follows immediately from the left-invariance: if $\mathrm{eval}(X) = X_e = 0$ for some $X\in\fX_L(G)$, then the left-invariance of $X$ implies that $X_g = d(L_g)_e(X_e) = 0$ for every $g\in G$, thus $X\equiv0$.
+    
+    \newthought{Surjectivity}.
+    Fix an arbitrary $v\in \fg = T_eG$ and define the map $v^L:G\to TG$ by
     \begin{equation}
       v^L(g) := d(L_g)_e(v).
     \end{equation}
     By construction, $v^L$ satisfies the section property\footnote{If you don't know what we are talking about, have another look at Definition~\ref{def:vfield}.}, since $\d(L_g)_e:T_eG\to T_gG$.
     \begin{itemize}
-      \item $v^L$ is a vector field: we will show that $v^L g$ is smooth for any $f\in C^\infty(G)$.
+      \item $v^L$ is a vector field: we will show that $v^L_g f := v^L(g) f$ is smooth for any $f\in C^\infty(G)$.
       To this end, pick a smooth curve $\gamma:(-\epsilon,\epsilon)\to G$ such that $\gamma(0)=e$ and $\gamma'(0) = v$. Then, for any $g\in G$ we have
       \begin{align}
-        (v^L f)(g) &= v^L(g) f \\
+        v^L_g f &= v^L(g) f \\
         &= d(L_g)_e(v) f\\
         &= v(f\circ L_g) \\
         &= (f\circ L_g\circ \gamma)'(0).
       \end{align}
-      If we define $\varphi:(-\delta, \delta)\times G \to \R$ by $\varphi(t,g) = f\circ L_g\circ \gamma(t) = f(g\gamma(t))$, the computation above shows that $(v^Lf)(g) = \frac{\partial \varphi}{\partial t}(0, g)$.
+      If we define $\varphi:(-\delta, \delta)\times G \to \R$ by $\varphi(t,g) = f\circ L_g\circ \gamma(t) = f(g\gamma(t))$, the computation above shows that $v^L_gf = \frac{\partial \varphi}{\partial t}(0, g)$.
       Since $\varphi$ is the composition of smooth functions, it is smooth, and thus $v^L f$ is smooth.
       \item $v^L$ is left-invariant. 
       Indeed, for any $g,h\in G$, we have
@@ -255,7 +259,6 @@ A fundamental fact is that $\fX(G)$ is finite dimensional.
     \end{itemize}
     Thus $v^L\in\fX_L(G)$.
     Since $\mathrm{eval}(v^L) = v^L(e) = v$, the map $\mathrm{eval}$ is surjective, concluding the proof.
-  \end{itemize}
 \end{proof}
 
 \begin{corollary}
@@ -264,7 +267,7 @@ A fundamental fact is that $\fX(G)$ is finite dimensional.
 \end{corollary}
 \begin{proof}
   We just need to define a Lie bracket on $\fg$.
-  But this is first done than said: using the notation of the previous theorem, set
+  But this is easier done than said: using the notation of the previous theorem, set
   \begin{equation}
     [v,w] := \mathrm{eval}([v^L, w^L]), \quad \forall v,w\in\fg.
   \end{equation}
@@ -276,7 +279,7 @@ Another immediate consequence of this proposition is that every left-invariant v
   Let $G$ be a Lie group and $v\in\fX_L(G)$.
   Then $v$ is complete.
 \end{proposition}
-\begin{exercise}
+\begin{exercise}\textit{[homework 3]}
   Prove the proposition.\\  
   \textit{\small Hint: extend a curve starting at $e$ to a curve starting at $g$.}
 \end{exercise}
@@ -285,7 +288,7 @@ Another immediate consequence of this proposition is that every left-invariant v
   Every Lie group admits a smooth global frame of  left-invariant vector fields, and therefore every Lie group is parallelizable.
 \end{corollary}
 \begin{proof}
-  Every basis for $\fX_L$ is a left-invatiant smooth global frame for $G$.
+  Every basis for $\fX_L$ is a left-invariant smooth global frame for $G$.
 \end{proof}
 
 Just as we can view the tangent space as a ``linear model'' of a smooth manifold near a point, the Lie algebra of a Lie group provides a ``linear model'' of the group, which reflects many of the properties of the group.

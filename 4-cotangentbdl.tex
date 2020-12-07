@@ -25,10 +25,12 @@ In the previous chapter we defined the tangent space as a special vector space o
   The elements of $T^*_pM$ are called \emph{cotangent vectors}, \emph{covectors} or \emph{(differential) $1$-forms} at $p$.
 \end{definition}
 
-For a function $f:\R^n\to\R$, we usually consider the gradient $\nabla f(x)$ at a point $x$ to be a vector, on a manifold however things a slightly different.
+For a function $f:\R^n\to\R$, we usually consider the gradient $\nabla f(x)$ at a point $x$ to be a vector.
+On a manifold however things a slightly different.
 
 \begin{example}[The differential of a function]
-  Let $f\in C^\infty(M)$. Let's look carefully at its differential:
+  Let $f\in C^\infty(M)$.
+  Let's look carefully at its differential:
   \begin{equation}
     df_p: T_p M \to T_{f(p)}\R \simeq \R
   \end{equation}
@@ -58,8 +60,8 @@ That is, we can think of the dual pairing $(df\mid v)$ in a twofold way:
 \end{notation}
 
 To look more concretely at differential forms, let's compute its coordinate representation.
-Let $(U,\varphi)$ be a chart on $M^n$ with local coordinates $(x^i)$.
-Since the coordinate functions $x^i\in C^\infty(U)$, we can define the corresponding coordinate $1$-forms $dx^i|_p \in T_p^* M$.
+Let $(U,(x^i))$ be a chart on $M^n$.
+Since the coordinate functions $x^i\in C^\infty(U)$ are smooth real valued functions, we can define the corresponding coordinate $1$-forms $dx^i|_p \in T_p^* M$.
 Their action on the coordinate vector fields, then, is immediately computed as
 \begin{equation}
   \left(dx^i|_p ,\; \frac{\partial}{\partial x^j}\Big|_p\right) =
@@ -71,7 +73,7 @@ Which proves the following statement.
 
 \begin{proposition}
   Let $(x^i)$ be local coordinates on an open subset $U\subseteq M^n$.
-  At each point $p\in U$, the covectors $(dx^1|_p, \ldots, dx^n_p)$ form a basis for the cotangent space $T_p^* M$ which is dual to the basis $\frac{\partial}{\partial x^1}\Big|_p, \ldots, \frac{\partial}{\partial x^n}\Big|_p$ for the tangent space $T_p M$.
+  At each point $p\in U$, the covectors $\left\{dx^1|_p, \ldots, dx^n|_p\right\}$ form a basis for the cotangent space $T_p^* M$ which is dual to the basis $\left\{\frac{\partial}{\partial x^1}\Big|_p, \ldots, \frac{\partial}{\partial x^n}\Big|_p\right\}$ for the tangent space $T_p M$.
 \end{proposition}
 
 That is, any $1$-form $\omega$ can be locally written as a linear combination
@@ -102,6 +104,15 @@ That is, the local expression for $df$ is
   \end{equation}
 \end{remark}
 
+\begin{example}\label{ex:diff1}
+  If $f(x,y) = x y^2 e^{3x}$ on $\R^2$, then $df$ is given by the formula
+  \begin{align}
+    df
+    &= \frac{\partial (x y^2 e^{3x})}{\partial x} dx + \frac{\partial (x y^2 e^{3x})}{\partial y} dy \\
+    &= (y^2 e^{3x} +3xy^2 e^{3x}) dx + 2xy e^{3x} dy.
+  \end{align}
+\end{example}
+
 With the local basis, computing with covectors becomes much easier.
 Given a covector $\omega = \omega_j\; dx^j$ and a vector $v = v^i \frac{\partial}{\partial x^i}$ expressed in the respective coordinate bases for the local coordinates $(x^i)$, by linearity in both arguments the dual pairing takes the form
 \begin{equation}\label{eq:localdualpairing}
@@ -110,6 +121,17 @@ Given a covector $\omega = \omega_j\; dx^j$ and a vector $v = v^i \frac{\partial
   \omega_j v^i \left(dx^j \;\Big |\; \frac{\partial}{\partial x^i} \right) =
   \omega_j v^j.
 \end{equation}
+
+\begin{example}
+  Let, now, $v = 7 \frac{\partial}{\partial x}\Big|_{(1,2)} + 3 \frac{\partial}{\partial y}\Big|_{(1,2)}\in T_{(1,2)}\R^2$, and $f$ from Example~\ref{ex:diff1}.
+  We have
+  \begin{align}
+    (df|_{(1,2)}, v)
+    &= \left((y^2 e^{3x} +3xy^2 e^{3x}) dx + 2xy e^{3x} dy, 7 \frac{\partial}{\partial x} + 3 \frac{\partial}{\partial y} \right)\Big|_{(1,2)} \\
+    &= 7(y^2 e^{3x} +3xy^2 e^{3x})|_{(1,2)} + 6 xy e^{3x}|_{(1,2)} \\
+    &= 7(4 e^3 + 12 e^3) + 12 e^3 = 52e^3.
+  \end{align}
+\end{example}
 
 \begin{exercise}
   Let $M$ be a smooth manifold and let $f,g\in C^\infty(M)$. Show that the following properties hold:
@@ -153,10 +175,10 @@ This should start giving you an idea of what is behind the following famous quot
 \section{Change of coordinates}
 
 In Remark~\ref{rmk:chg_coords} we have seen that if we have two different charts with local coordinates $(x^i)$ and $(y^i)$ on a smooth manifold $M$,
-\marginnote{Let's denote the two charts respectively by $\varphi$ and $\psi$, then if $\varphi = \psi\circ\varphi^{-1}$ is the corresponding transition map, one has \begin{equation}
-  \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p = (D\varphi(p))_i^j \frac{\partial}{\partial y^j}\Big|_p,
+\marginnote{Let's denote the two charts respectively by $\varphi$ and $\psi$, then if $\phi = \psi\circ\varphi^{-1}$ is the corresponding transition map, one has \begin{equation}
+  \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p = (D\phi(p))_i^j \frac{\partial}{\partial y^j}\Big|_p,
 \end{equation}
-where $D\varphi$ is the Jacobian matrix of the transition map.}
+where $D\phi$ is the Jacobian matrix of the transition map.}
 \begin{equation}
   \frac{\partial}{\partial x^i}\Big|_p = \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p.
 \end{equation}
@@ -193,11 +215,11 @@ As we have seen, the differential of a smooth map yields a linear map between ta
 Its dual is going to be a map that pulls vector form one covector space to another.
 
 \begin{definition}\label{def:pullback:oneform}
-  Let $F:M\to N$ be a smooth map between smooth manifolds, let $\omega\in T^*_pM$ for some $p\in M$.
+  Let $F:M\to N$ be a smooth map between smooth manifolds, let $\omega\in T^*_{F(p)}N$ for some $p\in M$.
   The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the differential
   \marginnote[-1.5em]{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
   \begin{equation}
-    dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto F^*\omega,
+    dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto dF^*\omega,
   \end{equation}
   defined by duality in the following way\footnote{Or, omitting the point of application, $\left(dF^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
   \begin{equation}
@@ -205,8 +227,8 @@ Its dual is going to be a map that pulls vector form one covector space to anoth
     \forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
   \end{equation}
 \end{definition}
-\marginnote{Equations are getting more and more ticky: this kind of dimensional analysis is extremely useful to check that you are doing the right thing.}
-\noindent Let's check that the definition above makes sense: $dF^*_p \omega \in T^*_p M$ so $v\in T_p M$, but $\omega\in T^*_{F(p)}N$ so $df_p(v)\in T_{F(p)}N$ since $dF_p: T_pM\to T_{F(p)}N$.
+\marginnote{Equations are getting more and more tricky: this kind of dimensional analysis is extremely useful to check that you are doing the right thing.}
+\noindent Let's check that the definition above makes sense: $dF^*_p \omega \in T^*_p M$ so $v\in T_p M$, but $\omega\in T^*_{F(p)}N$ so $dF_p(v)\in T_{F(p)}N$ since $dF_p: T_pM\to T_{F(p)}N$.
 
 \section{One-forms and the cotangent bundle}
 
@@ -238,20 +260,10 @@ The cotangent spaces are the fibres of the cotangent bundle.
   %   \left(\varphi_i, (\varphi_i^{-1})^*\right) : T^* U_i &\to T^*\varphi(U_i),\\
   %   (p, \omega) &\mapsto \left(\varphi_i(p), d(\varphi_i^{-1})^*)_p\omega \right).
   % \end{align}
-  \begin{exercise}
+  \begin{exercise}\textit{[homework 3]}
     Mimicking what we did for Theorem~\ref{thm:tgbdlsmoothmfld}, complete this proof.
   \end{exercise}
 \end{proof}
-
-Since differential forms are dual objects to vector fields, the action of a form $\omega$ on $X\in\fX(M)$ is well--defined and pointwise defines a function
-\begin{equation}
-  (\omega \mid X) : p \mapsto (\omega_p \mid X_p).
-\end{equation}
-
-\begin{exercise}
-The differential form $\omega$ is smooth if and only if, for every smooth vector field $X\in\fX(M)$, the function $(\omega \mid X)\in C^\infty(M)$.
-\textit{\small Hint: write it down in local coordinates.}
-\end{exercise}
 
 \begin{definition}
   A \emph{covector field} or a \emph{(differential) $1$-form} on $M$ is a smooth section of $T^*M$.
@@ -278,6 +290,16 @@ As smooth sections of a vector bundle, covector fields can be multiplied by smoo
 \end{equation}
 Also in this case, $\fX^*(M)$ is a module over $C^\infty(M)$.
 
+Since differential 1-forms are dual objects to tangent vectors, the action of a form $\omega$ on $X\in\fX(M)$ is well--defined and pointwise defines a function
+\begin{equation}
+  (\omega \mid X) : p \mapsto (\omega_p \mid X_p).
+\end{equation}
+
+\begin{exercise}
+The differential form $\omega$ is smooth if and only if, for every smooth vector field $X\in\fX(M)$, the function $(\omega \mid X)\in C^\infty(M)$.
+\textit{\small Hint: write it down in local coordinates.}
+\end{exercise}
+
 \begin{definition}
   The pullback of covectors immediately extends to covector fields.
   The \emph{pullback} is the map
@@ -294,7 +316,7 @@ Also in this case, $\fX^*(M)$ is a module over $C^\infty(M)$.
   \end{equation}
 \end{definition}
 
-\begin{exercise}\label{ex:propdiff}
+\begin{exercise}[\textit{[homework 3]}]\label{ex:propdiff}
   Let $F:M\to N$ be a smooth map between smooth manifolds.
   Suppose $f$ is a continuous real valued function on $N$ and $\omega\in\fX^*(M)$ is a covector field on $N$. Then
   \begin{equation}
@@ -308,7 +330,20 @@ Also in this case, $\fX^*(M)$ is a module over $C^\infty(M)$.
  \textit{\small Hint: apply the equations at a point $p\in M$ and keep rewriting the equations in different forms.}
 \end{exercise}
 
-This exercise is particularly interesting if we look at it in relation to the pushforward.
+\begin{exercise}
+  Let $F:M\to N$ smooth map between smooth manifolds.
+  For $p\in M$, denote $(V, (y^i))$ a chart on $N$ around $F(p)$ and let $U=F^{-1}(N)$.
+  If $\omega = \omega_j dy^j \in\fX^*(N)$, apply twice Exercise~\ref{ex:propdiff} to show that in $U$
+  \begin{equation}
+    F^*\omega = (\omega_j\circ F) d(y^j \circ F).
+  \end{equation}
+
+  Let $F:\R^3\to\R^2$ be the map $(u,v) = F(x,y,z) = (x y^2, y \sin z)$.
+  Let $\omega\in\fX^*(\R^2)$ denote the covector field $\omega(u,v) = u dv - v du$.
+  Compute $F^* \omega$.
+\end{exercise}
+
+Exercise~\ref{ex:propdiff} is particularly interesting if we look at it in relation to the pushforward.
 \begin{proposition}
   Let $F:M\to N$ be a diffeomorphism and $X\in\fX(M)$.
   Then, for any $f\in C^\infty(N)$,
