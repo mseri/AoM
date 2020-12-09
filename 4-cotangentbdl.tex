@@ -250,7 +250,7 @@ The cotangent spaces are the fibres of the cotangent bundle.
   The smooth structure on $M$ naturally induces a smooth structure on $T^*M$, making $T^*M$ into a smooth manifold of dimension $2n$ for which all coordinate covector fields are smooth local sections.
 \end{theorem}
 \begin{proof}
-  The proof is analogous to that of Theorem~\ref{thm:tgbdlsmoothmfld}, so we will not do it again.
+  % The proof is analogous to that of Theorem~\ref{thm:tgbdlsmoothmfld}, so we will not do it again.
   % The atlas is obtained by an atlas $\{(U_i, \varphi_i)\}$ of $M$ by defining the new atlas
   % \begin{equation}
   %   \left\{ T^* U_i, \left(\varphi_i, d(\varphi_i^{-1})^*\right)\right\}
@@ -318,7 +318,7 @@ The differential form $\omega$ is smooth if and only if, for every smooth vector
 
 \begin{exercise}[\textit{[homework 3]}]\label{ex:propdiff}
   Let $F:M\to N$ be a smooth map between smooth manifolds.
-  Suppose $f$ is a continuous real valued function on $N$ and $\omega\in\fX^*(M)$ is a covector field on $N$. Then
+  Suppose $f$ is a continuous real valued function on $N$ and $\omega\in\fX^*(N)$ is a covector field on $N$. Then
   \begin{equation}
     F^*(f\omega) = (f\circ F)F^*\omega.
   \end{equation}
@@ -348,7 +348,7 @@ Exercise~\ref{ex:propdiff} is particularly interesting if we look at it in relat
   Let $F:M\to N$ be a diffeomorphism and $X\in\fX(M)$.
   Then, for any $f\in C^\infty(N)$,
   \begin{equation}
-    X(f^* F) = F_*X(f) \circ F.
+    X(F^* f) = F_*X(f) \circ F.
 \end{equation}
 \end{proposition}
 \begin{proof}
@@ -357,12 +357,12 @@ Exercise~\ref{ex:propdiff} is particularly interesting if we look at it in relat
   F_*X(f) \circ F(p) &= ((F_*X) f) (F(p)) = (F_*X)_{F(p)} f \\
   &= (dF \circ X \circ F^{-1})(F(p)) f = (dF\circ X)(p) f \\
   &= dF_p(X_p) f, \\
-  X (f^*F)(p) & = X(f\circ F)(p) = X_p(f\circ F) = dF_p(X_p) f \\
-    &= d (f\circ F) \circ X = df \circ dF \circ X \\
-    & = df \circ F_* X \circ F = F_* X (f) \circ X.
+  X (F^*f)(p) & = X(f\circ F)(p) = X_p(f\circ F) = dF_p(X_p) f \\
+    % &= d (f\circ F) \circ X = df \circ dF \circ X \\
+    % & = df \circ F_* X \circ F = F_* X (f) \circ F.
 \end{align}
 \end{proof}
-In this case you often say that the vector fields are $F$-related or that they behave naturally: you can either pull back the function $f$ to $M$ or push forward the vector field $X$ to $N$.
+In this case you often say that the vector fields are $F$-related\footnote{This is a definition that can be properly formalized, but we will not spend any time on it in during the course.} or that they behave naturally: you can either pull back the function $f$ to $M$ or push forward the vector field $X$ to $N$.
 
 \begin{exercise}
   Let $\{\rho\alpha\}$ denote a partition of unity on a manifold $M$ subordinate to an open cover $\{U_\alpha\}$.
@@ -397,7 +397,7 @@ The surprising thing about covectors is that covector fields always pull back to
 \begin{example}[Tautological one-form]
   On $T^*M$ there is a $1$-form, called\footnote{As usual there are different names: two other common ones are \emph{Liouville form} or \emph{Poincar\'e form}, but don't be suprised if you find more.} \emph{tautological one-form}, defined as follows.
 
-  A point in $T^*M$ is a covector $\omega_p\in T^*_p M$ at some point $p\in M$. If $X_{\omega_p}\in T_{\omega_p}(T^*M)$ is a tangent vector to $T^*M$ at $\omega_p$, then the pushforward $\pi_*(X_{\omega_p})\in T_p M$ is a tangent vector to $M$ at $p$.
+  A point in $T^*M$ is a covector $\omega_p\in T^*_p M$ at some point $p\in M$. If $X_{\omega_p}\in T_{\omega_p}(T^*M)$ is a tangent vector to $T^*M$ at $\omega_p$. Let $\pi:T^*M \to M$, then the pushforward $\pi_*(X_{\omega_p})\in T_p M$ is a tangent vector to $M$ at $p$.
   Therefore, one can pair $\omega_p$ and $\pi_*(X_{\omega_p})$ to obtain a real number $\left(\omega_p\;\big|\;\pi_*(X_{\omega_p})\right)$.
   The tautological one-form $\theta\in\fX^*(T^*M)$ is then defined as
   \begin{equation}
@@ -416,9 +416,9 @@ The pullback is a rather pervasive concept, and does provide us a new way to exp
   \begin{equation}
     F^* E := \left\lbrace (p, v) \in M\times E \mid F(p) = \pi(v)\right\rbrace,
   \end{equation}
-  with the projection $\pi_1:F^* E \to M$.
+  with the projection $\Pi_1:F^* E \to M$.
   The fibre of $F^*E$ over $p\in M$, then, is $\{p\}\times E_{F(p)}$, which under $\Pi_2:F^* E \to E$ is diffeomorphic to $E_{F(p)}$.
-  If $\varphi : \pi^{-1}(U) \to U\times\R^r$ is a bundle diffeomorphism for $E$, then $\varphi\circ\pi_2: \Pi_1^{-1}(F^{-1}(U)) \to U\times\R^r$ is a bundle diffeomorphism for $F^*E$.
+  If $\varphi : \pi^{-1}(U) \to U\times\R^r$ is a bundle diffeomorphism for $E$, then $\varphi\circ\Pi_2: \Pi_1^{-1}(F^{-1}(U)) \to U\times\R^r$ is a bundle diffeomorphism for $F^*E$.
   This $F^*E$ is a vector bundle of rank $r$ over $M$. 
   In summary, the following diagram commutes:
   \begin{equation}
