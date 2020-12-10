@@ -320,13 +320,13 @@ The differential form $\omega$ is smooth if and only if, for every smooth vector
   Let $F:M\to N$ be a smooth map between smooth manifolds.
   Suppose $f$ is a continuous real valued function on $N$ and $\omega\in\fX^*(N)$ is a covector field on $N$. Then
   \begin{equation}
-    F^*(f\omega) = (f\circ F)F^*\omega.
+    F^*(f\omega) = (f\circ F)F^*\omega := F^* f\; F^*\omega,
   \end{equation}
+  where we introduced the \emph{pullback} of a smooth function as $F^*g := g\circ F$.
   If in addition $f\in C^\infty(N)$, then
   \begin{equation}
-    F^* df = d (f\circ F) =: d (F^* f),
+    F^* df = d (f\circ F) = d (F^* f),
   \end{equation}
-  where we introduced the \emph{pullback} of the function $f$ as $f^*g := g\circ f$.\\
  \textit{\small Hint: apply the equations at a point $p\in M$ and keep rewriting the equations in different forms.}
 \end{exercise}
 
