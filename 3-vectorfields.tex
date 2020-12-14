@@ -41,12 +41,14 @@ This defines $n$ functions $X^i: U\to\R$, called \emph{component functions of $X
   The set $\{\frac{\partial}{\partial x^1}\big|_p, \ldots, \frac{\partial}{\partial x^n}\big|_p\}$ is a local frame for $TM$.
 \end{example}
 
+%TODO: make this a remark next year
 The space of smooth vector fields is a vector space under pointwise addition and scalar multiplication: for all $p\in M$, $X,Y\in\fX(M)$, $\alpha, \beta \in \R$, we have
 \begin{equation}
   (\alpha X + \beta Y)_p = \alpha X_p + \beta Y_p.
 \end{equation}
 The zero element of the vector space, called \emph{zero vector field}, is the vector field whose values is $0\in T_pM$ for all $p\in M$.
 Moreover, each vector field can be multiplied by smooth functions $f\in C^\infty(M)$ by defining $fX:M\to  TM$ by
+\marginnote{Be carefur, we are talking about two different structures here: $\fX(M)$ is both a real vector space and a $C^\infty(M)$-module.}
 \begin{equation}
   (fX)_p = f(p)X_p.
 \end{equation}
