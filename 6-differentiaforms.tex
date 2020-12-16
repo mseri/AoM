@@ -43,7 +43,7 @@ This leads naturally to the following definition.
 
 \begin{definition}
   Let $V$ be a real $n$-dimensional vector space.
-  Given $k$ covectors $\omega^1, \ldots, \omega^n\in T_1^0(V)$, their \emph{wedge product} (or \emph{exterior product}) $\omega^1\wedge\ldots\wedge\omega^k$ is defined by
+  Given $k$ covectors $\omega^1, \ldots, \omega^k\in T_1^0(V)$, their \emph{wedge product} (or \emph{exterior product}) $\omega^1\wedge\ldots\wedge\omega^k$ is defined by
   \begin{equation}
     \left(
       \omega^1\wedge\ldots\wedge\omega^k\,\mid\, v_1,\ldots,v_k
@@ -145,18 +145,18 @@ There is an extra bit of notation, also common in higher-dimensional analysis, t
   Defining $e^I := e^{i_1}\wedge\cdots\wedge e^{i_k}$, we finally get the more compact notation $\omega = \omega_I e^I$.
 \end{notation}
 
-In general, the tensor product $\omega\otimes\nu\in T_{k+h}^0(V)$ of alternating forms $\omega\in\Lambda^k$ and $\nu\in\Lambda^{h}$.
+In general, the tensor product $\omega\otimes\nu\in T_{k+h}^0(V)$ of alternating forms $\omega\in\Lambda^k$ and $\nu\in\Lambda^{h}$ is not an alternating form.
 The following proposition gives us a tool to define an exterior product of alternating forms.
 
 \begin{proposition}
   Let $\Alt_k: T_k^0(V)\to \Lambda^k(V)$ be the map defined by
   \begin{equation}
-    (\Alt_k\tau)(v_1,\ldots,v_k) := \frac1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) \tau(u_{\sigma(1)}, \ldots, u_{\sigma(k)}),
+    (\Alt_k\tau)(v_1,\ldots,v_k) := \frac1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) \tau(v_{\sigma(1)}, \ldots, v_{\sigma(k)}),
     \qquad \forall v_1,\ldots,v_k \in V.
   \end{equation} 
   Then $\Alt_k$ is a linear projection and the following holds:
   \begin{equation}
-    \omega_1 \wedge \cdots \wedge \omega_k = k! \Alt_k(\omega_1 \otimes \cdots \otimes \omega_k).
+    \omega^1 \wedge \cdots \wedge \omega^k = k! \Alt_k(\omega^1 \otimes \cdots \otimes \omega^k).
   \end{equation}
 \end{proposition}
 \begin{proof}
@@ -234,8 +234,8 @@ There is an extremely important operation that relates vectors with alternating 
   \end{equation}
 \end{definition}
 
-In other words, $i_v\omega$ is obtained from $\omega$ by inserting $v$ into ``the first slot''.
-By convention $i_v\omega = 0$ if $\omega\in\Lambda^0$.
+In other words, $\iota_v\omega$ is obtained from $\omega$ by inserting $v$ into ``the first slot''.
+By convention $\iota_v\omega = 0$ if $\omega\in\Lambda^0$.
 
 \begin{lemma}
   Let $V$ be a real $n$-dimensional vector space and $v\in V$.
@@ -244,7 +244,7 @@ By convention $i_v\omega = 0$ if $\omega\in\Lambda^0$.
     \item $\iota_v\circ \iota_v = 0$ and, thus, $\iota_v\circ\iota_u = \iota_u\circ\iota_v$;
     \item if $\omega\in\Lambda^k$ and $\nu\in\Lambda^h$,
     \begin{equation}
-      \iota_v(\omega\wedge\nu) = (\iota_v\omega)\wedge\eta + {(-1)}^k\omega\wedge(\iota_v\eta).
+      \iota_v(\omega\wedge\eta) = (\iota_v\omega)\wedge\eta + {(-1)}^k\omega\wedge(\iota_v\eta).
     \end{equation}
   \end{enumerate}
 \end{lemma}
@@ -255,8 +255,8 @@ By convention $i_v\omega = 0$ if $\omega\in\Lambda^0$.
 \section{Differential forms on manifolds}
 
 It is time to turn our attention back to smooth manifolds.
-Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the tensor fields $\cT_s^r(M)$ as the space of $(r,s)$-tensor bundles $T_s^r(M)$ over $M$.
-The subset of $\cT_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda^k(M):= \bigsqcup_{p\in M} \Lambda^k(T_p M)$.
+Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the tensor fields $\cT_s^r(M)$ as the sections of $(r,s)$-tensor bundles $T_s^r(M)$ over $M$.
+The subset of $T_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda^k(M):= \bigsqcup_{p\in M} \{p\}\times \Lambda^k(T_p M)$.
 \begin{definition}
   The sections of $\Lambda^k(M)$ are called \emph{differential $k$-forms}, or just $k$-forms: these are smooth tensor fields whose values at each point are alternating tensors. The integer $k$ is called the \emph{degree} of the $k$-form.
   
@@ -293,9 +293,9 @@ In fact, it is a direct consequence of our previous observations.
   \begin{equation}
     F^*(\omega\wedge\nu) = F^*\omega \wedge F^*\nu,
   \end{equation}
-  and, if $(q^i)$ denote a local chart on $U\subset N$, locally
+  and, if $(x^i)$ denote some local coordinates on $U\subset N$, locally
   \begin{equation}
-    F^*\left(\omega_J dq^J\right) = (\omega_{j_1,\ldots, j_k}\circ F) d(q^{j_1}\circ F)\wedge\cdots\wedge d(q^{j_k}\circ F).
+    F^*\left(\omega_J dx^J\right) = (\omega_{j_1,\ldots, j_k}\circ F) d(x^{j_1}\circ F)\wedge\cdots\wedge d(x^{j_k}\circ F).
   \end{equation}
 \end{theorem}
 \begin{exercise}
@@ -320,9 +320,9 @@ Of course, the same technique can also be used to compute the expression for a d
   Let $\omega = dx\wedge dy$ on $\R^2$.
   Consider the polar coordinates $(x,y)\mapsto (\rho\cos(\theta),\rho\sin(\theta))$, then
   \begin{align}
-    dx\wedge dy &= d(\rho\cos\theta)\wedge d(v\sin\theta) \\
-    &= (\cos\theta d\rho -\rho\sin\theta d\theta)\wedge (\sin\theta dr + r\cos\theta d\theta) \\
-    &= r dr\wedge d\theta.
+    dx\wedge dy &= d(\rho\cos\theta)\wedge d(\rho\sin\theta) \\
+    &= (\cos\theta d\rho -\rho\sin\theta d\theta)\wedge (\sin\theta d\rho + \rho\cos\theta d\theta) \\
+    &= \rho d\rho\wedge d\theta.
   \end{align}
 
   I am very confident that it is not the first time that you see the equation above\ldots
@@ -345,7 +345,7 @@ The previous exercise is a particular case of the following statement.
   Then, on $U\cap F^{-1}(V)$, the following holds:
   \begin{equation}
     F^*(u\, dy^1\wedge\cdots\wedge dy^n)
-    = (u\circ f) (\det DF) dx^1\wedge\cdots\wedge dx^n,
+    = (u\circ F) (\det DF) dx^1\wedge\cdots\wedge dx^n,
   \end{equation}
   where $DF$ represents the Jacobian matrix of $F$ in these coordinates.
 \end{proposition}
