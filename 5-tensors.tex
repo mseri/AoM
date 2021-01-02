@@ -357,7 +357,7 @@ where $\tau^{j_1\cdots j_r}_{i_1\cdots i_s}\in C^\infty(M)$.
 Again in analogy with what we saw on tangent and cotangent bundles, we can provide a general definition of pullback and pushforward on tensor bundles.
 This will be extremely useful soon, when we start dealing with differential forms.
 
-\begin{definition}
+\begin{definition}\label{def:pullback0s}
   Let $F:M\to N$ be a smooth map between smooth manifolds and let $\omega \in \cT_s^0(N)$ be a $(0,s)$-tensor field on $N$. We define the \emph{pullback of $\omega$ by $F$} as the $(0,s)$-tensor field $F^*\omega \in \cT_s^0(M)$ on $M$ defined for any $p\in M$ by
   \begin{align}
     &F^* : \cT_s^0(N) \to \cT_s^0(M),\\
@@ -454,10 +454,10 @@ With this diffeomorphism at hand, we can finally define the pushforward.
 \end{example}
 
 \begin{exercise}[\textit{[homework 3]}]
-  Let $F:M\to N$ and $G:N\to P$ two diffeomorphisms of smooth manifolds.
+  Let $F:N\to P$ and $G:M\to N$ two diffeomorphisms of smooth manifolds.
   \begin{enumerate}
     \item Show that the chain rule $(F\circ G)_* = F_* \circ G_*$ holds.
-    \item Show that our previous definition of pullback is a particular case of the following general definition of a \emph{pullback of $(r,s)$-tensor fields by $F$}:
+    \item Show that our previous definition\footnote{That is, Definition~\ref{def:pullback0s} -- which includes the pullback from Definition~\ref{def:pullback1f}.} of pullback is a particular case of the following general definition of a \emph{pullback of $(r,s)$-tensor fields by $F$}:
     \begin{equation}
       F^* := (F^{-1})_* : \cT_s^r(N) \to \cT_s^r(M).
     \end{equation}
