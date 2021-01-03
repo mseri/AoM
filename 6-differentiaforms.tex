@@ -248,7 +248,7 @@ By convention $\iota_v\omega = 0$ if $\omega\in\Lambda^0$.
     \end{equation}
   \end{enumerate}
 \end{lemma}
-\begin{exercise}
+\begin{exercise}[\textit{[homework 4]}]
   Prove the Lemma.
 \end{exercise}
 
@@ -298,7 +298,7 @@ In fact, it is a direct consequence of our previous observations.
     F^*\left(\omega_J dx^J\right) = (\omega_{j_1,\ldots, j_k}\circ F) d(x^{j_1}\circ F)\wedge\cdots\wedge d(x^{j_k}\circ F).
   \end{equation}
 \end{theorem}
-\begin{exercise}
+\begin{exercise}%[\textit{[homework 4]}]
   Prove the theorem.
 \end{exercise}
 
@@ -350,7 +350,7 @@ The previous exercise is a particular case of the following statement.
   where $DF$ represents the Jacobian matrix of $F$ in these coordinates.
 \end{proposition}
 
-\begin{exercise}
+\begin{exercise}\textit{[homework 4]}
   Prove the Proposition~\ref{prop:wedgeToJDet}.\\
   \textit{\small Hint: look at Theorem~\ref{thm:pullbacksdifferentialforms}.}
 \end{exercise}
@@ -451,7 +451,12 @@ This local definition immediately extends to global one via the following theore
   \end{align}
 \end{proof}
 
-In particular, this means that for any diffeomorphism $F:M\to N$ and $\omega\in\Omega^k(M)$, $F^*d\omega = d F^*\omega$.
+\begin{exercise}\label{ex:smoothpushforward}
+  Let $F:M\to N$ be a smooth map between smooth manifolds and $\omega\in\Omega^k(N)$, then
+  \begin{equation}
+    F^* (d\omega) = d(F^* \omega).
+  \end{equation}
+\end{exercise}
 
 \begin{lemma}
   The exterior derivative satisfies the following properties.
@@ -475,16 +480,9 @@ In particular, this means that for any diffeomorphism $F:M\to N$ and $\omega\in\
   \end{align}
 \end{proof}
 
-\begin{exercise}\label{ex:smoothpushforward}
-  Let $F:M\to N$ be a smooth map between smooth manifolds and $\omega\in\Omega^k(N)$, then
-  \begin{equation}
-    F^* d\omega = d(F^* \omega).
-  \end{equation}
-\end{exercise}
-
 Let $N\subset M$ a submanifold and $i:N\hookrightarrow M$ the corresponding injection.
 For $\omega\in\Omega^k(M)$, we call $i^*\omega \in \Omega^k(N)$ the restriction of $\omega$ to $N$.
-The previous exercise, then, implies that restriction and exterior derivative commute, that is, $i^*d\omega = d(i^*\omega)$.
+Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior derivative commute, that is, $i^*d\omega = d(i^*\omega)$.
 
 \begin{example}[Exterior derivatives and vector calculus in $\R^3$]
   Let $M=\R^3$. Any smooth $1$-form $\omega\in\Omega^1(\R^3)$ can be written as
@@ -517,9 +515,9 @@ The previous exercise, then, implies that restriction and exterior derivative co
   
   Moreover, the interior multiplication yields another map $\beta: \fX(\R^3)\to\Omega^2(\R^3)$ defined by $\beta(X) = \iota_X (dx\wedge dy\wedge dz)$, which is linear over $C^\infty(\R^3)$ (why?) and, thus, corresponds to a smooth bundle homomorphism from $T\R^3$ to $\Lambda^2(\R^3)$ (why?).
 
-  In a similar fashion, we can also define a smooth bundle isomorphism $(\bigstar): C^\infty(\R^3) \to \Omega^3(\R^3)$ via
+  In a similar fashion, we can also define a smooth bundle isomorphism $\bigstar: C^\infty(\R^3) \to \Omega^3(\R^3)$ via
   \begin{equation}
-    (\bigstar)(f) = f dx\wedge dy\wedge dz.
+    \bigstar(f) = f dx\wedge dy\wedge dz.
   \end{equation}
 
   If $f\in C^\infty(\R^3)$ and $v\in\cT_0^1(\R^3)$, we can use the exterior derivatives to observe that the following diagram commutes
@@ -528,7 +526,7 @@ The previous exercise, then, implies that restriction and exterior derivative co
       C^\infty(\R^3) \arrow[d, "\id"] \arrow[r, "\nabla"] &
       \fX(\R^3) \arrow[d, "{}^\flat"] \arrow[r, "\nabla\times"] &
       \fX(\R^3) \arrow[d, "\beta"] \arrow[r, "\nabla\cdot"] &
-      C^\infty(\R^3) \arrow[d, "(\bigstar)"] \\
+      C^\infty(\R^3) \arrow[d, "\bigstar"] \\
       \Omega^0(\R^3) \arrow[r, "d"] &
       \Omega^1(\R^3) \arrow[r, "d"] &
       \Omega^2(\R^3) \arrow[r, "d"] &
@@ -541,7 +539,7 @@ The previous exercise, then, implies that restriction and exterior derivative co
 \end{example}
 
 \begin{exercise}
-  Show that the diagram~\eqref{diag:comm:r3ops} commutes and use it to give a quick proof that $\nabla\times\circ \nabla \equiv 0$ and that $\nabla\cdot \circ \nabla\times \equiv 0$.
+  Show that the diagram~\eqref{diag:comm:r3ops} commutes and use it to give a quick proof that $(\nabla\times)\circ \nabla \equiv 0$ and that $(\nabla\cdot) \circ (\nabla\times) \equiv 0$.
   For example,
   \begin{equation}
     df = \frac{\partial f}{\partial x^i} = (\nabla f)_i dx^i = (\nabla f)^\flat.
@@ -567,7 +565,7 @@ The previous exercise, then, implies that restriction and exterior derivative co
     Show that $\omega := d\lambda$ is a symplectic form on $T^* M$, that is, every cotangent bundle is a symplectic manifold.
   \end{enumerate}
 
-  For example, $\omega = \sum_{i=1}^n \alpha^i\wedge \alpha^{i+n}\in\Omega^2(\R^{2n})$ is a symplectic form and plays a central role in classical mechanics. There one usually calls $(\alpha^{n+1},\ldots,\alpha^{2n})$ the \emph{position coordinates} and $(\alpha^{1},\ldots,\alpha^{n})$ the \emph{momentum coordinates}.
+  For example, $\omega = \sum_{i=1}^n \alpha^i\wedge \alpha^{i+n}\in\Omega^2(\R^{2n})$ is a symplectic form and plays a central role in classical mechanics. There, one usually calls $(\alpha^{n+1},\ldots,\alpha^{2n})$ the \emph{position coordinates} and $(\alpha^{1},\ldots,\alpha^{n})$ the \emph{momentum coordinates}.
   \begin{enumerate}
     \item[c)] Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alpha^3\wedge\alpha^4$.
 
@@ -707,7 +705,7 @@ However, it turns out that closed forms are always locally exact but not necessa
 This is the statement of the so-called Poincar\'e lemma.
 We are going to prove it in two slightly different flavours: its classical version and a slight generalization.
 
-\begin{exercise}
+\begin{exercise}[\textit{[homework 4]}]
   Let $M=\R^2\setminus\{0\}$ and $\omega$ the one-form on $M$ from Example~\ref{ex:li} given by
   \begin{equation}
     \omega = \frac{xdy - ydx}{x^2+y^2}.

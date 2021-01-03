@@ -38,7 +38,7 @@ Looks like we are getting somewhere.
 \end{definition}
 
 \begin{example}
-  If $e_i$ is the standard $i$th basis vector in $\R^n$, the standard orientation of $\R^n$ is given by declaring that $e_1\wedge\cdots e_n$ is a positive basis of $\Lambda^n(\R^n)$ and thus that $\{e_1,\ldots,e_n\}$ is a positive basis of $\R^n$.
+  If $e_i$ is the standard $i$th basis vector in $\R^n$, the standard orientation of $\R^n$ is given by declaring that $e_1\wedge\cdots\wedge e_n$ is a positive basis of $\Lambda^n(\R^n)$ and thus that $\{e_1,\ldots,e_n\}$ is a positive basis of $\R^n$.
 \end{example}
 
 The key in the preservation of orientation now resides only in the way different bases are transformed by $n$-forms, as the following lemma shows.
@@ -174,8 +174,19 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
   \end{enumerate}
 \end{exercise}
 
-What about orientation on the boundaries?
+\begin{exercise}
+  Let $f\in C^\infty(\R^{n+1})$ with $0$ as a regular value.
+  Show that $f^{-1}(0)$ is an orientable submanifold of $\R^{n+1}$.
+  %In particular, the unit $n$-sphere $\bS^n\subset\R^{n+1}$ is orientable.
+\end{exercise}
 
+\begin{exercise}[\textit{[homework 4]}]
+  Let $M$ be a smooth manifold without boundary and $\pi: TM \to M$ its tangent bundle.
+  Show that if $\{U,\phi\}$ is any atlas on $M$, then the corresponding\footnote{Remember Theorem~\ref{thm:tgbdlsmoothmfld}.} atlas on $TU$ is oriented.
+  This, in particular, proves that the total space $TM$ of the tangent bundle is always orientable, regardless of the orientability of $M$.
+\end{exercise}
+
+\newthought{What about orientation on the boundaries?}
 Let's first look at the tangent space. 
 
 Let $M$ be a smooth $n$-manifold with boundary and $p\in \partial M$.
@@ -286,11 +297,11 @@ To make sure that this definition makes sense, let's show that the integral is w
   Then,
   \begin{align}
     \int_{\varphi(U)} \varphi_*\omega &= \int \omega(p)\, d^n p \\
-    &\overset{((\bigstar))}{=} \int (\widetilde\omega \circ \varphi)(p) \det(D\varphi|_p) d^n p \\
-    &\overset{((\clubsuit))}{=} \int \widetilde\omega(q) d^n q\\
+    &\overset{(\bigstar)}{=} \int (\widetilde\omega \circ \varphi)(p) \det(D\varphi|_p) d^n p \\
+    &\overset{(\clubsuit)}{=} \int \widetilde\omega(q) d^n q\\
     &= \int_{\psi(U)} \psi_*\omega,
   \end{align}
-  where $\omega(p)$ and $\widetilde\omega(q)$ are the local expressions for $\omega$ in the two coordinate charts, in $((\bigstar))$ we applied Proposition~\ref{prop:wedgeToJDet} and in $((\clubsuit))$ we used the classical euclidean change of variables.
+  where $\omega(p)$ and $\widetilde\omega(q)$ are the local expressions for $\omega$ in the two coordinate charts, in $(\bigstar)$ we applied Proposition~\ref{prop:wedgeToJDet} and in $(\clubsuit)$ we used the classical euclidean change of variables.
 \end{proof}
 
 To be able to integrate charts which are not supported in the domain of a single chart, we now need the help of a partition of unity.
@@ -318,11 +329,11 @@ The definition above makes sense only if the value of the integral is independen
     \sum_j \int_{\varphi_j(U_j)} (\varphi_j)_*\left(\rho_j \omega\right)
     &= \sum_j \int_{\varphi_j(U_j)} (\varphi_j)_*\left(\rho_j \sum_k \widetilde\rho_k\omega\right) \\
     &= \sum_{j,k} \int_{\phi_j(U_j\cap V_k)} (\varphi_j)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
-    &\overset{((\spadesuit))}{=} \sum_{j,k} \int_{\psi_k(U_j\cap V_k)} (\psi_k)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
+    &\overset{(\spadesuit)}{=} \sum_{j,k} \int_{\psi_k(U_j\cap V_k)} (\psi_k)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
     &= \sum_k \int_{\psi_k(U_j\cap V_k)} (\psi_k)_*\left(\rho_j \widetilde\rho_k \sum_j\rho_j \omega\right) \\
     &= \sum_k \int_{\psi_k(V_k)} (\psi_k)_*\left( \widetilde\rho_k \omega\right),
   \end{align}
-  where in $((\spadesuit))$ we used Lemma~\ref{lemma:intindep:chart}.
+  where in $(\spadesuit)$ we used Lemma~\ref{lemma:intindep:chart}.
 \end{proof}
 
 This result can be nicely formalized as follows.
@@ -379,7 +390,7 @@ This justifies the following definition.
   \end{equation}
 \end{example}
 
-\begin{exercise}[Fubini's theorem]\label{exe:fubini}
+\begin{exercise}[Fubini's theorem \textit{[homework 4]}]\label{exe:fubini}
   Let $M^m$ and $N^n$ be oriented manifolds. Endow $M\times N$ with the product orientation, that is\footnote{An equivalent way is to say that if $v_1,\ldots,v_m\in T_pM$ and $w_1, \ldots, w_n\in T_q N$ are positively oriented bases in the respective spaces, then \begin{equation}
     (v_1,0),\ldots,(v_n,0),(0,w_1), \ldots, (0,w_n)\in T_{(p,q)}M\times N
   \end{equation}is defined to be a positively oriented basis in the product.}, if $\pi_M : M\times N to M$ and $\pi_N: M\times N \to N$ are the canonical projections on the elements of the product, and $\omega$ and $\eta$ respectively define orientations on $M$ and $N$, then the orientation on $M\times N$ is defined to be the orientation defined by $\pi_M^* \omega \wedge \pi_N^* \eta$.
@@ -577,10 +588,10 @@ We are going to state the theorem, discuss some of its consequences and then giv
     \int_M d\omega
     &= \int_{\cH^n}(\phi^{-1})^* dw \\
     &= \int_{\cH^n} d\left((\phi^{-1})^* \omega\right) \\
-    &\overset{((\spadesuit))}{=} \int_{\partial \cH^n}(\phi^{-1})^* w \\
+    &\overset{(\spadesuit)}{=} \int_{\partial \cH^n}(\phi^{-1})^* w \\
     &= \int_{\partial M} w , 
   \end{align}
-  where in the $((\spadesuit))$ step we applied the computations above and where $\partial \cH^n$ has the orientation induced by $\cH^n$.
+  where in the $(\spadesuit)$ step we applied the computations above and where $\partial \cH^n$ has the orientation induced by $\cH^n$.
   For a negatively oriented smooth boundary chart, the computation applies with an extra negative sign on each side of the equation.
   For an interior chart, we get the same computations with $\R^n$ in place of $\cH^n$.
 
