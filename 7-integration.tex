@@ -26,32 +26,42 @@ Let $V$ be a $n$-dimensional vector space.
 How can we generalize in a meaningful way the definition above?
 
 By Proposition~\eqref{prop:dimLkV}, the space $\Lambda^n(V)$ is a one-dimensional vector space.
-Moreover, if $\{e_1,\ldots,e_n\}$ is a basis for $V$, then $e_1\wedge\cdots\wedge e_n$ is a basis for $\Lambda^n(V)$.
+Moreover, if $\{e_1,\ldots,e_n\}$ is a basis for $V$, then $e^1\wedge\cdots\wedge e^n$ is a basis for $\Lambda^n(V)$.
 
 Looks like we are getting somewhere.
 
 \begin{definition}
   Let $V$ be a $n$-dimensional vector space.
   An \emph{orientation} on $V$ is a choice of orientation on $\Lambda^n(V)$.
-  \marginnote{It should be clear from this that the orientation is, in fact, an equivalence class of ordered bases.}
-  Therefore there are exactly two orientations: we say that a basis $\{e_1,\ldots,e_n\}$ of $V$ is \emph{positive} (or positively oriented) if $e_1\wedge\cdots\wedge e_n$ is a positive basis of $\Lambda^n(V)$ and \emph{negative} (or negatively oriented) otherwise.
+  \marginnote{It should be clear from this that the orientation is, in fact, an equivalence class of ordered bases, and also that the order in which the elements of the basis appear matters.}
+  Therefore there are exactly two orientations: we say that a basis $\{e_1,\ldots,e_n\}$ of $V$ is \emph{positive} (or positively oriented) if $e^1\wedge\cdots\wedge e^n$ is a positive basis of $\Lambda^n(V)$ and \emph{negative} (or negatively oriented) otherwise.
 \end{definition}
 
 \begin{example}
-  If $e_i$ is the standard $i$th basis vector in $\R^n$, the standard orientation of $\R^n$ is given by declaring that $e_1\wedge\cdots\wedge e_n$ is a positive basis of $\Lambda^n(\R^n)$ and thus that $\{e_1,\ldots,e_n\}$ is a positive basis of $\R^n$.
+  If $e_i$ is the standard $i$th basis vector in $\R^n$, the standard orientation of $\R^n$ is given by declaring that $e^1\wedge\cdots\wedge e^n$ is a positive basis of $\Lambda^n(\R^n)$ and thus that $\{e_1,\ldots,e_n\}$ is a positive basis of $\R^n$.
 \end{example}
 
-The key in the preservation of orientation now resides only in the way different bases are transformed by $n$-forms, as the following lemma shows.
+An automorphism $T:V\to V$ is called \emph{orientation-preserving} if it maps positively oriented bases to positively oriented bases (and \emph{orientation-reversing} otherwise).
+Due to the way different bases are transformed by $n$-forms,
+this is equivalent to say that $\det T > 0$:
+indeed, let $v_1, \ldots, v_n$ be a positively oriented basis and $w_i = T v_i$, then
+\begin{align}
+  v^1\wedge\cdots\wedge v^n (w_1, \ldots, w_n) &= v^1\wedge\cdots\wedge v^n (Tv_1, \ldots, Tv_n) \\
+  &= \det(T)\; v^1\wedge\cdots\wedge v^n (v_1, \ldots, v_n) \\
+  &= \det(T).
+\end{align}
+
+In fact, the orientation is completely characterized by the action of $n$-forms on the bases, as the following lemma shows.
 
 \begin{lemma}\label{lemma:orient}
   Let $V$ be a $n$-dimensional vector space and let $0\neq \omega\in\Lambda^n(V)$.
-  Then, all bases $\{v_1, \ldots, v_n\}$ for which $\omega(v_1,\ldots v_n) > 0$ give the same orientation for $V$.
+  Then, all bases $\{v_1, \ldots, v_n\}$ for which $\omega(v_1,\ldots v_n) > 0$ give the same\footnote{Not necessarily the positive orientation!} orientation for $V$.
 \end{lemma}
 \begin{proof}
-  Let $\{v_1, \ldots, v_n\}$ and $\{w_1, \ldots, w_n\}$ denote two different basis for $V$, then there exists a linear isomorphism $\varphi$ such that $v = \varphi w$, that is $v_i = \varphi_{i}^j w_j$.
+  Let $\{v_1, \ldots, v_n\}$ and $\{w_1, \ldots, w_n\}$ denote two different bases for $V$, then there exists a linear isomorphism $\varphi$ such that $v = \varphi\, w$, that is $v_i = \varphi_{i}^j w_j$.
   By definition and by multilinearity we then have
   \begin{equation}\label{eq:posorie}
-    \omega(v_1,\ldots v_n) = \omega(\varphi w_1,\ldots \varphi w_n) = \det(\varphi)\omega(w_1,\ldots w_n) > 0,
+    0 < \omega(v_1,\ldots v_n) = \omega(\varphi\, w_1,\ldots \varphi\, w_n) = \det(\varphi)\omega(w_1,\ldots w_n),
   \end{equation} that is the positivity of $\omega$ on the bases characterize the set of bases.
 \end{proof}
 
@@ -68,7 +78,7 @@ The tangent space is a vector space and $n$-forms act naturally on tangent vecto
 As usual, one does need to make sure that all the local orientations just defined on the tangent bundle are gluing together coherently.
 
 \begin{remark}
-  If we look at a single chart $(U,\varphi)$, by Lemma~\ref{lemma:orient} each chart in the atlas determines an orientation at each point of its domain, which will be positive if $\det(D\varphi)>0$ and negative otherwise.
+  By Lemma~\ref{lemma:orient} each chart $(U, \phi)$ in the atlas determines an orientation at each point of its domain, which will be positive if $\det(d\varphi)>0$ and negative otherwise.
   This procedure can be repeated for each chart in an atlas for $M$.
   Thus, in order to get a globally consistent ordering, we need to worry about the overlaps between charts.
 \end{remark}
