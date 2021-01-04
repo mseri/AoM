@@ -355,6 +355,19 @@ The previous exercise is a particular case of the following statement.
   \textit{\small Hint: look at Theorem~\ref{thm:pullbacksdifferentialforms}.}
 \end{exercise}
 
+\begin{exercise}
+  Let $f: \R^2 \to \R^3$ be defined by
+  \begin{equation}
+    f(x, y) = (x^2, y^2, xy).
+  \end{equation}
+  Compute the pullback $f^*\omega$ where $\omega$ is the form:
+  \begin{enumerate}
+    \item $\omega = y dy + z dz$;
+    \item $\omega = x dy \wedge dx$;
+    \item $\omega = dx \wedge dy\wedge dz$.
+  \end{enumerate}
+\end{exercise}
+
 Of course, also the interior product extends naturally to vector fields and differential forms, simply by letting it act pointwise: if $X\in\fX(M)$ and $\omega\in\Omega^k(M)$, then the $k-1$-form $\iota_X\omega\equiv X\iprod\omega$ is defined by $(X\iprod\omega)_p = X_p \iprod \omega_p$.
 
 \begin{exercise}
@@ -367,7 +380,7 @@ Of course, also the interior product extends naturally to vector fields and diff
 
 \section{Exterior derivative}
 
-We already saw in the previous chapters that the exterior derivative of a function $f\in\Omega^0(M)$ is a $1$-form $df\in\Omega^1(M)$.
+We already saw in the previous chapters that the differential of a function $f\in\Omega^0(M)$ can be thought as a $1$-form $df\in\Omega^1(M)$.
 We are finally ready to generalise the concept to a map $d:\Omega^k(M)\to\Omega^{k+1}(M)$.
 You have already seen most of this in the context of multivariable analysis, however it is good to repeat it to set the notational conventions.
 
@@ -377,7 +390,7 @@ You have already seen most of this in the context of multivariable analysis, how
   \begin{equation}
     \omega = \omega_I de^I, \quad \omega_I\in C^\infty(U),
   \end{equation}
-  then its \emph{exterior deriative} $d\omega \in\Omega^k(M)$ is defined by
+  then its \emph{exterior deriative} $d\omega \in\Omega^{k+1}(U)$ is defined by
   \begin{equation}
     d\omega := d\omega_I \wedge de^I = \sum_{1\leq i_1 < \cdots < i_k \leq n} d\omega_{i_1,\ldots,i_k}\wedge de^{i_1}\wedge\cdots\wedge de^{i_k},
   \end{equation}
@@ -416,14 +429,16 @@ This local definition immediately extends to global one via the following theore
   Then, for $\omega\in\Omega^k(N)$, we have $F^*(d\omega|_{F(U)}) = dF^*\omega|_U$.
 \end{theorem}
 \begin{proof}
-  Let $(x^i)$ denote the local coordinates of $\varphi$ and let $(\widetilde U, \widetilde\varphi) := (F(U), \varphi\circ F^{-1})$ be the pushforward of the chart to $F(U)\subset N$ with its local coordinates $(y^i)$ on $N$.
+  Let $(x^i)$ denote the local coordinates of $\varphi$ and let 
+  $(\widetilde U, \widetilde\varphi) := (F(U), \varphi\circ F^{-1})$ be the corresponding chart on $F(U)\subset N$ with local coordinates $(y^i)$ on $N$.
   Locally, $\omega = \omega_I dy^I$, thus we get
   \begin{align}
     d F^* \omega|_U
     &= d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F) F^*(dy^{i_1})\wedge\cdots\wedge F^*(dy^{i_k})\right) \\
+    &= d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F) d(y^{i_1} \circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\right) \\
     &= d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F) dx^{i_1}\wedge\cdots\wedge dx^{i_k}\right) \\
     &= \sum_{I=(i_1,\ldots,i_k)} d(\omega_I\circ F)\wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k} \\
-    &= \sum_{I=(i_1,\ldots,i_k)} F^* d(\omega_I)\wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k} \\
+    &= \sum_{I=(i_1,\ldots,i_k)} F^* d(\omega_I)\wedge d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F) \\
     &= \sum_{I=(i_1,\ldots,i_k)} F^* d(\omega_I)\wedge F^*(dy^{i_1})\wedge\cdots\wedge F^*(dy^{i_k}) \\
     &= F^*(d\omega|_{F(U)}),
   \end{align}
@@ -479,6 +494,27 @@ This local definition immediately extends to global one via the following theore
     &= 0.
   \end{align}
 \end{proof}
+
+\begin{exercise}
+  Compute the exterior derivatives of the following differential forms on $\R^3$:
+  \begin{enumerate}
+    \item $x dy \wedge dz$;
+    \item $x dy - y dx$;
+    \item $e^{-f}df$ where $f = x^2 + y^2 + z^2$;
+    \item $x dx + y dy + z dz$;
+    \item $x dy\wedge dz - y dx\wedge dz + z dx\wedge dy$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+  Solve the equation $d \nu = \omega$ for $\nu \in \Omega^1(\R^3)$ where $\omega$ is the $2$-form:
+  \begin{enumerate}
+    \item $d y \wedge d z$;
+    \item $y\; d y \wedge d z$;
+    \item $x^2 + y^2 \; d x \wedge d y$;
+    \item $\cos(x)\; d x \wedge d z$.
+  \end{enumerate}
+\end{exercise}
 
 Let $N\subset M$ a submanifold and $i:N\hookrightarrow M$ the corresponding injection.
 For $\omega\in\Omega^k(M)$, we call $i^*\omega \in \Omega^k(N)$ the restriction of $\omega$ to $N$.
@@ -567,9 +603,9 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
 
   For example, $\omega = \sum_{i=1}^n \alpha^i\wedge \alpha^{i+n}\in\Omega^2(\R^{2n})$ is a symplectic form and plays a central role in classical mechanics. There, one usually calls $(\alpha^{n+1},\ldots,\alpha^{2n})$ the \emph{position coordinates} and $(\alpha^{1},\ldots,\alpha^{n})$ the \emph{momentum coordinates}.
   \begin{enumerate}
-    \item[c)] Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alpha^3\wedge\alpha^4$.
+    \item[3.] Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alpha^3\wedge\alpha^4$.
 
-    \item[d)] Generalize the previous computation to show that
+    \item[4.] Generalize the previous computation to show that
     \begin{equation}
       \bigwedge_{k=1}^{2n} \alpha^k := \alpha^1\wedge\cdots\wedge\alpha^{2n} = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}} =: \frac{(-1)^{\binom{n}{2}}}{n!} \wedge^{n} \omega.
     \end{equation}
