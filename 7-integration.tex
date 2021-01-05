@@ -44,7 +44,7 @@ Looks like we are getting somewhere.
 An automorphism $T:V\to V$ is called \emph{orientation-preserving} if it maps positively oriented bases to positively oriented bases (and \emph{orientation-reversing} otherwise).
 Due to the way different bases are transformed by $n$-forms,
 this is equivalent to say that $\det T > 0$:
-indeed, let $v_1, \ldots, v_n$ be a positively oriented basis and $w_i = T v_i$, then
+indeed, let $\{v_1, \ldots, v_n\}$ be a positively oriented basis and $w_i = T v_i$, then
 \begin{align}
   v^1\wedge\cdots\wedge v^n (w_1, \ldots, w_n) &= v^1\wedge\cdots\wedge v^n (Tv_1, \ldots, Tv_n) \\
   &= \det(T)\; v^1\wedge\cdots\wedge v^n (v_1, \ldots, v_n) \\
@@ -54,7 +54,7 @@ indeed, let $v_1, \ldots, v_n$ be a positively oriented basis and $w_i = T v_i$,
 In fact, the orientation is completely characterized by the action of $n$-forms on the bases, as the following lemma shows.
 
 \begin{lemma}\label{lemma:orient}
-  Let $V$ be a $n$-dimensional vector space and let $0\neq \omega\in\Lambda^n(V)$.
+  Let $V$ be a $n$-dimensional vector space and let $ \omega\in\Lambda^n(V)$ be nowhere vanishing.
   Then, all bases $\{v_1, \ldots, v_n\}$ for which $\omega(v_1,\ldots v_n) > 0$ give the same\footnote{Not necessarily the positive orientation!} orientation for $V$.
 \end{lemma}
 \begin{proof}
@@ -107,20 +107,23 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
 \end{theorem}
 \begin{proof}
   Let $\varphi$ and $\psi$ be two different charts with overlapping domains (otherwise there is nothing to check) and with local coordinates $(x^i)$ and $(y^i)$ respectively.
-  Define the transition map $\varphi := \psi\circ\varphi^{-1}$, so that $(y^1,\ldots,y^n) = \varphi(x)$.
-  Since $d y^j = (D\varphi)_i^j dx^i$, we have that locally
+  Define the transition map $\sigma := \psi\circ\varphi^{-1}$, so that $(y^1,\ldots,y^n) = \phi(x)$.
+  %Since $d y^j = (D\sigma)_i^j dx^i$, we have that
+  Locally,
   \begin{align}
-    \omega &= \widetilde \omega (y) dy^1\wedge\cdots\wedge dy^n \\
-    &= (\widetilde\omega \circ \varphi)(x) \det(\varphi|_x) dx^{1}\wedge\cdots\wedge dx^{n} \\
-    &= \omega(x) dx^{1}\wedge\cdots\wedge dx^{n},
+    \omega
+    &= \omega(x) dx^{1}\wedge\cdots\wedge dx^{n} \\
+    &= \sigma^*(\widetilde \omega(y) dy^1\wedge\cdots\wedge dy^n) \\
+    &= (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x) dx^{1}\wedge\cdots\wedge dx^{n}
+    ,
   \end{align}
   where we used Proposition~\ref{prop:wedgeToJDet} and Theorem~\ref{thm:pullbacksdifferentialforms}.
-  Thus, $\omega(x)$ and $\widetilde\omega(y)$ have the same sign if and only if $\det(D\varphi|_x) > 0$.
+  Thus, $\omega(x)$ and $\widetilde\omega(y)$ have the same sign if and only if $\det(D\sigma|_x) > 0$.
 \end{proof}
 
 \begin{definition}
   Let $M$ be a $n$-dimensional smooth manifold.
-  If $(U,\varphi)$ is a chart with local coordinates $(x^i)$ such that, in the coordinate representation, $\omega = \omega(x) dx^1\wedge\cdots\wedge dx^n$ with $\omega(x) > 0$, then we say that the chart $\varphi$ is \emph{positively oriented} with respect to $\omega$, otherwise we say that it is \emph{negatively oriented}.  
+  If $(U,\varphi)$ is a chart with local coordinates $(x^i)$ such that, in the coordinate representation, the volume form $\omega = \omega(x) dx^1\wedge\cdots\wedge dx^n$ with $\omega(x) > 0$, then we say that the chart $\varphi$ is \emph{positively oriented} with respect to $\omega$, otherwise we say that it is \emph{negatively oriented}.  
 \end{definition}
 
 \begin{remark}
@@ -132,7 +135,7 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
   with $\R^n$ equipped with its standard orientation, is fiberwise orientation-preserving.
   \marginnote[-2em]{Otherwise said, we can cover the manifold by (continuous) local frames whose local trivializations are orientation preserving.}
 
-  With this definition, the orientability of $M$ coincides with the orientability of the bundle $M\to TM$.
+  With this definition, the orientability of $M$ coincides with the orientability of the bundle\footnote{Note that $TM$ as a manifold on its own right is always orientable, even if $M$ is not. Cf. Exercise~\ref{ex:TMorient}} $TM\to M$.
 \end{remark}
 
 \begin{example}
@@ -148,7 +151,7 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
     \quad\mbox{and}\quad
     \varphi_2(p) = \frac{2p^1}{1+p^2}.
   \end{equation}
-  Let's pick a pointwise orientation by choosing as basis $X_p\in T_pM$ given by $X_p = -p^2 \frac{\partial}{\partial p^1} + p^1 \frac{\partial}{\partial p^2}$.
+  Let's pick a pointwise orientation by choosing as basis $X_p\in T_pM$ given by\footnote{We are not making up anything, if you look carefully this is just $X_p = \partial_\theta$.} $X_p = -p^2 \frac{\partial}{\partial p^1} + p^1 \frac{\partial}{\partial p^2}$.
   Then, on $U_1$,
   \begin{align}
     (\varphi_1)_*(X) &= (d\varphi_1)_p(X) \\
@@ -190,7 +193,7 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
   %In particular, the unit $n$-sphere $\bS^n\subset\R^{n+1}$ is orientable.
 \end{exercise}
 
-\begin{exercise}[\textit{[homework 4]}]
+\begin{exercise}[\textit{[homework 4]}]\label{ex:TMorient}
   Let $M$ be a smooth manifold without boundary and $\pi: TM \to M$ its tangent bundle.
   Show that if $\{U,\phi\}$ is any atlas on $M$, then the corresponding\footnote{Remember Theorem~\ref{thm:tgbdlsmoothmfld}.} atlas on $TU$ is oriented.
   This, in particular, proves that the total space $TM$ of the tangent bundle is always orientable, regardless of the orientability of $M$.
@@ -203,7 +206,7 @@ Let $M$ be a smooth $n$-manifold with boundary and $p\in \partial M$.
 Then, we have three types of possible vectors:
 \begin{enumerate}
   \item tangent boundary vectors: $X\in T_p(\partial M)\subset T_p M$ tangent to the boundary, forming an $(n-1)$-dimensional subspace of $T_p M$;
-  \item inward pointing vectors: $X\in T_pM$ such that $X = \varphi^{-1}_*(Y)$ where $\varphi^{-1}: V\subset \cH^n \to M$ and $Y$ is some vector $Y = (Y^1, \ldots, Y_n)$ with $Y_n > 0$;
+  \item inward pointing vectors: $X\in T_pM$ such that $X = \varphi^{-1}_*(Y)$ where $\varphi^{-1}: V\subset \cH^n \to M$ and $Y$ is some vector $Y = (Y_1, \ldots, Y_n)$ with $Y_n > 0$;
   \item outward pointing vectors: $X\in T_pM$ such that $-X$ is inward pointing.
 \end{enumerate}
 Thus, a vector field along $\partial M$ is a function $X:\partial M\to T_pM$ (not to $T_p\partial M$).
@@ -214,14 +217,14 @@ Thus, a vector field along $\partial M$ is a function $X:\partial M\to T_pM$ (no
 \begin{proof}
   Pick an open cover of $\partial M$ with coordinate charts $\{(U_\alpha, (x^1_\alpha,\ldots,x^n_\alpha) \mid \alpha\in I\}$. Then $X_\alpha = -\frac{\partial}{\partial x^n_\alpha}$ on $U_\alpha\cap \partial M$ is smooth and outward pointing.
   Choose a partition of unity $\{\rho_\alpha \mid \alpha\in I\}$ on $\partial M$ subordinate to the open cover $\{U_\alpha\cap \partial M \mid \alpha\in I\}$.
-  Then $X:= \sum_{\alpha\in I}\rho_\alpha U_\alpha$ is a smooth ouwtard pointing vector field along $\partial M$.
+  Then $X:= \sum_{\alpha\in I}\rho_\alpha X_\alpha$ is a smooth ouwtard pointing vector field along $\partial M$.
 \end{proof}
 
 We can use this to introduce a notion of induced orientation on $\partial M$.
 
 \begin{proposition}
   Let $M$ be an oriented $n$-manifold with boundary.
-  If $\omega$ is a volume form on $M$ and $X$ a smooth outward-pointing vector field on $\partial M$, then $\iota_X\omega$ is a smooth nowhere-vanishing $(n-1)$-form on $\partial M$ and, thus, $M$ is orientable.
+  If $\omega$ is a volume form on $M$ and $X$ a smooth outward-pointing vector field on $\partial M$, then $\iota_X\omega$ is a smooth nowhere-vanishing $(n-1)$-form on $\partial M$ and, thus, $\partial M$ is orientable.
 \end{proposition}
 \begin{proof}
   Since both $\omega$ and $X$ are smooth, the contraction $\iota_X\omega$ is also smooth.
@@ -248,7 +251,7 @@ We can use this to introduce a notion of induced orientation on $\partial M$.
 \end{exercise}
 
 Note that if $(U_i, \varphi_i)$ is a positively oriented atlas on $M$, then $(U_i|_{\partial M}, \varphi_i|_{\partial M})$ can be negatively oriented. 
-Let $\omega = dx^1\wedge\cdots\wedge dx^n$ be a positive volume form on $M$ on one of the charts, then $-\frac{\partial}{\partial x^n}$ is an outward pointing on $\partial \cH^n$ and we have
+Let $\omega = dx^1\wedge\cdots\wedge dx^n$ be a positive volume form on $M$ on one of the charts, then $-\frac{\partial}{\partial x^n}$ is an outward pointing on $\partial \cH^n$ and we have\footnote{Recall Lemma~\ref{lemma:intprod}.}
 \begin{align}
   \iota_{-{\partial}/\!{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n)
   &= -\iota_{{\partial}/\!{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n) \\
@@ -259,12 +262,14 @@ Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$,
 
 \begin{example}\label{ex:int:bdryo}
   The closed interval $[a,b]\subset\R$ with standard euclidean coordinate $x$ has a standard orientation given by the vector field $\frac{\partial}{\partial x}$. 
-  Therefore, the boundary orientation at $b$ is $\iota_{\frac{\partial}{\partial x}}(dx) = +1$ and the one at $a$ is $\iota_{-\frac{\partial}{\partial x}}(dx) = -1$.
+  Therefore\footnote{Recall the charts in Example~\ref{ex:mfldbdryinterval}.}, the boundary orientation at $b$ is $\iota_{\frac{\partial}{\partial x}}(dx) = +1$ and the one at $a$ is $\iota_{-\frac{\partial}{\partial x}}(dx) = -1$.
 \end{example}
 
 \begin{exercise}
+  Orientability is common but there are many examples of nonorientable manifolds.
   \begin{enumerate}
-    \item Prove that $\bS^n$ is orientable.
+    \item Prove that $\bS^n$ is orientable.\\
+      \textit{\small Hint: there is a small exercise above that can help a lot here.}
     \item Prove that any Lie group is orientable.
     \item Prove that $\RP^n$ is orientable if and only if $n$ is odd. \\
       \textit{\small Hint: the antipodal map $x\mapsto -x$ on $\bS^n$ can help.}
@@ -281,12 +286,13 @@ Let's keep things simple and go one step at a time.
   Let $M$ be a smooth $n$-manifold and $(U,\varphi)$ be a chart from an oriented atlas of $M$.
   If $\omega\in\Omega^n(M)$ be a $n$-form with compact support in $U$, we define the integral of $\omega$ as
   \begin{equation}
-    \int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\cH^n} \omega(p) d^n p,
+    \int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\R^n} \omega(x) d x^1\cdots dx^n,
   \end{equation}
-  where $d^n p$ denotes the $n$-dimensional Lebesgue measure on $\R^n$ and on the chart
+  where the last is the usual Riemannian integral on $\R^n$ and, on the chart,
   \begin{equation}
-    \varphi_*\omega = \omega(p) e^1\wedge \cdots\wedge e^n\in\Omega^n(\cH^n).
+    \varphi_*\omega = \omega(x) e^{1}\wedge \cdots\wedge e^{n}\in\Omega^n(\cH^n).
   \end{equation}
+  For convenience we may write $d^n x := dx^1 \cdot dx^n$.
 
   If $M$ is an oriented $0$-dimensional manifold and $f$ is a $0$-form (that is, a smooth function) than we defined the integral to be the sum
   \begin{equation}
@@ -303,13 +309,14 @@ To make sure that this definition makes sense, let's show that the integral is w
   Then, the value of the integral $\int_M\omega$ is independent on the chosen chart.
 \end{lemma}
 \begin{proof}
-  Let $\varphi$ and $\psi$ be two charts on $U$ with the same orientation and local coordinates $p$ and $q$, let $\varphi = \psi\circ\varphi^{-1}$ be the corresponding transition map.
+  Let $\varphi$ and $\psi$ be two charts on $U$ with the same orientation and local coordinates $x$ and $y$, let $\sigma = \psi\circ\varphi^{-1}$ be the corresponding transition map.
   Then,
   \begin{align}
-    \int_{\varphi(U)} \varphi_*\omega &= \int \omega(p)\, d^n p \\
-    &\overset{(\bigstar)}{=} \int (\widetilde\omega \circ \varphi)(p) \det(D\varphi|_p) d^n p \\
-    &\overset{(\clubsuit)}{=} \int \widetilde\omega(q) d^n q\\
-    &= \int_{\psi(U)} \psi_*\omega,
+    \int_{\varphi(U)} \varphi_*\omega &= \int \omega(x)\, d^n x \\
+    &= \int \sigma^*(\widetilde\omega(y) d^n y) \\
+    &\overset{(\bigstar)}{=} \int (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x) d^n x \\
+    &\overset{(\clubsuit)}{=} \int \widetilde\omega(y) d^n y\\
+    &= \int_{\psi(V)} \psi_*\omega,
   \end{align}
   where $\omega(p)$ and $\widetilde\omega(q)$ are the local expressions for $\omega$ in the two coordinate charts, in $(\bigstar)$ we applied Proposition~\ref{prop:wedgeToJDet} and in $(\clubsuit)$ we used the classical euclidean change of variables.
 \end{proof}

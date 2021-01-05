@@ -237,7 +237,7 @@ There is an extremely important operation that relates vectors with alternating 
 In other words, $\iota_v\omega$ is obtained from $\omega$ by inserting $v$ into ``the first slot''.
 By convention $\iota_v\omega = 0$ if $\omega\in\Lambda^0$.
 
-\begin{lemma}
+\begin{lemma}\label{lemma:intprod}
   Let $V$ be a real $n$-dimensional vector space and $v\in V$.
   Then the following hold.
   \begin{enumerate}
@@ -576,11 +576,11 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
 \end{example}
 
 \begin{exercise}
-  Show that the diagram~\eqref{diag:comm:r3ops} commutes and use it to give a quick proof that $(\nabla\times)\circ \nabla \equiv 0$ and that $(\nabla\cdot) \circ (\nabla\times) \equiv 0$.
-  For example,
+  Show that the diagram~\eqref{diag:comm:r3ops} commutes; for example,
   \begin{equation}
     df = \frac{\partial f}{\partial x^i} = (\nabla f)_i dx^i = (\nabla f)^\flat.
   \end{equation}
+  Use the diagram to give a quick proof that $(\nabla\times)\circ \nabla \equiv 0$ and that $(\nabla\cdot) \circ (\nabla\times) \equiv 0$ (physically this last identity implies that magnetic fields are divergence free).
 \end{exercise}
 
 \begin{exercise}\label{exe:symplectic}
