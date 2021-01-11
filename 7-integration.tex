@@ -108,17 +108,21 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
 \begin{proof}
   Let $\varphi$ and $\psi$ be two different charts with overlapping domains (otherwise there is nothing to check) and with local coordinates $(x^i)$ and $(y^i)$ respectively.
   Define the transition map $\sigma := \psi\circ\varphi^{-1}$, so that $(y^1,\ldots,y^n) = \phi(x)$.
-  %Since $d y^j = (D\sigma)_i^j dx^i$, we have that
-  Locally,
+  Since $d y^j = (D\sigma)_i^j dx^i$, we have that locally,
   \begin{align}
-    \omega
-    &= \omega(x) dx^{1}\wedge\cdots\wedge dx^{n} \\
+    \omega &= \widetilde \omega(y) dy^1\wedge\cdots\wedge dy^n \\
+    &= (\widetilde\omega \circ \sigma)(x) (D\sigma|_x)^1_{j_1}\cdots (D\sigma|_x)^n_{j_n} dx^{j_1}\wedge\cdots\wedge dx^{j_n} \\
+    &= (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x) dx^{1}\wedge\cdots\wedge dx^{n} \\
     &= \sigma^*(\widetilde \omega(y) dy^1\wedge\cdots\wedge dy^n) \\
-    &= (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x) dx^{1}\wedge\cdots\wedge dx^{n}
+    &= \omega(x) dx^{1}\wedge\cdots\wedge dx^{n} \\
     ,
   \end{align}
   where we used Proposition~\ref{prop:wedgeToJDet} and Theorem~\ref{thm:pullbacksdifferentialforms}.
-  Thus, $\omega(x)$ and $\widetilde\omega(y)$ have the same sign if and only if $\det(D\sigma|_x) > 0$.
+  Thus,
+  \begin{equation}\label{form:cov}
+    \omega(x) = (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x),
+  \end{equation}
+  and it has the same sign of $\widetilde\omega(y)$ if and only if $\det(D\sigma|_x) > 0$.
 \end{proof}
 
 \begin{definition}
@@ -181,9 +185,9 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
   The M\"obius strip inherits the differentiable structure from $\R^2$, so we need to show that there is no orientable atlas which is also compatible with the differentiable structure on $M$.
   \begin{enumerate}
     \item Define the map $\sigma:\R\times(-1,1)\to\R\times(-1,1)$ by $\sigma(x,y) = (x+1, -y)$ and show that $\pi\circ\sigma = \sigma$.
-    \item If $\nu\in\Omega^2(M)$ define $f$ by $\pi^* \nu = f \omega$ where $\omega$ is an area\footnote{I.e. a volume $2$-form.} form on $\R\times(-1,1)$.
+    \item If $\eta\in\Omega^2(M)$ defines\footnote{Cf. Exercise~\ref{ex:vfshape}.} $f$ by $\pi^* \eta = f \omega$ where $\omega$ is an area\footnote{I.e. a volume $2$-form.} form on $\R\times(-1,1)$.
     Show that $f(x+1, y) = - f(x,y)$.
-    \item Conclude that $f$ must vanish at some point of $\R\times(-1,1)$, which implies that $M$ is non-orientable \footnote{See also Exercise~\ref{ex:vfshape}}.
+    \item Conclude that $f$ must vanish at some point of $\R\times(-1,1)$, which implies that $M$ is non-orientable.
   \end{enumerate}
 \end{exercise}
 
@@ -195,7 +199,7 @@ If $M$ is connected, as for vector spaces, an orientation on $\Lambda^n(M)$ dete
 
 \begin{exercise}[\textit{[homework 4]}]\label{ex:TMorient}
   Let $M$ be a smooth manifold without boundary and $\pi: TM \to M$ its tangent bundle.
-  Show that if $\{U,\phi\}$ is any atlas on $M$, then the corresponding\footnote{Remember Theorem~\ref{thm:tgbdlsmoothmfld}.} atlas on $TU$ is oriented.
+  Show that if $\{(U_\alpha,\phi_\alpha)\}$ is any atlas on $M$, then the corresponding\footnote{Remember Theorem~\ref{thm:tgbdlsmoothmfld}.} atlas $\{(TU_\alpha, \widetilde\phi_\alpha)\}$ on $TM$ is oriented.
   This, in particular, proves that the total space $TM$ of the tangent bundle is always orientable, regardless of the orientability of $M$.
 \end{exercise}
 
@@ -250,7 +254,7 @@ We can use this to introduce a notion of induced orientation on $\partial M$.
   \end{enumerate}
 \end{exercise}
 
-Note that if $(U_i, \varphi_i)$ is a positively oriented atlas on $M$, then $(U_i|_{\partial M}, \varphi_i|_{\partial M})$ can be negatively oriented. 
+Note that if $\{(U_i, \varphi_i)\}$ is a positively oriented atlas on $M$, then $\{(U_i|_{\partial M}, \varphi_i|_{\partial M})\}$ can be negatively oriented. 
 Let $\omega = dx^1\wedge\cdots\wedge dx^n$ be a positive volume form on $M$ on one of the charts, then $-\frac{\partial}{\partial x^n}$ is an outward pointing on $\partial \cH^n$ and we have\footnote{Recall Lemma~\ref{lemma:intprod}.}
 \begin{align}
   \iota_{-{\partial}/\!{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n)
@@ -269,7 +273,7 @@ Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$,
   Orientability is common but there are many examples of nonorientable manifolds.
   \begin{enumerate}
     \item Prove that $\bS^n$ is orientable.\\
-      \textit{\small Hint: there is a small exercise above that can help a lot here.}
+      \textit{\small Hint: above there is a small exercise that can help a lot here.}
     \item Prove that any Lie group is orientable.
     \item Prove that $\RP^n$ is orientable if and only if $n$ is odd. \\
       \textit{\small Hint: the antipodal map $x\mapsto -x$ on $\bS^n$ can help.}
@@ -284,19 +288,19 @@ Let's keep things simple and go one step at a time.
 
 \begin{definition}\label{def:intnform:chart}
   Let $M$ be a smooth $n$-manifold and $(U,\varphi)$ be a chart from an oriented atlas of $M$.
-  If $\omega\in\Omega^n(M)$ be a $n$-form with compact support in $U$, we define the integral of $\omega$ as
+  If $\omega\in\Omega^n(M)$ be a $n$-form, $n > 0$, with compact support in $U$, we define the integral of $\omega$ as
   \begin{equation}
-    \int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\R^n} \omega(x) d x^1\cdots dx^n,
+    \int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\cH^n} \omega(x) d x^1\cdots dx^n,
   \end{equation}
   where the last is the usual Riemannian integral on $\R^n$ and, on the chart,
   \begin{equation}
-    \varphi_*\omega = \omega(x) e^{1}\wedge \cdots\wedge e^{n}\in\Omega^n(\cH^n).
+    \varphi_*\omega = \omega(x)\; e^{1}\wedge \cdots\wedge e^{n}\in\Omega^n(\cH^n).
   \end{equation}
-  For convenience we may write $d^n x := dx^1 \cdot dx^n$.
+  For convenience we may write $d^n x := dx^1 \cdots dx^n$.
 
-  If $M$ is an oriented $0$-dimensional manifold and $f$ is a $0$-form (that is, a smooth function) than we defined the integral to be the sum
+  If $M$ is an oriented $0$-dimensional manifold and $f\in\Omega^0(M) = C^\infty(M)$, than we define the integral to be the sum
   \begin{equation}
-    \int_M f = \sum_{p\in M} \pm f(p),
+    \int_M f := \sum_{p\in M} \pm f(p),
   \end{equation}
   where we take the positive sign at points where the orientation is positive and the negative sign at points where it is negative.
   The compactness assumption here implies that there are only finitely many nonzero terms in the sum.
@@ -309,14 +313,14 @@ To make sure that this definition makes sense, let's show that the integral is w
   Then, the value of the integral $\int_M\omega$ is independent on the chosen chart.
 \end{lemma}
 \begin{proof}
-  Let $\varphi$ and $\psi$ be two charts on $U$ with the same orientation and local coordinates $x$ and $y$, let $\sigma = \psi\circ\varphi^{-1}$ be the corresponding transition map.
+  Let $\varphi$ and $\psi$ be two charts on $W = U\cap V$ with the same orientation and local coordinates $x$ and $y$, let $\sigma = \psi\circ\varphi^{-1}$ be the corresponding transition map.
   Then,
   \begin{align}
-    \int_{\varphi(U)} \varphi_*\omega &= \int \omega(x)\, d^n x \\
-    &= \int \sigma^*(\widetilde\omega(y) d^n y) \\
-    &\overset{(\bigstar)}{=} \int (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x) d^n x \\
+    \int_{\varphi(W)} \varphi_*\omega &= \int \omega(x)\, d^n x \\
+    &\overset{\eqref{form:cov}}{=} \int (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x) d^n x \\
+    &\overset{(\bigstar)}{=} \int \sigma^*(\widetilde\omega(y) d^n y) \\
     &\overset{(\clubsuit)}{=} \int \widetilde\omega(y) d^n y\\
-    &= \int_{\psi(V)} \psi_*\omega,
+    &= \int_{\psi(W)} \psi_*\omega,
   \end{align}
   where $\omega(p)$ and $\widetilde\omega(q)$ are the local expressions for $\omega$ in the two coordinate charts, in $(\bigstar)$ we applied Proposition~\ref{prop:wedgeToJDet} and in $(\clubsuit)$ we used the classical euclidean change of variables.
 \end{proof}
@@ -377,7 +381,7 @@ This result can be nicely formalized as follows.
   which shows the commutativity of the following diagram
   \begin{equation}
     \begin{tikzcd}
-      \Omega^n(M) \arrow[rr, "F^*", yshift=0.5ex] \arrow[dr, "\int_M"] & & \Omega^n(N)\arrow[ll, "F_*", yshift=0.5ex] \arrow[dl, "\int_N"] \\
+      \Omega^n(M) \arrow[rr, "F^*", shift right = 0.5] \arrow[dr, "\int_M"] & & \Omega^n(N)\arrow[ll, "F_*", shift right = 0.5] \arrow[dl, "\int_N"] \\
       & \R &
     \end{tikzcd}
   \end{equation}
@@ -410,7 +414,7 @@ This justifies the following definition.
 \begin{exercise}[Fubini's theorem \textit{[homework 4]}]\label{exe:fubini}
   Let $M^m$ and $N^n$ be oriented manifolds. Endow $M\times N$ with the product orientation, that is\footnote{An equivalent way is to say that if $v_1,\ldots,v_m\in T_pM$ and $w_1, \ldots, w_n\in T_q N$ are positively oriented bases in the respective spaces, then \begin{equation}
     (v_1,0),\ldots,(v_n,0),(0,w_1), \ldots, (0,w_n)\in T_{(p,q)}M\times N
-  \end{equation}is defined to be a positively oriented basis in the product.}, if $\pi_M : M\times N to M$ and $\pi_N: M\times N \to N$ are the canonical projections on the elements of the product, and $\omega$ and $\eta$ respectively define orientations on $M$ and $N$, then the orientation on $M\times N$ is defined to be the orientation defined by $\pi_M^* \omega \wedge \pi_N^* \eta$.
+  \end{equation}is defined to be a positively oriented basis in the product.}, if $\pi_M : M\times N \to M$ and $\pi_N: M\times N \to N$ are the canonical projections on the elements of the product, and $\omega$ and $\eta$ respectively define orientations on $M$ and $N$, then the orientation on $M\times N$ is defined to be the orientation defined by $\pi_M^* \omega \wedge \pi_N^* \eta$.
 
   If $\alpha\in\Omega^m(M)$ and $\beta\in\Omega^n(N)$ have compact support, show that
   \begin{equation}
@@ -631,7 +635,7 @@ We are going to state the theorem, discuss some of its consequences and then giv
 \begin{exercise}
   Let $D^n := \{x=(x^1, \ldots, x^n)\in\R^n \mid \|x\| \leq 1\}$ denote the unit disk in $\R^n$ centred at $0$. Recall that $\partial D^n = \bS^{n-1}$.
   \begin{enumerate}
-    \item Compute $\int_{\bS^1} \nu$ where $\nu$ is the following 1-form on $\R^2$: $\nu = -x^2 dx^1 + x^1 dx^2$.
+    \item Compute $\int_{\bS^1} \eta$ where $\eta$ is the following 1-form on $\R^2$: $\eta = -x^2 dx^1 + x^1 dx^2$.
     \item Compute $\int_{\bS^2} \omega$ where $\omega$ is the following 2-form on $\R^3$: $\omega = -x^1 dx^1\wedge dx^3 - x^2 dx^1\wedge dx^3 + x^3 dx^1\wedge dx^2$.
     \item Show that $\eta$ and $\omega$ above are closed but not exact (as differential forms on $\bS^1$ and $\bS^2$ respectively).
   \end{enumerate}
@@ -650,9 +654,9 @@ We are going to state the theorem, discuss some of its consequences and then giv
     &= 2\pi - 2\pi = 0.
   \end{align}
 
-  An important consequence of this is that while locally $\omega$ is the differential of the angle function $\theta$, this cannot be exact on all $M$: indeed, if $\omega = d\nu$, we would have
+  An important consequence of this is that while locally $\omega$ is the differential of the angle function $\theta$, this cannot be exact on all $M$: indeed, if $\omega = d\eta$, we would have
   \begin{equation}
-    2\pi = \int_{\bS^1}\omega = \int_{\bS^1}d\nu = \int_{\partial\bS^1}\nu = 0.
+    2\pi = \int_{\bS^1}\omega = \int_{\bS^1}d\eta = \int_{\partial\bS^1}\eta = 0.
   \end{equation}
 
   Moreover, since $2\pi = \int_{\bS^1}\omega$, Stokes' theorem also implies that $\bS^1$ is not the boundary of a compact regular domain in $\R^2\setminus\{0\}$.
