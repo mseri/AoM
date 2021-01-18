@@ -588,16 +588,17 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
   Let $V$ a vector space of dimension $k$.
   A symplectic form on $V$ is an element $\omega\in\Lambda^2(V)$ which is non-degenerate in the sense that $\iota_v(\omega) = 0$ if and only if $v=0$.
   Cf. Definition~\ref{def:metric}.
-  A \emph{symplectic manifold} is a smooth manifold $M$ equipped with a closed differential 2-form $\omega$ such tht $\omega_q$ is a symplectic form on $T_q M$ for every $p\in M$.
+  A \emph{symplectic manifold} is a smooth manifold $M$ equipped with a closed differential 2-form $\omega$ such tht $\omega_q$ is a symplectic form on $T_q M$ for every $q\in M$.
   \begin{enumerate}
     \item Prove that if a symplectic form exists, then $k=2n$ for some $n\in\N$, i.e., it must be an even number.
     \item Let $M$ be a smooth manifold. Define a $1$-form $\eta\in\Omega^1(T^*M)$ on the cotangent bundle of $M$ as
     \begin{equation}
-      \lambda_{(q,p)}(\xi) = p(d\pi_{(q,p)} \xi),
+      %\lambda_{(q,p)}(\xi) = p(d\pi_{(q,p)} \xi),
+      \lambda_{(q,p)} = d\pi_{(q,p)}^*p,
       \quad
       q\in M, \;
-      p\in T_q^*M, \;
-      \xi\in T_{(q,p)}(T^*M), 
+      p\in T_q^*M,
+      %\;\xi\in T_{(q,p)}(T^*M), 
     \end{equation}
     where $\pi:T^*M\to M$ is the projection to the base.
     Show that $\omega := d\lambda$ is a symplectic form on $T^* M$, that is, every cotangent bundle is a symplectic manifold.
@@ -678,7 +679,7 @@ Even though it is a bit impractical for computational purposes, flows are hard t
     \frac{d}{dt}\Big|_{t=0}\varphi_t^* f(x) 
     &= \lim_{t\to0} \frac{f(\varphi_t(x)) - f(t)}{t} \\
     &= \frac{\partial f}{\partial x^i}\Big|_x X^i(x) \\
-    &= df(X)(x) = L_X f(x).
+    &= df(X)(x) = \cL_X f(x).
   \end{align} 
 
   \newthought{Step III}. Let $\omega = dx^i \in \Omega^1(M)$, then
@@ -690,7 +691,7 @@ Even though it is a bit impractical for computational purposes, flows are hard t
   \end{align}
   On the other hand,
   \begin{align}
-    L_X(dx^i)
+    \cL_X(dx^i)
     &= \iota_X(ddx^i) + d(\iota_X dx^i)\\
     &= d(\iota_X dx^i) \\
     &= dX^i.
@@ -700,7 +701,7 @@ Even though it is a bit impractical for computational purposes, flows are hard t
 \end{proof}
 
 \begin{remark}
-  The Lie derivative can be extended on any tensor bundle $T_s^r(M)$ with the following definition.
+  The Lie derivative can be extended to any tensor bundle $T_s^r(M)$ with the following definition.
   This $T\in\cT_r^s(M)$, for any $p\in M$
   \begin{equation}
     (\cL_X T)_p := \frac{d}{dt}\Big|_{t=0}\left((\varphi_t^X)^* T\right)_p,
