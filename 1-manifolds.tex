@@ -186,7 +186,7 @@ Then, the following holds.
 \begin{enumerate}[(i)]
   \item\label{thm:chainrule1} The function $g\circ f: U\subset\R^n \to\R^m$ is continuously differentiable and its total derivative~\eqref{eq:jacobian} at a point $x\in U$ is given by
 \begin{equation}
-  D(g\circ f)(x) = D(g(f(x)) \circ Df(x).
+  D(g\circ f)(x) = (Dg)(f(x)) \circ Df(x).
 \end{equation}
 \item\label{thm:chainrule2} Denote $x=(x^1, \ldots, x^n)\in\R^n$ and $y=(y^1,\ldots,y^k)\in\R^k$ the coordinates on the respective euclidean spaces and $f=(f^1,\ldots,f^k)$ and $g=(g^1,\ldots,g^m)$ the components of the functions. Then the partial derivatives of $g\circ f$ are given by
 \begin{equation}
@@ -503,7 +503,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   
   \begin{marginfigure}
     \includegraphics{1_2_25-sphere}
-    \caption{The identification $\sim$ of antipodal points maps the sphere to a disk. Embedding $\bS^n/\!\sim$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^n = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself). }
+    \caption{The identification $\sim'$ of antipodal points maps the sphere to a disk. Embedding $\bS^n/\!\sim'$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^n = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself). }
   \end{marginfigure}
   There is a nice interpretation of this construction in terms of flattening spheres.
   Observe that a line through the origin always intercepts a sphere $\bS^n$ at two antipodal points and, conversely, each pair of antipodal point determines a unique line through the center.
@@ -512,7 +512,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   Note that by gluing antipodal points, we are identifying the north and south hemispheres, thus essentially flattening the sphere to a disk.
 
   \begin{exercise}\label{exe:RPSN}
-    Show that the map $n: \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$, induces a homeomorphism $\hat n:\RP^n \to \bS^n/\!\sim$.\\
+    Show that the map $n: \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$, induces a homeomorphism $\hat n:\RP^n \to \bS^n/\!\sim'$.\\
     \textit{\small Hint: find an inverse map and show that both $\hat n$ and its inverse are continuous.}
   \end{exercise}
 
@@ -669,7 +669,7 @@ A first observation about our definition of smooth maps is that as one would hop
 \begin{definition}
 A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
 %
-Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomporphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
+Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomorphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
 \end{definition}
 
 \begin{exercise}
@@ -838,7 +838,7 @@ With this result at hand, Proposition~\ref{prop:cutoff} can be shown very easily
 
 \section{Manifolds with boundary}\label{sec:mbnd}
 
-\newthought{The definition of manifolds has a serious limitation}, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $n
+\newthought{The definition of manifolds has a serious limitation}, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $
 2$-spheres $\bS^2$ from the homework sheet.}, it fails to describe many natural objects like a \emph{closed} interval $[a,b]\in\R$ or the \emph{closed} disk $D_1(0)$ of Example~\ref{ex:uball}.
 Note that in each of these cases, both the interior and the boundary are smooth manifolds and their dimension differ by one\footnote{In the first case the interior $(a,b)$ is a $1$-manifold and the boundary, the set $\partial[a,b] = \{a,b\}$, is a $0$-manifold. In the second case the interior of $D_1(0)$ is the open unit ball, a $2$-manifold, and the boundary $\partial D_1(0)$ is the $1$-manifold $\bS^1$.}.
 
@@ -910,7 +910,7 @@ With such definition at hand, one can define compatibility, smooth atlases and d
 \end{definition}
 
 \begin{proposition}\label{prop:bdwelldef}
-  The boundary $\partial M$ is well--defined\footnote{In the sense that smooth charts send boundary pieces to boundary pieces.Note that the definition of the boundary holds for topological manifolds as well, but showing that it is well--defined is much more complicated and will be omitted.}.
+  The boundary $\partial M$ is well--defined\footnote{In the sense that smooth charts send boundary pieces to boundary pieces. Note that the definition of the boundary holds for topological manifolds as well, but showing that it is well--defined is much more complicated and will be omitted.}.
 \end{proposition}
 \begin{proof}
   The statement follows if we show that the transition maps send boundary pieces to boundary pieces.
@@ -920,7 +920,7 @@ With such definition at hand, one can define compatibility, smooth atlases and d
   \begin{equation}
     f(x+h) = f(x) + Df|_x h + O(\|h\|).
   \end{equation}
-  Since the total derivative $D f$ at $x$ is an isomorphism, there exist an open neighbourhood $\cO$ of $x$ such that $f(\cO)$ is open in $\R^n$ and thus $f(x)\in V\cap(\cH^n\cap\partial\cH^n)$.
+  Since the total derivative $D f$ at $x$ is an isomorphism, there exist an open neighbourhood $\cO$ of $x$ such that $f(\cO)$ is open in $\R^n$ and thus $f(x)\in V\cap(\cH^n\setminus\partial\cH^n)$.
 \end{proof}
 
 \begin{example}\label{ex:mfldbdryinterval}

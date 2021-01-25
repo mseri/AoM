@@ -48,7 +48,7 @@ The space of smooth vector fields is a vector space under pointwise addition and
 \end{equation}
 The zero element of the vector space, called \emph{zero vector field}, is the vector field whose values is $0\in T_pM$ for all $p\in M$.
 Moreover, each vector field can be multiplied by smooth functions $f\in C^\infty(M)$ by defining $fX:M\to  TM$ by
-\marginnote{Be carefur, we are talking about two different structures here: $\fX(M)$ is both a real vector space and a $C^\infty(M)$-module.}
+\marginnote{Be careful, we are talking about two different structures here: $\fX(M)$ is both a real vector space and a $C^\infty(M)$-module.}
 \begin{equation}
   (fX)_p = f(p)X_p.
 \end{equation}
@@ -673,7 +673,7 @@ The definition above contains the proof of the following fact.
     &\frac{d}{d t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
   \end{align}
 
-  Moreover, if $X(x) = Ax$ is a linear vector field on $\R^n$, i.e., $A$ is a $n\times n$-matrix, then the corresponding flow $\varphi_t$ is the matrix exponential $\varphi_t(x) = e^{Ax}$.
+  Moreover, if $X(x) = Ax$ is a linear vector field on $\R^n$, i.e., $A$ is a $n\times n$-matrix, then the corresponding flow $\varphi_t$ is the matrix exponential $\varphi_t(x) = e^{tA}x$.
 \end{exercise}
 
 There are a few cases in which we can guarantee completeness, let's have a brief look.
@@ -716,7 +716,7 @@ There are a few cases in which we can guarantee completeness, let's have a brief
 In the same fashion as Lemma~\ref{lemma:charactCompleteVF}, one can characterize non-complete vector fields.
 
 \begin{lemma}\label{lemma:charactNotCompleteVF}
-  Let $K\subset \circ M$ compact and $p\in K$.
+  Let $K\subset \mathring M$ compact and $p\in K$.
   If $t^+(p) < \infty$, then there exists $0<\tau<t^+(p)$ such that $\gamma_p(t)\not\in K$ for all $t\in (\tau, t^+(p))$.
   An analogous statement holds if $t^-(p) > -\infty$.
 \end{lemma}
