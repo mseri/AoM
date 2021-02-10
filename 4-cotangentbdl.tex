@@ -245,11 +245,11 @@ In analogy to Chapter~\ref{sec:tangentbundle} we can glue the cotangent space to
 The cotangent bundle is a vector bundle of rank $n$ with projection $\pi:T^*M\to M$, $(p,\omega)\mapsto p$.
 The cotangent spaces are the fibres of the cotangent bundle. 
 
-\begin{theorem}
+\begin{theorem}\label{thm:starmbld}
   Let $M$ be a smooth $n$-manifold.
-  The smooth structure on $M$ naturally induces a smooth structure on $T^*M$, making $T^*M$ into a smooth manifold of dimension $2n$ for which all coordinate covector fields are smooth local sections.
+  The smooth structure on $M$ naturally induces a smooth structure on $T^*M$, making $T^*M$ into a smooth manifold of dimension $2n$.
 \end{theorem}
-\begin{proof}
+%\begin{proof}
   % The proof is analogous to that of Theorem~\ref{thm:tgbdlsmoothmfld}, so we will not do it again.
   % The atlas is obtained by an atlas $\{(U_i, \varphi_i)\}$ of $M$ by defining the new atlas
   % \begin{equation}
@@ -260,21 +260,25 @@ The cotangent spaces are the fibres of the cotangent bundle.
   %   \left(\varphi_i, (\varphi_i^{-1})^*\right) : T^* U_i &\to T^*\varphi(U_i),\\
   %   (p, \omega) &\mapsto \left(\varphi_i(p), d(\varphi_i^{-1})^*)_p\omega \right).
   % \end{align}
-  \begin{exercise}\textit{[homework 3]}
-    Mimicking what we did for Theorem~\ref{thm:tgbdlsmoothmfld}, complete this proof.
-  \end{exercise}
-\end{proof}
+\begin{exercise}\label{exe:prooftstarmbld}\textit{[homework 3]}
+  Mimicking what we did for Theorem~\ref{thm:tgbdlsmoothmfld}, complete the proof of Theorem~\ref{thm:starmbld}.
+\end{exercise}
+%\end{proof}
 
-\begin{definition}
+\begin{definition}\label{def:covfield}
   A \emph{covector field} or a \emph{(differential) $1$-form} on $M$ is a smooth section of $T^*M$.
   That is, a $1$-form $\omega\in\Gamma(T^*M)$ is a smooth map $\omega: p \to \omega_p \in T_p^*M$ that assigns to each point $p\in M$ a cotangent vector at $p$.
   We denote the space of all smooth covector fields on $M$ by $\fX^*(M)$.
   \marginnote[-1em]{For reasons related to tensor fields that we will understand soon, this is sometimes denoted $\cT_1^0(M)$.}
 
-  As for vector fields, we can define \emph{$C^p$-covector fields} as the $C^p$-maps $\omega:M\to T^*M$ such that $\pi\circ\omega = \id_M$.
+  Of course, one can also define \emph{$C^p$-covector fields} as the $C^p$-maps $\omega:M\to T^*M$ such that $\pi\circ\omega = \id_M$.
 \end{definition}
 
-Also in this case, we will often identify for a covector field $\omega\in\fX^*(M)$ its value $\omega(p) = \omega_p \in \{p\}\times T^*_p M$ at $p\in M$ with its part in $T_p^*M$ without necessarily making this explicit in the notation by projecting on the second factor.
+\begin{remark}
+  In Exercise~\ref{exe:prooftstarmbld} you have shown that coordinate covector fields are smooth local sections for the cotangent bundle.
+\end{remark}
+
+In analogy with the previous chapters, for covector fields $\omega\in\fX^*(M)$ we will often make the identification of its value $\omega(p) = \omega_p \in \{p\}\times T^*_p M$ at $p\in M$ with its part in $T_p^*M$ without necessarily making this explicit in the notation by projecting on the second factor.
 
 \begin{example}
   Let $f\in C^\infty(M)$, then the map

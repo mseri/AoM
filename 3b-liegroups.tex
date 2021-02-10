@@ -133,6 +133,27 @@ For a proof, look at the corresponding section in~\cite[Chapter 20]{book:lee}.
   You have proven this when you solved Exercise~\ref{exe:onsubmanifold}.
 \end{example}
 
+\begin{exercise}\label{ex:SL2LGA}
+  For this exercise is useful to remember that we can identify the space $\mathrm{Mat}(2,\R)$ of $2\times 2$-matrices with $\R^4$ by associating the matrix $X = \begin{pmatrix}x_{11} & x_{12}\\ x_{21} & x_{22}\end{pmatrix}$ with the point $(x_{11}, x_{12}, x_{21}, x_{22})\in\R^4$.
+  
+  \begin{enumerate}
+    \item Show that the set
+    \begin{equation*}
+      \mathrm{SL}(2) := \mathrm{SL}(2,\R) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \det A = 1 \}
+    \end{equation*}
+    is a 3-dimensional smooth submanifold of $\mathrm{Mat}(2,\R)$.
+    \item Let $e\in\mathrm{Mat}(2,\R)$ denote the identity matrix. Show that
+    \begin{equation*}
+      T_e \mathrm{SL}(2) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \mathrm{tr}\, A = 0 \},
+    \end{equation*}
+    where $\mathrm{tr} A$ denotes the matrix trace, i.e., the sum of the diagonal entries of $A$.
+    \item Let $\iota: \mathrm{SL}(2)\to \mathrm{SL}(2)$ be the map $\iota(A) = A^{-1}$. Show that $\iota$ is smooth.
+    \item Show that $d\iota_e: T_e\mathrm{SL}(2)\to T_e\mathrm{SL}(2)$ is given by $d\iota_e(A) = -A$.
+  \end{enumerate}
+\end{exercise}
+
+In fact, some parts of the Exercise~\ref{ex:SL2LGA} above are instances of a them more general statement of Exercise~\ref{ex:DiffGroupMaps}.
+
 \begin{exercise}\label{ex:DiffGroupMaps}
   Let $G$ be a Lie group.
   \begin{enumerate}
@@ -163,13 +184,14 @@ We are going to prove this very soon, but let's first look at some examples.
 
 \begin{example}
   \begin{enumerate}
-    \item The Lie algebra of $GL(n)$ is $\mathfrak{gl}(n)\simeq \mathrm{Mat}(n)$.
+    \item The Lie algebra of $GL(n)$ is $\mathfrak{gl}(n)\simeq \mathrm{Mat}(n, \R)$.
     \item The Lie algebra of $O(n)$ is $\mathfrak{o}(n) = \{A \in \mathfrak{gl}(n) \mid A+A^T = 0\}$. You have shown it in Exercise~\ref{exe:onsubmanifold}.
+    \item Can you guess what is the Lie algebra of $SL(2)$ from Exercise~\ref{ex:SL2LGA}? 
   \end{enumerate}
 \end{example}
 
 \begin{exercise}
-  The Lie algebra of $\bT^n$ is $\R^n$.\\
+  Show that the Lie algebra of $\bT^n$ is $\R^n$.\\
   \textit{\small Hint: using the fact that $T(M\times N) \simeq T(M)\times T(N)$ and look at what happens in the case $n=1$.}
 \end{exercise}
 
@@ -327,7 +349,7 @@ An immediate consequence of this proposition is the following.
   Use the inclusion $i:H\hookrightarrow G$ as the homomorphism, then $di_e:\fh = T_eH\to \fg = T_eG$ is the Lie algebra homomorphism.
 \end{proof}
 
-If we go back to the example of $GL(n)$, now we have two possibly different Lie brackets on $\mathfrak{gl}(n)=\mathrm{Mat}(n)$: the one coming from the previous corollary and the matrix commutator.
+If we go back to the example of $GL(n)$, now we have two possibly different Lie brackets on $\mathfrak{gl}(n)=\mathrm{Mat}(n, \R)$: the one coming from the previous corollary and the matrix commutator.
 The next result, which we will not prove, shows that they coincide.
 
 \marginnote{See~\cite[Proposition 8.41]{book:lee} for reference.}

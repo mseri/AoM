@@ -285,9 +285,9 @@ In colloquial language, a differentiable manifold is just a space covered by cha
   Why is this independent of the choice of the isomorphism $T$?
 
   This fact has a very interesting consequence.
-  The space $\mathrm{Mat}(n)$ of $n\times n$-matrices can be identified with $\R^{n^2}$ by writing the elements of the matrix as a $n^2$-vector.
-  This gives to $\mathrm{Mat}(n)$ a structure of differentiable manifold.
-  The subset of invertible matrices $GL(n) = \{ A \in \mathrm{Mat}(n) \;\mid\; \det A \neq 0\}$, widely known as the \emph{general linear group}, being an open subset of $\mathrm{Mat}(n)$ (why?) is itself a differentiable manifold.
+  The space $\mathrm{Mat}(n, \R)$ of real $n\times n$-matrices can be identified with $\R^{n^2}$ by writing the elements of the matrix as a $n^2$-vector.
+  This gives to $\mathrm{Mat}(n, \R)$ a structure of differentiable manifold.
+  The subset of invertible matrices $GL(n) := GL(n, \R) = \{ A \in \mathrm{Mat}(n, \R) \;\mid\; \det A \neq 0\}$, widely known as the \emph{general linear group}, being an open subset of $\mathrm{Mat}(n, \R)$ (why?) is itself a differentiable manifold.
   Is such manifold connected? Why?
 \end{exercise}
 
@@ -381,41 +381,6 @@ Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{p
 Note that smooth manifolds do not yet have a metric structure: distances between the points are not defined.
 However, they are \emph{metrizable}\footnote{In fact, all the topological manifolds are metrizable. This property is far more general and harder to prove~\cite[Theorem 34.1 and Exercise 1 of Chapter 4.36]{book:munkres:topology} or \cite{nlab:urysohn_metrization_theorem}. Note that not all topological spaces are metrizable, for example a space with more than one point endowed with the discrete topology is not. And even if a topological space is metrizable, the metric will be far from unique: for example, proportional metrics generate the same collection of open sets.}: there exists some metric on the manifold that induces the given topology on it.
 This allows to always view manifolds as metric spaces.
-
-\begin{example}[A different smooth structure on $\R$]
-  Consider the homeomorphism $\psi:\R\to\R$, $\psi(x) = x^3$.
-  The atlas consisting of the global chart $(\R, \psi)$ defines a smooth structure on $\R$.
-  This chart is not smoothly compatible with the standard smooth structure on $\R$ since $\id_\R \circ \psi^{-1} (y) = y^{1/3}$ is not smooth at $y=0$.
-  Therefore, the smooth structure defined on $\R$ by $\psi$ is different from the standard one.
-  You can adapt this idea to construct many different smooth structures on topological manifolds provided that they at least have one smooth structure.
-\end{example}
-
-\begin{exercise}
-  Show that there exists a diffeomorphism between the smooth structures $(\R, \id_\R)$ and $(\R, \psi)$ from the previous example.
-\end{exercise}
-
-\begin{exercise}[\textit{[homework 1]}]
-  For $r>0$, let $\phi_r:\R\to\R$ be the map given by
-  \begin{equation}
-    \phi_r(t) := \begin{cases}
-      t, & \mbox{if } t<0,\\
-      rt, & \mbox{if } t\geq0.
-    \end{cases}
-  \end{equation}
-  Let $\cA_r$ denote the maximal atlas on $\R$ containing the chart $(\R, \phi_r)$.
-  \begin{enumerate}
-    \item Show that the differentiable structures on $\R$ defined by $\cA_r$ and $\cA_s$, $0<r<s$, are different.
-    This shows that there are uncountably many families of different differential structures on $\R$.
-    \item Let $M_r$ be the manifold $\R$ equipped with the atlas $\cA_r$.
-    Show that $M_r$ and $M_s$ are diffeomorphic for $r,s >0$.
-  \end{enumerate}
-\end{exercise}
-
-\begin{remark}
-	There exist examples of topological manifolds without smooth structures.
-	It is also known that smooth manifolds of dimension $n < 4$ have exactly one smooth structure (up to diffeomorphisms) while ones of dimension $n > 4$ have finitely many\footnote{A beautiful example of this is the $7$-sphere $\bS^7$ which is known to have 28 non-diffeomorphic smooth structures.}.
-	The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
-\end{remark}
 
 Instead of always constructing a topological manifold and then specify a smooth structure, it is often convenient to combine these steps into a single construction.
 This is especially useful when the initial set is not equipped with a topology.
@@ -721,6 +686,41 @@ In the next section we will look more deeply into this.
 \begin{tcolorbox}
 From now on, when we write manifold, chart, atlas, etc. we always mean smooth manifold, smooth chart, smooth atlas, etc..
 \end{tcolorbox}
+
+\begin{example}[A different smooth structure on $\R$]
+  Consider the homeomorphism $\psi:\R\to\R$, $\psi(x) = x^3$.
+  The atlas consisting of the global chart $(\R, \psi)$ defines a smooth structure on $\R$.
+  This chart is not smoothly compatible with the standard smooth structure on $\R$ since $\id_\R \circ \psi^{-1} (y) = y^{1/3}$ is not smooth at $y=0$.
+  Therefore, the smooth structure defined on $\R$ by $\psi$ is different from the standard one.
+  You can adapt this idea to construct many different smooth structures on topological manifolds provided that they at least have one smooth structure.
+\end{example}
+
+\begin{exercise}
+  Show that there exists a diffeomorphism between the smooth structures $(\R, \id_\R)$ and $(\R, \psi)$ from the previous example.
+\end{exercise}
+
+\begin{exercise}[\textit{[homework 1]}]
+  For $r>0$, let $\phi_r:\R\to\R$ be the map given by
+  \begin{equation}
+    \phi_r(t) := \begin{cases}
+      t, & \mbox{if } t<0,\\
+      rt, & \mbox{if } t\geq0.
+    \end{cases}
+  \end{equation}
+  Let $\cA_r$ denote the maximal atlas on $\R$ containing the chart $(\R, \phi_r)$.
+  \begin{enumerate}
+    \item Show that the differentiable structures on $\R$ defined by $\cA_r$ and $\cA_s$, $0<r<s$, are different.
+    This shows that there are uncountably many families of different differential structures on $\R$.
+    \item Let $M_r$ be the manifold $\R$ equipped with the atlas $\cA_r$.
+    Show that $M_r$ and $M_s$ are diffeomorphic for $r,s >0$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{remark}
+	There exist examples of topological manifolds without smooth structures.
+	It is also known that smooth manifolds of dimension $n < 4$ have exactly one smooth structure (up to diffeomorphisms) while ones of dimension $n > 4$ have finitely many\footnote{A beautiful example of this is the $7$-sphere $\bS^7$ which is known to have 28 non-diffeomorphic smooth structures.}.
+	The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
+\end{remark}
 
 \section{Partitions of unity}
 

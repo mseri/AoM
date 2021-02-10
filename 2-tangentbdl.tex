@@ -596,7 +596,7 @@ Fortunately for us, the following exercise shows that, at any given point, the t
 
 An important consequence of what we have seen so far is that we can routinely \emph{identify} tangent vectors to a finite-dimensional vector space with elements of the space itself.
 More generally, if $M$ is an open submanifold of a vector space $V$, we can combine the identifications $T_p M \simeq T_p V \simeq V$ to obtain a canonical identification of each tangent space to $M$ with $V$.
-For example, since $GL_n(\R)$ is an open submanifold of the vector space $\mathrm{Mat}(n)$, we can identify its tangent space at each point $X\in GL_n(\R)$ with the full space of matrices $\mathrm{Mat}(n)$.
+For example, since $GL_n(\R)$ is an open submanifold of the vector space $\mathrm{Mat}(n, \R)$, we can identify its tangent space at each point $X\in GL_n(\R)$ with the full space of matrices $\mathrm{Mat}(n, \R)$.
 
 \begin{exercise}[Tangent space of a product manifold]
   Let $M_1, \ldots, M_k$ be smooth manifolds (without boundary\sidenote[][-8em]{The statement is true also if one (only one!) of the $M_i$ spaces is a smooth manifold with boundary. If there is more than one manifold with boundary, the product space will have ``corners'' that cannot be mapped to half spaces and thus is not a smooth manifold, as a simple example you can consider the closed square $[0,1]\times [0,1]$.}), and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
@@ -1218,24 +1218,6 @@ We can gather this observation and the previous results (the inverse and the imp
   \end{enumerate}
 \end{exercise}
 
-\newthought{Of course, we can also define subbundles}.
-\begin{definition}
-  Let $\pi:E \to M$ be a rank-$n$ vector bundle and $F\subset E$ a submanifold.
-  If for all $p\in M$, the intersection $F_p := F\cap E_p$ is a $k$-dimensional subspace of the vector space $E_p$ and $\pi|_F : F \to M$ defines a rank-$k$ vector bundle, then $\pi|_F: F \to M$ is called a \emph{subbundle} of $E$.
-\end{definition}
-
-\begin{exercise}[\textit{[homework 2]}]
-  Let $M$ be a smooth $m$-manifold and $N$ a smooth $n$-manifold.
-  Let $F:M\to N$ be an embedding and denote $\widetilde M = F(M)\subset N$.
-  \begin{enumerate}
-    \item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\big|_{\widetilde M}$, is a subbundle of $TN\big|_{\widetilde M}$ by providing explicit local trivialisations in terms of the charts $(U, \varphi)$ for $M$.
-    \item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that
-    \begin{equation}
-      T\widetilde{M} = \{(p,v)\in TN|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\}.
-    \end{equation}
-  \end{enumerate}
-\end{exercise}
-
 \newthought{We still have a question pending} since the beginning of the chapter.
 Is the tangent space to a sphere the one that we naively imagine (see Figure~\ref{fig:tan-embedded-sphere})?
 To finally answer the question, we will prove one last proposition.
@@ -1287,16 +1269,38 @@ To finally answer the question, we will prove one last proposition.
 \end{exercise}
 
 \begin{exercise}[\textit{[homework 2]}]\label{exe:onsubmanifold}
-  Show that the orthogonal matrices $O(n) := \{ Q\in GL(n) \mid Q^TQ=\id \}$ form a $n(n-1)/2$-dimensional submanifold of the $n^2$-manifold $\mathrm{Mat}(n)$ of $n\times n$-matrices.
+  Show that the orthogonal matrices
+  \begin{equation}
+    O(n) := O(n, \R) = \{ Q\in \mathrm{Mat}(n, \R) \mid Q^TQ=\id \}
+  \end{equation}
+  form a $n(n-1)/2$-dimensional submanifold of the $n^2$-manifold $\mathrm{Mat}(n, \R)$ of $n\times n$-matrices.
 
   Show also that
   \begin{equation}
-    T_Q O(n) = \left\lbrace B \in \mathrm{Mat}(n) \mid (Q^{-1} B)^T = -Q^{-1}B \right\rbrace,
+    T_Q O(n) = \left\lbrace B \in \mathrm{Mat}(n, \R) \mid (Q^{-1} B)^T = -Q^{-1}B \right\rbrace,
   \end{equation}
   and, thus, that $T_{\id} O(n)$ is the space of skew-symmetric matrices
   \begin{equation}
-    T_{\id} O(n) = \left\{ B \in \mathrm{Mat}(n) \mid B^T = -B \right\}.
+    T_{\id} O(n) = \left\{ B \in \mathrm{Mat}(n, \R) \mid B^T = -B \right\}.
   \end{equation}
-  \textit{\small Hint: Find a suitable map $F: \mathrm{Mat}(n) \to \mathrm{Sym}(n)$ such that $F^{-1}(\{p\}) = O(n)$ for some point $p$ in the image, e.g. $0$ or $\id_n$.
+  \textit{\small Hint: Find a suitable map $F: \mathrm{Mat}(n, \R) \to \mathrm{Sym}(n)$ such that $F^{-1}(\{p\}) = O(n)$ for some point $p$ in the image, e.g. $0$ or $\id_n$.
   Here $\mathrm{Sym}(n)$ denotes the space of symmetric matrices.}
+\end{exercise}
+
+\newthought{Of course, we can also define subbundles}.
+\begin{definition}
+  Let $\pi:E \to M$ be a rank-$n$ vector bundle and $F\subset E$ a submanifold.
+  If for all $p\in M$, the intersection $F_p := F\cap E_p$ is a $k$-dimensional subspace of the vector space $E_p$ and $\pi|_F : F \to M$ defines a rank-$k$ vector bundle, then $\pi|_F: F \to M$ is called a \emph{subbundle} of $E$.
+\end{definition}
+
+\begin{exercise}[\textit{[homework 2]}]
+  Let $M$ be a smooth $m$-manifold and $N$ a smooth $n$-manifold.
+  Let $F:M\to N$ be an embedding and denote $\widetilde M = F(M)\subset N$.
+  \begin{enumerate}
+    \item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\big|_{\widetilde M}$, is a subbundle of $TN\big|_{\widetilde M}$ by providing explicit local trivialisations in terms of the charts $(U, \varphi)$ for $M$.
+    \item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that
+    \begin{equation}
+      T\widetilde{M} = \{(p,v)\in TN|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\}.
+    \end{equation}
+  \end{enumerate}
 \end{exercise}

@@ -451,7 +451,7 @@ This justifies the following definition.
 
   In this exercise we are going to define a canonical volume $\omega_n$ on $\bS^n$ and prove that 
   \begin{equation}
-    \int_{\bS^n} \omega_n = \frac{2^{m+1}\pi^n}{(2m-1)!}, \quad\mbox{if } n=2m,\; m\geq 1,
+    \int_{\bS^n} \omega_n = \frac{2^{m+1}\pi^m}{(2m-1)!}, \quad\mbox{if } n=2m,\; m\geq 1,
   \end{equation}
   and
   \begin{equation}
@@ -708,4 +708,32 @@ In fact this example is a particular case of the following corollary of Stokes' 
 \begin{exercise}
   Prove this corollary. \\
   \textit{\small Hint: follows from two the previous corollaries.}
+\end{exercise}
+
+
+\begin{exercise}
+In this problem we are going to prove the smooth version of Brouwer's fixed point theorem.
+  
+\begin{theorem}[Brouwer's fixed point theorem (smooth version)]\label{thm:bfp1}
+  Let $D_n:=\{x\in\mathbb{R}^n\;\mid\;\|x\|\leq 1\}$ denote the closed unit disk in $\mathbb{R}^n$. % and $\mathbb{S}^{n-1} = \partial D_n$ its boundary, the $(n-1)$-sphere.
+  Any smooth map $g: D_n \to D_n$ has a fixed point, that is, $\exists\,p\in D_n$ such that $g(p) = p$.
+\end{theorem}
+
+We will proceed by first showing another result.
+
+\begin{theorem}\label{thm:bfp2}
+  Let $N$ be a compact $n$-dimensional submanifold of $\mathbb{R}^n$ with non-empty boundary $\partial N$.
+  Then, there is no differentiable map $f: N \to \partial N$ for which every boundary point is a fixed point, that is, for which $f(p) = p$ for all $p\in\partial N$.
+\end{theorem}
+
+Let $\Omega = dx^1 \wedge \cdots\wedge dx^n$ denote the standard volume form on $N$, that is, the restriction of the standard volume form on $\mathbb{R}^n$ to $N$,
+and $X$ be an outward-pointing vector field on $\partial N$.
+%Finally, let $i:\partial N\hookrightarrow N$ be the inclusion map.
+
+\begin{enumerate}
+  \item Show that $\omega = \iota_X \Omega$ is a closed non-vanishing form on $\partial N$.
+  \item Show that $f^*\omega$ is closed.
+  \item Prove Theorem~\ref{thm:bfp2}.\\\textit{Hint: assume there is $f$ such that $f(p)=p$ for all $p\in \partial N$ and use integration to get a contradiction.}
+  \item Prove Theorem~\ref{thm:bfp1}.\\\textit{Hint: by contradiction, use the half line from $p$ to $g(p)$ to construct a function for which every point in the boundary is fixed. }
+\end{enumerate}
 \end{exercise}
