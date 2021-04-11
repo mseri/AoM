@@ -40,25 +40,20 @@ jobs:
         echo "GITHUB_TAG=$(git describe --always --tags)" >> $GITHUB_ENV
         echo "BUILD_DATE=$(date +'%Y_%m_%d')" >> $GITHUB_ENV
 
-    - name: Cached Infra
-      uses: actions/cache@v2
-      env:
-        cache-name: cached-tectonic
+    - uses: actions/cache@v2
+      name: Tectonic Cache
       with:
-        path: |
-          ~/.cache
-        key: ${{ env.cache-name }}-${{ hashFiles('.cachefile') }}
+        path: ~/.cache/Tectonic
+        key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
         restore-keys: |
-          ${{ env.cache-name }}-
+          ${{ runner.os }}-tectonic-
 
     - name: Remove font customizations
       run: sed -i.bak '8,10d' aom.tex
 
-    - name: LaTeX Compilation
-      uses: vinay0410/tectonic-action@v1.1.2
+    - uses: wtfjoke/setup-tectonic@v1
       with:
-        tex_path: 'aom.tex'
-        push: 'no'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Upload PDF
       if: ${{ success() }}
