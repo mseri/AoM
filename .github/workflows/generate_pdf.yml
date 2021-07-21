@@ -54,6 +54,7 @@ jobs:
     - uses: wtfjoke/setup-tectonic@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        biber-version: "latest"
     
     - name: Run Tectonic
       run: tectonic aom.tex
