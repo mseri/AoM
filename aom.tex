@@ -239,14 +239,14 @@ Even though this means that all computations are explicit, it does make it harde
 Manifolds will force our hand to work in a \emph{coordinate-free} setting.
 We will see that this will unleash a surprising power that will allow us to lay the foundation for a lot of the mathematics that will come in the rest of the curriculum.
 
-These notes will focus on fundamental methods of differential geometry, in particular we will discuss manifolds, differential forms, integration, geometry of submanifolds, real and complex vector bundles, connections.
-Throughout the course and the text, I will try to give particular emphasis on the usefulness of these topics in the mathematical theories of classical and quantum mechanics.
+These notes will focus on fundamental methods of differential geometry, in particular we will discuss manifolds, differential forms, integration, with a wink to the study of vector fields and topology via cohomology.
+Throughout the course and the text, I will try to give particular emphasis on the usefulness of these topics in the mathematical theories of classical (and at some stage quantum) mechanics.
 
-If the time permits it, we will give a brief tour of Riemannian metrics and the notion of curvature or of distributions and Frobenius theorem, depending on the preferences expressed in class.
+If the time permits it, we will give a brief tour of Lie groups and Lie algebras, Riemannian metrics and the notion of curvature, or of distributions and Frobenius theorem, depending on the preferences expressed in class.
 This part of the material will not necessarily be part of the lecture notes\footnote{I will update this paragraph, if needed, in due course.}.
 
 The course relies \emph{heavily} on your knowledge of linear and multilinear algebra, multivariable analysis\footnote{Make sure to review the material of \href{http://www.rolandvdv.nl/M19/}{Multivariable Analysis} before the course begins} and dynamical systems.
-This should not come as a surprise: differential geometry and classical mechanics were born together as unique discipline, part of mathematical physics, before the various communities started diverging on their own paths.
+This should not come as a surprise: differential geometry studies the natural space in which analysis, in the sense of derivation and integration, can be performed, and was born together with classical mechanics, somehow as unique discipline, before these started diverging on their own paths.
 
 An old mathematical joke says that
 \begin{quote}
@@ -262,6 +262,7 @@ I have requested for~\cite{book:tu} book to be freely available via SpringerLink
 However, you can already freely access Lee's book via the University proxy on \href{https://link.springer.com/book/10.1007/978-1-4419-9982-5}{SpringerLink} and it will provide a very good and extensive reference for this and other future courses.
 The book~\cite{book:McInerney} is a nice compact companion that develops most of this course concept in the specific case of $\R^n$ and could provide further examples and food for thoughts.
 A colleague recently mentioned also~\cite{book:lang}. I don't know this book but from a brief look it seems to follow a similar path as these lecture notes, so might provide an alternative reference after all.
+The book~\cite{book:nicolaescu}, freely available from the author website, is bit really suitable as a reference but provides a fantastic resource if you want to dig further and see where the material discussed in the course can lead you.
 
 The idea for the cut that I want to give to this course was inspired by the online \href{https://www.video.uni-erlangen.de/course/id/242}{Lectures on the Geometric Anatomy of Theoretical Physics} by Frederic Schuller, by the lecture notes of Stefan Teufel's Classical Mechanics course~\cite{lectures:teufel} (in German), by the classical mechanics book by Arnold~\cite{book:arnold} and by the Analysis of Manifold chapter in~\cite{book:thirring}.
 In some sense I would like this course to provide the introduction to geometric analysis that I wish was there when I prepared my \href{https://www.mseri.me/lecture-notes-hamiltonian-mechanics/}{first edition} of the Hamiltonian mechanics course.
@@ -291,7 +292,7 @@ In general, we will use lower indices for basis of vector spaces\footnote{E.g., 
 
 Note that an upper index ``in the denominator'' is regarded as a lower index, so the following are to be considered equivalent:
 \begin{equation}
-  \sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i}.
+  \sum_{i} a^i \frac{\partial}{\partial x^i} \equiv a^i \frac{\partial}{\partial x^i}.
 \end{equation}
 In fact, the expressions below are all equivalent and commonly used in the differential geometry literature:
 \begin{equation}

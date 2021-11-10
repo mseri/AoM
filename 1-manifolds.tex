@@ -41,7 +41,8 @@ If you think carefully, this abstraction step was already in the air. Think abou
 \end{enumerate}
 
 This is where differential geometry comes into play.
-The rest of this chapter will be devoted to the introduction of \emph{smooth manifolds}, which are a class of topological spaces on which it is possible to make sense of the notion of differentiation even though they are not necessarily vector spaces.
+The rest of this chapter will be devoted to the introduction of \emph{smooth manifolds}, which are a class of topological spaces on which it is possible to make sense of the notion of differentiation---even though they are not necessarily vector spaces---and which allows us to reason in a way that will not depend on the way we define coordinates on them.
+
 We will do this in two stages.
 First we will introduce \emph{topological manifolds}, which are topological spaces that \emph{locally} look like euclidean spaces.
 Then we will endow topological manifolds with a so-called \emph{smooth structure}.
@@ -83,11 +84,14 @@ With topological spaces at hand, we can give a definition of continuity and intr
   A topological space $(X, \cT)$ is \emph{Hausdorff} if every two distinct points admit disjoint open neighbourhoods. That is, for every pair $x\neq y$ of points in $X$, there exist open subsets $U_x, U_y\in\cT$ such that $x\in U_x$, $y\in U_y$ and $U_x \cap U_y = \emptyset$.
 \end{definition}
 
-Topological spaces are extremely general, as such they may have very inconvenient -- someone would say nasty -- properties.
+Topological spaces are extremely general, as such they may have very inconvenient---someone may say nasty---properties.
 You can see this for yourself with the following exercise.
 
 \begin{exercise}
-Let $X$ be an arbitrary set. Show that $\cT:=\{\emptyset, X\}$ defines a topology on $X$, called the \emph{trivial topology}. Show that on $(X, \cT)$ any sequence in $X$ converges to every point of $X$, and every map from a topological space into $X$ is continuous.
+  \begin{itemize}
+    \item Let $X$ be an arbitrary set. Show that $\cT:=\{\emptyset, X\}$ defines a topology on $X$, called the \emph{trivial topology}. Show that on $(X, \cT)$ any sequence in $X$ converges to every point of $X$, and every map from a topological space into $X$ is continuous.
+    \item Let $X$ be an arbitrary set. Show that $\cT:=\mathcal{P}(X) := \{ A \mid A\subset X \}$, the powerset of $X$, defines a topology on $X$, called the \emph{discrete topology} in which every map $f : X \to Y$ to some other arbitrary topological space $(y, \cU)$ is continuous.
+  \end{itemize}
 \end{exercise}
 
 Hausdorff spaces are still rather general: in particular, any metric space with the metric topology\footnote{Recall that in a metric space $X$ the \emph{metric topology} is defined in the following way: a set $U\subset X$ is called open if for any $x\in U$ there exists $\epsilon>0$ such that $U$ fully contains the ball of radius $\epsilon$ around $x$.} is Hausdorff.
