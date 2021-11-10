@@ -96,5 +96,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ needs.create_draft_release.outputs.id }}
+        release_it: ${{ needs.create_draft_release.outputs.id }}
         assets_path: assets/
