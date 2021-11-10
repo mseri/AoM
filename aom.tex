@@ -5,14 +5,14 @@
 %Next block avoids bug, from  http://tex.stackexchange.com/a/200725/1913 
 \ifx\ifxetex\ifluatex\else % if lua- or xelatex http://tex.stackexchange.com/a/140164/1913
   \usepackage{fontspec}
+  \setmainfont{OpenDyslexic}
+  \setsansfont{OpenDyslexic}
+  \setmonofont{OpenDyslexicMono}
+  
   \setmainfont[Renderer=Basic, Numbers=OldStyle, Scale = 1.0]{TeX Gyre Pagella}
   \setsansfont[Renderer=Basic, Scale=0.90]{TeX Gyre Heros}
   \setmonofont[Renderer=Basic]{TeX Gyre Cursor}
   
-  % \setmainfont{OpenDyslexic}
-  % \setsansfont{OpenDyslexic}
-  % \setmonofont{OpenDyslexicMono}
-
   % \setmainfont[Mapping=tex-text,Numbers=OldStyle]{Bembo Std}
   % \setsansfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Gill Sans}
   % \setmonofont[Mapping=tex-text,Scale=MatchLowercase]{DejaVu Sans Mono}
@@ -266,7 +266,7 @@ I have requested for~\cite{book:tu} book to be freely available via SpringerLink
 However, you can already freely access Lee's book via the University proxy on \href{https://link.springer.com/book/10.1007/978-1-4419-9982-5}{SpringerLink} and it will provide a very good and extensive reference for this and other future courses.
 The book~\cite{book:McInerney} is a nice compact companion that develops most of this course concept in the specific case of $\R^n$ and could provide further examples and food for thoughts.
 A colleague recently mentioned also~\cite{book:lang}. I don't know this book but from a brief look it seems to follow a similar path as these lecture notes, so might provide an alternative reference after all.
-The book~\cite{book:nicolaescu}, freely available from the author website, is bit really suitable as a reference but provides a fantastic resource if you want to dig further and see where the material discussed in the course can lead you.
+The books~\cite{book:nicolaescu} and~\cite{book:crane}, freely available from the authors' website, are not really suitable as references for this courses but provides fantastic resources for the readers that want to dig further and see where the material discussed in the course can lead.
 
 The idea for the cut that I want to give to this course was inspired by the online \href{https://www.video.uni-erlangen.de/course/id/242}{Lectures on the Geometric Anatomy of Theoretical Physics} by Frederic Schuller, by the lecture notes of Stefan Teufel's Classical Mechanics course~\cite{lectures:teufel} (in German), by the classical mechanics book by Arnold~\cite{book:arnold} and by the Analysis of Manifold chapter in~\cite{book:thirring}.
 In some sense I would like this course to provide the introduction to geometric analysis that I wish was there when I prepared my \href{https://www.mseri.me/lecture-notes-hamiltonian-mechanics/}{first edition} of the Hamiltonian mechanics course.
