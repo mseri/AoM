@@ -53,15 +53,27 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         biber-version: "latest"
  
-    - name: Remove default font customizations
-      run: sed -i.bak '12,14d' aom.tex
-
     - name: Prepare env
       run: |
-        curl -Lo od.zip https://github.com/antijingoist/opendyslexic/releases/download/v0.91.12/opendyslexic-0.910.12-rc2-2019.10.17.zip
-        unzip od.zip
+        sudo apt install fonts-opendyslexic fonts-texgyre
         mkdir assets
 
+    - name: Run Tectonic
+      run: |
+        tectonic aom.tex
+        mv aom.pdf assets/aom-tg.pdf
+
+    - name: Upload PDF
+      if: ${{ success() }}
+      uses: actions/upload-artifact@v2
+      with:
+        path: assets/aom-tg.pdf
+        name: aom-tg-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
+        if-no-files-found: error
+    
+    - name: Remove TeX Gyre font customizations, falls back to OpenDyslxic
+      run: sed -i.bak '12,14d' aom.tex
+   
     - name: Run Tectonic
       run: |
         tectonic aom.tex
@@ -73,22 +85,6 @@ jobs:
       with:
         path: assets/aom-od.pdf
         name: aom-od-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
-        if-no-files-found: error
-    
-    - name: Remove Open Dyslexic font customizations
-      run: sed -i.bak '8,10d' aom.tex
-
-    - name: Run Tectonic
-      run: |
-        tectonic aom.tex
-        mv aom.pdf aom-std.pdf
-
-    - name: Upload PDF
-      if: ${{ success() }}
-      uses: actions/upload-artifact@v2
-      with:
-        path: aom-std.pdf
-        name: aom-std-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
         if-no-files-found: error
     
     - name: Upload release assets
