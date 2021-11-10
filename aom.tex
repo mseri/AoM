@@ -8,11 +8,11 @@
   \setmainfont{OpenDyslexic}
   \setsansfont{OpenDyslexic}
   \setmonofont{OpenDyslexicMono}
-  
+
   \setmainfont[Renderer=Basic, Numbers=OldStyle, Scale = 1.0]{TeX Gyre Pagella}
   \setsansfont[Renderer=Basic, Scale=0.90]{TeX Gyre Heros}
   \setmonofont[Renderer=Basic]{TeX Gyre Cursor}
-  
+
   % \setmainfont[Mapping=tex-text,Numbers=OldStyle]{Bembo Std}
   % \setsansfont[Mapping=tex-text,Numbers=OldStyle,Scale=MatchLowercase]{Gill Sans}
   % \setmonofont[Mapping=tex-text,Scale=MatchLowercase]{DejaVu Sans Mono}
@@ -28,14 +28,14 @@
 \fi
 
 \usepackage{graphicx} % allow embedded images
-  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
-  \graphicspath{{images/}} % set of paths to search for images
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{images/}} % set of paths to search for images
 \usepackage{amsmath,amssymb,amsthm,amsfonts,ulem,tikz}  % extended mathematics
 \usepackage{booktabs} % book-quality tables
 \usepackage{units}    % non-stacked fractions and better unit spacing
 \usepackage{multicol} % multiple column layout facilities
 \usepackage{fancyvrb,xcolor} % extended verbatim environments
-  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+\fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
 \usepackage{tikz,tikz-cd,bbm,mathbbol}
 \DeclareSymbolFontAlphabet{\mathbbl}{bbold} %let's you use \mathbbl{k} for a field k
 \hypersetup{colorlinks} %puts color to hyperlinks
@@ -47,9 +47,9 @@
 \usepackage[english]{babel}
 \usepackage{hyperref}
 \hypersetup{
-    colorlinks=true,    
-    urlcolor=Cerulean,
-    linkcolor = ForestGreen,
+  colorlinks=true,    
+  urlcolor=Cerulean,
+  linkcolor = ForestGreen,
 }
 \usepackage[toc]{appendix}
 
@@ -73,9 +73,9 @@
 \newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
 
 \newcommand{\adj}[4]{\begin{tikzcd}[ampersand replacement=\&, column sep=4ex]
-					  	   #1 \colon #2	\ar[yshift=+.6ex]{r}
-					  	\& #3 \colon #4	\ar[yshift=-.4ex]{l}
-					 \end{tikzcd}}
+    #1 \colon #2	\ar[yshift=+.6ex]{r}
+    \& #3 \colon #4	\ar[yshift=-.4ex]{l}
+\end{tikzcd}}
 
 \usepackage{etoolbox}
 \newcommand{\addQEDstyle}[2]{
@@ -110,9 +110,9 @@
 \addQEDstyle{problem}{$\starlet$}
 
 \usepackage[
-    type={CC},
-    modifier={by-nc-sa},
-    version={4.0},
+type={CC},
+modifier={by-nc-sa},
+version={4.0},
 ]{doclicense}
 
 \usepackage[dvipsnames]{xcolor}
@@ -158,13 +158,13 @@
 \DeclareFontFamily{U}{MnSymbolC}{}
 \DeclareSymbolFont{MnSyC}{U}{MnSymbolC}{m}{n}
 \DeclareFontShape{U}{MnSymbolC}{m}{n}{
-    <-6>  MnSymbolC5
-   <6-7>  MnSymbolC6
-   <7-8>  MnSymbolC7
-   <8-9>  MnSymbolC8
-   <9-10> MnSymbolC9
+  <-6>  MnSymbolC5
+  <6-7>  MnSymbolC6
+  <7-8>  MnSymbolC7
+  <8-9>  MnSymbolC8
+  <9-10> MnSymbolC9
   <10-12> MnSymbolC10
-  <12->   MnSymbolC12}{}
+<12->   MnSymbolC12}{}
 \DeclareMathSymbol{\iprod}{\mathbin}{MnSyC}{'270}
 
 \let\d\relax
@@ -191,13 +191,13 @@
 \newcommand{\TODO}{\textcolor{red}{\hrulefill}}
 
 \title{Analysis\\ \noindent
-on\\ \noindent
-Manifolds
+  on\\ \noindent
+  Manifolds
 }
 \author{Marcello Seri}
 \publisher{Bernoulli Institute\\ \noindent
-A.Y. 2021--2022\\ \noindent 
-\MakeLowercase{\texttt{m.seri@rug.nl}}
+  A.Y. 2021--2022\\ \noindent 
+  \MakeLowercase{\texttt{m.seri@rug.nl}}
 }
 
 \begin{document}
@@ -206,18 +206,18 @@ A.Y. 2021--2022\\ \noindent
 \newpage
 
 \begin{fullwidth}
-    ~\vfill
-    \thispagestyle{empty}
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{\baselineskip}
-    Copyright \copyright\ \the\year\ \thanklessauthor
-    
-    \par Version 0.12 -- \today
+  ~\vfill
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{\baselineskip}
+  Copyright \copyright\ \the\year\ \thanklessauthor
 
-    \vfill
-    \small{\doclicenseThis}
+  \par Version 0.13 -- \today
+
+  \vfill
+  \small{\doclicenseThis}
 \end{fullwidth}
-    
+
 \pagenumbering{roman}
 \tableofcontents
 \cleardoublepage
@@ -329,25 +329,25 @@ In fact, the expressions below are all equivalent and commonly used in the diffe
 
 \begin{appendices}
 
-\chapter{Frobenius theorem}
-Integrable and nonintegrable distributions, Contact geometry, Frobenius theorem.
+  \chapter{Frobenius theorem}
+  Integrable and nonintegrable distributions, Contact geometry, Frobenius theorem.
 
-\chapter{Vector bundles and connections}
-Hopefully we can cut on differential forms since they were treated in multivariable analysis and get to this.
+  \chapter{Vector bundles and connections}
+  Hopefully we can cut on differential forms since they were treated in multivariable analysis and get to this.
 
 \end{appendices}
 
 % \begin{appendices}
 %   \chapter{Solution to selected exercises}
 %   \section{Chapter~\ref{ch:manifolds}}
-  
+
 %   \newthought{Exercise~\ref{exe:rntopsp}.}
 %   \begin{enumerate}
 %     \item[] Hausdorff. For $x\neq y\in\R^n$, let $\epsilon = d(x,y)/3$.
 %     Then the two balls $B_x(\epsilon) := \{z\in X \;\mid\; d(z,x)<\epsilon\}$ and $B_y(\epsilon)$ are disjoint open sets containing $x$ and $y$ respectively.
 %     \item[] Second countable. As countable basis for the topology we can take the open balls $B_\epsilon(x)$ with rational radii $\epsilon\in\Q$ and centers $x\in\Q^n$.
 %   \end{enumerate}
-  
+
 % \end{appendices}
 
 \printbibliography

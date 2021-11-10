@@ -7,37 +7,37 @@ If you think carefully, this abstraction step was already in the air. Think abou
 
 \begin{enumerate}
   \item (High school) A function $f:\R\to\R$ is \emph{continuous} if you can draw it without lifting your pen from the page.
-  Then, the derivative $f'(x)$ of $f$ at a point $x$ is just the slope of the function $f$ at the point $x$.
-  
+    Then, the derivative $f'(x)$ of $f$ at a point $x$ is just the slope of the function $f$ at the point $x$.
+
   \item (Analysis) A function is continuous if its left and right limits at each point exist and have the same value.
-  Then, $f:\R\to\R$ is \emph{differentiable} at a point $x$ if the limit
-  \begin{equation}
-    f'(x) := \lim_{h\to0} \frac{f(x+h) - f(x)}{h} 
-  \end{equation}
-  exists, and is \emph{continuously differentiable} if $x\mapsto f'(x)$ is itself a continuous function.
-  
+    Then, $f:\R\to\R$ is \emph{differentiable} at a point $x$ if the limit
+    \begin{equation}
+      f'(x) := \lim_{h\to0} \frac{f(x+h) - f(x)}{h} 
+    \end{equation}
+    exists, and is \emph{continuously differentiable} if $x\mapsto f'(x)$ is itself a continuous function.
+
   \item (Multivariable analysis) You generalized the concepts to functions with more than one variable.
-  Continuity is practically unchanged but, now, a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is differentiable at $x=(x^1,\ldots,x^n)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix with respect to some chosen basis.} $T: \R^n\to\R^m$ such that
-  \begin{equation}\label{eq:diff}
-    \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
-  \end{equation}
-  The map $Df(x) := T$ is the \emph{total derivative}\footnote{This is sometimes called (total) differential in multivariable analysis, but this terminology may become a source of confusion for us.} of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
-  \begin{equation}\label{eq:jacobian}
-    Df(x) = \begin{pmatrix}
-      \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
-      \vdots & \ddots & \vdots \\
-      \frac{\partial f^m}{\partial x^1}(x) & \cdots & \frac{\partial f^m}{\partial x^n}(x) \\
-    \end{pmatrix}.
-  \end{equation} 
-  The notion of continuous differentiability is unchanged\footnote{Note how the spaces are changing though: since it takes values in the space of $m\times n$ matrices, the differential $x\mapsto Df(x)$ is in fact a mapping of $\R^n \to \R^{m\times n}$.}, and in fact for $m=n=1$ it coincides with the one you gave for real functions.
-  
+    Continuity is practically unchanged but, now, a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is differentiable at $x=(x^1,\ldots,x^n)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix with respect to some chosen basis.} $T: \R^n\to\R^m$ such that
+    \begin{equation}\label{eq:diff}
+      \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
+    \end{equation}
+    The map $Df(x) := T$ is the \emph{total derivative}\footnote{This is sometimes called (total) differential in multivariable analysis, but this terminology may become a source of confusion for us.} of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
+    \begin{equation}\label{eq:jacobian}
+      Df(x) = \begin{pmatrix}
+        \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
+        \vdots & \ddots & \vdots \\
+        \frac{\partial f^m}{\partial x^1}(x) & \cdots & \frac{\partial f^m}{\partial x^n}(x) \\
+      \end{pmatrix}.
+    \end{equation} 
+    The notion of continuous differentiability is unchanged\footnote{Note how the spaces are changing though: since it takes values in the space of $m\times n$ matrices, the differential $x\mapsto Df(x)$ is in fact a mapping of $\R^n \to \R^{m\times n}$.}, and in fact for $m=n=1$ it coincides with the one you gave for real functions.
+
   \item (Metric and topological spaces) A map $f:X\to Y$ between \emph{topological spaces} is continuous if preimages of open sets under $f$ are open. More explicitly, $f$ is continuous if for every open set $O\subset Y$, $f^{-1}(O)\subset X$ is an open set.
 
-  If $X$ and $Y$ are \emph{metric spaces}, then this reduces to the definition given above.
-  But how can we make sense of differentiability in this case? 
-  
-  If you have taken a course on calculus of variations, you know that you can make sense of~\eqref{eq:diff} and give a notion of differentiability in the case $X$ and $Y$ are Banach spaces\footnote{Complete normed vector spaces.}.
-  In general, a topological space is \emph{not} a vector space: there is no notion of adding points and, least of all, one of linearity.
+    If $X$ and $Y$ are \emph{metric spaces}, then this reduces to the definition given above.
+    But how can we make sense of differentiability in this case? 
+
+    If you have taken a course on calculus of variations, you know that you can make sense of~\eqref{eq:diff} and give a notion of differentiability in the case $X$ and $Y$ are Banach spaces\footnote{Complete normed vector spaces.}.
+    In general, a topological space is \emph{not} a vector space: there is no notion of adding points and, least of all, one of linearity.
 \end{enumerate}
 
 This is where differential geometry comes into play.
@@ -121,7 +121,14 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
   Furthermore, we say that a chart is \emph{centred at $p\in U$} if $\varphi(p) = 0$.
 \end{notation}
 
-Don't get scared by the first two conditions: they are only needed to make sure that there are not too few open sets (Hausdorff) and not too many (second countable).
+\begin{figure}[htp]
+  \centering
+  \includegraphics{1_2-charts.pdf}
+  \caption{Being locally euclidean allows to define coordinates on the manifold, that is, a mapping between the manifold and the euclidean space.}
+  \label{fig:1.2-charts}
+\end{figure}
+
+Don't get scared by conditions (i) and (ii) in the definition of topological manifolds: they are only needed to make sure that there are not too few open sets (Hausdorff) and not too many (second countable).
 
 \begin{example}
   With our definition, a countable collections of points with the discrete topology is a $0$-dimensional topological manifold.
@@ -134,7 +141,7 @@ Don't get scared by the first two conditions: they are only needed to make sure 
 \end{example}
 
 \begin{exercise}[The line with two origins]
-	Even though $\R^n$ with the euclidean topology is Hausdorff, being Hausdorff does not follow from being locally euclidean. A famous counterexample is the following\footnote{See also \cite[Problem 1-1]{book:lee} and \cite[Problem 5.1]{book:tu}.}.
+  Even though $\R^n$ with the euclidean topology is Hausdorff, being Hausdorff does not follow from being locally euclidean. A famous counterexample is the following\footnote{See also \cite[Problem 1-1]{book:lee} and \cite[Problem 5.1]{book:tu}.}.
   \begin{marginfigure}
     \includegraphics{1_ex_1_0_11.pdf}
     \label{fig:hausdorff-not-locally-euclidean}
@@ -145,13 +152,13 @@ Don't get scared by the first two conditions: they are only needed to make sure 
   \begin{enumerate}
     \item Check that this forms a basis\footnote{That is, the basis elements cover $M$ and for any $B_1, B_2$ on the basis, for all $x \in I = B_1\cap B_2$, there is an element $B_3$ of the basis such that $x\in B_3$ and $B_3\subset I$.} for a topology on $M$.
     \item Define the two charts
-    \begin{equation}
-    \varphi_j:(\R\setminus\{0\})\cup\{A_j\} \to \R, \quad
-    \varphi_j(x) = \begin{cases} x &\mbox{if } x\neq A_j\\ 0 & \mbox{if } x = A_j \end{cases}, \quad
-    j = 1,2.
-    \end{equation}
-    Show that $\varphi_1$ and $\varphi_2$ are homeomorphisms with respect to the aforementioned topology. 
-    %induced by the two charts\footnote{Let $(X, \cT)$ be a topological space and $f: X\to Y$ some map. The induced topology on $Y$ is \begin{equation}\cU_f := \{f^{-1}(U) \;\mid\; U\in\cT\}.\end{equation}}.
+      \begin{equation}
+        \varphi_j:(\R\setminus\{0\})\cup\{A_j\} \to \R, \quad
+        \varphi_j(x) = \begin{cases} x &\mbox{if } x\neq A_j\\ 0 & \mbox{if } x = A_j \end{cases}, \quad
+        j = 1,2.
+      \end{equation}
+      Show that $\varphi_1$ and $\varphi_2$ are homeomorphisms with respect to the aforementioned topology. 
+      %induced by the two charts\footnote{Let $(X, \cT)$ be a topological space and $f: X\to Y$ some map. The induced topology on $Y$ is \begin{equation}\cU_f := \{f^{-1}(U) \;\mid\; U\in\cT\}.\end{equation}}.
     \item Show that $M$ is locally euclidean and second countable but not Hausdorff.
   \end{enumerate}
 \end{exercise}
@@ -165,9 +172,9 @@ Don't get scared by the first two conditions: they are only needed to make sure 
 \end{example}
 
 \begin{example}
-	Consider the set $M := \{ x\in\R^2 \;\mid\; |x^1| = |x^2| \}$ with the topology induced by $\R^2$:
-   this is \emph{not} a topological manifold.
-	Since the number of connected components is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} homeomorphically mapped to open connected sets in $\R$.
+  Consider the set $M := \{ x\in\R^2 \;\mid\; |x^1| = |x^2| \}$ with the topology induced by $\R^2$:
+  this is \emph{not} a topological manifold.
+  Since the number of connected components is invariant under homeomorphisms, open connected neighbourhoods of $(0,0)\in M$ cannot be\footnote{A drawing of $M$ is worth more than a hundred words.} homeomorphically mapped to open connected sets in $\R$.
 \end{example}
 
 \newthought{There is still an elephant in the room} in need of a comment.
@@ -185,20 +192,20 @@ Before entering into the details of new definitions, let's recall what will be t
 \end{definition}
 
 \begin{theorem}[Chain rule]\label{thm:chainrule}
-Let $U\subset\R^n$ and $V\subset\R^k$ be open sets and $f: U \to \R^k$, $g: V\to\R^m$ two continuously differentiable functions such that $f(U)\subset V$.
-Then, the following holds.
-\begin{enumerate}[(i)]
-  \item\label{thm:chainrule1} The function $g\circ f: U\subset\R^n \to\R^m$ is continuously differentiable and its total derivative~\eqref{eq:jacobian} at a point $x\in U$ is given by
-\begin{equation}
-  D(g\circ f)(x) = (Dg)(f(x)) \circ Df(x).
-\end{equation}
-\item\label{thm:chainrule2} Denote $x=(x^1, \ldots, x^n)\in\R^n$ and $y=(y^1,\ldots,y^k)\in\R^k$ the coordinates on the respective euclidean spaces and $f=(f^1,\ldots,f^k)$ and $g=(g^1,\ldots,g^m)$ the components of the functions. Then the partial derivatives of $g\circ f$ are given by
-\begin{equation}
-  \frac{\partial g^i\circ f}{\partial x^j}(x)
-  = \sum_{r=1}^k \frac{\partial g^i}{\partial y^r}(f(x)) \frac{\partial f^r}{\partial x^j}(x),
-\qquad 1\leq i \leq m,\; 1\leq j\leq n.
-\end{equation}
-\end{enumerate}
+  Let $U\subset\R^n$ and $V\subset\R^k$ be open sets and $f: U \to \R^k$, $g: V\to\R^m$ two continuously differentiable functions such that $f(U)\subset V$.
+  Then, the following holds.
+  \begin{enumerate}[(i)]
+    \item\label{thm:chainrule1} The function $g\circ f: U\subset\R^n \to\R^m$ is continuously differentiable and its total derivative~\eqref{eq:jacobian} at a point $x\in U$ is given by
+      \begin{equation}
+        D(g\circ f)(x) = (Dg)(f(x)) \circ Df(x).
+      \end{equation}
+    \item\label{thm:chainrule2} Denote $x=(x^1, \ldots, x^n)\in\R^n$ and $y=(y^1,\ldots,y^k)\in\R^k$ the coordinates on the respective euclidean spaces and $f=(f^1,\ldots,f^k)$ and $g=(g^1,\ldots,g^m)$ the components of the functions. Then the partial derivatives of $g\circ f$ are given by
+      \begin{equation}
+        \frac{\partial g^i\circ f}{\partial x^j}(x)
+        = \sum_{r=1}^k \frac{\partial g^i}{\partial y^r}(f(x)) \frac{\partial f^r}{\partial x^j}(x),
+        \qquad 1\leq i \leq m,\; 1\leq j\leq n.
+      \end{equation}
+  \end{enumerate}
 \end{theorem}
 \marginnote[-5em]{Using Einstein's notation, this could be written as \begin{equation}\frac{\partial (g^i\circ f)}{\partial x^j}(x) = \frac{\partial g^i}{\partial y^r}(f(x)) \frac{\partial f^r}{\partial x^j}(x).\end{equation}}
 
@@ -222,11 +229,11 @@ We need to take extra care to ensure that these lifted definitions keep making s
 The solution is to introduce a little more structure to the problem.
 
 \begin{definition}\label{def:crcomp}
-We say that two charts $(U_1, \varphi_1)$ and $(U_2, \varphi_2)$ on a topological manifold $M$ are \emph{compatible} if either $U_1 \cap U_2 = \emptyset$ or if the \emph{transition map}\footnote{Both the composition maps $\varphi_1 \circ \varphi_2^{-1}$ and $\varphi_2 \circ \varphi_1^{-1}$ are called transition maps. Both maps are necessarily homeomorphisms since $\varphi_1$ and $\varphi_2$ are.}
-\begin{equation}
-  \varphi_1 \circ \varphi_2^{-1} : \varphi_2(U_1\cap U_2) \to \varphi_1(U_1 \cap U_2)
-\end{equation}
-is a smooth diffeomorphism.
+  We say that two charts $(U_1, \varphi_1)$ and $(U_2, \varphi_2)$ on a topological manifold $M$ are \emph{compatible} if either $U_1 \cap U_2 = \emptyset$ or if the \emph{transition map}\footnote{Both the composition maps $\varphi_1 \circ \varphi_2^{-1}$ and $\varphi_2 \circ \varphi_1^{-1}$ are called transition maps. Both maps are necessarily homeomorphisms since $\varphi_1$ and $\varphi_2$ are.}
+  \begin{equation}
+    \varphi_1 \circ \varphi_2^{-1} : \varphi_2(U_1\cap U_2) \to \varphi_1(U_1 \cap U_2)
+  \end{equation}
+  is a smooth diffeomorphism.
 \end{definition}
 
 \begin{figure*}[htp]
@@ -258,7 +265,7 @@ With these at hand, let's jump into the definition of smooth manifolds.
 \end{definition}
 
 \begin{notation}
-By a \emph{chart $(U, \varphi)$ about $p$} in a manifold $M$ we mean a chart in the differentiable structure of $M$ such that $p\in U$.
+  By a \emph{chart $(U, \varphi)$ about $p$} in a manifold $M$ we mean a chart in the differentiable structure of $M$ such that $p\in U$.
 \end{notation}
 
 \begin{definition}\label{def:diffmanifold}
@@ -270,7 +277,7 @@ In colloquial language, a differentiable manifold is just a space covered by cha
 
 \begin{notation}
   Whenever possible we will omit the differentiable structure $\cA$ from the notation and just write $M$.
-  We may write $M^n$ when we want to emphasize the dimension $n$ of $M$.
+  We may write $M^n$ when we want to emphasize that the dimension of $M$ is $n$.
 \end{notation}
 
 \begin{exercise}
@@ -302,7 +309,7 @@ In colloquial language, a differentiable manifold is just a space covered by cha
   With this notation, if $e_i$ denotes the $i$th standard basis vector\footnote{Identified with the \emph{point} $(0,\ldots,0,\LaTeXunderbrace{1}_{i\mbox{th component}},0,\ldots,0) \in\R^n$.} in $\R^n$, then $r^i(e_j) = \delta^i_j$.
   \marginnote{The Kronecker delta $\delta_j^i$ is defined by $\delta_j^i = 1$ if $i=j$ and $\delta_j^i = 0$ otherwise.}
 
-  If $(U, \varphi:U\to\R^n)$ is a chart of a manifold, then $x^i = r^i\circ\varphi$ will denote the $i$-th component of $\varphi$ and denote $\varphi = (x^1, \ldots, x^n)$ and, when convenient, $(U,\varphi) = (U, x^1, \ldots, x^n)$.
+  If $(U, \varphi:U\to\R^n)$ is a chart of a manifold, then $x^i = r^i\circ\varphi$ will denote the $i$-th component of $\varphi$ and denote $\varphi = (x^1, \ldots, x^n)$ and, when convenient, $(U,\varphi) = (U, x^1, \ldots, x^n)$ (see also Figure~\ref{fig:1.2-charts}).
 
   Thus, for $p\in U$, $(x^1(p), \ldots, x^n(p))$ is a point\footnote{By abuse of notation we sometimes omit the $p$. 
   Thus $(x^1, \ldots, x^n)$ can stand either for local coordinates or a point in $\R^n$: which one it is should be clear from the context.} in $\R^n$.
@@ -368,7 +375,7 @@ dropping the distinction between $p$ and $x$, both in place of
     If $\sim$ is an equivalence relation on $M$, the quotient space $M/\!\sim$ is the set of equivalence classes $[p]:=\{q\in M \mid p\sim q\}$ and the projection $\pi: M\to M/\!\sim$, $\pi(p) = [p]$, is a surjective map. Then $U\in M/\!\sim$ is open if $\cup_{[p]\in U} [p] \subset M$ is open.
     Here $\R/\Z$ denotes the quotient space $\R/\!\sim$ where the equivalence relation is induced by the canonical group action of $\Z$ on $\R$, that is, $x\sim y$ if and only if $x-y\in\Z$.
     This means that $[x] = \{x+k \mid k\in\Z\}$ and each interval $[x_0, x_0+1)$ of length $1$ contains exactly one representative per class.
-    Note that we are talking about topological spaces: the quotient, in general, does not preserve the Hausdorff property or second countability.} $\R/\Z$ with the two charts
+  Note that we are talking about topological spaces: the quotient, in general, does not preserve the Hausdorff property or second countability.} $\R/\Z$ with the two charts
   \begin{equation}\textstyle
     \varphi_1 : \R/\Z \setminus\{[0]\} \to (0,1)
     \quad\mbox{and}\quad
@@ -379,7 +386,7 @@ dropping the distinction between $p$ and $x$, both in place of
 \end{example}
 
 \begin{example}[Product manifolds]\label{ex:pm}
-Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{product manifold} $M_1 \times M_2$ by equipping $M_1 \times M_2$ with the product topology\footnote{Open sets in the product are products of open sets from the respective topological spaces.} and covering the space with the atlas $\{ (U_1\times U_2, (\varphi_1, \varphi_2)) \;\mid\; (U_1, \varphi_1)\in\cA_1, (U_2, \varphi_2)\in \cA_2\}$.
+  Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{product manifold} $M_1 \times M_2$ by equipping $M_1 \times M_2$ with the product topology\footnote{Open sets in the product are products of open sets from the respective topological spaces.} and covering the space with the atlas $\{ (U_1\times U_2, (\varphi_1, \varphi_2)) \;\mid\; (U_1, \varphi_1)\in\cA_1, (U_2, \varphi_2)\in \cA_2\}$.
 \end{example}
 
 Note that smooth manifolds do not yet have a metric structure: distances between the points are not defined.
@@ -409,7 +416,7 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
   Lemma~\ref{lem:manifold_chart} simplifies life a lot.
   Consider the product manifolds from Example~\ref{ex:pm}.
   Since both $M$ and $N$ are smooth manifolds, the product manifold is a $(m+n)$-dimensional smooth manifold with the atlas introduced in the example.
-  
+
   The proof of this fact is trivial in the sense that each of the maps in the atlas satisfies all the properties of the lemma by construction, after all they are already part of the differentiable structure of a smooth manifold.
 \end{example}
 
@@ -420,6 +427,8 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
   \end{equation}
   is a smooth manifold of dimension $n$.
 \end{exercise}
+
+\subsection{Quotient manifolds}
 
 If $M$ is a topological space and $\sim$ an equivalence relation we have seen that it is sometimes possible to define smooth manifolds.
 Since in general the quotient does not behave nicely it is convenient to get a few tricks to check if the manifold structure can be preserved.
@@ -443,10 +452,10 @@ You can refer to~\cite[Chapters 7.1--7.5]{book:tu}.}
   \begin{itemize}
     \item $\pi$ maps a basis for the topology of $M$ into a basis for the topology $M/\!\sim$, thus if $M$ is second countable, then $M/\!\sim$ is second countable;
     \item the quotient space $M/\!\sim$ is Hausdorff if and only if the graph $R$ of $\sim$, i.e., the set
-    \begin{equation}
-      R := \{(x,y)\in M\times M \mid x\sim y\},
-    \end{equation}
-    is closed in $M\times M$.
+      \begin{equation}
+        R := \{(x,y)\in M\times M \mid x\sim y\},
+      \end{equation}
+      is closed in $M\times M$.
   \end{itemize}
 \end{theorem}
 
@@ -469,7 +478,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   Then, the \emph{real projective space} is the quotient space $\RP^n := \R^{n+1}_0/\!\sim$.
   For the sake of the example, let's denote the class of equivalence of a point $x=(x^0,\ldots,x^n)\in\R^{n+1}_0$ by $[x]=[x^0,\ldots,x^n]$ and the projection to the quotient by $\pi:\R^{n+1}_0\to\RP^n$.
   The classes of equivalence $[x]$ are called \emph{homogeneous coordinates} on $\RP^n$.
-  
+
   \begin{marginfigure}
     \includegraphics{1_2_25-sphere}
     \caption{The identification $\sim'$ of antipodal points maps the sphere to a disk. Embedding $\bS^n/\!\sim'$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^n = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself). }
@@ -516,7 +525,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   Then, a brief computation shows
   \begin{align}
     \varphi_j\circ\varphi_i^{-1}& (y^1, \ldots, y^n) \\
-    &= \left(\frac{y^1}{y^j},\ldots,\frac{y^{j-1}}{y^j},\frac{y^{j+1}}{y^j},\ldots,\frac{y^{i-1}}{y^j},\frac1{y^j},\frac{y^{i+1}}{y^j}, \ldots, \frac{y^n}{y^j}\right),
+                                &= \left(\frac{y^1}{y^j},\ldots,\frac{y^{j-1}}{y^j},\frac{y^{j+1}}{y^j},\ldots,\frac{y^{i-1}}{y^j},\frac1{y^j},\frac{y^{i+1}}{y^j}, \ldots, \frac{y^n}{y^j}\right),
   \end{align}
   which is a diffeomorphism from $\varphi_i(U_i\cap U_j)$ to $\varphi_j(U_i\cap U_j)$ since $x^j\neq 0$ on $U_j$.
   The atlas defined by the collection $\{(U_i, \varphi_i)\}$ is called \emph{standard atlas} and makes $\RP^n$ a smooth manifold. 
@@ -531,7 +540,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   Let $N$ denote the north pole $(0,\ldots,0,1)\in\bS^n\subset\R^{n+1}$ and let $S$ denote the south pole $(0,\ldots,0,-1)$.
   Define the \emph{stereographic projections} $\sigma:\bS^n\setminus\{N\}\to \R^n$ by
   \begin{marginfigure}
-    \includegraphics{1_5_8-sphere}
+    \includegraphics[trim=20px 20px 5px 20px,clip]{1_5_8-sphere}
   \end{marginfigure}
   \begin{equation}
     \sigma(x^1,\ldots,x^{n+1}) := \left(\frac{x^1}{1-x^{n+1}},\ldots,\frac{x^n}{1-x^{n+1}}\right),
@@ -539,11 +548,11 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   and $\widetilde\sigma:\bS^n\setminus\{S\}\to \R^n$, $\widetilde\sigma(x) := -\sigma(-x)$.
   \begin{enumerate}
     \item For any $x\in\bS^n\setminus\{N\}$, show that $\sigma(x)=u$ where $(u,0)$ is the point of intersection of the line passing through $N$ and $x$ with the hyperplane $\{x^{n+1}=0\}$.
-    Similarly, show that $\widetilde\sigma(x)$ is the point where the line through $S$ and $x$ intersects the same hyperplane.
+      Similarly, show that $\widetilde\sigma(x)$ is the point where the line through $S$ and $x$ intersects the same hyperplane.
     \item Show that $\sigma$ is bijective and
-    \begin{equation}
-      \sigma^{-1}(u) = \left(\frac{2 u^1}{\|u\|^2+1}, \ldots,\frac{2 u^n}{\|u\|^2+1},\frac{\|u\|^2-1}{\|u\|^2+1}\right).
-    \end{equation}
+      \begin{equation}
+        \sigma^{-1}(u) = \left(\frac{2 u^1}{\|u\|^2+1}, \ldots,\frac{2 u^n}{\|u\|^2+1},\frac{\|u\|^2-1}{\|u\|^2+1}\right).
+      \end{equation}
     \item Compute the transition map $\widetilde\sigma\circ\sigma^{-1}$ and verify that the atlas $\{(\bS^n\setminus\{N\},\sigma),(\bS^n\setminus\{S\},\widetilde\sigma)\}$ defines a smooth structure on $\bS^n$.
     \item Let $n=1$. Show that this smooth structure is the same as the one defined in Example~\ref{ex:S1emb}.
   \end{enumerate}
@@ -555,7 +564,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   In these notes we will only deal with smooth manifolds.
 \end{tcolorbox}
 
-\section{Smooth maps and differentiability}
+\section{Smooth maps and differentiability}\label{sec:smoothfn}
 
 With a well--defined differentiable structure and the idea of compatible charts, we have all the ingredients to lift the definition of differentiable maps from the euclidean world.
 
@@ -606,9 +615,11 @@ At this point, the generalization of smooth functions to smooth maps between man
   Let $F:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two smooth manifolds of dimension $n_1$ and $n_2$ respectively.
   We say that $F$ is \emph{smooth}, or \emph{of class $C^\infty$}, if, for any chart $(\varphi_1, V_1)$ of $M_1$ and $(\varphi_2, V_2)$ of $M_2$, the map
   \begin{align}
-    \varphi_2 \circ F \circ \varphi_1^{-1}: U_1 \to U_2,\\
-    U_1 := \varphi_1(V_1 \cap F^{-1}(V_2))\subset\R^{n_1},\\
-    U_2 := \varphi_2(F(V_1) \cap V_2)\subset\R^{n_2},
+    \varphi_2 \circ F \circ \varphi_1^{-1}: U_1 \to U_2,\qquad
+    \begin{cases}
+    U_1 := \varphi_1(V_1 \cap F^{-1}(V_2))\subset\R^{n_1}\\
+    U_2 := \varphi_2(V_2)\subset\R^{n_2}
+    \end{cases},
   \end{align}
   is smooth as a euclidean function.
   \marginnote[-6em]{Differently from your calculus classes, we are defining differentiability \emph{before} we define what the derivative is. Getting to it will require some amount of work, and will have to wait until the next chapter.}
@@ -627,26 +638,19 @@ At this point, the generalization of smooth functions to smooth maps between man
 
 For a very simple and familiar example, consider the real valued function $f(x,y)= x^2+y^2$ defined on $\R^2$.
 In polar coordinates on $U=\{(x,y)\in\R^2\mid x>0\}$, $f$ has the coordinate representation $\hat f (\rho, \theta) = \rho^2$.
-Very often, where there is no ambiguity, we will simply identify $f$ and $\hat f$ and just write ``in the local coordinates $(\rho,\theta)$ on $U$, $f(\rho,\theta) = \rho^2$''.
+Very often, where there is no ambiguity, we will simply identify $f$ and $\hat f$ and just write
+\begin{quote}
+  in the local coordinates $(\rho,\theta)$ on $U$, $f(\rho,\theta) = \rho^2$.
+\end{quote}
 
-A first observation about our definition of smooth maps is that as one would hope, smoothness implies continuity.
-
+A first observation about our definition of smooth maps is that, as one would hope, smoothness implies continuity.
+%
 \begin{exercise}
   Show that every smooth map is continuous.
 \end{exercise}
-
-\begin{definition}
-A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
 %
-Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomorphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
-\end{definition}
-
 \begin{exercise}
-Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\varphi(V)\subset\R^n$.
-\end{exercise}
-
-\begin{exercise}
-  Prove the following propositions and aid your reasoning by drawing the relevant figures.
+  Prove the following propositions, aiding your reasoning by drawing the relevant figures or commutative diagrams.
   \begin{proposition}
     Let $M$ be a smooth manifold of dimension $n$.
     Then $F:M\to\R^m$ is smooth iff for all smooth charts $(U,\varphi)$ of $M$, the function $F\circ\varphi^{-1}:\varphi(U)\to\R^m$ is smooth.
@@ -659,10 +663,30 @@ Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manif
     Let $M, N, P$ be three smooth manifolds, and suppose that $F:M\to N$ and $G:N\to P$ are smooth.
     Then $G\circ F\in C^\infty(M, P)$.
   \end{proposition}
-  
+
   \begin{proposition}[Smoothness is a local property]\label{prop:smoothlocal}
     Let $F:M\to N$ be a continuous function and let $\{U_i\}_{i\in I}$ be an open cover for $M$. Then $F|_{U_i}:U_i \to N$ is smooth for every $i\in I$ iff $F:M\to N$ is smooth.
   \end{proposition}
+\end{exercise}
+
+It can be useful to know that there are alternative ways to characterize smooth functions.
+\begin{exercise}[Equivalent definitions of smoothness]\label{prop:eq-def-smooth}
+  Let $M_1$ and $M_2$ be smooth manifolds.
+  Show that a map $F:M_1\to M_2$ is smooth if and only if either of the following conditions holds:
+  \begin{enumerate}
+    \item for every $p\in M_1$, there are smooth charts $(V_1,\phi_1)$, $p\in V_1$, and $(V_2,\phi_1)$, $F(p) \in V_2$, such that $F(V_1) \subseteq V_2$ and $\phi_2 \circ F \circ \phi_1^{-1}$ is smooth from $\phi_1(V_1)$ to $\phi_2(V_2)$;
+    \item $F$ is continuous and there exists two smooth atlases $\{(V^1_\alpha, \phi^1_\alpha)\}$ and $\{(V^2_\beta, \phi^2_\beta)\}$, respectively for $M_1$ and $M_2$, such that for each $\alpha$ and $\beta$, $\phi^2_\beta \circ F \circ (\phi^1_\alpha)^{-1}$ is a smooth maph from $\phi^1_\alpha(V^1_\alpha \cap F(V_\beta^2))$ to $\phi^2_\beta(V^2_\beta)$.
+  \end{enumerate}
+\end{exercise}
+
+\begin{definition}
+  A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
+  %
+  Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomorphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
+\end{definition}
+
+\begin{exercise}
+  Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\varphi(V)\subset\R^n$.
 \end{exercise}
 
 \begin{exercise}
@@ -688,7 +712,7 @@ These allow to surgically patch objects together and make sure that they still h
 In the next section we will look more deeply into this.
 
 \begin{tcolorbox}
-From now on, when we write manifold, chart, atlas, etc. we always mean smooth manifold, smooth chart, smooth atlas, etc..
+  From now on, when we write manifold, chart, atlas, etc. we always mean smooth manifold, smooth chart, smooth atlas, etc..
 \end{tcolorbox}
 
 \begin{example}[A different smooth structure on $\R$]
@@ -714,16 +738,16 @@ From now on, when we write manifold, chart, atlas, etc. we always mean smooth ma
   Let $\cA_r$ denote the maximal atlas on $\R$ containing the chart $(\R, \phi_r)$.
   \begin{enumerate}
     \item Show that the differentiable structures on $\R$ defined by $\cA_r$ and $\cA_s$, $0<r<s$, are different.
-    This shows that there are uncountably many families of different differential structures on $\R$.
+      This shows that there are uncountably many families of different differential structures on $\R$.
     \item Let $M_r$ be the manifold $\R$ equipped with the atlas $\cA_r$.
-    Show that $M_r$ and $M_s$ are diffeomorphic for $r,s >0$.
+      Show that $M_r$ and $M_s$ are diffeomorphic for $r,s >0$.
   \end{enumerate}
 \end{exercise}
 
 \begin{remark}
-	There exist examples of topological manifolds without smooth structures.
-	It is also known that smooth manifolds of dimension $n < 4$ have exactly one smooth structure (up to diffeomorphisms) while ones of dimension $n > 4$ have finitely many\footnote{A beautiful example of this is the $7$-sphere $\bS^7$ which is known to have 28 non-diffeomorphic smooth structures.}.
-	The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
+  There exist examples of topological manifolds without smooth structures.
+  It is also known that smooth manifolds of dimension $n < 4$ have exactly one smooth structure (up to diffeomorphisms) while ones of dimension $n > 4$ have finitely many\footnote{A beautiful example of this is the $7$-sphere $\bS^7$ which is known to have 28 non-diffeomorphic smooth structures.}.
+  The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
 \end{remark}
 
 \section{Partitions of unity}
@@ -771,7 +795,7 @@ Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main 
   \newthought{Part 1}.
   To warm up, let's do some first year analysis.
   For any pair of real numbers $r < R$ there exists a smooth function $f: \R \to [0,1]$ such that $f(t) = 1$ for $t \leq r$, $f(t) = 0$ for $t \geq R$ and $0<f(t)<1$ for $t\in(r,R)$.
-  
+
   We can construct this explicitly by means of the function
   \begin{equation}
     h:\R\to\R, \quad h(t):= \begin{cases}
@@ -798,7 +822,7 @@ Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main 
 
   \newthought{Part 3}.
   Let's now pick a point $p\in M$ and an arbitrary neighbourhood $U$ of $p$. Choosing an appropriate chart about $p$, the previous step implies that we can choose a smaller neighbourhood $V\subset U$ of $p$ with $\overline V\subset U$ and such that there exists a smooth function $\chi: M \to [0,1]$ satisfying $\chi(p) = 1$ for all $p\in\overline{V}$ and $\chi(p) = 0$ for all $p\in M\setminus U$.
-  
+
   \newthought{Part 4}.
   We are ready to complete the proof.
   For each point $p\in K$, choose two neighbourhoods $V_p \subset U_p$ such that $\overline{V_p}\subset K$ and $U_p \subset U$.
@@ -818,12 +842,12 @@ We are not there yet. To extend this result to our needs will need a new tool, w
     \item $0 \leq \rho_\alpha \leq 1$ for all $p\in M$ and $\alpha\in A$;
     \item\label{def:pou.2} the collection $\{\rho_\alpha \mid \alpha\in A\}$ is \emph{locally finite}, that is, for any $p\in M$ there are at most finitely many $\alpha\in A$ such that $p\in\supp(\rho_\alpha)$;
     \item for all $p\in M$ one has $\sum_{\alpha\in A} \rho_\alpha(p) = 1$.
-    \marginnote{For any $p$, $\sum_{\alpha\in A} \rho_\alpha(p)$ is a finite sum by~\ref{def:pou.2}. Thus, the function defined by the sum $\rho := \sum \rho_\alpha$ is a well define smooth function on $M$. We call such sum a \emph{locally finite} sum.}
+      \marginnote{For any $p$, $\sum_{\alpha\in A} \rho_\alpha(p)$ is a finite sum by~\ref{def:pou.2}. Thus, the function defined by the sum $\rho := \sum \rho_\alpha$ is a well define smooth function on $M$. We call such sum a \emph{locally finite} sum.}
   \end{enumerate}
 \end{definition}
 
 \begin{remark}
-Note that the existence of a partition of unity is a distinguished feature of differentiable manifolds: stronger structures, like analytic or holomorphic ones, in general fail to have one.
+  Note that the existence of a partition of unity is a distinguished feature of differentiable manifolds: stronger structures, like analytic or holomorphic ones, in general fail to have one.
 \end{remark}
 
 Throughout the course we will be mostly interested in partitions of unity $\{\rho_\alpha \mid \alpha\in A\}$ which are \emph{subordinate} to an open cover $\{U_\alpha\mid\alpha\in A\}$, that is, such that $\supp_\alpha(\rho_\alpha) \subset U_\alpha$ for each $\alpha\in A$.
@@ -878,12 +902,12 @@ and the topology inherited by $\R^n$, as a replacement for our local model $\R^n
 \end{figure}
 
 \begin{example}\label{ex:mobius}
-A M\"obius strip $M$ is a connected $2$-manifold with boundary.
-As a topological space it is the quotient\footnote{Think of a strip of paper whose ends have been glued with a twist.} $\R\times[0,1]$ via the identification $(x,y)\sim(x+1, 1-y)$.
-The projection $\pi: [(x,y)] \mapsto (\cos(2\pi x), \sin(2\pi x))$ is a continuous surjective map to $\bS^1$.
-Given $x_0\in\R$, we can choose charts $[(x,y)]\mapsto (e^x\cos(\pi y), e^x\sin(\pi y))$ for $x\in(x_0 - \epsilon, x_0 + \epsilon)$ and any $\epsilon < 1/2$.
-\marginnote{Note that $\partial M$ is diffeomorphic to $\bS^1$. In fact, this is actually an example of a non-trivial fiber bundle, something that will make sense only a few chapters from now.
-In this case, $M$ is a bundle of intervals over a circle.}
+  A M\"obius strip $M$ is a connected $2$-manifold with boundary.
+  As a topological space it is the quotient\footnote{Think of a strip of paper whose ends have been glued with a twist.} $\R\times[0,1]$ via the identification $(x,y)\sim(x+1, 1-y)$.
+  The projection $\pi: [(x,y)] \mapsto (\cos(2\pi x), \sin(2\pi x))$ is a continuous surjective map to $\bS^1$.
+  Given $x_0\in\R$, we can choose charts $[(x,y)]\mapsto (e^x\cos(\pi y), e^x\sin(\pi y))$ for $x\in(x_0 - \epsilon, x_0 + \epsilon)$ and any $\epsilon < 1/2$.
+  \marginnote{Note that $\partial M$ is diffeomorphic to $\bS^1$. In fact, this is actually an example of a non-trivial fiber bundle, something that will make sense only a few chapters from now.
+  In this case, $M$ is a bundle of intervals over a circle.}
 \end{example}
 
 We saw in Proposition~\ref{prop:uniqdiffeoinclusion} that differentiability is a local property, which means that is a property defined on open sets.
@@ -904,7 +928,7 @@ With such definition at hand, one can define compatibility, smooth atlases and d
 \begin{definition}\label{def:diffmanifoldwb}
   \marginnote{Remember that the differentiable structure is an equivalence class of smooth atlases.}
   A \emph{smooth manifold with boundary} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold with boundary $M$ and a smooth differentiable structure $\cA = \{(U_\alpha, \varphi_\alpha) \mid \alpha\in A\}$ on $M$.
-  
+
   \marginnote{The boundary $\partial M$ as defined by~\eqref{def:bdry} can differ from its topological boundary as a subset of another topological space. For example the boundary $\partial\bS^1$ of the circle as a manifold is empty, but the boundary of the circle $\bS^1$ as a subset of $\R^2$ is $\bS^1$ itself.}
   The \emph{boundary} of $M$ is defined as
   \begin{equation}\label{def:bdry}
@@ -925,6 +949,10 @@ With such definition at hand, one can define compatibility, smooth atlases and d
   \end{equation}
   Since the total derivative $D f$ at $x$ is an isomorphism, there exist an open neighbourhood $\cO$ of $x$ such that $f(\cO)$ is open in $\R^n$ and thus $f(x)\in V\cap(\cH^n\setminus\partial\cH^n)$.
 \end{proof}
+
+\begin{remark}
+  The definition of smooth maps and the propositions proven in Section~\ref{sec:smoothfn} all hold also in the case of smooth manifolds with boundary. 
+\end{remark}
 
 \begin{example}\label{ex:mfldbdryinterval}
   Let's go back to the closed interval $M=[a,b]\subset\R$. 
@@ -954,8 +982,8 @@ Can we make sense of such observation using our newly introduced definition?
       \left(
         U_\alpha \cap \mathring M,
         \varphi_\alpha|_{U_\alpha \cap \mathring M}
-        \right) \mid \alpha\in A
-      \right\}
+      \right) \mid \alpha\in A
+    \right\}
   \end{equation}
   is an atlas for $\mathring M$ where none of the charts contain points in $\partial\cH^n$.
 
@@ -965,8 +993,8 @@ Can we make sense of such observation using our newly introduced definition?
       \left(
         U_\alpha \cap \partial M,
         \varphi_\alpha|_{U_\alpha \cap \partial M}
-        \right) \mid \alpha\in A
-      \right\},
+      \right) \mid \alpha\in A
+    \right\},
   \end{equation}
   where
   \begin{equation}
@@ -982,26 +1010,26 @@ Can we make sense of such observation using our newly introduced definition?
   \end{equation}
   with boundary $\partial\cC = \{p\in\cC \mid p^3 = 1\}$.
   \begin{marginfigure}
-  \includegraphics{1_5_9-cyl1}
+    \includegraphics{1_5_9-cyl1}
   \end{marginfigure}
   We can describe the cone with the following atlas $\cA = \{(U_i,\varphi_i)\mid i=1,2,3\}$:
   \begin{itemize}
     \item $U_1 := \{p\in\cC\mid p^3 < 1\}$ with $x = (x^1, x^2) = \varphi_1(p) = (p^1,p^2+1)$, thus
-    \begin{equation}
-      \varphi_1^{-1}(x) = \left(x^1, x^2-1, \sqrt{(x^1)^2 + (x^2-1)^2}\right).
-    \end{equation}
+      \begin{equation}
+        \varphi_1^{-1}(x) = \left(x^1, x^2-1, \sqrt{(x^1)^2 + (x^2-1)^2}\right).
+      \end{equation}
     \item $U_2 = \{p\in\cC\mid 1/2 < p^3 \leq 1, \; (p^1, p^2) \neq (0, p^3)\}$ with $\varphi_2$ defined as follows. Let
-    \begin{equation}
-      q = \psi(p) = \left(\frac{p^1}{p^3}, \frac{p^2}{p^3}, p^3\right)
-      \quad\mbox{and}\quad
-      \sigma(q) = \left(\frac{2q^1}{1-q^2}, 1-q^3\right),
-    \end{equation}
-    then $x = \varphi_2(p) = (\sigma\circ\psi)(p)$ and $\varphi_2(U_2) = \R\times[0,1/2) \subset\cH^2$.
+      \begin{equation}
+        q = \psi(p) = \left(\frac{p^1}{p^3}, \frac{p^2}{p^3}, p^3\right)
+        \quad\mbox{and}\quad
+        \sigma(q) = \left(\frac{2q^1}{1-q^2}, 1-q^3\right),
+      \end{equation}
+      then $x = \varphi_2(p) = (\sigma\circ\psi)(p)$ and $\varphi_2(U_2) = \R\times[0,1/2) \subset\cH^2$.
     \item $U_3 = \{p\in\cC\mid 1/2 < p^3 \leq 1, \; (p^1, p^2) \neq (0, -p^3) \}$ and $\varphi_3$ defined similarly as in the previous point.
   \end{itemize}
   \begin{marginfigure}
-  \includegraphics{1_5_9-cyl2}
-  \caption{Compare $\varphi$ with the stereographic projections from Exercise~\ref{ex:stereo}. Do you notice any similarity?}
+    \includegraphics{1_5_9-cyl2}
+    \caption{Compare $\varphi$ with the stereographic projections from Exercise~\ref{ex:stereo}. Do you notice any similarity?}
   \end{marginfigure}
   The boundary is given by $\partial\cC = \varphi_2^{-1}(\R\times\{0\}) \cup \varphi_3^{-1}(\R\times\{0\})$.
 \end{example}
@@ -1016,7 +1044,7 @@ Can we make sense of such observation using our newly introduced definition?
   \begin{enumerate}
     \item Show that $M$ is a topological manifold with boundary in which each point of $\partial M = \bS^{n-1}$ is a boundary point and each point in $\mathring M = \{x\in\R^n\mid\|x\|<1\}$ is an interior point.
     \item Give a smooth structure to $M$ such that every smooth interior chart is a smooth chart for the standard smooth structure on $\mathring M$.\\
-    \textit{\small Hint: consider the map $\pi\circ\sigma^{-1}:\R^n\to\R^n$ where $\sigma:\bS^n\to\R^n$ is the stereographic projection from Exercise~\ref{ex:stereo} and $\pi:\R^{n+1}\to\R^n$ is a projection that omits one of the first $n$ coordinates.}
+      \textit{\small Hint: consider the map $\pi\circ\sigma^{-1}:\R^n\to\R^n$ where $\sigma:\bS^n\to\R^n$ is the stereographic projection from Exercise~\ref{ex:stereo} and $\pi:\R^{n+1}\to\R^n$ is a projection that omits one of the first $n$ coordinates.}
   \end{enumerate}
 \end{exercise}
 
