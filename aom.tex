@@ -5,9 +5,9 @@
 %Next block avoids bug, from  http://tex.stackexchange.com/a/200725/1913 
 \ifx\ifxetex\ifluatex\else % if lua- or xelatex http://tex.stackexchange.com/a/140164/1913
   \usepackage{fontspec}
-  \setmainfont{OpenDyslexic}
-  \setsansfont{OpenDyslexic}
-  \setmonofont{OpenDyslexicMono}
+  \setmainfont[Path=/usr/share/fonts/opentype/opendyslexic/]{OpenDyslexic}
+  \setsansfont[Path=/usr/share/fonts/opentype/opendyslexic/]{OpenDyslexic}
+  \setmonofont[Path=/usr/share/fonts/opentype/opendyslexic/]{OpenDyslexicMono}
   
   \setmainfont[Renderer=Basic, Numbers=OldStyle, Scale = 1.0]{TeX Gyre Pagella}
   \setsansfont[Renderer=Basic, Scale=0.90]{TeX Gyre Heros}
