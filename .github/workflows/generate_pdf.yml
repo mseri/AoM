@@ -48,14 +48,19 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-tectonic-
 
-    - name: Remove font customizations
-      run: sed -i.bak '8,10d' aom.tex
-
     - uses: wtfjoke/setup-tectonic@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         biber-version: "latest"
-    
+ 
+    - name: Remove default font customizations
+      run: sed -i.bak '12,14d' aom.tex
+
+    - name: Install opendyslexic font
+      run: |
+        curl -Lo od.zip https://github.com/antijingoist/opendyslexic/releases/download/v0.91.12/opendyslexic-0.910.12-rc2-2019.10.17.zip
+        unzip od.zip
+
     - name: Run Tectonic
       run: tectonic aom.tex
 
@@ -64,7 +69,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         path: aom.pdf
-        name: aom.pdf
+        name: aom-od.pdf
         if-no-files-found: error
     
     - name: Upload release
@@ -75,6 +80,32 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ needs.create_draft_release.outputs.upload_url }}
-        asset_path: aom.pdf
-        asset_name: aom-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
+        asset_path: aom-od.pdf
+        asset_name: aom-od-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
+        asset_content_type: application/pdf
+    
+    - name: Remove Open Dyslexic font customizations
+      run: sed -i.bak '8,10d' aom.tex
+
+    - name: Run Tectonic
+      run: tectonic aom.tex
+
+    - name: Upload PDF
+      if: ${{ success() }}
+      uses: actions/upload-artifact@v2
+      with:
+        path: aom.pdf
+        name: aom-std.pdf
+        if-no-files-found: error
+    
+    - name: Upload release
+      if: ${{ success() && startsWith(github.ref, 'refs/tags/') }}
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ needs.create_draft_release.outputs.upload_url }}
+        asset_path: aom-std.pdf
+        asset_name: aom-std-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
         asset_content_type: application/pdf
