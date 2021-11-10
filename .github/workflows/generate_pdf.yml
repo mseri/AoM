@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      upload_url: ${{ steps.create_draft_release.outputs.upload_url }}
+      id: ${{ steps.create_draft_release.outputs.id }}
 
     steps:
       - name: Create draft release on tags
@@ -96,5 +96,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        release_it: ${{ needs.create_draft_release.outputs.id }}
+        release_id: ${{ needs.create_draft_release.outputs.id }}
         assets_path: assets/
