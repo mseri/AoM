@@ -750,6 +750,18 @@ In the next section we will look more deeply into this.
   The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
 \end{remark}
 
+As a final exercise, we are going to relate smoothness of the maps with the smoothness of their components, which can be extremely useful when working in coordinates.
+
+\begin{exercise}
+  Let $F: M^m \to N^n$ be a continuous map between two manifolds. Then the following are equivalent:
+  \begin{enumerate}
+    \item $F$ is smooth;
+    \item $N$ has an atlas $\cA$ such that for all the charts $(V, \psi) = (V, y^1, \ldots, y^n)\in \cA$, the components $y^i \circ F: F^{-1}(V) \to \R$ of $F$ relative to the chart are all smooth;
+    \item for every chat $(V, \psi) = (V, y^1, \ldots, y^n)$ on $N$, the components $y^i \circ F: F^{-1}(V) \to \R$ of $F$ relative to the chart are all smooth.
+  \end{enumerate}
+  Note that this, in particular, holds for $N=\R^n$.
+\end{exercise}
+
 \section{Partitions of unity}
 
 \newthought{Cutoff functions} are a class of smooth functions that will be of crucial importance throughout the course, and whose existence cannot be given for granted.
