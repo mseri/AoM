@@ -56,10 +56,10 @@ Without further ado, let's get started.
 I will be very brief: if you need a more extensive reminder, you can refer to Appendix A of either~\cite{book:tu} or~\cite{book:lee}.
 
 \begin{definition}
-  Let $M$ be some set and $\cT$ a set of subsets of $M$.
-  A pair $(M, \cT)$ is a \emph{topological space}\footnote{In such case the elements $O\in\cT$ of $\cT$ are all subsets of $M$ called \emph{open} subsets and $\cT$ is a topology on $M$.} if
+  Let $X$ be some set and $\cT$ a set of subsets of $X$.
+  A pair $(X, \cT)$ is a \emph{topological space}\footnote{In such case the elements $O\in\cT$ of $\cT$ are all subsets of $X$ called \emph{open} subsets and $\cT$ is a \emph{topology} on $X$.} if
   \begin{enumerate}[(i)]
-    \item $M$ and $\emptyset$ are open, i.e., $M\in \cT$ and $\emptyset\in\cT$;
+    \item $X$ and $\emptyset$ are open, i.e., $X\in \cT$ and $\emptyset\in\cT$;
     \item arbitrary unions of families of open subsets are open;
     \item the intersection of finitely many\footnote{It is equivalent to require the intersection of any two open subsets to be open. (Why?)} open subsets is open.
   \end{enumerate}
@@ -90,7 +90,7 @@ You can see this for yourself with the following exercise.
 \begin{exercise}
   \begin{itemize}
     \item Let $X$ be an arbitrary set. Show that $\cT:=\{\emptyset, X\}$ defines a topology on $X$, called the \emph{trivial topology}. Show that on $(X, \cT)$ any sequence in $X$ converges to every point of $X$, and every map from a topological space into $X$ is continuous.
-    \item Let $X$ be an arbitrary set. Show that $\cT:=\mathcal{P}(X) := \{ A \mid A\subset X \}$, the powerset of $X$, defines a topology on $X$, called the \emph{discrete topology} in which every map $f : X \to Y$ to some other arbitrary topological space $(y, \cU)$ is continuous.
+    \item Let $X$ be an arbitrary set. Show that $\cT:=\mathcal{P}(X) := \{ A \mid A\subset X \}$, the powerset of $X$, defines a topology on $X$, called the \emph{discrete topology} in which every map $f : X \to Y$ to some other arbitrary topological space $(Y, \cU)$ is continuous.
   \end{itemize}
 \end{exercise}
 
@@ -285,7 +285,7 @@ In colloquial language, a differentiable manifold is just a space covered by cha
 \end{exercise}
 
 \begin{exercise}\label{exe:subsetsmanifolds}
-  $\R^n$ with the \emph{standard} smooth structure $\cA=(\R^n, \id_{\R^n})$ is trivially a smooth manifold of dimension $n$.
+  $\R^n$ with the \emph{standard} smooth structure $\cA=\{(\R^n, \id_{\R^n})\}$ is trivially a smooth manifold of dimension $n$.
   %
   In fact, any open subset $U\subset\R^n$ can be made into a smooth manifold in a natural way with the atlas $\cA=(U, \id_{\R^n}|_U)$.
 
