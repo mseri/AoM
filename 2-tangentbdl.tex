@@ -1,6 +1,6 @@
 \section{Let the fun begin!}
 \newthought{It now remains to define derivatives} of functions between manifolds.
-And, since we saw that euclidean spaces are manifolds, we must mke sure that our definition coincides with the usual one in Euclidean spaces.
+And, since we saw that euclidean spaces are manifolds, we must mke sure that our definition coincides with the usual one in euclidean spaces.
 
 \begin{marginfigure}[7em]
   \includegraphics{2_1-embedded-sphere-tangent.pdf}
@@ -449,8 +449,8 @@ Soon, we will see yet another definition.
 \end{exercise}
 
 \begin{exercise}[Tangent vectors as equivalence classes of charts and vectors]
-Let $M$ be a smooth $m$-manifolds with maximal smooth atlas $\Sigma$.
-For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\varphi\in\Sigma$ such that $p$ lies in the image of $\varphi$.
+Let $M$ be a smooth $m$-manifold with maximal smooth atlas $\cA$.
+For $p\in M$, let $\cA_p \subset \cA$ denote the set of charts $\varphi\in\cA$ such that $p$ lies in the domain of $\varphi$.
 \begin{enumerate}
   \item Show that
   \begin{equation}
@@ -458,8 +458,8 @@ For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\varphi\in
     \quad\Longleftrightarrow\quad
     D(\psi \circ \varphi^{-1})(\varphi(p))v = w.
   \end{equation}
-  defines an equivalence relation on $\R^m\times\Sigma_p$.
-  \item Let $\cT_p$ denote the set of equivalence classes $[(v,\varphi)]\in \R^m\times\Sigma_p/\!\sim$. For $\varphi\in\Sigma_p$, show that the map $T_\varphi:\R^m\to\cT_p$ given by $T_\varphi v := [(v,\varphi)]$ is a bijection.
+  defines an equivalence relation on $\R^m\times\cA_p$.
+  \item Let $\cT_p$ denote the set of equivalence classes $[(v,\varphi)]\in \R^m\times\cA_p/\!\sim$. For $\varphi\in\cA_p$, show that the map $T_\varphi:\R^m\to\cT_p$ given by $T_\varphi v := [(v,\varphi)]$ is a bijection.
   Deduce\footnote{Hint: use the previous exercise!} that $\cT_p$ admits a unique vector space structure such that each $T_\varphi$ is a linear isomorphism.
   \item Let $\varphi$ be a chart defined on a neighbourhood of $p$ with local coordinates $x^i = r^i \circ \varphi$ and let $\hat T_\varphi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in~\eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\varphi e_i = \frac{\partial}{\partial x^i}\big|_p$.
   Show that there exists a linear isomorphism $\mathcal{S}_p:\cT_p\to T_pM$ which in addition satisfies $\mathcal{S}_p \circ T_\varphi = \hat T_\varphi$ for every chart $\varphi$ about $p$.
@@ -468,23 +468,30 @@ For $p\in M$, let $\Sigma_p \subset \Sigma$ denote the set of charts $\varphi\in
 
 \section{The differential of a smooth map}\label{sec:diffsmooth}
 
-\newthought{In the case of a smooth map between Euclidean spaces}, the total derivative of the map at a point (represented by its Jacobian matrix) is a linear map that represents the best linear approximation to the map near the given point.
+\newthought{In the case of a smooth map between euclidean spaces}, the total derivative of the map at a point (represented by its Jacobian matrix) is a linear map that represents the best linear approximation to the map near the given point.
+\marginnote{If you are curious about what happens if you consider higher order approximations, try to look up \emph{Jet Space} with your favourite search engine.}
 In the manifold case there is a similar linear map but, as we discussed, it makes no sense to talk about a linear map between manifolds: we need to find a suitable linear map between tangent spaces.
 
 It should not come a surprise that with the constructions developed so far not only do we have one such map, but we can directly relate it to a derivative.
 
 \begin{definition}\label{def:differentialMap}
-  Let $F: M \to N$ be a smooth map between the smooth manifolds $M$ and $N$.
-  Let $p\in M$. The \emph{differential $d F_p$ of $F$ at $p$} is the map\footnote{In the differential geometry literature, the differential has many names: you can find it called \emph{tangent map}, \emph{total derivative} or \emph{derivative} of $F$. Since it ``pushes'' tangent vectors forward from the domain manifold to the codomain, it is also called the \emph{pushforward}. If that was not enough, different authors use different notations for it: besides $dF_p(v)$, you can find $F_* v_p$, $F'(p)$, $T_pF$, $DF(p)[v]$ or variations thereof.}
+  Let $F: M \to N$ be a smooth map between the smooth manifolds $M$ and $N$, and let $p\in M$.
+  The \emph{differential $d F_p$ of $F$ at $p$} is the map\footnote{In the differential geometry literature, the differential has many names: you can find it called \emph{tangent map}, \emph{total derivative} or \emph{derivative} of $F$.
+  Since it ``pushes'' tangent vectors forward from the domain manifold to the codomain, it is also called the \emph{pushforward}. If that was not enough, different authors use different notations for it: besides $dF_p(v)$, you can find $F_* v_p$, $F'(p)$, $T_pF$, $DF(p)[v]$ or variations thereof.}
   \begin{equation}
     d F_p : T_p M \to T_{F(p)} N, \qquad d F_p (v) (f) := v(f\circ F), \quad \forall f\in C^\infty(N).
   \end{equation}  
 \end{definition}
 
-Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F(p)$ acting on functions in $C^\infty(N)$ (why?) and, as such, is also a tangent vector in $T_F(p)N$.
+Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F(p)$ acting on functions in $C^\infty(N)$ (why?) and, as such, is also a tangent vector in $T_{F(p)}N$.
 
 \begin{exercise}
   Answer the two \emph{(why?)} above.
+\end{exercise}
+\begin{exercise}
+  Let $M = \R^3$ and $N = \R^2$ with coordinates $x=(x^1,x^2,x^3)$ and $y=(y^1,y^2)$ respectively.
+  Consider the function $F(x^1,x^2,x^3) = (x^1 x^3, (x^2)^2-1)$.
+  What is $d F_{(1,1,1)} \left(\frac{\partial}{\partial x^1} - 2 \frac{\partial}{\partial x^2}\right)$?
 \end{exercise}
 
 \begin{theorem}[The chain rule on manifolds]\label{thm:chainrule_mfld}
@@ -558,7 +565,7 @@ Let $f:U\subset\R^m\to\R^n$ be a smooth function and define the linear isomorphi
   &T_y : \R^n \to T_y\R^n,\quad T_y e_i' = \frac{\partial}{\partial y^i}\Big|_y
   \end{split},
 \end{equation}
-where $\{e_1,\ldots,e_m\}$ denotes the standard basis of $\R^m$ and $\{e_1',\ldots,e_m'\}$ denotes the standard basis of $\R^n$.
+where $\{e_1,\ldots,e_m\}$ denotes the standard basis of $\R^m$ and $\{e_1',\ldots,e_n'\}$ denotes the standard basis of $\R^n$.
 
 On the one hand, we have the total derivative $Df(x):\R^m\to\R^n$ from multivariable calculus: a linear map, the Jacobian matrix of partial derivatives.
 On the other, we have the differential $df_x : T_x \R^m \to T_{f(x)}\R^m$ defined above: also a linear map, related to the Jacobian matrix of partial derivatives by Proposition~\ref{prop:DiffCoords}.
@@ -618,7 +625,7 @@ More generally, if $M$ is an open submanifold of a vector space $V$, we can comb
 For example, since $GL_n(\R)$ is an open submanifold of the vector space $\mathrm{Mat}(n, \R)$, we can identify its tangent space at each point $X\in GL_n(\R)$ with the full space of matrices $\mathrm{Mat}(n, \R)$.
 
 \begin{exercise}[Tangent space of a product manifold]
-  Let $M_1, \ldots, M_k$ be smooth manifolds (without boundary\sidenote[][-8em]{The statement is true also if one (only one!) of the $M_i$ spaces is a smooth manifold with boundary. If there is more than one manifold with boundary, the product space will have ``corners'' that cannot be mapped to half spaces and thus is not a smooth manifold, as a simple example you can consider the closed square $[0,1]\times [0,1]$.}), and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
+  Let $M_1, \ldots, M_k$ be smooth manifolds (without boundary\footnote{The statement is true also if one (only one!) of the $M_i$ spaces is a smooth manifold with boundary. If there is more than one manifold with boundary, the product space will have ``corners'' that cannot be mapped to half spaces and thus is not a smooth manifold, as a simple example you can consider the closed square $[0,1]\times [0,1]$.}), and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
   For any point $p=(p_1,\ldots,p_k)\in M_1\times\cdots\times M_k$, the map
   \begin{align}
     \sigma &: T_p(M_1\times\cdots\times M_k) \to T_p M_1\times\cdots\times T_p M_k\\
@@ -638,6 +645,10 @@ In the next section we will give yet another alternative way of defining tangent
 
 \section{Tangent vectors as tangents to curves}
 
+\begin{marginfigure}
+  \includegraphics{2_2-curve-on-M.pdf}
+\end{marginfigure}
+
 Exercise~\ref{ex:tg_curve_iso} may have left some thoughts hanging in the air...
 From the look of it, it seems that there is a relation between tangent spaces and the velocity of a body moving with constant speed.
 In this section we will further explore these thoughts.
@@ -646,9 +657,6 @@ In this section we will further explore these thoughts.
   If $M$ is a manifold with or without boundary, we define a \emph{(parametrized) curve in M} to be a smooth\footnote{Continuously differentiable would be enough, but assuming it smooth simplifies the exposition.} map $\gamma : I \to M$, where $I=(a,b)\subseteq\R$ is an interval.
   \marginnote{Conventionally, $b=-a=\epsilon>0$ (the reason will be clear in a second) and we denote the coordinate on $\R$ by $t$ and the derivative of $\gamma$ at a point $t$ by $\gamma'(t)$. We say that a curve \emph{starts at $p\in M$} if $0\in I$ and $\gamma(0) = p$.}
 \end{definition}
-\begin{marginfigure}
-  \includegraphics{2_2-curve-on-M.pdf}
-\end{marginfigure}
 
 Fix $t\in(a,b)$. 
 A priori we have two different ways to define the \emph{velocity vector of $\gamma$ at a time $t$}, that is, an element $\gamma'(t) \in T_{\gamma(t)}M$:
@@ -1269,7 +1277,7 @@ To finally answer the question, we will prove one last proposition.
   \begin{equation}
     p^\perp := \big\{q\in\R^3 \;\mid\; \left\langle p, q\right\rangle = 0\big\},
   \end{equation}
-  where $\left\langle\cdot,\cdot\right\rangle$ is the usual Euclidean dot product. The latter directly comes from computing $dF_p$ and its kernel, which we essentially already did in Example~\ref{ex:s2}.
+  where $\left\langle\cdot,\cdot\right\rangle$ is the usual euclidean dot product. The latter directly comes from computing $dF_p$ and its kernel, which we essentially already did in Example~\ref{ex:s2}.
   Take a long deep breath and unfold the definitions in~\eqref{ex:tan_sph}, here it may be useful to draw a picture\footnote{Which is generally always the case in geometry and topology, and most other mathematical fields.}. 
   Equation~\eqref{ex:tan_sph} implies that the tangent space to $\bS^2$ at a point $p$ is the plane tangent to $\bS^2$ at $p$, as claimed in Figure~\ref{fig:tan-embedded-sphere}.
 \end{example}
