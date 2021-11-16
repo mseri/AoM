@@ -347,10 +347,10 @@ dropping the distinction between $p$ and $x$, both in place of
     \end{aligned}
   \end{equation}
   What do these charts look like?
-  \begin{exercise}
-    Show that the corresponding transition functions are smooth.
-  \end{exercise}
 \end{example}
+\begin{exercise}
+  In the previous example, show that the corresponding transition functions are smooth.
+\end{exercise}
 
 \begin{exercise}
   Let $\{(U_\alpha, \varphi_\alpha)\}$ be the maximal atlas on a manifold $M$.
@@ -435,15 +435,15 @@ Since in general the quotient does not behave nicely it is convenient to get a f
 
 In this case it is convenient to have some tools to check continuity of functions.
 
-\marginnote{For a proof refer to \cite[Proposition 7.1]{book:tu} or \cite[Theorem 3.70]{book:lee:topology}.}
 \begin{proposition}
+\marginnote{For a proof refer to \cite[Proposition 7.1]{book:tu} or \cite[Theorem 3.70]{book:lee:topology}.}
   Assume $F:X\to Y$ is a map between topological spaces and $\sim$ is an equivalence relation on $X$.
   Let $F$ be constant on each equivalence class $[p]\in X/\!\sim$, and denote $\widetilde F:X/\!\sim\to Y$, $\widetilde F([p]) := F(p)$ for $p\in X$, the map induced by $F$ on the quotient.
 
   Then, $\widetilde F$ is continuous if and only if $F$ is continuous.
 \end{proposition}
 
-Continuity of the projection implies that if $M/\!\sim$ is Hausdorff, then $\pi^{-1}(\pi(s)) = [s]$ is closed in $M$.
+Continuity of the projection $\pi: M \to M/\!\sim$ implies that if $M/\!\sim$ is Hausdorff, then $\pi^{-1}(\pi(s)) = [s]$ is closed in $M$.
 If, additionally, $\pi$ is open\footnote{That is, it maps open sets to open sets.} then there is a stronger statement:
 \marginnote[4em]{These statements are not hard to prove, but their proofs will be omitted here.
 You can refer to~\cite[Chapters 7.1--7.5]{book:tu}.}
@@ -724,7 +724,7 @@ In the next section we will look more deeply into this.
 \end{example}
 
 \begin{exercise}
-  Show that there exists a diffeomorphism between the smooth structures $(\R, \id_\R)$ and $(\R, \psi)$ from the previous example.
+  Show that the smooth manifolds $(\R, \{(\R, \id_\R)\})$ and $(\R, \{(\R, \psi)\})$, defined using the smooth structures from the previous example, are diffeomorphic.
 \end{exercise}
 
 \begin{exercise}
