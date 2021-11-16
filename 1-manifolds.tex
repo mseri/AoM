@@ -102,7 +102,7 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
 \end{definition}
 
 \begin{exercise}[Euclidean space $\R^n$]\label{exe:rntopsp}
-  Let's consider on $\R^n$ the metric topology\footnote{See comment above.} induced by the Euclidean metric $d: \R^n \times \R^n \to [0, +\infty)$, $d(x,y) := \sqrt{\sum_{i=1}^n (x^i-y^i)^2}$.
+  Let's consider on $\R^n$ the metric topology\footnote{See comment above.} induced by the euclidean metric $d: \R^n \times \R^n \to [0, +\infty)$, $d(x,y) := \sqrt{\sum_{i=1}^n (x^i-y^i)^2}$.
   Show that the topological space defined on $\R^n$ is Hausdorff and second countable.
 \end{exercise}
 
@@ -220,10 +220,10 @@ Theorem~\ref{thm:chainrule} has some very deep consequences.
 \end{exercise}
 
 Since differentiability is a \emph{local} property and topological manifolds are \emph{locally} like euclidean spaces, it seems reasonable to expect that we can lift the definitions directly from $\R^n$ using the charts to obtain functions between euclidean spaces:
-for example, if we are given a continuous map between two topological manifolds, we can locally view it as a continuous map between two Euclidean spaces.
+for example, if we are given a continuous map between two topological manifolds, we can locally view it as a continuous map between two euclidean spaces.
 Generalizing this further, we could conceivably say that our original map is differentiable if the local map is.
 
-\newthought{As usual, the devil is in the details}: a topological manifold is only homeomorphic to a Euclidean space, and a different choice of homeomorphism might affect whether the local map is differentiable or not.
+\newthought{As usual, the devil is in the details}: a topological manifold is only homeomorphic to a euclidean space, and a different choice of homeomorphism might affect whether the local map is differentiable or not.
 We need to take extra care to ensure that these lifted definitions keep making sense when we use different charts that overlap.
 
 The solution is to introduce a little more structure to the problem.
