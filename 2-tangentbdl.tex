@@ -1,43 +1,46 @@
 \section{Let the fun begin!}
-\newthought{We are left to define derivatives} of functions between manifolds.
-And, since we saw that euclidean spaces are manifolds, we had better find a definition that coincides with the one you saw in your analysis courses.
+\newthought{It now remains to define derivatives} of functions between manifolds.
+And, since we saw that euclidean spaces are manifolds, we must mke sure that our definition coincides with the usual one in Euclidean spaces.
 
 \begin{marginfigure}[7em]
   \includegraphics{2_1-embedded-sphere-tangent.pdf}
   \label{fig:tan-embedded-sphere}
   \caption{Tangent space to a point of a sphere $\bS^2$ embedded into the ambient space $\R^3$.}
 \end{marginfigure}
-In this chapter we will see how to associate to an $n$-dimensional smooth manifold $M$ an $n$-dimensional vector space, denoted by $T_x M$, to each point $x\in M$.
+At the beginning of the previous chapter, we recalled that total derivatives are linear operators.
+Since topological spaces are not necessarily vector spaces, then, we need to devise some sort of assignment of vector spaces at points on the manifold.
+In this chapter we will see exactly how to do that: we will describe how to associate to each point $x\in M$ on an $n$-dimensional smooth manifold $M$ an $n$-dimensional vector space, denoted by $T_x M$.
 Such vector space is called \emph{tangent space to $M$ at $x$} and, for a manifold embedded into a euclidean ambient space, it will coincide with the intuitive understanding of a tangent hyperplane to the point on the manifold, see also Figure~\ref{fig:tan-embedded-sphere}.
-As we will see, there are various different definitions of tangent space but, in the end, they all turn out to be equivalent.
 
+As we will see, there are various different definitions of tangent space but, in the end, they all turn out to be equivalent.
 Due to a certain amount of freedom in terms of different ``perspectives'' leading to different but equivalent definitions, there is no unique way of introducing tangent spaces.
-Just to give you an idea, all the following approaches lead to equivalent definitions (see also~\cite{book:lee}):
+Just to give you an idea, all the following approaches all lead to equivalent definitions (see also~\cite{book:lee}):
+\marginnote{Bear in mind that this is not the whole story. For example, it is also possible to ``flip'' the whole construction around, constructing first the so-called differentials and cotangent spaces, and using them to introduce the tangent spaces.
+This is the approach taken by~\cite{lectures:hitchin} and it is at least worth a look if you want to see a different perspective.}
 \begin{itemize}
   \item equivalence classes of curves through a point;
   \item transformation laws of the components of vectors with respect to different charts;
   \item generalization of linear approximation into the idea of an abstract derivation;
-  \item derivations in the category of germs of functions;
+  \item derivations in the category of germs of functions.
 \end{itemize}
 
-It is also possible to ``flip'' the whole construction around, constructing differentials and cotangent spaces and using them to introduce the tangent spaces.
-This is the approach taken by~\cite{lectures:hitchin} and it is at least worth a look if you want to see a different perspective.
-
-To avoid diverging from~\cite{book:tu} too much\footnote{Since it used to be the compulsory reading material in the previous years.}, we will stick to derivations on the space of germs, which emphasizes the locality of derivations to an extreme.
+In this course we will star by describing derivations on the space of germs, the approach which emphasizes the local nature of derivations to its extreme.
 The equivalence between our approach and the one based on charts will be left as homework, while we will look into the equivalence with the speed of curves and with derivations together.
 
 \section{Directional derivatives in euclidean spaces}\label{sec:dd}
 
+Let's take a brief detour.
 Suppose that $f: U\subset\R^n\to\R^k$ is a smooth map defined on an open subset $U\subset \R^n$.
-In multivariable calculus you have seen that if $x\in U$ and $v\in\R^n$, then the vector $Df(x) v$ can be interpreted as the directional derivative\footnote{Sometimes this is denoted $D_v f(x)$ instead.} of $f$:
+In multivariable calculus you have seen that if $x\in U$ and $v\in\R^n$, then the vector $Df(x) v$ can be interpreted as the directional derivative\footnote{Sometimes denoted $D_v f(x)$ instead.} of $f$:
 \begin{equation}
   Df(x) v = \lim_{t\to0}\frac{f(x+tv) - f(x)}{t}.
 \end{equation}
-Then, the partial derivative is obtained as the particular case
+Then, the gradient of derivative is obtained as the particular case
 \begin{equation}
-  D_jf(x) := Df(x) e_j = \lim_{t\to0} \frac{f(x+te_j) - f(x)}{t}.
+  \frac{\partial f}{\partial x^j}(x) := D_jf(x) := Df(x) e_j = \lim_{t\to0} \frac{f(x+te_j) - f(x)}{t}.
 \end{equation}
-Of course, we can also look at the derivative by using the standard euclidean coordinates $r^1, \ldots, r^n$, in that case we would be deriving $r^i \circ f : \R^n \to \R$.
+Since $f=(f^1, \ldots, f^k)$ takes values in $\R^k$, instead of taking its gradient $Df$ as above, we can also think to the derivatives of its components. 
+In this case we can use the standard euclidean coordinates\footnote{See Notation~\ref{ntn:coords}.} $r^1, \ldots, r^n$ to isolate the components and then derive them,that is, we would be deriving $r^i \circ f : \R^n \to \R$.
 
 \newthought{Let's take it slow}, and compare all these various derivatives next to each other.
 For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
@@ -46,8 +49,8 @@ For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
 \end{marginfigure}
 \begin{itemize}
   \item $Df(x)$, the Jacobian matrix, which is a $k\times n$ matrix;
-  \item $D_j f(x)$, the $j$th column of the matrix $Df(x)$, which is an element of $\R^k$;
-  \item $D(r^i\circ f)(x)$, a linear function from $\R^n \to \R$, which one can think of as the $i$th row of the matrix $Df(x)$;
+  \item $D_j f(x)$, the $j$-th column of the matrix $Df(x)$, which is an element of $\R^k$ whose components are the derivatives of the components of $f$ with respect to the $j$th coordinate;
+  \item $D(r^i\circ f)(x)$, a linear function from $\R^n \to \R$ corresponding to the gradient of the $i$th component of $f$, and which one can see as the $i$th row of the matrix $Df(x)$;
   \item $D_j(r^i\circ f)(x) = \frac{\partial f^i}{\partial x^j}(x)$, a number in $\R$, which corresponds to the $(i,j)$th element $(Df(x))_j^i$ of the matrix $Df(x)$.
 \end{itemize}
 
@@ -61,15 +64,26 @@ where $1\leq i\leq m, 1\leq j \leq n$.
 As you can see, we do not need to explicitly spell out the derivatives in local coordinates on $\R^n$ or $\R^k$ in this new formula.
 This will prove extremely convenient for the development of the theory.
 
+\begin{exercise}
+  This may look very abstract right now.
+  Define some nontrivial function $f: \R^3 \to \R^4$ and compute the 4 objects described above for that function.
+\end{exercise}
+
 \section{Germs and derivations}
 
-\newthought{To reach our goal of defining derivations on manifolds}, a direct extension of partial derivatives is not enough: we will need to introduce some more levels of abstraction.
+\newthought{To reach our goal, defining derivations on manifolds}, a direct extension of partial derivatives is not enough: we will need to introduce some more levels of abstraction.
 
 \begin{definition}
-  Let $M$ be a smooth manifold.
-  For some point $p\in M$, let $U,V\subset M$ be two neighbourhoods of $p$.
+  Let $M$ be a smooth manifold and $p\in M$.
+  Let $U,V\subset M$ be two neighbourhoods of $p$.
   We say that two functions $f\in C^\infty(U)$ and $g\in C^\infty(V)$ have the same \emph{germ} at $p$ if there exists a neighbourhood $W\subset U\cap V$ of $p$ such that $f|_W \equiv g|_W$.
 \end{definition}
+
+\begin{exercise}
+  Make a drawing to clarify the meaning of this definition.
+  Try to define three different functions with the same germ at some point $p$ and with different germs at some other point $p'$.
+  Make it concrete: pick $M=\R$ first and then try with $M=\R^3$, and choose some specific values for $p$ and $p'$.
+\end{exercise}
 
 Germs define an equivalence relation on the set of smooth functions defined on a neighbourhood of a point $p$: $(U, f) \sim_p (V, g)$ if they have the same germ at $p$. Then, a germ $[f]_p$, where $(U, f)$ is one representative for $[f]_p$, is an equivalence class in the quotient space 
 \begin{equation}
@@ -115,11 +129,11 @@ We can now go back to our discussion of euclidean derivations to motivate our de
     U \times \R^n \times C^\infty(U) \to \R,\quad
     (x,v,f) \mapsto Df(x) v.
   \end{equation}
-  And since we are flipping around all the ideas, let us consider $x$ and $v$ fixed and instead only let $f$ vary:
+  And since we are here changing the cards on the table, let us consider $x$ and $v$ fixed and instead only let $f$ vary:
   \begin{equation}\label{eq:mapxvtoD}
     (x,v):C^\infty(U) \to\R, \quad (x,v)(f) := Df(x)v.
   \end{equation}
-  By the definition~\eqref{eq:diff} of the euclidean differential, we know that it is a local property: the value $Df(x)$ only depends on the germ of $f$ at $x$.
+  By the definition~\eqref{eq:diff} of the euclidean differential, we know that it is a local property: the value $Df(x)$ only depends on the value of $f$ in an arbitrarily small neighbourhood of $x$, that is, on the germ of $f$ at $x$.
   Thus we can rephrase~\eqref{eq:mapxvtoD} by saying that $v$ defines a \emph{linear} map
   \begin{equation}
     v : C_x^\infty(U) \to \R, \quad
@@ -133,13 +147,13 @@ We can now go back to our discussion of euclidean derivations to motivate our de
   \end{equation}
   Which, rewritten in a more familiar form, is just a way to rewrite the \emph{Leibniz rule}:
   \begin{equation}
-    D(fg)(x) v = f(x)Dg(x)v + g(x) Df(x)v.
+    D(fg)(x) v = f(x)\,Dg(x)v + g(x)\,Df(x)v.
   \end{equation}
 
-  Note that we have now two different interpretations for $v$: it is both a vector in $\R^n$ and a linear map $C_x^\infty(U) \to \R$ satisfying the derivation property.
+  Note that we have now \emph{two} different interpretations for $v$: it is both a vector in $\R^n$ and a linear map $C_x^\infty(U) \to \R$ satisfying the derivation property.
 \end{example}
 
-Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a derivation on the space of germs.
+Motivated by Example~\ref{ex:euclideanD}, we define a tangent vector as a derivation on the space of germs.
 
 \begin{definition}
   Let $M$ a smooth manifold of dimension $n$ and let $p\in M$.
@@ -155,10 +169,12 @@ Motivated by Example~\ref{ex:euclideanD}, we will define a tangent vector as a d
       + \eval_p([g]_p)v([f]_p).
   \end{equation}
 
-  Since a tangent vector is a linear map from the vector space $C_p^\infty(M)$ to $\R$, the set of all tangent vectors at a point $p$ is itself a vector space\footnote{Exercise: why is this true?} which we denote by $T_p M$.
+  Since a tangent vector is a linear map from the vector space $C_p^\infty(M)$ to $\R$, the set of all tangent vectors at a point $p$ is itself a vector space\footnote{Exercise: why is this true?} which we denote $T_p M$ and call \emph{tangent space}.
 \end{definition}
 
-Let's check that these vectors, at least satisfy the most elementary properties of derivations: one would expect the derivative of constant functions to be zero, is that the case?
+Let's poke our definition and see if it makes any sense.
+Do these vectors at least satisfy the most elementary properties of derivations?
+For example, is the derivative of constant functions actually zero?
 
 \begin{lemma}\label{lem:f'0is0forconst}
   Let $M$ be a smooth manifold, let $U\subset M$ be an open set containing $p$ and let $v\in T_p M$.
@@ -168,7 +184,7 @@ Let's check that these vectors, at least satisfy the most elementary properties 
 \begin{proof}
   Since $[c]_p = c [1]_p$, by linearity we have $v([c]_p) = c v([1]_p)$.
   Thus, it will be enough to show that $v([1]_p) = 0$.
-  Since $v$ is a derivation, using the algebra properties of the space of germs we get
+  Since $v$ is a derivation, the algebraic properties of the space of germs imply
   \marginnote{Keep this simple trick in mind, it will be useful in the future.}
   \begin{equation}
     v([1]_p) = v([1]_p [1]_p) = 2 \eval_p([1]_p)v([1]_p) = 2 v([1]_p).
@@ -176,23 +192,23 @@ Let's check that these vectors, at least satisfy the most elementary properties 
   Thus, $v([1]_p) = 0$, concluding the proof.
 \end{proof}
 
-As you can see, working with equivalence classes is doable but unnecessarily cumbersome.
+As you can see, working with equivalence classes is doable... but it is also unnecessarily cumbersome.
 As we did with atlases, we would like to get it over with.
 
 \begin{definition}
   Let $M$ be a smooth manifold and $p\in M$.
   Let $W\subseteq M$ be any neighbourhoods of $p$.
   \marginnote{We are still talking about derivations of functions at specific points, not to be confused with the derivations of the algebra $C^\infty(W)$ which we will introdce later and will be maps of the kind $C^\infty(W)\to C^\infty(W)$.}
-  A map $w:C^\infty(W)\to\R$ is called a \emph{derivation of $C^\infty(W)$ at $p$} if it is linear over $\R$ and satisfies Leibniz rule
+  A map $w_p:C^\infty(W)\to\R$ is called a \emph{derivation of $C^\infty(W)$ at $p$} if it is linear over $\R$ and satisfies Leibniz rule
   \begin{equation}
-    w(fg) = f(p)w(g) + g(p)w(f).
+    w_p(fg) = f(p)w_p(g) + g(p)w_p(f).
   \end{equation}
 \end{definition}
 
-If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w$ of $C^\infty(W)$ for any open neighbourhood $W$ of $p$.
+If $v\in T_p M$, then we already saw that $v$ naturally defines a derivation $w_p$ of $C^\infty(W)$ at $p$ for any open neighbourhood $W$ of $p$.
 In this case
 \begin{equation}\label{eq:derivfromtg}
-  w(f) := v([f]_p).
+  w_p(f) := v([f]_p).
 \end{equation}
 Showing that the opposite is also true will require a bit of work.
 
@@ -204,11 +220,14 @@ Showing that the opposite is also true will require a bit of work.
   To prove the theorem we need to invert~\eqref{eq:derivfromtg} and define a tangent vector in terms of of a derivation of $C^\infty(W)$ at $p$.
   We will proceed in three steps.
 
-  \newthought{Step I}. Let $w:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ of $p$. We are going to show that $w(f)=0$.
+  \newthought{Step I}. Let $w_p:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ of $p$.
+  We are going to show that $w_p(f)=0$.
 
-  By Proposition~\ref{prop:cutoff}, we can find a cutoff function $\rho:M\to\R$ such that $\rho(p)=1$ inside $W_0$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$. Then $g$ is identically zero in the whole $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w(g) = 0$. Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
+  By Proposition~\ref{prop:cutoff}, we can find a cutoff function $\rho:M\to\R$ such that $\rho(p)=1$ inside $W_0$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$.
+  Then $g$ is identically zero in the whole $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w_p(g) = 0$.
+  Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
   \begin{equation}
-    0 = w(g) = w(\rho f) = \rho(p) w(f) + f(p)w(\rho) = w(f).
+    0 = w_p(g) = w_p(\rho f) = \rho(p) w_p(f) + f(p)w_p(\rho) = w_p(f).
   \end{equation}
 
   \newthought{Step II}.
@@ -218,7 +237,7 @@ Showing that the opposite is also true will require a bit of work.
   Since germs are local, if necessary, we can shrink $V$ so that $V\subset W$.
   Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighbourhood of $p$!
   To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighbourhood with compact closure. You can take it for granted or have a look at e.g.~\cite[Lemma 4.65]{book:lee:topology} or~\cite{book:munkres:topology}.} a smaller neighbourhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
-  Again, Proposition~\ref{prop:cutoff} comes to the rescue. Apply it with $K=\overline{U}$ and ``$U$''\footnote{Meaning the set that we called $U$ in Proposition~\ref{prop:cutoff}.} equal to $V$, and consider
+  Again, Proposition~\ref{prop:cutoff} comes to the rescue. Apply it with $K=\overline{U}$ and ``$U$'' equal\footnote{Meaning the set that we called $U$ in Proposition~\ref{prop:cutoff} is what we denoted $V$ here.} to $V$, and consider
   \begin{equation}
     g:W\to\R, \quad
     g(q) := \begin{cases}
@@ -229,34 +248,34 @@ Showing that the opposite is also true will require a bit of work.
   Since $g|_U = f$, we have $[g]_p = [f]_p$, proving the claim.
 
   \newthought{Step III}. We can now complete the proof.
-  Let $w:C^\infty(W) \to\R$ be a derivation at $p$.
+  Let $w_p:C^\infty(W) \to\R$ be a derivation at $p$.
   A tangent vector is a linear map $v:C_p^\infty(M)\to\R$, see~\eqref{def:tangentvector}, and a derivation.
   We would like to define one in terms of $w$.
   Given any $[f]_p\in C_p^\infty(W)$, the previous step guarantees that there exists a representative $(W,f)$ for it, so we can define
   \begin{equation}
-    v([f]_p) := w(f), \quad\mbox{where $(W,f)$ is any representative of $[f]_p$}.
+    v([f]_p) := w_p(f), \quad\mbox{where $(W,f)$ is any representative of $[f]_p$}.
   \end{equation}
   Such $v$ is a derivation by construction, so if it is well-defined, we are done.
   To this end, assume that there exists a different representative $(W, g)$ for $[f]_p$.
   Then, by definition, there exists a neighbourhood $V\subset W$ of $p$ such that $f|_p = g|_p$.
-  By linearity, $w(f) - w(g) = w(f-g)$ and by the first step in the proof, $w(f-g) = 0$.
+  By linearity, $w_p(f) - w_p(g) = w_p(f-g)$ and, by the first step in the proof, $w_p(f-g) = 0$.
   
-  The assignment $w\mapsto v$ inverts~\eqref{eq:derivfromtg}, completing the proof.
+  The assignment $w_p\mapsto v$ inverts~\eqref{eq:derivfromtg}, completing the proof.
 \end{proof}
 
 This seemingly innocent proposition, has some very important consequences.
 
-First of all, from now on we are free to interpret tangent vectors in $T_p M$ as derivations of $C^\infty(W)$ at $p$ for \emph{any}\footnote{In particular, it is often convenient to have $W$ coincide with the domain of a chart or with the whole manifold $M$.} open $W$ containing $p$.
-This enables us to give our first example of tangent vector.
+First of all, from now on we are free to interpret tangent vectors in $T_p M$ as derivations of $C^\infty(W)$ at $p$ for \emph{any}\footnote{In particular, it is often convenient to have $W$ coincide with the domain of a chart or with the whole manifold $M$.} open set $W\subseteq M$ containing $p$.
+As it turns out, this allows us to give our first example of tangent vector.
 
 \begin{example}\label{ex:partialderivative}
   Let $M$ be a smooth manifold of dimension $n$ and $\varphi: U \to V\subset\R^n$ a chart on $U\subset M$.
-  As already mentioned, we write $x^i = r^i \circ \varphi$ for the local coordinates\footnote{See Notation~\ref{ntn:coords}.} of $\varphi$.
+  Let $x^i = r^i \circ \varphi$ denote the local coordinates\footnote{See Notation~\ref{ntn:coords}.} of $\varphi$.
   For any $p\in U$, we can define a derivation of $C^\infty(U)$ at $p$ as
-  \begin{equation}
-    \frac{\partial}{\partial x^i}\Big|_p : C^\infty(U) \to \R, \quad
-    \frac{\partial}{\partial x^i}\Big|_p (f) := \frac{\partial f}{\partial x^i}(p) := D_i(f\circ\varphi^{-1})(\varphi(p)).
-  \end{equation}
+  \begin{align}
+    &\frac{\partial}{\partial x^i}\Big|_p : C^\infty(U) \to \R, \\
+    &\frac{\partial}{\partial x^i}\Big|_p (f) := \frac{\partial f}{\partial x^i}(p) := D_i(f\circ\varphi^{-1})(\varphi(p)).
+  \end{align}
   From now on, it will get more and more convenient to draw commutative diagrams to see ``how things are moving around'':
   \begin{equation}
     \begin{tikzcd}[column sep = huge, row sep = huge]
@@ -267,11 +286,11 @@ This enables us to give our first example of tangent vector.
   We will soon see that $\left\{\frac{\partial}{\partial x^i}\Big|_p \mid 1\leq i\leq n\right\}$ forms a basis for $T_p M$.
 \end{example}
 
-Secondly, it provides us some very useful corollaries.
+Secondly, we can immediately state some very useful corollaries.
 
 \begin{corollary}\label{cor:tgsubspace}
-  Let $M$ be a smooth manifold and let $W\subset M$ be a non-empty open set considered as a smooth manifold.
-  Then, for any $p\in W$ there is a canonical identification $T_pW = T_p M$.
+  Let $M$ be a smooth manifold and let $W\subseteq M$ be a non-empty open set considered as a smooth manifold.
+  Then, for any $p\in W$ there is a canonical identification $T_p W = T_p M$.
 \end{corollary}
 
 \begin{corollary}\label{cor:derzero}
@@ -281,7 +300,7 @@ Secondly, it provides us some very useful corollaries.
 \end{corollary}
 
 With these new tools at hand, we are ready to state and prove an important result on the size of the tangent spaces.
-As it turns out, $T_pM$ is a finite dimensional vector space, naturally isomorphic to $\R^n$.
+As it turns out, if $M$ is an $n$-dimensional manifold, $T_pM$ is a finite dimensional vector space, naturally isomorphic to $\R^n$.
 
 \begin{theorem}\label{thm:dimensionTpM}
   Let $M$ be a smooth manifold of dimension $n$ and $p\in M$.
