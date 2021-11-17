@@ -6,9 +6,9 @@
 %Next block avoids bug, from  http://tex.stackexchange.com/a/200725/1913 
 \ifx\ifxetex\ifluatex\else % if lua- or xelatex http://tex.stackexchange.com/a/140164/1913
   \usepackage{fontspec}
-  \setmainfont{OpenDyslexic}
-  \setsansfont{OpenDyslexic}
-  \setmonofont{OpenDyslexicMono}
+  \setmainfont[Renderer=Basic, Scale=0.90]{OpenDyslexic}
+  \setsansfont[Renderer=Basic, Scale=0.90]{OpenDyslexic}
+  \setmonofont[Renderer=Basic]{OpenDyslexicMono}
 
   \setmainfont[Renderer=Basic, Numbers=OldStyle, Scale = 1.0]{TeX Gyre Pagella}
   \setsansfont[Renderer=Basic, Scale=0.90]{TeX Gyre Heros}
@@ -213,7 +213,7 @@ version={4.0},
   \setlength{\parskip}{\baselineskip}
   Copyright \copyright\ \the\year\ \thanklessauthor
 
-  \par Version 0.16 -- \today
+  \par Version 0.17 -- \today
 
   \vfill
   \small{\doclicenseThis}
