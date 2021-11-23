@@ -968,8 +968,8 @@ With such definition at hand, one can define compatibility, smooth atlases and d
   On the other hand, since $\phi_1$ is an interior chart, there is a euclidean ball $B$ around $\phi_1(p)$ contained in $\phi_1(U_1\cap U_2)$ in which $\tau_{12}$ is smooth in the usual euclidean sense.
 
   On $B \cap \tau_{21}(V_21)$, $\widetilde\tau_{21} \circ \tau_{12} = \tau_{21} \circ \tau_{12} = \id$, so the chain rule implies that $\id = D \widetilde\tau_{21} \circ \tau_{12} = D\widetilde\tau_{21}|_{\tau_{12}} \circ D\tau_{12}$.
-  In particular, the square matrix $D\tau_{12}|_{\phi_1(p)}$ is inveritible and, as such, defines an isomorphism.
-  The inverse function theorem then implies that $\tau_{12}(B)$ (here we consider $\tau_{12}$ as a map from $B$ to $\R^n$) is an open subset in $\R^n$ containing $\phi_2(p)$ and contained in $\phi_2(U_2)$.
+  In particular, the square matrix $D\tau_{12}|_{\phi_1(p)}$ is inveritible and, thus, by the inverse function theorem, $\tau_{12}$ is an open mapping\footnote{You can refer to \cite[Corollary C.36]{book:lee} to revise this}.
+  This, then, implies that $\tau_{12}(B)$ (here we consider $\tau_{12}$ as a map from $B$ to $\R^n$) is an open subset in $\R^n$ containing $\phi_2(p)$ and contained in $\phi_2(U_2)$.
   This, however, is a contradiction since we assumed $\phi_2(U_2)\subset\cH^n$ with $\phi_2(p) \in \partial\cH^n$, and thus no open ball around $\phi_2(p)$ can be fully contained in $\cH^n$.
 \end{proof}
 
