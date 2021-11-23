@@ -275,8 +275,7 @@ With these at hand, let's jump into the definition of smooth manifolds.
 \end{definition}
 
 In colloquial language, a differentiable manifold is just a space covered by charts with differentiable transition maps.
-Note that not all topological manifolds can be made into smooth manifolds, but counterexamples are hard to construct and you need at least to go to dimension 4.
-A nice and super compact explanation with the relevant reference is in \cite{SE2691140}.
+Note that not all topological manifolds can be made into smooth manifolds, but counterexamples are hard to construct and you need at least to go to dimension 4 (more on this on Remark~\ref{remark:smoothstr}).
 
 \begin{notation}
   Whenever possible we will omit the differentiable structure $\cA$ from the notation and just write $M$.
@@ -747,10 +746,10 @@ In the next section we will look more deeply into this.
   \end{enumerate}
 \end{exercise}
 
-\begin{remark}
-  There exist examples of topological manifolds without smooth structures.
-  It is also known that smooth manifolds of dimension $n < 4$ have exactly one smooth structure (up to diffeomorphisms) while ones of dimension $n > 4$ have finitely many\footnote{A beautiful example of this is the $7$-sphere $\bS^7$ which is known to have 28 non-diffeomorphic smooth structures.}.
-  The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture.
+\begin{remark}\label{remark:smoothstr}
+  There exist examples of topological manifolds without smooth structures\footnote{A nice and super compact comment pointing to the relevant reference is in \cite{SE2691140}.} but you need to reach for objects of dimension $n > 4$.
+  All smooth manifolds of dimension $n < 4$ have exactly one smooth structure (up to diffeomorphisms) while ones of dimension $n > 4$ have finitely many\footnote{A beautiful example of this is the $7$-sphere $\bS^7$ which is known to have 28 non-diffeomorphic smooth structures.}.
+  The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture \cite{notes:calegari}.
 \end{remark}
 
 As a final exercise, we are going to relate smoothness of the maps with the smoothness of their components, which can be extremely useful when working in coordinates.
@@ -957,13 +956,39 @@ With such definition at hand, one can define compatibility, smooth atlases and d
 \end{proposition}
 \begin{proof}
   The statement follows if we show that the transition maps send boundary pieces to boundary pieces.
-  It turns out that this fact is more general: for any diffeomorphism $f:U \to V$, where $U,V \subset\cH^n$ are relatively open, it holds that $x\in U\cap\partial\cH^n$ if and only if $f(x)\in V\cap\partial\cH^n$.
+  To this end, assume that $p\in M$ is both an interior and a boundary point, that is, there are two charts $(U_1, \phi_1)$ and $(U_2,\phi_2)$ such that $p \in U_1\cap U_2$, both $\phi_1(U_1), \phi_2(U_2) \subset\cH^n$ relatively open, and $\phi_1(p) \in \cH^n\setminus\partial\cH^n$ (an interior chart) while $\phi_2(p) \in \partial\cH^n$ (a boundary chart).
 
-  Indeed, let $x\in U\cap(\cH^n\setminus\partial\cH^n)$ be a point in the interior of $U$. Expanding $f$ in Taylor series up to the first order, we have
+  It follows that there exists a small open neighbourhood of $\phi_1(p)$ in $\cH^n$ which is also an open set in $\R^n$: we just need to take a small open ball around $\phi_1(p)$ that does not intersect the boundary.
+
+  Consider now the transition maps $\tau_{ij} : \phi_i(U_i\cap U_j) \to \phi_j(U_i\cap U_j)$, $i\neq j$.
+  These are diffeomorphisms and inverse of each other by construction.
+  In particular, by the definition of smoothness, they admit (if necessary) an extension to smooth maps defined on open subsets of $\R^n$.
+
+  Let $\widetilde\tau_{21}$ be the smooth extension of $\tau_{21}$ to a set $V_{21}$ which is open in $\R^n$.
+  On the other hand, since $\phi_1$ is an interior chart, there is a euclidean ball $B$ around $\phi_1(p)$ contained in $\phi_1(U_1\cap U_2)$ in which $\tau_{12}$ is smooth in the usual euclidean sense.
+
+  On $B \cap \tau_{21}(V_21)$, $\widetilde\tau_{21} \circ \tau_{12} = \tau_{21} \circ \tau_{12} = \id$, so the chain rule implies that $\id = D \widetilde\tau_{21} \circ \tau_{12} = D\widetilde\tau_{21}|_{\tau_{12}} \circ D\tau_{12}$.
+  In particular, the square matrix $D\tau_{12}|_{\phi_1(p)}$ is inveritible and, as such, defines an isomorphism.
+  The inverse function theorem then implies that $\tau_{12}(B)$ (here we consider $\tau_{12}$ as a map from $B$ to $\R^n$) is an open subset in $\R^n$ containing $\phi_2(p)$ and contained in $\phi_2(U_2)$.
+  This, however, is a contradiction since we assumed $\phi_2(U_2)\subset\cH^n$ with $\phi_2(p) \in \partial\cH^n$, and thus no open ball around $\phi_2(p)$ can be fully contained in $\cH^n$.
+\end{proof}
+
+In fact, a stronger fact holds. 
+\begin{proposition}
+  Any diffeomorphism between smooth $n$-manifolds $F: M \to N$ satisfies $F(\partial M) = \partial N$.
+\end{proposition}
+\begin{proof}
+  Let $p\in\partial M$.
+  Then by definition there is a smooth chart $(U,\phi)$ for $M$, $p\in U$, such that $\phi(U)\subset\cH^n$ and $\phi(p)\in\partial\cH^n$. 
+  Modulo restricting $U$ to the appropriate subset\footnote{Exercise: how would you do that?}, we can find a chart $(F(U), \psi)$ for $N$.
+
+  Now, the coordinate representation
   \begin{equation}
-    f(x+h) = f(x) + Df|_x h + O(\|h\|).
+    \widetilde{F} := \psi \circ F \circ \phi^{-1} : \phi(U) \to \psi(F(U))
   \end{equation}
-  Since the total derivative $D f$ at $x$ is an isomorphism, there exist an open neighbourhood $\cO$ of $x$ such that $f(\cO)$ is open in $\R^n$ and thus $f(x)\in V\cap(\cH^n\setminus\partial\cH^n)$.
+  is a diffeomorphism between open subsets of either $\R^n$ or $\cH^n$.
+  Furthermore, $(U, \widetilde{F}\circ\phi)$ is a smooth chart for $M$. 
+  By the previous proposition, $\widetilde{F}(\phi(U))\subset \cH^n$ with $\widetilde{F}(\phi(p))\in\partial \cH^n$, then we would have shown that $\psi(F(U)) \subset \cH^n$ with $\psi(F(p))\in\partial\cH^n$, i.e. $F(p)\in \partial N$ and, thus, $F(\partial M)\subset \partial N$.
 \end{proof}
 
 \begin{remark}
