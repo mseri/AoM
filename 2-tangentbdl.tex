@@ -232,7 +232,7 @@ Showing that the opposite is also true will require a bit of work.
 
   \newthought{Step II}.
   Let $[f]_p\in C_p^\infty(M)$.
-  We want to show that it is always possible to find a representative for $[f]_p$ with domain $W$, that is, there exists $g\in C^\infty(W)\to\R$ such that $[g]_p = [f]_p$.
+  We want to show that it is always possible to find a representative for $[f]_p$ with domain $W$, that is, there exists $g\in C^\infty(W)$ such that $[g]_p = [f]_p$.
   Let $(V, f)$ be any representative of $[f]_p$.
   Since germs are local, if necessary, we can shrink $V$ so that $V\subset W$.
   Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighbourhood of $p$!
@@ -257,7 +257,7 @@ Showing that the opposite is also true will require a bit of work.
   \end{equation}
   Such $v$ is a derivation by construction, so if it is well-defined, we are done.
   To this end, assume that there exists a different representative $(W, g)$ for $[f]_p$.
-  Then, by definition, there exists a neighbourhood $V\subset W$ of $p$ such that $f|_p = g|_p$.
+  Then, by definition, there exists a neighbourhood $V\subset W$ of $p$ such that $f|_V = g|_V$.
   By linearity, $w_p(f) - w_p(g) = w_p(f-g)$ and, by the first step in the proof, $w_p(f-g) = 0$.
   
   The assignment $w_p\mapsto v$ inverts~\eqref{eq:derivfromtg}, completing the proof.
@@ -895,7 +895,7 @@ What we have seen here is our first example of vector bundle, which is just a wa
 \end{example}
 
 \begin{exercise}
-  Show that $\dim(E) = \dim(M) + r$.
+  Show that the dimension of a vector bundle of rank $r$ is $\dim(E) = \dim(M) + r$.
 \end{exercise}
 
 \begin{exercise}
