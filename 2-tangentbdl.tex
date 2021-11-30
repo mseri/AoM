@@ -708,13 +708,13 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
 
 \begin{theorem}
   Let $M$ be a smooth $n$-manifold, let $p\in M$ and let $v\in T_pM$.
-  There exists a smooth curve $\gamma: (-\epsilon,\epsilon) \to M$ such that $\gamma'(0) = v$.
+  There exists a smooth curve $\gamma: (-\epsilon,\epsilon) \to M$ such that $\gamma(0)=p$ and $\gamma'(0) = v$.
 \end{theorem}
 \begin{proof}
   Let $\varphi:U\to\varphi(U)$ be a chart about $p$ such that $\varphi(p)=0$.
   Let $(x^i)$ denote the coordinates of $\varphi$, as usual, and assume that
   \begin{equation}
-    v = \sum_{i=1}^n a^i \frac{\partial}{\partial x^i}\Big|_p, \qquad a^i \in\R.
+    v = a^i \frac{\partial}{\partial x^i}\Big|_p, \qquad a^i \in\R \mbox{ for all } i=1,\ldots,n.
   \end{equation}
   For $\epsilon$ small enough, by continuity the vector $(ta^1, \ldots, ta^n) \in \varphi(U)$ for all $|t|<\epsilon$. Therefore, the curve
   \begin{equation}
