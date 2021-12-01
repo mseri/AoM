@@ -730,10 +730,15 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
 \end{marginfigure}
 This means that we can actually give an alternative definition of $T_xM$ in terms of tangents to curves:
 \begin{definition}\label{def:tg:ascurvespeed}
-  A tangent vector at $p\in M$ is an equivalence class of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ for some chart $\varphi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
+  A tangent vector at $p\in M$ is an equivalence class\footnote{Usually we say that two such equivalent curves have \emph{a first order contact at $p$}.} of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ for some chart $\varphi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
 \end{definition}
 
 In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and endow $T_pM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
+
+% TODO: uncomment this exercise next year
+% \begin{exercise}
+%   Show that $T_p M$ defined as the space of tangent vectors at $p$ from Definition~\ref{def:tg:ascurvespeed} has a natural structure of vector space.
+% \end{exercise}
 
 To conclude this part, the next proposition shows that velocity vectors behave well under composition with smooth maps and give us a direct, explicit and effective way to compute differentials.
 
