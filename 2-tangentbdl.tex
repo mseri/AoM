@@ -883,7 +883,7 @@ What we have seen here is our first example of vector bundle, which is just a wa
 
   The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\varphi$ is called \emph{local trivialisation}.
 
-  If there exists a trivialisation defined on the whole manifold, that is a map $\varphi: M \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}.
+  If there exists a trivialisation defined on the whole manifold, that is a map $\varphi: E \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}.
 \end{definition}
 
 \begin{example}
@@ -957,8 +957,8 @@ Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R
 \end{exercise}
 
 \begin{definition}
-  A \emph{local frame} of a bundle $\pi:E\to M$ of rank $r$ is a family of $r$ local sections $(S_1, \ldots, S_r)\in\Gamma(E|_U)$ such that $(S_1(p), \ldots, S_r(p))$ is a basis for $E_p$ for all $p\in U$.
-  If $U=M$ then $(S_1, \ldots, S_r)$ is called \emph{global frame}.
+  A \emph{local frame} of a bundle $\pi:E\to M$ of rank $r$ is a family of $r$ local sections $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ such that $\{S_1(p), \ldots, S_r(p)\}$ is a basis for $E_p$ for all $p\in U$.
+  If $U=M$ then $\{S_1, \ldots, S_r\}$ is called \emph{global frame}.
   Sometimes, the sections $S_j$ are called \emph{basis sections}.
 \end{definition}
 
@@ -970,10 +970,12 @@ In the spirit of what we have seen about the previous example, we have the follo
 
 \begin{proposition}
   Let $\pi:E \to M$ be a smooth vector bundle and $X:M\to E$ a section.
-  If $(S_i)$ is a smooth local frame for $E$ over an open subset $U\subseteq M$, then $X$ is smooth on $U$ if and only if its component functions with respect to $(S_i)$ are smooth.
+  If $\{S_i\}$ is a smooth local frame for $E$ over an open subset $U\subseteq M$, then $X$ is smooth on $U$ if and only if its component functions with respect to $\{S_i\}$ are smooth.
 \end{proposition}
 \begin{proof}
-   Let $\varphi:\pi^{-1}(U) \to U\times\R^k$ be the local trivialization associated with the local frame $(S_i)$. Since $\varphi$ is a diffeomorphism, $X$ is smooth on $U$ if and only if $\varphi\circ X$ is smooth on $U$. If $(X^i)$ denotes the component function of $X$ with respect to $S_i$, then $\varphi\circ X (p) = (p, (X^1(p), \ldots, X^k(p)))$, so $\varphi\circ X$ is smooth if and only if the component functions $(X^i)$ are smooth.
+   Let $\varphi:\pi^{-1}(U) \to U\times\R^k$ be the local trivialization associated with the local frame $\{S_i\}$.
+   Since $\varphi$ is a diffeomorphism, $X$ is smooth on $U$ if and only if $\varphi\circ X$ is smooth on $U$.
+   If $\{X^i\}$ denotes the component function of $X$ with respect to $S_i$, then $\varphi\circ X (p) = (p, (X^1(p), \ldots, X^k(p)))$, so $\varphi\circ X$ is smooth if and only if the component functions $\{X^i\}$ are smooth.
 \end{proof}
 
 That is, given a local frame $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ of a vector bundle $\pi: E \to M$ we can express any section $X\in\Gamma(E)$ as a linear combination of elements of the frame:
@@ -987,10 +989,10 @@ Which was to be expected: after all, for each $p\in U\subset M$, the local frame
   A vector bundle $\pi: E\to M$ is trivialisable if and only if it admits a global frame.
 \end{proposition}
 \begin{proof}
-  Let $\varphi: E \to M\times\R^r$ be a global trivialisation and $(e_1, \ldots, e_r)$ the canonical basis for $\R^r$.
-  For $q\in M\times\R^r$, $(S_1(q), \ldots, S_r(q)) := \left(\varphi^{-1}\big|_q(e_1), \ldots, \varphi^{-1}\big|_q(e_r) \right)$ is a global frame for $E$ (why?).
+  Let $\varphi: E \to M\times\R^r$ be a global trivialisation and $\{e_1, \ldots, e_r\}$ the canonical basis for $\R^r$.
+  For $q\in M\times\R^r$, $\{S_1(q), \ldots, S_r(q)\} := \left\{\varphi^{-1}\big|_q(e_1), \ldots, \varphi^{-1}\big|_q(e_r) \right\}$ is a global frame for $E$ (why?).
 
-  Conversely, let $(S_1, \ldots, S_r)$ be a global frame for $E$. Then
+  Conversely, let $\{S_1, \ldots, S_r\}$ be a global frame for $E$. Then
   \begin{equation}
     \varphi: E \to M\times\R^r, \quad
     \left(p, v^i S_i(p)\right) \mapsto \left(p, (v^1, \ldots, v^r)\right),
@@ -1080,7 +1082,7 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
 Before moving on, it is useful to recall some results from multivariable analysis.
 A function $f:\R^m \to \R^n$ between euclidean spaces has rank $k$ at $x\in\R^m$ if its ($n\times m$) Jacobian matrix $Df(x)$ has rank $k$.
 The function has \emph{maximal rank}\footnote{Alternatively, it is of \emph{full rank}.} at $x$ if $k = \min(n,m)$.
-When $n=m$, $f$ has maximal rank at $x$ if and only if the square matrix $DF(x)$ is an invertible matrix.
+When $n=m$, $f$ has maximal rank at $x$ if and only if the square matrix $Df(x)$ is an invertible matrix.
 
 As for many local properties, this definition carries over to manifolds rather ``smoothly''.
 
