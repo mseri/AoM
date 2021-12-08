@@ -1234,7 +1234,7 @@ We can gather this observation and the previous results (the inverse and the imp
 
 \begin{example}\label{ex:s2}
   The sphere $\bS^2 = \{x\in\R^3 \mid \|x\| = 1\}$ is a $2$-dimensional submanifold of $N=\R^3$.
-  This is immediate using the third condition in the Proposition~\ref{prop:submanifolds_and_R}: let $\psi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\psi$ is smooth, $\bS^2 = \{x\in\R^3\mid\psi(x)=0\}$ and $d\psi_x(v)= 2x\cdot v \neq 0$ for $x\in\bS^2$.
+  This is immediate using the third condition in the Proposition~\ref{prop:submanifolds_and_R}: let $\psi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\psi$ is smooth, $\bS^2 = \{x\in\R^3\mid\psi(x)=0\}$ and, denoting $t$ the coorindates on $\R$, $d\psi_x(v)= v^i \frac{\partial \psi}{\partial x^i}|_x \frac{\partial}{\partial t}|_0 = (2x\cdot v) \frac{\partial}{\partial t}|_0$, that is, as a 1x3 matrix $d\psi_x = 2(x^1\; x^2\; x^3)$ so it is of maximal rank $1$ for all $x\in\bS^2$.
 \end{example}
 
 \begin{example}
