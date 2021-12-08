@@ -4,6 +4,8 @@ Changes which would complicate something for this year but should be performed f
 
 - Add pictures (video?) on how to draw a vector bundle on a cylinder and on a Moebius strip. Link it with the topology justification above.
 
+- Swap chapter 2.7 and 2.8
+
 - Add inverse theorem on submanifolds with boundary in the submanifolds section.
 
 - Add exercise: pullback of partition of unity is a partition of unity.
