@@ -1196,7 +1196,8 @@ What if it is larger?
   \label{fig:2_8-crit_pts}
 \end{marginfigure}
 
-With this definition at hand, we are ready to state one of the most important theorems in this lecture. Differently from most previous ones, the statement is not local.
+With this definition at hand, we are ready to state one of the most important theorems in this lecture.
+Differently from most previous ones, the statement is not local.
 
 \begin{theorem}[Implicit function theorem for manifolds]\label{thm:impl_fun}
   Let $m\geq n$ and let $F: M^m \to N^n$ be a smooth map between smooth manifolds.
@@ -1230,6 +1231,12 @@ We can gather this observation and the previous results (the inverse and the imp
 \begin{remark}\label{rmk:WhitneyET}
   Whitney Embedding Theorem states that any smooth $n$-dimensional manifold can be smoothly embedded into $\R^{2n}$.
   Thus any abstract manifold is diffeomorphic to a submanifold of $\R^m$ (for some $m$).
+\end{remark}
+
+\begin{remark}
+  The concepts expressed in this section are extremely relevant in the contexts of mechanics and topology.
+  Some good keywords to know more, here, could be Morse Theory, Floer Homology or Arnold's conjecture.
+  We will not get into this, but I will refer you to a nice article from Quanta magazine that touches upon these topics \cite{article:quanta:floer}.
 \end{remark}
 
 \begin{example}\label{ex:s2}
@@ -1323,7 +1330,7 @@ To finally answer the question, we will prove one last proposition.
 
 \newthought{Of course, we can also define subbundles}.
 \begin{definition}
-  Let $\pi:E \to M$ be a rank-$n$ vector bundle and $F\subset E$ a submanifold.
+  Let $\pi:E \to M$ be a rank-$r$ vector bundle and $F\subset E$ a submanifold.
   If for all $p\in M$, the intersection $F_p := F\cap E_p$ is a $k$-dimensional subspace of the vector space $E_p$ and $\pi|_F : F \to M$ defines a rank-$k$ vector bundle, then $\pi|_F: F \to M$ is called a \emph{subbundle} of $E$.
 \end{definition}
 

@@ -96,9 +96,9 @@ The definition of pushforward is more easily pictured by means of the following 
 Then, if $(U, \varphi)$ is a coordinate chart for $M$, the restriction of a vector field $X\in\fX(M)$ to $U$ can be mapped to a vector field on $\varphi(U)\subset\R^n$ via the pushforward $\varphi_*$:
 \begin{align}
   \varphi_* X & : \LaTeXunderbrace{\varphi(U)}_{\subset\R^n} \to \LaTeXunderbrace{T \varphi(U)}_{=\varphi(U)\times\R^n}, \\
-  \varphi_* X & : x\mapsto (q,v(x)) \quad\mbox{with}\quad v(x) = v^j(x)e_j \in \R^n,
+  \varphi_* X & : x\mapsto (x,v(x)) \quad\mbox{with}\quad v(x) = v^j(x)e_j \in \R^n,
 \end{align}
-where $v^j(x)$ are the components\footnote{As we start getting used to, the chart $\varphi$ here plays a twofold role: it provides the coordinates $x=\varphi(p)$ on the patch $U$ and the coordinate basis of the tangent space.} of $X_p\in T_p M$ at $p=\varphi^{-1}(x)$ with respect to the coordinate basis $\left\{\frac{\partial}{\partial x^i}\big|_x\right\}$.
+where $v^j(x)$ are the components\footnote{As we start getting used to, the chart $\varphi$ here plays a twofold role: it provides the coordinates $x=\varphi(p)$ on the patch $U$ and the coordinate basis of the tangent space.} of $X_p\in T_p M$ at $p=\varphi^{-1}(x)$ with respect to the coordinate basis $\left\{\frac{\partial}{\partial x^i}\big|_p\right\}$.
 
 \begin{example}[Computing the pushforward of a vector field]
   Let $M$ and $N$ be the following submanifolds of $\R^2$:
