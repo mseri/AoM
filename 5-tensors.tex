@@ -203,12 +203,31 @@ Let's go back for a moment to the example of inner products.
 We are now in a good place to discuss how tensors are affected by changes of basis.
 Let $L: V\to V$ be an isomorphism, then we can define a new basis $\{\widetilde e_i\}$ of $V$ by $\widetilde e_i := L e_i$. For convenience, we denote its dual basis by $\{\widetilde e^i\}$ in contrast with our initial notation.
 
-Thinking in linear algebraic terms, the linear map $\Lambda:V^*\to V^*$ that relates the dual bases is determined by
-\begin{align}
-  &\delta^i_j = (\widetilde e^i \mid \widetilde e_j) = (\Lambda e^i \mid L e_j ) =: (L^* \Lambda e^i \mid e_j)\\
-  &\mbox{that is, } \Lambda = (L^*)^{-1}.
+Thinking in linear algebraic terms, what is the linear map $\Lambda:V^*\to V^*$ that relates the dual bases? This must be determined somehow by
+\begin{align}\label{eq:vs_ch_bases}
+  \delta^i_j = (\widetilde e^i \mid \widetilde e_j) = (\Lambda e^i \mid L e_j).
 \end{align}
-Indeed, if $[l_i^j]$ is the matrix associated to $L$, that is, $\widetilde e_i = L e_i = l_i^j e_j$, then $\widetilde e^j = L^* e^j = l_i^j e^i$. Since the matrix $[\lambda_i^j]$ of $\Lambda$, that is, $\Lambda e^j = \lambda_k^j e^k$, must satisfy $\lambda_k^j l_i^k= \delta_i^j$, \emph{as matrices}, $[\lambda_i^j]$ is the inverse of $[l_i^j]$. However, don't forget that $[l_i^j]$ is the matrix of the endomorphism $L:V\to V$ while $[\lambda_i^j]$ is the matrix of the endomorphism $\Lambda: V^*\to V^*$.
+
+It is convenient, at this point, to introduce the \emph{dual map} $L^* : V \to V$ to $L$.
+This is defined as the map such that for all $v\in V$ and for all $w\in V^*$
+\begin{equation}
+  (w | Lv) = (L^* w | V).
+\end{equation}
+But we already know how to define such kind of map! This is like a pullback: $L^*(w) := w \circ L$ for $w\in V^*$.
+In matrix form, thsim means that $w^T L v = (L^T w)^T v$, so the matrix of $L^*$ is the transpose of the matrix of $L$.
+
+Let's go back to \eqref{eq:vs_ch_bases}.
+\begin{align}
+  &\delta_j^i = (\Lambda e^i \mid L e_j) = (L^* \Lambda e^i \mid e_j)\\
+  &\mbox{that is, } \Lambda := (L^*)^{-1}.
+\end{align}
+So the matrix of $\Lambda$ is the inverse of the transpose of the matrix of $L$.
+
+If $[l_i^j]$ is the matrix associated to the endomorphism $L: V to V$, that is, $l_i^j = l(e^j, e_i)$, and $[\lambda_i^j]$ the one associated to the endomorphism $\Lambda: V^* \to V^*$, then the above translates into
+\begin{align}
+  &\delta_j^i = (\Lambda e^i \mid L e_j) = (\lambda_{k_1}^i e^{k_1} \mid l_j^{k_2} e_{k_2}) = \lambda_k^i l_j^k.
+\end{align}
+That is, the matrices are inverse of each other.
 
 We can transport this fact to general tensors to obtain that the components of an arbitrary tensor $\tau\in T^r_s(V)$ transform as follows.
 Since
