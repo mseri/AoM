@@ -187,7 +187,7 @@ Let's go back for a moment to the example of inner products.
   Its components are $(\tau')_i^j = g^{jk}\tau_{ik}$.
 \end{example}
 
-\begin{exercise}
+\begin{exercise}\label{exe:iso_vs_endo}
   Let $V$ be a vector space with an inner product.
   \begin{enumerate}
     \item Show that the space $T^1_1(V)$ is canonically isomorphic to the space of endomorphisms of $V$, that is, of linear maps $L:V\to V$.
@@ -208,26 +208,26 @@ Thinking in linear algebraic terms, what is the linear map $\Lambda:V^*\to V^*$ 
   \delta^i_j = (\widetilde e^i \mid \widetilde e_j) = (\Lambda e^i \mid L e_j).
 \end{align}
 
-It is convenient, at this point, to introduce the \emph{dual map} $L^* : V \to V$ to $L$.
+It is convenient, at this point, to introduce the \emph{dual map} $L^* : V^* \to V^*$ to $L$.
 This is defined as the map such that for all $v\in V$ and for all $w\in V^*$
 \begin{equation}
   (w | Lv) = (L^* w | V).
 \end{equation}
 But we already know how to define such kind of map! This is like a pullback: $L^*(w) := w \circ L$ for $w\in V^*$.
-In matrix form, thsim means that $w^T L v = (L^T w)^T v$, so the matrix of $L^*$ is the transpose of the matrix of $L$.
+\emph{As matrices}, this means that $w^T L v = (L^T w)^T v$, so the matrix of $L^*$ is the transpose of the matrix of $L$.
 
-Let's go back to \eqref{eq:vs_ch_bases}.
+Let's go back to \eqref{eq:vs_ch_bases}:
 \begin{align}
   &\delta_j^i = (\Lambda e^i \mid L e_j) = (L^* \Lambda e^i \mid e_j)\\
   &\mbox{that is, } \Lambda := (L^*)^{-1}.
 \end{align}
-So the matrix of $\Lambda$ is the inverse of the transpose of the matrix of $L$.
+So, \emph{as matrices}, $\Lambda = (L^T)^{-1}$ is the inverse of the transpose of the matrix of $L$.
 
-If $[l_i^j]$ is the matrix associated to the endomorphism $L: V to V$, that is, $l_i^j = l(e^j, e_i)$, and $[\lambda_i^j]$ the one associated to the endomorphism $\Lambda: V^* \to V^*$, then the above translates into
+If $[l_i^j]$ is the matrix associated\footnote{Does exercise~\ref{exe:iso_vs_endo} ring any bell here?} to the endomorphism $L: V \to V$, that is, $l_i^j := (e^j | L e_i)$, and $[\lambda_i^j]$ the one associated to the endomorphism $\Lambda: V^* \to V^*$, then the above translates into
 \begin{align}
   &\delta_j^i = (\Lambda e^i \mid L e_j) = (\lambda_{k_1}^i e^{k_1} \mid l_j^{k_2} e_{k_2}) = \lambda_k^i l_j^k.
 \end{align}
-That is, the matrices are inverse of each other.
+That is, as we already saw, \emph{as matrices} they are inverses of each other.
 
 We can transport this fact to general tensors to obtain that the components of an arbitrary tensor $\tau\in T^r_s(V)$ transform as follows.
 Since
@@ -239,9 +239,9 @@ Since
 \end{align}
 applying the previous reasoning and comparing term by term we get
 \begin{align}
-  &\tau^{j_1\cdots j_r}_{i_1\cdots i_s} = \widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} l_{k_1}^{j_1}\cdots l_{k_r}^{j_r} \lambda_{i_1}^{h_1}\cdots \lambda_{i_s}^{h_s}\\
+  &\tau^{j_1\cdots j_r}_{i_1\cdots i_s} = \widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} l_{k_1}^{j_1}\cdots l_{k_r}^{j_r}\, \lambda_{i_1}^{h_1}\cdots \lambda_{i_s}^{h_s}\\
   &\mbox{or}\\
-  &\widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \lambda_{j_1}^{k_1}\cdots \lambda_{j_r}^{k_r}\cdots l_{h_1}^{i_1}\cdots l_{h_s}^{i_s}.
+  &\widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \lambda_{j_1}^{k_1}\cdots \lambda_{j_r}^{k_r}\, l_{h_1}^{i_1}\cdots l_{h_s}^{i_s}.
 \end{align}
 
 \begin{remark}
