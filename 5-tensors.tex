@@ -334,13 +334,13 @@ is defined by linearity on the fibres via
 \marginnote{Study hint: look carefully at the domains and codomains of all the maps involved and make sure that you understand how this is defined.}
 \begin{align}
   \widetilde\varphi&(p, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{k_1}\otimes \cdots\otimes \varepsilon^{k_s})\\
-  &:=(\varphi(p), d\varphi_p e_{j_1}\otimes\cdots\otimes d\varphi_p e_{j_r}\otimes (\varphi^{-1})^*\varepsilon^{i_1}\otimes \cdots\otimes (\varphi^{-1})^*\varepsilon^{i_s}).
+  &:=(\varphi(p), d\varphi_p e_{j_1}\otimes\cdots\otimes d\varphi_p e_{j_r}\otimes d(\varphi^{-1})^*\varepsilon^{i_1}\otimes \cdots\otimes d(\varphi^{-1})^*\varepsilon^{i_s}).
 \end{align}
 
 In analogy to the definition of vector fields, we can introduce tensor fields: these will just be local assignments of tensors to points.
 
 \begin{definition}
-  A section $\gamma(T_s^r M)$ of $T_s^r M$, that is, a smooth map $\tau : M \to T_s^r M$ such that $\pi\circ \tau = \id_M$, is called a \emph{tensor field} of type $(r,s)$.
+  A section $\Gamma(T_s^r M)$ of $T_s^r M$, that is, a smooth map $\tau : M \to T_s^r M$ such that $\pi\circ \tau = \id_M$, is called a \emph{tensor field} of type $(r,s)$.
   We denote the space of tensor fields of type $(r,s)$ by $\cT_s^r(M)$ and define $\cT_0^0(M) := C^\infty(M)$.
 \end{definition}
 
@@ -351,7 +351,7 @@ In analogy to the definition of vector fields, we can introduce tensor fields: t
 Locally, we can express any tensor field in terms of the coordinate bases.
 On a chart for $M$ with local coordinates $(x^i)$, our analysis of the change of basis tells us that $\tau\in\cT_s^r(M)$ has the form
 \begin{equation}
-  \tau(p) = \tau^{j_1\cdots j_r}_{i_1\cdots i_s}(p)\; \frac{\partial}{\partial x^{j_1}}\otimes\cdots\otimes\frac{\partial}{\partial x^{j_r}}\otimes dx^{i_1}\otimes\cdots\otimes dx^{i_s},
+  \tau = \tau^{j_1\cdots j_r}_{i_1\cdots i_s}\; \frac{\partial}{\partial x^{j_1}}\otimes\cdots\otimes\frac{\partial}{\partial x^{j_r}}\otimes dx^{i_1}\otimes\cdots\otimes dx^{i_s},
 \end{equation}
 where $\tau^{j_1\cdots j_r}_{i_1\cdots i_s}\in C^\infty(M)$.
 
@@ -403,7 +403,42 @@ To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\
   \end{enumerate}
 \end{exercise}
 
-We can use the pullback to construct a diffeomorphism of tensor bundles of the same type out of a diffeomorphism $\varphi:M\to N$ between manifolds.
+\begin{example}[Change of coordinates for tensor fields]
+  Let, as usual, $(U,\varphi)$ be a chart on $M$ with local coordinates $(x^i)$.
+  If $\{e^i:\R^n\to\R\}$ are the standard euclidean coordinates\footnote{Have a look at Notation~\ref{ntn:coords} if you don't remember what I am talking about.
+  Here we are using the notation $e^i \equiv r^i$ since now we know that $\{e^i\}$ is just the dual basis to $\{e_i\}$. } and $\{e_i\}$ are the standard basis vectors in $\R^n$, then the coordinate $1$-forms and the coordinate vector fields on $U\subset M$ are given by
+  \begin{equation}
+    dx^i = \varphi^* de^i
+    \quad\mbox{and}\quad
+    \frac{\partial}{\partial x^i} = (\varphi^{-1})_* e_i.
+  \end{equation}
+  This immediately exposes the transformation laws for the change of coordinates: let $(U, \psi)$ be another chart on $U$ with local coordinates $(y^i)$, then $dy^i = \psi^* de^i$ and $\frac{\partial}{\partial y^i} = (\psi^{-1})_* e_i$. If we denote $\phi = \psi\circ\varphi^{-1}$ the transition map in $\R^n$, we get
+  \begin{align}
+    \frac{\partial}{\partial x^i} &= (\varphi^{-1})_* e_i \\
+    &= (\varphi^{-1})_* \LaTeXunderbrace{(\phi^{-1})_*\phi_*}_{\id} e_i \\
+    &= (\varphi^{-1}\circ \phi^{-1})_* (\phi_* e_i) \\
+    &= (\psi^{-1})_* ((D\phi)_i^j e_j) \\
+    &= (D\phi)_i^j \frac{\partial}{\partial y^j},
+  \end{align}
+  which may be easier to think about in terms of the following diagram
+  \begin{equation}\nonumber
+    \begin{tikzcd}[row sep=large, column sep=tiny]
+      & \frac{\partial}{\partial x^i} \in \cT_0^1(U) \ni (D\phi)_i^j \frac{\partial}{\partial y^j} \arrow[dl, "\varphi_*" description] \arrow[dr, "\psi*" description] & \\
+      e_i \in \cT_0^1(V) \arrow[rr, "\phi_*" description] & & \cT_0^1(W) \ni \LaTeXunderbrace{\phi_* e_i}_{= (D\phi)_i^j e_j}
+    \end{tikzcd}
+  \end{equation}
+  where $V = \varphi(U)$ and $W = \psi(U)$.
+
+  From this, we immediately get $dy^j = (D\phi)_i^j dx^i$ and, therefore, $dx^i =  (D\phi^{-1})_j^i dy^j$.
+\end{example}
+
+\begin{exercise}
+  Let $F:N\to M$ be a smooth map between smooth manifolds.
+  Show that a function $f\in C^\infty(M)$ is constant on $F(N)\subset M$ if and only if $F^* df \equiv 0$.\\
+  \textit{\small Hint: if you get stuck start by looking at a simple example, like $N=M$ and $F=\id_M$.}
+\end{exercise}
+
+We can also use the pullback to construct a diffeomorphism between tensor bundles of the same type from a diffeomorphism $\varphi:M\to N$ between manifolds.
 
 \begin{proposition}
   Let $\varphi:M\to N$ be a diffeomorphism between smooth manifolds.
@@ -424,7 +459,7 @@ This can be inverted giving rise to the so-called \emph{cotangent lift}
 \marginnote{An aid to understand this map is the following commuting diagram:
 \begin{equation}\nonumber
   \begin{tikzcd}[row sep=normal, column sep=normal, ampersand replacement=\&]
-    T_p^* M \arrow[d, "\pi_M" left] \arrow[r, "d\varphi^\dagger"] \& T_{\varphi(p)}N \arrow[d, "\pi_N"] \\
+    T_p^* M \arrow[d, "\pi_M" left] \arrow[r, "d\varphi^\dagger"] \& T^*_{\varphi(p)}N \arrow[d, "\pi_N"] \\
     M \arrow[r, "\varphi" below] \& N
   \end{tikzcd}
 \end{equation}}
@@ -448,7 +483,7 @@ defined on the product elements as
 which extends to the whole fibres by linearity.
 \end{proof}
 
-With this diffeomorphism at hand, we can finally define the pushforward.
+With this diffeomorphism at hand, we can finally generalize the pushforward.
 
 \begin{definition}
   Let $F:M\to N$ be a diffeomorphism between smooth manifolds.
@@ -493,37 +528,3 @@ You encounter this if you study isometries for pseudo-Riemannian metrics or cano
 \end{equation}
 Can you show why?
 
-\begin{example}[Change of coordinates for tensor fields]
-  Let, as usual, $(U,\varphi)$ be a chart on $M$ with local coordinates $(x^i)$.
-  If $\{e^i:\R^n\to\R\}$ are the standard euclidean coordinates\footnote{Have a look at Notation~\ref{ntn:coords} if you don't remember what I am talking about.
-  Here we are using the notation $e^i \equiv r^i$ since now we know that $\{e^i\}$ is just the dual basis to $\{e_i\}$. } and $\{e_i\}$ are the standard basis vectors in $\R^n$, then the coordinate $1$-forms and the coordinate vector fields on $U\subset M$ are given by
-  \begin{equation}
-    dx^i = \varphi^* de^i
-    \quad\mbox{and}\quad
-    \frac{\partial}{\partial x^i} = (\varphi^{-1})_* e_i.
-  \end{equation}
-  This immediately exposes the transformation laws for the change of coordinates: let $(U, \psi)$ be another chart on $U$ with local coordinates $(y^i)$, then $dy^i = \psi^* de^i$ and $\frac{\partial}{\partial y^i} = (\psi^{-1})_* e_i$. If we denote $\phi = \psi\circ\varphi^{-1}$ the transition map in $\R^n$, we get
-  \begin{align}
-    \frac{\partial}{\partial x^i} &= (\varphi^{-1})_* e_i \\
-    &= (\varphi^{-1})_* \LaTeXunderbrace{(\phi^{-1})_*\phi_*}_{\id} e_i \\
-    &= (\varphi^{-1}\circ \phi^{-1})_* (\phi_* e_i) \\
-    &= (\psi^{-1})_* ((D\phi)_i^j e_j) \\
-    &= (D\phi)_i^j \frac{\partial}{\partial y^j},
-  \end{align}
-  which may be easier to think about in terms of the following diagram
-  \begin{equation}\nonumber
-    \begin{tikzcd}[row sep=large, column sep=tiny]
-      & \frac{\partial}{\partial x^i} \in \cT_0^1(U) \ni (D\phi)_i^j \frac{\partial}{\partial y^j} \arrow[dl, "\varphi_*" description] \arrow[dr, "\psi*" description] & \\
-      e_i \in \cT_0^1(V) \arrow[rr, "\phi_*" description] & & \cT_0^1(W) \ni \LaTeXunderbrace{\phi_* e_i}_{= (D\phi)_i^j e_j}
-    \end{tikzcd}
-  \end{equation}
-  where $V = \varphi(U)$ and $W = \psi(U)$.
-
-  From this, we immediately get $dy^j = (D\phi)_i^j dx^i$ and, therefore, $dx^i =  (D\phi^{-1})_j^i dy^j$.
-\end{example}
-
-\begin{exercise}
-  Let $F:N\to M$ be a smooth map between smooth manifolds.
-  Show that a function $f\in C^\infty(M)$ is constant on $F(N)\subset M$ if and only if $F^* df \equiv 0$.\\
-  \textit{\small Hint: if you get stuck start by looking at a simple example, like $N=M$ and $F=\id_M$.}
-\end{exercise}
