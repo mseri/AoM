@@ -1,5 +1,10 @@
+
+\begin{tcolorbox}
+This is a reminder that, unless differently specified, when we write manifold, chart, atlas, etc. we always mean smooth manifold with (possibly empty) boundary, smooth chart, smooth atlas, etc.
+\end{tcolorbox}
+
 \section{Let the fun begin!}
-\newthought{It now remains to define derivatives} of functions between manifolds.
+\newthought{It now remains to define derivatives} of functions between smooth manifolds.
 And, since we saw that euclidean spaces are manifolds, we must mke sure that our definition coincides with the usual one in euclidean spaces.
 
 \begin{marginfigure}[7em]
@@ -1010,7 +1015,9 @@ A useful generalization of vector bundles, which we will not discuss in the cour
 \section{Submanifolds}
 
 With differentials of smooth functions at hand, we are ready to discuss submanifolds: smaller manifolds sitting inside larger ones.
-
+\begin{marginfigure}
+  \includegraphics{2_8_1-immersion-embedding}
+\end{marginfigure}
 \begin{definition}
   Let $M^m$ and $N^n$ be differentiable manifolds and $F:M\to N$ a $C^1$ function.
   \begin{itemize}
@@ -1019,9 +1026,6 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
     \item $F$ is an \emph{embedding} if $F$ is an injective immersion that is also a homeomorphism onto its range $F(M)\subset N$.
   \end{itemize}
 \end{definition}
-\begin{marginfigure}
-  \includegraphics{2_8_1-immersion-embedding}
-\end{marginfigure}
 
 \begin{example}
   \begin{enumerate}
@@ -1087,7 +1091,7 @@ When $n=m$, $f$ has maximal rank at $x$ if and only if the square matrix $Df(x)$
 As for many local properties, this definition carries over to manifolds rather ``smoothly''.
 
 \begin{definition}
-  A smooth map $F:M\to N$ has \emph{rank $k$} at a point $p$ if the linear subspace $dF_p(T_pM)$ has dimension $k$ inside $T_{F(p)}N$.
+  A smooth map $F:M\to N$ has \emph{rank $k$} at a point $p$ if its differential $dF_p$ has rank $k$, that is, if the linear subspace $dF_p(T_pM)$ has dimension $k$ inside $T_{F(p)}N$.
 \end{definition}
 
 And the same is true for the inverse function theorem:
@@ -1099,7 +1103,7 @@ compare the following statements.
 \end{theorem}
 
 \begin{theorem}[Inverse function theorem for manifolds]\label{thm:iftm}
-  Let $F:M\to N$ be a smooth function between manifolds of the same dimension $n$.
+  Let $F:M\to N$ be a smooth function between smooth manifolds of the same dimension $n$.
   Let $p\in M$ and assume that $F$ has maximal rank (i.e. rank $n$) at $p$.
   Then there exists an open neighbourhood $V$ of $p$ such that the restriction $F:V\to F(V)$ is a diffeomorphism.
 \end{theorem}
@@ -1127,7 +1131,7 @@ We will state them without going into the details of the proofs.
   \caption{Theorem~\ref{prop:slice_chart} in a picture.}
 \end{marginfigure}
 \begin{proposition}\label{prop:slice_chart}
-  Let $F:M^m\to N^n$ be an immersion.
+  Let $M^m$ and $N^n$ be smooth manifolds and $F:M\to N$ an immersion.
   Then for any $p\in M$, there exists a neighbourhood $U$ of $p$ and a chart $(V,\psi)$ about $F(p)\in N$ such that
   \begin{enumerate}[(i)]
     \item If $y^i = r^i\circ \psi$ are the local coordinates of $\psi$ then
@@ -1175,7 +1179,7 @@ A non-trivial consequence of the previous lemma is the following proposition\foo
 
 \marginnote[1em]{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
 \begin{proposition}\label{prop:uniqdiffeoinclusion}
-  Let $M$ be a manifold and $U\subset M$ an open set.
+  Let $M$ be a smooth manifold and $U\subset M$ an open set.
   Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
 \end{proposition}
 
@@ -1264,7 +1268,7 @@ Is the tangent space to a sphere the one that we naively imagine (see Figure~\re
 To finally answer the question, we will prove one last proposition.
 
 \begin{proposition}
-  Let $F:M^m\to N^n$ be a smooth map between manifolds.
+  Let $F:M^m\to N^n$ be a smooth map between smooth manifolds.
   Let $q\in N$ be a regular value of $F$ such that $P:=F^{-1}(q)\neq\emptyset$ and let $i:P\hookrightarrow M$ denote the inclusion.
   Then, for all $p\in P$, one has
   \begin{equation}
@@ -1339,9 +1343,9 @@ To finally answer the question, we will prove one last proposition.
   Let $F:M\to N$ be an embedding and denote $\widetilde M = F(M)\subset N$.
   \begin{enumerate}
     \item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\big|_{\widetilde M}$, is a subbundle of $TN\big|_{\widetilde M}$ by providing explicit local trivialisations in terms of the charts $(U, \varphi)$ for $M$.
-    \item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that
+    \item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that\footnote{Here $T\,N|_{\widetilde{M}}$ denotes the the tangent bundle of $N$ restricted to the base points in $\widetilde{M}$.}
     \begin{equation}
-      T\widetilde{M} = \{(p,v)\in TN|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\}.
+      T\widetilde{M} = \left\{(p,v)\in T\,N|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\right\}.
     \end{equation}
   \end{enumerate}
 \end{exercise}
