@@ -717,6 +717,13 @@ In the next section we will look more deeply into this.
   From now on, when we write manifold, chart, atlas, etc. we always mean smooth manifold, smooth chart, smooth atlas, etc..
 \end{tcolorbox}
 
+\newthought{The notion of smoothness} on a smooth manifold is essentially tied to the underlying smooth structure: it makes no sense to talk about smooth functions if there is no smooth atlas to specify what smoothness means.
+
+This is a subtle but fundamental point. The charts themselves, at first, are mere homeomorphisms.
+The choice of a smooth atlas, ensures that we only select a family of charts whose transition maps, as euclidean functions, are smooth.
+
+Since smoothness is defined via the composition with charts from the atlas, this also implies that the charts themselves become diffeomorphisms\footnote{Why? Try to spell out all the details.}. The following exervises and examples build upon this remark to give you some example of this, and why it may seem counterintuitive.
+
 \begin{example}[A different smooth structure on $\R$]
   Consider the homeomorphism $\psi:\R\to\R$, $\psi(x) = x^3$.
   The atlas consisting of the global chart $(\R, \psi)$ defines a smooth structure on $\R$.
@@ -724,6 +731,8 @@ In the next section we will look more deeply into this.
   Therefore, the smooth structure defined on $\R$ by $\psi$ is different from the standard one.
   You can adapt this idea to construct many different smooth structures on topological manifolds provided that they at least have one smooth structure.
 \end{example}
+
+What is often even more puzzling, at least as a first sight, is that incompatible smooth atlases can actually be diffeomorphic.
 
 \begin{exercise}
   Show that the smooth manifolds $(\R, \{(\R, \id_\R)\})$ and $(\R, \{(\R, \psi)\})$, defined using the smooth structures from the previous example, are diffeomorphic.
@@ -752,7 +761,7 @@ In the next section we will look more deeply into this.
   The case $n = 4$ is unknown: if you prove that there is only one smooth structure, you will have shown the smooth Poincar\'e conjecture \cite{notes:calegari, article:quanta:topology}.
 \end{remark}
 
-As a final exercise, we are going to relate smoothness of the maps with the smoothness of their components, which can be extremely useful when working in coordinates.
+As a final exercise, we are going to relate smoothness of the maps with the smoothness of their components, which can be especially useful when working in coordinates.
 
 \begin{exercise}
   Let $F: M^m \to N^n$ be a continuous map between two manifolds. Then the following are equivalent:
