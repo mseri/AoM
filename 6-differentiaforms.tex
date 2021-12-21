@@ -33,9 +33,9 @@ In addition to their role in integration, differential forms provide a framework
   \end{enumerate}
 \end{exercise}
 
-\section{The wedge product}
+\section{The exterior product}
 
-\marginnote{You can find an interesting explanation of the wedge product, based on Penrose's book ``The road to reality'', \href{https://twitter.com/LucaAmb/status/1289244374996406273?s=20}{on a thread by @LucaAmb on Twitter}.}
+\marginnote{You can find an interesting explanation of the exterior product, based on Penrose's book ``The road to reality'', \href{https://twitter.com/LucaAmb/status/1289244374996406273?s=20}{on a thread by @LucaAmb on Twitter}.}
 If you remember, we said that the determinant was an example of a $T_n^0(R^n)$ tensor: an antisymmetric tensor nonetheless.
 At the same time, the determinant of a $n\times n$ matrix, is the signed volume of the parallelotope spanned by the $n$ vectors composing the matrix.
 We also saw that tensors can be multiplied with the tensor product, which gives rise to a graded algebra on the free sum of tensor spaces.
@@ -580,29 +580,28 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
 
   This is a more general fact related to 3 dimensional manifolds with a Riemannian metric $M$. Then the maps defined above are still defined in the same exact way up to using the correct isomorphism induced by $g$ and one obtains the following commutative diagram.
   \begin{equation}
-    % https://q.uiver.app/?q=WzAsNSxbMSwxLCJcXE9tZWdhXjEoTSkiXSxbMCwwLCJcXG1hdGhjYWx7WH0oTSkiXSxbMiwzLCJcXE9tZWdhXjAoTSkiXSxbNCwzLCJcXE9tZWdhXjMoTSkiXSxbNSwxLCJcXE9tZWdhXjIoTSkiXSxbMSwwLCJcXGZsYXQiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiXFxzaGFycCIsMCx7Im9mZnNldCI6LTF9XSxbMiwwLCJkIiwwLHsib2Zmc2V0IjoxfV0sWzAsNCwiZCIsMCx7Im9mZnNldCI6LTF9XSxbMywyLCJcXHN0YXIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XSxbMCw0LCJcXHN0YXIiLDIseyJvZmZzZXQiOjEsInN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFs0LDMsImQiXV0=
-    \begin{tikzcd}
-      {\fX(M)} \\
-  & {\Omega^1(M)} &&&& {\Omega^2(M)} \\
-  \\
-  && {\Omega^0(M)} && {\Omega^3(M)}
-  \arrow["\flat", shift left=1, from=1-1, to=2-2]
-  \arrow["\sharp", shift left=1, from=2-2, to=1-1]
-  \arrow["d", shift right=1, from=4-3, to=2-2]
-  \arrow["d", shift left=1, from=2-2, to=2-6]
-  \arrow["\star", tail reversed, from=4-5, to=4-3]
-  \arrow["\star"', shift right=1, tail reversed, from=2-2, to=2-6]
-  \arrow["d", from=2-6, to=4-5]
-    \end{tikzcd}
+    % https://q.uiver.app/?q=WzAsNSxbMSwxLCJcXE9tZWdhXjEoTSkiXSxbMCwwLCJcXG1hdGhjYWx7WH0oTSkiXSxbMSwyLCJcXE9tZWdhXjAoTSkiXSxbMiwyLCJcXE9tZWdhXjMoTSkiXSxbMiwxLCJcXE9tZWdhXjIoTSkiXSxbMSwwLCJcXGZsYXQiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiXFxzaGFycCIsMCx7Im9mZnNldCI6LTF9XSxbMCw0LCJkIiwwLHsib2Zmc2V0IjotMX1dLFszLDIsIlxcc3RhciIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFs0LDMsImQiXSxbMiwwLCJkIiwwLHsib2Zmc2V0IjoxfV0sWzAsNCwiXFxzdGFyIiwyLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XV0=
+\begin{tikzcd}
+	{\fX(M)} \\
+	& {\Omega^1(M)} & {\Omega^2(M)} \\
+	& {\Omega^0(M)} & {\Omega^3(M)}
+	\arrow["\flat", shift left=1, from=1-1, to=2-2]
+	\arrow["\sharp", shift left=1, from=2-2, to=1-1]
+	\arrow["d", shift left=1, from=2-2, to=2-3]
+	\arrow["\star", tail reversed, from=3-3, to=3-2]
+	\arrow["d", from=2-3, to=3-3]
+	\arrow["d", shift right=1, from=3-2, to=2-2]
+	\arrow["\star"', shift right=1, tail reversed, from=2-2, to=2-3]
+\end{tikzcd}
   \end{equation}
-  Walking the diagram, one can directly generalize $\nabla$, $\nabla \cdot$ and $\nabla\times$ to $3$-manifolds:
+  Walking the diagram\footnote{For a visual presentation of this material, refer to the beautiful youtube video \href{https://www.youtube.com/watch?v=ZpUvFn8Ni2I}{There is only one derivative: the exterior derivative} by G. Bracchi.}, one can directly generalize $\nabla$, $\nabla \cdot$ and $\nabla\times$ to $3$-manifolds:
   \begin{itemize}
-    \item $\mathrm{grad} := \sharp \circ d : \Omega^0(M) \to \fX(M)$;
+    \item $\mathrm{grad} := \sharp d : \Omega^0(M) \to \fX(M)$;
     \item $\mathrm{div} := \star d \star \flat : \fX(M) \to \Omega^0(M)$;
-    \item $\Delta := \mathrm{div} \circ \mathrm{grad} = \star d \star d : \Omega^0(M) \to \Omega^0(M)$;
-    \item $\mathrm{curl} := \sharp \circ \star \circ d \circ \flat : \fX(M) \to \fX(M)$.
+    \item $\Delta := \mathrm{div}\; \mathrm{grad} = \star d \star d : \Omega^0(M) \to \Omega^0(M)$;
+    \item $\mathrm{curl} := \sharp \star d \flat : \fX(M) \to \fX(M)$.
   \end{itemize}
-  For a more pictorial presentation of this material, refer also to the youtube video \href{https://www.youtube.com/watch?v=ZpUvFn8Ni2I}{G. Bracchi - There is only one derivative: the exterior derivative}.
+  Since $\sharp$ and $\flat$ are defined in terms of $g$, it becaomes clear that all those operators are tightly related to the metric.
   There could be a lot more to say, but that will be more suite for a course in Riemannian geometry.
 \end{example}
 
