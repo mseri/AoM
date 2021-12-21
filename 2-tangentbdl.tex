@@ -1019,11 +1019,11 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
   \includegraphics{2_8_1-immersion-embedding}
 \end{marginfigure}
 \begin{definition}
-  Let $M^m$ and $N^n$ be differentiable manifolds and $F:M\to N$ a $C^1$ function.
+  Let $M^m$ and $N^n$ be differentiable manifolds and $F:M\to N$ a smooth function.
   \begin{itemize}
-    \item $F$ is an \emph{immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
+    \item $F$ is a \emph{immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
     \item $F$ is a \emph{submersion} if $dF_p$ is surjective for all $p\in M$ ($\Rightarrow\; m\geq n$);
-    \item $F$ is an \emph{embedding} if $F$ is an injective immersion that is also a homeomorphism onto its range $F(M)\subset N$.
+    \item $F$ is a \emph{embedding}\footnote{This is a particular case of a more general concept, the topological embedding, which defined as an injective continuous map that is a homeomorphism onto its image.} if $F$ is an injective immersion that is also a homeomorphism onto its range $F(M)\subset N$, where the topology on $F(M)$ is the subspace topology as a subset of $N$.
   \end{itemize}
 \end{definition}
 
@@ -1082,6 +1082,14 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
   Let $M$ and $N$ smooth manifolds such that $M\subset N$ as a set.
   We say that $M$ is an \emph{embedded submanifold} of $N$ if the inclusion $M\hookrightarrow N$ is an embedding. If the inclusion is just an immersion, we say that $M$ is an \emph{immersed submanifold}.
 \end{definition}
+
+This definition already hints to the fact that smooth maps are going to be usefulin providing ways to nicely include a manifold into the another and in giving new ways to construct manifolds in the first place.
+In the rest of this chapter we will try to give an answer to the following questions:
+\begin{itemize}
+\item if $F$ is an immersion, what can we say about its image $F(M)$ as a subset of $N$?
+\item if $F$ is a submersion, what can we say about its levelsets $f^{-1}(q) \subset M$?
+\end{itemize}
+And what can we say about the corresponding tangent spaces?
 
 Before moving on, it is useful to recall some results from multivariable analysis.
 A function $f:\R^m \to \R^n$ between euclidean spaces has rank $k$ at $x\in\R^m$ if its ($n\times m$) Jacobian matrix $Df(x)$ has rank $k$.
