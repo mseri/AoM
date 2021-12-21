@@ -71,7 +71,7 @@ According to Proposition~\ref{prop:tensorbasis} we have the basis representation
   \omega = \omega_{j_1, \ldots, j_k} e^{j_1}\otimes \cdots \otimes e^{j_k}
 \end{equation}
 in $T_k^0(V)$.
-It would be convenient to have a similar basis representation on $\Lambda^k(V)$.
+It would be convenient to have a similar basis representation only involving terms in $\Lambda^k(V)$ and wedge products.
 
 \begin{proposition}\label{prop:dimLkV}
   Let $V$ be a real $n$-dimensional vector space, let $(e^j)$ denote a basis for $V^*$.
@@ -83,7 +83,7 @@ It would be convenient to have a similar basis representation on $\Lambda^k(V)$.
   \end{equation}
   forms a basis for the space $\Lambda^k(V) \subset T_k^0(V)$ of alternating $k$-forms.
   Therefore, if $1\leq k\leq n$
-  \marginnote[3em]{In particular, $\Lambda^n = \Lambda^0 = \R$.}
+  \marginnote[3em]{In particular, $\Lambda^n(V) \equiv \Lambda^0(V) \equiv \R$.}
   \begin{equation}
     \dim \Lambda^k(V) = \binom{n}{k} = \frac{n!}{k!(n-k)!},
   \end{equation}
@@ -93,7 +93,7 @@ It would be convenient to have a similar basis representation on $\Lambda^k(V)$.
   The last point of Exercise~\ref{ex:propAlt} implies that there are no non-zero alternating $k$-tensors on $V$ if $k >\dim V$, since in that case every $k$-tuple of vectors would be dependent.
   For $k\leq n$ we need to show that $E$ spans $\Lambda^k(V)$ and its vectors are linearly independent.
   
-  First of all, observe that by~\eqref{equiv:permut} all the wedge products ${e^{j_1}\wedge\ldots\wedge e^{j_k}\not\in E}$ are either zero (if two indices are repeated, i.e., a base vector appears twice) or are a linear multiple of an element of $E$ (the wedge product with the indices in the same set but in increasing order).
+  First of all, observe that by~\eqref{equiv:permut} all the wedge products ${e^{j_1}\wedge\ldots\wedge e^{j_k}\not\in E}$ either vanish\footnote{When two indices are repeated, i.e., a basis vector appears twice} or are linear multiples of an element\footnote{The exterior product with the indices in the same set but in increasing order} of $E$.
 
   Let now $\{e_i\}$ denote the basis for $V$ dual to $\{e^i\}$ and $\omega\in\Lambda^k$.
   By definition of alternating form, we have
@@ -149,12 +149,13 @@ In general, the tensor product $\omega\otimes\nu\in T_{k+h}^0(V)$ of alternating
 The following proposition gives us a tool to define an exterior product of alternating forms.
 
 \begin{proposition}
-  Let $\Alt_k: T_k^0(V)\to \Lambda^k(V)$ be the map defined by
+  Let $\Alt_k: T_k^0(V)\to \Lambda^k(V)$ be the map\footnote{Often call alternation map or antisymmetrization} defined by
   \begin{equation}
     (\Alt_k\tau)(v_1,\ldots,v_k) := \frac1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) \tau(v_{\sigma(1)}, \ldots, v_{\sigma(k)}),
     \qquad \forall v_1,\ldots,v_k \in V.
   \end{equation} 
-  Then $\Alt_k$ is a linear projection and the following holds:
+  Then $\Alt_k$ is a linear projection\footnote{That is, $\Alt_k\circ\Alt_k = \Alt_k$} and the following holds:
+  for all $\omega^1, \ldots, \omega^k \in T^0_1(V)$,
   \begin{equation}
     \omega^1 \wedge \cdots \wedge \omega^k = k! \Alt_k(\omega^1 \otimes \cdots \otimes \omega^k).
   \end{equation}
@@ -179,7 +180,7 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
 \begin{definition}[Wedge product of alternating forms]
   We can extend the wedge product (or exterior product) to alternating forms by defining, for any $k,h\in\N$,
   \begin{align}
-    \wedge : \Lambda^k\times\Lambda^h &\to \Lambda^{k+h}\\
+    \wedge : \Lambda^k(V)\times\Lambda^h(V) &\to \Lambda^{k+h}(V)\\
     (\omega, \nu) &\mapsto \omega\wedge\nu := \frac{(k+h)!}{k!h!} \Alt_{k+h}(\omega\otimes\nu).
   \end{align}
 \end{definition}
@@ -192,16 +193,19 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
 \end{example}
 
 \begin{exercise}
-  Compute the wedge product of three $1$-forms.
+  \begin{enumerate}
+    \item Compute the wedge product of three $1$-forms.
+    \item Compute the wedge product of a $1$-form and a $2$-form.
+  \end{enumerate}
 \end{exercise}
 
 \begin{proposition}
   The wedge product has the following properties.
   \begin{enumerate}
-    \item (associative) $(\omega^1\wedge\omega^2)\wedge\omega^3 = \omega^1\wedge(\omega^2\wedge\omega^3)$ for $\omega^i\in\Lambda^{k_i}$, $i=1,\ldots, 3$;
-    \item (distributive) $(\omega^1+\omega^2)\wedge\omega^3 = \omega^1\wedge\omega^3+\omega^2\wedge\omega^3$ for $\omega^1,\omega^2\in\Lambda^{k}$ and $\omega^3\in\Lambda^h$;
-    \item (distributive) $\omega^1\wedge(\omega^2+\omega^3) = \omega^1\wedge\omega^2+\omega^1\wedge\omega^3$ for $\omega^1\in\Lambda^{k}$ and $\omega^2,\omega^3\in\Lambda^h$;
-    \item $\omega^1\wedge\omega^2 = {(-1)}^{hk}\omega^2\wedge\omega^1$ for $\omega^1\in\Lambda^{k}$ and $\omega^2\in\Lambda^h$.
+    \item (associative) $(\omega^1\wedge\omega^2)\wedge\omega^3 = \omega^1\wedge(\omega^2\wedge\omega^3)$ for $\omega^i\in\Lambda^{k_i}(V)$, $i=1,\ldots, 3$;
+    \item (distributive) $(\omega^1+\omega^2)\wedge\omega^3 = \omega^1\wedge\omega^3+\omega^2\wedge\omega^3$ for $\omega^1,\omega^2\in\Lambda^{k}(V)$ and $\omega^3\in\Lambda^h(V)$;
+    \item (distributive) $\omega^1\wedge(\omega^2+\omega^3) = \omega^1\wedge\omega^2+\omega^1\wedge\omega^3$ for $\omega^1\in\Lambda^{k}(V)$ and $\omega^2,\omega^3\in\Lambda^h(V)$;
+    \item $\omega^1\wedge\omega^2 = {(-1)}^{hk}\omega^2\wedge\omega^1$ for $\omega^1\in\Lambda^{k}(V)$ and $\omega^2\in\Lambda^h(V)$.
   \end{enumerate}
 \end{proposition}
 \begin{exercise}
@@ -228,7 +232,7 @@ There is an extremely important operation that relates vectors with alternating 
 
 \begin{definition}
   Let $V$ be a real $n$-dimensional vector space.
-  For each $v\in V$, the \emph{interior multiplication by $v$} is a contraction of a $k$-form by $v$, that is, the linear map $\iota_v:\Lambda^{k}(V)\to \Lambda^{k-1}(V)$ defined\footnote{Another common notation for the same operation is $v \iprod \omega$.} by
+  For each $v\in V$, the \emph{interior product by $v$} is a contraction of a $k$-form by $v$, that is, the linear map $\iota_v:\Lambda^{k}(V)\to \Lambda^{k-1}(V)$ defined\footnote{Another common notation for the same operation is $v \iprod \omega$.} by
   \begin{equation}
     \iota_v\omega(w_1,\ldots,w_{k-1}) = \omega(v,w_1,\ldots,w_{k-1})
     \quad \forall w_1,\ldots,w_{k-1} \in V.
@@ -256,14 +260,14 @@ By convention $\iota_v\omega = 0$ if $\omega\in\Lambda^0(V)$.
 \section{Differential forms on manifolds}
 
 It is time to turn our attention back to smooth manifolds.
-Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the tensor fields $\cT_s^r(M)$ as the sections of $(r,s)$-tensor bundles $T_s^r(M)$ over $M$.
-The subset of $T_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda^k(M):= \bigsqcup_{p\in M} \{p\}\times \Lambda^k(T_p M)$.
+Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the tensor fields $\cT_s^r(M)$ as the sections of $(r,s)$-tensor bundles $T_s^rM$ over $M$.
+The subset of $T_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda^kM:= \bigsqcup_{p\in M} \{p\}\times \Lambda^k(T_p M)$.
 \begin{definition}
-  The sections of $\Lambda^k(M)$ are called \emph{differential $k$-forms}, or just $k$-forms: these are smooth tensor fields whose values at each point are alternating tensors. The integer $k$ is called the \emph{degree} of the $k$-form.
+  The sections of $\Lambda^kM$ are called \emph{differential $k$-forms}, or just $k$-forms: these are smooth tensor fields whose values at each point are alternating tensors. The integer $k$ is called the \emph{degree} of the $k$-form.
   
   We denote the vector space of smooth $k$-forms by
   \begin{equation}
-    \Omega^k(M) = \Gamma(\Lambda^k(M)).
+    \Omega^k(M) = \Gamma(\Lambda^kM).
   \end{equation}
   The wedge product $\wedge:\Omega^k(M)\times\Omega^h(M)\to \Omega^{k+h}(M)$ of differential forms is defined pointwise as ${(\omega\wedge\nu)}_p = \omega_p\wedge\nu_p$.
 \end{definition}
@@ -345,8 +349,8 @@ The previous exercise is a particular case of the following statement.
   Let $u$ be a continuous real-valued function on $V$.
   Then, on $U\cap F^{-1}(V)$, the following holds:
   \begin{equation}
-    F^*(u\, dy^1\wedge\cdots\wedge dy^n)
-    = (u\circ F) (\det DF) dx^1\wedge\cdots\wedge dx^n,
+    F^*(\omega\, dy^1\wedge\cdots\wedge dy^n)
+    = (\omega\circ F) (\det DF) dx^1\wedge\cdots\wedge dx^n,
   \end{equation}
   where $DF$ represents the Jacobian matrix of $F$ in these coordinates.
 \end{proposition}
@@ -550,7 +554,7 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
   The standard euclidean metric on $\R^n$ is the metric associated to the metric tensor\footnote{Cf. Definition~\ref{def:metric}.} $g_{ij} = \delta_{ij}$.
   We can use the musical isomorphisms\footnote{Cf. Example~\ref{ex:musicaliso}.} to identify vector fields and $1$-forms, obtaining for the components with respect to cartesian coordinates that $v_i = v^i$.
   
-  Moreover, the interior multiplication yields another map $\beta: \fX(\R^3)\to\Omega^2(\R^3)$ defined by $\beta(X) = \iota_X (dx\wedge dy\wedge dz)$, which is linear over $C^\infty(\R^3)$ (why?) and, thus, corresponds to a smooth bundle homomorphism from $T\R^3$ to $\Lambda^2(\R^3)$ (why?).
+  Moreover, the interior multiplication yields another map $\beta: \fX(\R^3)\to\Omega^2(\R^3)$ defined by $\beta(X) = \iota_X (dx\wedge dy\wedge dz)$, which is linear over $C^\infty(\R^3)$ (why?) and, thus, corresponds to a smooth bundle homomorphism from $T\R^3$ to $\Lambda^2\R^3$ (why?).
 
   In a similar fashion, we can also define a smooth bundle isomorphism $\bigstar: C^\infty(\R^3) \to \Omega^3(\R^3)$ via
   \begin{equation}
@@ -573,7 +577,33 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
   \end{equation}
 
   The interest and need to generalize the operations of vector calculus in $\R^3$ to higher dimensional spaces have been one of the drives to develop the theory of differential forms.
-  In particular, the curl is well-defined as an operator on vector fields only in dimension $3$, while with the exterior derivative we can now generalize its meaning in all dimensions.
+
+  This is a more general fact related to 3 dimensional manifolds with a Riemannian metric $M$. Then the maps defined above are still defined in the same exact way up to using the correct isomorphism induced by $g$ and one obtains the following commutative diagram.
+  \begin{equation}
+    % https://q.uiver.app/?q=WzAsNSxbMSwxLCJcXE9tZWdhXjEoTSkiXSxbMCwwLCJcXG1hdGhjYWx7WH0oTSkiXSxbMiwzLCJcXE9tZWdhXjAoTSkiXSxbNCwzLCJcXE9tZWdhXjMoTSkiXSxbNSwxLCJcXE9tZWdhXjIoTSkiXSxbMSwwLCJcXGZsYXQiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiXFxzaGFycCIsMCx7Im9mZnNldCI6LTF9XSxbMiwwLCJkIiwwLHsib2Zmc2V0IjoxfV0sWzAsNCwiZCIsMCx7Im9mZnNldCI6LTF9XSxbMywyLCJcXHN0YXIiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XSxbMCw0LCJcXHN0YXIiLDIseyJvZmZzZXQiOjEsInN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFs0LDMsImQiXV0=
+    \begin{tikzcd}
+      {\fX(M)} \\
+  & {\Omega^1(M)} &&&& {\Omega^2(M)} \\
+  \\
+  && {\Omega^0(M)} && {\Omega^3(M)}
+  \arrow["\flat", shift left=1, from=1-1, to=2-2]
+  \arrow["\sharp", shift left=1, from=2-2, to=1-1]
+  \arrow["d", shift right=1, from=4-3, to=2-2]
+  \arrow["d", shift left=1, from=2-2, to=2-6]
+  \arrow["\star", tail reversed, from=4-5, to=4-3]
+  \arrow["\star"', shift right=1, tail reversed, from=2-2, to=2-6]
+  \arrow["d", from=2-6, to=4-5]
+    \end{tikzcd}
+  \end{equation}
+  Walking the diagram, one can directly generalize $\nabla$, $\nabla \cdot$ and $\nabla\times$ to $3$-manifolds:
+  \begin{itemize}
+    \item $\mathrm{grad} := \sharp \circ d : \Omega^0(M) \to \fX(M)$;
+    \item $\mathrm{div} := \star d \star \flat : \fX(M) \to \Omega^0(M)$;
+    \item $\Delta := \mathrm{div} \circ \mathrm{grad} = \star d \star d : \Omega^0(M) \to \Omega^0(M)$;
+    \item $\mathrm{curl} := \sharp \circ \star \circ d \circ \flat : \fX(M) \to \fX(M)$.
+  \end{itemize}
+  For a more pictorial presentation of this material, refer also to the youtube video \href{https://www.youtube.com/watch?v=ZpUvFn8Ni2I}{G. Bracchi - There is only one derivative: the exterior derivative}.
+  There could be a lot more to say, but that will be more suite for a course in Riemannian geometry.
 \end{example}
 
 \begin{exercise}
