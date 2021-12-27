@@ -155,12 +155,17 @@ In Poisson geometry, it is desirable to find a so-called symplectic realisation 
 The specifics of this notion of integrability are somewhat beyond our scope, because we are entering the realm of Lie groupoids and Lie algebroids. We shall state the definition of a Lie algebroid after the following example, so that the reader can see how all these concepts fit into the framework of Lie algebroids.\par
 Our final example is that of a Dirac structure on a manifold. In order to do this, we first want to define two operations on the space $\mathbb{T}M:=TM\oplus T^*M$. Namely, 
 \begin{enumerate}
-  \item A symmetric bilinear form $\langle\cdot,\cdot\rangle:\mathbb{T}M\to\mathbb{R}$ defined by $$\langle(X_p,\alpha_p),(Y_p,\beta_p)\rangle=\alpha_p(Y_p)+\beta_p(X_p)$$
-  \item The Courant bracket $[\cdot,\cdot]_C:\Gamma(\mathbb{T}M)\times\Gamma(\mathbb{T}M)\to\Gamma(\mathbb{T}M)$ defined by $$[(X,\alpha),(Y,\beta)]_C=([X,Y],\mathcal{L}_X\beta-\iota_Yd\alpha)$$
+    \item A symmetric bilinear form $\langle\cdot,\cdot\rangle:\mathbb{T}M\to\mathbb{R}$ defined by $$\langle(X_p,\alpha_p),(Y_p,\beta_p)\rangle=\alpha_p(Y_p)+\beta_p(X_p)$$
+    \item A bracket  $[\![\cdot,\cdot]\!]:\Gamma(\mathbb{T}M)\times\Gamma(\mathbb{T}M)\to\Gamma(\mathbb{T}M)$ defined by $$[\![(X,\alpha),(Y,\beta)]\!]=([X,Y],\mathcal{L}_X\beta-\iota_Yd\alpha)$$
 \end{enumerate}
+\begin{remark}
+There is also a skew-symmetric bracket on $\mathbb{T}M$, defined by
+$$[(X,\alpha),(Y,\beta)]_C=([X,Y],\mathcal{L}_X\beta-\mathcal{L}_Y\alpha+\frac{1}{2}d(\alpha(Y)-\beta(X)))$$
+called the Courant bracket. We will refer to this bracket later on, as it makes $\mathbb{T}M$ into a Lie algebroid. The bracket $[\![\cdot,\cdot]\!]$ instead produces a Courant algebroid.
+\end{remark}
 We are now interested in sub-bundles $L\subset\mathbb{T}M$ which are maximally isotropic with respect to the symmetric form above. This means that $L$ has rank $\dim M$, and $\langle L,L\rangle=0$. Indeed, this is not an inner product, so this does not only hold when $L=0$.
 \begin{definition}
-  An almost Dirac structure on $M$ is a sub-bundle $L\subset\mathbb{T}M$ which is maximally isotropic. $L$ is called a Dirac structure if $[\Gamma(L),\Gamma(L)]_C\subset\Gamma(L)$.
+An almost Dirac structure on $M$ is a sub-bundle $L\subset\mathbb{T}M$ which is maximally isotropic. $L$ is called a Dirac structure if $[\![\Gamma(L),\Gamma(L)]\!]\subset\Gamma(L)$.
 \end{definition}
 An important class of Dirac structures is determined by foliations. This is where we can use the theorem of Frobenius.
 \begin{example}
@@ -176,9 +181,9 @@ We have encountered several of these in the text above.
   Let $(M,\Pi)$ be a Poisson manifold, and define $\rho:T^*M\to TM$ by $\rho(\alpha)=\Pi(\alpha,\cdot)$. Define a bracket on $\Gamma(T^*M)$ by $$[\alpha,\beta]=\mathcal{L}_{\rho(\alpha)}\beta-\mathcal{L}_{\rho(\beta)}\alpha-d\Pi(\alpha,\beta)$$
   Then the triple $(T^*M,[\cdot,\cdot],\rho)$ is a Lie algebroid.
 \end{example}
-\begin{example}
-  Let $L\subset\mathbb{T}M$ be a Dirac structure on $M$ and define $\rho:=\text{pr}|_L$, where $\text{pr}:\mathbb{T}M\to TM$ is the natural projection. Let $[\cdot,\cdot]$ be the restriction of the Courant bracket to $\Gamma(L)$. Then $(L,[\cdot,\cdot],\rho)$ is a Lie algebroid.
-\end{example}
+\begin{exmp}
+Let $L\subset\mathbb{T}M$ be a Dirac structure on $M$ and define $\rho:=\text{pr}|_L$, where $\text{pr}:\mathbb{T}M\to TM$ is the natural projection. Let $[\cdot,\cdot]_C$ be the restriction of the Courant bracket to $\Gamma(L)$. Then $(L,[\cdot,\cdot]_C,\rho)$ is a Lie algebroid.
+\end{exmp}
 \begin{exercise}
   Find a Lie algebroid structure for a given symplectic structure $(M,\omega)$.
 \end{exercise}
