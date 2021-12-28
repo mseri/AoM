@@ -1,15 +1,15 @@
 We finally have all the main ingredients to generalize our line integral detour and discuss integration of $n$-forms over $n$-dimensional manifolds.
 
-\section{Orientation}
-
 \newthought{We know from calculus one}, or our line integral examples, that the direction in which we traverse the interval, or a curve, can actually make a difference.
-Indeed, the sign of the integral of a differential $n$-form is only fixed after choosing an orientation of the manifold.
+As it turns out, the sign of the integral of a differential $n$-form is only fixed after choosing an orientation of the manifold.
+But what is an orientation?
 
-If for a curve an orientation is simply a choice of a direction along it, so we can make sense of it in terms of clockwise or counter-clockwise, generalising the concept will require an extra abstraction step.
-Not just that, you have seen already that in $\R^n$ there is a standard orientation, but in other vector spaces we may need to make arbitrary choices.
-For manifolds, the situation is much more complicated: for example, on a M\"obius strip\footnote{Cf. Example~\ref{ex:mobius}.} it is impossible to make any such choice, as it turns out, it is non-orientable.
+If for a curve an orientation is simply a choice of a direction along it, so we can make sense of it in terms of a clockwise or a counter-clockwise motion, generalising the concept will require an extra abstraction step.
+Not just that, you have seen already that in $\R^n$ there is a notion of standard orientation, but in other vector spaces we may need to make arbitrary choices.
+For manifolds, the situation is much more complicated: for example, on a M\"obius strip\footnote{Cf. Example~\ref{ex:mobius}.} it is impossible to make any such choice, it is non-orientable.
 
-Let's get there step by step.
+\section{Orientation on vector spaces}
+Let's proceed step by step by first revisiting some results from multivariable analysis. If you need a reference to review this material, you can refer to \cite[Chapter 6.2]{book:abrahammarsdenratiu} or \cite[Chapters 21.1-21.2]{book:tu}.
 
 \begin{definition}
   Let $V$ be a one-dimensional vector space. Then $V\setminus\{0\}$ has two components.
@@ -22,18 +22,12 @@ Let's get there step by step.
   A common choice as positive basis for $\R$ is $\{e_1 \equiv 1\}$ while a negative basis could be $\{-e_1\}$.
 \end{example}
 
-Let $V$ be a $n$-dimensional vector space.
-How can we generalize in a meaningful way the definition above?
-
-By Proposition~\eqref{prop:dimLkV}, the space $\Lambda^n(V)$ is a one-dimensional vector space.
+If $V$ be a $n$-dimensional vector space, we know by Proposition~\ref{prop:dimLkV}, that $\Lambda^n(V)$ is a one-dimensional vector space.
 Moreover, if $\{e_1,\ldots,e_n\}$ is a basis for $V$, then $e^1\wedge\cdots\wedge e^n$ is a basis for $\Lambda^n(V)$.
-
-Looks like we are getting somewhere.
 
 \begin{definition}
   Let $V$ be a $n$-dimensional vector space.
-  An \emph{orientation} on $V$ is a choice of orientation on $\Lambda^n(V)$.
-  \marginnote{It should be clear from this that the orientation is, in fact, an equivalence class of ordered bases, and also that the order in which the elements of the basis appear matters.}
+  An \emph{orientation} on $V$ is a choice of orientation\footnote{That is, we are talking about a representative from an equivalence class.} on the one-dimensional vector space $\Lambda^n(V)$.
   Therefore there are exactly two orientations: we say that a basis $\{e_1,\ldots,e_n\}$ of $V$ is \emph{positive} (or positively oriented) if $e^1\wedge\cdots\wedge e^n$ is a positive basis of $\Lambda^n(V)$ and \emph{negative} (or negatively oriented) otherwise.
 \end{definition}
 
@@ -42,28 +36,28 @@ Looks like we are getting somewhere.
 \end{example}
 
 An automorphism $T:V\to V$ is called \emph{orientation-preserving} if it maps positively oriented bases to positively oriented bases (and \emph{orientation-reversing} otherwise).
-Due to the way different bases are transformed by $n$-forms,
-this is equivalent to say that $\det T > 0$:
-indeed, let $\{v_1, \ldots, v_n\}$ be a positively oriented basis and $w_i = T v_i$, then
-\begin{align}
-  v^1\wedge\cdots\wedge v^n (w_1, \ldots, w_n) &= v^1\wedge\cdots\wedge v^n (Tv_1, \ldots, Tv_n) \\
-  &= \det(T)\; v^1\wedge\cdots\wedge v^n (v_1, \ldots, v_n) \\
-  &= \det(T).
-\end{align}
+Due to the way different bases are transformed by $n$-forms, this is equivalent to say that $\det T > 0$.
+
+% indeed, let $\{v_1, \ldots, v_n\}$ be a positively oriented basis and $w_i = T v_i$, then
+% \begin{align}
+%   v^1\wedge\cdots\wedge v^n (w_1, \ldots, w_n) &= v^1\wedge\cdots\wedge v^n (Tv_1, \ldots, Tv_n) \\
+%   &= \det(T)\; v^1\wedge\cdots\wedge v^n (v_1, \ldots, v_n) \\
+%   &= \det(T).
+% \end{align}
 
 In fact, the orientation is completely characterized by the action of $n$-forms on the bases, as the following lemma shows.
 
 \begin{lemma}\label{lemma:orient}
   Let $V$ be a $n$-dimensional vector space and let $ \omega\in\Lambda^n(V)$ be nowhere vanishing.
-  Then, all bases $\{v_1, \ldots, v_n\}$ for which $\omega(v_1,\ldots v_n) > 0$ give the same\footnote{Not necessarily the positive orientation!} orientation for $V$.
+  Then, all bases $\{v_1, \ldots, v_n\}$ for which $\omega(v_1,\ldots, v_n) > 0$ give the same\footnote{Not necessarily the positive orientation!} orientation for $V$.
 \end{lemma}
-\begin{proof}
-  Let $\{v_1, \ldots, v_n\}$ and $\{w_1, \ldots, w_n\}$ denote two different bases for $V$, then there exists a linear isomorphism $\varphi$ such that $v = \varphi\, w$, that is $v_i = \varphi_{i}^j w_j$.
-  By definition and by multilinearity we then have
-  \begin{equation}\label{eq:posorie}
-    0 < \omega(v_1,\ldots v_n) = \omega(\varphi\, w_1,\ldots \varphi\, w_n) = \det(\varphi)\omega(w_1,\ldots w_n),
-  \end{equation} that is the positivity of $\omega$ on the bases characterize the set of bases.
-\end{proof}
+% \begin{proof}
+%   Let $\{v_1, \ldots, v_n\}$ and $\{w_1, \ldots, w_n\}$ denote two different bases for $V$, then there exists a linear isomorphism $\varphi$ such that $v = \varphi\, w$, that is $v_i = \varphi_{i}^j w_j$.
+%   By definition and by multilinearity we then have
+%   \begin{equation}\label{eq:posorie}
+%     0 < \omega(v_1,\ldots v_n) = \omega(\varphi\, w_1,\ldots \varphi\, w_n) = \det(\varphi)\omega(w_1,\ldots w_n),
+%   \end{equation} that is the positivity of $\omega$ on the bases characterize the set of bases.
+% \end{proof}
 
 \begin{exercise}
   Let $V$ be a $n$-dimensional vector space, prove that two nonzero $n$-forms on $V$ determine the same orientation if and only if each is a positive multiple of the other.
@@ -73,9 +67,19 @@ In fact, the orientation is completely characterized by the action of $n$-forms 
   Of course, if $V$ is a vector space, then an orientation on $V$ canonically determines an orientation on the dual space $V^*$ by declaring that the basis dual to a positive basis is itself positive.
 \end{remark}
 
-We are almost there.
-The tangent space is a vector space and $n$-forms act naturally on tangent vectors, this seems likely to be the right place to define an orientation for a manifold, at least pointwise.
-As usual, one does need to make sure that all the local orientations just defined on the tangent bundle are gluing together coherently.
+We now need to extend all this to manifolds.
+
+\section{Orientation on manifolds}
+
+Tangent and cotangent spaces are vector spaces that we can bundle up over our manifold.
+Differential $n$-forms, then, seem reasonable concepts to define an orientation for a manifold, at least if we think about their pointwise meaning of assigning an orientation to each fiber of $TM$.
+
+\begin{definition}
+  A \emph{volume form} on a $n$-dimensional smooth manifold $M$ is a $n$-form $\omega\in\Omega^n(M)$ such that $\omega(p) \neq 0$ for all $p\in M$.
+  We say that $M$ is \emph{orientable} if there exists a volume form on $M$.
+\end{definition}
+
+As usual, one does need to make sure that local orientations defined on the tangent bundle are gluing together coherently for the notion of oriented manifold to even make sense.
 
 \begin{remark}
   By Lemma~\ref{lemma:orient} each chart $(U, \phi)$ in the atlas determines an orientation at each point of its domain, which will be positive if $\det(d\varphi)>0$ and negative otherwise.
@@ -87,8 +91,8 @@ As usual, one does need to make sure that all the local orientations just define
   We call an atlas $\cA = \{(U_i,\varphi_i)\}$ \emph{oriented} if all the charts have the same orientation, that is, if $\det(D\varphi_{ij}) > 0$ for all the transition functions $\varphi_{ij} := \varphi_i\circ\varphi_j^{-1}$.
 
   A manifold $M$ with an oriented atlas is called \emph{oriented manifold}.
-  If an orientation exists, we say tht $M$ is \emph{orientable}, in this case we call the equivalence class of atlases with the same orientation an \emph{orientation}.
-  Otherwise we say that the manifold is \emph{nonorientable}.
+  If an orientation exists, we call \emph{orientation} the equivalence class of atlases with the same orientation.
+  Otherwise we say that the manifold is \emph{non-orientable}.
 \end{definition}
 
 An immediate consequence of Lemma~\ref{lemma:orient} is that if a manifold is orientable, there are exactly two different orientations.
