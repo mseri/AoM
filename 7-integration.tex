@@ -140,7 +140,7 @@ Of course, one does need to make sure that locally we can make sense of this con
   Define
   \begin{equation}
     \omega_i := \varphi_i^* dx^1\wedge\ldots\wedge dx^n \in \Omega^n(U_i)
-    \mbox{, and }
+    , \qquad
     \widetilde \omega_i(p) := \begin{cases}
       \rho_i(p)\omega_i(p) & \mbox{if } p\in U_i \\
       0 & \mbox{otherwise}
@@ -150,9 +150,9 @@ Of course, one does need to make sure that locally we can make sense of this con
   Let $\omega := \sum_i \widetilde \omega_i$. This sum is finite in a neigbourhood of each point so, in particular, $\omega \in \Omega^n(M)$. We need to show that it is a volume form on $M$.
   On nonempty overlaps $U_i \cap U_j \neq \emptyset$ of charts we have
   \begin{align}
-    \omega_j &= \varphi_j^* dx^1\wedge\ldots\wedge dx^n = \varphi_i^* \sigma_{ij}^* dx^1 \wedge\ldots\wedge dx^n \\
-             &= (\det(D\sigma_{ij})\circ \varphi_i)\circ \varphi^*_i dx^1\wedge\ldots\wedge dx^n \\
-             &= (\det(D\sigma_{ij})\circ \varphi_i) \omega_i = \alpha_{ij} \omega_i
+    \omega_j &= \varphi_j^*\, dx^1\wedge\ldots\wedge dx^n = \varphi_i^* \sigma_{ij}^*\, dx^1 \wedge\ldots\wedge dx^n \\
+             &= (\det(D\sigma_{ij})\circ \varphi_i)\circ \varphi^*_i\, dx^1\wedge\ldots\wedge dx^n \\
+             &= (\det(D\sigma_{ij})\circ \varphi_i)\, \omega_i = \alpha_{ij} \omega_i
   \end{align}
   where $\alpha_{ij}\in C^{\infty}(U_i\cap U_j)$, $a_ij > 0$ and there is no implied sum\footnote{All indices are low indices.}.
   % TODO
