@@ -113,35 +113,52 @@ Of course, one does need to make sure that locally we can make sense of this con
     \eta_p = f(p)\,\omega_p.
   \]
   We need to show that $f\in C^\infty(M)$.
-  Locally, for some chart with coordinates $(x^i)$ on $M$, we have $\omega_p = w(p)\, dx^{i_1}\wedge\ldots\wedge dx^{i_n}$ and $\eta_p = \eta(p)\, dx^{i_1}\wedge\ldots\wedge dx^{i_n}$, where both coefficients arein  $C^\infty(M)$. Since $\omega(p) \neq 0$ for all $p\in M$, $f(p) = \eta(p)/\omega(p)$ is a smooth function.
+  Locally, for some chart with coordinates $(x^i)$ on $M$, we have $\omega_p = w(p)\, dx^{i_1}\wedge\ldots\wedge dx^{i_n}$ and $\eta_p = \eta(p)\, dx^{i_1}\wedge\ldots\wedge dx^{i_n}$, where both coefficients are in  $C^\infty(M)$.
+  Since $\omega(p) \neq 0$ for all $p\in M$, $f(p) = \eta(p)/\omega(p)$ is a smooth function.
 
   Conversely, if $\omega$ is a basis for $\Omega^n$, then it must be nonvanishing for all $p\in M$ since each fiber is one-dimensional.
 
   \textbf{Part II: 1. $\Leftrightarrow$ 3.}
   Assume $M$ is orientable witha volume form $\omega$.
-  By eventually restricting the domains, let the atlas $\{(U_i, \varphi_i)\}$ be such that $\varphi_i(U_i) \subset \R^n$ is connected.
+  By eventually restricting the domains, let the atlas $\cA = \{(U_i, \varphi_i)\}$ be such that $\varphi_i(U_i) \subset \R^n$ is connected.
   Denote $\omega_0 = dx^1 \wedge\ldots\wedge dx^n$ the standard volume form on $\R^n$, then by the previous part of the proof, $(\varphi_i)_*\omega = f_i\,\omega_0$ for some smooth function $f_i \neq 0$.
-  Without loss of generality\footnote{Is it clear why?} we can assume $f_i > 0$. 
+  Without loss of generality\footnote{Is it clear why?} we can assume $f_i > 0$.
+  % for the curious: this is because, modulo a reflection, we can always find a point x in the domain \phi_i(U_i) of f_i such that f_i(x) > 0. Since f_i must be nonnegative and is continuous on its connected domain, the function cannot change sign, that is, it must be > 0.
 
-  Let $\varphi$ and $\psi$ be two different charts with overlapping domains (otherwise there is nothing to check) and with local coordinates $(x^i)$ and $(y^i)$ respectively.
-   Define the transition map $\tau := \psi\circ\varphi^{-1}$, so that $(y^1,\ldots,y^n) = \tau(x)$.
-   Since $d y^j = (D\tau)_i^j dx^i$, locally,
-   \marginnote[3.5em]{$\leftarrow\; x = \tau^{-1}(y)$}
-%   \begin{align}
-%     \omega &= \widetilde \omega(y) dy^1\wedge\cdots\wedge dy^n \\
-%     &= (\widetilde\omega \circ \sigma)(x) (D\sigma|_x)^1_{j_1}\cdots (D\sigma|_x)^n_{j_n} dx^{j_1}\wedge\cdots\wedge dx^{j_n} \\
-%     &= (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x) dx^{1}\wedge\cdots\wedge dx^{n} \\
-%     &= \sigma^*(\widetilde \omega(y) dy^1\wedge\cdots\wedge dy^n) \\
-%     &= \omega(x) dx^{1}\wedge\cdots\wedge dx^{n},
-%   \end{align}
-%   where we used Proposition~\ref{prop:wedgeToJDet} and 
-%   Theorem~\ref{thm:pullbacksdifferentialforms}.
-%   Thus,
-%   \begin{equation}\label{form:cov}
-%     \omega(x) = (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x),
-%   \end{equation}
-%   and it has the same sign of $\widetilde\omega(y)$ if and only if $\det(D\sigma|_x) > 0$.
-\end{proof}
+  Let $\varphi_k$ and $\varphi_l$ be two different charts in $\cA$ with overlapping domains (otherwise there is nothing to check).
+   Define the transition map $\sigma_{kl} := \varphi_l\circ\varphi_k^{-1}$.
+  \begin{align}
+    (\sigma_{kl})_* dx^1\wedge\ldots\wedge dx^n &= (\varphi_l)_* \circ (\varphi_k^{-1})_* dx^1\wedge \ldots\wedge dx^n \\
+                                         &= \frac{f_l}{f_k \circ \varphi_k \circ \varphi_l^{-1}} dx^1\wedge \ldots\wedge dx^n. 
+  \end{align}
+  Thus, by Proposition~\ref{prop:wedgeToJDet}, we get
+  \begin{equation}\label{form:cov}
+    \det(D\sigma_{kl}|_x) = \frac{f_l}{f_k \circ \varphi_k \circ \varphi_l^{-1}}  > 0.
+  \end{equation}
+
+  For the converse, let $\rho_i$ denote a partition of unity subordinate to the oriented atlas $\{(U_i, \varphi_i)\}$.
+  Define
+  \begin{equation}
+    \omega_i := \varphi_i^* dx^1\wedge\ldots\wedge dx^n \in \Omega^n(U_i)
+    \mbox{, and }
+    \widetilde \omega_i(p) := \begin{cases}
+      \rho_i(p)\omega_i(p) & \mbox{if } p\in U_i \\
+      0 & \mbox{otherwise}
+    \end{cases}.
+  \end{equation}
+  Since $\supp(\rho_i) \subset U_i$, we have $\widetilde\omega_i\in\Omega^n(M)$.
+  Let $\omega := \sum_i \widetilde \omega_i$. This sum is finite in a neigbourhood of each point so, in particular, $\omega \in \Omega^n(M)$. We need to show that it is a volume form on $M$.
+  On nonempty overlaps $U_i \cap U_j \neq \emptyset$ of charts we have
+  \begin{align}
+    \omega_j &= \varphi_j^* dx^1\wedge\ldots\wedge dx^n = \varphi_i^* \sigma_{ij}^* dx^1 \wedge\ldots\wedge dx^n \\
+             &= (\det(D\sigma_{ij})\circ \varphi_i)\circ \varphi^*_i dx^1\wedge\ldots\wedge dx^n \\
+             &= (\det(D\sigma_{ij})\circ \varphi_i) \omega_i = \alpha_{ij} \omega_i
+  \end{align}
+  where $\alpha_{ij}\in C^{\infty}(U_i\cap U_j)$, $a_ij > 0$ and there is no implied sum\footnote{All indices are low indices.}.
+  % TODO
+  Conclude computation
+  \end{proof}
+
 
 \begin{definition}
   A manifold $M$ with an oriented atlas is called \emph{oriented manifold}.
