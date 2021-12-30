@@ -89,14 +89,11 @@ Differential $n$-forms, then, seem a reasonable concept to define a notion of or
 \end{example}
 
 Of course, one does need to make sure that locally we can make sense of this concept of orientation for it to even make sense as a definition.
-
-\begin{remark}
-  By Lemma~\ref{lemma:orient} each chart $(U, \phi)$ in the atlas determines an orientation at each point of its domain, which will be positive if $\det(d\varphi)>0$ and negative otherwise.
+  By Lemma~\ref{lemma:orient} each chart $(U, \varphi)$ in the atlas determines an orientation at each point of its domain, which will be positive if $\det(d\varphi)>0$ and negative otherwise.
   This procedure can be repeated for each chart in an atlas for $M$.
   Thus, in order to get a globally consistent ordering, we need to worry about the overlaps between charts.
-\end{remark}
 
-\begin{proposition}
+\begin{proposition}\label{prop:orientable}
   Let $M$ be a smooth, connected\marginnote{If it is not connected, then we need to deal with each connected component separately.} $n$-manifold.
   Then the following are equivalent:
   \begin{enumerate}
@@ -113,33 +110,34 @@ Of course, one does need to make sure that locally we can make sense of this con
     \eta_p = f(p)\,\omega_p.
   \]
   We need to show that $f\in C^\infty(M)$.
-  Locally, for some chart with coordinates $(x^i)$ on $M$, we have $\omega_p = w(p)\, dx^{i_1}\wedge\ldots\wedge dx^{i_n}$ and $\eta_p = \eta(p)\, dx^{i_1}\wedge\ldots\wedge dx^{i_n}$, where both coefficients are in  $C^\infty(M)$.
+  Locally, for some chart with coordinates $(x^i)$ on $M$, we have $\omega_p = w(p)\, dx^{i_1}\wedge\cdots\wedge dx^{i_n}$ and $\eta_p = \eta(p)\, dx^{i_1}\wedge\cdots\wedge dx^{i_n}$, where both coefficients are in  $C^\infty(M)$.
   Since $\omega(p) \neq 0$ for all $p\in M$, $f(p) = \eta(p)/\omega(p)$ is a smooth function.
 
   Conversely, if $\omega$ is a basis for $\Omega^n$, then it must be nonvanishing for all $p\in M$ since each fiber is one-dimensional.
+  \medskip
 
   \textbf{Part II: 1. $\Leftrightarrow$ 3.}
   Assume $M$ is orientable witha volume form $\omega$.
   By eventually restricting the domains, let the atlas $\cA = \{(U_i, \varphi_i)\}$ be such that $\varphi_i(U_i) \subset \R^n$ is connected.
-  Denote $\omega_0 = dx^1 \wedge\ldots\wedge dx^n$ the standard volume form on $\R^n$, then by the previous part of the proof, $(\varphi_i)_*\omega = f_i\,\omega_0$ for some smooth function $f_i \neq 0$.
+  Denote $\omega_0 = dx^1 \wedge\cdots\wedge dx^n$ the standard volume form on $\R^n$, then by the previous part of the proof, $(\varphi_i)_*\omega = f_i\,\omega_0$ for some smooth function $f_i \neq 0$.
   Without loss of generality\footnote{Is it clear why?} we can assume $f_i > 0$.
   % for the curious: this is because, modulo a reflection, we can always find a point x in the domain \phi_i(U_i) of f_i such that f_i(x) > 0. Since f_i must be nonnegative and is continuous on its connected domain, the function cannot change sign, that is, it must be > 0.
 
   Let $\varphi_k$ and $\varphi_l$ be two different charts in $\cA$ with overlapping domains (otherwise there is nothing to check).
-   Define the transition map $\sigma_{kl} := \varphi_l\circ\varphi_k^{-1}$.
+   Define the transition map $\sigma_{kl} := \varphi_k\circ\varphi_l^{-1}$.
   \begin{align}
-    (\sigma_{kl})_* dx^1\wedge\ldots\wedge dx^n &= (\varphi_l)_* \circ (\varphi_k^{-1})_* dx^1\wedge \ldots\wedge dx^n \\
-                                         &= \frac{f_l}{f_k \circ \varphi_k \circ \varphi_l^{-1}} dx^1\wedge \ldots\wedge dx^n. 
+    (\sigma_{kl})_* dx^1\wedge\cdots\wedge dx^n &= (\varphi_k)_* \circ (\varphi_l^{-1})_* dx^1\wedge \cdots\wedge dx^n \\
+                                         &= \frac{f_k}{f_l \circ \sigma_{lk}} dx^1\wedge \cdots\wedge dx^n. 
   \end{align}
   Thus, by Proposition~\ref{prop:wedgeToJDet}, we get
   \begin{equation}\label{form:cov}
-    \det(D\sigma_{kl}|_x) = \frac{f_l}{f_k \circ \varphi_k \circ \varphi_l^{-1}}  > 0.
+    \det(D\sigma_{lk}) = \frac{f_k}{f_l \circ \sigma_{lk}} > 0.
   \end{equation}
 
   For the converse, let $\rho_i$ denote a partition of unity subordinate to the oriented atlas $\{(U_i, \varphi_i)\}$.
   Define
   \begin{equation}
-    \omega_i := \varphi_i^* dx^1\wedge\ldots\wedge dx^n \in \Omega^n(U_i)
+    \omega_i := \varphi_i^* dx^1\wedge\cdots\wedge dx^n \in \Omega^n(U_i)
     , \qquad
     \widetilde \omega_i(p) := \begin{cases}
       \rho_i(p)\omega_i(p) & \mbox{if } p\in U_i \\
@@ -148,15 +146,19 @@ Of course, one does need to make sure that locally we can make sense of this con
   \end{equation}
   Since $\supp(\rho_i) \subset U_i$, we have $\widetilde\omega_i\in\Omega^n(M)$.
   Let $\omega := \sum_i \widetilde \omega_i$. This sum is finite in a neigbourhood of each point so, in particular, $\omega \in \Omega^n(M)$. We need to show that it is a volume form on $M$.
-  On nonempty overlaps $U_i \cap U_j \neq \emptyset$ of charts we have
+  On nonempty overlaps $U_k \cap U_l \neq \emptyset$ of charts we have
   \begin{align}
-    \omega_j &= \varphi_j^*\, dx^1\wedge\ldots\wedge dx^n = \varphi_i^* \sigma_{ij}^*\, dx^1 \wedge\ldots\wedge dx^n \\
-             &= (\det(D\sigma_{ij})\circ \varphi_i)\circ \varphi^*_i\, dx^1\wedge\ldots\wedge dx^n \\
-             &= (\det(D\sigma_{ij})\circ \varphi_i)\, \omega_i = \alpha_{ij} \omega_i
+    \omega_l &= \varphi_l^*\, dx^1\wedge\cdots\wedge dx^n = \varphi_k^* \sigma_{lk}^*\, dx^1 \wedge\cdots\wedge dx^n \\
+             &= (\det(D\sigma_{lk})\circ \varphi_k)\circ \varphi^*_k\, dx^1\wedge\cdots\wedge dx^n \\
+             &= (\det(D\sigma_{lk})\circ \varphi_k)\, \omega_k =: \alpha_{lk} \omega_k
   \end{align}
-  where $\alpha_{ij}\in C^{\infty}(U_i\cap U_j)$, $a_ij > 0$ and there is no implied sum\footnote{All indices are low indices.}.
-  % TODO
-  Conclude computation
+  where $\alpha_{lk}\in C^{\infty}(U_k\cap U_l)$, $a_{lk} > 0$ and there is no implied sum\footnote{All indices are low indices.}.
+  Since the covering $\{U_i\}$ is locally finite\footnote{See Theorem~\ref{thm:partitionof1}.}, a point $p\in M$ belongs only to a finite number of open sets, let's call them $U_{i_0}, U_{i_1}, \ldots, U_{i_N}$. That is,
+  \begin{equation}
+  \omega(p) = \sum_{k=1}^N \omega_{i_k}(p) = \left( 1 + \sum_{k = 1}^N a_{i_k i_0} \right) \omega_{i_0}(p) \neq 0
+  \end{equation}
+  since $\omega_{i_0}(p) \neq 0$ and $a_{i_k i_0} > 0$.
+  That is, for all $p\in M$ we have that $\omega(p) \neq 0$.
   \end{proof}
 
 
@@ -166,12 +168,12 @@ Of course, one does need to make sure that locally we can make sense of this con
   Otherwise we say that the manifold is \emph{non-orientable}.
 \end{definition}
 
-An immediate consequence of Lemma~\ref{lemma:orient} is that if a manifold is orientable, there are exactly two different orientations.
+A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref{prop:orientable} is that if a connected manifold is orientable, then there are exactly two different orientations.
 
 \begin{definition}
   Let $M$ be an oriented smooth manifold.
   If $(U,\varphi)$ is a chart with local coordinates $(x^i)$ such that, in the coordinate representation, the volume form $\omega = \omega(x) dx^1\wedge\cdots\wedge dx^n$ with $\omega(x) > 0$, then we say that the chart $\varphi$ is \emph{positively oriented} with respect to $\omega$, otherwise we say that it is \emph{negatively oriented}.
-  Similarly, if the charts for the oriented manifold are positively (resp. negatively) oriented, we say that the manifold is positively (resp. negatively) oriented.
+  Similarly, if $M$ is connected and the charts for the oriented manifold are positively (resp. negatively) oriented, we say that the manifold is positively (resp. negatively) oriented.
 \end{definition}
 %
 % \begin{theorem}
@@ -201,22 +203,6 @@ An immediate consequence of Lemma~\ref{lemma:orient} is that if a manifold is or
 % \end{proof}
 % 
 
-\begin{remark}
-  In fact, this definition can be immediately extended to vector bundles.
-  Given a real vector bundle $\pi: E \to M$, an orientation of $E$ means that for each fiber $E_p$, there is an orientation of the vector space $E_p$ such that each trivialization map
-  \begin{equation}
-    \varphi_{U}:\pi^{-1}(U)\to U\times \R^{n},
-  \end{equation}
-  with $\R^n$ equipped with its standard orientation, is fiberwise orientation-preserving.
-  \marginnote[-2em]{Otherwise said, we can cover the manifold by (continuous) local frames whose local trivializations are orientation preserving.}
-
-  With this definition, the orientability of $M$ coincides with the orientability of the bundle\footnote{Note that $TM$ as a manifold on its own right is always orientable, even if $M$ is not. Cf. Exercise~\ref{ex:TMorient}} $TM\to M$.
-\end{remark}
-
-\begin{example}
-  The euclidean space $\R^n$ is orientable with orientation given by the continuous global frame $\frac{\partial}{\partial r^i},\ldots,\frac{\partial}{\partial r^n}$.
-\end{example}
-
 \begin{example}\label{exe:orientsphere}
   Let $M = \bS^1\subset \R^2$.
   This is an orientable manifold and we can find an orientation using the stereographic projections from Exercise~\ref{ex:stereo}.
@@ -239,8 +225,8 @@ An immediate consequence of Lemma~\ref{lemma:orient} is that if a manifold is or
     &= \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\varphi_1(p)},
   \end{align}
   and $\frac{2}{1-p^2}>0$.
-  If we perform the same computation on $U_2$, however, we obtain $(\varphi_2)_*(X) = -\frac{2}{1+p^2}\frac{\partial}{\partial x}\Big|_{\varphi_2(p)}$, with the negative coefficient $-\frac{2}{1+p^2} < 0$ (check!), corresponding to the opposite orientation on $U_2$.
-  Of course, in this case, not all is lost: by choosing $\widetilde\varphi_2(p) = \varphi_2(-p^1, p^2)$ we obtain $(\widetilde\varphi_2)_*(X) = \frac{2}{1+p^2} \frac{\partial}{\partial x}\Big|_{\widetilde\varphi_2(p)}$ with the positive coefficient $\frac{2}{1+p^2} > 0$ (check!), which shows that $X_p$ defines an orientation on the whole $\bS^1$.
+  If we perform the same computation on $U_2$, however, we obtain $(\varphi_2)_*(X) = -\frac{2}{1+p^2}\frac{\partial}{\partial x}\Big|_{\varphi_2(p)}$, with the negative coefficient $-\frac{2}{1+p^2} < 0$, corresponding to the opposite orientation on $U_2$.
+  Of course, in this case, not all is lost: by choosing $\widetilde\varphi_2(p) = \varphi_2(-p^1, p^2)$ we obtain $(\widetilde\varphi_2)_*(X) = \frac{2}{1+p^2} \frac{\partial}{\partial x}\Big|_{\widetilde\varphi_2(p)}$ with the positive coefficient $\frac{2}{1+p^2} > 0$, which shows that $X_p$ defines an orientation on the whole $\bS^1$.
 \end{example}
 
 \begin{exercise}
@@ -268,17 +254,29 @@ An immediate consequence of Lemma~\ref{lemma:orient} is that if a manifold is or
   %In particular, the unit $n$-sphere $\bS^n\subset\R^{n+1}$ is orientable.
 \end{exercise}
 
+\begin{remark}
+  This definition can be immediately extended to vector bundles.
+  Given a real vector bundle $\pi: E \to M$, an orientation of $E$ means that for each fiber $E_p$, there is an orientation of the vector space $E_p$ such that each trivialization map
+  \begin{equation}
+    \varphi_{U}:\pi^{-1}(U)\to U\times \R^{n},
+  \end{equation}
+  with $\R^n$ equipped with its standard orientation, is fiberwise orientation-preserving.
+  \marginnote[-2em]{Otherwise said, we can cover the manifold by (continuous) local frames whose local trivializations are orientation preserving.}
+  With this definition, the orientability of $M$ coincides with the orientability of the bundle $TM\to M$.
+\end{remark}
+
 \begin{exercise}\label{ex:TMorient}
   Let $M$ be a smooth manifold without boundary and $\pi: TM \to M$ its tangent bundle.
   Show that if $\{(U_\alpha,\varphi_\alpha)\}$ is any atlas on $M$, then the corresponding\footnote{Remember Theorem~\ref{thm:tgbdlsmoothmfld}.} atlas $\{(TU_\alpha, \widetilde\varphi_\alpha)\}$ on $TM$ is oriented.
   This, in particular, proves that the total space $TM$ of the tangent bundle is always orientable, regardless of the orientability of $M$.
 \end{exercise}
 
-\newthought{What about orientation on the boundaries?}
-Let's first look at the tangent space. 
+A remarkable consequence of Exercise~\ref{ex:TMorient} is that $TM$, as a manifold on its own right, is always orientable, even if $M$ is not. 
 
-Let $M$ be a smooth $n$-manifold with boundary and $p\in \partial M$.
-Then, we have three types of possible vectors:
+\newthought{What about orientation on the boundaries?}
+
+Let's first look at the tangent space. 
+If $M$ ia a smooth $n$-manifold with boundary and $p\in \partial M$, we have three types of possible vectors:
 \begin{enumerate}
   \item tangent boundary vectors: $X\in T_p(\partial M)\subset T_p M$ tangent to the boundary, forming an $(n-1)$-dimensional subspace of $T_p M$;
   \item inward pointing vectors: $X\in T_pM$ such that $X = \varphi^{-1}_*(Y)$ where $\varphi^{-1}: V\subset \cH^n \to M$ and $Y$ is some vector $Y = (Y_1, \ldots, Y_n)$ with $Y_n > 0$;
@@ -290,7 +288,8 @@ Thus, a vector field along $\partial M$ is a function $X:\partial M\to T_pM$ (no
   On a smooth manifold $M$ with boundary, there is a smooth outward pointing vector field along $\partial M$.  
 \end{proposition}
 \begin{proof}
-  Pick an open cover of $\partial M$ with coordinate charts $\{(U_\alpha, (x^1_\alpha,\ldots,x^n_\alpha) \mid \alpha\in I\}$. Then $X_\alpha = -\frac{\partial}{\partial x^n_\alpha}$ on $U_\alpha\cap \partial M$ is smooth and outward pointing.
+  Pick an open cover of $\partial M$ with coordinate charts $\{(U_\alpha, (x^1_\alpha,\ldots,x^n_\alpha) \mid \alpha\in I\}$.
+  Then $X_\alpha = -\frac{\partial}{\partial x^n_\alpha}$ on $U_\alpha\cap \partial M$ is smooth and outward pointing.
   Choose a partition of unity $\{\rho_\alpha \mid \alpha\in I\}$ on $\partial M$ subordinate to the open cover $\{U_\alpha\cap \partial M \mid \alpha\in I\}$.
   Then $X:= \sum_{\alpha\in I}\rho_\alpha X_\alpha$ is a smooth ouwtard pointing vector field along $\partial M$.
 \end{proof}
@@ -358,14 +357,14 @@ Armed with our experience with line integrals, fond memories of multivariable an
 Let's keep things simple and go one step at a time.
 
 \begin{definition}\label{def:intnform:chart}
-  Let $M$ be a smooth $n$-manifold and $(U,\varphi)$ be a chart from an oriented atlas of $M$.
+  Let $M$ be a smooth $n$-manifold and $(U,\varphi)$ be a chart from an oriented atlas of $M$ with coordinates $(x^i)$.
   If $\omega\in\Omega^n(M)$ be a $n$-form, $n > 0$, with compact support in $U$, we define the integral of $\omega$ as\footnote{Recall that for a diffeomorphism $\phi$, $\phi_* = (\phi^{-1})^*$.}
   \begin{equation}
     \int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\R^n} \omega(x) d x^1\cdots dx^n,
   \end{equation}
   where the last is the usual Riemannian integral on $\R^n$ and, on the chart,
   \begin{equation}
-    \varphi_*\omega = \omega(x)\; e^{1}\wedge \cdots\wedge e^{n}\in\Omega^n(\R^n).
+    \varphi_*\omega = \omega(x)\; dx^{1}\wedge \cdots\wedge dx^{n}\in\Omega^n(\R^n).
   \end{equation}
   For convenience we may write $d^n x := dx^1 \cdots dx^n$.
   \marginnote[-5em]{Everything remains valid if $\R^n$ is replaced by $\cH^n$.}
