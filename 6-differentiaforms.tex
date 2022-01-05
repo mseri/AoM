@@ -960,10 +960,31 @@ We are almost there.
   Let $M$ be contractible, then $H^k_{\mathrm{dR}}(M)=0$ for all $k\geq 1$.
 \end{corollary}
 \begin{proof}
-The statement is clear is $M$ is equal to a point.
+The statement is clear\footnote{What is $\dim(M)$ in this case? What kinds of differential forms can we define?} if $M$ is equal to a point.
 The rest follows applying Corollary~\ref{cor:deRhamIso}.
-\end{proof}
+\end{proof}:
 
+\begin{exercise}
+  Let $M$ be a smooth manifold. Define the following spaces
+  \begin{align}
+    Z^k(M) &:= \ker(d:\Omega^k(M) \to \Omega^{k+1}(M)) = \{\mathrm{closed $k$-forms on $M$}\},\\
+    B^k(M) &:= \im(d:\Omega^{k-1}(M) \to \Omega^{k}(M)) = \{\mathrm{exact $k$-forms on $M$}\}.
+  \end{align}
+  Then
+  \begin{equation}
+    H^k_{dR}(M) = Z^k(M)/B^k(M).
+  \end{equation}
+  Reason on the structure of those spaces to prove the following statements:
+  \begin{itemize}
+    \item $H^0_{dR}(M) = \R^C$ where $C$ denotes the number of connected components of $M$;
+    \item if $M$ is $n$-dimensional, then $H^k_{dR} = \{0\}$ for all $k > n$.
+  \end{itemize}
+\end{exercise}
+
+\begin{exercise}
+  Prove that $H^0_{dR}(\R^n) = \R$ and $H^k_{dR}(\R^n) = \{0\}$ for all $k > 1$.
+\end{exercise}
+    
 \begin{remark}
 De Rham cohomology is defined in terms of spaces of differential forms and, as such, seems a priory deeply tied to the differential structure.
 However, the corollary that we just proved is all about topology and in particular tells us that de Rham cohomology cannot see the smooth structure on a topological manifold.
