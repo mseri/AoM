@@ -833,12 +833,12 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
   \end{equation}
   such that for every differential $\ell$-form $\omega\in\Omega^\ell([0,1]\times M)$ one has
   \begin{equation}
-    K(d\omega) + d(K(\omega)) = j^*_1(\omega) - j^*_0(\omega)
+    K(d\omega) + d(K(\omega)) = i^*_1(\omega) - i^*_0(\omega)
   \end{equation}
   as elements of $\Omega^\ell(M)$.
   Furthermore, the induced maps on the de Rham cohomology
   \begin{equation}
-    j_0^*, j_1^* : H_{\mathrm{dR}}^\ell([0,1]\times M) \to H_{\mathrm{dR}}^\ell(M)
+    i_0^*, i_1^* : H_{\mathrm{dR}}^\ell([0,1]\times M) \to H_{\mathrm{dR}}^\ell(M)
   \end{equation}
   coincide.
 \end{theorem}
@@ -849,11 +849,11 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
   \end{equation}
   Then, for $\omega\in\Omega^\ell([0,1]\times M)$, the map $K$ is defined by
   \begin{equation}
-    K(\omega) := \int_0^1 j^*_t(\iota_T(\omega)) dt.
+    K(\omega) := \int_0^1 i^*_t(\iota_T(\omega)) dt.
   \end{equation}
   That is, for any $p\in M$,
   \begin{equation}
-    K(\omega)_p = \int_0^1 j_t^*(\iota_T(\omega)_{(t,p)})dt,
+    K(\omega)_p = \int_0^1 i_t^*(\iota_T(\omega)_{(t,p)})dt,
   \end{equation}
   where the integrand should be thought as a function of $t$ on the vector space $\Lambda^{\ell-1}(M)$.
   That is, this is still a common integral, not an integral on a manifold!
@@ -868,34 +868,34 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
   \end{equation}
   That is,
   \begin{equation}
-    d(K(\omega)) = \int_0^1 d(j_t^*(\iota_T(\omega)))dt.
+    d(K(\omega)) = \int_0^1 d(i_t^*(\iota_T(\omega)))dt.
   \end{equation}
   Then, it follows from Cartan's Magic Formula and Exercise~\ref{ex:smoothpushforward} that
   \begin{align}
   K(d\omega) + d(K(\omega))
-  &= \int_0^1\left( j_t^*(\iota_T(d\omega)) + d (j_t^*(\iota_T\omega)) \right) dt \\
-  &= \int_0^1\left( j_t^*(\iota_T(d\omega)) + j_t^* (d(\iota_T\omega)) \right) dt \\ 
-  &= \int_0^1 j_t^*(\cL_T(\omega)) dt.
+  &= \int_0^1\left( i_t^*(\iota_T(d\omega)) + d (i_t^*(\iota_T\omega)) \right) dt \\
+  &= \int_0^1\left( i_t^*(\iota_T(d\omega)) + i_t^* (d(\iota_T\omega)) \right) dt \\ 
+  &= \int_0^1 i_t^*(\cL_T(\omega)) dt.
   \end{align}
 
   Let $\varphi_t$ now denote the flow of $T$, then $\varphi_t(s, p) = (t+s, p)$ and thus $j_t = \varphi_t \circ j_0$.
   By Theorem~\ref{thm:LieDerivativeFlow} we can compute the integrand as
   \begin{align}
-    j_t^*(\cL_T(\omega)) &= j^*_0(\varphi_t^*(\cL_T(\omega))) \\
-    &= j_0^*\left(\frac{d}{dt} \varphi_t^*(\omega)\right) \\
-    &= \frac{d}{dt} j_0^*(\varphi_t^*(\omega)) \\
-    &= \frac{d}{dt} j_t^*(\omega).
+    i_t^*(\cL_T(\omega)) &= i^*_0(\varphi_t^*(\cL_T(\omega))) \\
+    &= i_0^*\left(\frac{d}{dt} \varphi_t^*(\omega)\right) \\
+    &= \frac{d}{dt} i_0^*(\varphi_t^*(\omega)) \\
+    &= \frac{d}{dt} i_t^*(\omega).
   \end{align}
 
   Thus, by the classical Fundamental Theorem of Calculus we get
   \begin{equation}
-  K(d\omega) + d(K(\omega)) = \int_0^1 \frac{d}{dt} j_t^*(\omega) dt = j_1^*(\omega) - j_0^*(\omega),
+  K(d\omega) + d(K(\omega)) = \int_0^1 \frac{d}{dt} i_t^*(\omega) dt = i_1^*(\omega) - i_0^*(\omega),
   \end{equation}
   proving the first part of the theorem.
 
   To conclude the proof, take a closed $\ell$-form on $[0,1]\times M$, then
   \begin{equation}
-    j_1^*([w]) - j_0^*([w]) = [K(d\omega) + d(K(\omega))] = 0,
+    i_1^*([w]) - i_0^*([w]) = [K(d\omega) + d(K(\omega))] = 0,
   \end{equation}
   completing the proof.
 \end{proof}
@@ -910,7 +910,7 @@ Then, the induced maps $F^*$ and $G^*$ on the de Rham cohomology groups are the 
 Since $F$ and $G$ are homotopic, there is a continuous map $K: [0,1]\times M \to N$ such that $K(0,\cdot) = F$ and $K(1,\cdot) = G$.
 If we could assume $K$ to be smooth, the theorem would follow from
 \begin{equation}
-  F^* = (H\circ j_0)^* = j_0^*\circ H^* = j_1^*\circ H^* = (H\circ j_1)^* = G^*.
+  F^* = (K\circ i_0)^* = i_0^*\circ K^* = i_1^*\circ K^* = (K\circ i_1)^* = G^*.
 \end{equation}
 
 In fact this is the case, thanks to the Whitney Approximation Theorem for homotopies\footnote{This is a deep result related to the Whitney Embedding Theorem from Remark~\ref{rmk:WhitneyET} and is out of the scope of our course, for more details refer to~\cite[Chapter 6 and Theorems 6.26 and 9.27]{book:lee}.} which says that if two smooth maps are homotopic then they are also smoothly homotopic, in the sense that the map $K$ is smooth.
