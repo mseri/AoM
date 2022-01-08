@@ -843,30 +843,33 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
   coincide.
 \end{theorem}
 \begin{proof}
-  Let $T$ be the vector field on $[0,1]\times M$ whose value at $(t,p)$ is given by
-  \begin{equation}
-    T(t,p) = \left(\frac{\partial}{\partial t}\Big|_{t=0}, 0\right).
-  \end{equation}
-  Then, for $\omega\in\Omega^\ell([0,1]\times M)$, the map $K$ is defined by
-  \begin{equation}
-    K(\omega) := \int_0^1 i^*_t(\iota_T(\omega)) dt.
-  \end{equation}
-  That is, for any $p\in M$,
+  Sayng that  $i_0^* = i_1^*$ on the cohomology, means that for any $[\omega]\in H_{\mathrm{dR}}^\ell([0,1]\times M)$, their difference $i_1^*[\omega] - i_0^*[\omega] = [i_1^*\omega - i_1^*\omega] = 0$, is in the $0$ class, that is, for any closed $\omega$ the difference $i_1^*\omega - i_0^*\omega$ is exact.
+
+  If we apply the Fundamental Theorem of Calculus to $i^*_t\omega$ as a function of $t$, we obtain $i_1^*\omega - i_0^*\omega = \int_0^1 \frac{\partial}{\partial t} (i^*_t \omega) dt$,
+  where $\frac{\partial}{\partial t}$ is the vector field on $[0,1]\times M$ corresponding to the standard basis element of $[0,1]$.
+  The trouble, now, is that we don't really know what this integral is, and we need to show that on closed forms it produces an exact one.
+
+  Let $T:=\frac{\partial}{\partial t}$ as vector field on $[0,1]\times M$.
+  We are going to show that, for $\omega\in\Omega^\ell([0,1]\times M)$, the map $K$ is\footnote{Note that for any $p\in M$,
   \begin{equation}
     K(\omega)_p = \int_0^1 i_t^*(\iota_T(\omega)_{(t,p)})dt,
   \end{equation}
-  where the integrand should be thought as a function of $t$ on the vector space $\Lambda^{\ell-1}(M)$.
-  That is, this is still a common integral, not an integral on a manifold!
-  By choosing local coordinates on $M$, we see that the integral is defining a smooth $(\ell-1)$-form on $M$.
-  To compute $d(K(\omega))$ pick some local coordinates $(x^i)$, then we can express $K(\omega)$ as a sum of terms of the form
+  where the integrand should be thought as a function of $t$ on the vector space $\Lambda^{\ell-1}(T_pM)$.
+  That is, this is still a common integral, not an integral on a manifold!}
   \begin{equation}
-    \left(\int_0^1 f(t,x) dt\right)dx^I.
+    K(\omega) := \int_0^1 i^*_t(\iota_T(\omega)) dt.
+  \end{equation}
+  %
+  By choosing local coordinates on $M$, we see that the integral is defining a smooth $(\ell-1)$-form on $M$.
+  In fact, to compute $d(K(\omega))$ we can pick some local coordinates $(x^i)$ and express $K(\omega)$ as a sum of terms of the form
+  \begin{equation}
+    \left(\int_0^1 f_I(t,x) dt\right)dx^I.
   \end{equation}
   Applying the exterior derivative and differentiating under the integral sign\footnote{Also known as Leibniz integral rule and Feynman's trick.} we get
   \begin{equation}
-    \frac{\partial}{\partial x^j}\left(\int_0^1 f(t,x) dt\right)dx^j\wedge dx^I = \left(\int_0^1 \frac{\partial f}{\partial x^j}(t,x) dt\right)dx^j\wedge dx^I.
+    \frac{\partial}{\partial x^j}\left(\int_0^1 f_I(t,x) dt\right)dx^j\wedge dx^I = \left(\int_0^1 \frac{\partial f_I}{\partial x^j}(t,x) dt\right)dx^j\wedge dx^I.
   \end{equation}
-  That is,
+  That can be reassembled back to prove that the differential commutes with our integral:
   \begin{equation}
     d(K(\omega)) = \int_0^1 d(i_t^*(\iota_T(\omega)))dt.
   \end{equation}
@@ -875,13 +878,13 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
   K(d\omega) + d(K(\omega))
   &= \int_0^1\left( i_t^*(\iota_T(d\omega)) + d (i_t^*(\iota_T\omega)) \right) dt \\
   &= \int_0^1\left( i_t^*(\iota_T(d\omega)) + i_t^* (d(\iota_T\omega)) \right) dt \\ 
-  &= \int_0^1 i_t^*(\cL_T(\omega)) dt.
+  &= \int_0^1 i_t^*(\cL_T\omega) dt.
   \end{align}
 
-  Let $\varphi_t$ now denote the flow of $T$, then $\varphi_t(s, p) = (t+s, p)$ and thus $j_t = \varphi_t \circ j_0$.
+  Let $\varphi_t$ now denote the flow of $T$, then $\varphi_t(s, p) = (t+s, p)$ and thus $i_t = \varphi_t \circ i_0$.
   By Theorem~\ref{thm:LieDerivativeFlow} we can compute the integrand as
   \begin{align}
-    i_t^*(\cL_T(\omega)) &= i^*_0(\varphi_t^*(\cL_T(\omega))) \\
+    i_t^*(\cL_T\omega) &= i^*_0(\varphi_t^*(\cL_T\omega)) \\
     &= i_0^*\left(\frac{d}{dt} \varphi_t^*(\omega)\right) \\
     &= \frac{d}{dt} i_0^*(\varphi_t^*(\omega)) \\
     &= \frac{d}{dt} i_t^*(\omega).
@@ -895,7 +898,7 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
 
   To conclude the proof, take a closed $\ell$-form on $[0,1]\times M$, then
   \begin{equation}
-    i_1^*([w]) - i_0^*([w]) = [K(d\omega) + d(K(\omega))] = 0,
+    i_1^*([w]) - i_0^*([w]) = [K(d\omega) + dK(\omega)] = [dK(\omega)] =0,
   \end{equation}
   completing the proof.
 \end{proof}
