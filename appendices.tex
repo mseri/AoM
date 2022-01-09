@@ -329,8 +329,9 @@ $$d_\nabla(\omega\wedge\eta)=d\omega\wedge\eta+(-1)^k\omega\wedge d_\nabla\eta$$
 \end{exercise}
 Any connection $\nabla$ on $E$ induces a connection $\nabla^\text{End}$ on the vector bundle $\text{End}(E)$. One way to see this is as follows. Given a connection $\nabla$ on $E$, we can define the dual connection $\nabla^*$ on $E^*$. To see this, consider the natural pairing $E\times E^*\to C^\infty(M)$ given by $(s,\theta)\mapsto\theta(s):=\langle s,\theta\rangle$. 
 \begin{exercise}
-  Verify that the connection $\nabla^*$ on $E^*$ defined by $\langle s,\nabla^*\theta\rangle=\langle\nabla s,\theta\rangle$ indeed defines a connection. Verify explicitly that it is given by the formula:
+  Verify that the connection $\nabla^*$ on $E^*$ defined by
   $$(\nabla^*\theta)(s)=d(\theta(s))-\theta(\nabla s)$$
+for $s\in\Gamma(E)$ is indeed a connection.
 \end{exercise}
 \begin{proposition}
   Let $(E,\nabla)$ and $(E',\nabla')$ be vector bundles with connections. Then these connections combine to give a connection $\nabla\otimes\nabla'$ on $E\otimes E'$, defined by 
