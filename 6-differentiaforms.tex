@@ -989,9 +989,12 @@ The rest follows applying Corollary~\ref{cor:deRhamIso}.
 \end{exercise}
     
 \begin{remark}
-De Rham cohomology is defined in terms of spaces of differential forms and, as such, seems a priory deeply tied to the differential structure.
-However, the corollary that we just proved is all about topology and in particular tells us that de Rham cohomology cannot see the smooth structure on a topological manifold.
-Indeed, the cohomology cannot distinguish Euclidean spaces since $H_{\mathrm{dR}}(\R^n)$ is independent of $n$. 
+De Rham cohomology is defined in terms of spaces of differential forms and, as such, seems a priori deeply tied to the differential structure. However, the corollary that we just proved is all about topology and in particular tells us that de Rham cohomology cannot see the smooth structure on a topological manifold. On the face of it, we might assume that the de Rham cohomology is a far too coarse invariant to be useful: one might be led to believe that we cannot even distinguish between Euclidean spaces, following the previous exercise. However, this is not the case. We can prove the invariance of dimension theorem, using de Rham cohomology. Let us sketch a proof here, based on the homotopy invariance of de Rham cohomology.\par
+Suppose that $\mathbb{R}^n\cong\mathbb{R}^m$ and assume w.l.o.g. that $m>n$. If the spaces are homeomorphic, then also $\mathbb{R}^n\setminus\{0\}\cong\mathbb{R}^m\setminus\{0\}$. But $\mathbb{R}^n\setminus\{0\}\simeq S^{n-1}$, where $\simeq$ denotes homotopy equivalence. This homotopy is explicitly constructed by radially retracting $\mathbb{R}^n\setminus\{0\}$ onto the unit sphere. Then our assumption that $\mathbb{R}^n\cong\mathbb{R}^m$ implies that $H^k_{\mathrm{dR}}(S^{n-1})\cong H^k_{\mathrm{dR}}(S^{m-1})$ for all $k\geq 0$,
+by homotopy invariance. However, from this we would derive a contradiction, due to the fact that
+$$\begin{cases}H_{\mathrm{dR}}^k(S^n)\cong\mathbb{R} & \text{if }k=0,n\\
+H_{\mathrm{dR}}^k(S^n)\cong 0 & \text{else}\end{cases}$$
+We leave the computation of the cohomology of spheres as an exercise. A useful tool for this computation is the Mayer-Vietoris sequence, found in the book of Tu.
 \end{remark}
 
 Finally, we are ready to show a more general version of the Poincar\'e lemma as promised.
