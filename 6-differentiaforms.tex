@@ -78,7 +78,7 @@ It would be convenient to have a similar basis representation only involving ter
   Then, for each $1\leq k \leq n$, the set of $k$-forms
   \begin{equation}
     E = \left\{
-    e^{j_1}\wedge\cdots\wedge e^{j_k} \;\mid\; 1\leq j_1<\cdots<j_k\leq n
+      e^{j_1}\wedge\cdots\wedge e^{j_k} \;\mid\; 1\leq j_1<\cdots<j_k\leq n
     \right\},
   \end{equation}
   forms a basis for the space $\Lambda^k(V) \subset T_k^0(V)$ of alternating $k$-forms.
@@ -92,7 +92,7 @@ It would be convenient to have a similar basis representation only involving ter
 \begin{proof}
   The last point of Exercise~\ref{ex:propAlt} implies that there are no non-zero alternating $k$-tensors on $V$ if $k >\dim V$, since in that case every $k$-tuple of vectors would be dependent.
   For $k\leq n$ we need to show that $E$ spans $\Lambda^k(V)$ and its vectors are linearly independent.
-  
+
   First of all, observe that by~\eqref{equiv:permut} all the wedge products ${e^{j_1}\wedge\ldots\wedge e^{j_k}\not\in E}$ either vanish\footnote{When two indices are repeated, i.e., a basis vector appears twice} or are linear multiples of an element\footnote{The exterior product with the indices in the same set but in increasing order} of $E$.
 
   Let now $\{e_i\}$ denote the basis for $V$ dual to $\{e^i\}$ and $\omega\in\Lambda^k$.
@@ -248,9 +248,9 @@ By convention $\iota_v\omega = 0$ if $\omega\in\Lambda^0(V)$.
   \begin{enumerate}
     \item $\iota_v\circ \iota_v = 0$ and $\iota_v\circ\iota_u = -\iota_u\circ\iota_v$;
     \item if $\omega\in\Lambda^k(V)$ and $\eta\in\Lambda^h(V)$,
-    \begin{equation}
-      \iota_v(\omega\wedge\eta) = (\iota_v\omega)\wedge\eta + {(-1)}^k\omega\wedge(\iota_v\eta).
-    \end{equation}
+      \begin{equation}
+        \iota_v(\omega\wedge\eta) = (\iota_v\omega)\wedge\eta + {(-1)}^k\omega\wedge(\iota_v\eta).
+      \end{equation}
   \end{enumerate}
 \end{lemma}
 \begin{exercise}
@@ -264,7 +264,7 @@ Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the ten
 The subset of $T_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda^kM:= \bigsqcup_{p\in M} \{p\}\times \Lambda^k(T_p M)$.
 \begin{definition}
   The sections of $\Lambda^kM$ are called \emph{differential $k$-forms}, or just $k$-forms: these are smooth tensor fields whose values at each point are alternating tensors. The integer $k$ is called the \emph{degree} of the $k$-form.
-  
+
   We denote the vector space of smooth $k$-forms by
   \begin{equation}
     \Omega^k(M) = \Gamma(\Lambda^kM).
@@ -312,9 +312,9 @@ In fact, it is a direct consequence of our previous observations.
   We can apply the previous theorem to compute $F^*\omega$:
   \begin{align}
     F^*\omega &= v d(u-v^2)\wedge d(u^2) + (u-v^2) d(u^2)\wedge dv \\
-    &= v (du-2vdv)\wedge (2 u du) + (u-v^2) (2u du)\wedge dv\\
-    &= -4uv^2 dv\wedge du + 2u(u-v^2) du\wedge dv \\
-    &= 2u (u + 3v^2) du \wedge dv,
+              &= v (du-2vdv)\wedge (2 u du) + (u-v^2) (2u du)\wedge dv\\
+              &= -4uv^2 dv\wedge du + 2u(u-v^2) du\wedge dv \\
+              &= 2u (u + 3v^2) du \wedge dv,
   \end{align}
   where we used that $du\wedge du =0$ and $du\wedge dv = -dv\wedge du$.
 \end{example}
@@ -326,8 +326,8 @@ Of course, the same technique can also be used to compute the expression for a d
   Consider the polar coordinates $(x,y)\mapsto (\rho\cos(\theta),\rho\sin(\theta))$, then
   \begin{align}
     dx\wedge dy &= d(\rho\cos\theta)\wedge d(\rho\sin\theta) \\
-    &= (\cos\theta d\rho -\rho\sin\theta d\theta)\wedge (\sin\theta d\rho + \rho\cos\theta d\theta) \\
-    &= \rho d\rho\wedge d\theta.
+                &= (\cos\theta d\rho -\rho\sin\theta d\theta)\wedge (\sin\theta d\rho + \rho\cos\theta d\theta) \\
+                &= \rho d\rho\wedge d\theta.
   \end{align}
 
   I am very confident that it is not the first time that you see the equation above\ldots
@@ -403,15 +403,15 @@ You have already seen most of this in the context of multivariable analysis, how
 \end{definition}
 
 \begin{example}
-For a smooth $0$-form\footnote{A real valued function} $f$, we have that $df = \frac{\partial f}{\partial x^i}dx^i$.
-If $\omega$ is a $1$-form, this instead becomes
-\begin{align}
-  d(\omega_j dx^j)
+  For a smooth $0$-form\footnote{A real valued function} $f$, we have that $df = \frac{\partial f}{\partial x^i}dx^i$.
+  If $\omega$ is a $1$-form, this instead becomes
+  \begin{align}
+    d(\omega_j dx^j)
   &= \frac{\partial \omega_j}{\partial x^i} dx^i \wedge dx^j \\
   &= \sum_{i<j} \frac{\partial \omega_j}{\partial x^i} dx^i \wedge dx^j  + \sum_{i>j} \frac{\partial \omega_j}{\partial x^i} dx^i \wedge dx^j \\
   &= \sum_{i<j} \left(\frac{\partial \omega_j}{\partial x^i} - \frac{\partial \omega_i}{\partial x^j} \right) dx^i\wedge dx^j,
-\end{align}
-consistently with our previous definitions.
+  \end{align}
+  consistently with our previous definitions.
 \end{example}
 
 \begin{definition}
@@ -495,8 +495,8 @@ This local definition immediately extends to global one via the following theore
   The final property follows from the commutativity of the partial derivatives. Indeed, locally on a chart on $U\subset M$ with coordinates $(x^i)$, one has
   \begin{align}
     d(d\omega|_U) &= \frac{\partial^2 \omega_I}{\partial x^k\partial x^j} dx^k\wedge dx^j \wedge dx^I \\
-    &= \sum_{j<k} \left(\frac{\partial^2 \omega_I}{\partial x^k\partial x^j}  - \frac{\partial^2 \omega_I}{\partial x^j\partial x^k}\right)dx^k\wedge dx^j \wedge dx^I \\
-    &= 0.
+                  &= \sum_{j<k} \left(\frac{\partial^2 \omega_I}{\partial x^k\partial x^j}  - \frac{\partial^2 \omega_I}{\partial x^j\partial x^k}\right)dx^k\wedge dx^j \wedge dx^I \\
+                  &= 0.
   \end{align}
 \end{proof}
 
@@ -534,10 +534,10 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
   Using the properties of wedge product, we can compute its exterior derivative and get the two form
   \begin{align}
     d\omega &= \left(\frac{\partial P}{\partial x} dx + \frac{\partial P}{\partial y} dy + \frac{\partial P}{\partial z} dz \right) \wedge dx \\
-      &\quad+\left(\frac{\partial Q}{\partial x} dx + \frac{\partial Q}{\partial y} dy + \frac{\partial Q}{\partial z} dz \right) \wedge dy \\
-      &\quad+\left(\frac{\partial R}{\partial x} dx + \frac{\partial R}{\partial y} dy + \frac{\partial R}{\partial z} dz \right) \wedge dz \\
-    &= \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx \wedge dy + 
-    \left(\frac{\partial R}{\partial x} - \frac{\partial P}{\partial z}\right) dx \wedge dz + \left(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}\right) dy \wedge dz.
+            &\quad+\left(\frac{\partial Q}{\partial x} dx + \frac{\partial Q}{\partial y} dy + \frac{\partial Q}{\partial z} dz \right) \wedge dy \\
+            &\quad+\left(\frac{\partial R}{\partial x} dx + \frac{\partial R}{\partial y} dy + \frac{\partial R}{\partial z} dz \right) \wedge dz \\
+            &= \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx \wedge dy + 
+            \left(\frac{\partial R}{\partial x} - \frac{\partial P}{\partial z}\right) dx \wedge dz + \left(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}\right) dy \wedge dz.
   \end{align}
   Similarly, an arbitrary $2$-form $\eta\in\Omega^2(\R^3)$ can be written as
   \begin{equation}
@@ -550,10 +550,10 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
   If you compare the results we obtained above with the gradient ($\nabla$), divergence ($\nabla\cdot$) and curl ($\nabla\times$) from multivariable analysis, you would likely notice that the components of the $2$-form $\d\omega$ are exactly the componentes of the curl of the vector field with components $(P, Q, R)$.
   Similarly, the formula for the divergence will look very close to the formula for $d\eta$. 
   What is going on?
-  
+
   The standard euclidean metric on $\R^n$ is the metric associated to the metric tensor\footnote{Cf. Definition~\ref{def:metric}.} $g_{ij} = \delta_{ij}$.
   We can use the musical isomorphisms\footnote{Cf. Example~\ref{ex:musicaliso}.} to identify vector fields and $1$-forms, obtaining for the components with respect to cartesian coordinates that $v_i = v^i$.
-  
+
   Moreover, the interior multiplication yields another map $\beta: \fX(\R^3)\to\Omega^2(\R^3)$ defined by $\beta(X) = \iota_X (dx\wedge dy\wedge dz)$, which is linear over $C^\infty(\R^3)$ (why?) and, thus, corresponds to a smooth bundle homomorphism from $T\R^3$ to $\Lambda^2\R^3$ (why?).
 
   In a similar fashion, we can also define a smooth bundle isomorphism $\bigstar: C^\infty(\R^3) \to \Omega^3(\R^3)$ via
@@ -581,18 +581,18 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
   This is a more general fact related to 3 dimensional manifolds with a Riemannian metric $M$. Then the maps defined above are still defined in the same exact way\footnote{There is a more general operator $\star : \Omega^k(M) \to \Omega^{n-k}(M)$ appearing here. This is called \emph{Hodge star} and is defined as the operator such that $\tau \wedge \star \sigma = g^\dagger(\tau,\sigma) \omega$, where $\omega := \star 1$ is the Riemannian volume and $g^\dagger$ is the inner product induced by $g$ on covector fields via the musical isomorphism between tangent and cotangent bundle. See \cite[Exercise 16-18]{book:lee} or \cite[Chapters 6.2--6.5]{book:abrahammarsdenratiu}.} up to using the correct isomorphism induced by $g$ and one obtains the following commutative diagram.
   \begin{equation}
     % https://q.uiver.app/?q=WzAsNSxbMSwxLCJcXE9tZWdhXjEoTSkiXSxbMCwwLCJcXG1hdGhjYWx7WH0oTSkiXSxbMSwyLCJcXE9tZWdhXjAoTSkiXSxbMiwyLCJcXE9tZWdhXjMoTSkiXSxbMiwxLCJcXE9tZWdhXjIoTSkiXSxbMSwwLCJcXGZsYXQiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiXFxzaGFycCIsMCx7Im9mZnNldCI6LTF9XSxbMCw0LCJkIiwwLHsib2Zmc2V0IjotMX1dLFszLDIsIlxcc3RhciIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFs0LDMsImQiXSxbMiwwLCJkIiwwLHsib2Zmc2V0IjoxfV0sWzAsNCwiXFxzdGFyIiwyLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XV0=
-\begin{tikzcd}
-	{\fX(M)} \\
-	& {\Omega^1(M)} & {\Omega^2(M)} \\
-	& {\Omega^0(M)} & {\Omega^3(M)}
-	\arrow["\flat", shift left=1, from=1-1, to=2-2]
-	\arrow["\sharp", shift left=1, from=2-2, to=1-1]
-	\arrow["d", shift left=1, from=2-2, to=2-3]
-	\arrow["\star", tail reversed, from=3-3, to=3-2]
-	\arrow["d", from=2-3, to=3-3]
-	\arrow["d", shift right=1, from=3-2, to=2-2]
-	\arrow["\star"', shift right=1, tail reversed, from=2-2, to=2-3]
-\end{tikzcd}
+    \begin{tikzcd}
+      {\fX(M)} \\
+  & {\Omega^1(M)} & {\Omega^2(M)} \\
+  & {\Omega^0(M)} & {\Omega^3(M)}
+  \arrow["\flat", shift left=1, from=1-1, to=2-2]
+  \arrow["\sharp", shift left=1, from=2-2, to=1-1]
+  \arrow["d", shift left=1, from=2-2, to=2-3]
+  \arrow["\star", tail reversed, from=3-3, to=3-2]
+  \arrow["d", from=2-3, to=3-3]
+  \arrow["d", shift right=1, from=3-2, to=2-2]
+  \arrow["\star"', shift right=1, tail reversed, from=2-2, to=2-3]
+    \end{tikzcd}
   \end{equation}
   Walking the diagram\footnote{For a visual presentation of this material, refer to the beautiful youtube video \href{https://www.youtube.com/watch?v=ZpUvFn8Ni2I}{There is only one derivative: the exterior derivative} by G. Bracchi.}, one can directly generalize $\nabla$, $\nabla \cdot$ and $\nabla\times$ to $3$-manifolds:  \begin{itemize}
     \item $\mathrm{grad} := \sharp\, d : \Omega^0(M) \to \fX(M)$;
@@ -621,16 +621,16 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
   \begin{enumerate}
     \item Prove that if a symplectic form exists, then $k=2n$ for some $n\in\N$, i.e., it must be an even number.
     \item Let $M$ be a smooth manifold. Define a $1$-form $\eta\in\Omega^1(T^*M)$ on the cotangent bundle of $M$ as
-    \begin{equation}
-      %\lambda_{(q,p)}(\xi) = p(d\pi_{(q,p)} \xi),
-      \lambda_{(q,p)} = d\pi_{(q,p)}^*p,
-      \quad
-      q\in M, \;
-      p\in T_q^*M,
-      %\;\xi\in T_{(q,p)}(T^*M), 
-    \end{equation}
-    where $\pi:T^*M\to M$ is the projection to the base.
-    Show that $\omega := d\lambda$ is a symplectic form on $T^* M$, that is, every cotangent bundle is a symplectic manifold.
+      \begin{equation}
+        %\lambda_{(q,p)}(\xi) = p(d\pi_{(q,p)} \xi),
+        \lambda_{(q,p)} = d\pi_{(q,p)}^*p,
+        \quad
+        q\in M, \;
+        p\in T_q^*M,
+        %\;\xi\in T_{(q,p)}(T^*M), 
+      \end{equation}
+      where $\pi:T^*M\to M$ is the projection to the base.
+      Show that $\omega := d\lambda$ is a symplectic form on $T^* M$, that is, every cotangent bundle is a symplectic manifold.
   \end{enumerate}
 
   For example, $\omega = \sum_{i=1}^n \alpha^i\wedge \alpha^{i+n}\in\Omega^2(\R^{2n})$ is a symplectic form and plays a central role in classical mechanics. There, one usually calls $(\alpha^{n+1},\ldots,\alpha^{2n})$ the \emph{position coordinates} and $(\alpha^{1},\ldots,\alpha^{n})$ the \emph{momentum coordinates}.
@@ -638,19 +638,19 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
     \item[3.] Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alpha^3\wedge\alpha^4$.
 
     \item[4.] Generalize the previous computation to show that
-    \begin{equation}
-      \bigwedge_{k=1}^{2n} \alpha^k := \alpha^1\wedge\cdots\wedge\alpha^{2n} = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}} =: \frac{(-1)^{\binom{n}{2}}}{n!} \wedge^{n} \omega.
-    \end{equation}
+      \begin{equation}
+        \bigwedge_{k=1}^{2n} \alpha^k := \alpha^1\wedge\cdots\wedge\alpha^{2n} = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}} =: \frac{(-1)^{\binom{n}{2}}}{n!} \wedge^{n} \omega.
+      \end{equation}
   \end{enumerate}
 \end{exercise}
 
 \section{Lie derivative}
 
 \begin{definition}
-The \emph{Lie derivative} of a differentiable function $f:M\to\R$ on a smooth manifold $M$ in the direction of a vector field $X:M\to TM$ is the real function defined by
-\begin{equation}
-  \cL_X f := df(X).
-\end{equation}
+  The \emph{Lie derivative} of a differentiable function $f:M\to\R$ on a smooth manifold $M$ in the direction of a vector field $X:M\to TM$ is the real function defined by
+  \begin{equation}
+    \cL_X f := df(X).
+  \end{equation}
 \end{definition}
 
 From the look of it, this seems just an alternative way to define the directional derivative.
@@ -671,10 +671,10 @@ Since the exterior derivative raises the degree of the form and the interior pro
 \end{exercise}
 
 \begin{exercise}\label{exe:liederandwedge}
-Show that the Lie derivative is a derivation in the algebra $\Omega^*(M)$ of differential forms, that is, for $\omega,\nu\in\Omega^*(M)$ one has
-\begin{equation}
-  \cL_X(\omega\wedge\nu) = (\cL_X\omega)\wedge\nu + \omega\wedge(\cL_X \nu).
-\end{equation}
+  Show that the Lie derivative is a derivation in the algebra $\Omega^*(M)$ of differential forms, that is, for $\omega,\nu\in\Omega^*(M)$ one has
+  \begin{equation}
+    \cL_X(\omega\wedge\nu) = (\cL_X\omega)\wedge\nu + \omega\wedge(\cL_X \nu).
+  \end{equation}
 \end{exercise}
 
 It is possible to define the Lie derivative in a different way, in terms of the derivative of the pullback of $\omega$ along the flow of $X$.
@@ -762,9 +762,9 @@ Even though it is a bit impractical for computational purposes, flows are hard t
 \section{De Rham cohomology and Poincar\'e lemma}
 
 \begin{definition}
-We say that a smooth differential form $\omega\in\Omega^k(M)$ is \emph{closed} if $d\omega = 0$, and \emph{exact} if there exists a smooth $(k-1)$-form $\eta$ on $M$ such that $\omega = d\eta$.
+  We say that a smooth differential form $\omega\in\Omega^k(M)$ is \emph{closed} if $d\omega = 0$, and \emph{exact} if there exists a smooth $(k-1)$-form $\eta$ on $M$ such that $\omega = d\eta$.
 
-The fact that $d\circ d = 0$ implies that every exact form is closed.
+  The fact that $d\circ d = 0$ implies that every exact form is closed.
 \end{definition}
 
 The following example shows that not all closed forms are exact.
@@ -780,16 +780,16 @@ We are going to prove it in two slightly different flavours: its classical versi
   \begin{enumerate}
     \item Show that $\omega$ is closed.
     \item Show that $\omega$ is not exact.\\
-    \textit{\small Hint: compare Exercise~\ref{exe:FTC}.3 and Example~\ref{ex:li}.}
+      \textit{\small Hint: compare Exercise~\ref{exe:FTC}.3 and Example~\ref{ex:li}.}
   \end{enumerate}
 \end{exercise}
 
 \begin{definition}
-We define \emph{$k$th de Rham cohomology group} the quotient vector space defined by
-\begin{equation}
-  H_{\mathrm{dR}}^k(M) := \frac{\{\mbox{closed $k$-forms on $M$}\}}{\{\mbox{exact $k$-forms on $M$}\}}.
-\end{equation}
-We will denote the elements of $H_{\mathrm{dR}}^k(M)$ by $[\omega]$, where $\omega$ is a closed $k$-form. Thus, by definition, $[\omega + d\theta] = [\omega]$.
+  We define \emph{$k$th de Rham cohomology group} the quotient vector space defined by
+  \begin{equation}
+    H_{\mathrm{dR}}^k(M) := \frac{\{\mbox{closed $k$-forms on $M$}\}}{\{\mbox{exact $k$-forms on $M$}\}}.
+  \end{equation}
+  We will denote the elements of $H_{\mathrm{dR}}^k(M)$ by $[\omega]$, where $\omega$ is a closed $k$-form. Thus, by definition, $[\omega + d\theta] = [\omega]$.
 \end{definition}
 
 We will use only elementary facts about de Rham theory in the course, but they play an important role in algebraic topology and mechanics.
@@ -798,7 +798,7 @@ The de Rham groups, for example, turn out to be topological invariants.
 The following is a direct consequence of Exercise~\ref{ex:smoothpushforward}.
 
 \begin{corollary}
-If $F:M\to N$ is a smooth map, then $F^*$ induces a well-defined map $F^*:H_{\mathrm{dR}}^k(N) \to H_{\mathrm{dR}}^k(M)$ (denoted with the same symbol) via $[\omega]\mapsto[F^*\omega]$.
+  If $F:M\to N$ is a smooth map, then $F^*$ induces a well-defined map $F^*:H_{\mathrm{dR}}^k(N) \to H_{\mathrm{dR}}^k(M)$ (denoted with the same symbol) via $[\omega]\mapsto[F^*\omega]$.
 \end{corollary}
 
 Without further ado, let's look at a first version of Poincar\'e lemma on manifolds.
@@ -810,8 +810,8 @@ As for all the local concepts we have seen so far, the proof will reduce the pro
   Then, there exists $\nu\in\Omega^{k-1}(U)$ such that $\omega|_U = d\nu$.
 \end{theorem}
 \begin{proof}
-Let $\varphi: U \to V\subset\R^n$ be a diffeomorphism between $U$ and the star-shaped domain $V\subset\R^n$.
-Then $\widetilde\omega := \varphi_*\omega$ is a closed $k$-form on $V$ and, according to the Poincar\'e lemma on $\R^n$, there exists $\widetilde \nu \in \Omega^{k-1}(V)$ such that $\widetilde\omega = d\widetilde\nu$.
+  Let $\varphi: U \to V\subset\R^n$ be a diffeomorphism between $U$ and the star-shaped domain $V\subset\R^n$.
+  Then $\widetilde\omega := \varphi_*\omega$ is a closed $k$-form on $V$ and, according to the Poincar\'e lemma on $\R^n$, there exists $\widetilde \nu \in \Omega^{k-1}(V)$ such that $\widetilde\omega = d\widetilde\nu$.
 \end{proof}
 
 To generalise this result further, we need to have a deeper look into de Rham theory.
@@ -851,10 +851,10 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
 
   Let $T:=\frac{\partial}{\partial t}$ as vector field on $[0,1]\times M$.
   We are going to show that, for $\omega\in\Omega^\ell([0,1]\times M)$, the map $K$ is\footnote{Note that for any $p\in M$,
-  \begin{equation}
-    K(\omega)_p = \int_0^1 i_t^*(\iota_T(\omega)_{(t,p)})dt,
-  \end{equation}
-  where the integrand should be thought as a function of $t$ on the vector space $\Lambda^{\ell-1}(T_pM)$.
+    \begin{equation}
+      K(\omega)_p = \int_0^1 i_t^*(\iota_T(\omega)_{(t,p)})dt,
+    \end{equation}
+    where the integrand should be thought as a function of $t$ on the vector space $\Lambda^{\ell-1}(T_pM)$.
   That is, this is still a common integral, not an integral on a manifold!}
   \begin{equation}
     K(\omega) := \int_0^1 i^*_t(\iota_T(\omega)) dt.
@@ -875,7 +875,7 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
   \end{equation}
   Then, it follows from Cartan's Magic Formula and Exercise~\ref{ex:smoothpushforward} that
   \begin{align}
-  K(d\omega) + d(K(\omega))
+    K(d\omega) + d(K(\omega))
   &= \int_0^1\left( i_t^*(\iota_T(d\omega)) + d (i_t^*(\iota_T\omega)) \right) dt \\
   &= \int_0^1\left( i_t^*(\iota_T(d\omega)) + i_t^* (d(\iota_T\omega)) \right) dt \\ 
   &= \int_0^1 i_t^*(\cL_T\omega) dt.
@@ -885,14 +885,14 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
   By Theorem~\ref{thm:LieDerivativeFlow} we can compute the integrand as
   \begin{align}
     i_t^*(\cL_T\omega) &= i^*_0(\varphi_t^*(\cL_T\omega)) \\
-    &= i_0^*\left(\frac{d}{dt} \varphi_t^*(\omega)\right) \\
-    &= \frac{d}{dt} i_0^*(\varphi_t^*(\omega)) \\
-    &= \frac{d}{dt} i_t^*(\omega).
+                       &= i_0^*\left(\frac{d}{dt} \varphi_t^*(\omega)\right) \\
+                       &= \frac{d}{dt} i_0^*(\varphi_t^*(\omega)) \\
+                       &= \frac{d}{dt} i_t^*(\omega).
   \end{align}
 
   Thus, by the classical Fundamental Theorem of Calculus we get
   \begin{equation}
-  K(d\omega) + d(K(\omega)) = \int_0^1 \frac{d}{dt} i_t^*(\omega) dt = i_1^*(\omega) - i_0^*(\omega),
+    K(d\omega) + d(K(\omega)) = \int_0^1 \frac{d}{dt} i_t^*(\omega) dt = i_1^*(\omega) - i_0^*(\omega),
   \end{equation}
   proving the first part of the theorem.
 
@@ -906,33 +906,33 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
 An important consequence of this result is the following theorem.
 
 \begin{theorem}
-Let $M$ and $N$ two smooth manifolds and suppose $F,G: M\to N$ are two homotopic smooth maps.
-Then, the induced maps $F^*$ and $G^*$ on the de Rham cohomology groups are the same.
+  Let $M$ and $N$ two smooth manifolds and suppose $F,G: M\to N$ are two homotopic smooth maps.
+  Then, the induced maps $F^*$ and $G^*$ on the de Rham cohomology groups are the same.
 \end{theorem}
 \begin{proof}
-Since $F$ and $G$ are homotopic, there is a continuous map $K: [0,1]\times M \to N$ such that $K(0,\cdot) = F$ and $K(1,\cdot) = G$.
-If we could assume $K$ to be smooth, the theorem would follow from
-\begin{equation}
-  F^* = (K\circ i_0)^* = i_0^*\circ K^* = i_1^*\circ K^* = (K\circ i_1)^* = G^*.
-\end{equation}
+  Since $F$ and $G$ are homotopic, there is a continuous map $K: [0,1]\times M \to N$ such that $K(0,\cdot) = F$ and $K(1,\cdot) = G$.
+  If we could assume $K$ to be smooth, the theorem would follow from
+  \begin{equation}
+    F^* = (K\circ i_0)^* = i_0^*\circ K^* = i_1^*\circ K^* = (K\circ i_1)^* = G^*.
+  \end{equation}
 
-In fact this is the case, thanks to the following theorem\footnote{This is a deep result related to the Whitney Embedding Theorem from Remark~\ref{rmk:WhitneyET} and is out of the scope of our course, for more details refer to~\cite[Chapter 6 and Theorems 6.26 and 9.27]{book:lee}.}.
-%
-\begin{theorem}[Whitney Approximation Theorem for continuous maps]\label{thm:WhitneyApproxCont}
-Given any continuous mapping $G \in C^0(M,N)$, there exists $F \in C^\infty(M,N)$ which is homotopic to $G$. Moreover, if $G$ is smooth\footnote{Note that a function $f : M \to N$ is defined to be smooth on a subset $A \subset M$ if there is some smooth function $g: U \to N$, defined on an open $U\supset A$ such that $g = f$ on $A$.} on a closed subset $A\subset M$, then one can choose $F$ so that $F=G$ on $A$.
-\end{theorem}
-%
-In particular, if two smooth maps are homotopic then they are also smoothly homotopic: we can assume the map $K$ to be smooth.
+  In fact this is the case, thanks to the following theorem\footnote{This is a deep result related to the Whitney Embedding Theorem from Remark~\ref{rmk:WhitneyET} and is out of the scope of our course, for more details refer to~\cite[Chapter 6 and Theorems 6.26 and 9.27]{book:lee}.}.
+  %
+  \begin{theorem}[Whitney Approximation Theorem for continuous maps]\label{thm:WhitneyApproxCont}
+    Given any continuous mapping $G \in C^0(M,N)$, there exists $F \in C^\infty(M,N)$ which is homotopic to $G$. Moreover, if $G$ is smooth\footnote{Note that a function $f : M \to N$ is defined to be smooth on a subset $A \subset M$ if there is some smooth function $g: U \to N$, defined on an open $U\supset A$ such that $g = f$ on $A$.} on a closed subset $A\subset M$, then one can choose $F$ so that $F=G$ on $A$.
+  \end{theorem}
+  %
+  In particular, if two smooth maps are homotopic then they are also smoothly homotopic: we can assume the map $K$ to be smooth.
 
-To see this, continously extend $K$ to a mapping $\widetilde K : \R \times M \to N$ by defining
-\begin{align}
-  \widetilde K(t, p) = K(0, p) \mbox{ if } t \leq 0,
-  \quad\mbox{and}\quad \widetilde K(t, p) = K(1, p) \mbox{ if } t \geq 1.
-\end{align}
-Then $\widetilde K \in C^0(\R\times M, N)$ and smooth on the closed subsets\footnote{By the definiton in the margin note above, in our case it is only required that $g(0, p) = f(0,p)$ for all $p\in M$ but \emph{nothing} is required on $f$ in a open neighbourhood of $\{0\}\times M$!} $\{0\}\times M$ and $\{1\}\times M$.
-%
-By Whitney Approximation Theorem for continuous maps, there exists $\widehat K : \R\times M \to M$ smooth and homotopic to $\widetilde K$ (but we don't really care here) such that $\widehat K = \widetilde K$ on $\{0\}\times M$ and $\{1\}\times M$, that is, $\widehat K(0, \cdot) = K(0, \cdot) = F$ and $\widehat K(1, \cdot) = K(1, \cdot) = G$.
-That is, $\hat K$ is the smooth homotopy we were looking for.
+  To see this, continously extend $K$ to a mapping $\widetilde K : \R \times M \to N$ by defining
+  \begin{align}
+    \widetilde K(t, p) = K(0, p) \mbox{ if } t \leq 0,
+    \quad\mbox{and}\quad \widetilde K(t, p) = K(1, p) \mbox{ if } t \geq 1.
+  \end{align}
+  Then $\widetilde K \in C^0(\R\times M, N)$ and smooth on the closed subsets\footnote{By the definiton in the margin note above, in our case it is only required that $g(0, p) = f(0,p)$ for all $p\in M$ but \emph{nothing} is required on $f$ in a open neighbourhood of $\{0\}\times M$!} $\{0\}\times M$ and $\{1\}\times M$.
+  %
+  By Whitney Approximation Theorem for continuous maps, there exists $\widehat K : \R\times M \to M$ smooth and homotopic to $\widetilde K$ (but we don't really care here) such that $\widehat K = \widetilde K$ on $\{0\}\times M$ and $\{1\}\times M$, that is, $\widehat K(0, \cdot) = K(0, \cdot) = F$ and $\widehat K(1, \cdot) = K(1, \cdot) = G$.
+  That is, $\hat K$ is the smooth homotopy we were looking for.
 \end{proof}
 
 \begin{corollary}\label{cor:deRhamIso}
@@ -963,8 +963,8 @@ We are almost there.
   Let $M$ be contractible, then $H^k_{\mathrm{dR}}(M)=0$ for all $k\geq 1$.
 \end{corollary}
 \begin{proof}
-The statement is clear\footnote{What is $\dim(M)$ in this case? What kinds of differential forms can we define?} if $M$ is equal to a point.
-The rest follows applying Corollary~\ref{cor:deRhamIso}.
+  The statement is clear\footnote{What is $\dim(M)$ in this case? What kinds of differential forms can we define?} if $M$ is equal to a point.
+  The rest follows applying Corollary~\ref{cor:deRhamIso}.
 \end{proof}
 
 \begin{exercise}
@@ -973,7 +973,7 @@ The rest follows applying Corollary~\ref{cor:deRhamIso}.
     Z^k(M) &:= \ker(d:\Omega^{k}(M) \to \Omega^{k+1}(M)) = \{ \mbox{closed $k$-forms on $M$} \},\\
     B^k(M) &:= \mathrm{im}(d:\Omega^{k-1}(M) \to \Omega^{k}(M)) = \{ \mbox{exact $k$-forms on $M$} \}.
   \end{align}
-    Then
+  Then
   \begin{equation}
     H^k_{\mathrm{dR}}(M) = Z^k(M)/B^k(M).
   \end{equation}
@@ -987,14 +987,24 @@ The rest follows applying Corollary~\ref{cor:deRhamIso}.
 \begin{exercise}
   Prove that $H^0_{dR}(\R^n) = \R$ and $H^k_{dR}(\R^n) = \{0\}$ for all $k > 1$.
 \end{exercise}
-    
-\begin{remark}
-De Rham cohomology is defined in terms of spaces of differential forms and, as such, seems a priori deeply tied to the differential structure. However, the corollary that we just proved is all about topology and in particular tells us that de Rham cohomology cannot see the smooth structure on a topological manifold. On the face of it, we might assume that the de Rham cohomology is a far too coarse invariant to be useful: one might be led to believe that we cannot even distinguish between Euclidean spaces, following the previous exercise. However, this is not the case. We can prove the invariance of dimension theorem, using de Rham cohomology. Let us sketch a proof here, based on the homotopy invariance of de Rham cohomology.\par
-Suppose that $\mathbb{R}^n\cong\mathbb{R}^m$ and assume w.l.o.g. that $m>n$. If the spaces are homeomorphic, then also $\mathbb{R}^n\setminus\{0\}\cong\mathbb{R}^m\setminus\{0\}$. But $\mathbb{R}^n\setminus\{0\}\simeq S^{n-1}$, where $\simeq$ denotes homotopy equivalence. This homotopy is explicitly constructed by radially retracting $\mathbb{R}^n\setminus\{0\}$ onto the unit sphere. Then our assumption that $\mathbb{R}^n\cong\mathbb{R}^m$ implies that $H^k_{\mathrm{dR}}(S^{n-1})\cong H^k_{\mathrm{dR}}(S^{m-1})$ for all $k\geq 0$,
-by homotopy invariance. However, from this we would derive a contradiction, due to the fact that
-$$\begin{cases}H_{\mathrm{dR}}^k(S^n)\cong\mathbb{R} & \text{if }k=0,n\\
-H_{\mathrm{dR}}^k(S^n)\cong 0 & \text{else}\end{cases}$$
-We leave the computation of the cohomology of spheres as an exercise. A useful tool for this computation is the Mayer-Vietoris sequence, found in the book of Tu.
+
+\begin{remark}\label{rmk:ch_topology_domain_invariance}
+  De Rham cohomology is defined in terms of spaces of differential forms and, as such, seems a priori deeply tied to the differential structure. However, the corollary that we just proved is all about topology and in particular tells us that de Rham cohomology cannot see the smooth structure on a topological manifold.
+  There is more, \emph{de Rham's theorem}~\cite[Theorem 18.14]{book:lee} states that the de Rahm cohomology group is isomorphic to the so--called singular cohomology, a purely topological concept.
+
+  On the face of it, we might start thinking that the de Rham cohomology is a far too coarse invariant to be useful: following the previous exercise, one might be led to believe that we cannot even distinguish between Euclidean spaces. Luckily, however, this is not the case.
+  For instance, we can prove the \emph{invariance of dimension theorem}\footnote{If $m\neq n$, then a nonempty topological space cannot be both an $m$-manifold and an $n$-manifold~\cite[Problem 13-3]{book:lee:topology}.}, using de Rham cohomology. Let us sketch a proof here, based on the homotopy invariance of de Rham cohomology.
+
+  Suppose that $\R^n\cong\R^m$ and assume w.l.o.g. that $m>n$. If the spaces are homeomorphic, then also $\R^n\setminus\{0\}\cong\R^m\setminus\{0\}$. But $\R^n\setminus\{0\}\simeq S^{n-1}$, where $\simeq$ denotes homotopy equivalence. This homotopy is explicitly constructed by radially retracting $\R^n\setminus\{0\}$ onto the unit sphere. Then our assumption that $\R^n\cong\R^m$ implies that $H^k_{\mathrm{dR}}(S^{n-1})\cong H^k_{\mathrm{dR}}(S^{m-1})$ for all $k\geq 0$,
+  by homotopy invariance. However, from this we would derive a contradiction, due to the fact that
+  \begin{equation}
+    \begin{cases}
+      H_{\mathrm{dR}}^k(S^n)\cong\R & \mbox{if }k=0,n\\
+      H_{\mathrm{dR}}^k(S^n)\cong 0 & \mbox{otherwise}
+    \end{cases}
+  \end{equation}
+  We leave the computation of the cohomology of spheres as an interesting exercise.
+  A useful tool for this computation is the Mayer-Vietoris sequence\footnote{For more details, see~\cite[Chapter 17.3]{book:lee} or~\cite[Chapter 26]{book:tu}.}, which is unfortunately not part of the course.
 \end{remark}
 
 Finally, we are ready to show a more general version of the Poincar\'e lemma as promised.
@@ -1004,5 +1014,5 @@ Finally, we are ready to show a more general version of the Poincar\'e lemma as 
   For any point $p\in M$ there exists a neighbourhood $U$ of $p$ such that $\omega|_U$ is an exact form in $\Omega^k(U)$.
 \end{corollary}
 \begin{proof}
-Every point in a $n$-manifold has a neighbourhood which is homeomorphic to $\R^n$ and so is contractible.
+  Every point in a $n$-manifold has a neighbourhood which is homeomorphic to $\R^n$ and so is contractible.
 \end{proof}
