@@ -198,7 +198,7 @@ Before entering into the details of new definitions, let's recall what will be t
       \begin{equation}
         D(g\circ f)(x) = (Dg)(f(x)) \circ Df(x).
       \end{equation}
-    \item\label{thm:chainrule2} Denote $x=(x^1, \ldots, x^n)\in\R^n$ and $y=(y^1,\ldots,y^k)\in\R^k$ the coordinates on the respective euclidean spaces and $f=(f^1,\ldots,f^k)$ and $g=(g^1,\ldots,g^m)$ the components of the functions. Then the partial derivatives of $g\circ f$ are given by
+    \item\label{thm:chainrule2} Denote $x=(x^1, \ldots, x^n)\in\R^n$ and $y=(y^1,\ldots,y^k)\in\R^k$ the coordinates on the respective euclidean spaces and $f=(f^1,\ldots,f^k)$ and $g=(g^1,\ldots,g^m)$ the components of the functions. Then the partial derivatives of $g\circ f$ are given by\footnote{Using Einstein's notation, this could be written as \begin{equation}\frac{\partial (g^i\circ f)}{\partial x^j}(x) = \frac{\partial g^i}{\partial y^r}(f(x)) \frac{\partial f^r}{\partial x^j}(x).\end{equation}}
       \begin{equation}
         \frac{\partial g^i\circ f}{\partial x^j}(x)
         = \sum_{r=1}^k \frac{\partial g^i}{\partial y^r}(f(x)) \frac{\partial f^r}{\partial x^j}(x),
@@ -206,7 +206,6 @@ Before entering into the details of new definitions, let's recall what will be t
       \end{equation}
   \end{enumerate}
 \end{theorem}
-\marginnote[-5em]{Using Einstein's notation, this could be written as \begin{equation}\frac{\partial (g^i\circ f)}{\partial x^j}(x) = \frac{\partial g^i}{\partial y^r}(f(x)) \frac{\partial f^r}{\partial x^j}(x).\end{equation}}
 
 Theorem~\ref{thm:chainrule} has some very deep consequences.
 \begin{exercise}
