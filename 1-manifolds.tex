@@ -50,7 +50,7 @@ This will allow us to define differentiability and \emph{smooth manifolds}\footn
 
 Without further ado, let's get started.
 
-\section{Topological manifolds}
+\section{Topological manifolds}\label{sec:top_manifolds}
 
 \newthought{Since to speak of continuity we need topological spaces}, it may be a good idea to remind you what they are and set some notation.
 I will be very brief: if you need a more extensive reminder, you can refer to Appendix A of either~\cite{book:tu} or~\cite{book:lee}.
@@ -178,8 +178,7 @@ Don't get scared by conditions (i) and (ii) in the definition of topological man
 \end{example}
 
 \newthought{There is still an elephant in the room} in need of a comment.
-In our definition of topological manifolds, we are taking for granted that the dimension of the manifold is well--defined, that is, if we have two different charts, $\varphi_1: U \to \R^n$ and $\varphi_2: U \to \R^m$, then necessarily $m=n$. Luckily this is true! The result is called \emph{Invariance Domain Theorem} and, since its proof requires advanced concepts of algebraic topology, we will not pursue it further in the course.
-\marginnote[-2em]{There is a caveat, the theorem holds for \emph{connected} components of a manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}
+In our definition of topological manifolds, we are taking for granted that the dimension of the manifold is well--defined, that is, if we have two different charts, $\varphi_1: U \to \R^n$ and $\varphi_2: U \to \R^m$, then necessarily $m=n$. Luckily this is true\footnote{There is a caveat, the theorem holds for \emph{connected} components of a manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}! The result is called \emph{Invariance Domain Theorem} and, since its proof requires advanced concepts of topology, we will not pursue it further in the course\footnote{We will sketch, however, an alternative argument based on cohomology invariance in Remark~\ref{rmk:ch_topology_domain_invariance}.}.
 
 \section{Differentiable manifolds}
 
