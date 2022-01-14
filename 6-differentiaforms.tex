@@ -824,7 +824,7 @@ To generalise this result further, we need to have a deeper look into de Rham th
 
 A crucial observation for our means is the \emph{homotopy invariance} of the de Rham cohomology, which is a scary sounding property which is formalised by the following statement.
 
-\begin{theorem}
+\begin{theorem}\label{thm:deRham-invariance}
   Let $M$ be a smooth manifold and $[0,1]\times M$ the product manifold with boundary $(\{0\}\times M) \cup (\{1\}\times M) \cup ((0,1)\times\partial M)$.
   Let $i_t : M \hookrightarrow [0,1]\times M$ be the injection $i_t(p) := (t,p)$ and $\pi : [0,1]\times M \to M$ the projection onto $M$.
   Then, there is a map
@@ -903,7 +903,40 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
   completing the proof.
 \end{proof}
 
-An important consequence of this result is the following theorem.
+\begin{remark}
+  An alternative way to construct the function $K$, perhaps sligtly less explicit but that may give more clarity to some of the statements, is the following. Re-using the notations form the proof above, then Theorem~\ref{thm:LieDerivativeFlow} and Cartan's Magic formula imply
+  \begin{align}
+    \frac{d}{dt} (\varphi_t^*\omega) &= \varphi^*_t \cL_T \omega \\
+                                     &= \varphi_t^* ( \iota_T d\omega) + d \varphi_t^* (\iota_T \omega)\\
+                                     &= \widetilde K_t (d\omega) + d \widetilde K_t (\omega),
+  \end{align}
+  where we defined
+  \begin{align}
+    \widetilde K_t(\nu) := \varphi_t^* (\iota_T \nu),
+    \qquad \nu \in \Omega^\ell([0,1]\times M).
+  \end{align}
+  The fundamental theorem of calculus then implies
+  \begin{align}
+    \varphi_1^* \omega - \varphi_0^* \omega &= \int_0^1 \frac{d}{dt} (\varphi_t^*\omega) dt\\
+                                            &= \int_0^1 \left(\widetilde K_t (d\omega) + d \widetilde K_t(\omega)\right) dt \\
+                                            &= \widetilde K (d\omega) + d \widetilde K (\omega)
+  \end{align}
+  where we defined
+  \begin{align}
+    \widetilde K(\nu) := \int_0^1 \widetilde K_t (\nu) dt,
+    \qquad \nu \in \Omega^\ell([0,1]\times M).
+  \end{align}
+
+  The fact that $\varphi_t \circ i_0 = i_t$ and the computation above then imply\footnote{As shown using the coordinate representation at the beginning of our previous proof, $\widetilde K \nu \in \Omega^{\ell-1}(M)$ and the exterior derivative does not interact with the integral on $[0,1]$.}
+  \begin{align}
+    i_1^* \omega - i_0^* \omega &= i_0^* (\varphi_1^* \omega - \varphi_0^* \omega) \\
+                                &= i_0^* \left(\widetilde K (d\omega) + d \widetilde K (\omega)\right) \\
+                                &= K(d \omega) - d K(\omega)
+  \end{align}
+  with $K(\nu) := i_0^* \widetilde K(\nu)$.
+\end{remark}
+
+An important consequence of Theorem~\ref{thm:deRham-invariance} is the following theorem.
 
 \begin{theorem}
   Let $M$ and $N$ two smooth manifolds and suppose $F,G: M\to N$ are two homotopic smooth maps.
