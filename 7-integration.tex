@@ -362,7 +362,7 @@ Let's keep things simple and go one step at a time.
   \begin{equation}
     \int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\R^n} \omega(x) d x^1\cdots dx^n,
   \end{equation}
-  where the last is the usual Riemannian integral on $\R^n$ and, on the chart,
+  where the last is the usual Riemannian integral on $\R^n$ and, on the chart\footnote{In general, locally $\omega = \frac1{n!}\omega_{i_1,\ldots,i_n}(x) dx^{i_1}\wedge\cdots\wedge dx^{i_n}$, but, by reordering the basis element for each term in the sum, we can always write it in the more compact form presented here.}
   \begin{equation}
     \varphi_*\omega = \omega(x)\; dx^{1}\wedge \cdots\wedge dx^{n}\in\Omega^n(\R^n).
   \end{equation}
@@ -394,7 +394,7 @@ To make sure that this definition makes sense, let's show that the integral is w
   \end{align}
   }
   \begin{align}
-    \int_{\varphi(W)} \varphi_*\omega \overset{\eqref{form:cov}}{=} \int_{\psi(W)} \psi_*\omega.
+    \int_{\varphi(W)} \varphi_*\omega = \int_{\psi(W)} \psi_*\omega.
   \end{align}
 \end{proof}
 
