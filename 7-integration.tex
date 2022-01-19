@@ -130,7 +130,7 @@ Of course, one does need to make sure that locally we can make sense of this con
                                          &= \frac{f_k}{f_l \circ \sigma_{lk}} dx^1\wedge \cdots\wedge dx^n. 
   \end{align}
   Thus, by Proposition~\ref{prop:wedgeToJDet}, we get
-  \begin{equation}\label{form:cov}
+  \begin{equation}
     \det(D\sigma_{lk}) = \frac{f_k}{f_l \circ \sigma_{lk}} > 0.
   \end{equation}
 
@@ -222,7 +222,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
     \left(\begin{smallmatrix}
       -p^2 \\ p^1
     \end{smallmatrix}\right) \frac{\partial}{\partial x}\Big|_{\varphi_1(p)}\\
-    &= \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\varphi_1(p)},
+    &= \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\varphi_1(p)}, \label{form:cov}
   \end{align}
   and $\frac{2}{1-p^2}>0$.
   If we perform the same computation on $U_2$, however, we obtain $(\varphi_2)_*(X) = -\frac{2}{1+p^2}\frac{\partial}{\partial x}\Big|_{\varphi_2(p)}$, with the negative coefficient $-\frac{2}{1+p^2} < 0$, corresponding to the opposite orientation on $U_2$.
@@ -385,22 +385,17 @@ To make sure that this definition makes sense, let's show that the integral is w
 \end{lemma}
 \begin{proof}
   Let $\varphi$ and $\psi$ be two charts on $W = U\cap V$ with the same orientation and local coordinates $x$ and $y$, let $\sigma = \psi\circ\varphi^{-1}$ be the corresponding transition map.
-  Denote, locally, $\varphi_*\omega = \omega(x) dx^1\wedge\cdots\wedge dx^n$ and $\psi_*\omega = \widetilde\omega(y) dy^1\wedge\cdots\wedge dy^n$.
-  Then,
-  \marginnote{Since in multivariable analysis you saw already the invariance of the Euclidean integral by orientation-preserving changes of coordinates, one could also use that directly:
+  Then, the same computation of \eqref{form:cov} implies
+  \marginnote{In multivariable analysis you saw already the invariance of the Euclidean integral by orientation-preserving changes of coordinates, namely for $F: \R^n \to \R^n$ orientation preserving diffeomorphism and $\omega \in \Omega^n(\R^n)$, it holds $\int_{F(A)} \omega = \int_A F^* \omega$. This can be also directly used to show
   \begin{align}
-    \int_{\varphi(U)} \varphi_*\omega & = \int_{\varphi(W)} \varphi_*\omega \\
-    &= \int_{\sigma(\varphi(W))} \sigma_* (\varphi_*\omega) \\
+    \int_{\varphi(W)} \varphi_*\omega & = \int_{\sigma^{-1}(\psi(W))} \varphi_*\omega \\
+    &= \int_{\psi(W))} \sigma_* (\varphi_*\omega) \\
     &= \int_{\psi(W)} \psi_* \omega.
   \end{align}
   }
   \begin{align}
-    \int_{\varphi(W)} \varphi_*\omega &= \int \omega(x)\, d^n x \\
-    &\overset{\eqref{form:cov}}{=} \int_{\varphi(W)} (\widetilde\omega \circ \sigma)(x) \det(D\sigma|_x) d^n x \\
-    &\overset{(\clubsuit)}{=} \int_{\psi(W)} \widetilde\omega(y) d^n y\\
-    &= \int_{\psi(W)} \psi_*\omega,
+    \int_{\varphi(W)} \varphi_*\omega \overset{\eqref{form:cov}}{=} \int_{\psi(W)} \psi_*\omega.
   \end{align}
-  where in $(\clubsuit)$ we used the classical euclidean change of variables.
 \end{proof}
 
 To be able to integrate charts which are not supported in the domain of a single chart, we now need the help of a partition of unity.
