@@ -150,7 +150,7 @@ Of course, one does need to make sure that locally we can make sense of this con
   \begin{align}
     \omega_l &= \varphi_l^*\, dx^1\wedge\cdots\wedge dx^n = \varphi_k^* \sigma_{lk}^*\, dx^1 \wedge\cdots\wedge dx^n \\
              &= (\det(D\sigma_{lk})\circ \varphi_k)\circ \varphi^*_k\, dx^1\wedge\cdots\wedge dx^n \\
-             &= (\det(D\sigma_{lk})\circ \varphi_k)\, \omega_k =: \alpha_{lk} \omega_k
+             &= (\det(D\sigma_{lk})\circ \varphi_k)\, \omega_k =: \alpha_{lk} \omega_k \label{form:cov}
   \end{align}
   where $\alpha_{lk}\in C^{\infty}(U_k\cap U_l)$, $a_{lk} > 0$ and there is no implied sum\footnote{All indices are low indices.}.
   Since the covering $\{U_i\}$ is locally finite\footnote{See Theorem~\ref{thm:partitionof1}.}, a point $p\in M$ belongs only to a finite number of open sets, let's call them $U_{i_0}, U_{i_1}, \ldots, U_{i_N}$. That is,
@@ -222,7 +222,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
     \left(\begin{smallmatrix}
       -p^2 \\ p^1
     \end{smallmatrix}\right) \frac{\partial}{\partial x}\Big|_{\varphi_1(p)}\\
-    &= \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\varphi_1(p)}, \label{form:cov}
+    &= \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\varphi_1(p)}, 
   \end{align}
   and $\frac{2}{1-p^2}>0$.
   If we perform the same computation on $U_2$, however, we obtain $(\varphi_2)_*(X) = -\frac{2}{1+p^2}\frac{\partial}{\partial x}\Big|_{\varphi_2(p)}$, with the negative coefficient $-\frac{2}{1+p^2} < 0$, corresponding to the opposite orientation on $U_2$.
@@ -385,7 +385,7 @@ To make sure that this definition makes sense, let's show that the integral is w
 \end{lemma}
 \begin{proof}
   Let $\varphi$ and $\psi$ be two charts on $W = U\cap V$ with the same orientation and local coordinates $x$ and $y$, let $\sigma = \psi\circ\varphi^{-1}$ be the corresponding transition map.
-  Then, the same computation of \eqref{form:cov} implies
+  Then, a computation completely analogue to \eqref{form:cov} implies
   \marginnote{In multivariable analysis you saw already the invariance of the Euclidean integral by orientation-preserving changes of coordinates, namely for $F: \R^n \to \R^n$ orientation preserving diffeomorphism and $\omega \in \Omega^n(\R^n)$, it holds $\int_{F(A)} \omega = \int_A F^* \omega$. This can be also directly used to show
   \begin{align}
     \int_{\varphi(W)} \varphi_*\omega & = \int_{\sigma^{-1}(\psi(W))} \varphi_*\omega \\
@@ -596,7 +596,7 @@ We are going to state the theorem, discuss some of its consequences and then giv
   \marginnote[-4.5em]{Here, $\partial M$ inherits the orientation from $M$ as in Definition~\ref{def:insm}, $\omega$ on the right-hand side is interpreted as $i^*\omega$ where $i:\partial M \hookrightarrow M$ is the inclusion of the boundary and if $\partial M =\emptyset$ then the right-hand side is interpreted as $0$.}
 \end{theorem}
 
-\marginnote[1em]{On a similar note, the fact that $dd\omega =0$ for every $\omega\in\Lambda^n(M)$ corresponds to the fact that a boundary has no boundary, that is $\partial\partial M = \emptyset$ for any $M$: indeed, for any $\omega\in\Lambda^n(M)$ one has \begin{equation}
+\marginnote[1em]{On a similar note, the fact that $dd\omega =0$ for every $\omega\in\Omega^n(M)$ corresponds to the fact that a boundary has no boundary, that is $\partial\partial M = \emptyset$ for any $M$: indeed, for any $\omega\in\Omega^n(M)$ one has \begin{equation}
   0=\int_M dd\omega = \int_{\partial M}d\omega = \int_{\partial\partial M} \omega.
 \end{equation}}
 \begin{corollary}
