@@ -56,6 +56,7 @@ jobs:
     - name: Prepare env
       run: |
         sudo apt update
+        sudo apt upgrade
         sudo apt install fonts-opendyslexic fonts-texgyre
         sudo rm -rf /usr/share/fonts/woff/opendyslexic
         mkdir assets
