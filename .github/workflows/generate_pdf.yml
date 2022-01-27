@@ -51,12 +51,11 @@ jobs:
     - uses: wtfjoke/setup-tectonic@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        biber-version: "latest"
  
     - name: Prepare env
       run: |
         sudo apt update
-        sudo apt install fonts-opendyslexic fonts-texgyre
+        sudo apt install fonts-opendyslexic fonts-texgyre texlive-bibtex-extra biber
         sudo rm -rf /usr/share/fonts/woff/opendyslexic
         mkdir assets
 
