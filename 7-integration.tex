@@ -212,7 +212,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
     \quad\mbox{and}\quad
     \varphi_2(p) = \frac{2p^1}{1+p^2}.
   \end{equation}
-  Let's pick a pointwise orientation by choosing as basis $X_p\in T_pM$ given by\footnote{We are not making up anything, if you look carefully this is just $X_p = \partial_\theta$.} $X_p = -p^2 \frac{\partial}{\partial p^1} + p^1 \frac{\partial}{\partial p^2}$.
+  Let's pick a pointwise orientation by choosing as basis $X_p\in T_pM$ given by\sidenote[][-1em]{We are not making up anything, if you look carefully this is just $X_p = \partial_\theta$.} $X_p = -p^2 \frac{\partial}{\partial p^1} + p^1 \frac{\partial}{\partial p^2}$.
   Then, on $U_1$,
   \begin{align}
     (\varphi_1)_*(X) &= (d\varphi_1)_p(X) \\
@@ -361,16 +361,16 @@ Let's keep things simple and go one step at a time.
 
 \begin{definition}\label{def:intnform:chart}
   Let $M$ be a smooth $n$-manifold and $(U,\varphi)$ be a chart from an oriented atlas of $M$ with coordinates $(x^i)$.
-  If $\omega\in\Omega^n(M)$ be a $n$-form, $n > 0$, with compact support in $U$, we define the integral of $\omega$ as\footnote{Recall that for a diffeomorphism $\phi$, $\phi_* = (\phi^{-1})^*$.}
+  If $\omega\in\Omega^n(M)$ be a $n$-form, $n > 0$, with compact support in $U$, we define the integral of $\omega$ as\sidenote[][-1em]{Recall that for a diffeomorphism $\phi$, $\phi_* = (\phi^{-1})^*$.}
   \begin{equation}
     \int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\R^n} \omega(x) d x^1\cdots dx^n,
   \end{equation}
-  where the last is the usual Riemannian integral on $\R^n$ and, on the chart\footnote{In general, locally $\omega = \frac1{n!}\omega_{i_1,\ldots,i_n}(x) dx^{i_1}\wedge\cdots\wedge dx^{i_n}$, but, by reordering the basis element for each term in the sum, we can always write it in the more compact form presented here.}
+  where the last is the usual Riemannian integral on $\R^n$ and, on the chart\sidenote[][-2em]{In general, locally $\omega = \frac1{n!}\omega_{i_1,\ldots,i_n}(x) dx^{i_1}\wedge\cdots\wedge dx^{i_n}$, but, by reordering the basis element for each term in the sum, we can always write it in the more compact form presented here.}
   \begin{equation}
     \varphi_*\omega = \omega(x)\; dx^{1}\wedge \cdots\wedge dx^{n}\in\Omega^n(\R^n).
   \end{equation}
-  For convenience we may write $d^n x := dx^1 \cdots dx^n$.
-  \marginnote[-5em]{Everything remains valid if $\R^n$ is replaced by $\cH^n$.}
+  For convenience we may sometimes write $d^n x := dx^1 \cdots dx^n$.
+  \marginnote{Everything in Definition~\ref{def:intnform:chart} remains valid if $\R^n$ is replaced by $\cH^n$.}
 
   If $M$ is an oriented $0$-dimensional manifold and $f\in\Omega^0(M) = C^\infty(M)$, than we define the integral to be the sum
   \begin{equation}
@@ -493,9 +493,12 @@ This justifies the following definition.
 \end{example}
 
 \begin{exercise}[Fubini's theorem]\label{exe:fubini}
-  Let $M^m$ and $N^n$ be oriented manifolds. Endow $M\times N$ with the product orientation, that is\footnote{An equivalent way is to say that if $v_1,\ldots,v_m\in T_pM$ and $w_1, \ldots, w_n\in T_q N$ are positively oriented bases in the respective spaces, then \begin{equation}
-    (v_1,0),\ldots,(v_n,0),(0,w_1), \ldots, (0,w_n)\in T_{(p,q)}(M\times N)
-  \end{equation}is defined to be a positively oriented basis in the product.}, if $\pi_M : M\times N \to M$ and $\pi_N: M\times N \to N$ are the canonical projections on the elements of the product, and $\omega$ and $\eta$ respectively define orientations on $M$ and $N$, then the orientation on $M\times N$ is defined to be the orientation defined by $\pi_M^* \omega \wedge \pi_N^* \eta$.
+  Let $M^m$ and $N^n$ be oriented manifolds. Endow $M\times N$ with the product orientation, that is\footnote{An equivalent way is to say that if $v_1,\ldots,v_m\in T_pM$ and $w_1, \ldots, w_n\in T_q N$ are positively oriented bases in the respective spaces, then \begin{align}
+    &(v_1,0),\ldots,(v_n,0),\\
+    &(0,w_1), \ldots, (0,w_n)\\
+    &\quad\in T_{(p,q)}(M\times N)
+\end{align}
+is defined to be a positively oriented basis in the product.}, if $\pi_M : M\times N \to M$ and $\pi_N: M\times N \to N$ are the canonical projections on the elements of the product, and $\omega$ and $\eta$ respectively define orientations on $M$ and $N$, then the orientation on $M\times N$ is defined to be the orientation defined by $\pi_M^* \omega \wedge \pi_N^* \eta$.
 
   If $\alpha\in\Omega^m(M)$ and $\beta\in\Omega^n(N)$ have compact support, show that
   \begin{equation}
@@ -740,13 +743,13 @@ We are going to state the theorem, discuss some of its consequences and then giv
 \end{exercise}
 
 \begin{example}
+  \begin{marginfigure}
+    \includegraphics{8_3_8-annulus.pdf}
+  \end{marginfigure}
   Consider the annulus $M=\{(x,y)\in\R^2 \mid 1/2\leq x^2+y^2 \leq 1\}$ and the $1$-form $\omega = \frac{-y dx + x dy}{x^2 + y^2} = d\theta$ where $(x,y) = (\rho\cos\theta, \rho\sin\theta)$.
   
   Then $d\omega = 0$ and therefore $\int_M d\omega = 0$.
   Furthermore,
-  \begin{marginfigure}
-    \includegraphics{8_3_8-annulus.pdf}
-  \end{marginfigure}
   \begin{align}
     \int_{\partial M}\omega
     &= \int_{x^2 + y^2 =1} \omega + \int_{x^2+y^2 =1/2}\omega \\ 

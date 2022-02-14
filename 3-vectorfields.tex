@@ -134,11 +134,10 @@ where $v^j(x)$ are the components\footnote{As we start getting used to, the char
     X_{F^{-1}(u,v)} = \frac{u^2}{v^2}\frac{\partial}{\partial x}\Big|_{F^{-1}(u,v)},
   \end{equation}
   and, thus, by~\eqref{eq:pfvf} (with $p=(u,v)$) we get
+  \marginnote[-5em]{For the computation, keep in mind that the Jacobian is from a change of coordinates between the two euclidean spaces $T_{F^{-1}(u,v)}M$ and $T_{(u,v)}N$, where on the first we are using the coordinate basis $\left\{\frac{\partial}{\partial x}\Big|_{F^{-1}(u,v)},\frac{\partial}{\partial y}\Big|_{F^{-1}(u,v)}\right\}$ and on the second we are using the coordinate basis $\left\{\frac{\partial}{\partial u}\Big|_{(u,v)},\frac{\partial}{\partial v}\Big|_{(u,v)}\right\}$.}
   \begin{equation}
     (F_*X)_{(u,v)} = \frac{u^2}{v^2}\frac{\partial}{\partial u}\Big|_{(u,v)} + \frac{u}{v}\frac{\partial}{\partial v}\Big|_{(u,v)}.
   \end{equation}
-  \marginnote[-5em]{
-  For this computation, keep in mind that the Jacobian here is a change of coordinate between the two euclidean spaces $T_{F^{-1}(u,v)}M$ and $T_{(u,v)}N$, where on the first we are using the coordinate basis $\left\{\frac{\partial}{\partial x}\Big|_{F^{-1}(u,v)},\frac{\partial}{\partial y}\Big|_{F^{-1}(u,v)}\right\}$ and on the second we are using the coordinate basis $\left\{\frac{\partial}{\partial x}\Big|_{(u,v)},\frac{\partial}{\partial y}\Big|_{(u,v)}\right\}$.}
 \end{example}
 
 \begin{exercise}
@@ -399,7 +398,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
 
 \begin{example}\label{ex:rotation}
   Let $(x,y)$ be standard coordinates on $\R^2$ and $Z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}$ on $\R^2$.
-  If $\gamma:\R\to\R^2$ is a smooth curve, written in standard coordinates\footnote{In other words, $x(t)$ and $y(t)$ are the components of the function $\gamma : \R \to \R^2$ seen as functions $\R\to\R$, that is, ${\gamma(t) = (x\circ \gamma(t), y\circ \gamma(t)) =: (x(t), y(t))}$} as $\gamma(t) = (x(t), y(t))$, then we have
+  If $\gamma:\R\to\R^2$ is a smooth curve, written in standard coordinates\sidenote[][-2em]{In other words, $x(t)$ and $y(t)$ are the components of the function $\gamma : \R \to \R^2$ seen as functions $\R\to\R$, that is, ${\gamma(t) = (x\circ \gamma(t), y\circ \gamma(t)) =: (x(t), y(t))}$} as $\gamma(t) = (x(t), y(t))$, then we have
   \begin{align}
     \gamma'(t)
     &= d\gamma_t\left(\frac{d}{dt}\Big|_t\right) \\

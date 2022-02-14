@@ -21,7 +21,7 @@ If you think carefully, this abstraction step was already in the air. Think abou
     \begin{equation}\label{eq:diff}
       \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
     \end{equation}
-    The map $Df(x) := T$ is the \emph{total derivative}\footnote{This is sometimes called (total) differential in multivariable analysis, but this terminology may become a source of confusion for us.} of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
+    The map $Df(x) := T$ is the \emph{total derivative}\sidenote[][-2em]{This is sometimes called (total) differential in multivariable analysis, but this terminology may become a source of confusion for us.} of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
     \begin{equation}\label{eq:jacobian}
       Df(x) = \begin{pmatrix}
         \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
@@ -61,7 +61,7 @@ I will be very brief: if you need a more extensive reminder, you can refer to Ap
   \begin{enumerate}[(i)]
     \item $X$ and $\emptyset$ are open, i.e., $X\in \cT$ and $\emptyset\in\cT$;
     \item arbitrary unions of families of open subsets are open;
-    \item the intersection of finitely many\footnote{It is equivalent to require the intersection of any two open subsets to be open. (Why?)} open subsets is open.
+    \item the intersection of finitely many\sidenote[][-2em]{It is equivalent to require the intersection of any two open subsets to be open. (Why?)} open subsets is open.
   \end{enumerate}
 \end{definition}
 
@@ -107,8 +107,8 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
 \end{exercise}
 
 \begin{definition}[Topological manifold]
-  A topological space\footnote{From now on, if we say that $X$ is a topological space we are implying that there is a topology $\cT$ defined on $X$.} $M$ is a \emph{topological manifold} of dimension $n$, or topological $n$-manifold, if it has the following properties:
-  \marginnote[0.5em]{Note that the finite dimensionality is a somewhat artificial restriction: manifolds can be infinitely dimensional~\cite{book:lang:infinite}. For example, the space of continuous functions between manifolds is a so-called infinite-dimensional Banach manifold.\vspace{1em}}
+  A topological space\sidenote[][-1.5em]{From now on, if we say that $X$ is a topological space we are implying that there is a topology $\cT$ defined on $X$.} $M$ is a \emph{topological manifold} of dimension $n$, or topological $n$-manifold, if it has the following properties:
+  \marginnote[-0.5em]{Note that the finite dimensionality is a somewhat artificial restriction: manifolds can be infinitely dimensional~\cite{book:lang:infinite}. For example, the space of continuous functions between manifolds is a so-called infinite-dimensional Banach manifold.\vspace{1em}}
   \begin{enumerate}[(i)]
     \item $M$ is a Hausdorff space;
     \item $M$ is second countable;
@@ -141,7 +141,7 @@ Don't get scared by conditions (i) and (ii) in the definition of topological man
 \end{example}
 
 \begin{exercise}[The line with two origins]
-  Even though $\R^n$ with the euclidean topology is Hausdorff, being Hausdorff does not follow from being locally euclidean. A famous counterexample is the following\footnote{See also \cite[Problem 1-1]{book:lee} and \cite[Problem 5.1]{book:tu}.}.
+  Even though $\R^n$ with the euclidean topology is Hausdorff, being Hausdorff does not follow from being locally euclidean. A famous counterexample is the following\sidenote[][-2em]{See also \cite[Problem 1-1]{book:lee} and \cite[Problem 5.1]{book:tu}.}.
   \begin{marginfigure}
     \includegraphics{1_ex_1_0_11.pdf}
     \label{fig:hausdorff-not-locally-euclidean}
@@ -150,7 +150,7 @@ Don't get scared by conditions (i) and (ii) in the definition of topological man
   Let $A_1, A_2$ be two points not on the real line $\R$ and define $M:= (\R\setminus\{0\})\cup\{A_1,A_2\}$.
   Induce a topology on $M$ by taking as basis the collection of all open intervals in $\R$ that do not contain $0$, along with all the sets of the form $(-a, 0)\cup\{A_1\}\cup(0,a)$ and $(-a, 0)\cup\{A_2\}\cup(0,a)$, for $a>0$.
   \begin{enumerate}
-    \item Check that this forms a basis\footnote{That is, the basis elements cover $M$ and for any $B_1, B_2$ on the basis, for all $x \in I = B_1\cap B_2$, there is an element $B_3$ of the basis such that $x\in B_3$ and $B_3\subset I$.} for a topology on $M$.
+    \item Check that this forms a basis\sidenote[][-1.5em]{That is, the basis elements cover $M$ and for any $B_1, B_2$ on the basis, for all $x \in I = B_1\cap B_2$, there is an element $B_3$ of the basis such that $x\in B_3$ and $B_3\subset I$.} for a topology on $M$.
     \item Define the two charts
       \begin{equation}
         \varphi_j:(\R\setminus\{0\})\cup\{A_j\} \to \R, \quad
