@@ -33,7 +33,7 @@ Keep in mind, that at a certain point, we will replace $V$ with the tangent spac
   is called \emph{tensor of type $(r,s)$}, $r$-contravariant $s$-covariant tensor, or $(r,s)$-tensor.
   Similarly as we did for the dual pairing, when convenient we define the pairing
   \begin{equation}
-    \tau\left(\omega^1, \ldots, \omega^r; v_1, \ldots, v_s\right) 
+    \tau\left(\omega^1, \ldots, \omega^r; v_1, \ldots, v_s\right)
     =: \left(\tau \mid \omega^1, \ldots, \omega^r; v_1, \ldots, v_s \right).
   \end{equation}
 
@@ -41,7 +41,7 @@ Keep in mind, that at a certain point, we will replace $V$ with the tangent spac
   \begin{equation}
     \left(\alpha_1\tau_1 + \alpha_2\tau_2 | \ldots \right) := \alpha_1\left(\tau_1 | \ldots \right) + \alpha_2 \left(\tau_2 | \ldots \right).
   \end{equation}
-  This equips the space 
+  This equips the space
   \begin{equation}
     T^r_s(V) := \mathrm{Mult}(\LaTeXoverbrace{V^*,\ldots,V^*}^{r \mbox{ times}}, \LaTeXunderbrace{V, \ldots, V}_{s \mbox{ times}})
   \end{equation}
@@ -52,7 +52,7 @@ Keep in mind, that at a certain point, we will replace $V$ with the tangent spac
 \begin{example}
   \begin{itemize}
     \item An inner product on $V$, e.g. the scalar product in $\R^n$, is a $(0,2)$-tensor.
-    This means, for example that the aforementioned scalar product is an element of $T^0_2(\R^n)$.
+          This means, for example that the aforementioned scalar product is an element of $T^0_2(\R^n)$.
     \item The determinant, thought as a function of $n$ vectors, is a tensor in $T_n^0(\R^n)$.
     \item Covectors are elements of $T_1^0(T_pM)$ while tangent vectors are elements of $T_0^1(T_pM)$.
   \end{itemize}
@@ -70,8 +70,8 @@ This can be generalized immediately to general tensors in order to define new hi
   Let $V$ an $n$-dimensional vector space, $\tau_1\in T_s^r(V)$, $\tau_2\in T_{s'}^{r'}(V)$.
   We define the \emph{tensor product} $\tau_1\otimes\tau_2$ as the $(r+r', s+s')$-tensor defined by
   \begin{align}
-    &\tau_1\otimes\tau_2(\omega^1,\ldots,\omega^{r+r'}, v_1,\ldots,v_{s+s'}) \\
-    &= \tau_1(\omega^1,\ldots,\omega^{r}, v_1,\ldots,v_{s}) \tau_2(\omega^{r+1},\ldots,\omega^{r+r'}, v_{s+1},\ldots,v_{s+s'}).
+     & \tau_1\otimes\tau_2(\omega^1,\ldots,\omega^{r+r'}, v_1,\ldots,v_{s+s'})                                                    \\
+     & = \tau_1(\omega^1,\ldots,\omega^{r}, v_1,\ldots,v_{s}) \tau_2(\omega^{r+1},\ldots,\omega^{r+r'}, v_{s+1},\ldots,v_{s+s'}).
   \end{align}
 \end{definition}
 
@@ -84,7 +84,7 @@ is associative and distributive but not commutative (why?).
 \begin{exercise}
   Give a tensor in $T^2_0$ which is a linear combination of tensor products but cannot be written as a tensor product.
   Justify your answer.\\
- \textit{\small Hint: one of the examples at the beginning of the chapter can help.}
+  \textit{\small Hint: one of the examples at the beginning of the chapter can help.}
 \end{exercise}
 
 Of course, there is no reason to restrict ourselves to just two tensors: the definition above is immediately generalized to arbitrary tensor product, with an extra interesting property.
@@ -122,7 +122,7 @@ Of course, there is no reason to restrict ourselves to just two tensors: the def
 \end{proof}
 
 \begin{exercise}
-Formalize in details the last step of the proof: uniqueness follows from the linear independence of the tensor products.
+  Formalize in details the last step of the proof: uniqueness follows from the linear independence of the tensor products.
 \end{exercise}
 
 \begin{remark}
@@ -142,12 +142,12 @@ Let's go back for a moment to the example of inner products.
     \item symmetric, i.e. $g(v,w) = g(w,v)$ for all $v,w\in T_0^1(V)$;
     \item positive semidefinite, i.e. $g(v,v)\geq0$ for all $v\neq 0$.
   \end{enumerate}
-  
+
   We call \emph{non-degenerate} any tensor $g\in T_2^0(V)$ such that
   \begin{equation}
     g(v,w) = 0 \quad\forall w\in V \qquad\Longrightarrow\qquad v=0.
   \end{equation}
-  
+
   A \emph{metric tensor} or \emph{scalar product} is a non-degenerate pseudo-metric tensor, that is a symmetric, positive definite $(0,2)$-tensor.
   The Riemannian metric is a metric tensor on the tangent bundle of a manifold.
 
@@ -173,7 +173,7 @@ Let's go back for a moment to the example of inner products.
     (v^\flat)_i = g_{ij} v^j,
   \end{equation}
   where the $v^j$ are the components of $v$.
-  Therefore, the matrix of ${}^\sharp$ is the inverse\footnote{Using lower indices for matrix entries and upper indices for the entries of the inverse is very common. It turns out to be an especially convenient notation, which simplifies many formulas in general relativity and classical mechanics.} $[g^{ij}]$ of the inner product matrix, that is, 
+  Therefore, the matrix of ${}^\sharp$ is the inverse\footnote{Using lower indices for matrix entries and upper indices for the entries of the inverse is very common. It turns out to be an especially convenient notation, which simplifies many formulas in general relativity and classical mechanics.} $[g^{ij}]$ of the inner product matrix, that is,
   \begin{equation}
     (\omega^\sharp)^i = g^{ij}\omega_j,
   \end{equation}
@@ -193,9 +193,9 @@ Let's go back for a moment to the example of inner products.
     \item Show that the space $T^1_1(V)$ is canonically isomorphic to the space of endomorphisms of $V$, that is, of linear maps $L:V\to V$.
 
     \item If $\ell\in T^1_1(V)$ is the tensor associated to $A$, show that its components $\ell_i^j$ are just the matrix entries of $A$ seen as a matrix.
-  
+
     \item Of course, given the previous example, $T^1_1(V)$ is also canonically isomorphic to the space of endomorphisms of $V^*$, that is, of linear maps $\Lambda:V^*\to V^*$.
-    Prove the claim by explicitly constructing the mapping $\ell \leftrightarrow \Lambda$.
+          Prove the claim by explicitly constructing the mapping $\ell \leftrightarrow \Lambda$.
   \end{enumerate}
   \textit{\small Hint: definitions can look rather tautological when dealing with tensors... think carefully about domains and codomains, remember the musical isomorphisms and the tensor pairing.}
 \end{exercise}
@@ -218,14 +218,14 @@ But we already know how to define such kind of map! This is like a pullback: $L^
 
 Let's go back to \eqref{eq:vs_ch_bases}:
 \begin{align}
-  &\delta_j^i = (\Lambda e^i \mid L e_j) = (L^* \Lambda e^i \mid e_j)\\
-  &\mbox{that is, } \Lambda := (L^*)^{-1}.
+   & \delta_j^i = (\Lambda e^i \mid L e_j) = (L^* \Lambda e^i \mid e_j) \\
+   & \mbox{that is, } \Lambda := (L^*)^{-1}.
 \end{align}
 So, \emph{as matrices}, $\Lambda = (L^T)^{-1}$ is the inverse of the transpose of the matrix of $L$.
 
 If $[l_i^j]$ is the matrix associated\footnote{Does exercise~\ref{exe:iso_vs_endo} ring any bell here?} to the endomorphism $L: V \to V$, that is, $l_i^j := (e^j | L e_i)$, and $[\lambda_i^j]$ the one associated to the endomorphism $\Lambda: V^* \to V^*$, then the above translates into
 \begin{align}
-  &\delta_j^i = (\Lambda e^i \mid L e_j) = (\lambda_{k_1}^i e^{k_1} \mid l_j^{k_2} e_{k_2}) = \lambda_k^i l_j^k.
+   & \delta_j^i = (\Lambda e^i \mid L e_j) = (\lambda_{k_1}^i e^{k_1} \mid l_j^{k_2} e_{k_2}) = \lambda_k^i l_j^k.
 \end{align}
 That is, as we already saw, \emph{as matrices} they are inverses of each other.
 
@@ -233,15 +233,15 @@ We can transport this fact to general tensors to obtain that the components of a
 Since
 \begin{align}
   \tau
-  &=
-  \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s} \\
-  &= \widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} \, \widetilde e_{k_1}\otimes\cdots\otimes \widetilde e_{k_r}\otimes \widetilde\varepsilon^{h_1}\otimes \cdots\otimes \widetilde\varepsilon^{h_s},
+   & =
+  \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s}                                                           \\
+   & = \widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} \, \widetilde e_{k_1}\otimes\cdots\otimes \widetilde e_{k_r}\otimes \widetilde\varepsilon^{h_1}\otimes \cdots\otimes \widetilde\varepsilon^{h_s},
 \end{align}
 applying the previous reasoning and comparing term by term we get
 \begin{align}
-  &\tau^{j_1\cdots j_r}_{i_1\cdots i_s} = \widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} l_{k_1}^{j_1}\cdots l_{k_r}^{j_r}\, \lambda_{i_1}^{h_1}\cdots \lambda_{i_s}^{h_s}\\
-  &\mbox{or}\\
-  &\widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \lambda_{j_1}^{k_1}\cdots \lambda_{j_r}^{k_r}\, l_{h_1}^{i_1}\cdots l_{h_s}^{i_s}.
+   & \tau^{j_1\cdots j_r}_{i_1\cdots i_s} = \widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} l_{k_1}^{j_1}\cdots l_{k_r}^{j_r}\, \lambda_{i_1}^{h_1}\cdots \lambda_{i_s}^{h_s}  \\
+   & \mbox{or}                                                                                                                                                                \\
+   & \widetilde\tau^{k_1\cdots k_r}_{h_1\cdots h_s} = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \lambda_{j_1}^{k_1}\cdots \lambda_{j_r}^{k_r}\, l_{h_1}^{i_1}\cdots l_{h_s}^{i_s}.
 \end{align}
 
 \begin{remark}
@@ -255,7 +255,7 @@ applying the previous reasoning and comparing term by term we get
   A neat application of this is showing that a non-degenerate bilinear map $g\in T_2^0(V)$ can be lifted to a non-degenerate bilinear map on arbitrary tensors, that is
   \begin{equation}
     G: T_s^r(V)\times T_s^r(V) \to \R,
-    \quad 
+    \quad
     G(\tau, \widetilde\tau) := (\cI_g(\tau)\mid \widetilde\tau).
   \end{equation}
   In particular, if $g$ is a metric on $V$, then $G$ is a metric on $T_s^r(V)$.
@@ -278,17 +278,17 @@ applying the previous reasoning and comparing term by term we get
 Before moving on, there is an important operation on tensors that will come back later on and is worth to introducte in its generality.
 
 \begin{definition}
-Let $V$ be a vector space and fix $r,s\geq0$.
-For $h\leq r$ and $k\leq s$, we define the \emph{$(h,k)$-contraction} of a tensor as the linear mapping $T_s^r(V)\to T_{s-1}^{r-1}(V)$ defined through
-\begin{align}
-  v_1&\otimes\cdots\otimes v_r\otimes\omega^1\otimes\cdots\otimes\omega^s \\
-  &\mapsto \omega^k(v_h)\, v_1\otimes\cdots\otimes v_{h-1}\otimes v_{h+1}\cdots\otimes v_r\otimes\omega^1\otimes\cdots\otimes\omega^{k-1}\otimes\omega^{k+1}\cdots\otimes\omega^s
-\end{align}
-and then extended by linearity, thus mapping $\tau \mapsto \widetilde\tau$ where
-\begin{align}
-  \widetilde\tau&(\nu^1,\ldots,\nu^{r-1}, v_1,\ldots,v_{s-1}) \\
-  &= \tau(\nu^1,\ldots,\LaTeXunderbrace{e^i}_{h\mbox{th index}},\ldots,\nu^{r-1},w_1,\ldots,\LaTeXunderbrace{e_i}_{k\mbox{th index}},\ldots,w_{s-1}).
-\end{align}
+  Let $V$ be a vector space and fix $r,s\geq0$.
+  For $h\leq r$ and $k\leq s$, we define the \emph{$(h,k)$-contraction} of a tensor as the linear mapping $T_s^r(V)\to T_{s-1}^{r-1}(V)$ defined through
+  \begin{align}
+    v_1 & \otimes\cdots\otimes v_r\otimes\omega^1\otimes\cdots\otimes\omega^s                                                                                                            \\
+        & \mapsto \omega^k(v_h)\, v_1\otimes\cdots\otimes v_{h-1}\otimes v_{h+1}\cdots\otimes v_r\otimes\omega^1\otimes\cdots\otimes\omega^{k-1}\otimes\omega^{k+1}\cdots\otimes\omega^s
+  \end{align}
+  and then extended by linearity, thus mapping $\tau \mapsto \widetilde\tau$ where
+  \begin{align}
+    \widetilde\tau & (\nu^1,\ldots,\nu^{r-1}, v_1,\ldots,v_{s-1})                                                                                                       \\
+                   & = \tau(\nu^1,\ldots,\LaTeXunderbrace{e^i}_{h\mbox{th index}},\ldots,\nu^{r-1},w_1,\ldots,\LaTeXunderbrace{e_i}_{k\mbox{th index}},\ldots,w_{s-1}).
+  \end{align}
 \end{definition}
 
 \begin{example}
@@ -300,10 +300,10 @@ and then extended by linearity, thus mapping $\tau \mapsto \widetilde\tau$ where
   \end{equation}
   By definition, the $(1,2)$-contraction is
   \begin{align}
-    \widetilde\tau(\nu^1,w_1,w_2) &= \tau(e^i,\nu^1,w_1,e_i,w_2) \\
-    &= e^i(v_1)\;\nu^1(v_2)\omega^1(w_1)\omega^2(e_i)\omega^3(w_2) \\
-    &= \LaTeXunderbrace{e^i(v_1)\omega^2(e_i)}_{=\omega^2_i e^i (v_1) =\omega^2(v_1)}\nu^1(v_2)\omega^1(w_1)\omega^3(w_2) \\
-    &= \omega^2(v_1)\; v_2\otimes\omega^1\otimes\omega^3 (\nu^1,w_1,w_2).
+    \widetilde\tau(\nu^1,w_1,w_2) & = \tau(e^i,\nu^1,w_1,e_i,w_2)                                                                                        \\
+                                  & = e^i(v_1)\;\nu^1(v_2)\omega^1(w_1)\omega^2(e_i)\omega^3(w_2)                                                        \\
+                                  & = \LaTeXunderbrace{e^i(v_1)\omega^2(e_i)}_{=\omega^2_i e^i (v_1) =\omega^2(v_1)}\nu^1(v_2)\omega^1(w_1)\omega^3(w_2) \\
+                                  & = \omega^2(v_1)\; v_2\otimes\omega^1\otimes\omega^3 (\nu^1,w_1,w_2).
   \end{align}
 \end{example}
 
@@ -333,8 +333,8 @@ any atlas $\{(U_i, \varphi_i)\}$ of $M$ can be naturally mapped to an atlas  on 
 is defined by linearity on the fibres via
 \marginnote{Study hint: look carefully at the domains and codomains of all the maps involved and make sure that you understand how this is defined.}
 \begin{align}
-  \widetilde\varphi&(p, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{k_1}\otimes \cdots\otimes \varepsilon^{k_s})\\
-  &:=(\varphi(p), d\varphi_p e_{j_1}\otimes\cdots\otimes d\varphi_p e_{j_r}\otimes d(\varphi^{-1})^*\varepsilon^{i_1}\otimes \cdots\otimes d(\varphi^{-1})^*\varepsilon^{i_s}).
+  \widetilde\varphi & (p, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{k_1}\otimes \cdots\otimes \varepsilon^{k_s})                                                                     \\
+                    & :=(\varphi(p), d\varphi_p e_{j_1}\otimes\cdots\otimes d\varphi_p e_{j_r}\otimes d(\varphi^{-1})^*\varepsilon^{i_1}\otimes \cdots\otimes d(\varphi^{-1})^*\varepsilon^{i_s}).
 \end{align}
 
 In analogy to the definition of vector fields, we can introduce tensor fields: these will just be local assignments of tensors to points.
@@ -380,8 +380,8 @@ This will be extremely useful soon, when we start dealing with differential form
 \begin{definition}\label{def:pullback0s}
   Let $F:M\to N$ be a smooth map between smooth manifolds and let $\omega \in \cT_s^0(N)$ be a $(0,s)$-tensor field on $N$. We define the \emph{pullback of $\omega$ by $F$} as the $(0,s)$-tensor field $F^*\omega \in \cT_s^0(M)$ on $M$ defined for any $p\in M$ by
   \begin{align}
-    &F^* : \cT_s^0(N) \to \cT_s^0(M),\\
-    &F^*\omega|_p := dF^*_p(\omega|_{F(p)}) \quad \forall p\in M,
+     & F^* : \cT_s^0(N) \to \cT_s^0(M),                             \\
+     & F^*\omega|_p := dF^*_p(\omega|_{F(p)}) \quad \forall p\in M,
   \end{align}
   where
   \begin{equation}
@@ -406,7 +406,7 @@ To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\
 \begin{example}[Change of coordinates for tensor fields]
   Let, as usual, $(U,\varphi)$ be a chart on $M$ with local coordinates $(x^i)$.
   If $\{e^i:\R^n\to\R\}$ are the standard euclidean coordinates\footnote{Have a look at Notation~\ref{ntn:coords} if you don't remember what I am talking about.
-  Here we are using the notation $e^i \equiv r^i$ since now we know that $\{e^i\}$ is just the dual basis to $\{e_i\}$. } and $\{e_i\}$ are the standard basis vectors in $\R^n$, then the coordinate $1$-forms and the coordinate vector fields on $U\subset M$ are given by
+    Here we are using the notation $e^i \equiv r^i$ since now we know that $\{e^i\}$ is just the dual basis to $\{e_i\}$. } and $\{e_i\}$ are the standard basis vectors in $\R^n$, then the coordinate $1$-forms and the coordinate vector fields on $U\subset M$ are given by
   \begin{equation}
     dx^i = \varphi^* de^i
     \quad\mbox{and}\quad
@@ -414,11 +414,11 @@ To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\
   \end{equation}
   This immediately exposes the transformation laws for the change of coordinates: let $(U, \psi)$ be another chart on $U$ with local coordinates $(y^i)$, then $dy^i = \psi^* de^i$ and $\frac{\partial}{\partial y^i} = (\psi^{-1})_* e_i$. If we denote $\phi = \psi\circ\varphi^{-1}$ the transition map in $\R^n$, we get
   \begin{align}
-    \frac{\partial}{\partial x^i} &= (\varphi^{-1})_* e_i \\
-    &= (\varphi^{-1})_* \LaTeXunderbrace{(\phi^{-1})_*\phi_*}_{\id} e_i \\
-    &= (\varphi^{-1}\circ \phi^{-1})_* (\phi_* e_i) \\
-    &= (\psi^{-1})_* ((D\phi)_i^j e_j) \\
-    &= (D\phi)_i^j \frac{\partial}{\partial y^j},
+    \frac{\partial}{\partial x^i} & = (\varphi^{-1})_* e_i                                             \\
+                                  & = (\varphi^{-1})_* \LaTeXunderbrace{(\phi^{-1})_*\phi_*}_{\id} e_i \\
+                                  & = (\varphi^{-1}\circ \phi^{-1})_* (\phi_* e_i)                     \\
+                                  & = (\psi^{-1})_* ((D\phi)_i^j e_j)                                  \\
+                                  & = (D\phi)_i^j \frac{\partial}{\partial y^j},
   \end{align}
   which may be easier to think about in terms of the following diagram
   \begin{equation}\nonumber
@@ -445,42 +445,42 @@ We can also use the pullback to construct a diffeomorphism between tensor bundle
   Then $\varphi$ induces a diffeomorphism $T_s^rM \to T_s^r N$.
 \end{proposition}
 \begin{proof}
-\newthought{Step I}.
-We know that the pullback induces on the fibres a diffeomorphism of cotangent bundles. Let $p\in M$.
-We have already seen that on the fibres the pullback is a diffeomorphism:
-\begin{equation}
-  T^*N \to T^* M, \quad
-  (q,\omega) \mapsto (\varphi^*\omega)_q = \left(\varphi^{-1}(q), d\varphi^*\omega|_{\varphi^{-1}(q)}\right).
-\end{equation}
-This can be inverted giving rise to the so-called \emph{cotangent lift}
-\begin{equation}
-  d\varphi^\dagger :=(d\varphi)^\dagger := (\varphi^{-1})^*: T^*M \to T^*N.
-\end{equation}
-\marginnote{An aid to understand this map is the following commuting diagram:
-\begin{equation}\nonumber
-  \begin{tikzcd}[row sep=normal, column sep=normal, ampersand replacement=\&]
-    T_p^* M \arrow[d, "\pi_M" left] \arrow[r, "d\varphi^\dagger"] \& T^*_{\varphi(p)}N \arrow[d, "\pi_N"] \\
-    M \arrow[r, "\varphi" below] \& N
-  \end{tikzcd}
-\end{equation}}
-For any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
-\begin{align}
-  (d\varphi^\dagger_p \omega \;\mid\; d\varphi_p v)_{\varphi(p)} &=  d(\varphi^{-1})^*(\omega|_{\varphi^{-1}\circ\varphi(p)} (d\varphi_p v) )\\
-  &= \omega_p(d\varphi^{-1}_{\varphi(p)} \circ d\varphi_p v ) \\
-  &= \omega_p(v) = (\omega \mid v)_p.
-\end{align}
+  \newthought{Step I}.
+  We know that the pullback induces on the fibres a diffeomorphism of cotangent bundles. Let $p\in M$.
+  We have already seen that on the fibres the pullback is a diffeomorphism:
+  \begin{equation}
+    T^*N \to T^* M, \quad
+    (q,\omega) \mapsto (\varphi^*\omega)_q = \left(\varphi^{-1}(q), d\varphi^*\omega|_{\varphi^{-1}(q)}\right).
+  \end{equation}
+  This can be inverted giving rise to the so-called \emph{cotangent lift}
+  \begin{equation}
+    d\varphi^\dagger :=(d\varphi)^\dagger := (\varphi^{-1})^*: T^*M \to T^*N.
+  \end{equation}
+  \marginnote{An aid to understand this map is the following commuting diagram:
+    \begin{equation}\nonumber
+      \begin{tikzcd}[row sep=normal, column sep=normal, ampersand replacement=\&]
+        T_p^* M \arrow[d, "\pi_M" left] \arrow[r, "d\varphi^\dagger"] \& T^*_{\varphi(p)}N \arrow[d, "\pi_N"] \\
+        M \arrow[r, "\varphi" below] \& N
+      \end{tikzcd}
+    \end{equation}}
+  For any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
+  \begin{align}
+    (d\varphi^\dagger_p \omega \;\mid\; d\varphi_p v)_{\varphi(p)} & =  d(\varphi^{-1})^*(\omega|_{\varphi^{-1}\circ\varphi(p)} (d\varphi_p v) ) \\
+                                                                   & = \omega_p(d\varphi^{-1}_{\varphi(p)} \circ d\varphi_p v )                  \\
+                                                                   & = \omega_p(v) = (\omega \mid v)_p.
+  \end{align}
 
-\newthought{Step II}.
-Chaining $d$ and $d^\dagger$ on the appropriate components of the tensor, we obtain a diffeomorphism of arbitrary tensor bundles:
-\begin{equation}
-  d\varphi \otimes\cdots\otimes d\varphi \otimes d\varphi^\dagger \otimes\cdots\otimes d\varphi^\dagger  : T_s^rM \to T_s^r N,
-\end{equation}
-defined on the product elements as
-\begin{align}
-  d\varphi &\otimes\cdots\otimes d\varphi \otimes d\varphi^\dagger \otimes\cdots\otimes d\varphi^\dagger  (p, v_1 \otimes \cdots\otimes v_r \otimes \omega^1\otimes\cdots\otimes\omega^s) \\
-  &:= (\varphi(p), d\varphi\; v_1 \otimes \cdots\otimes d\varphi\; v_r \otimes d\varphi^\dagger \omega^1\otimes\cdots\otimes d\varphi^\dagger \omega^s),
-\end{align}
-which extends to the whole fibres by linearity.
+  \newthought{Step II}.
+  Chaining $d$ and $d^\dagger$ on the appropriate components of the tensor, we obtain a diffeomorphism of arbitrary tensor bundles:
+  \begin{equation}
+    d\varphi \otimes\cdots\otimes d\varphi \otimes d\varphi^\dagger \otimes\cdots\otimes d\varphi^\dagger  : T_s^rM \to T_s^r N,
+  \end{equation}
+  defined on the product elements as
+  \begin{align}
+    d\varphi & \otimes\cdots\otimes d\varphi \otimes d\varphi^\dagger \otimes\cdots\otimes d\varphi^\dagger  (p, v_1 \otimes \cdots\otimes v_r \otimes \omega^1\otimes\cdots\otimes\omega^s) \\
+             & := (\varphi(p), d\varphi\; v_1 \otimes \cdots\otimes d\varphi\; v_r \otimes d\varphi^\dagger \omega^1\otimes\cdots\otimes d\varphi^\dagger \omega^s),
+  \end{align}
+  which extends to the whole fibres by linearity.
 \end{proof}
 
 With this diffeomorphism at hand, we can finally generalize the pushforward.
@@ -513,16 +513,16 @@ With this diffeomorphism at hand, we can finally generalize the pushforward.
   \begin{enumerate}
     \item Show that the chain rule $(G\circ F)_* = G_* \circ F_*$ holds.
     \item Show that our previous definition\footnote{That is, Definition~\ref{def:pullback0s} -- which includes the pullback from Definition~\ref{def:pullback1f}.} of pullback is a particular case of the following general definition of a \emph{pullback of $(r,s)$-tensor fields by $F$}:
-    \begin{equation}
-      F^* := (F^{-1})_* : \cT_s^r(N) \to \cT_s^r(M).
-    \end{equation}
+          \begin{equation}
+            F^* := (F^{-1})_* : \cT_s^r(N) \to \cT_s^r(M).
+          \end{equation}
   \end{enumerate}
   \textit{\small Hint: always work on a product tensor and extend by linearity.}
 \end{exercise}
 
 Note that thanks to this duality between pullback and pushforward, the dual pairing is always invariant under diffeomorphisms:
 \marginnote[-2em]{In general, \eqref{eq:pairdualitypull} is not true for scalar products: one has to require that the diffeomorphism leaves the metric invariant, i.e. $g_N(F_* v, F_* w)\circ F = g_M(v,w)$ where $g_M\in T_2^0(M)$ and $g_N\in T_2^0(N)$.
-You encounter this if you study isometries for pseudo-Riemannian metrics or canonical transformations in classical mechanics.}
+  You encounter this if you study isometries for pseudo-Riemannian metrics or canonical transformations in classical mechanics.}
 \begin{equation}\label{eq:pairdualitypull}
   (F_* \omega \mid F_* v) = (\omega \mid v).
 \end{equation}

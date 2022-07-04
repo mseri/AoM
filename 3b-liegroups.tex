@@ -15,25 +15,25 @@ The theory of Lie groups and Lie algebras is vast, and in these lectures we will
     \item $\R^n$ is a Lie group under addition.
     \item $\R^n\setminus\{0\}$ is a Lie group under multiplication.
     \item A manifold can be equipped with different Lie group structures. For example, the following map
-    \begin{equation}
-      \mu(x,y) = (x^1+y^1,\, x^2+y^2,\, x^3+y^3+x^1y^2)
-    \end{equation}
-    induces\footnote{To see that this defines a group structure, identify $\R^3$ with upper triangular $3\times3$ matrices via
-    \begin{equation}\nonumber
-      x = (x^1, x^2, x^3) \mapsto \begin{pmatrix}
-        1 & x^1 & x^3\\
-        0 & 1 & x^2 \\
-        0 & 0 & 1
-      \end{pmatrix}
-    \end{equation}
-    and observe that $m$ becomes the standard matrix multiplication.} an alternative structure of Lie group on $\R^n$ called \emph{Heisenberg group}.
+          \begin{equation}
+            \mu(x,y) = (x^1+y^1,\, x^2+y^2,\, x^3+y^3+x^1y^2)
+          \end{equation}
+          induces\footnote{To see that this defines a group structure, identify $\R^3$ with upper triangular $3\times3$ matrices via
+            \begin{equation}\nonumber
+              x = (x^1, x^2, x^3) \mapsto \begin{pmatrix}
+                1 & x^1 & x^3 \\
+                0 & 1   & x^2 \\
+                0 & 0   & 1
+              \end{pmatrix}
+            \end{equation}
+            and observe that $m$ becomes the standard matrix multiplication.} an alternative structure of Lie group on $\R^n$ called \emph{Heisenberg group}.
     \item The set $GL(n)$ of invertible $n\times n$ matrices is a Lie group under matrix multiplication. Indeed, it is a manifold of dimension $n^2$, the product is smooth since each matrix entry is given a polynomial and the inversion is smooth thanks to Cramer's rule~\cite[Proposition B.36]{book:lee}.
     \item The $n$-torus $\bT^n = \R^n/\Z^n$ is an abelian Lie group with the group structure induced by addition on $\R^n$.
     \item Given Lie groups $(G_1, \ldots, G_k)$, their direct product is the product manifold $G_1\times \cdots\times G_k$ with the group structure given by
-    \begin{equation}
-      (g_1, \ldots, g_k)(h_1,\ldots,h_k) = (g_1h_1, \ldots g_kh_k)
-    \end{equation}
-    is a Lie group (why?).
+          \begin{equation}
+            (g_1, \ldots, g_k)(h_1,\ldots,h_k) = (g_1h_1, \ldots g_kh_k)
+          \end{equation}
+          is a Lie group (why?).
     \item Not all smooth manifolds can be equipped with a Lie group structure: for example, $\bS^n$ admits a Lie group structure only for $n=0,1,3$.
   \end{enumerate}
 \end{example}
@@ -80,7 +80,7 @@ The next theorem is important for understanding many of the properties of Lie gr
 \end{theorem}
 \begin{proof}
   Let $F:G\to H$ be a Lie group homomorphism and let $e$ denote the identity element of $G$.
-  
+
   Fix $g\in G$.
   We will show that $F$ has the same rank at $g$ as its rank at $e$.
   Since $F$ is a homomorphism, for all $h\in G$ we have
@@ -135,18 +135,18 @@ For a proof, look at the corresponding section in~\cite[Chapter 20]{book:lee}.
 
 \begin{exercise}\label{ex:SL2LGA}
   For this exercise is useful to remember that we can identify the space $\mathrm{Mat}(2,\R)$ of $2\times 2$-matrices with $\R^4$ by associating the matrix $X = \begin{pmatrix}x_{11} & x_{12}\\ x_{21} & x_{22}\end{pmatrix}$ with the point $(x_{11}, x_{12}, x_{21}, x_{22})\in\R^4$.
-  
+
   \begin{enumerate}
     \item Show that the set
-    \begin{equation*}
-      \mathrm{SL}(2) := \mathrm{SL}(2,\R) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \det A = 1 \}
-    \end{equation*}
-    is a 3-dimensional smooth submanifold of $\mathrm{Mat}(2,\R)$.
+          \begin{equation*}
+            \mathrm{SL}(2) := \mathrm{SL}(2,\R) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \det A = 1 \}
+          \end{equation*}
+          is a 3-dimensional smooth submanifold of $\mathrm{Mat}(2,\R)$.
     \item Let $e\in\mathrm{Mat}(2,\R)$ denote the identity matrix. Show that
-    \begin{equation*}
-      T_e \mathrm{SL}(2) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \mathrm{tr}\, A = 0 \},
-    \end{equation*}
-    where $\mathrm{tr} A$ denotes the matrix trace, i.e., the sum of the diagonal entries of $A$.
+          \begin{equation*}
+            T_e \mathrm{SL}(2) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \mathrm{tr}\, A = 0 \},
+          \end{equation*}
+          where $\mathrm{tr} A$ denotes the matrix trace, i.e., the sum of the diagonal entries of $A$.
     \item Let $\iota: \mathrm{SL}(2)\to \mathrm{SL}(2)$ be the map $\iota(A) = A^{-1}$. Show that $\iota$ is smooth.
     \item Show that $d\iota_e: T_e\mathrm{SL}(2)\to T_e\mathrm{SL}(2)$ is given by $d\iota_e(A) = -A$.
   \end{enumerate}
@@ -158,11 +158,11 @@ In fact, some parts of the Exercise~\ref{ex:SL2LGA} above are instances of a the
   Let $G$ be a Lie group.
   \begin{enumerate}
     \item Let $\mu:G\times G\to G$ denote the multiplication map.
-    Use the identification $T_{(e,e)}(G\times G) \simeq T_eG\times T_eG$ to show that $d\mu_{(e,e)}:T_eG\times T_eG\to T_eG$ is given by
-    \begin{equation}
-      d\mu_{(e,e)}(X,Y) = X + Y.
-    \end{equation}
-    \textit{\small Hint: compute $d\mu_{(e,e)}(X,0)$ and $d\mu_{(e,e)}(0,Y)$ separately.}
+          Use the identification $T_{(e,e)}(G\times G) \simeq T_eG\times T_eG$ to show that $d\mu_{(e,e)}:T_eG\times T_eG\to T_eG$ is given by
+          \begin{equation}
+            d\mu_{(e,e)}(X,Y) = X + Y.
+          \end{equation}
+          \textit{\small Hint: compute $d\mu_{(e,e)}(X,0)$ and $d\mu_{(e,e)}(0,Y)$ separately.}
     \item Let $\iota: G\to G$ denote the inversion map. Show that $d\iota_e:T_eG\to T_eG$ is given by $d\iota_e(X) = -X$.
   \end{enumerate}
 \end{exercise}
@@ -186,7 +186,7 @@ We are going to prove this very soon, but let's first look at some examples.
   \begin{enumerate}
     \item The Lie algebra of $GL(n)$ is $\mathfrak{gl}(n)\simeq \mathrm{Mat}(n, \R)$.
     \item The Lie algebra of $O(n)$ is $\mathfrak{o}(n) = \{A \in \mathfrak{gl}(n) \mid A+A^T = 0\}$. You have shown it in Exercise~\ref{exe:onsubmanifold}.
-    \item Can you guess what is the Lie algebra of $SL(2)$ from Exercise~\ref{ex:SL2LGA}? 
+    \item Can you guess what is the Lie algebra of $SL(2)$ from Exercise~\ref{ex:SL2LGA}?
   \end{enumerate}
 \end{example}
 
@@ -201,9 +201,9 @@ Before proceeding we need to introduce some more notation.
   Let $G$ be a Lie group.
   A vector field $X\in\fX(G)$ is called \emph{left-invariant} if
   \marginnote{That is, if for all $g,h\in G$ we have \begin{equation}
-    d(L_g)_h X_h = X_{gh}.
-  \end{equation}
-  Indeed, ${X = (L_g)_* X = d(L_g)\circ X \circ (L_{g})^{-1}}$ if and only if $X \circ L_{g} = d(L_g)\circ X$.}
+      d(L_g)_h X_h = X_{gh}.
+    \end{equation}
+    Indeed, ${X = (L_g)_* X = d(L_g)\circ X \circ (L_{g})^{-1}}$ if and only if $X \circ L_{g} = d(L_g)\circ X$.}
   \begin{equation}
     (L_g)_*X = X \qquad \forall g\in G.
   \end{equation}
@@ -240,7 +240,7 @@ Before proceeding we need to introduce some more notation.
 A fundamental difference with the Lie algebra of vector fields is that $\fX_L(G)$ is finite dimensional.
 
 \begin{theorem}
-  Let $G$ be a Lie group. The evaluation map 
+  Let $G$ be a Lie group. The evaluation map
   \begin{equation}
     \mathrm{eval}:\fX_L(G)\to T_eG, \quad
     \mathrm{eval}(X) = X_e,
@@ -249,38 +249,38 @@ A fundamental difference with the Lie algebra of vector fields is that $\fX_L(G)
   Thus, $\fX_L(G)$ is finite dimensional with the same dimension as $G$.
 \end{theorem}
 \begin{proof}
-    \newthought{Linearity}. Immediate (why?).
+  \newthought{Linearity}. Immediate (why?).
 
-    \newthought{Injectivity}. Follows immediately from the left-invariance: if $\mathrm{eval}(X) = X_e = 0$ for some $X\in\fX_L(G)$, then the left-invariance of $X$ implies that $X_g = d(L_g)_e(X_e) = 0$ for every $g\in G$, thus $X\equiv0$.
-    
-    \newthought{Surjectivity}.
-    Fix an arbitrary $v\in \fg = T_eG$ and define the map $v^L:G\to TG$ by
-    \begin{equation}
-      v^L(g) := d(L_g)_e(v).
-    \end{equation}
-    By construction, $v^L$ satisfies the section property\footnote{If you don't know what we are talking about, have another look at Definition~\ref{def:vfield}.}, since $\d(L_g)_e:T_eG\to T_gG$.
-    \begin{itemize}
-      \item $v^L$ is a vector field: we will show that $v^L_g f := v^L(g) f$ is smooth for any $f\in C^\infty(G)$.
-      To this end, pick a smooth curve $\gamma:(-\epsilon,\epsilon)\to G$ such that $\gamma(0)=e$ and $\gamma'(0) = v$. Then, for any $g\in G$ we have
-      \begin{align}
-        v^L_g f &= v^L(g) f \\
-        &= d(L_g)_e(v) f\\
-        &= v(f\circ L_g) \\
-        &= (f\circ L_g\circ \gamma)'(0).
-      \end{align}
-      If we define $\varphi:(-\delta, \delta)\times G \to \R$ by $\varphi(t,g) = f\circ L_g\circ \gamma(t) = f(g\gamma(t))$, the computation above shows that $v^L_gf = \frac{\partial \varphi}{\partial t}(0, g)$.
-      Since $\varphi$ is the composition of smooth functions, it is smooth, and thus $v^L f$ is smooth.
-      \item $v^L$ is left-invariant. 
-      Indeed, for any $g,h\in G$, we have
-      \begin{align}
-        d(L_g)_h(v^L(h)) &= d(L_g)_h\circ d(L_h)_e(v)\\ 
-        &= d(L_g\circ L_h)_e(V)\\
-        &= d(L_{gh})_e(v)\\
-        &= v^L(gh).
-      \end{align}
-    \end{itemize}
-    Thus $v^L\in\fX_L(G)$.
-    Since $\mathrm{eval}(v^L) = v^L(e) = v$, the map $\mathrm{eval}$ is surjective, concluding the proof.
+  \newthought{Injectivity}. Follows immediately from the left-invariance: if $\mathrm{eval}(X) = X_e = 0$ for some $X\in\fX_L(G)$, then the left-invariance of $X$ implies that $X_g = d(L_g)_e(X_e) = 0$ for every $g\in G$, thus $X\equiv0$.
+
+  \newthought{Surjectivity}.
+  Fix an arbitrary $v\in \fg = T_eG$ and define the map $v^L:G\to TG$ by
+  \begin{equation}
+    v^L(g) := d(L_g)_e(v).
+  \end{equation}
+  By construction, $v^L$ satisfies the section property\footnote{If you don't know what we are talking about, have another look at Definition~\ref{def:vfield}.}, since $\d(L_g)_e:T_eG\to T_gG$.
+  \begin{itemize}
+    \item $v^L$ is a vector field: we will show that $v^L_g f := v^L(g) f$ is smooth for any $f\in C^\infty(G)$.
+          To this end, pick a smooth curve $\gamma:(-\epsilon,\epsilon)\to G$ such that $\gamma(0)=e$ and $\gamma'(0) = v$. Then, for any $g\in G$ we have
+          \begin{align}
+            v^L_g f & = v^L(g) f                      \\
+                    & = d(L_g)_e(v) f                 \\
+                    & = v(f\circ L_g)                 \\
+                    & = (f\circ L_g\circ \gamma)'(0).
+          \end{align}
+          If we define $\varphi:(-\delta, \delta)\times G \to \R$ by $\varphi(t,g) = f\circ L_g\circ \gamma(t) = f(g\gamma(t))$, the computation above shows that $v^L_gf = \frac{\partial \varphi}{\partial t}(0, g)$.
+          Since $\varphi$ is the composition of smooth functions, it is smooth, and thus $v^L f$ is smooth.
+    \item $v^L$ is left-invariant.
+          Indeed, for any $g,h\in G$, we have
+          \begin{align}
+            d(L_g)_h(v^L(h)) & = d(L_g)_h\circ d(L_h)_e(v) \\
+                             & = d(L_g\circ L_h)_e(V)      \\
+                             & = d(L_{gh})_e(v)            \\
+                             & = v^L(gh).
+          \end{align}
+  \end{itemize}
+  Thus $v^L\in\fX_L(G)$.
+  Since $\mathrm{eval}(v^L) = v^L(e) = v$, the map $\mathrm{eval}$ is surjective, concluding the proof.
 \end{proof}
 
 \begin{corollary}
@@ -302,7 +302,7 @@ Another immediate consequence of this proposition is that every left-invariant v
   Then $v$ is complete.
 \end{proposition}
 \begin{exercise}
-  Prove the proposition.\\  
+  Prove the proposition.\\
   \textit{\small Hint: extend a curve starting at $e$ to a curve starting at $g$.}
 \end{exercise}
 
@@ -328,10 +328,10 @@ Much of the progress in the theory of Lie groups has come from a careful analysi
 
   Indeed, we have
   \begin{align}
-    dF_g(v^L_g) &= dF_g\circ d(L_g)_e(v) \\
-    &=d(L_{F(g)})_{F(e)}\circ dF_e(v) \\
-    &=d(L_{F(g)})_{F(e)}(w) \\
-    &=w^L_{F(g)}.
+    dF_g(v^L_g) & = dF_g\circ d(L_g)_e(v)          \\
+                & =d(L_{F(g)})_{F(e)}\circ dF_e(v) \\
+                & =d(L_{F(g)})_{F(e)}(w)           \\
+                & =w^L_{F(g)}.
   \end{align}
   The result then follows from Theorem~\ref{thm:liealgiso}.
   If $v_1,v_2 \in\fg$ and $w_i=F^*v_i$, $i=1,2$, then
@@ -390,26 +390,26 @@ Given the introduction, the following theorem should not come as a surprise.
 \begin{proof}
   \begin{itemize}
     \item[($\Longleftarrow$)]
-    Suppose that $\gamma$ is the maximal integral curve for some $v\in\fX_L(G)$ starting at the identity $e$. 
-    Proposition~\ref{prop:XLcomplete} implies that $\gamma$ is defined on all $\R$. Since $L_g$ is a diffeomorphism for all $g\in G$ and $v$ is left-invariant, by Proposition~\ref{prop:conjpfX} $L_g$ maps integral curves of $v$ to integral curves of $v$ (why?).
-    If $g=\gamma(s)$ for some $s$, the curve $t\mapsto L_{\gamma(s)}(\gamma(t))$ is an integral curve starting at $\gamma(s)$.
-    By the group property of the flow, also $t\mapsto \gamma(t+s)$ is an integral curve starting at $\gamma(s)$, so they must be equal.
-    That is, for all $s,t\in \R$,
-    \begin{equation}
-      \gamma(s+t) = \gamma(s)\gamma(t).
-    \end{equation}
-    Which implies that $\gamma:\R\to G$ is a one-parameter subgroup.
+      Suppose that $\gamma$ is the maximal integral curve for some $v\in\fX_L(G)$ starting at the identity $e$.
+      Proposition~\ref{prop:XLcomplete} implies that $\gamma$ is defined on all $\R$. Since $L_g$ is a diffeomorphism for all $g\in G$ and $v$ is left-invariant, by Proposition~\ref{prop:conjpfX} $L_g$ maps integral curves of $v$ to integral curves of $v$ (why?).
+      If $g=\gamma(s)$ for some $s$, the curve $t\mapsto L_{\gamma(s)}(\gamma(t))$ is an integral curve starting at $\gamma(s)$.
+      By the group property of the flow, also $t\mapsto \gamma(t+s)$ is an integral curve starting at $\gamma(s)$, so they must be equal.
+      That is, for all $s,t\in \R$,
+      \begin{equation}
+        \gamma(s+t) = \gamma(s)\gamma(t).
+      \end{equation}
+      Which implies that $\gamma:\R\to G$ is a one-parameter subgroup.
     \item[($\Longrightarrow$)] Let now $\gamma:\R\to G$ be a one-parameter subgroup and $v = \gamma'(0)\in \fg$.
-    The claim is that $\gamma'(t) = v^L(\gamma(t))$.
-    Since $\gamma(s)\gamma(t) = \gamma(s+t) = L_{\gamma(t)}(\gamma(s))$ we have
-    \begin{align}
-      \gamma'(t) &= \frac{d}{ds}\Big|_{s=0} \gamma(t+s) \\
-      &= \frac{d}{ds}\Big|_{s=0} L_{\gamma(t)}(\gamma(s)) \\
-      &= (dL_{\gamma(t)})_{\gamma(0)}(\gamma'(0)) \\
-      &= (dL_{\gamma(t)})_{e}(v)
-      = v^L(\gamma(t)).
-    \end{align}
-    Again, due to uniqueness of the integral curves, we obtain the claim.
+      The claim is that $\gamma'(t) = v^L(\gamma(t))$.
+      Since $\gamma(s)\gamma(t) = \gamma(s+t) = L_{\gamma(t)}(\gamma(s))$ we have
+      \begin{align}
+        \gamma'(t) & = \frac{d}{ds}\Big|_{s=0} \gamma(t+s)              \\
+                   & = \frac{d}{ds}\Big|_{s=0} L_{\gamma(t)}(\gamma(s)) \\
+                   & = (dL_{\gamma(t)})_{\gamma(0)}(\gamma'(0))         \\
+                   & = (dL_{\gamma(t)})_{e}(v)
+        = v^L(\gamma(t)).
+      \end{align}
+      Again, due to uniqueness of the integral curves, we obtain the claim.
   \end{itemize}
 \end{proof}
 
@@ -432,7 +432,7 @@ Note that the trick employed in the proof above, can be used also to show the fo
 \begin{proof}
   We have already seen $(i) \Leftrightarrow (ii)$.
   To see $(iii)\Rightarrow(ii)$ observe that the first implies $\gamma^v(t) = \Theta_t^v(e) = R_{\gamma(t)}e = \gamma(t)$.
-  
+
   Finally, assume $(ii)$ holds and fix $g\in G$.
   Since $v^L$ is left-invariant, $g\gamma^v = L_g \circ \gamma^v$ is another integral curve of $v^L$ starting at $g$, thus, again by uniqueness of integral curves, we have $R_{\gamma(t)}(g) = g\gamma^v(t) = \Theta_t^v(g)$. Which implies $(iii)$ by the arbitrariness of $g$.
 \end{proof}
@@ -493,7 +493,7 @@ The following property, on the other hand, deserves a bit more care.
     \nu_{(g,v)} = (v^L_g, 0)\in T_gG\times T_v\fg \sim T_{(g,v)}(G\times \fg).
   \end{equation}
   Clearly $\nu$ satisfies the section property, so for it to be a smooth vector field, we only need to show that it is smooth.
-  Pick any basis $(X_1,\ldots,X_k)$ for $\fg$ and let $(x^i)$ be the corresponding global coordinates for $\fg$ defined by $(x^i)\mapsto x^i X_i$. 
+  Pick any basis $(X_1,\ldots,X_k)$ for $\fg$ and let $(x^i)$ be the corresponding global coordinates for $\fg$ defined by $(x^i)\mapsto x^i X_i$.
   For any $f\in C^\infty(G\times\fg)$ and given a $v\in\fg$, let $f_v:= f(\cdot, v):G\to\R$ denote the smooth function defined by regarding $v$ as fixed.
   Then $\nu_{(g,v)}f = v^L_g f_v(g)$.
 
@@ -514,9 +514,9 @@ The following property, on the other hand, deserves a bit more care.
   Let $v\in\fg$, then $\cT_0(v) = \delta'(t)$ where $\delta(t) = tv$.
   Thus we have
   \begin{align}
-    d\exp_0 (\cT_0 v) &= (\exp \circ \delta)'(0) \\
-    &= \frac{d}{dt}\Big|_{t=0} \exp(tv) 
-    = \frac{d}{dt}\Big|_{t=0} \gamma^v(t) 
+    d\exp_0 (\cT_0 v) & = (\exp \circ \delta)'(0)          \\
+                      & = \frac{d}{dt}\Big|_{t=0} \exp(tv)
+    = \frac{d}{dt}\Big|_{t=0} \gamma^v(t)
     = v,
   \end{align}
   which completes the proof.
@@ -544,9 +544,9 @@ Finally, let's investigate how the exponential map behaves with respect to Lie g
   A composition of homomorphisms is a homomorphism, therefore $t\mapsto F(\exp(tv))$ is a one-parameter subgroup of $H$.
   For the initial velocity, observe that
   \begin{align}
-    (F\circ\exp)'(0) &= \frac{d}{dt}\Big|_{t=0} F(\exp(tv)) \\
-    &=dF_0\left(\frac{d}{dt}\Big|_{t=0} \exp(tv) \right) \\
-    &= dF_0(v_e) = (F_*v)_e.
+    (F\circ\exp)'(0) & = \frac{d}{dt}\Big|_{t=0} F(\exp(tv))               \\
+                     & =dF_0\left(\frac{d}{dt}\Big|_{t=0} \exp(tv) \right) \\
+                     & = dF_0(v_e) = (F_*v)_e.
   \end{align}
 \end{proof}
 
@@ -607,13 +607,13 @@ We can summarise\footnote{One should also prove convergence, if you are curious 
   For any $X,Y\in\fg$, there show the following results.
   \begin{enumerate}
     \item For some $\epsilon>0$, there is a smooth function $Z:(-\epsilon, \epsilon)\to \fg$  such that, for all $t\in(-\epsilon, \epsilon)$,
-    \begin{equation}
-      (\exp tX)(\exp tY) = \exp(t (X+Y) + t^2 Z(t)).
-    \end{equation}
+          \begin{equation}
+            (\exp tX)(\exp tY) = \exp(t (X+Y) + t^2 Z(t)).
+          \end{equation}
     \item For some $\epsilon>0$, there is a smooth function $\widetilde Z:(-\epsilon, \epsilon)\to \fg$ such that, for all $t\in(-\epsilon, \epsilon)$,
-    \begin{equation}
-      (\exp tX)(\exp tY) = \exp\left(t (X+Y) + \frac12 t^2 [X,Y] + t^3 \widetilde Z(t)\right).
-    \end{equation}
+          \begin{equation}
+            (\exp tX)(\exp tY) = \exp\left(t (X+Y) + \frac12 t^2 [X,Y] + t^3 \widetilde Z(t)\right).
+          \end{equation}
   \end{enumerate}
   \textit{\small Hint: Taylor expansions and Exercise~\ref{ex:DiffGroupMaps} can help for this exercise.}
 \end{exercise}
@@ -623,13 +623,13 @@ We will not enter into the details here, however I want to leave you the main de
 
 \begin{definition}
   Let $G$ a Lie group and let $M$ be a manifold.
-  We call \emph{left action of $G$ on $M$} a smooth map $\ell: G\times M \to M$ such that 
+  We call \emph{left action of $G$ on $M$} a smooth map $\ell: G\times M \to M$ such that
   \begin{equation}
     \ell(gh, p) = \ell(g,\ell(h,p)), \quad \ell(e, p) = p
   \end{equation}
   for all $g,h\in G$ and $p\in M$.
   For any fixed $g\in G$, the map $p\mapsto \ell(g,p)$ is a diffeomorphism of $M$, which is usually denoted $\ell_g$.
-  Analogously, we call \emph{right action of $G$ on $M$} a smooth map $\rho: M\times G \to M$ such that 
+  Analogously, we call \emph{right action of $G$ on $M$} a smooth map $\rho: M\times G \to M$ such that
   \begin{equation}
     \rho(p, gh) = \rho(\rho(p,g), h), \quad \rho(p, e) = p
   \end{equation}

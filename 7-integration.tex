@@ -89,9 +89,9 @@ Differential $n$-forms, then, seem a reasonable concept to define a notion of or
 \end{example}
 
 Of course, one does need to make sure that locally we can make sense of this concept of orientation for it to even make sense as a definition.
-  By Lemma~\ref{lemma:orient} each chart $(U, \varphi)$ in the atlas determines an orientation at each point of its domain, which will be positive if $\det(d\varphi)>0$ and negative otherwise.
-  This procedure can be repeated for each chart in an atlas for $M$.
-  Thus, in order to get a globally consistent ordering, we need to worry about the overlaps between charts.
+By Lemma~\ref{lemma:orient} each chart $(U, \varphi)$ in the atlas determines an orientation at each point of its domain, which will be positive if $\det(d\varphi)>0$ and negative otherwise.
+This procedure can be repeated for each chart in an atlas for $M$.
+Thus, in order to get a globally consistent ordering, we need to worry about the overlaps between charts.
 
 \begin{proposition}\label{prop:orientable}
   Let $M$ be a smooth, connected\marginnote{If it is not connected, then we need to deal with each connected component separately.} $n$-manifold.
@@ -124,10 +124,10 @@ Of course, one does need to make sure that locally we can make sense of this con
   % for the curious: this is because, modulo a reflection, we can always find a point x in the domain \phi_i(U_i) of f_i such that f_i(x) > 0. Since f_i must be nonnegative and is continuous on its connected domain, the function cannot change sign, that is, it must be > 0.
 
   Let $\varphi_k$ and $\varphi_l$ be two different charts in $\cA$ with overlapping domains (otherwise there is nothing to check).
-   Define the transition map $\sigma_{kl} := \varphi_k\circ\varphi_l^{-1}$.
+  Define the transition map $\sigma_{kl} := \varphi_k\circ\varphi_l^{-1}$.
   \begin{align}
-    (\sigma_{kl})_* dx^1\wedge\cdots\wedge dx^n &= (\varphi_k)_* \circ (\varphi_l^{-1})_* dx^1\wedge \cdots\wedge dx^n \\
-                                         &= \frac{f_k}{f_l \circ \sigma_{lk}} dx^1\wedge \cdots\wedge dx^n. 
+    (\sigma_{kl})_* dx^1\wedge\cdots\wedge dx^n & = (\varphi_k)_* \circ (\varphi_l^{-1})_* dx^1\wedge \cdots\wedge dx^n \\
+                                                & = \frac{f_k}{f_l \circ \sigma_{lk}} dx^1\wedge \cdots\wedge dx^n.
   \end{align}
   Thus, by Proposition~\ref{prop:wedgeToJDet}, we get
   \begin{equation}
@@ -141,25 +141,25 @@ Of course, one does need to make sure that locally we can make sense of this con
     , \qquad
     \widetilde \omega_i(p) := \begin{cases}
       \rho_i(p)\omega_i(p) & \mbox{if } p\in U_i \\
-      0 & \mbox{otherwise}
+      0                    & \mbox{otherwise}
     \end{cases}.
   \end{equation}
   Since $\supp(\rho_i) \subset U_i$, we have $\widetilde\omega_i\in\Omega^n(M)$.
   Let $\omega := \sum_i \widetilde \omega_i$. This sum is finite in a neigbourhood of each point so, in particular, $\omega \in \Omega^n(M)$. We need to show that it is a volume form on $M$.
   On nonempty overlaps $U_k \cap U_l \neq \emptyset$ of charts we have
   \begin{align}
-    \omega_l &= \varphi_l^*\, dx^1\wedge\cdots\wedge dx^n = \varphi_k^* \sigma_{lk}^*\, dx^1 \wedge\cdots\wedge dx^n \\
-             &= (\det(D\sigma_{lk})\circ \varphi_k)\circ \varphi^*_k\, dx^1\wedge\cdots\wedge dx^n \\
-             &= (\det(D\sigma_{lk})\circ \varphi_k)\, \omega_k =: \alpha_{lk} \omega_k \label{form:cov}
+    \omega_l & = \varphi_l^*\, dx^1\wedge\cdots\wedge dx^n = \varphi_k^* \sigma_{lk}^*\, dx^1 \wedge\cdots\wedge dx^n \\
+             & = (\det(D\sigma_{lk})\circ \varphi_k)\circ \varphi^*_k\, dx^1\wedge\cdots\wedge dx^n                   \\
+             & = (\det(D\sigma_{lk})\circ \varphi_k)\, \omega_k =: \alpha_{lk} \omega_k \label{form:cov}
   \end{align}
   where $\alpha_{lk}\in C^{\infty}(U_k\cap U_l)$, $a_{lk} > 0$ and there is no implied sum\footnote{All indices are low indices.}.
   Since the covering $\{U_i\}$ is locally finite\footnote{See Theorem~\ref{thm:partitionof1}.}, a point $p\in M$ belongs only to a finite number of open sets, let's call them $U_{i_0}, U_{i_1}, \ldots, U_{i_N}$. That is,
   \begin{equation}
-  \omega(p) = \sum_{k=1}^N \omega_{i_k}(p) = \left( 1 + \sum_{k = 1}^N a_{i_k i_0} \right) \omega_{i_0}(p) \neq 0
+    \omega(p) = \sum_{k=1}^N \omega_{i_k}(p) = \left( 1 + \sum_{k = 1}^N a_{i_k i_0} \right) \omega_{i_0}(p) \neq 0
   \end{equation}
   since $\omega_{i_0}(p) \neq 0$ and $a_{i_k i_0} > 0$.
   That is, for all $p\in M$ we have that $\omega(p) \neq 0$.
-  \end{proof}
+\end{proof}
 
 
 \begin{definition}
@@ -177,7 +177,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
 \end{definition}
 %
 % \begin{theorem}
-  %   Let $M$ be a $n$-dimensional smooth manifold.
+%   Let $M$ be a $n$-dimensional smooth manifold.
 %   A nowhere-vanishing $n$-form $\omega\in\Omega^n(M)$ uniquely determines an orientation.
 %   For this reason, nowhere vanishing $n$-forms on a smooth $n$-manifold are called \emph{volume forms}.
 % \end{theorem}
@@ -215,14 +215,14 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
   Let's pick a pointwise orientation by choosing as basis $X_p\in T_pM$ given by\sidenote[][-1em]{We are not making up anything, if you look carefully this is just $X_p = \partial_\theta$.} $X_p = -p^2 \frac{\partial}{\partial p^1} + p^1 \frac{\partial}{\partial p^2}$.
   Then, on $U_1$,
   \begin{align}
-    (\varphi_1)_*(X) &= (d\varphi_1)_p(X) \\
-    &= \left(\begin{smallmatrix}
-      \frac{2}{1-p^2} & \frac{2p^1}{(1-p^2)^2}
-    \end{smallmatrix}\right)
+    (\varphi_1)_*(X) & = (d\varphi_1)_p(X)                                                \\
+                     & = \left(\begin{smallmatrix}
+                                   \frac{2}{1-p^2} & \frac{2p^1}{(1-p^2)^2}
+                                 \end{smallmatrix}\right)
     \left(\begin{smallmatrix}
-      -p^2 \\ p^1
-    \end{smallmatrix}\right) \frac{\partial}{\partial x}\Big|_{\varphi_1(p)}\\
-    &= \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\varphi_1(p)}, 
+              -p^2 \\ p^1
+            \end{smallmatrix}\right) \frac{\partial}{\partial x}\Big|_{\varphi_1(p)}        \\
+                     & = \frac{2}{1-p^2} \frac{\partial}{\partial x}\Big|_{\varphi_1(p)},
   \end{align}
   and $\frac{2}{1-p^2}>0$.
   If we perform the same computation on $U_2$, however, we obtain $(\varphi_2)_*(X) = -\frac{2}{1+p^2}\frac{\partial}{\partial x}\Big|_{\varphi_2(p)}$, with the negative coefficient $-\frac{2}{1+p^2} < 0$, corresponding to the opposite orientation on $U_2$.
@@ -243,7 +243,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
   \begin{enumerate}
     \item Define the map $\sigma:\R\times(-1,1)\to\R\times(-1,1)$ by $\sigma(x,y) = (x+1, -y)$ and show that $\pi\circ\sigma = \pi$.
     \item If $\eta\in\Omega^2(M)$ defines\footnote{Cf. Exercise~\ref{ex:vfshape}.} $f$ by $\pi^* \eta = f \omega$ where $\omega$ is an area\footnote{I.e. a volume $2$-form.} form on $\R\times(-1,1)$.
-    Show that $f(x+1, -y) = - f(x,y)$.
+          Show that $f(x+1, -y) = - f(x,y)$.
     \item Conclude that $f$ must vanish at some point of $\R\times(-1,1)$, which implies that $M$ is non-orientable.
   \end{enumerate}
 \end{exercise}
@@ -271,11 +271,11 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
   This, in particular, proves that the total space $TM$ of the tangent bundle is always orientable, regardless of the orientability of $M$.
 \end{exercise}
 
-A remarkable consequence of Exercise~\ref{ex:TMorient} is that $TM$, as a manifold on its own right, is always orientable, even if $M$ is not. 
+A remarkable consequence of Exercise~\ref{ex:TMorient} is that $TM$, as a manifold on its own right, is always orientable, even if $M$ is not.
 
 \newthought{What about orientation on the boundaries?}
 
-Let's first look at the tangent space. 
+Let's first look at the tangent space.
 If $M$ ia a smooth $n$-manifold with boundary and $p\in \partial M$, we have three types of possible vectors:
 \begin{marginfigure}
   \includegraphics{images/8_2-boundary-vectors.pdf}
@@ -288,7 +288,7 @@ If $M$ ia a smooth $n$-manifold with boundary and $p\in \partial M$, we have thr
 Thus, a vector field along $\partial M$ is a function $X:\partial M\to T_pM$ (not to $T_p\partial M$).
 
 \begin{proposition}
-  On a smooth manifold $M$ with boundary, there is a smooth outward pointing vector field along $\partial M$.  
+  On a smooth manifold $M$ with boundary, there is a smooth outward pointing vector field along $\partial M$.
 \end{proposition}
 \begin{proof}
   Pick an open cover of $\partial M$ with coordinate charts $\{(U_\alpha, (x^1_\alpha,\ldots,x^n_\alpha) \mid \alpha\in I\}$.
@@ -314,7 +314,7 @@ We can use this to introduce a notion of induced orientation on $\partial M$.
     \omega_p(X_p, e_1, \ldots, e_{n-1}) = (\iota_X\omega)_p(e_1, \ldots, e_{n-1}) = 0.
   \end{equation}
   Then, by Exercise~\ref{ex:zeroform}, $\omega_p\equiv0$ reaching a contradiction.
-  
+
   Therefore, $\iota_X\omega$ is non-vanishing on $\partial M$ which means that $\partial M$ is orientable.
 \end{proof}
 
@@ -327,18 +327,18 @@ We can use this to introduce a notion of induced orientation on $\partial M$.
   \end{enumerate}
 \end{exercise}
 
-Note that if $\{(U_i, \varphi_i)\}$ is a positively oriented atlas on $M$, then $\{(U_i|_{\partial M}, \varphi_i|_{\partial M})\}$ can be negatively oriented. 
+Note that if $\{(U_i, \varphi_i)\}$ is a positively oriented atlas on $M$, then $\{(U_i|_{\partial M}, \varphi_i|_{\partial M})\}$ can be negatively oriented.
 Let $\omega = dx^1\wedge\cdots\wedge dx^n$ be a positive volume form on $M$ on one of the charts, then $-\frac{\partial}{\partial x^n}$ is an outward pointing on $\partial \cH^n$ and we have\footnote{Recall Lemma~\ref{lemma:intprod}.}
 \begin{align}
   \iota_{-{\partial}/\!{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n)
-  &= -\iota_{{\partial}/\!{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n) \\
-  &= -(-1)^{n-1} dx^1\wedge\cdots\wedge dx^{n-1}\wedge \iota_{{\partial}/\!{\partial x^n}} (dx^n) \\
-  &= (-1)^n dx^1\wedge\cdots\wedge dx^{n-1}.
+   & = -\iota_{{\partial}/\!{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n)                           \\
+   & = -(-1)^{n-1} dx^1\wedge\cdots\wedge dx^{n-1}\wedge \iota_{{\partial}/\!{\partial x^n}} (dx^n) \\
+   & = (-1)^n dx^1\wedge\cdots\wedge dx^{n-1}.
 \end{align}
 Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$, the one on $\partial \cH^2$ is the standard orientation on $\R$ given by $dx^1$ and the one on $\partial \cH^3$ is $-dx^1\wedge dx^2$, which is the clockwise orientation in the $(x^1, x^2)$-plane, etc.
 
 \begin{example}\label{ex:int:bdryo}
-  The closed interval $[a,b]\subset\R$ with standard euclidean coordinate $x$ has a standard orientation given by the vector field $\frac{\partial}{\partial x}$. 
+  The closed interval $[a,b]\subset\R$ with standard euclidean coordinate $x$ has a standard orientation given by the vector field $\frac{\partial}{\partial x}$.
   Therefore\footnote{Recall the charts in Example~\ref{ex:mfldbdryinterval}.}, the boundary orientation at $b$ is $\iota_{\frac{\partial}{\partial x}}(dx) = +1$ and the one at $a$ is $\iota_{-\frac{\partial}{\partial x}}(dx) = -1$.
 \end{example}
 
@@ -346,10 +346,10 @@ Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$,
   Orientability is common but there are many examples of nonorientable manifolds.
   \begin{enumerate}
     \item Prove that $\bS^n$ is orientable.\\
-      \textit{\small Hint: above there is a small exercise that can help a lot here.}
+          \textit{\small Hint: above there is a small exercise that can help a lot here.}
     \item Prove that any Lie group is orientable.
     \item Prove that $\RP^n$ is orientable if and only if $n$ is odd. \\
-      \textit{\small Hint: the antipodal map $x\mapsto -x$ on $\bS^n$ can help.}
+          \textit{\small Hint: the antipodal map $x\mapsto -x$ on $\bS^n$ can help.}
   \end{enumerate}
 \end{exercise}
 
@@ -390,11 +390,11 @@ To make sure that this definition makes sense, let's show that the integral is w
   Let $\varphi$ and $\psi$ be two charts on $W = U\cap V$ with the same orientation and local coordinates $x$ and $y$, let $\sigma = \psi\circ\varphi^{-1}$ be the corresponding transition map.
   Then, a computation completely analogue to \eqref{form:cov} implies
   \marginnote{In multivariable analysis you saw already the invariance of the Euclidean integral by orientation-preserving changes of coordinates, namely for $F: \R^n \to \R^n$ orientation preserving diffeomorphism and $\omega \in \Omega^n(\R^n)$, it holds $\int_{F(A)} \omega = \int_A F^* \omega$. This can be also directly used to show
-  \begin{align}
-    \int_{\varphi(W)} \varphi_*\omega & = \int_{\sigma^{-1}(\psi(W))} \varphi_*\omega \\
-    &= \int_{\psi(W))} \sigma_* (\varphi_*\omega) \\
-    &= \int_{\psi(W)} \psi_* \omega.
-  \end{align}
+    \begin{align}
+      \int_{\varphi(W)} \varphi_*\omega & = \int_{\sigma^{-1}(\psi(W))} \varphi_*\omega \\
+                                        & = \int_{\psi(W))} \sigma_* (\varphi_*\omega)  \\
+                                        & = \int_{\psi(W)} \psi_* \omega.
+    \end{align}
   }
   \begin{align}
     \int_{\varphi(W)} \varphi_*\omega = \int_{\psi(W)} \psi_*\omega.
@@ -424,11 +424,11 @@ The definition above makes sense only if the value of the integral is independen
   Then we have,
   \begin{align}
     \sum_j \int_{\varphi_j(U_j)} (\varphi_j)_*\left(\rho_j \omega\right)
-    &= \sum_j \int_{\varphi_j(U_j)} (\varphi_j)_*\left(\rho_j \sum_k \widetilde\rho_k\omega\right) \\
-    &= \sum_{j,k} \int_{\varphi_j(U_j\cap V_k)} (\varphi_j)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
-    &\overset{(\spadesuit)}{=} \sum_{j,k} \int_{\psi_k(U_j\cap V_k)} (\psi_k)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
-    &= \sum_k \int_{\psi_k(V_k)} (\psi_k)_*\left(\widetilde\rho_k \sum_j\rho_j \omega\right) \\
-    &= \sum_k \int_{\psi_k(V_k)} (\psi_k)_*\left( \widetilde\rho_k \omega\right),
+     & = \sum_j \int_{\varphi_j(U_j)} (\varphi_j)_*\left(\rho_j \sum_k \widetilde\rho_k\omega\right)                         \\
+     & = \sum_{j,k} \int_{\varphi_j(U_j\cap V_k)} (\varphi_j)_* \left(\rho_j \widetilde\rho_k\omega\right)                   \\
+     & \overset{(\spadesuit)}{=} \sum_{j,k} \int_{\psi_k(U_j\cap V_k)} (\psi_k)_* \left(\rho_j \widetilde\rho_k\omega\right) \\
+     & = \sum_k \int_{\psi_k(V_k)} (\psi_k)_*\left(\widetilde\rho_k \sum_j\rho_j \omega\right)                               \\
+     & = \sum_k \int_{\psi_k(V_k)} (\psi_k)_*\left( \widetilde\rho_k \omega\right),
   \end{align}
   where in $(\spadesuit)$ we used Lemma~\ref{lemma:intindep:chart}.
 \end{proof}
@@ -448,21 +448,21 @@ Which immediately implies the following nice result.
   Then, $\{(F(U_i),\varphi_i\circ F^{-1})\}$ is an atlas of positively oriented charts for $N$ and $\{\rho_i \circ F^{-1}\}$ is a partition of unity subordinate to the covering $\{F(U_i)\}$.
   By Lemma~\ref{lemma:intinman} we have,
   \begin{align}
-    \int_M F^*\omega &= \sum_i \int_M \rho_i F^*\omega \\
-    &= \sum_i \int_{\R^n}(\varphi_i)_*(\rho_i F^*\omega)\\
-    &= \sum_i \int_{\R^n}(\varphi_i)_*(F^{-1})_*(\rho_i \circ F^{-1}) \omega \\
-    &= \sum_i \int_{\R^n}(\varphi_i \circ F^{-1})_*(\rho_i \circ F^{-1}) \omega \\
-    &= \int_N\omega,
+    \int_M F^*\omega & = \sum_i \int_M \rho_i F^*\omega                                           \\
+                     & = \sum_i \int_{\R^n}(\varphi_i)_*(\rho_i F^*\omega)                        \\
+                     & = \sum_i \int_{\R^n}(\varphi_i)_*(F^{-1})_*(\rho_i \circ F^{-1}) \omega    \\
+                     & = \sum_i \int_{\R^n}(\varphi_i \circ F^{-1})_*(\rho_i \circ F^{-1}) \omega \\
+                     & = \int_N\omega,
   \end{align}
   which shows the commutativity of the following diagram
   \begin{equation}
     \begin{tikzcd}
       \Omega^n(M)
-        \arrow[rr, "F^*", above, shift right = 0.5]
-        \arrow[dr, "\int_M", below left]
-        & & \Omega^n(N)
-          \arrow[ll, "F_*", below, shift right = 0.5]
-          \arrow[dl, "\int_N"] \\
+      \arrow[rr, "F^*", above, shift right = 0.5]
+      \arrow[dr, "\int_M", below left]
+      & & \Omega^n(N)
+      \arrow[ll, "F_*", below, shift right = 0.5]
+      \arrow[dl, "\int_N"] \\
       & \R &
     \end{tikzcd}
   \end{equation}
@@ -494,11 +494,11 @@ This justifies the following definition.
 
 \begin{exercise}[Fubini's theorem]\label{exe:fubini}
   Let $M^m$ and $N^n$ be oriented manifolds. Endow $M\times N$ with the product orientation, that is\footnote{An equivalent way is to say that if $v_1,\ldots,v_m\in T_pM$ and $w_1, \ldots, w_n\in T_q N$ are positively oriented bases in the respective spaces, then \begin{align}
-    &(v_1,0),\ldots,(v_n,0),\\
-    &(0,w_1), \ldots, (0,w_n)\\
-    &\quad\in T_{(p,q)}(M\times N)
-\end{align}
-is defined to be a positively oriented basis in the product.}, if $\pi_M : M\times N \to M$ and $\pi_N: M\times N \to N$ are the canonical projections on the elements of the product, and $\omega$ and $\eta$ respectively define orientations on $M$ and $N$, then the orientation on $M\times N$ is defined to be the orientation defined by $\pi_M^* \omega \wedge \pi_N^* \eta$.
+       & (v_1,0),\ldots,(v_n,0),       \\
+       & (0,w_1), \ldots, (0,w_n)      \\
+       & \quad\in T_{(p,q)}(M\times N)
+    \end{align}
+    is defined to be a positively oriented basis in the product.}, if $\pi_M : M\times N \to M$ and $\pi_N: M\times N \to N$ are the canonical projections on the elements of the product, and $\omega$ and $\eta$ respectively define orientations on $M$ and $N$, then the orientation on $M\times N$ is defined to be the orientation defined by $\pi_M^* \omega \wedge \pi_N^* \eta$.
 
   If $\alpha\in\Omega^m(M)$ and $\beta\in\Omega^n(N)$ have compact support, show that
   \begin{equation}
@@ -519,7 +519,7 @@ is defined to be a positively oriented basis in the product.}, if $\pi_M : M\tim
   \end{equation}
   for $s\in\bS^n$ and $v_1,\ldots,v_n\in T_s\bS^n$.
 
-  In this exercise we are going to define a canonical volume $\omega_n$ on $\bS^n$ and prove that 
+  In this exercise we are going to define a canonical volume $\omega_n$ on $\bS^n$ and prove that
   \begin{equation}
     \int_{\bS^n} \omega_n = \frac{2^{m+1}\pi^m}{(2m-1)!}, \quad\mbox{if } n=2m,\; m\geq 1,
   \end{equation}
@@ -531,28 +531,28 @@ is defined to be a positively oriented basis in the product.}, if $\pi_M : M\tim
   \begin{enumerate}
     \item Show that $\omega_n$ is a volume form on $\bS^n$. In fact it is the so-called standard volume form on $\bS^n$.
     \item Let $f:\R_+\times\R^{n+1}\setminus\{0\}\to \R^{n+1}\setminus\{0\}$ be given by $f(t,s) = ts$, where $\R_+$ is defined to be the set $\{t\in\R \mid t >0\}$.
-    Show that if $\R_+$ is oriented by $dt$, $\bS^n$ is oriented by $\omega_n$ and $\R^{n+1}$ is oriented by $\Omega_{n+1}$, then the Jacobian determinant $\det(Df(t,s))= t^n$.
-    Conclude that $f$ is orientation preserving.
+          Show that if $\R_+$ is oriented by $dt$, $\bS^n$ is oriented by $\omega_n$ and $\R^{n+1}$ is oriented by $\Omega_{n+1}$, then the Jacobian determinant $\det(Df(t,s))= t^n$.
+          Conclude that $f$ is orientation preserving.
     \item Let $M$ be the annulus $M = \{x\in\R^{n+1} \mid 0<a<\|x\|<b<\infty\}$. Consider the restriction $f|_{(a,b)\times \bS^n}$ and show that for $x\in\R^{n+1}$,
-    \begin{equation}
-      f^*\left(e^{-\|x\|^2}\Omega_{n+1}\right) = t^n e^{-t^2}(dt \times \omega_n),
-    \end{equation}
-    where $dt\times\omega_n$ is a product volume form as in Exercise~\ref{exe:fubini}.
+          \begin{equation}
+            f^*\left(e^{-\|x\|^2}\Omega_{n+1}\right) = t^n e^{-t^2}(dt \times \omega_n),
+          \end{equation}
+          where $dt\times\omega_n$ is a product volume form as in Exercise~\ref{exe:fubini}.
     \item Show that
-    \begin{equation}
-      \int_{\R^{n+1}}e^{-\|x\|^2}\Omega_{n+1} = \int_a^b t^ne^{-t^2} dt \int_{\bS^n}\omega_n.
-    \end{equation}
+          \begin{equation}
+            \int_{\R^{n+1}}e^{-\|x\|^2}\Omega_{n+1} = \int_a^b t^ne^{-t^2} dt \int_{\bS^n}\omega_n.
+          \end{equation}
     \item Consider the limits $a\to0^+$ and $b\to+\infty$ and show that
-    \begin{equation}
-      \int_0^\infty t^n e^{-t^2} dt \int_{\bS^n}\omega_n = \left(\int_{-\infty}^{+\infty} e^{-u^2} du\right)^{n+1}.
-    \end{equation}
+          \begin{equation}
+            \int_0^\infty t^n e^{-t^2} dt \int_{\bS^n}\omega_n = \left(\int_{-\infty}^{+\infty} e^{-u^2} du\right)^{n+1}.
+          \end{equation}
     \item Assume to know that $\int_{-\infty}^{\infty} e^{-u^2}du = \sqrt{\pi}$. Show that
-    \begin{equation}
-      \int_0^\infty t^{2m} e^{-t^2}dt = \frac{(2m-1)!!\sqrt{\pi}}{2^{m+1}}
-      \quad\mbox{and}\quad
-      \int_0^\infty t^{2m+1} e^{-t^2}dt = \frac{m!}{2},
-    \end{equation}
-    and use them to deduce the required formulas for $\int_{\bS^n}\omega_n$.
+          \begin{equation}
+            \int_0^\infty t^{2m} e^{-t^2}dt = \frac{(2m-1)!!\sqrt{\pi}}{2^{m+1}}
+            \quad\mbox{and}\quad
+            \int_0^\infty t^{2m+1} e^{-t^2}dt = \frac{m!}{2},
+          \end{equation}
+          and use them to deduce the required formulas for $\int_{\bS^n}\omega_n$.
   \end{enumerate}
 \end{exercise}
 
@@ -578,9 +578,9 @@ This corollary has deep consequences in classical mechanics, which I am going to
   Then one can define
   \begin{align}
     \int_M f \omega
-    &= \sum_i \int_{\varphi_i(U_i)} (\varphi_i)_*(\rho_i f\omega) \\
-    &= \sum_i \int_{\varphi_i(U_i)} (\rho_i f \circ\varphi_i^{-1}) (\varphi_i)_*\omega \\
-    &= \sum_i \int_{\varphi_i(U_i)} (\rho_i f \circ\varphi_i^{-1})(x) \omega(x) d^n x,
+     & = \sum_i \int_{\varphi_i(U_i)} (\varphi_i)_*(\rho_i f\omega)                      \\
+     & = \sum_i \int_{\varphi_i(U_i)} (\rho_i f \circ\varphi_i^{-1}) (\varphi_i)_*\omega \\
+     & = \sum_i \int_{\varphi_i(U_i)} (\rho_i f \circ\varphi_i^{-1})(x) \omega(x) d^n x,
   \end{align}
   where the last integral is a Lebesgue integral on $\R^n$.
   One then calls $f:M\to \R$ integrable, saying $f\in L^1(M,\omega)$, if $\int_M|f|\omega < \infty$ and defines its integral as $\int_M f\omega := \int_M f^+\omega - \int_M f^-\omega$, where $f^\pm$ denote the positive and negative components of $f$ as in the euclidean case.
@@ -603,8 +603,8 @@ We are going to state the theorem, discuss some of its consequences and then giv
 \end{theorem}
 
 \marginnote[1em]{On a similar note, the fact that $dd\omega =0$ for every $\omega\in\Omega^n(M)$ corresponds to the fact that a boundary has no boundary, that is $\partial\partial M = \emptyset$ for any $M$: indeed, for any $\omega\in\Omega^n(M)$ one has \begin{equation}
-  0=\int_M dd\omega = \int_{\partial M}d\omega = \int_{\partial\partial M} \omega.
-\end{equation}}
+    0=\int_M dd\omega = \int_{\partial M}d\omega = \int_{\partial\partial M} \omega.
+  \end{equation}}
 \begin{corollary}
   Let $M$ be an oriented $n$-manifold without boundary and let $\omega\in\Omega^{n-1}(M)$ be compactly supported.
   Then,
@@ -667,26 +667,26 @@ We are going to state the theorem, discuss some of its consequences and then giv
   and we end up with the integral
   \begin{align}
     \int_{\cH^n} d\omega
-    &= \sum_{j=1}^n (-1)^{j-1} \int_A\frac{\partial \omega^j}{\partial x^j}dx^1\wedge\cdots\wedge dx^n \\
-    &= \sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) d^n x. %d x^1\cdots dx^n.
+     & = \sum_{j=1}^n (-1)^{j-1} \int_A\frac{\partial \omega^j}{\partial x^j}dx^1\wedge\cdots\wedge dx^n                \\
+     & = \sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) d^n x. %d x^1\cdots dx^n.
   \end{align}
   The last are genuine euclidean integrals and we can change the order of integration in each term to always integrate the $x^j$ term first.
   The usual euclidean fundamental theorem of calculus then, for the terms with $j\neq n$, implies
   \begin{align}
     \int_{\cH^n} d\omega
-    &= \sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) d^n x \\ %dx^1\cdots dx^n \\
-    &=\sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) dx^j dx^1\cdots\widehat{dx^j}\cdots dx^n \\
-    &=\sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\omega^j(x) \Big|_{x^j=-R}^{x^j=R} dx^1\cdots\widehat{dx^j}\cdots dx^n \\
-    &= 0
+     & = \sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) d^n x                                   \\ %dx^1\cdots dx^n \\
+     & =\sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) dx^j dx^1\cdots\widehat{dx^j}\cdots dx^n \\
+     & =\sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\omega^j(x) \Big|_{x^j=-R}^{x^j=R} dx^1\cdots\widehat{dx^j}\cdots dx^n             \\
+     & = 0
   \end{align}
   since $R$ is larger than the support of $\omega$ at each coordinate.
   The only term that may not be zero is the $j=n$ one.
   In that case, for the same reasons,
   \begin{align}
     \int_{\cH^n} d\omega
-    &=(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R\int_{0}^{R}\frac{\partial \omega^n}{\partial x^j}(x) dx^n d^{n-1} x \\ %dx^1\cdots dx^{n-1} \\
-    &=(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R \omega^n(x)\Big|_{x^n=0}^{x^n=R} dx^n d^{n-1} x \\ %dx^1\cdots dx^{n-1} \\
-    &=(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R \omega^n(x^1, \ldots, x^{n-1}, 0) d^{n-1} x %dx^1\cdots dx^{n-1}.
+     & =(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R\int_{0}^{R}\frac{\partial \omega^n}{\partial x^j}(x) dx^n d^{n-1} x \\ %dx^1\cdots dx^{n-1} \\
+     & =(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R \omega^n(x)\Big|_{x^n=0}^{x^n=R} dx^n d^{n-1} x                     \\ %dx^1\cdots dx^{n-1} \\
+     & =(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R \omega^n(x^1, \ldots, x^{n-1}, 0) d^{n-1} x                         %dx^1\cdots dx^{n-1}.
     .\label{eq:lhsHn}
   \end{align}
   We now need to compare this with the right-hand side of~\eqref{eq:Stokes}.
@@ -708,10 +708,10 @@ We are going to state the theorem, discuss some of its consequences and then giv
   Without loss of generality assume that $\varphi$ is a positively oriented boundary chart, then
   \begin{align}
     \int_M d\omega
-    &= \int_{\cH^n}(\phi^{-1})^* dw \\
-    &= \int_{\cH^n} d\left((\phi^{-1})^* \omega\right) \\
-    &\overset{(\spadesuit)}{=} \int_{\partial \cH^n}(\phi^{-1})^* w \\
-    &= \int_{\partial M} w , 
+     & = \int_{\cH^n}(\phi^{-1})^* dw                                 \\
+     & = \int_{\cH^n} d\left((\phi^{-1})^* \omega\right)              \\
+     & \overset{(\spadesuit)}{=} \int_{\partial \cH^n}(\phi^{-1})^* w \\
+     & = \int_{\partial M} w ,
   \end{align}
   where in the $(\spadesuit)$ step we applied the computations above and where $\partial \cH^n$ has the orientation induced by $\cH^n$.
   For a negatively oriented smooth boundary chart, the computation applies with an extra negative sign on each side of the equation.
@@ -723,11 +723,11 @@ We are going to state the theorem, discuss some of its consequences and then giv
   Then, by applying the previous arguments for each $i$ we get
   \begin{align}
     \int_{\partial M} \omega
-    &= \sum_i \int_{\partial M} \rho_i\omega
-     = \sum_i \int_M d(\rho_i \omega) \\
-    &= \sum_i \int_M (d\rho_i \wedge\omega + \rho_i\, d\omega) \\
-    &= \int_M d\left(\sum_i \rho_i\right)\wedge\omega + \int_M \left(\sum_i \rho_i\right) d\omega \\ 
-    &= 0 + \int_M d\omega,
+     & = \sum_i \int_{\partial M} \rho_i\omega
+    = \sum_i \int_M d(\rho_i \omega)                                                                \\
+     & = \sum_i \int_M (d\rho_i \wedge\omega + \rho_i\, d\omega)                                    \\
+     & = \int_M d\left(\sum_i \rho_i\right)\wedge\omega + \int_M \left(\sum_i \rho_i\right) d\omega \\
+     & = 0 + \int_M d\omega,
   \end{align}
   concluding the proof.
 \end{proof}
@@ -747,14 +747,14 @@ We are going to state the theorem, discuss some of its consequences and then giv
     \includegraphics{8_3_8-annulus.pdf}
   \end{marginfigure}
   Consider the annulus $M=\{(x,y)\in\R^2 \mid 1/2\leq x^2+y^2 \leq 1\}$ and the $1$-form $\omega = \frac{-y dx + x dy}{x^2 + y^2} = d\theta$ where $(x,y) = (\rho\cos\theta, \rho\sin\theta)$.
-  
+
   Then $d\omega = 0$ and therefore $\int_M d\omega = 0$.
   Furthermore,
   \begin{align}
     \int_{\partial M}\omega
-    &= \int_{x^2 + y^2 =1} \omega + \int_{x^2+y^2 =1/2}\omega \\ 
-    &= \int_{0}^{2\pi} d\theta - \int_0^{2\pi}d \theta \\
-    &= 2\pi - 2\pi = 0.
+     & = \int_{x^2 + y^2 =1} \omega + \int_{x^2+y^2 =1/2}\omega \\
+     & = \int_{0}^{2\pi} d\theta - \int_0^{2\pi}d \theta        \\
+     & = 2\pi - 2\pi = 0.
   \end{align}
 
   An important consequence of this is that while locally $\omega$ is the differential of the angle function $\theta$, this cannot be exact on all $M$: indeed, if $\omega = d\eta$ for some $\eta$, we would have
@@ -782,28 +782,28 @@ In fact this example is a particular case of the following corollary of Stokes' 
 
 
 \begin{exercise}
-In this problem we are going to prove the smooth version of Brouwer's fixed point theorem.
-  
-\begin{theorem}[Brouwer's fixed point theorem (smooth version)]\label{thm:bfp1}
-  Let $D_n:=\{x\in\mathbb{R}^n\;\mid\;\|x\|\leq 1\}$ denote the closed unit disk in $\mathbb{R}^n$. % and $\mathbb{S}^{n-1} = \partial D_n$ its boundary, the $(n-1)$-sphere.
-  Any smooth map $g: D_n \to D_n$ has a fixed point, that is, $\exists\,p\in D_n$ such that $g(p) = p$.
-\end{theorem}
+  In this problem we are going to prove the smooth version of Brouwer's fixed point theorem.
 
-We will proceed by first showing another result.
+  \begin{theorem}[Brouwer's fixed point theorem (smooth version)]\label{thm:bfp1}
+    Let $D_n:=\{x\in\mathbb{R}^n\;\mid\;\|x\|\leq 1\}$ denote the closed unit disk in $\mathbb{R}^n$. % and $\mathbb{S}^{n-1} = \partial D_n$ its boundary, the $(n-1)$-sphere.
+    Any smooth map $g: D_n \to D_n$ has a fixed point, that is, $\exists\,p\in D_n$ such that $g(p) = p$.
+  \end{theorem}
 
-\begin{theorem}\label{thm:bfp2}
-  Let $N$ be a compact $n$-dimensional submanifold of $\mathbb{R}^n$ with non-empty boundary $\partial N$.
-  Then, there is no differentiable map $f: N \to \partial N$ for which every boundary point is a fixed point, that is, for which $f(p) = p$ for all $p\in\partial N$.
-\end{theorem}
+  We will proceed by first showing another result.
 
-Let $\Omega = dx^1 \wedge \cdots\wedge dx^n$ denote the standard volume form on $N$, that is, the restriction of the standard volume form on $\mathbb{R}^n$ to $N$,
-and $X$ be an outward-pointing vector field on $\partial N$.
-%Finally, let $i:\partial N\hookrightarrow N$ be the inclusion map.
+  \begin{theorem}\label{thm:bfp2}
+    Let $N$ be a compact $n$-dimensional submanifold of $\mathbb{R}^n$ with non-empty boundary $\partial N$.
+    Then, there is no differentiable map $f: N \to \partial N$ for which every boundary point is a fixed point, that is, for which $f(p) = p$ for all $p\in\partial N$.
+  \end{theorem}
 
-\begin{enumerate}
-  \item Show that $\omega = \iota_X \Omega$ is a closed non-vanishing form on $\partial N$.
-  \item Show that $f^*\omega$ is closed.
-  \item Prove Theorem~\ref{thm:bfp2}.\\\textit{Hint: assume there is $f$ such that $f(p)=p$ for all $p\in \partial N$ and use integration to get a contradiction.}
-  \item Prove Theorem~\ref{thm:bfp1}.\\\textit{Hint: by contradiction, use the half line from $p$ to $g(p)$ to construct a function for which every point in the boundary is fixed. }
-\end{enumerate}
+  Let $\Omega = dx^1 \wedge \cdots\wedge dx^n$ denote the standard volume form on $N$, that is, the restriction of the standard volume form on $\mathbb{R}^n$ to $N$,
+  and $X$ be an outward-pointing vector field on $\partial N$.
+  %Finally, let $i:\partial N\hookrightarrow N$ be the inclusion map.
+
+  \begin{enumerate}
+    \item Show that $\omega = \iota_X \Omega$ is a closed non-vanishing form on $\partial N$.
+    \item Show that $f^*\omega$ is closed.
+    \item Prove Theorem~\ref{thm:bfp2}.\\\textit{Hint: assume there is $f$ such that $f(p)=p$ for all $p\in \partial N$ and use integration to get a contradiction.}
+    \item Prove Theorem~\ref{thm:bfp1}.\\\textit{Hint: by contradiction, use the half line from $p$ to $g(p)$ to construct a function for which every point in the boundary is fixed. }
+  \end{enumerate}
 \end{exercise}

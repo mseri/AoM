@@ -1,6 +1,6 @@
 
 \begin{tcolorbox}
-This is a reminder that, unless differently specified, when we write manifold, chart, atlas, etc. we always mean smooth manifold with (possibly empty) boundary, smooth chart, smooth atlas, etc.
+  This is a reminder that, unless differently specified, when we write manifold, chart, atlas, etc. we always mean smooth manifold with (possibly empty) boundary, smooth chart, smooth atlas, etc.
 \end{tcolorbox}
 
 \section{Let the fun begin!}
@@ -21,7 +21,7 @@ As we will see, there are various different definitions of tangent space but, in
 Due to a certain amount of freedom in terms of different ``perspectives'' leading to different but equivalent definitions, there is no unique way of introducing tangent spaces.
 Just to give you an idea, all the following approaches all lead to equivalent definitions (see also~\cite{book:lee}):
 \marginnote{Bear in mind that this is not the whole story. For example, it is also possible to ``flip'' the whole construction around, constructing first the so-called differentials and cotangent spaces, and using them to introduce the tangent spaces.
-This is the approach taken by~\cite{lectures:hitchin} and it is at least worth a look if you want to see a different perspective.}
+  This is the approach taken by~\cite{lectures:hitchin} and it is at least worth a look if you want to see a different perspective.}
 \begin{itemize}
   \item equivalence classes of curves through a point;
   \item transformation laws of the components of vectors with respect to different charts;
@@ -44,7 +44,7 @@ Then, the partial derivative is obtained as the particular case
 \begin{equation}
   \frac{\partial f}{\partial x^j}(x) := D_jf(x) := Df(x) e_j = \lim_{t\to0} \frac{f(x+te_j) - f(x)}{t}.
 \end{equation}
-Since $f=(f^1, \ldots, f^k)$ takes values in $\R^k$, instead of taking its total derivative $Df$ as above, we can also think to the derivatives of its components. 
+Since $f=(f^1, \ldots, f^k)$ takes values in $\R^k$, instead of taking its total derivative $Df$ as above, we can also think to the derivatives of its components.
 In this case we can use the standard euclidean coordinates\footnote{See Notation~\ref{ntn:coords}.} $r^1, \ldots, r^n$ to isolate the components and then derive them,that is, we would be deriving $r^i \circ f : \R^n \to \R$.
 
 \newthought{Let's take it slow}, and compare all these various derivatives next to each other.
@@ -90,10 +90,10 @@ This will prove extremely convenient for the development of the theory.
   Make it concrete: pick $M=\R$ first and then try with $M=\R^3$, and choose some specific values for $p$ and $p'$.
 \end{exercise}
 
-Germs define an equivalence relation on the set of smooth functions defined on a neighbourhood of a point $p$: $(U, f) \sim_p (V, g)$ if they have the same germ at $p$. Then, a germ $[f]_p$, where $(U, f)$ is one representative for $[f]_p$, is an equivalence class in the quotient space 
+Germs define an equivalence relation on the set of smooth functions defined on a neighbourhood of a point $p$: $(U, f) \sim_p (V, g)$ if they have the same germ at $p$. Then, a germ $[f]_p$, where $(U, f)$ is one representative for $[f]_p$, is an equivalence class in the quotient space
 \begin{equation}
   C_p^\infty(M) := C^\infty(M)/\!\sim_p.
-\end{equation} 
+\end{equation}
 
 \begin{exercise}
   Show that $\sim_p$ defined above is an equivalence relation in $C^\infty(M)$.
@@ -147,8 +147,8 @@ We can now go back to our discussion of euclidean derivations to motivate our de
   In fact, this is not just a linear map, it also satisfies a \emph{derivation} property, in the sense that
   \begin{equation}
     v([f]_x [g]_x) =
-      \eval_x([f]_x)v([g]_x)
-      + \eval_x([g]_x)v([f]_x).
+    \eval_x([f]_x)v([g]_x)
+    + \eval_x([g]_x)v([f]_x).
   \end{equation}
   Which, rewritten in a more familiar form, is just a way to rewrite the \emph{Leibniz rule}:
   \begin{equation}
@@ -170,8 +170,8 @@ Motivated by Example~\ref{ex:euclideanD}, we define a tangent vector as a deriva
   which is also a derivation, i.e.
   \begin{equation}
     v([f]_p [g]_p) =
-      \eval_p([f]_p)v([g]_p)
-      + \eval_p([g]_p)v([f]_p).
+    \eval_p([f]_p)v([g]_p)
+    + \eval_p([g]_p)v([f]_p).
   \end{equation}
 
   Since a tangent vector is a linear map from the vector space $C_p^\infty(M)$ to $\R$, the set of all tangent vectors at a point $p$ is itself a vector space\footnote{Exercise: why is this true?} which we denote $T_p M$ and call \emph{tangent space}.
@@ -246,8 +246,8 @@ Showing that the opposite is also true will require a bit of work.
   \begin{equation}
     g:W\to\R, \quad
     g(q) := \begin{cases}
-      \rho(q)f(q), & q\in V,\\
-      0, & q \in W\setminus V.
+      \rho(q)f(q), & q\in V,             \\
+      0,           & q \in W\setminus V.
     \end{cases}
   \end{equation}
   Since $g|_U = f$, we have $[g]_p = [f]_p$, proving the claim.
@@ -264,7 +264,7 @@ Showing that the opposite is also true will require a bit of work.
   To this end, assume that there exists a different representative $(W, g)$ for $[f]_p$.
   Then, by definition, there exists a neighbourhood $V\subset W$ of $p$ such that $f|_V = g|_V$.
   By linearity, $w_p(f) - w_p(g) = w_p(f-g)$ and, by the first step in the proof, $w_p(f-g) = 0$.
-  
+
   The assignment $w_p\mapsto v$ inverts~\eqref{eq:derivfromtg}, completing the proof.
 \end{proof}
 
@@ -278,8 +278,8 @@ As it turns out, this allows us to give our first example of tangent vector.
   Let $x^i = r^i \circ \varphi$ denote the local coordinates\footnote{See Notation~\ref{ntn:coords}.} of $\varphi$.
   For any $p\in U$, we can define a derivation of $C^\infty(U)$ at $p$ as
   \begin{align}
-    &\frac{\partial}{\partial x^i}\Big|_p : C^\infty(U) \to \R, \\
-    &\frac{\partial}{\partial x^i}\Big|_p (f) := \frac{\partial f}{\partial x^i}(p) := D_i(f\circ\varphi^{-1})(\varphi(p)).
+     & \frac{\partial}{\partial x^i}\Big|_p : C^\infty(U) \to \R,                                                             \\
+     & \frac{\partial}{\partial x^i}\Big|_p (f) := \frac{\partial f}{\partial x^i}(p) := D_i(f\circ\varphi^{-1})(\varphi(p)).
   \end{align}
   From now on, it will get more and more convenient to draw commutative diagrams to see ``how things are moving around'':
   \begin{equation}
@@ -322,7 +322,7 @@ To that end, we need a preliminary result from multivariable analysis.
     h = h(0) + r^i g_i
   \end{equation}
   \marginnote[-1.8em]{$\leftarrow$ This is our first use of Einstein notation, this equation should be read as $h(x) = h(0) + \sum_{i=1}^n r^i(x) g_i(x)$.
-  Using the global euclidean chart, $x^i = r^i(x)$ and $h(x) = h(0) + \sum_{i=1}^n x^i g_i(x)$, which you may recognize as the first iteration of the usual Taylor-MacLaurin formula.}
+    Using the global euclidean chart, $x^i = r^i(x)$ and $h(x) = h(0) + \sum_{i=1}^n x^i g_i(x)$, which you may recognize as the first iteration of the usual Taylor-MacLaurin formula.}
   where $r^i$ are the coordinates introduced in Notation~\ref{ntn:coords}.
 \end{lemma}
 \begin{proof}
@@ -336,8 +336,8 @@ To that end, we need a preliminary result from multivariable analysis.
   \marginnote[-2.5em]{$\leftarrow$ Again, due to Einstein notation, the right hand side should be read as $\sum_{i=1}^n x^i D_i h(t x)$.}
   The fundamental theorem of calculus then implies
   \begin{align}
-    h(x) - h(0) &= (h \circ \gamma_x)(1) - (h \circ \gamma_x)(0) \\
-    &= \int_0^1 \frac{d}{dt}(h \circ \gamma_x)(t)\;dt = x^i \int_0^1 D_i h(tx)\; dt.
+    h(x) - h(0) & = (h \circ \gamma_x)(1) - (h \circ \gamma_x)(0)                                 \\
+                & = \int_0^1 \frac{d}{dt}(h \circ \gamma_x)(t)\;dt = x^i \int_0^1 D_i h(tx)\; dt.
   \end{align}
   \marginnote[-2.3em]{$\leftarrow$ For one last time, due to Einstein notation, the right hand side should be read as $\sum_{i=1}^n x^i \int_0^1 D_i h(t x)\; dt$.}
 
@@ -373,15 +373,15 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
     v(f) = v(f(p)) + v(x^i)g_i(0) + x^i(p) v(g_i\circ\varphi) = v(x^i)  \frac{\partial}{\partial x_i}\Big|_p(f).
   \end{equation}
   The right hand side is obtained observing that $\varphi(p) = 0$, and thus the components $x^i(p) = 0$ are all zero, and applying Corollary~\ref{cor:derzero} to the constant $f(p)$, which implies $v(f(p)) = 0$.
-  
+
   It follows that the set $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ spans $T_p M$.
   We now need to show that its elements are linearly independent.
   Observe that
   \begin{align}
-    \frac{\partial}{\partial x_i}\Big|_p (x^j) &= 
-    \frac{\partial}{\partial x_i}\Big|_p (r^j \circ \varphi)\\
-    &= D_i (r^j \circ \varphi \circ \varphi^{-1}) (\varphi(p))\\
-    &= D_i r^j(\varphi(p)) = \delta^j_i.
+    \frac{\partial}{\partial x_i}\Big|_p (x^j) & =
+    \frac{\partial}{\partial x_i}\Big|_p (r^j \circ \varphi)                                               \\
+                                               & = D_i (r^j \circ \varphi \circ \varphi^{-1}) (\varphi(p)) \\
+                                               & = D_i r^j(\varphi(p)) = \delta^j_i.
   \end{align}
   Thus, if
   \begin{equation}
@@ -394,11 +394,11 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   Suppose $\varphi$ and $\psi$ are two different charts about $p$, with corresponding coordinates $x^i := r^i \circ \varphi$ and $y^i := r^i \circ \psi$.
   Taking $v = \frac{\partial}{\partial y^j}\Big|_p$ in the previous proposition implies that
   \begin{equation}
-    \frac{\partial}{\partial y^j}\Big|_p = 
+    \frac{\partial}{\partial y^j}\Big|_p =
     \frac{\partial}{\partial y^j}\Big|_p (x^i) \frac{\partial}{\partial x^i}\Big|_p.
   \end{equation}
-  \marginnote[-3em]{If we start getting used to thinking of these vectors as actual derivatives and hide the dependence on $p$, then the equation on the left can be rewritten as $\frac{\partial}{\partial y^j} = 
-  \frac{\partial x^i}{\partial y^j} \frac{\partial}{\partial x^i}$.}
+  \marginnote[-3em]{If we start getting used to thinking of these vectors as actual derivatives and hide the dependence on $p$, then the equation on the left can be rewritten as $\frac{\partial}{\partial y^j} =
+      \frac{\partial x^i}{\partial y^j} \frac{\partial}{\partial x^i}$.}
   %
   Expanding the definitions, we get
   \begin{equation}
@@ -418,9 +418,9 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   Applying the equations in Remark~\ref{rmk:chg_coords}, we get
   \begin{align}
     \frac{\partial}{\partial \rho}\Big|_p
-    &= \cos(\pi)\frac{\partial}{\partial x}\Big|_p + \sin(\pi)\frac{\partial}{\partial y}\Big|_p = - \frac{\partial}{\partial x}\Big|_p \\
+     & = \cos(\pi)\frac{\partial}{\partial x}\Big|_p + \sin(\pi)\frac{\partial}{\partial y}\Big|_p = - \frac{\partial}{\partial x}\Big|_p      \\
     \frac{\partial}{\partial \theta}\Big|_p
-    &= -3\sin(\pi)\frac{\partial}{\partial x}\Big|_p + 3\cos(\pi)\frac{\partial}{\partial y}\Big|_p = -3 \frac{\partial}{\partial y}\Big|_p,
+     & = -3\sin(\pi)\frac{\partial}{\partial x}\Big|_p + 3\cos(\pi)\frac{\partial}{\partial y}\Big|_p = -3 \frac{\partial}{\partial y}\Big|_p,
   \end{align}
   and thus, the vector $v$ in standard coordinates is represented by
   \begin{equation}
@@ -431,15 +431,15 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 \begin{exercise}
   Let $(x,y)$ denote the standard coordinates on $\R^2$.
   \begin{enumerate}
-    \item Show that $(\widetilde{x}, \widetilde{y})$, where 
-    \begin{equation}
-      \widetilde{x} = x
-      \quad\mbox{and}\quad
-      \widetilde{y} = y + x^3,
-    \end{equation}
-    are global smooth coordinates in $\R^2$.
+    \item Show that $(\widetilde{x}, \widetilde{y})$, where
+          \begin{equation}
+            \widetilde{x} = x
+            \quad\mbox{and}\quad
+            \widetilde{y} = y + x^3,
+          \end{equation}
+          are global smooth coordinates in $\R^2$.
     \item Let $p=(1,0)\in\R^2$ in standard coordinates.
-    Show that $\frac{\partial}{\partial x}\Big|_p \neq \frac{\partial}{\partial \widetilde x}\Big|_p$ even though the respective coordinate functions are identically equal.
+          Show that $\frac{\partial}{\partial x}\Big|_p \neq \frac{\partial}{\partial \widetilde x}\Big|_p$ even though the respective coordinate functions are identically equal.
   \end{enumerate}
   This shows that the coordinate vectors in the tangent space depend on the whole coordinate system and not just on the single coordinate function they are associated to.
 \end{exercise}
@@ -454,21 +454,21 @@ Soon, we will see yet another definition.
 \end{exercise}
 
 \begin{exercise}[Tangent vectors as equivalence classes of charts and vectors]
-Let $M$ be a smooth $m$-manifold with maximal smooth atlas $\cA$.
-For $p\in M$, let $\cA_p \subset \cA$ denote the set of charts $\varphi\in\cA$ such that $p$ lies in the domain of $\varphi$.
-\begin{enumerate}
-  \item Show that
-  \begin{equation}
-    (v,\varphi) \sim (w, \psi)
-    \quad\Longleftrightarrow\quad
-    D(\psi \circ \varphi^{-1})(\varphi(p))v = w.
-  \end{equation}
-  defines an equivalence relation on $\R^m\times\cA_p$.
-  \item Let $\cT_p$ denote the set of equivalence classes $[(v,\varphi)]\in \R^m\times\cA_p/\!\sim$. For $\varphi\in\cA_p$, show that the map $T_\varphi:\R^m\to\cT_p$ given by $T_\varphi v := [(v,\varphi)]$ is a bijection.
-  Deduce\footnote{Hint: use the previous exercise!} that $\cT_p$ admits a unique vector space structure such that each $T_\varphi$ is a linear isomorphism.
-  \item Let $\varphi$ be a chart defined on a neighbourhood of $p$ with local coordinates $x^i = r^i \circ \varphi$ and let $\hat T_\varphi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in~\eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\varphi e_i = \frac{\partial}{\partial x^i}\big|_p$.
-  Show that there exists a linear isomorphism $\mathcal{S}_p:\cT_p\to T_pM$ which in addition satisfies $\mathcal{S}_p \circ T_\varphi = \hat T_\varphi$ for every chart $\varphi$ about $p$.
-\end{enumerate}
+  Let $M$ be a smooth $m$-manifold with maximal smooth atlas $\cA$.
+  For $p\in M$, let $\cA_p \subset \cA$ denote the set of charts $\varphi\in\cA$ such that $p$ lies in the domain of $\varphi$.
+  \begin{enumerate}
+    \item Show that
+          \begin{equation}
+            (v,\varphi) \sim (w, \psi)
+            \quad\Longleftrightarrow\quad
+            D(\psi \circ \varphi^{-1})(\varphi(p))v = w.
+          \end{equation}
+          defines an equivalence relation on $\R^m\times\cA_p$.
+    \item Let $\cT_p$ denote the set of equivalence classes $[(v,\varphi)]\in \R^m\times\cA_p/\!\sim$. For $\varphi\in\cA_p$, show that the map $T_\varphi:\R^m\to\cT_p$ given by $T_\varphi v := [(v,\varphi)]$ is a bijection.
+          Deduce\footnote{Hint: use the previous exercise!} that $\cT_p$ admits a unique vector space structure such that each $T_\varphi$ is a linear isomorphism.
+    \item Let $\varphi$ be a chart defined on a neighbourhood of $p$ with local coordinates $x^i = r^i \circ \varphi$ and let $\hat T_\varphi :\R^m \to T_pM$ denote\footnote{As it turns out, this is the same as $T_x$ defined in~\eqref{def:lin_iso_Tp}, however in this exercise we use a different notation to emphasize the dependence on the chart.} the linear isomorphism defined by $\hat T_\varphi e_i = \frac{\partial}{\partial x^i}\big|_p$.
+          Show that there exists a linear isomorphism $\mathcal{S}_p:\cT_p\to T_pM$ which in addition satisfies $\mathcal{S}_p \circ T_\varphi = \hat T_\varphi$ for every chart $\varphi$ about $p$.
+  \end{enumerate}
 \end{exercise}
 
 \section{The differential of a smooth map}\label{sec:diffsmooth}
@@ -482,10 +482,10 @@ It should not come a surprise that with the constructions developed so far not o
 \begin{definition}\label{def:differentialMap}
   Let $F: M \to N$ be a smooth map between the smooth manifolds $M$ and $N$, and let $p\in M$.
   The \emph{differential $d F_p$ of $F$ at $p$} is the map\footnote{In the differential geometry literature, the differential has many names: you can find it called \emph{tangent map}, \emph{total derivative} or \emph{derivative} of $F$.
-  Since it ``pushes'' tangent vectors forward from the domain manifold to the codomain, it is also called the \emph{pushforward}. If that was not enough, different authors use different notations for it: besides $dF_p(v)$, you can find $F_* v_p$, $F'(p)$, $T_pF$, $DF(p)[v]$ or variations thereof.}
+    Since it ``pushes'' tangent vectors forward from the domain manifold to the codomain, it is also called the \emph{pushforward}. If that was not enough, different authors use different notations for it: besides $dF_p(v)$, you can find $F_* v_p$, $F'(p)$, $T_pF$, $DF(p)[v]$ or variations thereof.}
   \begin{equation}
     d F_p : T_p M \to T_{F(p)} N, \qquad d F_p (v) (f) := v(f\circ F), \quad \forall f\in C^\infty(N).
-  \end{equation}  
+  \end{equation}
 \end{definition}
 
 Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F(p)$ acting on functions in $C^\infty(N)$ (why?) and, as such, is also a tangent vector in $T_{F(p)}N$.
@@ -510,9 +510,9 @@ Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F
   Since $dF_p : T_p M \to T_{F(p)}N$ and $dG_{F(p)}: T_{F(p)}N \to T_{G(F(p))}P$, the map $d(G\circ F)_p: T_p M \to T_{G(F(p))}P$ has the right domain and codomain.
   Take now $v\in T_p M$ and $f\in C^\infty(P)$. We get
   \begin{align}
-    d(G\circ F)_p(v)(f) &= v(f\circ G \circ F)
-    = dF_p (v)(f\circ G) \\
-    &\stackrel{(\bigstar)}{=} dG_{F(p)}(dF_p (v))(f)
+    d(G\circ F)_p(v)(f) & = v(f\circ G \circ F)
+    = dF_p (v)(f\circ G)                                                  \\
+                        & \stackrel{(\bigstar)}{=} dG_{F(p)}(dF_p (v))(f)
     = dG_{F(p)} \circ dF_p (v)(f),
   \end{align}
   where in $(\bigstar)$ we used the fact that $dF_p (v)\in T_{F(p)}N$.
@@ -537,22 +537,22 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
   The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$. For any $j=1,\ldots,m$, Remark~\ref{rmk:chg_coords} implies
   \begin{align}
     dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right)
-    &= %\sum_{i=1}^n 
-      dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right) (y^i) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
-    &= %\sum_{i=1}^n 
-      \frac{\partial}{\partial x^j}\Big|_p (y^i \circ F) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
-    &=%\sum_{i=1}^n 
-      D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
+     & =                                                                                                   %\sum_{i=1}^n 
+    dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right) (y^i) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
+     & =                                                                                                   %\sum_{i=1}^n 
+    \frac{\partial}{\partial x^j}\Big|_p (y^i \circ F) \frac{\partial}{\partial y^i}\Big|_{F(p)}           \\
+     & =                                                                                                   %\sum_{i=1}^n 
+    D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
   \end{align}
 \end{proof}
 
 \begin{exercise}
-  Show that the matrix of $d F_p$ in terms of the coordinate bases is 
+  Show that the matrix of $d F_p$ in terms of the coordinate bases is
   \begin{equation}
     \begin{pmatrix}
-      \frac{\partial F^1}{\partial x^1} (p) & \cdot & \frac{\partial F^1}{\partial x^n} (p) \\
-      \vdots & \ddots & \vdots \\
-      \frac{\partial F^m}{\partial x^1} (p) & \cdot & \frac{\partial F^m}{\partial x^n} (p)
+      \frac{\partial F^1}{\partial x^1} (p) & \cdot  & \frac{\partial F^1}{\partial x^n} (p) \\
+      \vdots                                & \ddots & \vdots                                \\
+      \frac{\partial F^m}{\partial x^1} (p) & \cdot  & \frac{\partial F^m}{\partial x^n} (p)
     \end{pmatrix}
   \end{equation}
   without using the Proposition above. Here $\frac{\partial F^i}{\partial x^j} (p) = \frac{\partial}{\partial x^j}\big|_p (F^i)$, where $F^i$ is the $i$th component of $F$ with respect to the chart with coordinates $y^j$.\\
@@ -566,8 +566,8 @@ Then the coordinates $(x^1,\ldots,x^m)$ are the standard euclidean coordinates f
 Let $f:U\subset\R^m\to\R^n$ be a smooth function and define the linear isomorphisms
 \begin{equation}\label{def:lin_iso_Tp}
   \begin{split}
-  &T_x : \R^m \to T_x\R^m,\quad T_x e_i = \frac{\partial}{\partial x^i}\Big|_x\\
-  &T_y : \R^n \to T_y\R^n,\quad T_y e_i' = \frac{\partial}{\partial y^i}\Big|_y
+    &T_x : \R^m \to T_x\R^m,\quad T_x e_i = \frac{\partial}{\partial x^i}\Big|_x\\
+    &T_y : \R^n \to T_y\R^n,\quad T_y e_i' = \frac{\partial}{\partial y^i}\Big|_y
   \end{split},
 \end{equation}
 where $\{e_1,\ldots,e_m\}$ denotes the standard basis of $\R^m$ and $\{e_1',\ldots,e_n'\}$ denotes the standard basis of $\R^n$.
@@ -586,12 +586,12 @@ In fact we know more, since Proposition~\ref{prop:DiffCoords} tells us that the 
 
 More generally, the same kind of reasoning shows the following fact. For any smooth map $F:M^m \to N^n$ between smooth manifolds, if $\varphi$ is a chart about $x\in M$ with coordinates $(x^i)$ and $\psi$ is a chart about $y=F(x)\in N$ with coordinates $(y^i)$, the following diagram commutes:
 \marginnote{Recall that the following commutes: \begin{equation}
-  \begin{tikzcd}[row sep=huge, column sep=huge, ampersand replacement=\&]
-    M \arrow[r, "F"] \arrow[d, "\varphi"] \& N \arrow[d, "\psi"]\\
-    \R^m \arrow[r, "\psi \circ F \circ \varphi^{-1}"]
-    \& \R^n
-  \end{tikzcd}.
-\end{equation}}
+    \begin{tikzcd}[row sep=huge, column sep=huge, ampersand replacement=\&]
+      M \arrow[r, "F"] \arrow[d, "\varphi"] \& N \arrow[d, "\psi"]\\
+      \R^m \arrow[r, "\psi \circ F \circ \varphi^{-1}"]
+      \& \R^n
+    \end{tikzcd}.
+  \end{equation}}
 \begin{equation}
   \begin{tikzcd}[row sep=huge, column sep=huge]
     \R^m \arrow[r, "D(\psi \circ F \circ \varphi^{-1})(\varphi(x))"] \arrow[d, "T_x"]
@@ -609,19 +609,19 @@ Fortunately for us, the following exercise shows that, at any given point, the t
   Let $V$ and $W$ be finite-dimensional vector spaces, endowed with their standard smooth structure (see Exercise~\ref{exe:subsetsmanifolds}).
   \begin{enumerate}
     \item Fix $a\in V$. For any vector $v\in V$ define a map $\cT_a(v) : C^\infty(V) \to \R$ by
-    \begin{equation}
-      \cT_a(v) f = \frac{d}{dt}\Big|_{t=0} f(a + tv).
-    \end{equation}
-    Show that the map $v\mapsto \cT_a(v) : V \to T_aV$ is an isomorphism of vector spaces.
+          \begin{equation}
+            \cT_a(v) f = \frac{d}{dt}\Big|_{t=0} f(a + tv).
+          \end{equation}
+          Show that the map $v\mapsto \cT_a(v) : V \to T_aV$ is an isomorphism of vector spaces.
     \item Let $L:V\to W$ be a linear map. Show for any $a\in V$ that the following diagram commutes:
-    \begin{equation}
-    \begin{tikzcd}[row sep=huge, column sep=huge]
-      V \arrow[r, "L"] \arrow[d, "\cT_a"]
-      & W \arrow[d, "\cT_{La}"] \\
-      T_aV \arrow[r, "dL_a"]
-      & T_{La}W
-    \end{tikzcd}.
-  \end{equation}
+          \begin{equation}
+            \begin{tikzcd}[row sep=huge, column sep=huge]
+              V \arrow[r, "L"] \arrow[d, "\cT_a"]
+              & W \arrow[d, "\cT_{La}"] \\
+              T_aV \arrow[r, "dL_a"]
+              & T_{La}W
+            \end{tikzcd}.
+          \end{equation}
   \end{enumerate}
 \end{exercise}
 
@@ -633,8 +633,8 @@ For example, since $GL_n(\R)$ is an open submanifold of the vector space $\mathr
   Let $M_1, \ldots, M_k$ be smooth manifolds (without boundary\footnote{The statement is true also if one (only one!) of the $M_i$ spaces is a smooth manifold with boundary. If there is more than one manifold with boundary, the product space will have ``corners'' that cannot be mapped to half spaces and thus is not a smooth manifold, as a simple example you can consider the closed square $[0,1]\times [0,1]$.}), and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
   For any point $p=(p_1,\ldots,p_k)\in M_1\times\cdots\times M_k$, the map
   \begin{align}
-    \sigma &: T_p(M_1\times\cdots\times M_k) \to T_p M_1\times\cdots\times T_p M_k\\
-    \sigma &: v \mapsto \left(d(\pi_1)_p(v), \ldots, d(\pi_k)_p(v)\right)
+    \sigma & : T_p(M_1\times\cdots\times M_k) \to T_p M_1\times\cdots\times T_p M_k \\
+    \sigma & : v \mapsto \left(d(\pi_1)_p(v), \ldots, d(\pi_k)_p(v)\right)
   \end{align}
   is an isomorphism.
 \end{exercise}
@@ -663,20 +663,20 @@ In this section we will further explore these thoughts.
   \marginnote{Conventionally, $b=-a=\epsilon>0$ (the reason will be clear in a second) and we denote the coordinate on $\R$ by $t$ and the derivative of $\gamma$ at a point $t$ by $\gamma'(t)$. We say that a curve \emph{starts at $p\in M$} if $0\in I$ and $\gamma(0) = p$.}
 \end{definition}
 
-Fix $t\in(a,b)$. 
+Fix $t\in(a,b)$.
 A priori we have two different ways to define the \emph{velocity vector of $\gamma$ at a time $t$}, that is, an element $\gamma'(t) \in T_{\gamma(t)}M$:
 \begin{enumerate}[(i)]
   \item We can define a derivation on $C^\infty(M)$ at $\gamma(t)$ by setting
-  \begin{equation}\label{eq:tg_curve_der}
-    \gamma'(t) (f) := (f\circ\gamma)'(t), \quad f\in C^\infty(M).
-  \end{equation}
-  \begin{exercise}
-    Show that this is indeed a derivation on $C^\infty(M)$.
-  \end{exercise}
+        \begin{equation}\label{eq:tg_curve_der}
+          \gamma'(t) (f) := (f\circ\gamma)'(t), \quad f\in C^\infty(M).
+        \end{equation}
+        \begin{exercise}
+          Show that this is indeed a derivation on $C^\infty(M)$.
+        \end{exercise}
   \item If we think of $\gamma$ as a smooth map between manifolds, we can define the tangent vector via the differential $d\gamma_t$:
-  \begin{equation}\label{eq:tg_curve_diff}
-    \gamma'(t):= d\gamma_t\left(\frac{\partial}{\partial t}\Big|_t\right) \in T_{\gamma(t)}M.
-  \end{equation}
+        \begin{equation}\label{eq:tg_curve_diff}
+          \gamma'(t):= d\gamma_t\left(\frac{\partial}{\partial t}\Big|_t\right) \in T_{\gamma(t)}M.
+        \end{equation}
 \end{enumerate}
 
 Do these definitions agree?
@@ -684,7 +684,7 @@ One way to check is to pick a chart $\varphi: U \to \varphi(U)$ in a neighbourho
 Let's focus on~\eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\circ\gamma)'(t) = (\gamma^i)'(t)$, therefore by Proposition~\ref{prop:basis_TpM} we get
 \begin{equation}\label{eq:tg_curve_vec}
   \gamma'(t) = %\sum_{i=1}^m
-    \gamma'(t)(x^i) \frac{\partial}{\partial x^i}\Big|_{\gamma(t)}.
+  \gamma'(t)(x^i) \frac{\partial}{\partial x^i}\Big|_{\gamma(t)}.
 \end{equation}
 \begin{exercise}
   Show that applying Proposition~\ref{prop:DiffCoords} to~\eqref{eq:tg_curve_diff} leads to the same formula as~\eqref{eq:tg_curve_vec}.
@@ -759,15 +759,15 @@ To conclude this part, the next proposition shows that velocity vectors behave w
   Applying the chain rule we obtain:
   \begin{align}
     d F_{\gamma(t)} (\gamma'(t))
-    &= d F_{\gamma(t)} \circ d\gamma_t\left(\frac{\partial}{\partial t}\Big|_t\right) \\
-    &= d (F\circ\gamma)_t \left(\frac{\partial}{\partial t}\Big|_t\right) \\
-    &= (F\circ\gamma)'(t).
+     & = d F_{\gamma(t)} \circ d\gamma_t\left(\frac{\partial}{\partial t}\Big|_t\right) \\
+     & = d (F\circ\gamma)_t \left(\frac{\partial}{\partial t}\Big|_t\right)             \\
+     & = (F\circ\gamma)'(t).
   \end{align}
 \end{proof}
 
 \begin{exercise}
   Give an alternative proof of Proposition~\ref{prop:curves_deriv} using~\eqref{eq:tg_curve_der} as definition for $\gamma'(t)$.\\
- \textit{\small Hint: use the definitions to rewrite the formula in different ways.}
+  \textit{\small Hint: use the definitions to rewrite the formula in different ways.}
 \end{exercise}
 
 \section{The tangent bundle}\label{sec:tangentbundle}
@@ -781,8 +781,8 @@ Instead of working separately with the various tangent spaces, we can ``glue'' t
   The \emph{tangent bundle} $TM$ of $M$ is the disjoint union of the tangent spaces
   \begin{equation}
     TM := \bigsqcup_{p\in M}\left(\{p\}\times T_pM\right)
-       = \{(p,v) \;\mid\; p\in M,\, v\in T_pM\}.
-  \end{equation}  
+    = \{(p,v) \;\mid\; p\in M,\, v\in T_pM\}.
+  \end{equation}
 \end{definition}
 
 Elements in $TM$ are pairs\footnote{We will often abuse notation and identify $T_pM$ with with its image under the canonical injection $v\mapsto(p,v)$ and use interchangeably any of the notations $v$, $v_p$ or $(p,v)$ for a vector in $T_pM$ (depending on how much emphasis we need to put on the base point).} $(p,v)$ of a \emph{base point} $p\in M$ and a \emph{tangent vector} $v\in T_pM$.
@@ -810,8 +810,8 @@ As it turns out, this is a particular instance of a more general fact.
   Given a chart $(U,\varphi)$ about $p\in M$, the preimage $\pi^{-1}(U) \subset TM$ is the set of all tangent vectors to $M$ at points of $U$.
   If $(x^i)$ denotes the coordinate functions of $\varphi$, we can define a map $\widetilde\varphi : \pi^{-1}(U) \to \varphi(U)\times\R^n \subset \R^{2n}$ by
   \marginnote{Keep in mind that \begin{equation}\nonumber
-    \pi^{-1}(U)= TU = \bigsqcup T_p U \subset \bigsqcup T_p M=TM.
-  \end{equation}}
+      \pi^{-1}(U)= TU = \bigsqcup T_p U \subset \bigsqcup T_p M=TM.
+    \end{equation}}
   \begin{align}\label{eq:nat_coords}
     \widetilde\varphi\left(v^i \frac{\partial}{\partial x^i}\Big|_p\right) := \left(x^1(p), \ldots, x^n(p), v^1, \ldots, v^n\right).
   \end{align}
@@ -823,27 +823,27 @@ As it turns out, this is a particular instance of a more general fact.
   By construction\footnote{They are both homeomorphisms.}, both $\widetilde\varphi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \varphi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
   Moreover, we can take advantage of Remark~\ref{rmk:chg_coords} to write explicitly the transition map  $\widetilde\psi\circ\widetilde\varphi^{-1}: \varphi(U\cap V)\times\R^n \to \psi(U\cap V)\times\R^n$ as
   \begin{align}
-    \widetilde\psi\circ&\widetilde\varphi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) \\
-    &=\left(y^1(p),\ldots, y^n(p), \frac{\partial y^1}{\partial x^j}(p) v^j, \ldots, \frac{\partial y^n}{\partial x^j}(p) v^j\right),
+    \widetilde\psi\circ & \widetilde\varphi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right)                                                            \\
+                        & =\left(y^1(p),\ldots, y^n(p), \frac{\partial y^1}{\partial x^j}(p) v^j, \ldots, \frac{\partial y^n}{\partial x^j}(p) v^j\right),
   \end{align}
   where $p = \phi^{-1}(x)$, which is clearly smooth.
-  
+
   \begin{figure*}[htp]
     \includegraphics{2_7-tg_bdl_coord.pdf}
     \caption{Coordinates for the tangent bundle}
   \end{figure*}
-  
+
   \newthought{Step3: $TM$ is a manifold.}
   With the procedure delineated above, a countable smooth atlas $\{(U_i, \varphi_i)\}$ of $M$ induces a countable atlas $\{(\pi^{-1}(U_i), \widetilde\varphi_i)\}$ of $TM$.
   First of all, $\{(\pi^{-1}(U_i)\}$ provides a countable covering of $TM$.
   We need to show that the topology induced by those charts is Hausdorff and second countable.
-  
+
   Let $(p_1, v_1), (p_2, v_2) \in TM$ be different points: either $p_1\neq p_2$, or $p_1 = p_2$ and $v_1 \neq v_2$.
   \begin{itemize}
     \item In the first case, there are disjoint open sets $V_1, V_2 \subset U_i$ (for some $i$) containing respectively $p_1$ and $p_2$.
-    Then $\widetilde\varphi_i^{-1}(\varphi_i(V_1)\times\R^n)$ and $\widetilde\varphi_i^{-1}(\varphi_i(V_2)\times\R^n)$ are disjoint open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$.
+          Then $\widetilde\varphi_i^{-1}(\varphi_i(V_1)\times\R^n)$ and $\widetilde\varphi_i^{-1}(\varphi_i(V_2)\times\R^n)$ are disjoint open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$.
     \item In the second case, $p=p_1=p_2$ but there are disjoint open sets $V_1,V_2\subset \R^n$ containing $v_1$ and $v_2$ respectively;
-    again, the preimages $\widetilde\varphi_i^{-1}(\varphi_i(U_i)\times V_1)$ and $\widetilde\varphi_i^{-1}(\varphi_i(U_2)\times V_2)$ (for some $i$ such that $p\in U_i$) are disjoint open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$.
+          again, the preimages $\widetilde\varphi_i^{-1}(\varphi_i(U_i)\times V_1)$ and $\widetilde\varphi_i^{-1}(\varphi_i(U_2)\times V_2)$ (for some $i$ such that $p\in U_i$) are disjoint open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$.
   \end{itemize}
 
   The countable basis $\{U_j\}$ is a countable basis for the topology of $M$ (which is second countable), taking a countable basis $\{W_k\}$ for the topology of $\R^n$, we can define a countable basis for $TM$ as $\{\widetilde\varphi^{-1}((U_i\cap U_j)\times W_k)\}$.
@@ -880,10 +880,10 @@ What we have seen here is our first example of vector bundle, which is just a wa
   \begin{enumerate}[(i)]
     \item the \emph{fibre over $p$}, $E_p := \pi^{-1}(p)$, has the structure of vector space of dimension $r$;
     \item there is a neighbourhood $U\subset M$ of $p$ and a diffeomorphism $\varphi: \pi^{-1}(U) \to U \times \R^r$ such that
-    \begin{enumerate}
-      \item $\pi_1 \circ \varphi = \pi$ where $\pi_1: U\times\R^r\to U$ is the projection on the first factor,
-      \item for all $q\in U$, $\varphi\big|_{E_q} : E_q \to \{q\}\times \R^r$ is an isomorphism of vector spaces.
-    \end{enumerate}
+          \begin{enumerate}
+            \item $\pi_1 \circ \varphi = \pi$ where $\pi_1: U\times\R^r\to U$ is the projection on the first factor,
+            \item for all $q\in U$, $\varphi\big|_{E_q} : E_q \to \{q\}\times \R^r$ is an isomorphism of vector spaces.
+          \end{enumerate}
   \end{enumerate}
 
   The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\varphi$ is called \emph{local trivialisation}.
@@ -894,12 +894,12 @@ What we have seen here is our first example of vector bundle, which is just a wa
 \begin{example}
   \begin{itemize}
     \item A simple example of vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ itself with the projection on the first component $\pi_1: E\to M$.
-    In this case the bundle is clearly trivialisable.
+          In this case the bundle is clearly trivialisable.
     \item The tangent bundle $TM$ with its projection to the base $\pi:TM\to M$ is a vector bundle.
-    In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$. 
-    If the tangent bundle of a manifold is trivalisable, then its base manifold is said to be \emph{parallelisable}.
+          In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$.
+          If the tangent bundle of a manifold is trivalisable, then its base manifold is said to be \emph{parallelisable}.
     \item If $\pi_i: E_i\to M_i$, $i=1,2$, are vector bundles, then $\pi = (\pi_1, \pi_2): E_1\times E_2 \to M_1\times M_2$ is another vector bundle whose fibres are the product of the fibres of the two original bundles.
-    A particular example of this is the tangent bundle $T(M_1\times M_2)$, which is diffeomorphic to $TM_1 \times TM_2$.
+          A particular example of this is the tangent bundle $T(M_1\times M_2)$, which is diffeomorphic to $TM_1 \times TM_2$.
     \item Other examples will appear throughout the course.
   \end{itemize}
 \end{example}
@@ -938,7 +938,7 @@ Since an isomorphism preserves all the structure of a vector bundle, isomorphic 
 
 \begin{definition}
   A \emph{section} of a vector bundle $\pi:E \to M$ is a smooth map $S:M \to E$ such that $\pi\circ S = \id_M$. We denote the set of all sections of $E$ by $\Gamma(E)$.
-  
+
   If, in the definition, $M$ is replaced by $U\subset M$, the section is called \emph{local section}. The set of local sections on $U\subset M$ is denoted $\Gamma(E|_U)$.
 \end{definition}
 
@@ -978,9 +978,9 @@ In the spirit of what we have seen about the previous example, we have the follo
   If $\{S_i\}$ is a smooth local frame for $E$ over an open subset $U\subseteq M$, then $X$ is smooth on $U$ if and only if its component functions with respect to $\{S_i\}$ are smooth.
 \end{proposition}
 \begin{proof}
-   Let $\varphi:\pi^{-1}(U) \to U\times\R^k$ be the local trivialization associated with the local frame $\{S_i\}$.
-   Since $\varphi$ is a diffeomorphism, $X$ is smooth on $U$ if and only if $\varphi\circ X$ is smooth on $U$.
-   If $\{X^i\}$ denotes the component function of $X$ with respect to $S_i$, then $\varphi\circ X (p) = (p, (X^1(p), \ldots, X^k(p)))$, so $\varphi\circ X$ is smooth if and only if the component functions $\{X^i\}$ are smooth.
+  Let $\varphi:\pi^{-1}(U) \to U\times\R^k$ be the local trivialization associated with the local frame $\{S_i\}$.
+  Since $\varphi$ is a diffeomorphism, $X$ is smooth on $U$ if and only if $\varphi\circ X$ is smooth on $U$.
+  If $\{X^i\}$ denotes the component function of $X$ with respect to $S_i$, then $\varphi\circ X (p) = (p, (X^1(p), \ldots, X^k(p)))$, so $\varphi\circ X$ is smooth if and only if the component functions $\{X^i\}$ are smooth.
 \end{proof}
 
 That is, given a local frame $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ of a vector bundle $\pi: E \to M$ we can express any section $X\in\Gamma(E)$ as a linear combination of elements of the frame:
@@ -1030,45 +1030,45 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
 \begin{example}
   \begin{enumerate}
     \item The prototype of an immersion is the inclusion of $\R^m$ in a higher-dimensional $\R^n$:
-    \begin{align}
-      i &: \R^m \hookrightarrow \R^n,\\
-      i &: \left(x^1, \ldots, x^m\right) \mapsto \left(x^1, \ldots, x^m, \LaTeXunderbrace{0, \ldots, 0}_{n-m}\right).
-    \end{align}
-    
-    Indeed, the $n\times m$ matrix
-    \begin{equation}
-      di_x = Di(x)
-       = \begin{pmatrix}
-        1 & 0 & \cdots & 0 \\
-        0 & 1 & \cdots & 0 \\
-        \vdots & & \ddots & \vdots \\
-        0 & \cdots & \cdots & 1 \\
-        0 & \cdots & \cdots & 0 \\
-        \vdots & & & \vdots \\
-        0 & \cdots & \cdots & 0
-       \end{pmatrix}
-    \end{equation}
-    has full rank (equal to $m$) and is therefore injective.
-    Moreover, the map $i$ is injective and continuously invertible on its range, so it is also an embedding.
+          \begin{align}
+            i & : \R^m \hookrightarrow \R^n,                                                                                 \\
+            i & : \left(x^1, \ldots, x^m\right) \mapsto \left(x^1, \ldots, x^m, \LaTeXunderbrace{0, \ldots, 0}_{n-m}\right).
+          \end{align}
+
+          Indeed, the $n\times m$ matrix
+          \begin{equation}
+            di_x = Di(x)
+            = \begin{pmatrix}
+              1      & 0      & \cdots & 0      \\
+              0      & 1      & \cdots & 0      \\
+              \vdots &        & \ddots & \vdots \\
+              0      & \cdots & \cdots & 1      \\
+              0      & \cdots & \cdots & 0      \\
+              \vdots &        &        & \vdots \\
+              0      & \cdots & \cdots & 0
+            \end{pmatrix}
+          \end{equation}
+          has full rank (equal to $m$) and is therefore injective.
+          Moreover, the map $i$ is injective and continuously invertible on its range, so it is also an embedding.
 
     \item The prototype for a submersion is the projection of $\R^m$ onto a lower-dimensional $\R^n$: $\pi\left(x^1,\ldots,x^n,x^{n+1},\ldots,x^m\right) = \left(x^1,\ldots,x^n\right)$.
-    
-    Indeed, the $n\times m$ matrix
-    \begin{equation}
-      d\pi_x = D\pi(x)
-       = \begin{pmatrix}
-        1 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
-        0 & 1 & \cdots & 0 & \vdots & & \vdots \\
-        \vdots & & \ddots & \vdots & \vdots & & \vdots \\
-        0 & \cdots & \cdots & 1 & 0 & \cdots & 0
-       \end{pmatrix}
-    \end{equation}
-    has full rank (equal to $n$) and is therefore surjective.
-    Hence, $i$ is a submersion.
+
+          Indeed, the $n\times m$ matrix
+          \begin{equation}
+            d\pi_x = D\pi(x)
+            = \begin{pmatrix}
+              1      & 0      & \cdots & 0      & 0      & \cdots & 0      \\
+              0      & 1      & \cdots & 0      & \vdots &        & \vdots \\
+              \vdots &        & \ddots & \vdots & \vdots &        & \vdots \\
+              0      & \cdots & \cdots & 1      & 0      & \cdots & 0
+            \end{pmatrix}
+          \end{equation}
+          has full rank (equal to $n$) and is therefore surjective.
+          Hence, $i$ is a submersion.
 
     \item Let $m=1$, $n > 1$ and $\gamma:\R\to\R^n$ a smooth curve.
-    The map $\gamma$ is an immersion if and only if its velocity vector satisfies $\gamma'(t)\neq0$ for all $t\in\R$.
-    If the curve intersects itself, e.g $f(t_1) = f(t_2)$ for some $t_1\neq t_2$, then $f$ is not an embedding.
+          The map $\gamma$ is an immersion if and only if its velocity vector satisfies $\gamma'(t)\neq0$ for all $t\in\R$.
+          If the curve intersects itself, e.g $f(t_1) = f(t_2)$ for some $t_1\neq t_2$, then $f$ is not an embedding.
   \end{enumerate}
 \end{example}
 
@@ -1086,8 +1086,8 @@ With differentials of smooth functions at hand, we are ready to discuss submanif
 This definition already hints to the fact that smooth maps are going to be usefulin providing ways to nicely include a manifold into the another and in giving new ways to construct manifolds in the first place.
 In the rest of this chapter we will try to give an answer to the following questions:
 \begin{itemize}
-\item if $F$ is an immersion, what can we say about its image $F(M)$ as a subset of $N$?
-\item if $F$ is a submersion, what can we say about its levelsets $f^{-1}(q) \subset M$?
+  \item if $F$ is an immersion, what can we say about its image $F(M)$ as a subset of $N$?
+  \item if $F$ is a submersion, what can we say about its levelsets $f^{-1}(q) \subset M$?
 \end{itemize}
 And what can we say about the corresponding tangent spaces?
 
@@ -1143,15 +1143,15 @@ We will state them without going into the details of the proofs.
   Then for any $p\in M$, there exists a neighbourhood $U$ of $p$ and a chart $(V,\psi)$ about $F(p)\in N$ such that
   \begin{enumerate}[(i)]
     \item If $y^i = r^i\circ \psi$ are the local coordinates of $\psi$ then
-    \begin{equation}\label{eq:slice_chart}
-      F(U)\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\};
-    \end{equation}
+          \begin{equation}\label{eq:slice_chart}
+            F(U)\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\};
+          \end{equation}
     \item $F\big|_U$ is an embedding.
   \end{enumerate}
- \end{proposition}
+\end{proposition}
 
 If $F$ is an embedding, and this $M$ is an embedded submanifold, then the set $F(U)$ above can be written as $F(U) = F(M)\cap W$ for some open set $W\subset N$.
-By replacing $V$ in~\eqref{eq:slice_chart} with $V\cap W$, one gets 
+By replacing $V$ in~\eqref{eq:slice_chart} with $V\cap W$, one gets
 \begin{equation}
   F(M)\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\}.
 \end{equation}
@@ -1204,7 +1204,7 @@ What if it is larger?
 \begin{marginfigure}
   \includegraphics{2_8-crit_pts.pdf}
   \caption{Beware of the subtleties here. The map $F=\pi_x\circ i$ for the inclusion $i:\bT^2\hookrightarrow\R^3$ and the projection $\pi_x(x,y,z)=x$.
-  So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if the image of $T_p\bT^2$ by $d i_p: T_p\bT^2\hookrightarrow T_p\R^3$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
+    So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if the image of $T_p\bT^2$ by $d i_p: T_p\bT^2\hookrightarrow T_p\R^3$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
   \label{fig:2_8-crit_pts}
 \end{marginfigure}
 
@@ -1213,7 +1213,7 @@ Differently from most previous ones, the statement is not local.
 
 \begin{theorem}[Implicit function theorem for manifolds]\label{thm:impl_fun}
   Let $m\geq n$ and let $F: M^m \to N^n$ be a smooth map between smooth manifolds.
-  If $q\in N$ is a regular value of $F$ and $P := F^{-1}(q)$ is not empty, then $P$ is a topological manifold of dimension $m-n$. 
+  If $q\in N$ is a regular value of $F$ and $P := F^{-1}(q)$ is not empty, then $P$ is a topological manifold of dimension $m-n$.
   Moreover, there exists a smooth structure on $P$ which makes it into a smooth embedded submanifold of $M$.
 \end{theorem}
 
@@ -1228,15 +1228,15 @@ We can gather this observation and the previous results (the inverse and the imp
   \begin{enumerate}[(i)]
     \item $P^n\subset M^m$ is a $n$-dimensional submanifold\footnote{So, $n \leq m$.}.
     \item $P$ is locally the image of an embedding of a subset of $\R^n$.
-    That is, for every $p\in P$ there exists $g\subset P$ open neighbourhood of $p$, an open set $U\subset\R^n$ and an embedding
-    \begin{equation}
-      \varphi : U \to M \quad\mbox{such that}\quad \varphi(U)=V.
-    \end{equation}
+          That is, for every $p\in P$ there exists $g\subset P$ open neighbourhood of $p$, an open set $U\subset\R^n$ and an embedding
+          \begin{equation}
+            \varphi : U \to M \quad\mbox{such that}\quad \varphi(U)=V.
+          \end{equation}
     \item $P$ is locally a level set of a submersion into $\R^{m-n}$.
-    That is, for every $p\in P$ there exists $V\subset P$ open neighbourhood of $p$ and a submersion $\psi: V \to\R^{m-n}$ such that
-    \begin{equation}
-      M\cap V = \{q\in V \;\mid\; \psi(q) = 0\}.
-    \end{equation}
+          That is, for every $p\in P$ there exists $V\subset P$ open neighbourhood of $p$ and a submersion $\psi: V \to\R^{m-n}$ such that
+          \begin{equation}
+            M\cap V = \{q\in V \;\mid\; \psi(q) = 0\}.
+          \end{equation}
   \end{enumerate}
 \end{proposition}
 
@@ -1267,7 +1267,7 @@ We can gather this observation and the previous results (the inverse and the imp
   \begin{enumerate}
     \item Show that if a differentiable function $f:(a,b)\to\R$, has a local maximum at $x\in (a,b)$, then $f'(x) = 0$.
     \item Prove that a local maximum of a function $f\in C^\infty(M)$ is a critical point of $f$.\\
-    \textit{\small Hint: choose $X_p\in T_pM$ and let $\gamma(t)$ be a curve in $M$ starting at $p$ with initial velocity $X_p$. The $f\circ \gamma$ is a real-valued function with local maximum at $0$...}
+          \textit{\small Hint: choose $X_p\in T_pM$ and let $\gamma(t)$ be a curve in $M$ starting at $p$ with initial velocity $X_p$. The $f\circ \gamma$ is a real-valued function with local maximum at $0$...}
   \end{enumerate}
 \end{exercise}
 
@@ -1304,7 +1304,7 @@ To finally answer the question, we will prove one last proposition.
     p^\perp := \big\{q\in\R^3 \;\mid\; \left\langle p, q\right\rangle = 0\big\},
   \end{equation}
   where $\left\langle\cdot,\cdot\right\rangle$ is the usual euclidean dot product. The latter directly comes from computing $dF_p$ and its kernel, which we essentially already did in Example~\ref{ex:s2}.
-  Take a long deep breath and unfold the definitions in~\eqref{ex:tan_sph}, here it may be useful to draw a picture\footnote{Which is generally always the case in geometry and topology, and most other mathematical fields.}. 
+  Take a long deep breath and unfold the definitions in~\eqref{ex:tan_sph}, here it may be useful to draw a picture\footnote{Which is generally always the case in geometry and topology, and most other mathematical fields.}.
   Equation~\eqref{ex:tan_sph} implies that the tangent space to $\bS^2$ at a point $p$ is the plane tangent to $\bS^2$ at $p$, as claimed in Figure~\ref{fig:tan-embedded-sphere}.
 \end{example}
 
@@ -1317,7 +1317,7 @@ To finally answer the question, we will prove one last proposition.
   Define $g:U\to\R^{n+1}$ by
   \begin{equation}
     g(x) = (x, f(x)).
-  \end{equation} 
+  \end{equation}
   Show that $g$ is a smooth embedding and, therefore, that $g(U)$ is a smooth embedded $n$-dimensional submanifold\footnote{$g(U)$ is the the \emph{graph} of $f$!} of $\R^{n+1}$.
 \end{exercise}
 
@@ -1337,7 +1337,7 @@ To finally answer the question, we will prove one last proposition.
     T_{\id} O(n) = \left\{ B \in \mathrm{Mat}(n, \R) \mid B^T = -B \right\}.
   \end{equation}
   \textit{\small Hint: Find a suitable map $F: \mathrm{Mat}(n, \R) \to \mathrm{Sym}(n)$ such that $F^{-1}(\{p\}) = O(n)$ for some point $p$ in the image, e.g. $0$ or $\id_n$.
-  Here $\mathrm{Sym}(n)$ denotes the space of symmetric matrices.}
+    Here $\mathrm{Sym}(n)$ denotes the space of symmetric matrices.}
 \end{exercise}
 
 \newthought{Of course, we can also define subbundles}.
@@ -1355,8 +1355,8 @@ To finally answer the question, we will prove one last proposition.
   \begin{enumerate}
     \item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\big|_{\widetilde M}$, is a subbundle of $TN\big|_{\widetilde M}$ by providing explicit local trivialisations in terms of the charts $(U, \varphi)$ for $M$.
     \item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that\footnote{Here $T\,N|_{\widetilde{M}}$ denotes the the tangent bundle of $N$ restricted to the base points in $\widetilde{M}$.}
-    \begin{equation}
-      T\widetilde{M} = \left\{(p,v)\in T\,N|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\right\}.
-    \end{equation}
+          \begin{equation}
+            T\widetilde{M} = \left\{(p,v)\in T\,N|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\right\}.
+          \end{equation}
   \end{enumerate}
 \end{exercise}

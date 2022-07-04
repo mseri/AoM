@@ -2,7 +2,7 @@
 
 \section{Foliations and Distributions}
 
-In this introduction to the concept of a foliation, we will only be concerned with so-called regular foliations. The notion can be extended to include a more general class of objects, but we will not do so here and we will use the term "foliation" without further quantifiers. Let us begin by describing what a foliation is, conceptually. A foliation of a smooth manifold $M$ is a decomposition into immersed submanifolds of equal dimension. These submanifolds are called the leaves of the foliation. 
+In this introduction to the concept of a foliation, we will only be concerned with so-called regular foliations. The notion can be extended to include a more general class of objects, but we will not do so here and we will use the term "foliation" without further quantifiers. Let us begin by describing what a foliation is, conceptually. A foliation of a smooth manifold $M$ is a decomposition into immersed submanifolds of equal dimension. These submanifolds are called the leaves of the foliation.
 \begin{example}
   We have already encountered some foliations.
   \begin{enumerate}
@@ -15,7 +15,7 @@ Let us give the precise definition of a foliation. To do this, we also give the 
 \begin{definition}
   Let $M$ be a smooth manifold of dimension $n$. A foliation $\mathcal{F}$ of dimension $k$ on $M$ is a collection of disjoint, connected, immersed $k$-dimensional submanifolds $F_i\in\mathcal{F}$ of $M$ such that $\cup_iF_i=M$. The $F_i$ are called the leaves of the foliation. Additionally, for each $x\in M$, there exists a flat chart $(U,\phi)$ containing $x$. This means $\phi(U)\cong (0,1)^n\subset\mathbb{R}^n$ and $F_i\cap U$ is either empty, or a countable union of slices given in local coordinates by $x^{k+1}=c^{k+1},\dots,x^n=c^n$ for some constants $c^i$.
 \end{definition}
-The definition may seem rather messy, in spite of the concept being quite intuitive. 
+The definition may seem rather messy, in spite of the concept being quite intuitive.
 \begin{example}
   To give some more down-to-earth examples, consider the following:
   \begin{enumerate}\label{foliations}
@@ -30,7 +30,7 @@ One of the primary motivations for studying foliations arises from the concept o
 \begin{definition}
   Let $M$ be a smooth manifold. A distribution $\mathcal{D}$ on $M$ is a subpsace $\mathcal{D}\subset TM$ such that there exists a neighbourhood $U$ of every point $x\in M$ with the following property. Given $y\in U$, there exist vector fields $X_1,\dots,X_k$ such that $\mathcal{D}_y=\text{span}\{(X_1)_y,\dots,(X_k)_y\}$.
 \end{definition}
-Consequently $\mathcal{D}_x$ is a linear subspace of $T_xM$ for all $x\in M$. However, a distribution is not necessarily a sub-bundle of the tangent bundle, because the fibres may have different dimensions. If $\mathcal{D}$ is a sub-bundle of rank $k$, then we say that the distribution is regular. \par 
+Consequently $\mathcal{D}_x$ is a linear subspace of $T_xM$ for all $x\in M$. However, a distribution is not necessarily a sub-bundle of the tangent bundle, because the fibres may have different dimensions. If $\mathcal{D}$ is a sub-bundle of rank $k$, then we say that the distribution is regular. \par
 We can immediately give a reason for why we might want to consider such objects, as follows. In many physical systems, there are certain constraints to be imposed. One way we might think of such constraints, is a limitation on the paths that a particle is allowed to take, whether that is in phase space, or in physical space. Concretely, this means that at certain points, we want to exclude directions from the space of possible trajectories of this particle. As such, the space of velocities of the particle at a point $x\in M$ is no longer the entire tangent space, but rather a linear subspace $\mathcal{D}_x\subset T_xM$. We would then patch all of these subspaces together to get a distribution on $M$.
 \begin{remark}
   In the remainder of this chapter, we will assume that our distribution are regular, unless stated otherwise. That is, $\mathcal{D}$  is a sub-bundle of the tangent bundle.
@@ -72,21 +72,21 @@ Without trying to give a precise definition for what a holonomic set of constrai
 
 \section{Prelude to Lie Algebroids}
 
-The Frobenius theorem is remarkable result, in that we can express a particularly desirable situation (complete integrability) in terms of a purely algebraic criterion (involutivity). These situations occur more often in mathematics and physics, as we now outline. We will not elaborate much on the definitions, as these topics could fill entire books. Rather, this is to motivate and encourage the interested reader.\par 
-There is a theory of complex manifolds, which is very much analogous to that of smooth manifolds, except using holomorphic atlases/transition functions/vector bundles, etc. The tangent bundle of a complex manifold $Z$ then inherits a pointwise linear map $J:TZ\to TZ$ satisfying $J^2=-\text{id}$, owing to its underlying complex structure. Such a map might also exist on a smooth (even-dimensional) manifold. It is then called an almost complex structure on $M$. It is a natural question to ask when such a map $J$ comes from the structure of a complex manifold, that is, can $M$ be given the structure of a complex manifold so that $J$ is its associated map $J:TM\to TM$ on the (holomorphic) tangent bundle? The answers can be reformulated in a certain "bracket criterion". 
+The Frobenius theorem is remarkable result, in that we can express a particularly desirable situation (complete integrability) in terms of a purely algebraic criterion (involutivity). These situations occur more often in mathematics and physics, as we now outline. We will not elaborate much on the definitions, as these topics could fill entire books. Rather, this is to motivate and encourage the interested reader.\par
+There is a theory of complex manifolds, which is very much analogous to that of smooth manifolds, except using holomorphic atlases/transition functions/vector bundles, etc. The tangent bundle of a complex manifold $Z$ then inherits a pointwise linear map $J:TZ\to TZ$ satisfying $J^2=-\text{id}$, owing to its underlying complex structure. Such a map might also exist on a smooth (even-dimensional) manifold. It is then called an almost complex structure on $M$. It is a natural question to ask when such a map $J$ comes from the structure of a complex manifold, that is, can $M$ be given the structure of a complex manifold so that $J$ is its associated map $J:TM\to TM$ on the (holomorphic) tangent bundle? The answers can be reformulated in a certain "bracket criterion".
 \begin{theorem}[Newlander-Nirenberg Theorem \cite{Voisin2002}]
   %https://doi.org/10.1017/CBO9780511615344
   Let $J:TM\to TM$ be an almost complex structure on $M$. Then it comes from a complex structure if and only if $[J,J]_N=0$, where $[\cdot,\cdot]_N$ is the Nijenhuis bracket.
 \end{theorem}
-Related to the theory of almost complex structures, is symplectic geometry. This type of geometry is a "weaker" notion than that of Riemannian geometry, in the sense that it isn't as restrictive. Any Riemannian metric provides an isomorphism $TM\to T^*M$ given by $X\mapsto g(X,\cdot)$, but it provides other structure as well. 
+Related to the theory of almost complex structures, is symplectic geometry. This type of geometry is a "weaker" notion than that of Riemannian geometry, in the sense that it isn't as restrictive. Any Riemannian metric provides an isomorphism $TM\to T^*M$ given by $X\mapsto g(X,\cdot)$, but it provides other structure as well.
 \begin{definition}
   An almost symplectic manifold is a pair $(M,\omega)$ where $\omega\in\Omega^2(M)$ provides an isomorphism $\phi:TM\to T^*M$ by $X\mapsto \omega(X,\cdot)$. If, additionally, $d\omega=0$, then the pair $(M,\omega)$ is called a symplectic manifold.
 \end{definition}
-On an almost symplectic manifold, we can associate a vector field $X_h$ to any function $h:M\to\mathbb{R}$. We do this by taking the differential, and then using the inverse isomorphism provided by $\omega$. Thus, we define $X_h=\phi^{-1}(dh)$ and call it the Hamiltonian vector field of $h$. Given these structures, we can define a bracket operation on $C^\infty(M)$ as follows. We define $\{\cdot,\cdot\}:C^\infty(M)\times C^\infty(M)\to C^\infty(M)$ by $\{f,g\}=-X_fg$. Since $\{f,\cdot\}$ is given by a vector field, this is a derivation of the algebra $C^\infty(M)$. Furthermore, it is anti-symmetric. The question is whether the bracket defined in this way satisfies the Jacobi identity. 
+On an almost symplectic manifold, we can associate a vector field $X_h$ to any function $h:M\to\mathbb{R}$. We do this by taking the differential, and then using the inverse isomorphism provided by $\omega$. Thus, we define $X_h=\phi^{-1}(dh)$ and call it the Hamiltonian vector field of $h$. Given these structures, we can define a bracket operation on $C^\infty(M)$ as follows. We define $\{\cdot,\cdot\}:C^\infty(M)\times C^\infty(M)\to C^\infty(M)$ by $\{f,g\}=-X_fg$. Since $\{f,\cdot\}$ is given by a vector field, this is a derivation of the algebra $C^\infty(M)$. Furthermore, it is anti-symmetric. The question is whether the bracket defined in this way satisfies the Jacobi identity.
 \begin{theorem}
   The bracket $\{\cdot,\cdot\}:C^\infty(M)\times C^\infty(M)\to C^\infty(M)$ satisfies the Jacobi identity if and only if the almost symplectic structure is a symplectic structure. That is, if and only if $d\omega=0$. In this case, $(C^\infty(M),\{\cdot,\cdot\})$ is a Lie algebra.
 \end{theorem}
-Again, here we have an equivalence between the "integrability" of a certain structure, and a "bracket criterion" given by the Jacobi identity. 
+Again, here we have an equivalence between the "integrability" of a certain structure, and a "bracket criterion" given by the Jacobi identity.
 \begin{example}
   Let $M$ be a smooth manifold. Then $T^*M$ can be given a natural symplectic structure. The key point here, is to notice that $T^*M\xrightarrow{\pi}M$ comes equipped with a natural $1$-form, called the tautological $1$-form $\tau\in\Omega^1(T^*M)$. To understand this, let $\eta\in T^*M$. Then $\eta\in \pi^{-1}(x)$ for some unique $x\in M$. That is, $\eta:T_xM\to \mathbb{R}$ is a linear map. Now, if $X\in T_\eta T^*M$, then we have $d\pi(X)\in T_{\pi(\eta)}M=T_xM$. As a result, we can evaluate $\eta(d\pi(X))$. In this way, we get a $1$-form $\tau_\eta(X)=\pi^*\eta(X)$. The $2$-form $\omega:=-d\tau$ is a symplectic form on $T^*M$, called the canonical (or tautological) symplectic form.
 \end{example}
@@ -120,11 +120,11 @@ Now that we have a metric, it is actually straightforward to define a symplectic
 \end{theorem}
 \begin{proof}
   The reader may verify that the following indeed defines each of the structures as claimed.
-  \begin{enumerate} 
+  \begin{enumerate}
     \item $\omega=g\circ (J\otimes\text{id})$
     \item $g=\omega\circ(\text{id}\otimes J)$
     \item Given $\omega$ and $g$, we obtain $J$ through polar decomposition, see \cite{book:cds}.
-      %https://math.mit.edu/classes/18.157/S2012/lecturesonsymplecticgeometryanacannas.pdf
+          %https://math.mit.edu/classes/18.157/S2012/lecturesonsymplecticgeometryanacannas.pdf
   \end{enumerate}
 \end{proof}
 \begin{corollary}
@@ -143,29 +143,29 @@ Given an almost Poisson structure, we can again find a criterion for it being a 
 \end{theorem}
 Let us give an important example of a Poisson manifold.
 \begin{example}
-  Let $\mathfrak{g}$ be a Lie algebra of finite dimension, and let $\mathfrak{g}^*$ be its dual as a vector space, with its standard smooth manifold structure. let $x^1,\dots,x^n$ denote the coordinates on $\mathfrak{g}$ and $\mu^1,\dots,\mu^n$ the dual coordinates on $\mathfrak{g}^*$. Then we can define a bracket on $C^\infty(\mathfrak{g}^*)$ by 
+  Let $\mathfrak{g}$ be a Lie algebra of finite dimension, and let $\mathfrak{g}^*$ be its dual as a vector space, with its standard smooth manifold structure. let $x^1,\dots,x^n$ denote the coordinates on $\mathfrak{g}$ and $\mu^1,\dots,\mu^n$ the dual coordinates on $\mathfrak{g}^*$. Then we can define a bracket on $C^\infty(\mathfrak{g}^*)$ by
   $$\{f,g\}:= c_{ij}^k\mu_k\frac{\partial f}{\partial\mu^i}\frac{\partial g}{\partial\mu^j}$$
   where $c_{ij}^k$ are the structure constants of $\mathfrak{g}$, defined by $[x_i,x_j]=c_{ij}^kx_k$. This class of Poisson manifolds is called Lie-Poisson manifolds, and they were originally studied by Sophus Lie himself.
 \end{example}
-In Poisson geometry, it is desirable to find a so-called symplectic realisation of a Poisson manifold. In some sense that can be made precise, this means "untangling" the Poisson manifold into a simpler structure, which is a symplectic manifold. 
+In Poisson geometry, it is desirable to find a so-called symplectic realisation of a Poisson manifold. In some sense that can be made precise, this means "untangling" the Poisson manifold into a simpler structure, which is a symplectic manifold.
 \begin{theorem}[Crainic,Fernandes \cite{Crainic2003}]
   %https://arxiv.org/abs/math/0105033
   A Poisson manifold admits a complete symplectic realisation if and only if it is integrable.
 \end{theorem}
 The specifics of this notion of integrability are somewhat beyond our scope, because we are entering the realm of Lie groupoids and Lie algebroids. We shall state the definition of a Lie algebroid after the following example, so that the reader can see how all these concepts fit into the framework of Lie algebroids.\par
-Our final example is that of a Dirac structure on a manifold. In order to do this, we first want to define two operations on the space $\mathbb{T}M:=TM\oplus T^*M$. Namely, 
+Our final example is that of a Dirac structure on a manifold. In order to do this, we first want to define two operations on the space $\mathbb{T}M:=TM\oplus T^*M$. Namely,
 \begin{enumerate}
-    \item A symmetric bilinear form $\langle\cdot,\cdot\rangle:\mathbb{T}M\to\mathbb{R}$ defined by $$\langle(X_p,\alpha_p),(Y_p,\beta_p)\rangle=\alpha_p(Y_p)+\beta_p(X_p)$$
-    \item A bracket  $[\![\cdot,\cdot]\!]:\Gamma(\mathbb{T}M)\times\Gamma(\mathbb{T}M)\to\Gamma(\mathbb{T}M)$ defined by $$[\![(X,\alpha),(Y,\beta)]\!]=([X,Y],\mathcal{L}_X\beta-\iota_Yd\alpha)$$
+  \item A symmetric bilinear form $\langle\cdot,\cdot\rangle:\mathbb{T}M\to\mathbb{R}$ defined by $$\langle(X_p,\alpha_p),(Y_p,\beta_p)\rangle=\alpha_p(Y_p)+\beta_p(X_p)$$
+  \item A bracket  $[\![\cdot,\cdot]\!]:\Gamma(\mathbb{T}M)\times\Gamma(\mathbb{T}M)\to\Gamma(\mathbb{T}M)$ defined by $$[\![(X,\alpha),(Y,\beta)]\!]=([X,Y],\mathcal{L}_X\beta-\iota_Yd\alpha)$$
 \end{enumerate}
 \begin{remark}
-There is also a skew-symmetric bracket on $\mathbb{T}M$, defined by
-$$[(X,\alpha),(Y,\beta)]_C=([X,Y],\mathcal{L}_X\beta-\mathcal{L}_Y\alpha+\frac{1}{2}d(\alpha(Y)-\beta(X)))$$
-called the Courant bracket. We will refer to this bracket later on, as it makes $\mathbb{T}M$ into a Lie algebroid. The bracket $[\![\cdot,\cdot]\!]$ instead produces a Courant algebroid.
+  There is also a skew-symmetric bracket on $\mathbb{T}M$, defined by
+  $$[(X,\alpha),(Y,\beta)]_C=([X,Y],\mathcal{L}_X\beta-\mathcal{L}_Y\alpha+\frac{1}{2}d(\alpha(Y)-\beta(X)))$$
+  called the Courant bracket. We will refer to this bracket later on, as it makes $\mathbb{T}M$ into a Lie algebroid. The bracket $[\![\cdot,\cdot]\!]$ instead produces a Courant algebroid.
 \end{remark}
 We are now interested in sub-bundles $L\subset\mathbb{T}M$ which are maximally isotropic with respect to the symmetric form above. This means that $L$ has rank $\dim M$, and $\langle L,L\rangle=0$. Indeed, this is not an inner product, so this does not only hold when $L=0$.
 \begin{definition}
-An almost Dirac structure on $M$ is a sub-bundle $L\subset\mathbb{T}M$ which is maximally isotropic. $L$ is called a Dirac structure if $[\![\Gamma(L),\Gamma(L)]\!]\subset\Gamma(L)$.
+  An almost Dirac structure on $M$ is a sub-bundle $L\subset\mathbb{T}M$ which is maximally isotropic. $L$ is called a Dirac structure if $[\![\Gamma(L),\Gamma(L)]\!]\subset\Gamma(L)$.
 \end{definition}
 An important class of Dirac structures is determined by foliations. This is where we can use the theorem of Frobenius.
 \begin{example}
@@ -182,7 +182,7 @@ We have encountered several of these in the text above.
   Then the triple $(T^*M,[\cdot,\cdot],\rho)$ is a Lie algebroid.
 \end{example}
 \begin{example}[See \cite{Courant_1990}]
-Let $L\subset\mathbb{T}M$ be a Dirac structure on $M$ and define $\rho:=\text{pr}|_L$, where $\text{pr}:\mathbb{T}M\to TM$ is the natural projection. Let $[\cdot,\cdot]_C$ be the restriction of the Courant bracket to $\Gamma(L)$. Then $(L,[\cdot,\cdot]_C,\rho)$ is a Lie algebroid.
+  Let $L\subset\mathbb{T}M$ be a Dirac structure on $M$ and define $\rho:=\text{pr}|_L$, where $\text{pr}:\mathbb{T}M\to TM$ is the natural projection. Let $[\cdot,\cdot]_C$ be the restriction of the Courant bracket to $\Gamma(L)$. Then $(L,[\cdot,\cdot]_C,\rho)$ is a Lie algebroid.
 \end{example}
 \begin{exercise}
   Find a Lie algebroid structure for a given symplectic structure $(M,\omega)$.
@@ -196,7 +196,7 @@ We will consider real vector bundles, but the following concepts apply equally w
 \begin{definition}
   Let $E$ be the trivial vector bundle of rank $k$. Let $s=(f_1,\dots,f_k)\in\Gamma(E)$ and $X\in\Gamma(TM)$. We define $\nabla^\text{can}_X:\Gamma(E)\to\Gamma(E)$ by $$\nabla^\text{can}_Xs=(df_1(X),\dots,df_k(X))$$
   and call it the canonical connection on $E$.
-\end{definition} 
+\end{definition}
 Notice here that we made use of the crucial fact that every section of the trivial bundle can be written as a $k$-tuple of sections of the trivial line bundle. As a consequence of the known properties of the exterior derivative, we have the following result:
 \begin{proposition}
   If we instead view $\nabla^\text{can}:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, then $\nabla^\text{can}$ satisfies:
@@ -215,7 +215,7 @@ Notice how these properties are analogous to those of the exterior derivative. I
 \end{definition}
 Using the canonical connection on a trivial bundle and a partition of unity, one can show (exercise) that any vector bundle admits a connection. To this end, first prove that a convex linear combination of connections again defines a connection. The following result shows that, once we have a connection, we actually get an affine space of connections.
 \begin{proposition}
-  Let $E$ be a vector bundle over $M$. Suppose that $A\in\Omega^1(M)\otimes_\mathbb{R}\text{End}(E)$. Let $\nabla$ be a connection on $E$. Then $\nabla + A$ is also a connection on $E$. 
+  Let $E$ be a vector bundle over $M$. Suppose that $A\in\Omega^1(M)\otimes_\mathbb{R}\text{End}(E)$. Let $\nabla$ be a connection on $E$. Then $\nabla + A$ is also a connection on $E$.
 \end{proposition}
 \begin{proof}
   Denote $\nabla':=\nabla+A$.
@@ -224,7 +224,7 @@ Using the canonical connection on a trivial bundle and a partition of unity, one
     \item $\nabla'_X(f\cdot s)=\nabla_X(f\cdot s)+A(X)(f\cdot s)=X(f)\cdot s+f\cdot\nabla_Xs+f\cdot A(X)s=X(f)\cdot s+f\cdot\nabla'_Xs$
   \end{enumerate}
 \end{proof}
-If $E$ is trivial of rank $k$, then the above assumption just means that $A$ is a $k\times k$ matrix of $1$-forms. In fact, if $\nabla$ is a connection on the trivial vector bundle of rank $k$, we can always write $\nabla=d+A$ for some matrix of $1$-forms, and this $A$ is called the local connection $1$-form. 
+If $E$ is trivial of rank $k$, then the above assumption just means that $A$ is a $k\times k$ matrix of $1$-forms. In fact, if $\nabla$ is a connection on the trivial vector bundle of rank $k$, we can always write $\nabla=d+A$ for some matrix of $1$-forms, and this $A$ is called the local connection $1$-form.
 \begin{remark}
   We can take the wedge product of matrices of $1$-forms as follows. We use standard matrix multiplication, but instead of scalar multiplication in the entries, we use the wedge product. For example:
   $$\begin{pmatrix}dx & dy\\ dy & dz\end{pmatrix}\wedge\begin{pmatrix}dy & dz\\ dx & dy\end{pmatrix}=\begin{pmatrix}0 & dx\wedge dz\\ -dx\wedge dz & 0\end{pmatrix}$$
@@ -238,7 +238,7 @@ $$\Phi_\alpha:E|_{U_\alpha}\to U_\alpha\times\mathbb{R}^k\quad \Phi_\beta:E|_{U_
 are two local trivialisations for $E$. Then we can ask ourselves how the connection $1$-forms are related, when we restrict to the intersection $U_{\alpha\beta}$. As we know, a trivialisation is equivalent to a local frame for $E$. Let $\Phi_\alpha$ correspond to $\{e_i\}_{i=1}^k$ and $\Phi_\beta$ to $\{e'_i\}_{i=1}^k$. Then there exist a smooth map $\phi_{\alpha\beta}:U_{\alpha\beta}\to\text{GL}(k,\mathbb{R})$ such that $e'=e\phi_{\alpha\beta}$. Consequently, using the Leibniz rule, we find:
 \begin{align*}
   \nabla e'=\nabla (e\phi_{\alpha\beta})=(\nabla e)\phi_{\alpha\beta}+ed\phi_{\alpha\beta}=
-  (eA_\alpha)\phi_{\alpha\beta}+ed\phi_{\alpha\beta}=\\(e'\phi_{\alpha\beta}^{-1})A_\alpha\phi_{\alpha\beta}+(e'\phi_{\alpha\beta}^{-1})d\phi_{\alpha\beta}=e'(\phi_{\alpha\beta}^{-1}A_\alpha\phi_{\alpha\beta}+\phi_{\alpha\beta}^{-1}d\phi_{\alpha\beta})
+  (eA_\alpha)\phi_{\alpha\beta}+ed\phi_{\alpha\beta}= \\(e'\phi_{\alpha\beta}^{-1})A_\alpha\phi_{\alpha\beta}+(e'\phi_{\alpha\beta}^{-1})d\phi_{\alpha\beta}=e'(\phi_{\alpha\beta}^{-1}A_\alpha\phi_{\alpha\beta}+\phi_{\alpha\beta}^{-1}d\phi_{\alpha\beta})
 \end{align*}
 Thus, we have that $A_\beta=\phi_{\alpha\beta}^{-1}A_\alpha \phi_{\alpha\beta}+\phi_{\alpha\beta}^{-1}d\phi_{\alpha\beta}$. Notice that this does not transform tensorially. A remarkable fact that we will show later, is that applying $\nabla$ twice results in an operator which does transform tensorially. This will be the curvature of $\nabla$. Before we end this section, we give one important way of obtaining connections. Every vector bundle is a sub-bundle of a trivial vector bundle of sufficiently high rank. This trivial bundle has a canonical connection. Consequently, the following result is often useful.
 \begin{proposition}\label{projection}
@@ -254,7 +254,7 @@ Thus, we have that $A_\beta=\phi_{\alpha\beta}^{-1}A_\alpha \phi_{\alpha\beta}+\
 
 \section{Geometric Intuition}
 
-Let's examine geometrically what a connection is. We will again do so on a trivial vector bundle $E=M\times\mathbb{R}^k$. In the case of the canonical connection, we are identifying the fibres in terms of "flat slices". The notion of flatness will be given a precise meaning in a moment. 
+Let's examine geometrically what a connection is. We will again do so on a trivial vector bundle $E=M\times\mathbb{R}^k$. In the case of the canonical connection, we are identifying the fibres in terms of "flat slices". The notion of flatness will be given a precise meaning in a moment.
 \begin{example}\label{highschool}
   Let $M=\mathbb{R}$ and $E=\mathbb{R}^2$, which is the setting for highschool calculus. Sections of $E$ can be written as functions $f(x)$. Furthermore, a $1\times 1$ matrix of differential forms is just an ordinary differential form $df$. Let $f(x)=ax+b$, so that $df(x)=adx$. Define a connection on $E$ by $\nabla:=d-adx$. Ordinarily, we would say that functions of the form $g(x)=c$ are flat, because $dg(x)=0$. But now, we have $\nabla g(x)=-acdx$. If we consider the function $g(x)=e^{ax}$, then $dg=ag(x)dx$. Consequently, $\nabla g(x)=ag(x)dx-ag(x)dx=0$. Should we call $g(x)$ flat with respect to $\nabla$?
 \end{example}
@@ -288,7 +288,7 @@ The curvature of a connection can be interpreted in several different ways. For 
   \end{align*}
   The expression for $\nabla_Y\nabla_X$ is derived similarly. It follows that
   \begin{align*}
-    R(X,Y)e=(XA(Y)-YA(X)-A([X,Y]))e+(A(X)A(Y)-A(Y)A(X))e=\\dA(X,Y)e+A\wedge A(X,Y)e=
+    R(X,Y)e=(XA(Y)-YA(X)-A([X,Y]))e+(A(X)A(Y)-A(Y)A(X))e= \\dA(X,Y)e+A\wedge A(X,Y)e=
     (dA+A\wedge A)(X,Y)e
   \end{align*}
   Where we have used the formula for the exterior derivative on $1$-forms, which is $$d\omega(X,Y)=X\omega(Y)-Y\omega(X)-\omega([X,Y])$$
@@ -317,9 +317,9 @@ The proof of this theorem uses the Frobenius theorem from the previous chapter. 
 
 One of the defining properties of the exterior derivative is that $d^2=0$. This property gives rise to the chain complex from which we can compute the de Rham cohomology of a manifold. We will now explore how every connection gives rise to a so-called covariant exterior derivative $d_\nabla$, which does not generally satisfy $d_\nabla^2=0$. The obstruction to this is precisely going to be the curvature associated to $\nabla$. When defining $d:\Omega^k(M)\to\Omega^{k+1}(M)$, we extended the differential $d:C^\infty(M)\to T^*M$ to exterior powers of the cotangent bundle. We will now use the same formula to define $d_\nabla$, except with $\nabla$ in place of the differential.
 \begin{definition}
-  We define the covariant exterior derivative $d_\nabla:\Omega^k(M,E)\to\Omega^{k+1}(M,E)$ by 
+  We define the covariant exterior derivative $d_\nabla:\Omega^k(M,E)\to\Omega^{k+1}(M,E)$ by
   \begin{align*}
-    d_\nabla\omega(X_1,\dots,X_{k+1})=\\\sum^{k+1}_{i=1}(-1)^{i+1}\nabla_{X_i}\omega(X_1\dots,\widehat{X}_i,\dots,X_{k+1})+\sum_{i<j}^{k+1}(-1)^{i+j+1}\omega([X_i,X_j],X_1,\dots,\widehat{X}_i,\dots,\widehat{X}_j,\dots,X_{k+1})
+    d_\nabla\omega(X_1,\dots,X_{k+1})= \\\sum^{k+1}_{i=1}(-1)^{i+1}\nabla_{X_i}\omega(X_1\dots,\widehat{X}_i,\dots,X_{k+1})+\sum_{i<j}^{k+1}(-1)^{i+j+1}\omega([X_i,X_j],X_1,\dots,\widehat{X}_i,\dots,\widehat{X}_j,\dots,X_{k+1})
   \end{align*}
 \end{definition}
 We have a natural module structure for $\bigoplus_k\Omega^k(M,E)$ over the ring $\bigoplus_k\Omega^k(M)$. Let $\omega\in\Omega^k(M)$ and $\eta\in\Omega^{k'}(M,E)$. The covariant exterior derivative satisfies
@@ -327,26 +327,26 @@ $$d_\nabla(\omega\wedge\eta)=d\omega\wedge\eta+(-1)^k\omega\wedge d_\nabla\eta$$
 \begin{exercise}
   Show that $d_\nabla^2\omega=F\circ\omega$ for all $\omega\in\Omega^k(M,E)$.
 \end{exercise}
-Any connection $\nabla$ on $E$ induces a connection $\nabla^\text{End}$ on the vector bundle $\text{End}(E)$. One way to see this is as follows. Given a connection $\nabla$ on $E$, we can define the dual connection $\nabla^*$ on $E^*$. To see this, consider the natural pairing $E\times E^*\to C^\infty(M)$ given by $(s,\theta)\mapsto\theta(s):=\langle s,\theta\rangle$. 
+Any connection $\nabla$ on $E$ induces a connection $\nabla^\text{End}$ on the vector bundle $\text{End}(E)$. One way to see this is as follows. Given a connection $\nabla$ on $E$, we can define the dual connection $\nabla^*$ on $E^*$. To see this, consider the natural pairing $E\times E^*\to C^\infty(M)$ given by $(s,\theta)\mapsto\theta(s):=\langle s,\theta\rangle$.
 \begin{exercise}
   Verify that the connection $\nabla^*$ on $E^*$ defined by
   $$(\nabla^*\theta)(s)=d(\theta(s))-\theta(\nabla s)$$
-for $s\in\Gamma(E)$ is indeed a connection.
+  for $s\in\Gamma(E)$ is indeed a connection.
 \end{exercise}
 \begin{proposition}
-  Let $(E,\nabla)$ and $(E',\nabla')$ be vector bundles with connections. Then these connections combine to give a connection $\nabla\otimes\nabla'$ on $E\otimes E'$, defined by 
+  Let $(E,\nabla)$ and $(E',\nabla')$ be vector bundles with connections. Then these connections combine to give a connection $\nabla\otimes\nabla'$ on $E\otimes E'$, defined by
   $$\nabla\otimes\nabla'(s\otimes s')=(\nabla s)\otimes s'+s\otimes(\nabla's')$$
 \end{proposition}
 \begin{proof}
   We take linearity for granted. Let $s\in\Gamma(E)$ and $s'\in\Gamma(E')$. For the first property of a connection, we calculate:
   \begin{align*}
-    (\nabla\otimes\nabla')_{fX}(s\otimes s')=(\nabla_{fX}(s))\otimes s'+s\otimes(\nabla'_{fX} s')=\\
+    (\nabla\otimes\nabla')_{fX}(s\otimes s')=(\nabla_{fX}(s))\otimes s'+s\otimes(\nabla'_{fX} s')= \\
     (f\nabla_Xs)\otimes s'+s\otimes(f\nabla'_Xs')=f(\nabla\otimes\nabla')_X(s\otimes s')
   \end{align*}
   For the second, we have:
   \begin{align*}
-    (\nabla\otimes\nabla')_X(fs\otimes s')=(\nabla_Xfs)\otimes s'+fs\otimes(\nabla'_Xs')=\\
-    ((Xf)s+f\nabla_Xs)\otimes s'+fs\otimes(\nabla'_Xs')=\\
+    (\nabla\otimes\nabla')_X(fs\otimes s')=(\nabla_Xfs)\otimes s'+fs\otimes(\nabla'_Xs')= \\
+    ((Xf)s+f\nabla_Xs)\otimes s'+fs\otimes(\nabla'_Xs')=                                  \\
     (Xf)s\otimes s'+f(\nabla_Xs)\otimes s'+fs\otimes(\nabla_Xs')=(Xf)s\otimes s'+f(\nabla\otimes\nabla')_X(s\otimes s')
   \end{align*}
 \end{proof}

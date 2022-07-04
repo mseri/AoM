@@ -103,29 +103,29 @@ where $v^j(x)$ are the components\footnote{As we start getting used to, the char
 \begin{example}[Computing the pushforward of a vector field]
   Let $M$ and $N$ be the following submanifolds of $\R^2$:
   \begin{align}
-    M &= \left\{(x,y)\in\R^2 \mid y>0,\; x+y>0\right\},\\
-    N &= \left\{(u,v)\in\R^2 \mid u>0,\; v>0 \right\}.
+    M & = \left\{(x,y)\in\R^2 \mid y>0,\; x+y>0\right\}, \\
+    N & = \left\{(u,v)\in\R^2 \mid u>0,\; v>0 \right\}.
   \end{align}
   Define $F:M\to N$ as the mapping $F(x,y):=(x+y, x/y+1)$.
   Then $F$ is a diffeomorphism: we can compute its inverse by solving $(u,v)=(x+y, x/y+1)$ in for $x$ and $y$, obtaining $(x,y)=F^{-1}(u,v)=(u-u/v, u/v)$ which is also smooth on all $N$.
-  
+
   Let $X\in\fX(M)$ be given by
   \begin{equation}
     X_{(x,y)} = y^2\frac{\partial}{\partial x}\Big|_{(x,y)},
   \end{equation}
   we are now going to compute the pushforward $F_* X$.
-  
+
   The differential of $F$ at a point $(x,y)\in M$ is represented by its Jacobian matrix,
   \begin{equation}
     DF(x,y) = \begin{pmatrix}
-      1 & 1\\
+      1   & 1      \\
       1/y & -x/y^2
     \end{pmatrix},
   \end{equation}
   thus $dF_{F^{-1}(u,v)} = dF\circ F^{-1}(u,v)$ is represented by the matrix
   \begin{equation}
     DF(u-u/v, u/v) = \begin{pmatrix}
-      1 & 1\\
+      1   & 1         \\
       v/u & (v-v^2)/u
     \end{pmatrix}.
   \end{equation}
@@ -224,20 +224,20 @@ The most natural choice is to just compose the vector fields, that is, apply the
 If this satisfies the product rule, we are done.
 Let $f,g\in C^\infty(W)$, we have
 \begin{align}
-  (X Y)(fg) &= X(fY(g) + gY(f)) \\
-  &= \left(f(X Y)(g) + g(X Y)(f)\right) + \left( X(f)Y(g) +X(g)Y(f)\right).
+  (X Y)(fg) & = X(fY(g) + gY(f))                                                       \\
+            & = \left(f(X Y)(g) + g(X Y)(f)\right) + \left( X(f)Y(g) +X(g)Y(f)\right).
 \end{align}
 Unfortunately for us, this is not a derivation. However, we do not seem to be so far off.
 If we carefully look at the ``error'', i.e. the term $\left( X(f)Y(g) +X(g)Y(f)\right)$, we can observe that it is symmetric with respect to $X$ and $Y$.
 One way to let it cancel out, is to consider the \emph{commutator} of the two vector fields:
 \begin{equation}\label{def:commutator}
-    [X,Y] := X Y - Y X.
+  [X,Y] := X Y - Y X.
 \end{equation}
 Indeed, $[X,Y]$ is a derivation.
 
 \marginnote{Do not confound Lie with lie. Here Lie is the surname of Sophus Lie, an important Norwegian mathematician that lived in the second half of the 19th century.}
 \begin{definition}
-    Let $X,Y\in\fX(W)$. We call \emph{Lie bracket} of $X$ and $Y$ the derivation given by their commutator $[X,Y] := X Y - Y X$.
+  Let $X,Y\in\fX(W)$. We call \emph{Lie bracket} of $X$ and $Y$ the derivation given by their commutator $[X,Y] := X Y - Y X$.
 \end{definition}
 
 \begin{remark}
@@ -266,11 +266,11 @@ Indeed, $[X,Y]$ is a derivation.
 We will see many applications of the Lie brackets throughout the rest of the course, but before doing anything, let's find an effective way to compute it.
 
 \begin{proposition}
-    Let $(U, \varphi)$ be a chart on $M$ with local coordinates $(x^i)$ and let $X,Y\in\fX(U)$.
-    If $X = X^i \frac{\partial }{\partial x^i}$ and $Y = Y^i \frac{\partial}{\partial x^i}$ are the coordinate expressions for $X$ and $Y$, then\footnote{Recall Notation~\ref{notation:derivative}!}
-    \begin{equation}
-        [X,Y] = \left(X^i\frac{\partial Y^j}{\partial x^i} - Y^i\frac{\partial X^j}{\partial x^i}\right)\frac{\partial}{\partial x^j}.
-    \end{equation}
+  Let $(U, \varphi)$ be a chart on $M$ with local coordinates $(x^i)$ and let $X,Y\in\fX(U)$.
+  If $X = X^i \frac{\partial }{\partial x^i}$ and $Y = Y^i \frac{\partial}{\partial x^i}$ are the coordinate expressions for $X$ and $Y$, then\footnote{Recall Notation~\ref{notation:derivative}!}
+  \begin{equation}
+    [X,Y] = \left(X^i\frac{\partial Y^j}{\partial x^i} - Y^i\frac{\partial X^j}{\partial x^i}\right)\frac{\partial}{\partial x^j}.
+  \end{equation}
 \end{proposition}
 \begin{exercise}
   Prove the proposition.
@@ -284,12 +284,12 @@ We will see many applications of the Lie brackets throughout the rest of the cou
   \end{equation}
   Then, the previous proposition implies
   \begin{align}
-    [X,Y] 
-    &= (x+1)y  \frac{\partial\; 0}{\partial x} \frac{\partial}{\partial x} - y \frac{\partial\; 0}{\partial y} \frac{\partial}{\partial x} \\
-    &\quad + (x+1)y  \frac{\partial\; 3y}{\partial x} \frac{\partial}{\partial y} - y \frac{\partial\; 3y}{\partial y} \frac{\partial}{\partial y} \\
-    &\quad - 3y \frac{\partial\; (x+1)y}{\partial y} \frac{\partial}{\partial x} + 3y \frac{\partial\; y}{\partial y} \frac{\partial}{\partial y} \\
-    &= - 3y \frac{\partial}{\partial y} -3 y(x+1) \frac{\partial}{\partial x} + 3y \frac{\partial}{\partial y} \\
-    &= -3(x+1)y \frac{\partial}{\partial x}.
+    [X,Y]
+     & = (x+1)y  \frac{\partial\; 0}{\partial x} \frac{\partial}{\partial x} - y \frac{\partial\; 0}{\partial y} \frac{\partial}{\partial x}         \\
+     & \quad + (x+1)y  \frac{\partial\; 3y}{\partial x} \frac{\partial}{\partial y} - y \frac{\partial\; 3y}{\partial y} \frac{\partial}{\partial y} \\
+     & \quad - 3y \frac{\partial\; (x+1)y}{\partial y} \frac{\partial}{\partial x} + 3y \frac{\partial\; y}{\partial y} \frac{\partial}{\partial y}  \\
+     & = - 3y \frac{\partial}{\partial y} -3 y(x+1) \frac{\partial}{\partial x} + 3y \frac{\partial}{\partial y}                                     \\
+     & = -3(x+1)y \frac{\partial}{\partial x}.
   \end{align}
 \end{example}
 
@@ -303,24 +303,24 @@ We will see many applications of the Lie brackets throughout the rest of the cou
 \begin{proof}
   By definition, for $f\in C^\infty(N)$, $X\in\fX(M)$ and any $p\in M$
   \begin{align}
-    X(f\circ F)(p) &= X_p(f\circ F) \\
-    &= dF_p(X_p)f = (F_* X)_{F(p)}f \\
-    &= ((F_*X) f)(F(p)) = ((F_*X) f)\circ F(p).
+    X(f\circ F)(p) & = X_p(f\circ F)                            \\
+                   & = dF_p(X_p)f = (F_* X)_{F(p)}f             \\
+                   & = ((F_*X) f)(F(p)) = ((F_*X) f)\circ F(p).
   \end{align}
   Which proves the first equation.
   Therefore,
   \begin{align}
-    X Y (f\circ F) = X ((F_* Y) f \circ F) 
+    X Y (f\circ F) = X ((F_* Y) f \circ F)
     = ((F_* X) (F_* Y) f) \circ F,
   \end{align}
   and similarly for $Y X$.
   Finally, by definition we have
   \begin{align}
     (F_* [X,Y] f)\circ F
-    &= [X,Y](f\circ F) \\
-    &= XY (f\circ F) - YX (f\circ F) \\
-    &= ((F_* X) (F_* Y)f)\circ F - ((F_* Y) (F_* X)f)\circ F\\
-    &= ([F_* X, F_* Y]f)\circ F,
+     & = [X,Y](f\circ F)                                       \\
+     & = XY (f\circ F) - YX (f\circ F)                         \\
+     & = ((F_* X) (F_* Y)f)\circ F - ((F_* Y) (F_* X)f)\circ F \\
+     & = ([F_* X, F_* Y]f)\circ F,
   \end{align}
   completing the proof.
 \end{proof}
@@ -330,7 +330,7 @@ We will see many applications of the Lie brackets throughout the rest of the cou
   \begin{equation}
     \fg \times \fg \to \fg, \quad (v,w)\mapsto [v,w],
   \end{equation}
-  called \emph{Lie bracket}, which in addition satisfies the Jacobi identity\footnote{Thus a Lie algebra is a non-associative algebra.}. 
+  called \emph{Lie bracket}, which in addition satisfies the Jacobi identity\footnote{Thus a Lie algebra is a non-associative algebra.}.
   The \emph{dimension} of the Lie algebra is the dimension of $\fg$ as a vector space.
 
   If $\fg$ is a Lie algebra, then a linear subspace $\fh\subset\fg$ is called a \emph{Lie subalgebra} if $[v,w]\in\fh$ for all $v,w\in\fh$.
@@ -401,15 +401,15 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
   If $\gamma:\R\to\R^2$ is a smooth curve, written in standard coordinates\sidenote[][-2em]{In other words, $x(t)$ and $y(t)$ are the components of the function $\gamma : \R \to \R^2$ seen as functions $\R\to\R$, that is, ${\gamma(t) = (x\circ \gamma(t), y\circ \gamma(t)) =: (x(t), y(t))}$} as $\gamma(t) = (x(t), y(t))$, then we have
   \begin{align}
     \gamma'(t)
-    &= d\gamma_t\left(\frac{d}{dt}\Big|_t\right) \\
-    &= \frac{d x(t)}{d t} \frac{\partial}{\partial x}\Big|_{\gamma(t)} + \frac{d y(t)}{d t} \frac{\partial}{\partial y}\Big|_{\gamma(t)} \\
-    &= x'(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)} + y'(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)},
+     & = d\gamma_t\left(\frac{d}{dt}\Big|_t\right)                                                                                         \\
+     & = \frac{d x(t)}{d t} \frac{\partial}{\partial x}\Big|_{\gamma(t)} + \frac{d y(t)}{d t} \frac{\partial}{\partial y}\Big|_{\gamma(t)} \\
+     & = x'(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)} + y'(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)},
   \end{align}
   while
   \begin{align}
     Z_{\gamma(t)}
-    &= (x\circ \gamma(t))\frac{\partial}{\partial y}\Big|_{\gamma(t)} - y \circ \gamma(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)} \\
-    &= x(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)} - y(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)}.
+     & = (x\circ \gamma(t))\frac{\partial}{\partial y}\Big|_{\gamma(t)} - y \circ \gamma(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)} \\
+     & = x(t)\frac{\partial}{\partial y}\Big|_{\gamma(t)} - y(t)\frac{\partial}{\partial x}\Big|_{\gamma(t)}.
   \end{align}
   Therefore, the condition~\eqref{eq:integralCurve} for $Z$ and $\gamma$, i.e., $\gamma'(t) = Z_{\gamma(t)}$, translates into
   \begin{equation}
@@ -421,7 +421,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
   \noindent Comparing the components of the two vectors, we see that this is equivalent to the system of ODEs
   \begin{equation}
     \begin{cases}
-      x'(t) = - y(t)\\
+      x'(t) = - y(t) \\
       y'(t) = x(t)
     \end{cases},
   \end{equation}
@@ -436,7 +436,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
 \end{example}
 
 \begin{notation}
-  If $M$ is a manifold and $(a,b)\subset\R$, also $(a,b)\times M$ is a manifold. 
+  If $M$ is a manifold and $(a,b)\subset\R$, also $(a,b)\times M$ is a manifold.
   Conventionally, for $p\in M$ we will denote $i_p : (a,b) \to (a,b)\times M$ the map $i_p(t) := (t,p)$.
   All the following notations will denote the tangent vector in $T_{(t,p)}((a,b)\times M)$ obtained from $\frac{\partial}{\partial t}\big|_t \in T_t\R$:
   \begin{equation}
@@ -458,7 +458,7 @@ These equations can be further rewritten as the system of ordinary differential 
 \begin{equation}
   \begin{cases}
     \dot\gamma^1(t) = X^1(\gamma^1(t), \ldots, \gamma^n(t)) \\
-    \quad \vdots \\
+    \quad \vdots                                            \\
     \dot\gamma^n(t) = X^n(\gamma^1(t), \ldots, \gamma^n(t))
   \end{cases},
 \end{equation}
@@ -475,7 +475,7 @@ This immediately implies the following theorem.
     \item for every $t\in(-\epsilon, \epsilon)$, the map $\varphi_t: U \to M$, $p\mapsto \varphi_t(p):=\varphi(t,p)$, is a diffeomorphism from $U$ onto an open subset of $M$.
   \end{enumerate}
 \end{theorem}
-  
+
 \begin{remark}
   In some text, instead of $\varphi_p' = X\circ\varphi_p$, you read
   \begin{equation}
@@ -565,30 +565,30 @@ When we want to emphasize the vector field $X$, we will write $\varphi^X$.
   \end{equation}
   Which is exactly the claim in~\cite[Proposition 9.12]{book:lee}.
 
-%   Both $\cD$ and $\varphi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so we only need to show that $\cD$ is open and that $\varphi$ is smooth.
-%   To this end we are going to prove that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\varphi$ is smooth.
+  %   Both $\cD$ and $\varphi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so we only need to show that $\cD$ is open and that $\varphi$ is smooth.
+  %   To this end we are going to prove that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\varphi$ is smooth.
 
-%   Fix $p\in M$ and denote $J\subset I_p$ the set of all $t\in I_p$ for which there is some neighbourhood of $(t,p)$ contained in $\cD$ on which $\varphi$ is smooth. Since this is an open condition, the set $J$ is open and by Theorem~\ref{thm:exuniqloc}, $0\in J$, so $J$ is not empty.
+  %   Fix $p\in M$ and denote $J\subset I_p$ the set of all $t\in I_p$ for which there is some neighbourhood of $(t,p)$ contained in $\cD$ on which $\varphi$ is smooth. Since this is an open condition, the set $J$ is open and by Theorem~\ref{thm:exuniqloc}, $0\in J$, so $J$ is not empty.
 
-%   Suppose that $t_0\in\overline{J}$ and set $p_0 = \gamma_p(t_0)$.
-%   We are going to show that we can always extend smoothly the flow to a neighbourhood of $t_0$
-%   Applying Theorem~\ref{thm:exuniqloc} at $p_0$ we obtain a local flow $\varphi:(-\epsilon,\epsilon)\times U_0 \to M$ about $p_0$. 
-%   Since $\gamma_p$ is continuous and $t_0$ is in the closure of $J$, we can choose $t_1\in J$ such that $t_0 - t_1 \in (-\epsilon, \epsilon)$ and $\gamma_p(t_1)\in U_0$.
+  %   Suppose that $t_0\in\overline{J}$ and set $p_0 = \gamma_p(t_0)$.
+  %   We are going to show that we can always extend smoothly the flow to a neighbourhood of $t_0$
+  %   Applying Theorem~\ref{thm:exuniqloc} at $p_0$ we obtain a local flow $\varphi:(-\epsilon,\epsilon)\times U_0 \to M$ about $p_0$. 
+  %   Since $\gamma_p$ is continuous and $t_0$ is in the closure of $J$, we can choose $t_1\in J$ such that $t_0 - t_1 \in (-\epsilon, \epsilon)$ and $\gamma_p(t_1)\in U_0$.
 
-%   In fact, we can choose a whole interval $J_0\subset J$, $t_0\in J_0$, such that $t-t_1\in(-\epsilon, \epsilon)$ for all $t\in J_0$.
-%   By the continuity of $\varphi$ at $(t_1, p)$, there exists a neighbourhood $V$ of $p$ such that $\varphi(\{t_1\}\times V)\subset U_0$.
+  %   In fact, we can choose a whole interval $J_0\subset J$, $t_0\in J_0$, such that $t-t_1\in(-\epsilon, \epsilon)$ for all $t\in J_0$.
+  %   By the continuity of $\varphi$ at $(t_1, p)$, there exists a neighbourhood $V$ of $p$ such that $\varphi(\{t_1\}\times V)\subset U_0$.
 
-%   Let $t\in I_0$ and $q\in V$, then $t-t_1\in(-\epsilon, \epsilon)$ and thus $\varphi(t_1,q)\in U_0$ (it coincides with $\varphi$ there).
-%   But this implies that $\varphi(t-t_1, \varphi(t_1, q))$ is defined and smooth.
-%   Since the curve $s\mapsto \varphi(s-t_1, \varphi(t_1, q))$ is an integral curve of $X$ passing through $\varphi(t_1, q)$ at $t_1$, by uniqueness, the curve must be $\varphi(t,q)$ itself.
-%   That is, $\varphi(t,q) = \varphi(t-t_1, \varphi(t_1, q))$ is defined and smooth at $(t,q)$.
-%   This shows that $\varphi$ is defined and smooth on all $J_0\times V$ and, in particular, also that $t_0\in J$.
+  %   Let $t\in I_0$ and $q\in V$, then $t-t_1\in(-\epsilon, \epsilon)$ and thus $\varphi(t_1,q)\in U_0$ (it coincides with $\varphi$ there).
+  %   But this implies that $\varphi(t-t_1, \varphi(t_1, q))$ is defined and smooth.
+  %   Since the curve $s\mapsto \varphi(s-t_1, \varphi(t_1, q))$ is an integral curve of $X$ passing through $\varphi(t_1, q)$ at $t_1$, by uniqueness, the curve must be $\varphi(t,q)$ itself.
+  %   That is, $\varphi(t,q) = \varphi(t-t_1, \varphi(t_1, q))$ is defined and smooth at $(t,q)$.
+  %   This shows that $\varphi$ is defined and smooth on all $J_0\times V$ and, in particular, also that $t_0\in J$.
 \end{proof}
 
 \begin{remark}\label{rmk:automorphismgroup}
   The point of view taken to define~\eqref{eq:flowdiffeo} brings to the table a very important fact: $\varphi_t : M_t \to M_{-t}$ is a smooth map with smooth inverse $(\varphi_t)^{-1}:=\varphi_{-t}: M_{-t} \to M_t$.
 
-  That is, $\varphi_t$ is a diffeomorphism, $\varphi_0 = \id_M$ and, more generally, if $s,t \in \R$ then the domain $P$ of $\varphi_s \circ \varphi_t$ is contained\footnote{Equality holds if $st \geq 0$, that is, if they have the same sign.} in $M_{s+t}$ and $\varphi_s \circ \varphi_t = \varphi_{s+t}$ in $P$.  
+  That is, $\varphi_t$ is a diffeomorphism, $\varphi_0 = \id_M$ and, more generally, if $s,t \in \R$ then the domain $P$ of $\varphi_s \circ \varphi_t$ is contained\footnote{Equality holds if $st \geq 0$, that is, if they have the same sign.} in $M_{s+t}$ and $\varphi_s \circ \varphi_t = \varphi_{s+t}$ in $P$.
 \end{remark}
 
 For a complete vector field $X$, $\cD = \R\times M$.
@@ -612,10 +612,10 @@ For a complete vector field $X$, $\cD = \R\times M$.
 \begin{definition}
   A \emph{one-parameter group of diffeomorphisms}\footnote{If you stumble upon a one-parameter group \emph{action}, don't be scared: it is the same exact thing where $\varphi$ is required to be continuous instead of smooth.} is a smooth left $\R$-action on $M$, that is, a smooth map $\varphi:\R\times M \to M$ such that for all $s,t\in\R$ and all $p\in M$:
   \begin{align}
-    &\varphi(0,p) = p,\\
-    &\varphi(t, \varphi(s, p)) = \varphi(t+s, p).
+     & \varphi(0,p) = p,                            \\
+     & \varphi(t, \varphi(s, p)) = \varphi(t+s, p).
   \end{align}
-  
+
   In other words, a one-parameter group of diffeomorphism is another name for global flow and the two properties above are exactly the group laws.
   And, indeed, we usually denote the map $t\mapsto\varphi(t,\cdot)$ by $\varphi_t$.
 
@@ -667,9 +667,9 @@ The definition above contains the proof of the following fact.
 \begin{exercise}
   Show that the exponential defined above satisfies the following properties
   \begin{align}
-    &e^{0X} = \id_M, \quad (e^{tX})^{-1} = e^{-tX}, \\
-    &e^{t X}\circ e^{s X}= e^{(t+s)X},\\
-    &\frac{d}{d t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
+     & e^{0X} = \id_M, \quad (e^{tX})^{-1} = e^{-tX},                 \\
+     & e^{t X}\circ e^{s X}= e^{(t+s)X},                              \\
+     & \frac{d}{d t} e^{tX} (p) = X(e^{tX}(p)), \quad \forall p\in M.
   \end{align}
 
   Moreover, if $X(x) = Ax$ is a linear vector field on $\R^n$, i.e., $A$ is a $n\times n$-matrix, then the corresponding flow $\varphi_t$ is the matrix exponential $\varphi_t(x) = e^{tA}x$.
@@ -684,11 +684,11 @@ There are a few cases in which we can guarantee completeness, let's have a brief
 \begin{proof}
   Assume that this is not the case, then there is some $p\in M$ such that either $t^+(p) < \infty$ or $t_-(p)>-\infty$.
   Say that $t^+(p) < \infty$ (the other case is nearly identical).
-  
+
   Choose $t_0$ such that $t^+(p) - t_0 < \epsilon$ and set $p_0 = \gamma_p(t_0)$. By assumption, $\gamma_{p_0}(t)$ is defined for all $t\in(-\epsilon, \epsilon)$. Consider the curve
   \begin{equation}
     \gamma(t) := \begin{cases}
-      \gamma_p(t), & t\in I_p,\\
+      \gamma_p(t),         & t\in I_p,         \\
       \gamma_{p_0}(t-t_0), & |t-t_0|<\epsilon.
     \end{cases}
   \end{equation}
@@ -743,12 +743,12 @@ A natural question, at this point, is what happens when we map integral curves t
 \begin{proof}
   We only need to show that the two curves satisfy the same ODE.
   \begin{align*}
-    d(F\circ \gamma)_t 
-    &= dF_{\gamma(t)} \circ d\gamma_t \\
-    &= dF_{\gamma(t)} \circ (X \circ \gamma)_t \\
-    &= \LaTeXunderbrace{dF_{\gamma(t)} \circ X \circ F^{-1}} \circ F \circ \gamma(t) \\
-    &= (F_* X) \circ (F\circ \gamma)(t) \\
-    &= (F_* X)_{F\circ\gamma(t)}.
+    d(F\circ \gamma)_t
+     & = dF_{\gamma(t)} \circ d\gamma_t                                                \\
+     & = dF_{\gamma(t)} \circ (X \circ \gamma)_t                                       \\
+     & = \LaTeXunderbrace{dF_{\gamma(t)} \circ X \circ F^{-1}} \circ F \circ \gamma(t) \\
+     & = (F_* X) \circ (F\circ \gamma)(t)                                              \\
+     & = (F_* X)_{F\circ\gamma(t)}.
   \end{align*}
 \end{proof}
 
@@ -760,7 +760,7 @@ A natural question, at this point, is what happens when we map integral curves t
     \frac{d}{ds}\Big|_{s=0} e^{tX}\circ e^{sY}\circ e^{-t X}(q),
   \end{equation}
   where we are using the definition of integral flow in the first equality and~\eqref{eq:conjpfX} in the second.
-  This turns out to be rather useful for proofs and computations.  
+  This turns out to be rather useful for proofs and computations.
 \end{remark}
 
 \begin{exercise}
@@ -768,7 +768,7 @@ A natural question, at this point, is what happens when we map integral curves t
   \begin{equation}\label{def:liebracketsecondversion}
     [X,Y]\big|_q = \frac{\partial}{\partial t}\Big|_{t=0} (e_*^{-t X} Y)_q
   \end{equation}
- \textit{\small Hint: the identity $(F_* X)f = X(f\circ F)\circ F^{-1}$ and a Taylor expansion can help.}
+  \textit{\small Hint: the identity $(F_* X)f = X(f\circ F)\circ F^{-1}$ and a Taylor expansion can help.}
 \end{exercise}
 
 \begin{remark}
@@ -792,26 +792,26 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   Indeed, for any $t$,
   \begin{align}
     \frac{\partial}{\partial t} e_*^{-t X} Y
-    &= \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e_*^{-(t+\epsilon) X} Y
-    = \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e_*^{-t X}e_*^{-\epsilon X} Y\\
-    &= e_*^{-tX} \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e_*^{-\epsilon X} Y
+     & = \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e_*^{-(t+\epsilon) X} Y
+    = \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e_*^{-t X}e_*^{-\epsilon X} Y    \\
+     & = e_*^{-tX} \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e_*^{-\epsilon X} Y
     = e_*^{-tX} [X,Y] = 0.
   \end{align}
-  
+
   $(\Longrightarrow)$ Fix $t\in\R$. We are going to show that $\varphi_s := e^{-tX}\circ e^{sY}\circ e^{tX}$ is the flow of $Y$, i.e. $\varphi_s = e^{sY}$.
   We can use the previous trick,~\eqref{eq:intcurvconst} and~\eqref{eq:expdiff} to get, for any $s\in\R$,
   \begin{align}
     \frac{\partial}{\partial s} \varphi_s
-    &= \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{(s+\epsilon) Y}\circ e^{tX} \\
-    &= \LaTeXunderbrace{\frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{\epsilon Y}\circ e^{tX}}_{e^{-tX}_* Y} \circ \LaTeXunderbrace{e^{-tX}\circ e^{s Y}\circ e^{tX}}_{\varphi_s} \\
-    &= e^{-tX}_* Y \circ \varphi_s = Y \circ \varphi_s.
+     & = \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{(s+\epsilon) Y}\circ e^{tX}                                                                                                  \\
+     & = \LaTeXunderbrace{\frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{\epsilon Y}\circ e^{tX}}_{e^{-tX}_* Y} \circ \LaTeXunderbrace{e^{-tX}\circ e^{s Y}\circ e^{tX}}_{\varphi_s} \\
+     & = e^{-tX}_* Y \circ \varphi_s = Y \circ \varphi_s.
   \end{align}
   That is, $e^{-tX}\circ e^{sY}\circ e^{tX} = e^{sY}$ which is equivalent to the claim.
 
   $(\Longleftarrow)$ Let $f\in C^\infty(M)$, by~\eqref{eq:lbddr} we have
   \begin{align}
-    [X,Y]_q &= \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0}e^{-tX}\circ e^{sY}\circ e^{t X}(q)\\
-    &= \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0} e^{sY} = 0.
+    [X,Y]_q & = \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0}e^{-tX}\circ e^{sY}\circ e^{t X}(q) \\
+            & = \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0} e^{sY} = 0.
   \end{align}
 \end{proof}
 
@@ -825,21 +825,21 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   to deduce the following \emph{formal} series expansion:
   \begin{align}
     e_*^{-tX} Y
-    &= \sum_{n=0}^\infty \frac{t^n}{b!}(\ad X)^n Y \\
-    &= Y + t[X,Y] + \frac{t^2}{2}[X, [X, Y]] + \frac{t^3}{6} [X,[X,[X,Y]]] + \cdots.
+     & = \sum_{n=0}^\infty \frac{t^n}{b!}(\ad X)^n Y                                   \\
+     & = Y + t[X,Y] + \frac{t^2}{2}[X, [X, Y]] + \frac{t^3}{6} [X,[X,[X,Y]]] + \cdots.
   \end{align}
 \end{exercise}
 
 \newthought{We can finally justify} our comment in Figure~\ref{fig:3_1-vfield-infgen}: the following theorem shows that every flow $\varphi^X$ admits local coordinates on its support which map it into a linear flow.
 
 \begin{definition}
-  Let $M$ be a smooth manifold and $X\in\fX(M)$. 
+  Let $M$ be a smooth manifold and $X\in\fX(M)$.
   The \emph{support of $X$} is defined as
   \begin{equation}
     \supp(X):=\overline{\left\lbrace p\in M \;\mid\; X_p\neq 0 \in T_p M\right\rbrace}\subset M.
   \end{equation}
   Points $p\in\supp(X)$ are called \emph{regular points of $X$}.
-  The points $p\in M\setminus\supp(X)$, i.e. such that $X_p = 0$, are the \emph{fixed points (or equilibrium points) of $X$}: for such points the unique integral curve through $p$ is $\gamma(t) \equiv p$ for all $t\in\R$. 
+  The points $p\in M\setminus\supp(X)$, i.e. such that $X_p = 0$, are the \emph{fixed points (or equilibrium points) of $X$}: for such points the unique integral curve through $p$ is $\gamma(t) \equiv p$ for all $t\in\R$.
 \end{definition}
 
 \begin{theorem}[Normal form of a flow away from the fixed points]
@@ -885,35 +885,35 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   Thus, $\Omega$ is a well--defined diffeomorphism.
   Moreover,
   \begin{align}
-    \Omega \circ \varphi^{\widetilde{L}}_t &= \lim_{s\to\infty} \varphi_{-s}^L \circ \varphi^{\widetilde{L}}_s \circ \varphi^{\widetilde{L}}_t \\
-    &= \lim_{s\to\infty} \varphi_{-s}^L \circ \varphi^{\widetilde{L}}_{s+t} \\
-    &= \lim_{\tau\to\infty} \varphi_{t-\tau}^L \circ \varphi^{\widetilde{L}}_s \circ \varphi^{\widetilde{L}}_\tau \\
-    &= \lim_{\tau\to\infty} \varphi_{t}^L \circ \varphi_{-\tau}^L \circ \varphi^{\widetilde{L}}_s \circ \varphi^{\widetilde{L}}_\tau = \varphi_t^L \circ \Omega,
+    \Omega \circ \varphi^{\widetilde{L}}_t & = \lim_{s\to\infty} \varphi_{-s}^L \circ \varphi^{\widetilde{L}}_s \circ \varphi^{\widetilde{L}}_t                                                          \\
+                                           & = \lim_{s\to\infty} \varphi_{-s}^L \circ \varphi^{\widetilde{L}}_{s+t}                                                                                      \\
+                                           & = \lim_{\tau\to\infty} \varphi_{t-\tau}^L \circ \varphi^{\widetilde{L}}_s \circ \varphi^{\widetilde{L}}_\tau                                                \\
+                                           & = \lim_{\tau\to\infty} \varphi_{t}^L \circ \varphi_{-\tau}^L \circ \varphi^{\widetilde{L}}_s \circ \varphi^{\widetilde{L}}_\tau = \varphi_t^L \circ \Omega,
   \end{align}
   and therefore the flows are diffeomorphic.
   In particular, we also have $\varphi_p^{\widetilde{L}} = \Omega^{-1} \circ \varphi^L_{\Omega(x)}$.
   Differentiating this last equation we get
   \begin{align}
-    (\widetilde{L} \circ \varphi^{\widetilde{L}})_p &= d\varphi^{\widetilde{L}}_p \\
-    &= d\Omega^{-1}_{\varphi^L_{\Omega(x)}} \circ d\varphi^L_{\Omega(x)} \\
-    &= d\Omega^{-1}_{\varphi^L_{\Omega(x)}} \circ (L \circ \varphi^L)_{\Omega(x)},
+    (\widetilde{L} \circ \varphi^{\widetilde{L}})_p & = d\varphi^{\widetilde{L}}_p                                                  \\
+                                                    & = d\Omega^{-1}_{\varphi^L_{\Omega(x)}} \circ d\varphi^L_{\Omega(x)}           \\
+                                                    & = d\Omega^{-1}_{\varphi^L_{\Omega(x)}} \circ (L \circ \varphi^L)_{\Omega(x)},
   \end{align}
-    which, at $t=0$, gives $\widetilde{L} = d\Omega^{-1} \circ L \circ \Omega = \Omega^{-1}_* L$.
+  which, at $t=0$, gives $\widetilde{L} = d\Omega^{-1} \circ L \circ \Omega = \Omega^{-1}_* L$.
 \end{proof}
 
 \begin{example}\label{ex:hyplin}
-Let $Z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}$ on $\R^2$ be the vector field from Example~\ref{ex:rotation}, where we already computed its flow.
+  Let $Z = x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x}$ on $\R^2$ be the vector field from Example~\ref{ex:rotation}, where we already computed its flow.
 
-The point $(1,0)\in\R^2$ is a regular point of $Z$, since $Z_{(1,0)} = \frac{\partial}{\partial y}\Big|_{(1,0)} \neq 0$.
-Since $Z$ has a nonzero $y$ coordinate, we can consider the as the transversal ``hypersurface'', a line in this case, the $x$-axis, parametrised by $H(s) = (s,0)$.
-We can then define the map $\Psi(t,s) = \varphi_t\circ H(s) : \R^2\to\R^2$ where $\varphi_t$ is the flow of $Z$, it turns out that then the coordinate map would just be the inverse of $\Psi$.
+  The point $(1,0)\in\R^2$ is a regular point of $Z$, since $Z_{(1,0)} = \frac{\partial}{\partial y}\Big|_{(1,0)} \neq 0$.
+  Since $Z$ has a nonzero $y$ coordinate, we can consider the as the transversal ``hypersurface'', a line in this case, the $x$-axis, parametrised by $H(s) = (s,0)$.
+  We can then define the map $\Psi(t,s) = \varphi_t\circ H(s) : \R^2\to\R^2$ where $\varphi_t$ is the flow of $Z$, it turns out that then the coordinate map would just be the inverse of $\Psi$.
 
-In this case: $\Psi(t,s) = \varphi_t(s,0) = (s\cos t, s\sin t)$.
-Solving locally for $(t,s)$ as functions of $x$ and $y$ we get, in a neighbourhood of $(1,0)$:
-\begin{equation}
-  (t,s) = \Psi^{-1}(x,y) = \left(\arctan(y/x), \sqrt{x^2+y^2}\right).
-\end{equation}
-In this new coordinates, which are just polar coordinates labelled with different symbols, you can directly check that $Z = \frac{\partial}{\partial t}$ as claimed.
+  In this case: $\Psi(t,s) = \varphi_t(s,0) = (s\cos t, s\sin t)$.
+  Solving locally for $(t,s)$ as functions of $x$ and $y$ we get, in a neighbourhood of $(1,0)$:
+  \begin{equation}
+    (t,s) = \Psi^{-1}(x,y) = \left(\arctan(y/x), \sqrt{x^2+y^2}\right).
+  \end{equation}
+  In this new coordinates, which are just polar coordinates labelled with different symbols, you can directly check that $Z = \frac{\partial}{\partial t}$ as claimed.
 \end{example}
 
 \begin{remark}[Linearisation of a vector field at a fixed point]
@@ -942,6 +942,6 @@ In this new coordinates, which are just polar coordinates labelled with differen
 
 
 \begin{tcolorbox}
-For simplicity in the rest of the course we will discuss only global flows.
-But keep in mind that all results hold also for local flows as long as one restricts the domains appropriately.
+  For simplicity in the rest of the course we will discuss only global flows.
+  But keep in mind that all results hold also for local flows as long as one restricts the domains appropriately.
 \end{tcolorbox}
