@@ -96,7 +96,9 @@ Another important class of symplectic manifolds arises from complex geometry, an
   There is an equivalence of categories between smooth projective algebraic varieties, and connected projective complex manifolds $Z\subset\mathbb{CP}^n$.
 \end{theorem}
 In light of this theorem, we shall prove that $\mathbb{CP}^n$ has a canonical symplectic form, which provides us with a large class of symplectic manifolds with a canonical symplectic structure. One of the most well-known examples of homological mirror symmetry, which arose from string theory, is given by the quintic threefold
-$$Z:=\{[z_0:z_1:z_2:z_3:z_4]\in\mathbb{CP}^4\mid \sum z_i^5=0\}$$
+\begin{equation}
+Z:=\left\{[z_0:z_1:z_2:z_3:z_4]\in\mathbb{CP}^4\mid \sum z_i^5=0\right\}.
+\end{equation}
 This is a smooth projective variety of great historical importance, because it propelled the idea of mirror symmetry from being an obscure physical theory, to a mathematical conjecture, as found in \cite{Kontsevich1994Homological}.
 %https://arxiv.org/abs/alg-geom/9411018
 The homological mirror symmetry conjecture (which has been verified for a large number of examples) uses the symplectic structure on a manifold to construct the so-called Fukaya category. The conjecture asserts that this category is equivalent to a certain category defined over its mirror pair.\\
@@ -237,8 +239,9 @@ The terminology arises from the fact that every vector bundle is locally isomorp
 $$\Phi_\alpha:E|_{U_\alpha}\to U_\alpha\times\mathbb{R}^k\quad \Phi_\beta:E|_{U_\beta}\to U_\beta\times\mathbb{R}^k$$
 are two local trivialisations for $E$. Then we can ask ourselves how the connection $1$-forms are related, when we restrict to the intersection $U_{\alpha\beta}$. As we know, a trivialisation is equivalent to a local frame for $E$. Let $\Phi_\alpha$ correspond to $\{e_i\}_{i=1}^k$ and $\Phi_\beta$ to $\{e'_i\}_{i=1}^k$. Then there exist a smooth map $\phi_{\alpha\beta}:U_{\alpha\beta}\to\text{GL}(k,\mathbb{R})$ such that $e'=e\phi_{\alpha\beta}$. Consequently, using the Leibniz rule, we find:
 \begin{align*}
-  \nabla e'=\nabla (e\phi_{\alpha\beta})=(\nabla e)\phi_{\alpha\beta}+ed\phi_{\alpha\beta}=
-  (eA_\alpha)\phi_{\alpha\beta}+ed\phi_{\alpha\beta}= \\(e'\phi_{\alpha\beta}^{-1})A_\alpha\phi_{\alpha\beta}+(e'\phi_{\alpha\beta}^{-1})d\phi_{\alpha\beta}=e'(\phi_{\alpha\beta}^{-1}A_\alpha\phi_{\alpha\beta}+\phi_{\alpha\beta}^{-1}d\phi_{\alpha\beta})
+  \nabla e' &= \nabla (e\phi_{\alpha\beta})=(\nabla e)\phi_{\alpha\beta}+ed\phi_{\alpha\beta}=
+  (eA_\alpha)\phi_{\alpha\beta}+ed\phi_{\alpha\beta} \\
+            &= (e'\phi_{\alpha\beta}^{-1})A_\alpha\phi_{\alpha\beta}+(e'\phi_{\alpha\beta}^{-1})d\phi_{\alpha\beta}=e'(\phi_{\alpha\beta}^{-1}A_\alpha\phi_{\alpha\beta}+\phi_{\alpha\beta}^{-1}d\phi_{\alpha\beta})
 \end{align*}
 Thus, we have that $A_\beta=\phi_{\alpha\beta}^{-1}A_\alpha \phi_{\alpha\beta}+\phi_{\alpha\beta}^{-1}d\phi_{\alpha\beta}$. Notice that this does not transform tensorially. A remarkable fact that we will show later, is that applying $\nabla$ twice results in an operator which does transform tensorially. This will be the curvature of $\nabla$. Before we end this section, we give one important way of obtaining connections. Every vector bundle is a sub-bundle of a trivial vector bundle of sufficiently high rank. This trivial bundle has a canonical connection. Consequently, the following result is often useful.
 \begin{proposition}\label{projection}
@@ -284,12 +287,16 @@ The curvature of a connection can be interpreted in several different ways. For 
 \begin{proof}
   We calculate how $R(X,Y)$ acts on a local frame $e$, using \ref{local}. First, we have
   \begin{align*}
-    \nabla_X\nabla_Ye=\nabla_XA(Y)e=XA(Y)e+A(Y)\nabla_Xe=XA(Y)e+A(Y)A(X)e
+    \nabla_X\nabla_Ye &=\nabla_XA(Y)e \\
+                      &=XA(Y)e+A(Y)\nabla_Xe \\
+                      &=XA(Y)e+A(Y)A(X)e
   \end{align*}
   The expression for $\nabla_Y\nabla_X$ is derived similarly. It follows that
   \begin{align*}
-    R(X,Y)e=(XA(Y)-YA(X)-A([X,Y]))e+(A(X)A(Y)-A(Y)A(X))e= \\dA(X,Y)e+A\wedge A(X,Y)e=
-    (dA+A\wedge A)(X,Y)e
+    R(X,Y)e &= (XA(Y)-YA(X)-A([X,Y]))e \\
+            &\quad +(A(X)A(Y)-A(Y)A(X))e\\ 
+            &= dA(X,Y)e+A\wedge A(X,Y)e \\
+            &= (dA+A\wedge A)(X,Y)e
   \end{align*}
   Where we have used the formula for the exterior derivative on $1$-forms, which is $$d\omega(X,Y)=X\omega(Y)-Y\omega(X)-\omega([X,Y])$$
 \end{proof}
@@ -319,7 +326,8 @@ One of the defining properties of the exterior derivative is that $d^2=0$. This 
 \begin{definition}
   We define the covariant exterior derivative $d_\nabla:\Omega^k(M,E)\to\Omega^{k+1}(M,E)$ by
   \begin{align*}
-    d_\nabla\omega(X_1,\dots,X_{k+1})= \\\sum^{k+1}_{i=1}(-1)^{i+1}\nabla_{X_i}\omega(X_1\dots,\widehat{X}_i,\dots,X_{k+1})+\sum_{i<j}^{k+1}(-1)^{i+j+1}\omega([X_i,X_j],X_1,\dots,\widehat{X}_i,\dots,\widehat{X}_j,\dots,X_{k+1})
+    d_\nabla\omega(X_1,\dots,X_{k+1}) &= \sum^{k+1}_{i=1}(-1)^{i+1}\nabla_{X_i}\omega(X_1\dots,\widehat{X}_i,\dots,X_{k+1})\\
+                                      &\quad +\sum_{i<j}^{k+1}(-1)^{i+j+1}\omega([X_i,X_j],X_1,\dots,\widehat{X}_i,\dots,\widehat{X}_j,\dots,X_{k+1})
   \end{align*}
 \end{definition}
 We have a natural module structure for $\bigoplus_k\Omega^k(M,E)$ over the ring $\bigoplus_k\Omega^k(M)$. Let $\omega\in\Omega^k(M)$ and $\eta\in\Omega^{k'}(M,E)$. The covariant exterior derivative satisfies
@@ -340,14 +348,15 @@ Any connection $\nabla$ on $E$ induces a connection $\nabla^\text{End}$ on the v
 \begin{proof}
   We take linearity for granted. Let $s\in\Gamma(E)$ and $s'\in\Gamma(E')$. For the first property of a connection, we calculate:
   \begin{align*}
-    (\nabla\otimes\nabla')_{fX}(s\otimes s')=(\nabla_{fX}(s))\otimes s'+s\otimes(\nabla'_{fX} s')= \\
-    (f\nabla_Xs)\otimes s'+s\otimes(f\nabla'_Xs')=f(\nabla\otimes\nabla')_X(s\otimes s')
+    (\nabla\otimes\nabla')_{fX}(s\otimes s') &= (\nabla_{fX}(s))\otimes s'+s\otimes(\nabla'_{fX} s') \\
+                                             &= (f\nabla_Xs)\otimes s'+s\otimes(f\nabla'_Xs')=f(\nabla\otimes\nabla')_X(s\otimes s')
   \end{align*}
   For the second, we have:
   \begin{align*}
-    (\nabla\otimes\nabla')_X(fs\otimes s')=(\nabla_Xfs)\otimes s'+fs\otimes(\nabla'_Xs')= \\
-    ((Xf)s+f\nabla_Xs)\otimes s'+fs\otimes(\nabla'_Xs')=                                  \\
-    (Xf)s\otimes s'+f(\nabla_Xs)\otimes s'+fs\otimes(\nabla_Xs')=(Xf)s\otimes s'+f(\nabla\otimes\nabla')_X(s\otimes s')
+    (\nabla\otimes\nabla')_X(fs\otimes s')&= (\nabla_Xfs)\otimes s'+fs\otimes(\nabla'_Xs') \\
+                                          &= ((Xf)s+f\nabla_Xs)\otimes s'+fs\otimes(\nabla'_Xs') \\
+                                          &= (Xf)s\otimes s'+f(\nabla_Xs)\otimes s'+fs\otimes(\nabla_Xs') \\
+                                          &= (Xf)s\otimes s'+f(\nabla\otimes\nabla')_X(s\otimes s')
   \end{align*}
 \end{proof}
 Now, if we have a connection on $E$, this gives us a connection on $E\otimes E^*=\text{End}(E)$, by the two results above. Explicitly, it is given as follows. Let $\varphi\in\Gamma(\text{End}(E))$ and $s\in\Gamma(E)$. Then
