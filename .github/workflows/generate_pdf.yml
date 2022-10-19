@@ -51,6 +51,7 @@ jobs:
     - uses: wtfjoke/setup-tectonic@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+        biber-version: 2.17
  
     - name: Prepare env
       run: |
