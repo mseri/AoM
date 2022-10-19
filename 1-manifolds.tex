@@ -1057,9 +1057,13 @@ Can we make sense of such observation using our newly introduced definition?
     \cC = \{p=(p^1,p^2,p^3)\in\R^3 \mid (p^1)^2 + (p^2)^2 = (p^3)^2, \quad 0< p^3\leq 1\},
   \end{equation}
   with boundary $\partial\cC = \{p\in\cC \mid p^3 = 1\}$.
-  \begin{marginfigure}
+  \begin{marginfigure}[-3cm]
     \includegraphics{1_5_9-cyl1}
   \end{marginfigure}
+  \begin{marginfigure}
+    \includegraphics{1_5_9-cyl2}
+    \caption{Compare $\varphi$ with the stereographic projections from Exercise~\ref{ex:stereo}. Do you notice any similarity?}
+\end{marginfigure}
   We can describe the cone with the following atlas $\cA = \{(U_i,\varphi_i)\mid i=1,2,3\}$:
   \begin{itemize}
     \item $U_1 := \{p\in\cC\mid p^3 < 1\}$ with $x = (x^1, x^2) = \varphi_1(p) = (p^1,p^2+1)$, thus
@@ -1075,11 +1079,7 @@ Can we make sense of such observation using our newly introduced definition?
           then $x = \varphi_2(p) = (\sigma\circ\psi)(p)$ and $\varphi_2(U_2) = \R\times[0,1/2) \subset\cH^2$.
     \item $U_3 = \{p\in\cC\mid 1/2 < p^3 \leq 1, \; (p^1, p^2) \neq (0, -p^3) \}$ and $\varphi_3$ defined similarly as in the previous point.
   \end{itemize}
-  \begin{marginfigure}
-    \includegraphics{1_5_9-cyl2}
-    \caption{Compare $\varphi$ with the stereographic projections from Exercise~\ref{ex:stereo}. Do you notice any similarity?}
-  \end{marginfigure}
-  The boundary is given by $\partial\cC = \varphi_2^{-1}(\R\times\{0\}) \cup \varphi_3^{-1}(\R\times\{0\})$.
+    The boundary is given by $\partial\cC = \varphi_2^{-1}(\R\times\{0\}) \cup \varphi_3^{-1}(\R\times\{0\})$.
 \end{example}
 
 \begin{exercise}

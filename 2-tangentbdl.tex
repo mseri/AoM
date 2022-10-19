@@ -61,10 +61,10 @@ For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
 
 This notation using $D$ instead of spelling out the partial derivatives, comes with an important advantage.
 Let's use it to rewrite the chain rule from Proposition~\ref{thm:chainrule}(\ref{thm:chainrule2}):
+\marginnote[1em]{Using Einstein notation, since $l$ is the only index that appears both in lower and upper position, $D_j(r^i\circ g \circ f) (x) = D_l(r^i\circ g)(f(x))\; D_j(r^l \circ f)(x)$.}
 \begin{equation}
   D_j(r^i\circ g \circ f) (x) = \sum_{l=1}^k D_l(r^i\circ g)(f(x))\; D_j(r^l \circ f)(x),
 \end{equation}
-\marginnote[-4em]{Using Einstein notation, since $l$ is the only index that appears both in lower and upper position, $D_j(r^i\circ g \circ f) (x) = D_l(r^i\circ g)(f(x))\; D_j(r^l \circ f)(x)$.}
 where $1\leq i\leq m, 1\leq j \leq n$.
 As you can see, we do not need to explicitly spell out the derivatives in local coordinates on $\R^n$ or $\R^k$ in this new formula.
 This will prove extremely convenient for the development of the theory.
@@ -321,7 +321,7 @@ To that end, we need a preliminary result from multivariable analysis.
   \begin{equation}
     h = h(0) + r^i g_i
   \end{equation}
-  \marginnote[-1.8em]{$\leftarrow$ This is our first use of Einstein notation, this equation should be read as $h(x) = h(0) + \sum_{i=1}^n r^i(x) g_i(x)$.
+  \marginnote[-2em]{$\leftarrow$ This is our first use of Einstein notation, this equation should be read as $h(x) = h(0) + \sum_{i=1}^n r^i(x) g_i(x)$.
     Using the global euclidean chart, $x^i = r^i(x)$ and $h(x) = h(0) + \sum_{i=1}^n x^i g_i(x)$, which you may recognize as the first iteration of the usual Taylor-MacLaurin formula.}
   where $r^i$ are the coordinates introduced in Notation~\ref{ntn:coords}.
 \end{lemma}
@@ -650,7 +650,7 @@ In the next section we will give yet another alternative way of defining tangent
 
 \section{Tangent vectors as tangents to curves}
 
-\begin{marginfigure}
+\begin{marginfigure}[1em]
   \includegraphics{2_2-curve-on-M.pdf}
 \end{marginfigure}
 
