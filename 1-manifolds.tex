@@ -648,7 +648,11 @@ Very often, where there is no ambiguity, we will simply identify $f$ and $\hat f
 A first observation about our definition of smooth maps is that, as one would hope, smoothness implies continuity.
 %
 \begin{exercise}
-  Show that every smooth map is continuous.
+  Let $F:M_1\to M_2$ be a map between smooth manifolds of dimension $n_1$ and $n_2$ respectively.
+  Assume that there are two charts $(\varphi_1, V_1)$ of $M_1$ and $(\varphi_2, V_2)$ of $M_2$ such that
+  $\varphi_2\circ F\circ \varphi_1^{-1}$ is smooth.
+  Prove that if $(\psi_1, V_1)$ and $(\psi_2, V_2)$ are two other charts,
+  respectively of $M_1$ and $M_2$, then also $\psi_2\circ F\circ \psi_1^{-1}$ is smooth.
 \end{exercise}
 %
 \begin{exercise}
