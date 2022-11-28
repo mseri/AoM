@@ -932,9 +932,8 @@ and the topology inherited by $\R^n$, as a replacement for our local model $\R^n
 \begin{example}\label{ex:mobius}
   A M\"obius strip $M$ is a connected $2$-manifold with boundary.
   As a topological space it is the quotient\footnote{Think of a strip of paper whose ends have been glued with a twist.} $\R\times[0,1]$ via the identification $(x,y)\sim(x+1, 1-y)$.
-  The projection $\pi: [(x,y)] \mapsto (\cos(2\pi x), \sin(2\pi x))$ is a continuous surjective map to $\bS^1$.
-  Given $x_0\in\R$, we can choose charts $[(x,y)]\mapsto (e^x\cos(\pi y), e^x\sin(\pi y))$ for $x\in(x_0 - \epsilon, x_0 + \epsilon)$ and any $\epsilon < 1/2$.
-  \marginnote{Note that $\partial M$ is diffeomorphic to $\bS^1$. In fact, this is actually an example of a non-trivial fiber bundle, something that will make sense only a few chapters from now.
+  The projection $\pi: [(x,y)] \mapsto (\cos(2\pi x), \sin(2\pi x))$ is a continuous surjective map to $\bS^1$.  Given $x_0\in\R$, we can choose charts $[(x,y)]\mapsto (e^x\cos(\pi y), e^x\sin(\pi y))$ for $x\in(x_0 - \epsilon, x_0 + \epsilon)$ and any $\epsilon < 1/2$.
+  \marginnote{For any fixed $y$, including the values $0$ and $1$ corresponding to the boundary pieces, our manifolds projects to a circle. In fact, $\partial M$ is diffeomorphic to $\bS^1$. This turns out to be also an example of a non-trivial fiber bundle, something that will make sense only a few chapters from now.
     In this case, $M$ is a bundle of intervals over a circle.}
 \end{example}
 
@@ -980,7 +979,7 @@ With such definition at hand, one can define compatibility, smooth atlases and d
   Let $\widetilde\tau_{21}$ be the smooth extension of $\tau_{21}$ to a set $V_{21}$ which is open in $\R^n$.
   On the other hand, since $\phi_1$ is an interior chart, there is a euclidean ball $B$ around $\phi_1(p)$ contained in $\phi_1(U_1\cap U_2)$ in which $\tau_{12}$ is smooth in the usual euclidean sense.
 
-  On $B \cap \tau_{21}(V_21)$, $\widetilde\tau_{21} \circ \tau_{12} = \tau_{21} \circ \tau_{12} = \id$, so the chain rule implies that $\id = D \widetilde\tau_{21} \circ \tau_{12} = D\widetilde\tau_{21}|_{\tau_{12}} \circ D\tau_{12}$.
+  On $B \cap \tau_{21}(V_{21})$, $\widetilde\tau_{21} \circ \tau_{12} = \tau_{21} \circ \tau_{12} = \id$, so the chain rule implies that $\id = D \widetilde\tau_{21} \circ \tau_{12} = D\widetilde\tau_{21}|_{\tau_{12}} \circ D\tau_{12}$.
   In particular, the square matrix $D\tau_{12}|_{\phi_1(p)}$ is inveritible and, thus, by the inverse function theorem, $\tau_{12}$ is an open mapping\footnote{You can refer to \cite[Corollary C.36]{book:lee} to revise this}.
   This, then, implies that $\tau_{12}(B)$ (here we consider $\tau_{12}$ as a map from $B$ to $\R^n$) is an open subset in $\R^n$ containing $\phi_2(p)$ and contained in $\phi_2(U_2)$.
   This, however, is a contradiction since we assumed $\phi_2(U_2)\subset\cH^n$ with $\phi_2(p) \in \partial\cH^n$, and thus no open ball around $\phi_2(p)$ can be fully contained in $\cH^n$.
