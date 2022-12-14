@@ -968,21 +968,36 @@ With such definition at hand, one can define compatibility, smooth atlases and d
 \end{proposition}
 \begin{proof}
   The statement follows if we show that the transition maps send boundary pieces to boundary pieces.
-  To this end, assume that $p\in M$ is both an interior and a boundary point, that is, there are two charts $(U_1, \phi_1)$ and $(U_2,\phi_2)$ such that $p \in U_1\cap U_2$, both $\phi_1(U_1), \phi_2(U_2) \subset\cH^n$ relatively open, and $\phi_1(p) \in \cH^n\setminus\partial\cH^n$ (an interior chart) while $\phi_2(p) \in \partial\cH^n$ (a boundary chart).
+  To this end, assume that $p\in M$ is both an interior and a boundary point, that is, there are two charts $(U_1, \varphi_1)$ and $(U_2,\varphi_2)$ such that $p \in U_1\cap U_2$, both $\varphi_1(U_1), \varphi_2(U_2) \subset\cH^n$ relatively open, and $\varphi_1(p) \in \cH^n\setminus\partial\cH^n$ (an interior chart) while $\varphi_2(p) \in \partial\cH^n$ (a boundary chart).
 
-  It follows that there exists a small open neighbourhood of $\phi_1(p)$ in $\cH^n$ which is also an open set in $\R^n$: we just need to take a small open ball around $\phi_1(p)$ that does not intersect the boundary.
+  It follows that there exists a small open neighbourhood of $\varphi_1(p)$ in $\cH^n$ which is also an open set in $\R^n$: we just need to take a small open ball around $\varphi_1(p)$ that does not intersect the boundary.
 
-  Consider now the transition maps $\tau_{ij} : \phi_i(U_i\cap U_j) \to \phi_j(U_i\cap U_j)$, $i\neq j$.
+  Consider now the transition maps $\tau_{ij} : \varphi_i(U_i\cap U_j) \to \varphi_j(U_i\cap U_j)$, $i\neq j$.
   These are diffeomorphisms and inverse of each other by construction.
   In particular, by the definition of smoothness, they admit (if necessary) an extension to smooth maps defined on open subsets of $\R^n$.
 
   Let $\widetilde\tau_{21}$ be the smooth extension of $\tau_{21}$ to a set $V_{21}$ which is open in $\R^n$.
-  On the other hand, since $\phi_1$ is an interior chart, there is a euclidean ball $B$ around $\phi_1(p)$ contained in $\phi_1(U_1\cap U_2)$ in which $\tau_{12}$ is smooth in the usual euclidean sense.
+  On the other hand, since $\varphi_1$ is an interior chart, there is a euclidean ball $B$ around $\varphi_1(p)$ contained in $\varphi_1(U_1\cap U_2)$ in which $\tau_{12}$ is smooth in the usual euclidean sense.
 
   On $B \cap \tau_{21}(V_{21})$, $\widetilde\tau_{21} \circ \tau_{12} = \tau_{21} \circ \tau_{12} = \id$, so the chain rule implies that $\id = D \widetilde\tau_{21} \circ \tau_{12} = D\widetilde\tau_{21}|_{\tau_{12}} \circ D\tau_{12}$.
-  In particular, the square matrix $D\tau_{12}|_{\phi_1(p)}$ is inveritible and, thus, by the inverse function theorem, $\tau_{12}$ is an open mapping\footnote{You can refer to \cite[Corollary C.36]{book:lee} to revise this}.
-  This, then, implies that $\tau_{12}(B)$ (here we consider $\tau_{12}$ as a map from $B$ to $\R^n$) is an open subset in $\R^n$ containing $\phi_2(p)$ and contained in $\phi_2(U_2)$.
-  This, however, is a contradiction since we assumed $\phi_2(U_2)\subset\cH^n$ with $\phi_2(p) \in \partial\cH^n$, and thus no open ball around $\phi_2(p)$ can be fully contained in $\cH^n$.
+  In particular, the square matrix $D\tau_{12}|_{\varphi_1(p)}$ is inveritible and, thus, by the inverse function theorem, $\tau_{12}$ is an open mapping\footnote{You can refer to \cite[Corollary C.36]{book:lee} to revise this}.
+  This, then, implies that $\tau_{12}(B)$ (here we consider $\tau_{12}$ as a map from $B$ to $\R^n$) is an open subset in $\R^n$ containing $\varphi_2(p)$ and contained in $\varphi_2(U_2)$.
+  This, however, is a contradiction since we assumed $\varphi_2(U_2)\subset\cH^n$ with $\varphi_2(p) \in \partial\cH^n$, and thus no open ball around $\varphi_2(p)$ can be fully contained in $\cH^n$.
+\end{proof}
+
+An alternative proof can be given by proving that charts preserve the interior of $M$.
+
+\begin{proof}[Alternative proof of Proposition~\ref{prop:bdwelldef}]
+  Let $p\in M$ be an interior point, that is, there exists $\varphi: U\subset M \to \cH^n$, $p\in U$, such that $x^n(p) = r^n\circ\varphi(p) > 0$.
+  
+  Consider a different chart $\psi:V\subset M\to \cH^n$, $p\in V$.
+  We want to show that $\psi^n(p) > 0$. Since
+  \begin{equation}\label{eq:trans-int-chart}
+    \psi\circ\varphi^{-1} : \varphi(U\cap V) \to \psi(U\cap V)
+  \end{equation}
+  is a diffeomorphism and $x^n(p) > 0$, there exists an open set $W\subset U\cap V$, $p\in W$, such that $\forall q\in W$, $x^n(q) > 0$.
+  Therefore $\varphi(W)\subset \cH^n$ is open also in $\R^n$ and $\psi\circ\varphi^{-1} : \varphi(W) \to \psi(W)$ is a diffeomorphism onto its image.
+  This implies that also $\psi(W)$ is open both in $\cH^n$ and in $\R^n$, and thus $\forall q \in W$, $y^n(q) = r^n\circ \psi(q) > 0$. That is, $p$ is an interior point also with respect to the new chart.
 \end{proof}
 
 In fact, a stronger fact holds.
@@ -991,16 +1006,16 @@ In fact, a stronger fact holds.
 \end{proposition}
 \begin{proof}
   Let $p\in\partial M$.
-  Then by definition there is a smooth chart $(U,\phi)$ for $M$, $p\in U$, such that $\phi(U)\subset\cH^n$ and $\phi(p)\in\partial\cH^n$.
+  Then by definition there is a smooth chart $(U,\varphi)$ for $M$, $p\in U$, such that $\varphi(U)\subset\cH^n$ and $\varphi(p)\in\partial\cH^n$.
   Modulo restricting $U$ to the appropriate subset\footnote{Exercise: how would you do that?}, we can find a chart $(F(U), \psi)$ for $N$.
 
   Now, the coordinate representation
   \begin{equation}
-    \widetilde{F} := \psi \circ F \circ \phi^{-1} : \phi(U) \to \psi(F(U))
+    \widetilde{F} := \psi \circ F \circ \varphi^{-1} : \varphi(U) \to \psi(F(U))
   \end{equation}
   is a diffeomorphism between open subsets of either $\R^n$ or $\cH^n$.
-  Furthermore, $(U, \widetilde{F}\circ\phi)$ is a smooth chart for $M$.
-  By the previous proposition, $\widetilde{F}(\phi(U))\subset \cH^n$ with $\widetilde{F}(\phi(p))\in\partial \cH^n$, then we would have shown that $\psi(F(U)) \subset \cH^n$ with $\psi(F(p))\in\partial\cH^n$, i.e. $F(p)\in \partial N$ and, thus, $F(\partial M)\subset \partial N$.
+  Furthermore, $(U, \widetilde{F}\circ\varphi)$ is a smooth chart for $M$.
+  By the previous proposition, $\widetilde{F}(\varphi(U))\subset \cH^n$ with $\widetilde{F}(\varphi(p))\in\partial \cH^n$, then we would have shown that $\psi(F(U)) \subset \cH^n$ with $\psi(F(p))\in\partial\cH^n$, i.e. $F(p)\in \partial N$ and, thus, $F(\partial M)\subset \partial N$.
 \end{proof}
 
 \begin{remark}
@@ -1062,13 +1077,6 @@ Can we make sense of such observation using our newly introduced definition?
     \cC = \{p=(p^1,p^2,p^3)\in\R^3 \mid (p^1)^2 + (p^2)^2 = (p^3)^2, \quad 0< p^3\leq 1\},
   \end{equation}
   with boundary $\partial\cC = \{p\in\cC \mid p^3 = 1\}$.
-  \begin{marginfigure}[-3cm]
-    \includegraphics{1_5_9-cyl1}
-  \end{marginfigure}
-  \begin{marginfigure}
-    \includegraphics{1_5_9-cyl2}
-    \caption{Compare $\varphi$ with the stereographic projections from Exercise~\ref{ex:stereo}. Do you notice any similarity?}
-\end{marginfigure}
   We can describe the cone with the following atlas $\cA = \{(U_i,\varphi_i)\mid i=1,2,3\}$:
   \begin{itemize}
     \item $U_1 := \{p\in\cC\mid p^3 < 1\}$ with $x = (x^1, x^2) = \varphi_1(p) = (p^1,p^2+1)$, thus
@@ -1086,6 +1094,15 @@ Can we make sense of such observation using our newly introduced definition?
   \end{itemize}
     The boundary is given by $\partial\cC = \varphi_2^{-1}(\R\times\{0\}) \cup \varphi_3^{-1}(\R\times\{0\})$.
 \end{example}
+
+\begin{marginfigure}[-3cm]
+    \includegraphics{1_5_9-cyl1}
+\end{marginfigure}
+\begin{marginfigure}
+    \includegraphics{1_5_9-cyl2}
+    \caption{Compare $\varphi$ with the stereographic projections from Exercise~\ref{ex:stereo}. Do you notice any similarity?}
+\end{marginfigure}
+
 
 \begin{exercise}
   Explicitly define $\varphi_3$ from the previous example.
