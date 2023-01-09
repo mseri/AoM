@@ -93,7 +93,7 @@ Of course, there is no reason to restrict ourselves to just two tensors: the def
 \begin{proposition}\label{prop:tensorbasis}
   Let $V$ be an $n$-dimensional vector space.
   Let $\{e_j\}$ and $\{\varepsilon^i\}$ respectively denote the bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$ respectively.
-  Then, every $\tau\in V_s^r$ can be uniquely written as the linear combination\marginnote{\textit{Exercise}: expand Einstein's notation to write the full sum on the left with the relevant indices.}% In the expression, all indices $j_1,\ldots,j_r$, $i_1,\ldots,i_s$ run from $1$ to $n$.}
+  Then, every $\tau\in T_s^r(V)$ can be uniquely written as the linear combination\marginnote{\textit{Exercise}: expand Einstein's notation to write the full sum on the left with the relevant indices.}% In the expression, all indices $j_1,\ldots,j_r$, $i_1,\ldots,i_s$ run from $1$ to $n$.}
   \begin{equation}\label{eq:tensor:decomposition}
     \tau = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s},
   \end{equation}
@@ -183,7 +183,7 @@ Let's go back for a moment to the example of inner products.
   Note that, in general, $e^\flat_i\neq e^i$: indeed, by definition $e^\flat_i = g_{ij}e^j$.
 
   It turns out that these operators can be applied to tensors to produce new tensors.
-  For example, if $\tau$ is a $(0,2)$-tensor we can define an associated tensor $\tau'$ of type $(1,1)$ by $\tau(\omega, v) = \tau(\omega^\sharp, v)$.
+  For example, if $\tau$ is a $(0,2)$-tensor we can define an associated tensor $\tau'$ of type $(1,1)$ by $\tau'(\omega, v) = \tau(\omega^\sharp, v)$.
   Its components are $(\tau')_i^j = g^{jk}\tau_{ik}$.
 \end{example}
 
@@ -211,7 +211,7 @@ Thinking in linear algebraic terms, what is the linear map $\Lambda:V^*\to V^*$ 
 It is convenient, at this point, to introduce the \emph{dual map} $L^* : V^* \to V^*$ to $L$.
 This is defined as the map such that for all $v\in V$ and for all $w\in V^*$
 \begin{equation}
-  (w | Lv) = (L^* w | V).
+  (w | Lv) = (L^* w | v).
 \end{equation}
 But we already know how to define such kind of map! This is like a pullback: $L^*(w) := w \circ L$ for $w\in V^*$.
 \emph{As matrices}, this means that $w^T L v = (L^T w)^T v$, so the matrix of $L^*$ is the transpose of the matrix of $L$.

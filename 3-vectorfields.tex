@@ -1,5 +1,5 @@
 We continue with our quest of generalizing multivariable calculus.
-The next familiar object waiting to be questioned are vector fields.
+The next familiar objects waiting to be questioned are vector fields.
 In the euclidean settings these are simply continuous maps that attach a vector to each point in their domain.
 
 \section{Vector fields}
@@ -31,7 +31,7 @@ This defines $n$ functions $X^i: U\to\R$, called \emph{component functions of $X
 
 \begin{example}
   If $(U, (x^i))$ is a smooth coordinate chart for a $n$-manifold $M$, the assignment $p \mapsto \frac{\partial}{\partial x^i}\big|_p$ determines a vector field on $U$, called the \emph{$i$th-coordinate vector field} and commonly denoted $\partial_{i}$, $\partial_{x^i}$ or $\frac{\partial}{\partial x^i}$.
-  The set $\{\frac{\partial}{\partial x^1}, \ldots, \frac{\partial}{\partial x^n}\}$ is then a local frame for $TM$.
+  The set $\{\frac{\partial}{\partial x^1}, \ldots, \frac{\partial}{\partial x^n}\}$ of vector fields that are pointwise a basis for the corresponding tangent spaces is called a local frame for $TM$.
 \end{example}
 
 The space of smooth vector fields is a vector space under pointwise addition and scalar multiplication: for all $p\in M$, $X,Y\in\fX(M)$, $\alpha, \beta \in \R$, we have
@@ -51,7 +51,7 @@ We can summarise this observation in the following proposition.
   Let $M$ be a smooth manifold with or without boundary.
   \begin{enumerate}
     \item If $X,Y \in \fX(M)$ and $f,g\in C^\infty(M)$, then $fX+gY \in\fX(M)$.
-    \item $\fX(M)$ is a module over the ring $C^\infty(M)$.
+    \item $\fX(M)$ is a module\footnote{A module over a unital ring $R$ is a generalization of the concept of vector space where the field of scalars is replaced by the ring $R$.} over the ring $C^\infty(M)$.
   \end{enumerate}
 \end{proposition}
 

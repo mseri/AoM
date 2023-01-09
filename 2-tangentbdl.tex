@@ -698,7 +698,7 @@ Let's focus on~\eqref{eq:tg_curve_der}. By definition, $\gamma'(t)(x^i) = (x^i\c
 \end{figure*}
 
 But how can this mapping between curves and tangent vector be well--defined?
-Surely, there must be multiple curves with the same speed at a point which differ outside a neighbourhood of the point.
+Surely, there must be multiple curves with the same velocity at a point which differ outside a neighbourhood of the point.
 
 \begin{lemma}\label{lem:equiv_tg_curves}
   Let $M$ be a smooth manifold and $\gamma, \delta : (-\epsilon, \epsilon) \to M$ two smooth curves with $\gamma(0) = \delta(0)$. Then, $\gamma'(0) = \delta'(0)$ as elements of $T_{\gamma(0)}M$ if and only if for some (and thus any) chart $\varphi:U\to\varphi(U)$, $\gamma(0)\in U$, we have $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$.
@@ -707,8 +707,8 @@ Surely, there must be multiple curves with the same speed at a point which diffe
   Let $(x^i)$ denote the coordinates of $\varphi$. The condition $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ is equivalent as stating that $(\gamma^i)'(0) = (\delta^i)'(0)$, where $\gamma^i = x^i\circ\gamma$ and $\delta^i=x^i\circ\delta$. Then, the claim follows from~\eqref{eq:tg_curve_vec} and the fact that $\left\{\frac{\partial}{\partial x^i}\big|_{\gamma(0)}\right\}$ is a basis of $T_{\gamma(0)}M$.
 \end{proof}
 
-This seems to follow a pattern: until now, all the definitions of tangent vectors where in terms of classes of equivalence.
-And it would seem reasonable to identify curves that that have the same tangent vector at $0$.
+This seems to follow a pattern: until now, all the definitions of tangent vectors were in terms of classes of equivalence.
+And it would seem reasonable to identify curves that have the same tangent vector at $0$.
 There is still a potential problem, though: we don't yet know if \emph{every} tangent vector can be written as the velocity vector of a curve.
 
 \begin{theorem}
