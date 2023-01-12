@@ -250,15 +250,21 @@ applying the previous reasoning and comparing term by term we get
     \cI = \cI_g : T_s^r (V) \to T_r^s(V) \\
     \cI : \tau \mapsto \tau \circ (\LaTeXunderbrace{{\cdot}^\flat, \ldots, {\cdot}^\flat}_{r\mbox{ times}}, \LaTeXoverbrace{{\cdot}^\sharp, \ldots, {\cdot}^\sharp}^{s\mbox{ times}}).
   \end{align}
+  % TODO: improve remark with coordinate representation
+  % In coordinates the one maping (r,s)-tensors to (r+s, 0)-tensors is $I_g(\tau) = \tau_{i_1\ldots i_r}^{j_1\ldots j_s} g_{j_1 j_{r+1}} \ldots g_{j_s j_{r+s}}}$
   In general, one can use the metric to raise or lower arbitrary indices, changing the tensor type from $(r,s)$ to $(r+1, s-1)$ or $(r-1, s+1)$.
 
   A neat application of this is showing that a non-degenerate bilinear map $g\in T_2^0(V)$ can be lifted to a non-degenerate bilinear map on arbitrary tensors, that is
   \begin{equation}
     G: T_s^r(V)\times T_s^r(V) \to \R,
     \quad
-    G(\tau, \widetilde\tau) := (\cI_g(\tau)\mid \widetilde\tau).
+    G(\tau, \widetilde\tau) := (\cI_g(\tau), \widetilde\tau),
   \end{equation}
+  where the scalar product is defined via the requirement that tensor products of basis elements of $V$ are orthinormal and that $G$ is invariant under the musical isomorphism.
   In particular, if $g$ is a metric on $V$, then $G$ is a metric on $T_s^r(V)$.
+
+% TODO: improve remark with coordinate representation
+% If \((g_{ij})\) and \((g^{ij})\) are the matrix element of the matrices representing metric tensor and its inverse resp, then \[ G(\sigma, \tau) = \langle\sigma, \tau\rangle_g := g^{k_1 l_1}\cdots g^{k_rl_r} g_{i_1j_1} \cdots g_{i_sj_s} \sigma_{k_1,\ldots,k_r}^{i_1,\ldots,i_s} \tau_{l_1,\ldots,l_r}^{j_1,\ldots,j_s} \]
 \end{remark}
 
 \begin{exercise}
