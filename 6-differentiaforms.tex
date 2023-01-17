@@ -298,9 +298,9 @@ In fact, it is a direct consequence of our previous observations.
   \begin{equation}
     F^*(\omega\wedge\nu) = F^*\omega \wedge F^*\nu,
   \end{equation}
-  and, if $(x^i)$ denote some local coordinates on $U\subset M$, locally
+  and, if $(y^i)$ denote some local coordinates on $V\subset N$, locally on $F^{-1}(V)$
   \begin{equation}
-    F^*\left(\omega_J dx^J\right) = (\omega_{j_1,\ldots, j_k}\circ F) d(x^{j_1}\circ F)\wedge\cdots\wedge d(x^{j_k}\circ F).
+    F^*\left(\omega_J dy^J\right) = (\omega_{j_1,\ldots, j_k}\circ F) d(y^{j_1}\circ F)\wedge\cdots\wedge d(y^{j_k}\circ F).
   \end{equation}
 \end{theorem}
 \begin{exercise}
@@ -346,11 +346,11 @@ The previous exercise is a particular case of the following statement.
 \begin{proposition}\label{prop:wedgeToJDet}
   Let $F:M\to N$ be a smooth map between $n$-manifolds.
   Let $(x^i)$ and $(y^i)$ denote, respectively, smooth coordinates on open subsets $U\subseteq M$ and $V\subseteq N$.
-  Let $u$ be a continuous real-valued function on $V$.
+  Let $f$ be a continuous real-valued function on $V$.
   Then, on $U\cap F^{-1}(V)$, the following holds:
   \begin{equation}
-    F^*(\omega\, dy^1\wedge\cdots\wedge dy^n)
-    = (\omega\circ F) (\det DF) dx^1\wedge\cdots\wedge dx^n,
+    F^*(f\, dy^1\wedge\cdots\wedge dy^n)
+    = (f\circ F) (\det DF) dx^1\wedge\cdots\wedge dx^n,
   \end{equation}
   where $DF$ represents the Jacobian matrix of $F$ in these coordinates.
 \end{proposition}
