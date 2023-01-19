@@ -155,7 +155,7 @@ Thus, in order to get a globally consistent ordering, we need to worry about the
   where $\alpha_{lk}\in C^{\infty}(U_k\cap U_l)$, $a_{lk} > 0$ and there is no implied sum\footnote{All indices are low indices.}.
   Since the covering $\{U_i\}$ is locally finite\footnote{See Theorem~\ref{thm:partitionof1}.}, a point $p\in M$ belongs only to a finite number of open sets, let's call them $U_{i_0}, U_{i_1}, \ldots, U_{i_N}$. That is,
   \begin{equation}
-    \omega(p) = \sum_{k=1}^N \omega_{i_k}(p) = \left( 1 + \sum_{k = 1}^N a_{i_k i_0} \right) \omega_{i_0}(p) \neq 0
+    \omega(p) = \sum_{k=0}^N \omega_{i_k}(p) = \left( 1 + \sum_{k = 1}^N a_{i_k i_0} \right) \omega_{i_0}(p) \neq 0
   \end{equation}
   since $\omega_{i_0}(p) \neq 0$ and $a_{i_k i_0} > 0$.
   That is, for all $p\in M$ we have that $\omega(p) \neq 0$.
@@ -261,7 +261,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
     \varphi_{U}:\pi^{-1}(U)\to U\times \R^{n},
   \end{equation}
   with $\R^n$ equipped with its standard orientation, is fiberwise orientation-preserving.
-  \marginnote[-2em]{Otherwise said, we can cover the manifold by (continuous) local frames whose local trivializations are orientation preserving.}
+  \marginnote[-2em]{Otherwise said, we can cover the manifold by (continuous) local frames such that the local trivializations are orientation preserving.}
   With this definition, the orientability of $M$ coincides with the orientability of the bundle $TM\to M$.
 \end{remark}
 
@@ -361,7 +361,7 @@ Let's keep things simple and go one step at a time.
 
 \begin{definition}\label{def:intnform:chart}
   Let $M$ be a smooth $n$-manifold and $(U,\varphi)$ be a chart from an oriented atlas of $M$ with coordinates $(x^i)$.
-  If $\omega\in\Omega^n(M)$ be a $n$-form, $n > 0$, with compact support in $U$, we define the integral of $\omega$ as\sidenote[][-1em]{Recall that for a diffeomorphism $\phi$, $\phi_* = (\phi^{-1})^*$.}
+  If $\omega\in\Omega^n(M)$ is a $n$-form, $n > 0$, with compact support in $U$, we define the integral of $\omega$ as\sidenote[][-1em]{Recall that for a diffeomorphism $\phi$, $\phi_* = (\phi^{-1})^*$.}
   \begin{equation}
     \int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\R^n} \omega(x) d x^1\cdots dx^n,
   \end{equation}
@@ -768,10 +768,10 @@ We are going to state the theorem, discuss some of its consequences and then giv
 In fact this example is a particular case of the following corollary of Stokes' theorem.
 
 \begin{corollary}
-  Suppose $M$ is a smooth $m$-manifold with or without boundary,$N\subseteq M$ is an oriented compact smooth $n$-submanifold (without boundary) and $\omega$ is a closed $n$-form on $M$.
+  Suppose $M$ is a smooth $m$-manifold with or without boundary, $N\subseteq M$ is an oriented compact smooth $n$-submanifold and $\omega$ is a closed $n$-form on $M$.
   If $\int_N\omega \neq 0$ then the following are true:
   \begin{enumerate}
-    \item $\omega$ is not exact on $M$;
+    \item if $\partial N = \emptyset$, $\omega$ is not exact on $M$;
     \item $N$ is not the boundary of an oriented compact smooth submanifold with boundary in $M$.
   \end{enumerate}
 \end{corollary}
