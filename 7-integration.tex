@@ -242,7 +242,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
   The M\"obius strip inherits the differentiable structure from $\R^2$, so we need to show that there is no orientable atlas which is also compatible with the differentiable structure on $M$.
   \begin{enumerate}
     \item Define the map $\sigma:\R\times(-1,1)\to\R\times(-1,1)$ by $\sigma(x,y) = (x+1, -y)$ and show that $\pi\circ\sigma = \pi$.
-    \item If $\eta\in\Omega^2(M)$ defines\footnote{Cf. Exercise~\ref{ex:vfshape}.} $f$ by $\pi^* \eta = f \omega$ where $\omega$ is an area\footnote{I.e. a volume $2$-form.} form on $\R\times(-1,1)$.
+    \item If $\eta\in\Omega^2(M)$ defines\footnote{This statement should not be surprising: both $\eta$ and $\omega$ are $2$-forms on a $2$-dimensional manifold and thus they must be linearly dependent.} $f$ by $\pi^* \eta = f \omega$ where $\omega = dx\wedge dy$ is an area\footnote{I.e. a volume $2$-form.} form on $\R\times(-1,1)$.
           Show that $f(x+1, -y) = - f(x,y)$.
     \item Conclude that $f$ must vanish at some point of $\R\times(-1,1)$, which implies that $M$ is non-orientable.
   \end{enumerate}
@@ -347,7 +347,6 @@ Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$,
   \begin{enumerate}
     \item Prove that $\bS^n$ is orientable.\\
           \textit{\small Hint: above there is a small exercise that can help a lot here.}
-    \item Prove that any Lie group is orientable.
     \item Prove that $\RP^n$ is orientable if and only if $n$ is odd. \\
           \textit{\small Hint: the antipodal map $x\mapsto -x$ on $\bS^n$ can help.}
   \end{enumerate}

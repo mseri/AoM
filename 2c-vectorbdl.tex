@@ -13,14 +13,14 @@ What we have seen in the previous chapter is our first example of vector bundle,
 
   The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\varphi$ is called \emph{local trivialisation}.
 
-  If there exists a trivialisation defined on the whole manifold, that is a map $\varphi: E \to M\times \R^r$, such map is called \emph{global trivialisation} and the vector bundle is said to be \emph{trivialisable}.
+  If there exists a trivialisation defined on the whole manifold, that is a map $\varphi: E \to M\times \R^r$, such map is called \emph{global trivialisation}, the vector bundle is said to be \emph{trivialisable} and the bundle $(E, \varphi)$ itself is called \emph{trivial} bundle.
 \end{definition}
 
 \begin{example}
   \begin{itemize}
-    \item A simple example of vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ itself with the projection on the first component $\pi_1: E\to M$.
-          In this case the bundle is clearly trivialisable.
-    \item The tangent bundle $TM$ with its projection to the base $\pi:TM\to M$ is a vector bundle.
+    \item Perhaps the simplest examples of vector bundle is the trivial vector bundle of rank $1$, often called \emph{line bundle}, $E = M \times R$ with projection on the first component $\pi_1: E \to M$.
+    \item In the same spirit, a trivial vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ with the projection on the first component $\pi_1: E\to M$.
+    \item The tangent bundle $TM$ with its projection to the base $\pi:TM\to M$ is a vector bundle\footnote{Exercise: prove the statement constructing the local diffeomorphisms.}.
           In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$.
           If the tangent bundle of a manifold is trivalisable, then its base manifold is said to be \emph{parallelisable}.
     \item If $\pi_i: E_i\to M_i$, $i=1,2$, are vector bundles, then $\pi = (\pi_1, \pi_2): E_1\times E_2 \to M_1\times M_2$ is another vector bundle whose fibres are the product of the fibres of the two original bundles.
@@ -32,6 +32,10 @@ What we have seen in the previous chapter is our first example of vector bundle,
 \begin{exercise}
   Show that the dimension of a vector bundle of rank $r$ is $\dim(E) = \dim(M) + r$.
 \end{exercise}
+
+\begin{remark}
+  In the spirit of getting rid of redundant information and making the language more concise, it is common to refer to a vector bundle $(E, \pi : E \to M)$ only referring to the bundle projection: $\pi : E \to M$.
+\end{remark}
 
 \begin{exercise}
   Show that if $\pi:E\to M$ is a vector bundle and $U\subset M$ is an open set, then $\pi\big|_{\pi^{-1}(U)}: \pi^{-1}(U) \to U$ is a vector bundle of the same rank.
@@ -56,6 +60,90 @@ To compare vector bundles it is useful to define the following concept.
 
 Since an isomorphism preserves all the structure of a vector bundle, isomorphic bundles are often regarded as the same.
 
+Of course, we can also define subbundles.
+%
+\begin{marginfigure}[4cm]
+  \includegraphics{images/2.10-subbundle.pdf}
+\end{marginfigure}
+%
+\begin{definition}
+  Let $\pi:E \to M$ be a rank-$r$ vector bundle and $F\subset E$ a submanifold.
+  If for all $p\in M$, the intersection $F_p := F\cap E_p$ is a $k$-dimensional subspace of the vector space $E_p$ and $\pi|_F : F \to M$ defines a rank-$k$ vector bundle, then $\pi|_F: F \to M$ is called a \emph{subbundle} of $E$.
+\end{definition}
+
+All the examples given so far are nice and well, but how can we construct these vector bundles?
+The first idea that may come to mind, is to  try and mimick the construction we gave of the tangent bundle of a smooth manifold: provided a collection of vector spaces for each point of the manifolds, we need to construct a suitable topology for the whole space, equip the disjoint union of vector spaces with a smooth structure and then construct local trivializations that are compatible with such structure.
+Sound quite a mouthful, but turns out to be quite the right approach.
+
+\begin{theorem}\label{thm:bundle_chart_thm}
+  Let $M$ be a smooth $n$-manifold without boundary and let $E_p$ be a given $k$-dimensional real vector space for each $p\in M$.
+  Define
+  \begin{equation}
+    E := \bigsqcup_{p\in M} E_p, \qquad
+    \pi : E\to M \mbox{ such that } \pi : v_p \in E_p \mapsto p,
+  \end{equation}
+  and assume the following holds
+  \begin{enumerate}
+    \item there exists an open cover $\{U_\alpha\}_{\alpha\in A}$ of $M$;
+    \item for each $\alpha\in A$, there exists a bijection $\varPhi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha\times\R^k$ whose restriction $\varPhi_\alpha|_{E_p} : E_p \to {p}\times\R^k \sim \R^k$ is a vector space isomorphism;
+    \item for each $\alpha,\beta \in A$ with $U_{\alpha\beta}:=U_\alpha \cap U_\beta \neq \emptyset$, there exists a matrix-valued smooth map $\tau_{\alpha\beta}: U_{\alpha\beta} \to GL(k,\R)$ such that
+      \begin{align}
+        \varPhi_\alpha \circ \varPhi_\beta^{-1} : U_{\alpha\beta}\times\R^k &\to U_{\alpha\beta}\times\R^k\\
+                                                  (p, v) & \mapsto (p, \tau_{\alpha\beta}(p) v).
+      \end{align}
+  \end{enumerate}
+  Then $E$ has a unique topology and a smooth structure making it into a smooth manifold without boundary and a smooth rank $k$ vector bundle over $M$ with $\pi$ as its projection and $\{(U_\alpha, \varPhi_\alpha)\}$ as smoot local trivializations.
+\end{theorem}
+The maps $\tau_{\alpha\beta}$ are called transition functions between the local trivializations.
+\begin{proof}
+Let $(U_\alpha, \varphi_\alpha)$ be a smooth structure on $M$ adapted to the given open cover.
+We need to use this, and the given maps from the statement, to define charts from $E_p$ to $\R^n\times\R^k$.
+For each $p\in M$, choose an open neihbourhood $V_p \subset U_\alpha$ for some $\alpha\in A$.
+Observe that $\pi^{-1}(V_p) \subseteq E_p$ and $\widetilde{V}_p := \varphi_\alpha(V_p) \subseteq \R^n$ and therefore it may be natural to consider the collection $\{(\pi^{-1}(V_p), \widetilde{\varphi}_p\}$, where
+\begin{equation}
+  \widetilde(\varphi)_p := (\varphi_\alpha\times \id_k) \circ \varPhi_\alpha : \pi^{-1}(V_p) \xrightarrow{\varPhi_\alpha} v_p\times\R^k \xrightarrow{\varphi_\alpha\times \id_k} \widetilde{V}_p\times \R^n,
+\end{equation}
+as a candidate to apply the Smooth Manifold Lemma~\ref{lem:manifold_chart}.
+This would give $E$ both a topology and a smooth structure.
+
+Checking the requirements for the Smooth Manifold Lemma is then relatively straightforward.
+First of all, observe that $\widetilde{\varphi}_p$ is a bijection from $\pi^{-1}(V_p)$ onto $\widetilde{V}_p\times\R^k \subseteq \R^{n+k}$ since it is the composition of bijective maps.
+By construction, for $p,q\in M$,
+\begin{equation}
+  \widetilde{\varphi}_p(\pi^{-1}(V_p) \cap \pi^{-1}(V_q)) = \phi_p(V_p\cap V_q)\times \R^k
+\end{equation}
+which is open in $\R^{n+k}$ since $\varphi_p$ is a homemorphism onto an open $V_p\subseteq\R^n$.
+Finally, on the overlaps of two charts, there are $\alpha, \beta\in A$ such that
+\begin{equation}
+  \widetilde{\varphi}_p \circ \widetilde{\varphi}_q^{-1}(\phi_\alpha) =
+  (\varphi_\alpha \times \id_k) \circ \varPhi_\alpha \circ \varPhi_\beta^{-1} \circ (\varphi_\beta \times \id_k)^{-1}.
+\end{equation}
+Such transition map is a diffeomorphism since it is the composition of diffeomorphisms.
+Therefore properties (i) and (ii) of the theorem are satisfied.
+Property (iii) follows from the fact that $M$ is a manifold and thus the open cover $\{V_p | p \in M\}$ has a countable subcover.
+We are left with the Hausdorff property (iv).
+This can be checked in the same vein as we did for the analogous proof in the case of the tangent bundle:
+if two vectors belong to the same space $E_p$, then they belong to one of the charts we have constructed and we can separate them taking the preimages of two disjoint open neigbourhoods of $\R^k$ containing them; if the two points belong to two distinct spaces $E_p$ and $E_q$, $p\neq q$, we can pick two disjoint neighbourhoods $V_p$ and $V_q$ so that their preimages $\phi^{-1}(V_p)$ and $\pi^{-1}(V_q)$ are disjoint coordinate neighbourhoods separating the two points.
+With this property also satisfied, Lemma~\ref{lem:manifold_chart} gives $E$ the structure of smooth manifold without boundary.
+\textcolor{red}{HERE}
+\end{proof}
+
+\begin{exercise}
+  What is $\tau_{\alpha\beta}$ in the case of $TM$?
+\end{exercise}
+
+Of course, there is no reason to restrict ourselves to manifolds without boundary.
+\begin{exercise}
+  Restate and prove Theorem~\ref{thm:bundle_chart_thm} for the case of a manifold $M$ with boundary.
+\end{exercise}
+
+\newthought{There are various useful generalizations of vector bundles}.
+The \emph{fiber bundles} are bundles in which $\R^n$ is replaced by a more general manifold and are rather pervasive in mathematics and physics.
+A special class of fiber bundles, the \emph{principal bundles}, have this manifold to be also a group with a well-defined action on the bundle.
+Even if we will not discuss these examples in the notes, Appendix~\ref{appendix:Lie} contains a brief discusssion of group actions, Lie groups and Lie algebras with pointers to extra literature.
+
+\section{Sections of vector bundles}
+
 \begin{marginfigure}
   \includegraphics{2_7-bdl_section.pdf}
   \caption{A useful mnemonic to remember what is a section, is to imagine it as a cross-section of the bundle.}
@@ -72,9 +160,12 @@ Since an isomorphism preserves all the structure of a vector bundle, isomorphic 
   This is a useful way to start understanding the bundle terminology: in some sense, sections of vector bundles are a generalisation of vector fields.
 \end{remark}
 
-\begin{example}
+\begin{example}[Vector fields in $\R^n$]
 If $E = M\times \R^r$, $M\subset\R^n$, then for any smooth map $F: M\to\R^r$ we have a section $S\in\Gamma(E)$ defined by $S(p) = (p, F(p))$. This is a classical euclidean vector field: a map that associates vectors to points (see Figure~\ref{fig:vectorfield-rn}).
-  Notice, in particular, that functions $f\in C^\infty(M)$ are sections of the trivial bundle $M\times\R$.
+  Notice, in particular, that functions $f\in C^\infty(M)$ are sections of the trivial bundle $M\times\R$:
+  \begin{equation}
+    \Gamma(M\times\R) \simeq C^\infty(M).
+  \end{equation}
 \end{example}
 
 One can sometimes distinguish non--isomorphic bundles by looking at the complement of their zero section: since any vector bundle isomorphism $h:E_1\to E_2$ must map the zero section of $E_1$ onto the zero section of $E_2$, the complements of the zero sections in $E_1$ and $E_2$ must be homeomorphic.
@@ -142,28 +233,15 @@ Which was to be expected: after all, for each $p\in U\subset M$, the local frame
   Incidentally, the cylinder is isomorphic to $T\bS^1$ (why?).
 \end{example}
 
-\newthought{Of course, we can also define subbundles}.
-\begin{definition}
-  Let $\pi:E \to M$ be a rank-$r$ vector bundle and $F\subset E$ a submanifold.
-  If for all $p\in M$, the intersection $F_p := F\cap E_p$ is a $k$-dimensional subspace of the vector space $E_p$ and $\pi|_F : F \to M$ defines a rank-$k$ vector bundle, then $\pi|_F: F \to M$ is called a \emph{subbundle} of $E$.
-\end{definition}
-\begin{marginfigure}
-  \includegraphics{images/2.10-subbundle.pdf}
-\end{marginfigure}
-
 \begin{exercise}
   Let $M$ be a smooth $m$-manifold and $N$ a smooth $n$-manifold.
   Let $F:M\to N$ be an embedding and denote $\widetilde M = F(M)\subset N$.
   \begin{enumerate}
     \item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\big|_{\widetilde M}$, is a subbundle of $TN\big|_{\widetilde M}$ by providing explicit local trivialisations in terms of the charts $(U, \varphi)$ for $M$.
     \item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that\footnote{Here $T\,N|_{\widetilde{M}}$ denotes the the tangent bundle of $N$ restricted to the base points in $\widetilde{M}$.}
-          \begin{equation}
-            T\widetilde{M} = \left\{(p,v)\in T\,N|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\right\}.
-          \end{equation}
+      \begin{equation}
+        T\widetilde{M} = \left\{(p,v)\in T\,N|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\right\}.
+      \end{equation}
   \end{enumerate}
 \end{exercise}
 
-There are various useful generalizations of vector bundles.
-The \emph{fiber bundles} are bundles in which $\R^n$ is replaced by a more general manifold and are rather pervasive in mathematics and physics.
-A special class of fiber bundles, the \emph{principal bundles}, have this manifold to be also a group with a well-defined action on the bundle.
-Even if we will not discuss these examples in the notes, we will take a brief detour to discuss group actions, Lie groups and Lie algebras in the next chapter.
