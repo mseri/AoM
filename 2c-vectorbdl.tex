@@ -72,7 +72,7 @@ Of course, we can also define subbundles.
 \end{definition}
 
 All the examples given so far are nice and well, but how can we construct these vector bundles?
-The first idea that may come to mind, is to  try and mimick the construction we gave of the tangent bundle of a smooth manifold: provided a collection of vector spaces for each point of the manifolds, we need to construct a suitable topology for the whole space, equip the disjoint union of vector spaces with a smooth structure and then construct local trivializations that are compatible with such structure.
+The first idea that may come to mind, is to  try and mimic the construction we gave of the tangent bundle of a smooth manifold: provided a collection of vector spaces for each point of the manifolds, we need to construct a suitable topology for the whole space, equip the disjoint union of vector spaces with a smooth structure and then construct local trivializations that are compatible with such structure.
 Sound quite a mouthful, but turns out to be quite the right approach.
 
 \begin{theorem}\label{thm:bundle_chart_thm}
@@ -83,53 +83,92 @@ Sound quite a mouthful, but turns out to be quite the right approach.
     \pi : E\to M \mbox{ such that } \pi : v_p \in E_p \mapsto p,
   \end{equation}
   and assume the following holds
-  \begin{enumerate}
+  \begin{enumerate}[(i)]
     \item there exists an open cover $\{U_\alpha\}_{\alpha\in A}$ of $M$;
-    \item for each $\alpha\in A$, there exists a bijection $\varPhi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha\times\R^k$ whose restriction $\varPhi_\alpha|_{E_p} : E_p \to {p}\times\R^k \sim \R^k$ is a vector space isomorphism;
-    \item for each $\alpha,\beta \in A$ with $U_{\alpha\beta}:=U_\alpha \cap U_\beta \neq \emptyset$, there exists a matrix-valued smooth map $\tau_{\alpha\beta}: U_{\alpha\beta} \to GL(k,\R)$ such that
+    \item for each $\alpha\in A$, there exists a bijection $\varPhi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha\times\R^k$ whose restriction $\varPhi_\alpha|_{E_p} : E_p \to \{p\}\times\R^k \sim \R^k$ is a vector space isomorphism;
+    \item for each $\alpha,\beta \in A$ with $U_{\alpha\beta}:=U_\alpha \cap U_\beta \neq \emptyset$, there exists a matrix-valued smooth map $\tau_{\alpha\beta}: U_{\alpha\beta} \to GL(k,\R)$ such that\footnote{Here $\tau_{\alpha\beta}(p) v$ denotes the usual product of the $k\times k$ matrix $\tau_{\alpha\beta}(p)$ with the vector $v\in\R^k$.}
       \begin{align}
         \varPhi_\alpha \circ \varPhi_\beta^{-1} : U_{\alpha\beta}\times\R^k &\to U_{\alpha\beta}\times\R^k\\
                                                   (p, v) & \mapsto (p, \tau_{\alpha\beta}(p) v).
       \end{align}
   \end{enumerate}
-  Then $E$ has a unique topology and a smooth structure making it into a smooth manifold without boundary and a smooth rank $k$ vector bundle over $M$ with $\pi$ as its projection and $\{(U_\alpha, \varPhi_\alpha)\}$ as smoot local trivializations.
+  Then $E$ has a unique topology and a smooth structure making it into a smooth manifold without boundary and a smooth rank $k$ vector bundle over $M$ with $\pi$ as its projection and $\{(U_\alpha, \varPhi_\alpha)\}$ as smooth local trivializations.
 \end{theorem}
 The maps $\tau_{\alpha\beta}$ are called transition functions between the local trivializations.
 \begin{proof}
+  \newthought{Part 1. $E$ has a structure of smooth manifold}.
 Let $(U_\alpha, \varphi_\alpha)$ be a smooth structure on $M$ adapted to the given open cover.
 We need to use this, and the given maps from the statement, to define charts from $E_p$ to $\R^n\times\R^k$.
-For each $p\in M$, choose an open neihbourhood $V_p \subset U_\alpha$ for some $\alpha\in A$.
-Observe that $\pi^{-1}(V_p) \subseteq E_p$ and $\widetilde{V}_p := \varphi_\alpha(V_p) \subseteq \R^n$ and therefore it may be natural to consider the collection $\{(\pi^{-1}(V_p), \widetilde{\varphi}_p\}$, where
+For each $p\in M$, choose an open neighbourhood $V_p \subseteq U_\alpha$ for some $\alpha\in A$.
+Observe that $\pi^{-1}(V_p) \subseteq E_p$ and $\widetilde{V}_p := \varphi_\alpha(V_p) \subseteq \R^n$ and therefore it may be natural to consider the collection $\{(\pi^{-1}(V_p), \widetilde{\varphi}_p)\mid p\in M\}$, where
 \begin{equation}
-  \widetilde(\varphi)_p := (\varphi_\alpha\times \id_k) \circ \varPhi_\alpha : \pi^{-1}(V_p) \xrightarrow{\varPhi_\alpha} v_p\times\R^k \xrightarrow{\varphi_\alpha\times \id_k} \widetilde{V}_p\times \R^n,
+  \widetilde{\varphi}_p := (\varphi_\alpha\times \id_k) \circ \varPhi_\alpha : \pi^{-1}(V_p) \xrightarrow{\varPhi_\alpha} V_p\times\R^k \xrightarrow{\varphi_\alpha\times \id_k} \widetilde{V}_p\times \R^n,
 \end{equation}
 as a candidate to apply the Smooth Manifold Lemma~\ref{lem:manifold_chart}.
 This would give $E$ both a topology and a smooth structure.
 
 Checking the requirements for the Smooth Manifold Lemma is then relatively straightforward.
 First of all, observe that $\widetilde{\varphi}_p$ is a bijection from $\pi^{-1}(V_p)$ onto $\widetilde{V}_p\times\R^k \subseteq \R^{n+k}$ since it is the composition of bijective maps.
-By construction, for $p,q\in M$,
+By construction, for $p,q\in M$, we have
 \begin{equation}
   \widetilde{\varphi}_p(\pi^{-1}(V_p) \cap \pi^{-1}(V_q)) = \phi_p(V_p\cap V_q)\times \R^k
 \end{equation}
-which is open in $\R^{n+k}$ since $\varphi_p$ is a homemorphism onto an open $V_p\subseteq\R^n$.
+which is open in $\R^{n+k}$ since $\varphi_p$ is a homeomorphism onto an open $V_p\subseteq\R^n$.
 Finally, on the overlaps of two charts, there are $\alpha, \beta\in A$ such that
 \begin{equation}
-  \widetilde{\varphi}_p \circ \widetilde{\varphi}_q^{-1}(\phi_\alpha) =
+  \widetilde{\varphi}_p \circ \widetilde{\varphi}_q^{-1} =
   (\varphi_\alpha \times \id_k) \circ \varPhi_\alpha \circ \varPhi_\beta^{-1} \circ (\varphi_\beta \times \id_k)^{-1}.
 \end{equation}
 Such transition map is a diffeomorphism since it is the composition of diffeomorphisms.
 Therefore properties (i) and (ii) of the theorem are satisfied.
+
 Property (iii) follows from the fact that $M$ is a manifold and thus the open cover $\{V_p | p \in M\}$ has a countable subcover.
+
 We are left with the Hausdorff property (iv).
 This can be checked in the same vein as we did for the analogous proof in the case of the tangent bundle:
-if two vectors belong to the same space $E_p$, then they belong to one of the charts we have constructed and we can separate them taking the preimages of two disjoint open neigbourhoods of $\R^k$ containing them; if the two points belong to two distinct spaces $E_p$ and $E_q$, $p\neq q$, we can pick two disjoint neighbourhoods $V_p$ and $V_q$ so that their preimages $\phi^{-1}(V_p)$ and $\pi^{-1}(V_q)$ are disjoint coordinate neighbourhoods separating the two points.
+if two vectors belong to the same space $E_p$, then they belong to one of the charts we have constructed and we can separate them taking the preimages of two disjoint open neighbourhoods of $\R^k$ containing them; if the two points belong to two distinct spaces $E_p$ and $E_q$, $p\neq q$, we can pick two disjoint neighbourhoods $V_p$ and $V_q$ so that their preimages $\phi^{-1}(V_p)$ and $\pi^{-1}(V_q)$ are disjoint coordinate neighbourhoods separating the two points.
+
 With this property also satisfied, Lemma~\ref{lem:manifold_chart} gives $E$ the structure of smooth manifold without boundary.
-\textcolor{red}{HERE}
+
+\newthought{Part 2. The maps $\Phi_\alpha$ define a smooth local trivialization}.
+Again, by construction, the maps $\varPhi_\alpha : \pi^{-1}(V_p) \to V_p\times\R^k$ are diffeomorphisms.
+Indeed, their coordinate representations with respect to the charts introduced above is just the identity\footnote{Exercise: expand the definitions and show that the following diagram commutes}:
+\begin{equation}
+  \begin{tikzcd}
+    {\pi^{-1}(V_p)} & {V_p\times\R^k} \\
+    {\widetilde{V}_p\times\R^k} & {\widetilde{V}_p\times\R^k}
+    \arrow["{\varPhi_\alpha}", from=1-1, to=1-2]
+    \arrow["{\varphi_p\times\id_k}", from=1-2, to=2-2]
+    \arrow["{\widetilde{\varphi}_p}"', from=1-1, to=2-1]
+    \arrow["{\id_{n+k}}"', from=2-1, to=2-2]
+  \end{tikzcd}.
+\end{equation}
+In a similar way, the coordinate representation of $\pi : E \to M$ is $\varphi_\alpha \circ \pi \circ \widetilde{\varphi}_\alpha (x,v) = x$, so $\pi$ is smooth.
+Finally, $\Phi_\alpha$ satisfies all conditions to be a smooth local trivialization since $\varPhi_\alpha$ is linear by hypothesis and $\pi_1 \circ \varPhi_\alpha = \pi$, which follows from $\varPhi_\alpha(E_p) = \{p\}\times \R^k$.
+
+\newthought{Part 3. The smooth structure is unique}.
+Since the $\varPhi_\alpha$ have to be diffeomorphisms onto their images, any other atlas will have to contain the family of charts defined here, and therefore they must be in the same equivalence class, that is, in the same smooth structure.
 \end{proof}
 
 \begin{exercise}
   What is $\tau_{\alpha\beta}$ in the case of $TM$?
+\end{exercise}
+
+The previous exercise should already give you a hint at why property (iii) of the Theorem~\ref{thm:bundle_chart_thm} has such a strange form involving $k\times k$ invertible matrices.
+The following lemma should clarify definitvely why this is natural.
+
+\begin{lemma}\label{lem:transition_vb}
+  Let $\pi:E \to M$ be a smooth vector bundle of rank $k$ over $M$. Let $U,V\subseteq M$, $U\cap V\neq \emptyset$.
+  If $\varPhi : \pi^{-1}(U) \to U \times \R^k$ and $\Psi: \pi^{-1}(V) \to V \times \R^k$ are two smooth local trivializations of $E$, then there exists a smooth map $\tau: U\cap V \to GL(k, \R)$ such that
+  \begin{align}
+    \varPhi\circ\Psi^{-1} : (U\cap V)\times\R^k &\to (U\cap V)\times \R^k \to (U\cap V)\times \R^k \\
+                            (p,v) &\mapsto (t, \tau(p) v).
+  \end{align}
+\end{lemma}
+\begin{exercise}
+  Prove Lemma~\ref{lem:transition_vb}.
+
+  \textit{\small Hint: It is helpful to show commutativity of a diagram involving $\varPhi$, $\Psi$ and projections from their joint domain and codomains.}
 \end{exercise}
 
 Of course, there is no reason to restrict ourselves to manifolds without boundary.
@@ -137,10 +176,14 @@ Of course, there is no reason to restrict ourselves to manifolds without boundar
   Restate and prove Theorem~\ref{thm:bundle_chart_thm} for the case of a manifold $M$ with boundary.
 \end{exercise}
 
+\begin{exercise}
+  \textcolor{red}{Construct dual bundle and product bundle}.
+\end{exercise}
+
 \newthought{There are various useful generalizations of vector bundles}.
 The \emph{fiber bundles} are bundles in which $\R^n$ is replaced by a more general manifold and are rather pervasive in mathematics and physics.
 A special class of fiber bundles, the \emph{principal bundles}, have this manifold to be also a group with a well-defined action on the bundle.
-Even if we will not discuss these examples in the notes, Appendix~\ref{appendix:Lie} contains a brief discusssion of group actions, Lie groups and Lie algebras with pointers to extra literature.
+Even if we will not discuss these examples in the notes, Appendix~\ref{appendix:Lie} contains a brief discussion of group actions, Lie groups and Lie algebras with pointers to extra literature.
 
 \section{Sections of vector bundles}
 
