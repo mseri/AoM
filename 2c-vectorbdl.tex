@@ -16,14 +16,14 @@ What we have seen in the previous chapter is our first example of vector bundle,
   If there exists a trivialisation defined on the whole manifold, that is a map $\varphi: E \to M\times \R^r$, such map is called \emph{global trivialisation}, the vector bundle is said to be \emph{trivialisable} and the bundle $(E, \varphi)$ itself is called \emph{trivial} bundle.
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:simple_bundles}
   \begin{itemize}
     \item Perhaps the simplest examples of vector bundle is the trivial vector bundle of rank $1$, often called \emph{line bundle}, $E = M \times R$ with projection on the first component $\pi_1: E \to M$.
     \item In the same spirit, a trivial vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ with the projection on the first component $\pi_1: E\to M$.
     \item The tangent bundle $TM$ with its projection to the base $\pi:TM\to M$ is a vector bundle\footnote{Exercise: prove the statement constructing the local diffeomorphisms.}.
           In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$.
           If the tangent bundle of a manifold is trivalisable, then its base manifold is said to be \emph{parallelisable}.
-    \item If $\pi_i: E_i\to M_i$, $i=1,2$, are vector bundles, then $\pi = (\pi_1, \pi_2): E_1\times E_2 \to M_1\times M_2$ is another vector bundle whose fibres are the product of the fibres of the two original bundles.
+    \item If $\pi_i: E_i\to M_i$, $i=1,2$, are vector bundles, then $\pi = (\pi_1, \pi_2): E_1\times E_2 \to M_1\times M_2$ is another vector bundle, called the \emph{product bundle}, whose fibres are the product of the fibres of the two original bundles.
           A particular example of this is the tangent bundle $T(M_1\times M_2)$, which is diffeomorphic to $TM_1 \times TM_2$.
     \item Other examples will appear throughout the course.
   \end{itemize}
@@ -155,7 +155,7 @@ Since the $\varPhi_\alpha$ have to be diffeomorphisms onto their images, any oth
 \end{exercise}
 
 The previous exercise should already give you a hint at why property (iii) of the Theorem~\ref{thm:bundle_chart_thm} has such a strange form involving $k\times k$ invertible matrices.
-The following lemma should clarify definitvely why this is natural.
+The following lemma should clarify definitively why this is natural.
 
 \begin{lemma}\label{lem:transition_vb}
   Let $\pi:E \to M$ be a smooth vector bundle of rank $k$ over $M$. Let $U,V\subseteq M$, $U\cap V\neq \emptyset$.
@@ -176,8 +176,31 @@ Of course, there is no reason to restrict ourselves to manifolds without boundar
   Restate and prove Theorem~\ref{thm:bundle_chart_thm} for the case of a manifold $M$ with boundary.
 \end{exercise}
 
-\begin{exercise}
-  \textcolor{red}{Construct dual bundle (maybe in next section afeter introducing the cotangent bundle) and Whitney sum bundle}.
+We saw in Example~\ref{ex:simple_bundles} that given two product bundles on some manifolds there is a way to construct a product bundle out of them over the product of the manifolds.
+In the special case of two bundles $E^1 \to M$ and $E^2 \to M$ over the same manifold, this would lead to $E^1 \times E^2 \to M \times M$.
+It is natural to ask oneself if we can make a construction that combines multiple vector bundles over the same base space to a new bundle over that same base space.
+This is call the Whitney sum of the bundles.
+\begin{exercise}[Whitney sum]
+  Let $\pi^1 : E^1 \to M$ and $\pi^2 : E^2 \to M$ be two smooth vector bundles over $M$ of rank $k^1$ and $k^2$ respectively.
+  The Whitney sum of $E^1 \oplus E^2$ of $E^1$ and $E^2$ is the smooth vector bundles $\pi: E^1 \oplus E^2 \to M$ whose fibers
+  \begin{equation}
+    (E^1 \oplus E^2)_p = \pi^{-1}(p) =: (E^1_p \oplus E^2_p)
+  \end{equation}
+  are the direct sum of the fibers of the respective bundles, with the projection $\pi: (E^1\oplus E^2)_p \mapsto p$.
+
+  Show, using Theorem~\ref{thm:smooth_bundle_thm}, that $\pi: E^1 \oplus E^2 \to M$ defines a smooth vector bundle of rank $k^1 + k^2$.\\
+  \textit{\small
+    Hint: given two local trivializations $\varPhi$ and $\varPsi$ for $E^1\oplus E^2$, then $\varPhi\circ\varPsi^{-1}$ should have the form
+    \begin{equation}
+      \varPhi\circ\varPsi^{-1}(p, (v^1, v^2)) = (p, \tau(p)(v^1, v^2)), \quad
+      \tau(p) :=
+      \begin{pmatrix}
+        \tau^1(p) & 0 \\
+        0 & \tau^2(p)
+      \end{pmatrix}.
+    \end{equation}
+    Here $\tau^1$ and $\tau^2$ denote transition functions of $E^1$ and $E^2$ respectively.
+  }
 \end{exercise}
 
 \newthought{There are various useful generalizations of vector bundles}.

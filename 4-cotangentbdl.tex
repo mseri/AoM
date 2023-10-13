@@ -265,6 +265,17 @@ The cotangent spaces are the fibres of the cotangent bundle.
 \end{exercise}
 %\end{proof}
 
+In fact, the cotangent bundle is a specific example of a dual bundle.
+In the exercise below, we will construct it using Theorem~\ref{thm:bundle_chart_thm}.
+\begin{exercise}[The dual bundle]
+Let M be a smooth manifold and $\pi:E\to M$ a smooth $k$-vector bundle over $M$.
+The \emph{dual bundle} to $E$ over $M$ is the bundle $E^* \to M$, where $E= \sqcup_{p\in m} E_p^*$ is the disjoint union of the duals to the fibers of $E$ with the projection $E_p^* \mapsto p$.
+\begin{enumerate}
+  \item Show that the dual bundle is a smooth vector bundle of rank $k$.
+  \item Show that the transition functions are given in terms of the transition functions $\tau : U\to GL(\R,k)$ of $E$ by $\tau^*(p) = (\tau(p)^{-1})^T$.
+\end{enumerate}
+\end{exercise}
+
 \begin{definition}\label{def:covfield}
   A \emph{covector field} or a \emph{(differential) $1$-form} on $M$ is a smooth section of $T^*M$.
   That is, a $1$-form $\omega\in\Gamma(T^*M)$ is a smooth map $\omega: p \to \omega_p \in T_p^*M$ that assigns to each point $p\in M$ a cotangent vector at $p$.
@@ -437,6 +448,8 @@ The pullback is a rather pervasive concept, and does provide us a new way to exp
     \end{tikzcd}.
   \end{equation}
 \end{example}
+
+\textcolor{red}{TODO: add exercise on Whitney sum as pullback of diagonal $\Delta : X\time X \to X$}
 
 \section{Line integrals}
 
