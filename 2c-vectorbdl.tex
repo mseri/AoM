@@ -18,7 +18,7 @@ What we have seen in the previous chapter is our first example of vector bundle,
 
 \begin{example}\label{ex:simple_bundles}
   \begin{itemize}
-    \item Perhaps the simplest examples of vector bundle is the trivial vector bundle of rank $1$, often called \emph{line bundle}, $E = M \times R$ with projection on the first component $\pi_1: E \to M$.
+    \item Perhaps the simplest examples of vector bundle is the trivial vector bundle of rank $1$, often called \emph{line bundle}, $E = M \times \R$ with projection on the first component $\pi_1: E \to M$.
     \item In the same spirit, a trivial vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ with the projection on the first component $\pi_1: E\to M$.
     \item The tangent bundle $TM$ with its projection to the base $\pi:TM\to M$ is a vector bundle\footnote{Exercise: prove the statement constructing the local diffeomorphisms.}.
           In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$.
@@ -94,7 +94,7 @@ Sound quite a mouthful, but turns out to be quite the right approach.
   \end{enumerate}
   Then $E$ has a unique topology and a smooth structure making it into a smooth manifold without boundary and a smooth rank $k$ vector bundle over $M$ with $\pi$ as its projection and $\{(U_\alpha, \varPhi_\alpha)\}$ as smooth local trivializations.
 \end{theorem}
-The maps $\tau_{\alpha\beta}$ are called transition functions between the local trivializations.
+The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the local trivializations.
 \begin{proof}
   \newthought{Part 1. $E$ has a structure of smooth manifold}.
 Let $(U_\alpha, \varphi_\alpha)$ be a smooth structure on $M$ adapted to the given open cover.
@@ -126,7 +126,7 @@ Property (iii) follows from the fact that $M$ is a manifold and thus the open co
 
 We are left with the Hausdorff property (iv).
 This can be checked in the same vein as we did for the analogous proof in the case of the tangent bundle:
-if two vectors belong to the same space $E_p$, then they belong to one of the charts we have constructed and we can separate them taking the preimages of two disjoint open neighbourhoods of $\R^k$ containing them; if the two points belong to two distinct spaces $E_p$ and $E_q$, $p\neq q$, we can pick two disjoint neighbourhoods $V_p$ and $V_q$ so that their preimages $\phi^{-1}(V_p)$ and $\pi^{-1}(V_q)$ are disjoint coordinate neighbourhoods separating the two points.
+if two vectors belong to the same space $E_p$, then they belong to one of the charts we have constructed and we can separate them taking the preimages of two disjoint open neighbourhoods of $\R^k$ containing them; if the two points belong to two distinct spaces $E_p$ and $E_q$, $p\neq q$, we can pick two disjoint neighbourhoods $V_p$ and $V_q$ so that their preimages $\pi^{-1}(V_p)$ and $\pi^{-1}(V_q)$ are disjoint coordinate neighbourhoods separating the two points.
 
 With this property also satisfied, Lemma~\ref{lem:manifold_chart} gives $E$ the structure of smooth manifold without boundary.
 
@@ -188,7 +188,7 @@ This is call the Whitney sum of the bundles.
   \end{equation}
   are the direct sum of the fibers of the respective bundles, with the projection $\pi: (E^1\oplus E^2)_p \mapsto p$.
 
-  Show, using Theorem~\ref{thm:smooth_bundle_thm}, that $\pi: E^1 \oplus E^2 \to M$ defines a smooth vector bundle of rank $k^1 + k^2$.\\
+  Show, using Theorem~\ref{thm:bundle_chart_thm}, that $\pi: E^1 \oplus E^2 \to M$ defines a smooth vector bundle of rank $k^1 + k^2$.\\
   \textit{\small
     Hint: given two local trivializations $\varPhi$ and $\varPsi$ for $E^1\oplus E^2$, then $\varPhi\circ\varPsi^{-1}$ should have the form
     \begin{equation}
