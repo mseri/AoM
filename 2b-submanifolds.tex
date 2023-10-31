@@ -8,6 +8,78 @@ In fact, you may have already seen them in multivariable analysis.
 In this chapter we will briefly explore what subsets of manifolds are still manifolds of their own rights, how their topologies are related and how their smooth structures are related.
 We will conclude the chapter answering the question opened at the beginning of the previous chapter: do tangent spaces really coincide with the intuitive understanding of a tangent hyperplane to a point on the manifold?
 
+\section{Inverse function theorem}
+
+Before getting at the core of the discussion, it is useful to
+recall some results from multivariable analysis.
+
+A function $f:\R^m \to \R^n$ between euclidean spaces has rank $k$ at $x\in\R^m$ if its ($n\times m$) Jacobian matrix $Df(x)$ has rank $k$.
+The function has \emph{maximal rank}\footnote{Alternatively, it is of \emph{full rank}.} at $x$ if $k = \min(n,m)$.
+When $n=m$, $f$ has maximal rank at $x$ if and only if the square matrix $Df(x)$ is an invertible matrix.
+
+As for many local properties, this definition carries over to manifolds rather ``smoothly''.
+%
+\begin{definition}
+    A smooth map $F:M\to N$ has \emph{rank $k$} at a point $p$ if its differential $dF_p$ has rank $k$, that is, if the linear subspace $dF_p(T_pM)$ has dimension $k$ inside $T_{F(p)}N$.
+\end{definition}
+%
+The same applies to the inverse function theorem:
+compare the following statements.
+%
+\begin{theorem}[Inverse function theorem for $\R^n$]\label{thm:ift}
+  Let $U\subset\R^n$ open and $f:U \to \R^n$ be a smooth map.
+  Assume that $f$ has maximal rank at some $x\in U$, then there exists an open neighbourhood $\Omega\subset U$ of $x$ such that  $f\big|_\Omega : \Omega \to f(\Omega)$ is a diffeomorphism.
+\end{theorem}
+
+\begin{theorem}[Inverse function theorem for manifolds]\label{thm:iftm}
+  Let $F:M\to N$ be a smooth function between smooth manifolds without boundary of the same dimension $n$.
+  Let $p\in M$ such that $F$ has maximal rank $n$ at $p$.
+  Then there exists an open neighbourhood $V$ of $p$ such that the restriction $F|_V : V\to F(V)$ is a diffeomorphism.
+\end{theorem}
+% \begin{proof}
+%   This is a purely local statement.
+%   Let $(U,\varphi)$ be a chart about $p\in M$ and let $(V, \psi)$ be a chart about $F(p)\in N$.
+%   Since both $\varphi$ and $\psi$ are diffeomorphisms (and thus have maximal rank), the derivative of
+%   \begin{equation}
+%     \psi \circ F \circ \varphi^{-1}: \varphi(U\cap F^{-1}(V)) \to \psi(F(U)\cap V)
+%   \end{equation}
+%   has rank $n$ at $\varphi(p)$.
+%   Thus the inverse function theorem, Theorem~\ref{thm:ift}, there exists $\Omega \subset \varphi(U\cap F^{-1}(V))$ such that $\psi \circ F \circ \varphi^{-1}\big|_{\Omega}$ is a diffeomorphism.
+%   Therefore, once again since both $\varphi$ and $\psi$ are diffeomorphisms, $F\big|_W : W \to F(W)$ is also a diffeomorphism for $W := \varphi^{-1}(\Omega)$.
+% \end{proof}
+\begin{exercise}
+  Use the euclidean inverse function theorem (Theorem~\ref{thm:ift}) on $\R^n$ to prove Theorem~\ref{thm:iftm}.
+\end{exercise}
+
+Note that this theorem can fail for manifold with boundary.
+A counterexample\footnote{Exercise: why?} is given by the inclusion map $\cH^n \hookrightarrow \R^n$. 
+
+An important observation at this point is that the crucial property
+of the mapping in the inverse function theorem is the rank of its
+differential.
+If we think in euclidean terms and remember that the differential of a map
+is the best linear approximation to the map, then we can start
+wondering if we can use this as a tool to probe the structure of manifolds
+and their tangent spaces.
+
+In fact, if we restrict our attention to constant rank maps, that is, maps whose rank is the same at all points on the manifold, we can go quite a long way and the tool to get there is the following.
+
+\begin{theorem}[Rank theorem]\label{thm:rank}
+  Let $F : M^m \to N^n$ be a smooth function between smooth manifolds.
+  Assume that $F$ is of rank $k$ at all points $p\in M$.
+  Then, for all $p\in M$ there exist smooth charts $(U, \varphi)$ centred at $p$ and $(V, \psi)$ centred at $F(p)$ with $F(U)\subseteq V$, such that $F$ has a coordinate representation of the form
+  \begin{equation}
+    F(x^1, \ldots, x^k, x^{k+1}, \ldots, x^m) = (x^1, \ldots, x^k, \LaTeXunderbrace{0, \ldots, 0}_{n-k}).
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  Let $p\in M$... \textcolor{red}{TODO}
+\end{proof}
+
+\section{Embeddings, submersions and immersions}
+
+Looking at the statement of the Rank Theorem, one can already see that there can be different possibilities depending on the relation between, $m$, $n$ and $k$. This warrants a definition.
+
 \begin{marginfigure}
   \includegraphics{2_8_1-immersion-embedding}
 \end{marginfigure}
@@ -16,7 +88,7 @@ We will conclude the chapter answering the question opened at the beginning of t
   \begin{itemize}
     \item $F$ is a \emph{immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
     \item $F$ is a \emph{submersion} if $dF_p$ is surjective for all $p\in M$ ($\Rightarrow\; m\geq n$);
-    \item $F$ is a \emph{embedding}\footnote{This is a particular case of a more general concept, the topological embedding, which defined as an injective continuous map that is a homeomorphism onto its image.} if $F$ is an injective immersion that is also a diffeomorphism onto its image $F(M)\subset N$, where the topology on $F(M)$ is the subspace topology as a subset of $N$.
+    \item $F$ is a \emph{embedding}\footnote{This is a particular case of a more general concept, the topological embedding, which is defined as an injective continuous map that is a homeomorphism onto its image.} if $F$ is an injective immersion that is also a diffeomorphism onto its image $F(M)\subset N$, where the topology on $F(M)$ is the subspace topology as a subset of $N$.
   \end{itemize}
 \end{definition}
 
@@ -66,7 +138,7 @@ We will conclude the chapter answering the question opened at the beginning of t
 \end{example}
 
 \begin{remark}
-  Surjectivity of submersions or injectivity of immersions are properties of the differentials, not of the maps themselves.
+  It is important to keep stressing that surjectivity of submersions or injectivity of immersions are properties of the differentials, not of the maps themselves.
   %
   For example, if $U\subset M$ open, the inclusion $i: U \to M$ is both an immersion and a submersion.
 \end{remark}
@@ -76,7 +148,7 @@ We will conclude the chapter answering the question opened at the beginning of t
   We say that $M$ is an \emph{embedded (or regular) submanifold} of $N$ if the inclusion $M\hookrightarrow N$ is an embedding. If the inclusion is just an immersion, we say that $M$ is an \emph{immersed submanifold}.
 \end{definition}
 
-This definition already hints to the fact that smooth maps are going to be useful in providing ways to nicely include a manifold into the another and in giving new ways to construct manifolds in the first place.
+It is probably no surprise at this point that smooth maps are going to be useful in providing ways to nicely include a manifold into the another and in giving new ways to construct manifolds in the first place.
 In the rest of this chapter we will try to give an answer to the following questions:
 \begin{itemize}
   \item if $F$ is an immersion, what can we say about its image $F(M)$ as a subset of $N$?
@@ -84,108 +156,74 @@ In the rest of this chapter we will try to give an answer to the following quest
 \end{itemize}
 And what can we say about the corresponding tangent spaces?
 
-Before moving on, it is useful to recall some results from multivariable analysis.
-A function $f:\R^m \to \R^n$ between euclidean spaces has rank $k$ at $x\in\R^m$ if its ($n\times m$) Jacobian matrix $Df(x)$ has rank $k$.
-The function has \emph{maximal rank}\footnote{Alternatively, it is of \emph{full rank}.} at $x$ if $k = \min(n,m)$.
-When $n=m$, $f$ has maximal rank at $x$ if and only if the square matrix $Df(x)$ is an invertible matrix.
 
-As for many local properties, this definition carries over to manifolds rather ``smoothly''.
-
-\begin{definition}
-  A smooth map $F:M\to N$ has \emph{rank $k$} at a point $p$ if its differential $dF_p$ has rank $k$, that is, if the linear subspace $dF_p(T_pM)$ has dimension $k$ inside $T_{F(p)}N$.
-\end{definition}
-
-And the same is true for the inverse function theorem:
-compare the following statements.
-
-\begin{theorem}[Inverse function theorem]\label{thm:ift}
-  Let $U\subset\R^n$ open and $f:U \to \R^n$ be a smooth map.
-  Assume that $f$ has maximal rank at some $x\in U$, then there exists an open neighbourhood $\Omega\subset U$ of $x$ such that  $f\big|_\Omega : \Omega \to f(\Omega)$ is a diffeomorphism.
-\end{theorem}
-
-\begin{theorem}[Inverse function theorem for manifolds]\label{thm:iftm}
-  Let $F:M\to N$ be a smooth function between smooth manifolds of the same dimension $n$.
-  Let $p\in M$ and assume that $F$ has maximal rank (i.e. rank $n$) at $p$.
-  Then there exists an open neighbourhood $V$ of $p$ such that the restriction $F:V\to F(V)$ is a diffeomorphism.
-\end{theorem}
-% \begin{proof}
-%   This is a purely local statement.
-%   Let $(U,\varphi)$ be a chart about $p\in M$ and let $(V, \psi)$ be a chart about $F(p)\in N$.
-%   Since both $\varphi$ and $\psi$ are diffeomorphisms (and thus have maximal rank), the derivative of
-%   \begin{equation}
-%     \psi \circ F \circ \varphi^{-1}: \varphi(U\cap F^{-1}(V)) \to \psi(F(U)\cap V)
-%   \end{equation}
-%   has rank $n$ at $\varphi(p)$.
-%   Thus the inverse function theorem, Theorem~\ref{thm:ift}, there exists $\Omega \subset \varphi(U\cap F^{-1}(V))$ such that $\psi \circ F \circ \varphi^{-1}\big|_{\Omega}$ is a diffeomorphism.
-%   Therefore, once again since both $\varphi$ and $\psi$ are diffeomorphisms, $F\big|_W : W \to F(W)$ is also a diffeomorphism for $W := \varphi^{-1}(\Omega)$.
-% \end{proof}
-\begin{exercise}
-  Use the euclidean inverse function theorem (Theorem~\ref{thm:ift}) on $\R^n$ to prove Theorem~\ref{thm:iftm}.
-\end{exercise}
-
-
-In fact, also analogues of the implicit function theorem carry over.
-We will state them without going into the details of the proofs.
+To begin with, since all our result so-far have been local in nature, we can use locality to our advantage.
+Say that we have an immersion $F$, then we can restrict its domain to obtain a local embedding, that is
+a function that is locally an embedding onto its image.
+The proof of this fact will show that a $k$-dimensional submanifold is also a $k$-dimensional manifold
+whose charts are the ones obtained from the Rank Theorem after we drop the final $n-k$ components.
 
 \begin{marginfigure}
   \includegraphics{2_8_9-mapping.pdf}
-  \caption{Theorem~\ref{prop:slice_chart} in a picture.}
+  \caption{Theorem~\ref{thm:rank}, case of Proposition~\ref{prop:local_embedding}, in a picture.}
 \end{marginfigure}
-\begin{proposition}\label{prop:slice_chart}
+\begin{proposition}\label{prop:local_embedding}
   Let $M^m$ and $N^n$ be smooth manifolds and $F:M\to N$ an immersion.
-  Then for any $p\in M$, there exists a neighbourhood $U$ of $p$ and a chart $(V,\psi)$ about $F(p)\in N$ such that
-  \begin{enumerate}[(i)]
-    \item If $y^i = r^i\circ \psi$ are the local coordinates of $\psi$ then
-          \begin{equation}\label{eq:slice_chart}
-            F(U)\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\};
-          \end{equation}
-    \item $F\big|_U$ is an embedding.
-  \end{enumerate}
+  Then for any $p\in M$, there exists a neighbourhood $U$ of $p$ such that $F\big|_U$ is an embedding onto its image.
 \end{proposition}
-
-If $F$ is an embedding, and thus $F(M)\subset N$ is an embedded submanifold, then the set $F(U)$ above can be written as $F(U) = F(M)\cap W$ for some open set $W\subset N$.
-By replacing $V$ in~\eqref{eq:slice_chart} with $V\cap W$, one gets
-\begin{equation}
-  F(M)\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\}.
-\end{equation}
-In particular, this means that a $m$-dimensional submanifold is also a $m$-dimensional manifold whose charts are the ones above after we drop the final $n-m$ components.
-
-The proposition above shows that an immersion is always a local embedding.
 \begin{exercise}
+  Prove Proposition~\ref{prop:local_embedding}. \\
+  \textit{\small Hint: use the Rank Theorem~\ref{thm:rank} and construct appropriate charts}
+\end{exercise}
+
+In fact we can say more if the manifold is compact.
+
+\begin{exercise}
+  Prove the following statements.
   \begin{enumerate}
     \item If $M$ is compact, an injective immersion $F:M\to N$ is always an embedding.
     \item This is not necessarily the case in the non-compact case, give a counterexample.
   \end{enumerate}
 \end{exercise}
 
-\begin{lemma}
-  With the notation of Proposition~\ref{prop:slice_chart}, assume that around any point $p\in M$ there is a chart $(V, (y^i))$ of the form
-  \begin{equation}
-    M\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\} \subset N.
-  \end{equation}
-  Then, if we endow $M$ with the subspace topology on $N$, $M$ is a topological manifold of dimension $m$.
-  Furthermore, it has a smooth structure that makes it into an embedded submanifold of $N$.
-\end{lemma}
-\begin{proof}[Sketch]
-  Let $\pi: \R^n\to\R^m$ be the projection as in the examples above.
-  Let $p\in M$ and let $(V,\psi)$ be a chart with coordinates $(y^i)$ of the form above.
-  If we endow $M$ with the subspace topology, then $\sigma:= \pi \circ \psi\big|_{M\cap V}$ is a homeomorphism.
-  Repeating this at any point we end up with a collection of maps satisfying the hypotheses of Lemma~\ref{lem:manifold_chart}.
-  Thus $M$ is a smooth manifold of dimension $m$ and its topology coincides with the subspace topology.
+% \begin{lemma}
+%   Assume that around any point $p\in M$ there is a chart $(V, (y^i))$ of the form
+%   \begin{equation}
+%     M\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\} \subset N.
+%   \end{equation}
+%   Then, if we endow $M$ with the subspace topology on $N$, $M$ is a topological manifold of dimension $m$.
+%   Furthermore, it has a smooth structure that makes it into an embedded submanifold of $N$.
+% \end{lemma}
+% \begin{proof}[Sketch]
+%   Let $\pi: \R^n\to\R^m$ be the projection as in the examples above.
+%   Let $p\in M$ and let $(V,\psi)$ be a chart with coordinates $(y^i)$ of the form above.
+%   If we endow $M$ with the subspace topology, then $\sigma:= \pi \circ \psi\big|_{M\cap V}$ is a homeomorphism.
+%   Repeating this at any point we end up with a collection of maps satisfying the hypotheses of Lemma~\ref{lem:manifold_chart}.
+%   Thus $M$ is a smooth manifold of dimension $m$ and its topology coincides with the subspace topology.
+%
+%   Finally, with the inclusion $i:M\hookrightarrow N$ one has that $\psi \circ i\circ \sigma^{-1} (p^1,\ldots,p^m) = (p^1,\ldots,p^m,0,\ldots,0)$ which is smooth.
+% \end{proof}
+%
+% A non-trivial consequence of the previous lemma is the following proposition\footnote{Refer to \cite[Proposition 5.8 and Proposition 5.31]{book:lee}.}.
+%
+% \marginnote[1em]{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
+% \begin{proposition}\label{prop:uniqdiffeoinclusion}
+%   Let $M$ be a smooth manifold and $U\subset M$ an open set.
+%   Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
+% \end{proposition}
 
-  Finally, with the inclusion $i:M\hookrightarrow N$ one has that $\psi \circ i\circ \sigma^{-1} (p^1,\ldots,p^m) = (p^1,\ldots,p^m,0,\ldots,0)$ which is smooth.
-\end{proof}
+%\newthought{Up to this point}, the first manifold either had the same dimension or was smaller than the second one.
+%What if it is larger?
 
-A non-trivial consequence of the previous lemma is the following proposition\footnote{Refer to \cite[Proposition 5.8 and Proposition 5.31]{book:lee}.}.
+Let's now focus on the opposite situation, submersions.
+For this case we will need to be able to identify some special points depending on the rank of the mapping.
 
-\marginnote[1em]{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
-\begin{proposition}\label{prop:uniqdiffeoinclusion}
-  Let $M$ be a smooth manifold and $U\subset M$ an open set.
-  Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
-\end{proposition}
-
-\newthought{Up to this point}, the first manifold either had the same dimension or was smaller than the second one.
-What if it is larger?
+\begin{marginfigure}
+  \includegraphics{2_8-crit_pts.pdf}
+  \caption{Beware of the subtleties here. The map $F=\pi_x\circ i$ for the inclusion $i:\bT^2\hookrightarrow\R^3$ and the projection $\pi_x(x,y,z)=x$.
+    So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if the image of $T_p\bT^2$ by $d i_p: T_p\bT^2\hookrightarrow T_p\R^3$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
+  \label{fig:2_8-crit_pts}
+\end{marginfigure}
 
 \begin{definition}
   Let $F:M^m \to N^n$, $m\geq n$, be a smooth map between smooth manifolds.
@@ -194,21 +232,18 @@ What if it is larger?
   Similarly, a point $q\in N$ is called a \emph{regular value} if every point in $F^{-1}(q)$ is a regular point, and \emph{critical value} otherwise. If $q\not\in F(M)$, then $q$ is considered a regular value (in the sense that there is nothing to check in its preimage by $F$).
   Cf. Figure~\ref{fig:2_8-crit_pts}.
 \end{definition}
-\begin{marginfigure}
-  \includegraphics{2_8-crit_pts.pdf}
-  \caption{Beware of the subtleties here. The map $F=\pi_x\circ i$ for the inclusion $i:\bT^2\hookrightarrow\R^3$ and the projection $\pi_x(x,y,z)=x$.
-    So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if the image of $T_p\bT^2$ by $d i_p: T_p\bT^2\hookrightarrow T_p\R^3$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
-  \label{fig:2_8-crit_pts}
-\end{marginfigure}
 
 With this definition at hand, we are ready to state one of the most important theorems in this lecture.
-Differently from most previous ones, the statement is not local.
+Differently from the previous ones, the statement is not local.
 
-\begin{theorem}[Implicit function theorem for manifolds]\label{thm:impl_fun}
+\begin{theorem}[Regular levelset theorem]\label{thm:impl_fun}
   Let $m\geq n$ and let $F: M^m \to N^n$ be a smooth map between smooth manifolds.
   If $q\in N$ is a regular value of $F$ and $P := F^{-1}(q)$ is not empty, then $P$ is a topological manifold of dimension $m-n$.
   Moreover, there exists a smooth structure on $P$ which makes it into a smooth embedded submanifold of $M$.
 \end{theorem}
+
+If you think about it carefully, this is an analogue of the implicit function theorem for manifolds, where some coordinate functions are implicitly defined as solution of a levelset equation.
+While the proof of Theorem~\ref{thm:impl_fun} is not particularly complicated and is also a direct application of the implicit function theorem, we will not pursue it here. You can find it in \cite[Theorem 5.12]{book:lee} or \cite[Theorem 9.9]{book:tu}.
 
 In the previous chapter, all manifolds were introduced as a set on top of which we had to explicitly provide a differentiable structure. With this theorem we can finally get it all for free as long as we provide an appropriate submersion $\psi$.
 
@@ -216,24 +251,24 @@ In the previous chapter, all manifolds were introduced as a set on top of which 
   If $F:M\to N$ is a submersion, Theorem~\ref{thm:impl_fun} implies that any $p\in M$ belongs to the $(m-n)$-dimensional embedded submanifold $F^{-1}(F(p))$.
 \end{remark}
 
-We can gather this observation and the previous results (the inverse and the implicit function theorems) into the following proposition (of which we are also omitting the proof).
-
-\begin{proposition}\label{prop:submanifolds_and_R}
-  The following assertions are equivalent.
-  \begin{enumerate}[(i)]
-    \item $P^n\subset M^m$ is a $n$-dimensional submanifold, $n \leq m$.
-    \item $P$ is locally the image of an embedding of a subset of $\R^n$.
-          That is, for every $p\in P$ there exists $V\subset P$ open neighbourhood of $p$, an open set $U\subset\R^n$ and an embedding
-          \begin{equation}
-            \varphi : U \to M \quad\mbox{such that}\quad \varphi(U)=V.
-          \end{equation}
-    \item $P$ is locally a level set of a submersion into $\R^{m-n}$.
-          That is, for every $p\in P$ there exists $V\subset P$ open neighbourhood of $p$ and a submersion $\psi: V \to\R^{m-n}$ such that
-          \begin{equation}
-            M\cap V = \{q\in V \;\mid\; \psi(q) = 0\}.
-          \end{equation}
-  \end{enumerate}
-\end{proposition}
+% We can gather this observation and the previous results (the inverse and the implicit function theorems) into the following proposition (of which we are also omitting the proof).
+%
+% \begin{proposition}\label{prop:submanifolds_and_R}
+%   The following assertions are equivalent.
+%   \begin{enumerate}[(i)]
+%     \item $P^n\subset M^m$ is a $n$-dimensional submanifold, $n \leq m$.
+%     \item $P$ is locally the image of an embedding of a subset of $\R^n$.
+%           That is, for every $p\in P$ there exists $V\subset P$ open neighbourhood of $p$, an open set $U\subset\R^n$ and an embedding
+%           \begin{equation}
+%             \varphi : U \to M \quad\mbox{such that}\quad \varphi(U)=V.
+%           \end{equation}
+%     \item $P$ is locally a level set of a submersion into $\R^{m-n}$.
+%           That is, for every $p\in P$ there exists $V\subset P$ open neighbourhood of $p$ and a submersion $\psi: V \to\R^{m-n}$ such that
+%           \begin{equation}
+%             M\cap V = \{q\in V \;\mid\; \psi(q) = 0\}.
+%           \end{equation}
+%   \end{enumerate}
+% \end{proposition}
 
 \begin{remark}\label{rmk:WhitneyET}
   Whitney Embedding Theorem states that any smooth $n$-dimensional manifold can be smoothly embedded into $\R^{2n}$.
@@ -248,7 +283,7 @@ We can gather this observation and the previous results (the inverse and the imp
 
 \begin{example}\label{ex:s2}
   The sphere $\bS^2 = \{x\in\R^3 \mid \|x\| = 1\}$ is a $2$-dimensional submanifold of $N=\R^3$.
-  This is immediate using the third condition in the Proposition~\ref{prop:submanifolds_and_R}: let $\psi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\psi$ is smooth, $\bS^2 = \{x\in\R^3\mid\psi(x)=0\}$ and, denoting $t$ the coorindates on $\R$, $d\psi_x(v)= v^i \frac{\partial \psi}{\partial x^i}|_x \frac{\partial}{\partial t}|_0 = (2x\cdot v) \frac{\partial}{\partial t}|_0$, that is, as a 1x3 matrix $d\psi_x = 2(x^1\; x^2\; x^3)$ so it is of maximal rank $1$ for all $x\in\bS^2$.
+  This is an immediate consquence of Theorem~\ref{thm:impl_fun}: let $\psi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\psi$ is smooth, $\bS^2 = \{x\in\R^3\mid\psi(x)=0\}$ and, denoting $t$ the coorindate on $\R$, $d\psi_x(v)= v^i \frac{\partial \psi}{\partial x^i}|_x \frac{\partial}{\partial t}|_0 = (2x\cdot v) \frac{\partial}{\partial t}|_0$, that is, as a 1x3 matrix $d\psi_x = 2(x^1\; x^2\; x^3)$ so it is of maximal rank $1$ for all $x\in\bS^2$.
 \end{example}
 
 \begin{example}
