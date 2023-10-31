@@ -685,22 +685,6 @@ It can be useful to know that there are alternative ways to characterize smooth 
   \end{enumerate}
 \end{exercise}
 
-\begin{definition}
-  A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
-  %
-  Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomorphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
-\end{definition}
-
-\begin{exercise}
-  Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\varphi(V)\subset\R^n$.
-\end{exercise}
-
-\begin{exercise}
-  Prove that $\R^2\setminus\{(0,0)\}$ is a two-dimensional manifold and construct a diffeomorphism from this manifold to the circular cylinder
-  \begin{equation}
-    C := \{ (x,y,z)\in\R^3 \mid x^2+y^2 = 1\}\subset\R^3.
-  \end{equation}
-\end{exercise}
 
 The following corollary is just a restatement of Proposition~\ref{prop:smoothlocal}, but provides a useful perspective on the construction of smooth maps.
 
@@ -725,8 +709,45 @@ In the next section we will look more deeply into this.
 
 This is a subtle but fundamental point. The charts themselves, at first, are mere homeomorphisms.
 The choice of a smooth atlas, ensures that we only select a family of charts whose transition maps, as euclidean functions, are smooth.
+This warrants the definition of a new type of map that extends the notion of homeomorphism from topological manifolds to smooth manifolds.
 
-Since smoothness is defined via the composition with charts from the atlas, this also implies that the charts themselves become diffeomorphisms\footnote{Why? Try to spell out all the details.}. The following exercises and examples build upon this remark to give you some example of this, and why it may seem counterintuitive.
+\begin{definition}
+  A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
+  %
+  Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomorphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
+\end{definition}
+
+With this concept at hand, we can finally compare smooth manifolds between each others.
+
+\begin{exercise}
+  Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\varphi(V)\subset\R^n$.
+\end{exercise}
+
+\begin{exercise}
+  Prove that $\R^2\setminus\{(0,0)\}$ is a two-dimensional manifold and construct a diffeomorphism from this manifold to the circular cylinder
+  \begin{equation}
+    C := \{ (x,y,z)\in\R^3 \mid x^2+y^2 = 1\}\subset\R^3.
+  \end{equation}
+\end{exercise}
+
+Things are, however, more subtle than what may appear at this point.
+In fact, it makes sense to also define a weaker version of diffeomorphism.
+
+\begin{definition}
+  A map $F : M_1 \to M_2$ is a \emph{local diffeomorphism} if every point $p\in M_1$ has a neighbourhood $U$ such that $F(U)\subset M_2$ is open and $F|_{U} : U \to F(U)$ is a diffeomorphism.
+\end{definition}
+
+The exercise that follows shows a particular example of local diffeomorphism which is not a diffeomorphism as well as an example of a special class of such objects called smooth covering maps\footnote{Unfortunately we will not have time to learn more about them here.}.
+
+\begin{exercise}
+  Let $\bS^1$ denote the circle with the smooth structure defined in Exercise~\ref{ex:S1emb}.
+  \begin{enumerate}
+    \item Show that the map $\phi: \R \to \bS^1$, $\phi(t) = (\cos(2\pi t), \sin(2\pi t))$ is smooth.
+    \item Show that $\phi$ is a local diffeomorphism.
+  \end{enumerate}
+\end{exercise}
+
+\newthought{Complications do not end here}. Since smoothness is defined via the composition with charts from the atlas, this also implies that the charts themselves become diffeomorphisms\footnote{Why? Try to spell out all the details.}. The following exercises and examples build upon this remark to give you some example of this, and why it may seem counterintuitive.
 
 \begin{example}[A different smooth structure on $\R$]
   Consider the homeomorphism $\psi:\R\to\R$, $\psi(x) = x^3$.
