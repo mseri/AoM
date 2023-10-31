@@ -68,12 +68,20 @@ In fact, if we restrict our attention to constant rank maps, that is, maps whose
   Let $F : M^m \to N^n$ be a smooth function between smooth manifolds.
   Assume that $F$ is of rank $k$ at all points $p\in M$.
   Then, for all $p\in M$ there exist smooth charts $(U, \varphi)$ centred at $p$ and $(V, \psi)$ centred at $F(p)$ with $F(U)\subseteq V$, such that $F$ has a coordinate representation of the form
-  \begin{equation}
-    F(x^1, \ldots, x^k, x^{k+1}, \ldots, x^m) = (x^1, \ldots, x^k, \LaTeXunderbrace{0, \ldots, 0}_{n-k}).
-  \end{equation}
+  \begin{align}
+    \psi \circ F \circ \varphi^{-1} : \varphi(U) \subseteq \R^m &\to \psi(F(U)) \subseteq \R^n \\
+    (x^1, \ldots, x^k, x^{k+1}, \ldots, x^m) &\mapsto (x^1, \ldots, x^k, \LaTeXunderbrace{0, \ldots, 0}_{n-k}).
+  \end{align}
 \end{theorem}
 \begin{proof}
-  Let $p\in M$... \textcolor{red}{TODO}
+  % TODO
+  We start with two important observations.
+  
+  \newthought{First}. The statement is local on charts: without loss of generality, we can fix local coordinates on $M$ and $N$ and replace them altogether by two open subsets $U\subseteq \R^m$ and $V \subseteq \R^n$. So, from now on, $F: U \subseteq \R^m \to V \subseteq \R^n$.
+
+  \newthought{Second}. $F$, and thus $dF$, being of rank $k$, translates to this new euclidean setting into the fact that $DF$ is a $n\times m$ matrix of rank $k$ and thus with an invertible $k\times k$ submatrix.
+  Rearranging the coordinates we can assume, again without loss of generality, that this $k\times k$ minor is is the upper left block of the matrix $DF$, that is, $\left( \frac{\partial F^i}{\partial x^j} \right)$, $i,j = 1,\ldots, k$.
+
 \end{proof}
 
 \section{Embeddings, submersions and immersions}
