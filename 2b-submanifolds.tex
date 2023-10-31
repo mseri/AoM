@@ -73,34 +73,116 @@ In fact, if we restrict our attention to constant rank maps, that is, maps whose
     (x^1, \ldots, x^k, x^{k+1}, \ldots, x^m) &\mapsto (x^1, \ldots, x^k, \LaTeXunderbrace{0, \ldots, 0}_{n-k}).
   \end{align}
 \end{theorem}
+
+We will present here an adaptation of the general proof from \cite[Theorem 4.12]{book:lee}.
+If some detail seems unclear, I would recommend you to go through the proof step by step by setting $n=m=2$ and $k=1$, and writing everything down explicitly.
+
 \begin{proof}
-  % TODO
   We start with two important observations.
   
-  \newthought{First}. The statement is local on charts: without loss of generality, we can fix local coordinates on $M$ and $N$ respectively centred around $p$ and $F(p)$ and replace them altogether by two open subsets $U\subseteq \R^m$ and $V \subseteq \R^n$. So, from now on, $F: U \subseteq \R^m \to V \subseteq \R^n$, $p=(0,\ldots,0)$ and $F(p) = (0,\ldots,0)$.
+  \newthought{First}. The statement is local on charts: without loss of generality,
+  we can fix local coordinates on $M$ and $N$ respectively centred around $p$ and $F(p)$
+  and replace them altogether by two open subsets $U\subseteq \R^m$ and $V \subseteq \R^n$.
+  So, from now on, $F: U \subseteq \R^m \to V \subseteq \R^n$, $p=(0,\ldots,0)$
+  and $F(p) = F(0,\ldots,0) = (0,\ldots,0)$.
 
-  \newthought{Second}. The fact that $F$, and thus $dF$, is of rank $k$, tranalates to the euclidean setting to the fact that the matrix $DF$ is a $m\times n$ matrix of rank $k$ and thus with an invertible $k\times k$ submatrix.
-  Rearranging the coordinates we can assume, again without loss of generality, that this $k\times k$ minor is is the upper left block of the matrix $DF$, that is, the block $\left( \frac{\partial F^i}{\partial x^j} \right)$, $i,j = 1,\ldots, k$.
+  \newthought{Second}. The fact that $F$, and thus $dF$, is of rank $k$, translates to
+  the euclidean setting to the fact that the matrix $DF$ is a $m\times n$ matrix of rank $k$
+  and thus with an invertible $k\times k$ submatrix.
+  Rearranging the coordinates we can assume, again without loss of generality, that this
+  $k\times k$ minor is is the upper left block of the matrix $DF$, that is, the block
+  $\left( \frac{\partial F^i}{\partial x^j} \right)$, $i,j = 1,\ldots, k$.
 
-  For convenience we denote coordinates $(x,y) = (x^1, \ldots, x^k, y^1, \ldots, y^{m-k})\in\R^m$ and $(u,v) = (u^1, \ldots, u^k, v^1, \ldots, v^{n-k})\in\R^n$.
+  In what follows, we will denote the coordinates as follows:
+  $(x,y) = (x^1, \ldots, x^k, y^1, \ldots, y^{m-k})\in\R^m$
+  and $(u,v) = (u^1, \ldots, u^k, v^1, \ldots, v^{n-k})\in\R^n$.
+  \medskip
 
-  Writing $F(x,y) = (Q(x,y), R(x,y))$ for some smooth maps $Q: U \to \R^k$ and $R: U \to \R^{n-k}$, our choice of coordinates after the above observations implies that $\det \left( \frac{\partial Q^i}{\partial x^j} \right) \neq 0$ at $(x,y) = (0,0)$.
+  \newthought{Right hand side}.
+  Writing $F(x,y) = (Q(x,y), R(x,y))$ for some smooth maps $Q: U \to \R^k$ and $R: U \to \R^{n-k}$,
+  our choice of coordinates after the above observations implies that
+  $\det \left( \frac{\partial Q^i}{\partial x^j} \right) \neq 0$ at $(x,y) = (0,0)$.
 
-  Since the gradient of $Q$ with respect to $z$ is regular, we are going to extend the mapping with the identity on the rest of the coordinates to get a regular map on the whole neightbourhood.
+  Since the gradient of $Q$ with respect to $z$ is regular, we are going to extend
+  the mapping with the identity on the rest of the coordinates to get a regular map
+  on the whole neighbourhood.
   Let $\varphi : U \to \R^m$ be defined by $\varphi(x,y) = (Q(x,y), y)$. Then,
   \begin{equation}
     D\varphi(0,0) = 
     \begin{pmatrix}
       \frac{\partial Q^i}{\partial x^j}(0,0) & \frac{\partial Q^i}{\partial y^j}(0,0) \\
-      0 & \delta^i_j
+      0 & \id_{\R^k}
     \end{pmatrix}
   \end{equation}
   has nonvanishing determinant by hypothesis.
-  The inverse function theorem then implies that there are open neigbourhoods $U_0$ and $V_0$ of $(0,0)$ and $\varphi(0,0)$ such that $\varphi : U_0 \to V_0$ is a diffeomorphism.
-  For convenience, up to shrinking the two sets appropriately, we will assume that $V_0$ is an open cube.
+  The Inverse Function Theorem then implies that there are open neighborhoods $U_0$ of $(0,0)$
+  and $W_0$ of $\varphi(0,0)$ such that $\varphi : U_0 \to W_0$ is a diffeomorphism.
+  Up to shrinking both domains appropriately, we will assume that $W_0$ is an open cube.
 
+  Denoting $\varphi^{-1}(x,y) = (A(x,y), B(x,y))$ for some smooth functions
+  $A : W_0 \to \R^k$ and $B : W_0 \to \R^{m-k}$, we get
+  \begin{equation}
+    (x,y) = \varphi(A(x,y), B(x,y)) = (Q(A(x,y), B(x,y)), B(x,y)).
+  \end{equation}
+  That is, $B(x,y) = y$ and therefore $\varphi^{-1}(x,y) = (A(x,y), y)$.
+  Moreover, $\varphi \circ \varphi^{-1} = \id$ and thus $(Q(A(x,y),y) = x$.
 
+  This leaves us with
+  \begin{equation}
+    F\circ\varphi^{-1}(x,y) = (x, \widetilde{R}(x,y)),
+  \end{equation}
+  where $\widetilde{R} : W_0 \to\R^{m-k}$ is defined by $\widetilde{R}(x,y) = R(A(x,y), y)$.
+  Therefore, for $(x,y)\in W_0$ we have
+  \begin{equation}\label{eq:diff_DFp-1}
+    D(F\circ\varphi^{-1})(x,y) = \begin{pmatrix}
+      \id_{\R^k} & 0 \\
+      \frac{\partial\widetilde{R}^i}{\partial x^j}(x,y) & \frac{\partial\widetilde{R}^i}{\partial y^j}(x,y)
+    \end{pmatrix}.
+  \end{equation}
+  The composition with a diffeomorphism does not change the rank of the function $F$ and
+  thus the map $F\circ\varphi^{-1}$ is of rank $k$ on $W_0$.
+  You can see it for instance using the chain rule
+  $D(F\circ\varphi^{-1})(x,y) = DF(\varphi^{-1}(x,y))\, D\varphi^{-1}(x,y)$ and
+  observing that this is the product of an invertible square matrix with $DF$.
+  The claim then follows from a classical theorem in linear algebra.
 
+  Since $\id_{R^k}$ makes the first $k$ columns of the matrix \eqref{eq:diff_DFp-1}
+  linearly independent, the matrix can have rank $k$ only if the derivatives 
+  $\frac{\partial \widetilde{R}^i}{\partial y^j}$ vanish identically on $W_0$.
+  That means that $\widetilde{R}$ is independent of the corresponding variables
+  $(y^1, \ldots, y^{m-k})$.
+  
+  Defining $S(x) = \widetilde{R}(x, 0)$, we have
+  \begin{equation}
+    F\circ\varphi^{-1}(x,y) = (x, S(x)).
+  \end{equation}
+
+  \newthought{Left hand side}.
+  If we can find a smooth chart $\psi : V_0 \to \R^n$ in some neighbourhood $V_0$ of $(0,0)$,
+  we will have concluded the proof.
+  Define 
+  \begin{equation}
+    \psi(u, v) = (u, v - S(u))
+    \quad\mbox{on}\quad
+    V_0 = \{(u,v) \in V \,\mid\, (u,0)\in W_0\}\subset V.
+  \end{equation}
+  The map is invertible, with an explicit inverse
+  \begin{equation}
+    \psi^{-1}(s,t) = (s, t + S(s)).
+  \end{equation}
+  Therefore, it defines a diffeomorphism onto its image and thus a smooth chart.
+  We only need to check that $F\circ\varphi^{-1}(W_0)\subseteq V_0$, since that would
+  imply $F(U_0) \subseteq V_0$, and that $V_0$  is a neighbourhood of $(0,0)$.
+  The latter claim follows immediately from the fact that
+  both $V$ and $W_0$ are neighbourhoods of $(0,0)$.
+  The first claim follows by definition of $V_0$ since that requires $(x,0)\in W_0$,
+  which is clearly the case by setting $y=0$.
+  
+  Putting all pieces together, we get
+  \begin{equation}
+    \psi \circ F \circ \varphi^{-1} (x,y) = \psi(x, S(x)) = (x, S(x) - S(x)) = (x,0),
+  \end{equation}
+  concluding the proof.
 \end{proof}
 
 \section{Embeddings, submersions and immersions}
