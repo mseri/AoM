@@ -77,10 +77,29 @@ In fact, if we restrict our attention to constant rank maps, that is, maps whose
   % TODO
   We start with two important observations.
   
-  \newthought{First}. The statement is local on charts: without loss of generality, we can fix local coordinates on $M$ and $N$ and replace them altogether by two open subsets $U\subseteq \R^m$ and $V \subseteq \R^n$. So, from now on, $F: U \subseteq \R^m \to V \subseteq \R^n$.
+  \newthought{First}. The statement is local on charts: without loss of generality, we can fix local coordinates on $M$ and $N$ respectively centred around $p$ and $F(p)$ and replace them altogether by two open subsets $U\subseteq \R^m$ and $V \subseteq \R^n$. So, from now on, $F: U \subseteq \R^m \to V \subseteq \R^n$, $p=(0,\ldots,0)$ and $F(p) = (0,\ldots,0)$.
 
-  \newthought{Second}. $F$, and thus $dF$, being of rank $k$, translates to this new euclidean setting into the fact that $DF$ is a $n\times m$ matrix of rank $k$ and thus with an invertible $k\times k$ submatrix.
-  Rearranging the coordinates we can assume, again without loss of generality, that this $k\times k$ minor is is the upper left block of the matrix $DF$, that is, $\left( \frac{\partial F^i}{\partial x^j} \right)$, $i,j = 1,\ldots, k$.
+  \newthought{Second}. The fact that $F$, and thus $dF$, is of rank $k$, tranalates to the euclidean setting to the fact that the matrix $DF$ is a $m\times n$ matrix of rank $k$ and thus with an invertible $k\times k$ submatrix.
+  Rearranging the coordinates we can assume, again without loss of generality, that this $k\times k$ minor is is the upper left block of the matrix $DF$, that is, the block $\left( \frac{\partial F^i}{\partial x^j} \right)$, $i,j = 1,\ldots, k$.
+
+  For convenience we denote coordinates $(x,y) = (x^1, \ldots, x^k, y^1, \ldots, y^{m-k})\in\R^m$ and $(u,v) = (u^1, \ldots, u^k, v^1, \ldots, v^{n-k})\in\R^n$.
+
+  Writing $F(x,y) = (Q(x,y), R(x,y))$ for some smooth maps $Q: U \to \R^k$ and $R: U \to \R^{n-k}$, our choice of coordinates after the above observations implies that $\det \left( \frac{\partial Q^i}{\partial x^j} \right) \neq 0$ at $(x,y) = (0,0)$.
+
+  Since the gradient of $Q$ with respect to $z$ is regular, we are going to extend the mapping with the identity on the rest of the coordinates to get a regular map on the whole neightbourhood.
+  Let $\varphi : U \to \R^m$ be defined by $\varphi(x,y) = (Q(x,y), y)$. Then,
+  \begin{equation}
+    D\varphi(0,0) = 
+    \begin{pmatrix}
+      \frac{\partial Q^i}{\partial x^j}(0,0) & \frac{\partial Q^i}{\partial y^j}(0,0) \\
+      0 & \delta^i_j
+    \end{pmatrix}
+  \end{equation}
+  has nonvanishing determinant by hypothesis.
+  The inverse function theorem then implies that there are open neigbourhoods $U_0$ and $V_0$ of $(0,0)$ and $\varphi(0,0)$ such that $\varphi : U_0 \to V_0$ is a diffeomorphism.
+  For convenience, up to shrinking the two sets appropriately, we will assume that $V_0$ is an open cube.
+
+
 
 \end{proof}
 
