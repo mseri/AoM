@@ -1,5 +1,5 @@
 With differentials of smooth functions at hand, we are ready to discuss submanifolds: smaller manifolds sitting inside larger ones.
-We have already seen an example at the begininng of the course.
+We have already seen an example at the beginning of the course.
 In Exercise~\ref{exe:subsetsmanifolds}, we proved that any open subset $U\subseteq M$ can be made into a smooth manifold with a differentiable structure induced by the one of $M$.
 These, somehow trivial, submanifolds are called \emph{open submanifolds}.
 But there are many other examples beyond these ones.
@@ -65,7 +65,7 @@ and their tangent spaces.
 In fact, if we restrict our attention to constant rank maps, that is, maps whose rank is the same at all points on the manifold, we can go quite a long way and the tool to get there is the following.
 
 \begin{theorem}[Rank theorem]\label{thm:rank}
-  Let $F : M^m \to N^n$ be a smooth function between smooth manifolds.
+  Let $F : M^m \to N^n$ be a smooth function between smooth manifolds without boundary\footnote{The theorem can be extended to manifolds with boundary but we will omit this case here to keep the discussion more contained and avoid unnecessary technicalities.}.
   Assume that $F$ is of rank $k$ at all points $p\in M$.
   Then, for all $p\in M$ there exist smooth charts $(U, \varphi)$ centred at $p$ and $(V, \psi)$ centred at $F(p)$ with $F(U)\subseteq V$, such that $F$ has a coordinate representation of the form
   \begin{align}
@@ -277,12 +277,12 @@ whose charts are the ones obtained from the Rank Theorem after we drop the final
   \caption{Theorem~\ref{thm:rank}, case of Proposition~\ref{prop:local_embedding}, in a picture.}
 \end{marginfigure}
 \begin{proposition}\label{prop:local_embedding}
-  Let $M^m$ and $N^n$ be smooth manifolds and $F:M\to N$ an immersion.
-  Then for any $p\in M$, there exists a neighbourhood $U$ of $p$ such that $F\big|_U$ is an embedding onto its image.
+  Let $M^m$ and $N^n$ be smooth manifolds without boundary\footnote{This is not necessary: the result holds also on manifolds with boundary but we need a modified version of the Rank Theorem in that case.} and $F:M\to N$ a smooth function.
+  Then $F$ is an immersion if and only if $F$ is a \emph{local embedding}, that is, for any $p\in M$, there exists a neighbourhood $U$ of $p$ such that $F\big|_U : U \to N$ is an embedding.
 \end{proposition}
 \begin{exercise}
   Prove Proposition~\ref{prop:local_embedding}. \\
-  \textit{\small Hint: use the Rank Theorem~\ref{thm:rank} and construct appropriate charts}
+  \textit{\small Hint: for the nontrivial direction use the Rank Theorem~\ref{thm:rank} and construct appropriate charts}
 \end{exercise}
 
 In fact we can say more if the manifold is compact.
@@ -392,7 +392,7 @@ In the previous chapter, all manifolds were introduced as a set on top of which 
 
 \begin{example}\label{ex:s2}
   The sphere $\bS^2 = \{x\in\R^3 \mid \|x\| = 1\}$ is a $2$-dimensional submanifold of $N=\R^3$.
-  This is an immediate consquence of Theorem~\ref{thm:impl_fun}: let $\psi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\psi$ is smooth, $\bS^2 = \{x\in\R^3\mid\psi(x)=0\}$ and, denoting $t$ the coorindate on $\R$, $d\psi_x(v)= v^i \frac{\partial \psi}{\partial x^i}|_x \frac{\partial}{\partial t}|_0 = (2x\cdot v) \frac{\partial}{\partial t}|_0$, that is, as a 1x3 matrix $d\psi_x = 2(x^1\; x^2\; x^3)$ so it is of maximal rank $1$ for all $x\in\bS^2$.
+  This is an immediate consequence of Theorem~\ref{thm:impl_fun}: let $\psi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\psi$ is smooth, $\bS^2 = \{x\in\R^3\mid\psi(x)=0\}$ and, denoting $t$ the coorindate on $\R$, $d\psi_x(v)= v^i \frac{\partial \psi}{\partial x^i}|_x \frac{\partial}{\partial t}|_0 = (2x\cdot v) \frac{\partial}{\partial t}|_0$, that is, as a 1x3 matrix $d\psi_x = 2(x^1\; x^2\; x^3)$ so it is of maximal rank $1$ for all $x\in\bS^2$.
 \end{example}
 
 \begin{example}
