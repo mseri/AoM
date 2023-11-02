@@ -391,9 +391,6 @@ dropping the distinction between $p$ and $x$, both in place of
   Given two manifolds $(M_1, \cA_1)$ and $(M_2, \cA_2)$, we can define the \emph{product manifold} $M_1 \times M_2$ by equipping $M_1 \times M_2$ with the product topology\footnote{Open sets in the product are products of open sets from the respective topological spaces.} and covering the space with the atlas $\{ (U_1\times U_2, (\varphi_1, \varphi_2)) \;\mid\; (U_1, \varphi_1)\in\cA_1, (U_2, \varphi_2)\in \cA_2\}$.
 \end{example}
 
-Note that smooth manifolds do not yet have a metric structure: distances between the points are not defined.
-However, they are \emph{metrizable}\footnote{In fact, all the topological manifolds are metrizable. This property is far more general and harder to prove~\cite[Theorem 34.1 and Exercise 1 of Chapter 4.36]{book:munkres:topology} or \cite{nlab:urysohn_metrization_theorem}. Note that not all topological spaces are metrizable, for example a space with more than one point endowed with the discrete topology is not. And even if a topological space is metrizable, the metric will be far from unique: for example, proportional metrics generate the same collection of open sets.}: there exists some metric on the manifold that induces the given topology on it.
-This allows to always view manifolds as metric spaces.
 
 Instead of always constructing a topological manifold and then specify a smooth structure, it is often convenient to combine these steps into a single construction.
 This is especially useful when the initial set is not equipped with a topology.
@@ -799,7 +796,7 @@ As a final exercise, we are going to relate smoothness of the maps with the smoo
   Note that this, in particular, holds for $N=\R^n$.
 \end{exercise}
 
-\section{Partitions of unity}
+\section{Partitions of unity}\label{sec:partition_of_unity}
 
 \newthought{Cutoff functions} are a class of smooth functions that will be of crucial importance throughout the course, and whose existence cannot be given for granted.
 Since their definition and construction does not require more than what we have just seen, let's talk about them now.
@@ -910,7 +907,7 @@ With this result at hand, Proposition~\ref{prop:cutoff} can be shown very easily
 
 \begin{proof}[Proof of Proposition~\ref{prop:cutoff}.]
   Consider the open cover of $M$ given by $\cC:=\{M\setminus K, U\}$.
-  Then Theorem~\ref{thm:partitionof1} implies that there exists a partition of unity $\{\rho_U, \rho_{M\setminus K}\}$ adapted to $\cC$. The function $\chi := \rho_U$ is our cutoff function.
+  Then Theorem~\ref{thm:partitionof1} implies that there exists a partition of unity $\{\rho_U, \rho_{M\setminus K}\}$ subordinate to $\cC$. The function $\chi := \rho_U$ is our cutoff function.
 \end{proof}
 
 \section{Manifolds with boundary}\label{sec:mbnd}

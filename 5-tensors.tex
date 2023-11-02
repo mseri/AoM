@@ -149,9 +149,9 @@ Let's go back for a moment to the example of inner products.
   \end{equation}
 
   A \emph{metric tensor} or \emph{scalar product} is a non-degenerate pseudo-metric tensor, that is a symmetric, positive definite $(0,2)$-tensor.
-  The Riemannian metric is a metric tensor on the tangent bundle of a manifold.
+  We will briefly see later that a Riemannian metric provides a metric tensor on the tangent spaces of a manifold.
 
-  An example of non-degenerate tensor which is not a metric is the so-called \emph{symplectic form}: a skew-symmetric non-degenerate $(0,2)$-tensor, which is fundamental in classical mechanics and the study of Hamiltonian systems.
+  An example of non-degenerate tensor which is not a metric is the so-called \emph{symplectic tensor}: a skew-symmetric non-degenerate $(0,2)$-tensor related to the symplectic form, a fundamental object in topology, classical mechanics and the study of Hamiltonian systems.
 \end{definition}
 
 \begin{example}\label{ex:musicaliso}
@@ -252,7 +252,7 @@ applying the previous reasoning and comparing term by term we get
   \end{align}
   % TODO: improve remark with coordinate representation
   % In coordinates the one maping (r,s)-tensors to (r+s, 0)-tensors is $I_g(\tau) = \tau_{i_1\ldots i_r}^{j_1\ldots j_s} g_{j_1 j_{r+1}} \ldots g_{j_s j_{r+s}}}$
-  In general, one can use the metric to raise or lower arbitrary indices, changing the tensor type from $(r,s)$ to $(r+1, s-1)$ or $(r-1, s+1)$.
+  In general, one can use the metric tensor to raise or lower arbitrary indices, changing the tensor type from $(r,s)$ to $(r+1, s-1)$ or $(r-1, s+1)$.
 
   A neat application of this is showing that a non-degenerate bilinear map $g\in T_2^0(V)$ can be lifted to a non-degenerate bilinear map on arbitrary tensors, that is
   \begin{equation}
@@ -261,7 +261,7 @@ applying the previous reasoning and comparing term by term we get
     G(\tau, \widetilde\tau) := (\cI_g(\tau), \widetilde\tau),
   \end{equation}
   where the scalar product is defined via the requirement that tensor products of basis elements of $V$ are orthinormal and that $G$ is invariant under the musical isomorphism.
-  In particular, if $g$ is a metric on $V$, then $G$ is a metric on $T_s^r(V)$.
+  In particular, if $g$ is a metric tensor on $V$, then $G$ is a metric tensor on $T_s^r(V)$.
 
 % TODO: improve remark with coordinate representation
 % If \((g_{ij})\) and \((g^{ij})\) are the matrix element of the matrices representing metric tensor and its inverse resp, then \[ G(\sigma, \tau) = \langle\sigma, \tau\rangle_g := g^{k_1 l_1}\cdots g^{k_rl_r} g_{i_1j_1} \cdots g_{i_sj_s} \sigma_{k_1,\ldots,k_r}^{i_1,\ldots,i_s} \tau_{l_1,\ldots,l_r}^{j_1,\ldots,j_s} \]
@@ -360,17 +360,6 @@ On a chart for $M$ with local coordinates $(x^i)$, our analysis of the change of
   \tau = \tau^{j_1\cdots j_r}_{i_1\cdots i_s}\; \frac{\partial}{\partial x^{j_1}}\otimes\cdots\otimes\frac{\partial}{\partial x^{j_r}}\otimes dx^{i_1}\otimes\cdots\otimes dx^{i_s},
 \end{equation}
 where $\tau^{j_1\cdots j_r}_{i_1\cdots i_s}\in C^\infty(M)$.
-
-\begin{example}
-  A non-degenerate symmetric bilinear form $g\in \cT_2^0(M)$ is a \emph{pseudo-Riemannian metric} and the pair $(M,g)$ a \emph{pseudo-Riemannian manifold}\footnote{Also called \emph{semi-Riemannian manifold}.}.
-  If $g$ is also fibre-wise positive definite, then $g$ is a \emph{Riemannian metric} and $(M,g)$ is a \emph{Riemannian manifold}.
-  From this you see that the Riemannian metric is just an inner product on the tangent bundle of the manifold.
-
-  \begin{enumerate}
-    \item The euclidean space $\R^n$ is a Riemannian manifold with the usual scalar product, which we can represent as $g = \sum_{i=1}^n dx^i\otimes dx^i$ (What is its matrix form?).
-    \item If $M=\R^4$, an example of pseudo-Riemannian metric is the Minkowski metric $g = g_{ij} dx^i\otimes dx^j$ where $[g_{ij}] = {\left(\begin{smallmatrix} -1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{smallmatrix}\right)}$. The pseudo-Riemannian manifold $(M, g)$ is the space-time manifold of special relativity, with $x^1 = t$ is the time and $(x^2, x^3, x^4) = (x,y,z)$ is the space.
-  \end{enumerate}
-\end{example}
 
 \begin{definition}
   The \emph{support} of a tensor field $\tau\in\cT_s^r(M)$ is defined as the set
@@ -534,3 +523,60 @@ Note that thanks to this duality between pullback and pushforward, the dual pair
 \end{equation}
 Can you show why?
 
+\newthought{If you work on Riemannian geometry or in Relativit}y, you cannot avoid hearing about tensors.
+Let's briefly look at the reason.
+
+\begin{definition}
+  A non-degenerate symmetric bilinear form $g\in \cT_2^0(M)$ is a \emph{pseudo-Riemannian metric} and the pair $(M,g)$ a \emph{pseudo-Riemannian} (or \emph{semi-Riemannian}) \emph{manifold}.
+  If $g$ is also fibre-wise positive definite, then $g$ is a \emph{Riemannian metric} and $(M,g)$ is a \emph{Riemannian manifold}.
+  From this you see that the Riemannian metric is just an inner product on the tangent bundle of the manifold.
+\end{definition}
+
+\begin{example}
+  \begin{enumerate}
+    \item The euclidean space $\R^n$ is a Riemannian manifold with the usual scalar product, which we can represent as $g = \sum_{i=1}^n dx^i\otimes dx^i$ (What is its matrix form?).
+    \item If $M=\R^4$, an example of pseudo-Riemannian metric is the Minkowski metric $g = g_{ij} dx^i\otimes dx^j$ where $[g_{ij}] = {\left(\begin{smallmatrix} -1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{smallmatrix}\right)}$. The pseudo-Riemannian manifold $(M, g)$ is the space-time manifold of special relativity, with $x^1 = t$ is the time and $(x^2, x^3, x^4) = (x,y,z)$ is the space.
+  \end{enumerate}
+\end{example}
+
+A metric on a manifold $M$ provides an inner product at each point of the tangent bundle: this allows to compute lengths of curves and angles between vectors. We can then induce a distance function $d: M \times M \to [0, \infty)$ by defining
+\begin{equation}
+  d(p,q) = \inf_{\gamma \in \cC(p,q)} \ell(\gamma),
+\end{equation}
+where
+\begin{equation}
+  \cC(p,q) = \left\{\gamma : [0,1] \to M \mbox{ piecewise smooth} \;\mid\; \gamma(0)=p, \gamma(1)=q\right\}
+\end{equation}
+and
+\begin{equation}
+  \ell(\gamma) := \int_0^1 g(\gamma'(t), \gamma'(t))\, dt.
+\end{equation}
+This will make $(M, d)$ also a metric space whose metric topology is the same as the original manifold topology.
+We will not go further into proving these claims or discussing their many interesting consequences.
+If you are interested or curious you can look at any good book in Riemannian geometry,
+a good and concise one is \cite[Chapter 6]{book:lee:riemannian}.
+
+The relation between manifolds and metric spaces does not end here. As it happens, all smooth manifolds are \emph{metrizable}\footnote{In fact, all the topological manifolds are metrizable. This more general statement is far harder to prove~\cite[Theorem 34.1 and Exercise 1 of Chapter 4.36]{book:munkres:topology} or \cite{nlab:urysohn_metrization_theorem}. Note that not all topological spaces are metrizable, for example a space with more than one point endowed with the discrete topology is not. And even if a topological space is metrizable, the metric will be far from unique: for example, proportional metrics generate the same collection of open sets.}: there exists some distance on the manifold that induces the given topology on it.
+
+We will show here the proof in the case of smooth manifolds since it is relatively simple consequence of the existence of partitions of unity.
+
+\begin{theorem}
+  Every smooth manifold admits a Riemannian metric.
+\end{theorem}
+\begin{proof}
+  Let $M$ be a smooth $m$-dimensional manifold, let $\{(U_i, \varphi_i)\}_{i\in I}$ be a countable atlas for the manifold and let $\{\rho_i\}_{i\in I}$ be a partition of unity adapted to it. See Section~\ref{sec:partition_of_unity}.
+  Denote $g_{\R^m}$ the Euclidean metric on $\R^n$, that is, for any $x \in \R^m$ and any $v,w \in T_x\R^m\simeq\R^m$, $g_{\R^m}(v, w) = v \cdot w$.
+
+  We define the metric\footnote{Exercise: check that it is actually a metric} $g$ on $M$ by setting
+  \begin{align}
+    g := \sum_{i\in I} \rho_i \hat{g}_i,
+    \quad\mbox{where}\quad
+    \hat{g}_i := \begin{cases}
+      \varphi_i^* g_{\R^m} & \mbox{on } U_i, \\
+      0 & \mbox{otherwise}
+    \end{cases},
+  \end{align}
+  concluding the proof.
+\end{proof}
+
+Once we have a Riemannian metric, we can define the distance as described above.
