@@ -13,9 +13,9 @@ And, since we saw that euclidean spaces are manifolds, we must make sure that ou
   \caption{Tangent space to a point of a sphere $\bS^2$ embedded into the ambient space $\R^3$.}
 \end{marginfigure}
 At the beginning of the previous chapter, we recalled that total derivatives are linear operators.
-Since topological spaces are not necessarily vector spaces, then, we need to devise some sort of assignment of vector spaces at points on the manifold.
-In this chapter we will see exactly how to do that: we will describe how to associate to each point $x\in M$ on an $n$-dimensional smooth manifold $M$ an $n$-dimensional vector space $T_x M$ called \emph{tangent space to $M$ at $x$}.
-For a manifold embedded into a euclidean ambient space this tangent space will coincide with the intuitive understanding of a tangent hyperplane to the point on the manifold, see also Figure~\ref{fig:tan-embedded-sphere}, however it will take a couple of chapters before we can show that it is the case.
+Since topological spaces are not necessarily vector spaces, then, we need to devise some sort of assignment of vector spaces to points on the manifold.
+In this chapter we will see exactly how to do that: we will describe how to associate to each point $p\in M$ on an $n$-dimensional smooth manifold $M$ an $n$-dimensional vector space $T_p M$ called \emph{tangent space to $M$ at $p$}.
+For a manifold embedded into an euclidean ambient space this tangent space will coincide with the intuitive understanding of a tangent hyperplane to the point on the manifold, see also Figure~\ref{fig:tan-embedded-sphere}, however it will take a couple of chapters before we can show that it is the case.
 
 As we will see, there are various different definitions of tangent space but, in the end, they all turn out to be equivalent.
 Due to a certain amount of freedom in terms of different ``perspectives'' leading to different but equivalent definitions, there is no unique way of introducing tangent spaces.
@@ -30,7 +30,7 @@ Just to give you an idea, all the following ideas lead to equivalent definitions
 \end{itemize}
 
 In this course we will start by describing derivations on the space of germs, the approach which emphasizes the local nature of derivations to its extreme.
-The equivalence between our approach and the one based on charts will be left as homework, while we will look into the equivalence with the speed of curves and with derivations together.
+The equivalence between our approach and the one based on charts will be left as homework, while we will look into the equivalence of velocity vectors of curves and derivations together.
 
 \section{Directional derivatives in euclidean spaces}\label{sec:dd}
 
@@ -45,9 +45,9 @@ Then, the partial derivative is obtained as the particular case
   \frac{\partial f}{\partial x^j}(x) := D_jf(x) := Df(x) e_j = \lim_{t\to0} \frac{f(x+te_j) - f(x)}{t}.
 \end{equation}
 Since $f=(f^1, \ldots, f^k)$ takes values in $\R^k$, instead of taking its total derivative $Df$ as above, we can also think to the derivatives of its components.
-In this case we can use the standard euclidean coordinates\footnote{See Notation~\ref{ntn:coords}.} $r^1, \ldots, r^n$ to isolate the components and then derive them,that is, we would be deriving $r^i \circ f : \R^n \to \R$.
+In this case we can use the standard euclidean coordinates\footnote{See Notation~\ref{ntn:coords}.} $r^1, \ldots, r^n$ to isolate the components and then derive them, that is, we would be deriving $r^i \circ f : \R^n \to \R$.
 
-\newthought{Let's take it slow}, and compare all these various derivatives next to each other.
+\newthought{Let's take it slow}, and compare all these various derivatives to each other.
 For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
 \begin{marginfigure}[3.5cm]
   \includegraphics{2_3-ederivs.pdf}
@@ -138,7 +138,7 @@ We can now go back to our discussion of euclidean derivations to motivate our de
   \begin{equation}\label{eq:mapxvtoD}
     (x,v):C^\infty(U) \to\R, \quad (x,v)(f) := Df(x)v.
   \end{equation}
-  By the definition~\eqref{eq:diff} of the euclidean differential, we know that it is a local property: the value $Df(x)$ only depends on the value of $f$ in an arbitrarily small neighbourhood of $x$, that is, on the germ of $f$ at $x$.
+  By the definition~\eqref{eq:diff} of the euclidean differential, we know that it is a local concept: the value $Df(x)$ only depends on the value of $f$ in an arbitrarily small neighbourhood of $x$, that is, on the germ of $f$ at $x$.
   Thus we can rephrase~\eqref{eq:mapxvtoD} by saying that $v$ defines a \emph{linear} map
   \begin{equation}
     v : C_x^\infty(U) \to \R, \quad
@@ -202,8 +202,8 @@ As we did with atlases, we would like to get it over with.
 
 \begin{definition}
   Let $M$ be a smooth manifold and $p\in M$.
-  Let $W\subseteq M$ be any neighbourhoods of $p$.
-  \marginnote{We are still talking about derivations of functions at specific points, not to be confused with the derivations of the algebra $C^\infty(W)$ which we will introdce later and will be maps of the kind $C^\infty(W)\to C^\infty(W)$.}
+  Let $W\subseteq M$ be any neighbourhood of $p$.
+  \marginnote{We are still talking about derivations of functions at specific points, not to be confused with the derivations of the algebra $C^\infty(W)$ which we will introduce later and will be maps of the kind $C^\infty(W)\to C^\infty(W)$.}
   A map $w_p:C^\infty(W)\to\R$ is called a \emph{derivation of $C^\infty(W)$ at $p$} if it is linear over $\R$ and satisfies Leibniz rule
   \begin{equation}
     w_p(fg) = f(p)w_p(g) + g(p)w_p(f).
@@ -229,7 +229,7 @@ Showing that the opposite is also true will require a bit of work.
   We are going to show that $w_p(f)=0$.
 
   By Proposition~\ref{prop:cutoff}, we can find a cutoff function $\rho:M\to\R$ such that $\rho(p)=1$ inside $W_0$ and $\supp(\rho) \subset W$. Consider now $g = \rho f : W \to \R$.
-  Then $g$ is identically zero in the whole $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w_p(g) = 0$.
+  Then $g$ is identically zero everywhere in $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w_p(g) = 0$.
   Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
   \begin{equation}
     0 = w_p(g) = w_p(\rho f) = \rho(p) w_p(f) + f(p)w_p(\rho) = w_p(f).
@@ -242,7 +242,7 @@ Showing that the opposite is also true will require a bit of work.
   Since germs are local, if necessary, we can shrink $V$ so that $V\subset W$.
   Here comes the tricky bit: we need to extend $f$ to a function $g$ defined on $W$ which coincides with $f$ in some neighbourhood of $p$!
   To this end, choose\footnote{We can do this because topological manifolds are locally compact Hausdorff spaces, which implies that every point has a neighbourhood with compact closure. You can take it for granted or have a look at e.g.~\cite[Lemma 4.65]{book:lee:topology} or~\cite{book:munkres:topology}.} a smaller neighbourhood $U$ of $p$ such that $\overline{U}\subset V\subset W$.
-  Again, Proposition~\ref{prop:cutoff} comes to the rescue. Apply it with $K=\overline{U}$ and ``$U$'' equal\footnote{Meaning the set that we called $U$ in Proposition~\ref{prop:cutoff} is what we denoted $V$ here.} to $V$, and consider
+  Again, Proposition~\ref{prop:cutoff} comes to the rescue. Apply it with $K=\overline{U}$ and ``$U$'' equal\footnote{Meaning the set that we called $U$ in Proposition~\ref{prop:cutoff} is what we denoted $V$ here.} to $V$, and consider the smooth\footnote{Can you see why it is smooth?} map
   \begin{equation}
     g:W\to\R, \quad
     g(q) := \begin{cases}
@@ -256,14 +256,14 @@ Showing that the opposite is also true will require a bit of work.
   Let $w_p:C^\infty(W) \to\R$ be a derivation at $p$.
   A tangent vector is a linear map $v:C_p^\infty(M)\to\R$, see~\eqref{def:tangentvector}, and a derivation.
   We would like to define one in terms of $w$.
-  Given any $[f]_p\in C_p^\infty(W)$, the previous step guarantees that there exists a representative $(W,f)$ for it, so we can define
+Given any $[f]_p\in C_p^\infty(W)$, the previous step guarantees that there exists a representative\footnote{Here we have been using $\widetilde{f}$ to emphasize that the specific function may be different from $f$ on the set. Since it makes no difference for any practical purpose, later on we will reuse the same symbol $f$ without further comments.} $(W,\widetilde{f})$ for it, so we can define
   \begin{equation}
-    v([f]_p) := w_p(f), \quad\mbox{where $(W,f)$ is any representative of $[f]_p$}.
+    v([f]_p) := w_p(\widetilde{f}), \quad\mbox{where $(W,\widetilde{f})$ is any representative of $[f]_p$}.
   \end{equation}
   Such $v$ is a derivation by construction, so if it is well-defined, we are done.
   To this end, assume that there exists a different representative $(W, g)$ for $[f]_p$.
-  Then, by definition, there exists a neighbourhood $V\subset W$ of $p$ such that $f|_V = g|_V$.
-  By linearity, $w_p(f) - w_p(g) = w_p(f-g)$ and, by the first step in the proof, $w_p(f-g) = 0$.
+  Then, by definition, there exists a neighbourhood $V\subset W$ of $p$ such that $\widetilde{f}|_V = g|_V$.
+  By linearity, $w_p(\widetilde{f}) - w_p(g) = w_p(\widetilde{f}-g)$ and, by the first step in the proof, $w_p(\widetilde{f}-g) = 0$.
 
   The assignment $w_p\mapsto v$ inverts~\eqref{eq:derivfromtg}, completing the proof.
 \end{proof}
@@ -294,8 +294,8 @@ As it turns out, this allows us to give our first example of tangent vector.
 Secondly, we can immediately state some very useful corollaries.
 
 \begin{corollary}\label{cor:tgsubspace}
-  Let $M$ be a smooth manifold and let $W\subseteq M$ be a non-empty open set considered as a smooth manifold.
-  Then, for any $p\in W$ there is a canonical identification $T_p W = T_p M$.
+  Let $M$ be a smooth manifold and let $W\subseteq M$ be a non-empty open set considered as a smooth manifold\footnote{Cf. Exercise~\ref{exe:subsetsmanifolds}.}.
+  Then, for any $p\in W$ there is a canonical identification $T_p W \simeq T_p M$.
 \end{corollary}
 
 \begin{corollary}\label{cor:derzero}
@@ -305,7 +305,7 @@ Secondly, we can immediately state some very useful corollaries.
 \end{corollary}
 
 With these new tools at hand, we are ready to state and prove an important result on the size of the tangent spaces.
-As it turns out, if $M$ is an $n$-dimensional manifold, $T_pM$ is a finite dimensional vector space, naturally isomorphic to $\R^n$.
+As it turns out, if $M$ is an $n$-dimensional manifold, $T_pM$ is a finite dimensional vector space of the same dimension $n$, and thus isomorphic to $\R^n$.
 
 \begin{theorem}\label{thm:dimensionTpM}
   Let $M$ be a smooth manifold of dimension $n$ and $p\in M$.
@@ -317,7 +317,7 @@ To that end, we need a preliminary result from multivariable analysis.
 
 \begin{lemma}\label{lem:Taylor}
   Let $U\subset\R^n$, $0\in U$, be a star-shaped\footnote{An open set $U\subset\R^n$ containing the origin, $0\in U$, is called \emph{star-shaped} if $U$ also contains the line segment from $0$ to $x$ for any $x\in U$.} open set and $h\in C^\infty(U)$.
-  Then, there exists $n$ smooth functions $g_i: U \to \R$, $1\leq i \leq n$, such that $g_i(0) = D_i h(0)$ and
+  Then, there exist $n$ smooth functions $g_i: U \to \R$, $1\leq i \leq n$, such that $g_i(0) = D_i h(0)$ and
   \begin{equation}
     h = h(0) + r^i g_i
   \end{equation}
@@ -444,7 +444,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   This shows that the coordinate vectors in the tangent space depend on the whole coordinate system and not just on the single coordinate function they are associated to.
 \end{exercise}
 
-\newthought{We already mentioned} that there are multiple equivalent definitions of the tangent space. In the following exercise you will provide one in terms of charts and euclidean derivatives.
+\newthought{We already mentioned} that there are multiple equivalent definitions of the tangent space. In the following exercises you will provide one in terms of charts and euclidean derivatives.
 Soon, we will see yet another definition.
 
 \begin{exercise}\label{exe:vsstruct}
@@ -666,12 +666,12 @@ In this section we will further explore these thoughts.
 Fix $t\in(a,b)$.
 A priori we have two different ways to define the \emph{velocity vector of $\gamma$ at a time $t$}, that is, an element $\gamma'(t) \in T_{\gamma(t)}M$:
 \begin{enumerate}[(i)]
-  \item We can define a derivation on $C^\infty(M)$ at $\gamma(t)$ by setting
+  \item We can define a derivation of $C^\infty(M)$ at $\gamma(t)$ by setting
         \begin{equation}\label{eq:tg_curve_der}
           \gamma'(t) (f) := (f\circ\gamma)'(t), \quad f\in C^\infty(M).
         \end{equation}
         \begin{exercise}
-          Show that this is indeed a derivation on $C^\infty(M)$.
+          Show that this is indeed a derivation of $C^\infty(M)$ at $\gamma(t)$.
         \end{exercise}
   \item If we think of $\gamma$ as a smooth map between manifolds, we can define the tangent vector via the differential $d\gamma_t$:
         \begin{equation}\label{eq:tg_curve_diff}
@@ -733,7 +733,7 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
   \caption{With this definition, the coordinate tangent vectors $\partial_{x^i}\in T_p M$ become the tangent vectors defined by the curve \[t \mapsto \varphi^{-1}(x^1(p), \ldots, {x^i(p) + t}, \ldots, x^n(p)).\]}
   \label{fig:2_4-v_cur}
 \end{marginfigure}
-This means that we can actually give an alternative definition of $T_xM$ in terms of tangents to curves:
+This means that we can actually give an alternative definition of $T_pM$ in terms of tangents to curves:
 \begin{definition}\label{def:tg:ascurvespeed}
   A tangent vector at $p\in M$ is an equivalence class\footnote{Usually we say that two such equivalent curves have \emph{a first order contact at $p$}.} of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ for some chart $\varphi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
 \end{definition}
@@ -816,7 +816,7 @@ As it turns out, this is a particular instance of a more general fact.
   \end{align}
   Since $\widetilde\varphi$ can be explicitly inverted as $\widetilde\varphi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right) = v^i \frac{\partial}{\partial x^i}\Big|_{\varphi^{-1}(x)}$, it defines a bijection onto its image.
 
-  \newthought{Step2: compatibility of the extended charts.}
+  \newthought{Step 2: compatibility of the extended charts.}
   Suppose we have two smooth charts $(U,\varphi)$, $(V,\psi)$ for $M$ with the respective local coordinates $(x^i)$ and $(y^i)$.
   Let $(\pi^{-1}(U),\widetilde\varphi)$, $(\pi^{-1}(V),\widetilde\psi)$ be their extension\footnote{These are called \emph{bundle charts}.} to $TM$ as in the previous step.
   By construction\footnote{They are both homeomorphisms.}, both $\widetilde\varphi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \varphi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
@@ -832,10 +832,10 @@ As it turns out, this is a particular instance of a more general fact.
     \caption{Coordinates for the tangent bundle}
   \end{figure*}
 
-  \newthought{Step3: $TM$ is a manifold.}
+  \newthought{Step 3: $TM$ is a manifold.}
   With the procedure delineated above, a countable smooth atlas $\{(U_i, \varphi_i)\}$ of $M$ induces a countable atlas $\{(\pi^{-1}(U_i), \widetilde\varphi_i)\}$ of $TM$.
   First of all, $\{(\pi^{-1}(U_i)\}$ provides a countable covering of $TM$.
-  We need to show that the topology induced by those charts is Hausdorff and second countable.
+  We need to show that the topology induced by those charts\footnote{Given a family of functions $\cF$ from the same set $X$ into (possibly different) topological spaces, the topology $\cT_{\cF}$ induced by the functions in $\cF$ is the smallest topology such that all the functions are continuous. It is possible to show that such a topology exists and it has as a basis the set $\{V\subset X \,\mid\, \exists n\in\N, f_i\in\cF, U_i \mbox{ open} : \bigcap_{i=1}^n f_i^{-1}(U_i) \}$.} is Hausdorff and second countable.
 
   Let $(p_1, v_1), (p_2, v_2) \in TM$ be different points: either $p_1\neq p_2$, or $p_1 = p_2$ and $v_1 \neq v_2$.
   \begin{itemize}
@@ -853,7 +853,7 @@ As it turns out, this is a particular instance of a more general fact.
     Can you simplify it using Lemma~\ref{lem:manifold_chart}?
   \end{exercise}
 
-  \newthought{Step4: $\pi$ is smooth.} With respect to the charts $(U,\varphi)$ for $M$ and $(\pi^{-1}(U), \widetilde\varphi)$ for $TM$, the coordinate representation of $\pi$ is $\pi(x,v) = x$.
+  \newthought{Step 4: $\pi$ is smooth.} With respect to the charts $(U,\varphi)$ for $M$ and $(\pi^{-1}(U), \widetilde\varphi)$ for $TM$, the coordinate representation of $\pi$ is $\pi(x,v) = x$.
 \end{proof}
 
 The coordinates $(x^i, v^i)$ defined by~\eqref{eq:nat_coords} are called \emph{natural (or canonical) coordinates}.

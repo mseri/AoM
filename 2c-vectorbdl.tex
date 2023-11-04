@@ -3,7 +3,7 @@ What we have seen in the previous chapter is our first example of vector bundle,
 \section{Vector bundles}
 
 \begin{definition}\label{def:vector_bundle}
-  A \emph{vector bundle of rank $r$} on a manifold $M$ is a manifold $E$ together with a smooth surjective map $\pi : E \to M$ such that, for all $p\in M$, the following properties hold:
+  A \emph{vector bundle of rank $r$} over a manifold $M$ is a manifold $E$ together with a smooth surjective map $\pi : E \to M$ such that, for all $p\in M$, the following properties hold:
   \begin{enumerate}[(i)]
     \item the \emph{fibre over $p$}, $E_p := \pi^{-1}(p)$, has the structure of vector space of dimension $r$;
     \item there is a neighbourhood $U\subset M$ of $p$ and a diffeomorphism $\varphi: \pi^{-1}(U) \to U \times \R^r$ such that
@@ -13,14 +13,14 @@ What we have seen in the previous chapter is our first example of vector bundle,
           \end{enumerate}
   \end{enumerate}
 
-  The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\varphi$ is called \emph{local trivialisation}.
+  The space $E$ is called the \emph{total space}, the manifold $M$ is the \emph{base space}, $\pi$ its projection and each of the maps $\varphi$ is called \emph{local trivialization}.
 
-  If there exists a trivialisation defined on the whole manifold, that is a map $\varphi: E \to M\times \R^r$, such map is called \emph{global trivialisation}, the vector bundle is said to be \emph{trivialisable} and the bundle $(E, \varphi)$ itself is called \emph{trivial} bundle.
+  If there exists a trivialization defined on the whole manifold, that is a map $\varphi: E \to M\times \R^r$, such map is called \emph{global trivialization}, the vector bundle is said to be \emph{trivializable} and the bundle $(E, \varphi)$ itself is called \emph{trivial} bundle.
 \end{definition}
 
 \begin{example}\label{ex:simple_bundles}
   \begin{itemize}
-    \item Perhaps the simplest examples of vector bundle is the trivial vector bundle of rank $1$, often called \emph{line bundle}, $E = M \times \R$ with projection on the first component $\pi_1: E \to M$.
+    \item Perhaps the simplest examples of vector bundle is the trivial vector bundle of rank $1$, often called \emph{trivial line bundle}, $E = M \times \R$ with projection on the first component $\pi_1: E \to M$.
     \item In the same spirit, a trivial vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ with the projection on the first component $\pi_1: E\to M$.
     \item The tangent bundle $TM$ with its projection to the base $\pi:TM\to M$ is a vector bundle\footnote{Exercise: prove the statement constructing the local diffeomorphisms.}.
           In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$.
@@ -58,6 +58,8 @@ What we have seen in the previous chapter is our first example of vector bundle,
 To compare vector bundles it is useful to define the following concept.
 \begin{definition}
   An \emph{isomorphism} between two vector bundles $\pi_i: E_i \to M$, $i=1,2$, over the same base space $M$ is a homeomorphism $h:E_1 \to E_2$ which maps every fiber $\pi_1^{-1}(p)$ to the corresponding fiber $\pi_2^{-1}(p)$ by a linear isomorphism.
+  The map $h$ is a \emph{diffeomorphism} between vector bundles if it is a diffeomorphism which maps fibres to fibres isomorphically.
+  In this case we say that the vector bundles are \emph{diffeomorphic}.
 \end{definition}
 
 Since an isomorphism preserves all the structure of a vector bundle, isomorphic bundles are often regarded as the same.
@@ -87,7 +89,7 @@ Sound quite a mouthful, but turns out to be quite the right approach.
   and assume the following holds
   \begin{enumerate}[(i)]
     \item there exists an open cover $\{U_\alpha\}_{\alpha\in A}$ of $M$;
-    \item for each $\alpha\in A$, there exists a bijection $\varPhi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha\times\R^k$ whose restriction $\varPhi_\alpha|_{E_p} : E_p \to \{p\}\times\R^k \sim \R^k$ is a vector space isomorphism;
+    \item for each $\alpha\in A$, there exists a bijection $\varPhi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha\times\R^k$ whose restriction $\varPhi_\alpha|_{E_p} : E_p \to \{p\}\times\R^k \sim \R^k$ is a linear isomorphism;
     \item for each $\alpha,\beta \in A$ with $U_{\alpha\beta}:=U_\alpha \cap U_\beta \neq \emptyset$, there exists a matrix-valued smooth map $\tau_{\alpha\beta}: U_{\alpha\beta} \to GL(k,\R)$ such that\footnote{Here $\tau_{\alpha\beta}(p) v$ denotes the usual product of the $k\times k$ matrix $\tau_{\alpha\beta}(p)$ with the vector $v\in\R^k$.}
       \begin{align}
         \varPhi_\alpha \circ \varPhi_\beta^{-1} : U_{\alpha\beta}\times\R^k &\to U_{\alpha\beta}\times\R^k\\
@@ -116,7 +118,7 @@ By construction, for $p,q\in M$, we have
   \widetilde{\varphi}_p(\pi^{-1}(V_p) \cap \pi^{-1}(V_q)) = \phi_p(V_p\cap V_q)\times \R^k
 \end{equation}
 which is open in $\R^{n+k}$ since $\varphi_p$ is a homeomorphism onto an open $V_p\subseteq\R^n$.
-Finally, on the overlaps of two charts, there are $\alpha, \beta\in A$ such that
+Finally, on the overlap of two charts, there are $\alpha, \beta\in A$ such that
 \begin{equation}
   \widetilde{\varphi}_p \circ \widetilde{\varphi}_q^{-1} =
   (\varphi_\alpha \times \id_k) \circ \varPhi_\alpha \circ \varPhi_\beta^{-1} \circ (\varphi_\beta \times \id_k)^{-1}.
@@ -164,7 +166,7 @@ The following lemma should clarify definitively why this is natural.
   If $\varPhi : \pi^{-1}(U) \to U \times \R^k$ and $\Psi: \pi^{-1}(V) \to V \times \R^k$ are two smooth local trivializations of $E$, then there exists a smooth map $\tau: U\cap V \to GL(k, \R)$ such that
   \begin{align}
     \varPhi\circ\Psi^{-1} : (U\cap V)\times\R^k &\to (U\cap V)\times \R^k \to (U\cap V)\times \R^k \\
-                            (p,v) &\mapsto (t, \tau(p) v).
+                            (p,v) &\mapsto (p, \tau(p) v).
   \end{align}
 \end{lemma}
 \begin{exercise}
@@ -178,13 +180,13 @@ Of course, there is no reason to restrict ourselves to manifolds without boundar
   Restate and prove Theorem~\ref{thm:bundle_chart_thm} for the case of a manifold $M$ with boundary.
 \end{exercise}
 
-We saw in Example~\ref{ex:simple_bundles} that given two product bundles on some manifolds there is a way to construct a product bundle out of them over the product of the manifolds.
+We saw in Example~\ref{ex:simple_bundles} that given two vector bundles on some manifolds there is a way to construct a product bundle out of them over the product of the manifolds.
 In the special case of two bundles $E^1 \to M$ and $E^2 \to M$ over the same manifold, this would lead to $E^1 \times E^2 \to M \times M$.
 It is natural to ask oneself if we can make a construction that combines multiple vector bundles over the same base space to a new bundle over that same base space.
 This is call the Whitney sum of the bundles.
 \begin{exercise}[Whitney sum]\label{ex:whitney}
   Let $\pi^1 : E^1 \to M$ and $\pi^2 : E^2 \to M$ be two smooth vector bundles over $M$ of rank $k^1$ and $k^2$ respectively.
-  The Whitney sum of $E^1 \oplus E^2$ of $E^1$ and $E^2$ is the smooth vector bundles $\pi: E^1 \oplus E^2 \to M$ whose fibers
+  The Whitney sum $E^1 \oplus E^2$ of $E^1$ and $E^2$ is the smooth vector bundle $\pi: E^1 \oplus E^2 \to M$ whose fibers
   \begin{equation}
     (E^1 \oplus E^2)_p = \pi^{-1}(p) =: (E^1_p \oplus E^2_p)
   \end{equation}
@@ -207,7 +209,7 @@ This is call the Whitney sum of the bundles.
 
 \newthought{There are various useful generalizations of vector bundles}.
 The \emph{fiber bundles} are bundles in which $\R^n$ is replaced by a more general manifold and are rather pervasive in mathematics and physics.
-A special class of fiber bundles, the \emph{principal bundles}, have this manifold to be also a group with a well-defined action on the bundle.
+A special class of fiber bundles, the \emph{principal bundles}, have this manifold also be a group with a well-defined action on the bundle.
 Even if we will not discuss these examples in the notes, Appendix~\ref{appendix:Lie} contains a brief discussion of group actions, Lie groups and Lie algebras with pointers to extra literature.
 
 \section{Sections of vector bundles}
@@ -244,12 +246,10 @@ One can sometimes distinguish non--isomorphic bundles by looking at the compleme
     \label{fig:vectorfield-rn}
 \end{marginfigure}
 
-If the bundles are differentiable manifolds, then the definition of isomorphism nicely generalizes: they are \emph{diffeomorphic} if $h$ is a diffeomorphism such that fibres are mapped to fibres isomorphically.
-
 Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not true in general with one exception.
-\begin{exercise}\label{ex:trivialisable}
+\begin{exercise}\label{ex:trivializable}
   Let $M$ be a smooth $n$-manifold that can be covered by a single smooth chart.
-  Show that $TM$ is diffeomorphic to $M\times\R^n$ (without applying Proposition~\ref{prop:trivialisable}).
+  Show that $TM$ is diffeomorphic to $M\times\R^n$ (without applying Proposition~\ref{prop:trivializable}).
 \end{exercise}
 
 \begin{definition}
@@ -281,11 +281,11 @@ That is, given a local frame $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ of a vect
 where $X^i\in C^\infty(U)$, $i=1,\ldots,r$.
 Which was to be expected: after all, for each $p\in U\subset M$, the local frame is a basis for $E_p$.
 
-\begin{proposition}\label{prop:trivialisable}
-  A vector bundle $\pi: E\to M$ is trivialisable if and only if it admits a global frame.
+\begin{proposition}\label{prop:trivializable}
+  A vector bundle $\pi: E\to M$ is trivializable if and only if it admits a global frame.
 \end{proposition}
 \begin{proof}
-  Let $\varphi: E \to M\times\R^r$ be a global trivialisation and $\{e_1, \ldots, e_r\}$ the canonical basis for $\R^r$.
+  Let $\varphi: E \to M\times\R^r$ be a global trivialization and $\{e_1, \ldots, e_r\}$ the canonical basis for $\R^r$.
   For $q\in M\times\R^r$, $\{S_1(q), \ldots, S_r(q)\} := \left\{\varphi^{-1}\big|_q(e_1), \ldots, \varphi^{-1}\big|_q(e_r) \right\}$ is a global frame for $E$ (why?).
 
   Conversely, let $\{S_1, \ldots, S_r\}$ be a global frame for $E$. Then
@@ -293,11 +293,11 @@ Which was to be expected: after all, for each $p\in U\subset M$, the local frame
     \varphi: E \to M\times\R^r, \quad
     \left(p, v^i S_i(p)\right) \mapsto \left(p, (v^1, \ldots, v^r)\right),
   \end{equation}
-  is a global trivialisation for $E$.
+  is a global trivialization for $E$.
 \end{proof}
 
 \begin{example}
-  The cylinder $E = \bS^1\times\R$ is a trivialisable vector bundle with $\pi:E\to \bS^1$.
+  The cylinder $E = \bS^1\times\R$ is a trivializable vector bundle with $\pi:E\to \bS^1$.
   Incidentally, the cylinder is isomorphic to $T\bS^1$ (why?).
 \end{example}
 
@@ -305,8 +305,8 @@ Which was to be expected: after all, for each $p\in U\subset M$, the local frame
   Let $M$ be a smooth $m$-manifold and $N$ a smooth $n$-manifold.
   Let $F:M\to N$ be an embedding and denote $\widetilde M = F(M)\subset N$.
   \begin{enumerate}
-    \item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\big|_{\widetilde M}$, is a subbundle of $TN\big|_{\widetilde M}$ by providing explicit local trivialisations in terms of the charts $(U, \varphi)$ for $M$.
-    \item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that\footnote{Here $T\,N|_{\widetilde{M}}$ denotes the the tangent bundle of $N$ restricted to the base points in $\widetilde{M}$.}
+    \item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\big|_{\widetilde M}$, is a subbundle of $TN\big|_{\widetilde M}$ by providing explicit local trivializations in terms of the charts $(U, \varphi)$ for $M$.
+    \item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that\footnote{Here $T\,N|_{\widetilde{M}}$ denotes the tangent bundle of $N$ restricted to the base points in $\widetilde{M}$.}
       \begin{equation}
         T\widetilde{M} = \left\{(p,v)\in T\,N|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\right\}.
       \end{equation}

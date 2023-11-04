@@ -268,8 +268,8 @@ The cotangent spaces are the fibres of the cotangent bundle.
 In fact, the cotangent bundle is a specific example of a dual bundle.
 In the exercise below, we will construct it using Theorem~\ref{thm:bundle_chart_thm}.
 \begin{exercise}[The dual bundle]
-Let M be a smooth manifold and $\pi:E\to M$ a smooth $k$-vector bundle over $M$.
-The \emph{dual bundle} to $E$ over $M$ is the bundle $E^* \to M$, where $E= \sqcup_{p\in m} E_p^*$ is the disjoint union of the duals to the fibers of $E$ with the projection $E_p^* \mapsto p$.
+Let $M$ be a smooth manifold and $\pi:E\to M$ a smooth $k$-vector bundle over $M$.
+The \emph{dual bundle} to $E$ over $M$ is the bundle $E^* \to M$, where $E= \bigsqcup_{p\in m} E_p^*$ is the disjoint union of the duals to the fibers of $E$ with the projection $E_p^* \mapsto p$.
 \begin{enumerate}
   \item Show that the dual bundle is a smooth vector bundle of rank $k$.
   \item Show that the transition functions are given in terms of the transition functions $\tau : U\to GL(\R,k)$ of $E$ by $\tau^*(p) = (\tau(p)^{-1})^T$.
@@ -279,6 +279,8 @@ The \emph{dual bundle} to $E$ over $M$ is the bundle $E^* \to M$, where $E= \sqc
 \begin{definition}\label{def:covfield}
   A \emph{covector field} or a \emph{(differential) $1$-form} on $M$ is a smooth section of $T^*M$.
   That is, a $1$-form $\omega\in\Gamma(T^*M)$ is a smooth map $\omega: p \to \omega_p \in T_p^*M$ that assigns to each point $p\in M$ a cotangent vector at $p$.
+  Again, a covector field is smooth if its component functions w.r.t. all charts are smooth.
+
   We denote the space of all smooth covector fields on $M$ by $\fX^*(M)$.
   \marginnote[-1em]{For reasons related to tensor fields that we will understand soon, this is sometimes denoted $\cT_1^0(M)$.}
 
@@ -452,7 +454,7 @@ The pullback is a rather pervasive concept, and does provide us a new way to exp
 \begin{exercise}
   Prove that the Whitney Sum\footnote{See Exercise~\ref{ex:whitney}.} 
   of two vector bundles $\pi_1 : E_1 \to M$ and $\pi_2 : E_2 \to M$
-  is the pullback $\Delta^*(E_1 \times E_1)$ of their product bundle by the diagonal map
+  is the pullback $\Delta^*(E_1 \times E_2)$ of their product bundle by the diagonal map
   $\Delta : M \to M \times M$, $\Delta(x) = (x, x)$.
 \end{exercise}
 
@@ -462,7 +464,7 @@ An important direct feature of $1$-forms is that they are the natural geometric 
 In this sense they provide a coordinate-free way to define line integrals.
 We will not see this in too many details yet, but it is worth taking the time to give the definition and see a few properties.
 
-The idea is to use the pullback to pull the 1-form to the parameter space $\R$ and interpret the integral there as a usual Riemann integral.
+The idea is to use the pullback to pull back the 1-form to the parameter space $\R$ and interpret the integral there as a usual Riemann integral.
 
 \begin{definition}
   Let $M$ be a smooth manifold, $\gamma: I = [a,b]\subset \R \to M$ a smooth curve and $\omega\in\fX^*(M)$ a $1$-form.
@@ -515,7 +517,7 @@ The idea is to use the pullback to pull the 1-form to the parameter space $\R$ a
   \end{enumerate}
 \end{exercise}
 
-\begin{exercise}[One-forms in thermodynamics]
+\begin{example}[One-forms in thermodynamics]
   Consider a physical system composed of a fixed number of particles.
   The thermal equilibrium state of the system can be characterised in terms of its entropy $S\in\R_+$ and its volume $V\in\R_+$.
   If we think at the thermodynamic state space $M=\R_+^2 \subset \R^2$ as a smooth manifold, we can define the energy of the system as a function $E = E(S,V): M \to\R$ on the space of equilibrium states.
@@ -532,4 +534,4 @@ The idea is to use the pullback to pull the 1-form to the parameter space $\R$ a
   Note that since the energy is the differential of a function, its integral over a closed curve is just the difference between initial and final energy and, thus, it vanishes.
   However, work and heat are usually \emph{not} the differential of a function, which makes their integral dependent on the specific path taken and usually not vanish on closed loops.
   This peculiar property is what makes possible to construct heat engines.
-\end{exercise}
+\end{example}

@@ -512,14 +512,14 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   \end{align}
   e.g. $\varphi_0([x^0, \ldots, x^n]) = (x^1/x_0, \ldots, x^n/x_0)$.
   This map is well--defined because its value is unchanged by multiplying $x$ by a non-zero constant.
-  Moreover, $\varphi_i$ is continuous: the inverses can be computed explicitly as
+  Moreover, $\varphi_i$ is continuous and invertible, the inverses can be computed explicitly as
   \begin{equation}
     \varphi_i^{-1}(y^1,\ldots,y^n) = \left[y^1, \ldots, y^{i-1}, 1, y^{i+1}, \ldots, y^n\right].
   \end{equation}
   Since $\{U_0, \ldots, U_n\}$ is an open covering of $\RP^n$, this shows tht $\RP^n$ is locally euclidean of dimension $n$.
 
   \newthought{Let's equip $\RP^n$ with a smooth structure}.
-  We are already half-way through: we are going to show that the coordinate charts $(U_i, \varphi_i)$ defined above are, in fact all smoothly compatible.
+  We are already half-way through: we are going to show that the coordinate charts $(U_i, \varphi_i)$ defined above are, in fact, all smoothly compatible.
   Without loss of generality, let's assume $i>j$.
   Then, a brief computation shows
   \begin{align}
@@ -623,7 +623,7 @@ At this point, the generalization of smooth functions to smooth maps between man
   is smooth as a euclidean function.
   \marginnote[-6em]{Differently from your calculus classes, we are defining differentiability \emph{before} we define what the derivative is. Getting to it will require some amount of work, and will have to wait until the next chapter.}
 
-  We denote by $C^\infty(M_1, M_2)$ the set of all functions $F:M_1\to M_2$ of class $C^\infty$.
+  It is common to denote by $C^\infty(M_1, M_2)$ the set of all functions $F:M_1\to M_2$ of class $C^\infty$.
 
   The map $\hat F := \varphi_2 \circ F \circ \varphi_1^{-1}$ is called the \emph{coordinate representation of $F$} with respect to the given coordinates.
 \end{definition}
@@ -716,7 +716,7 @@ This warrants the definition of a new type of map that extends the notion of hom
 
 With this concept at hand, we can finally compare smooth manifolds between each others.
 
-\begin{exercise}
+\begin{exercise}\label{exe:charts-diffeo}
   Any chart $(V, \varphi)$ of a manifold $M$ is a diffeomorphism between the manifolds $V\subset M$ and $\varphi(V)\subset\R^n$.
 \end{exercise}
 
@@ -744,7 +744,9 @@ The exercise that follows shows a particular example of local diffeomorphism whi
   \end{enumerate}
 \end{exercise}
 
-\newthought{Complications do not end here}. Since smoothness is defined via the composition with charts from the atlas, this also implies that the charts themselves become diffeomorphisms\footnote{Why? Try to spell out all the details.}. The following exercises and examples build upon this remark to give you some example of this, and why it may seem counterintuitive.
+\newthought{Complications do not end here}. Since smoothness is defined via the composition with charts from the atlas,
+we saw in Exercise~\ref{exe:charts-diffeo} that this implies that the charts themselves become diffeomorphisms.
+The following exercises and examples build upon this remark to explore some of its consequences.
 
 \begin{example}[A different smooth structure on $\R$]
   Consider the homeomorphism $\psi:\R\to\R$, $\psi(x) = x^3$.
@@ -798,7 +800,8 @@ As a final exercise, we are going to relate smoothness of the maps with the smoo
 
 \section{Partitions of unity}\label{sec:partition_of_unity}
 
-\newthought{Cutoff functions} are a class of smooth functions that will be of crucial importance throughout the course, and whose existence cannot be given for granted.
+\newthought{Cutoff functions} are a class of smooth functions that will be of crucial importance throughout the course,
+and whose existence cannot be taken for granted.
 Since their definition and construction does not require more than what we have just seen, let's talk about them now.
 
 First of all, recall that the \emph{support} of a smooth function $f: M \to \R$, denoted by $\supp(f)$, is defined as

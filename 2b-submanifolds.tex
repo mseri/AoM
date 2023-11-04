@@ -67,7 +67,7 @@ In fact, if we restrict our attention to constant rank maps, that is, maps whose
 \begin{theorem}[Rank theorem]\label{thm:rank}
   Let $F : M^m \to N^n$ be a smooth function between smooth manifolds without boundary\footnote{The theorem can be extended to manifolds with boundary but we will omit this case here to keep the discussion more contained and avoid unnecessary technicalities.}.
   Assume that $F$ is of rank $k$ at all points $p\in M$.
-  Then, for all $p\in M$ there exist smooth charts $(U, \varphi)$ centred at $p$ and $(V, \psi)$ centred at $F(p)$ with $F(U)\subseteq V$, such that $F$ has a coordinate representation of the form
+  Then, for all $p\in M$ there exist smooth charts $(U, \varphi)$ centred at $p$ and $(V, \psi)$ centred at $F(p)$ with $F(U)\subseteq V$, such that the coordinate representation of $F$ with respect to the charts $\varphi$ and $\psi$ has the form
   \begin{align}
     \psi \circ F \circ \varphi^{-1} : \varphi(U) \subseteq \R^m &\to \psi(F(U)) \subseteq \R^n \\
     (x^1, \ldots, x^k, x^{k+1}, \ldots, x^m) &\mapsto (x^1, \ldots, x^k, \LaTeXunderbrace{0, \ldots, 0}_{n-k}).
@@ -336,7 +336,7 @@ For this case we will need to be able to identify some special points depending 
 
 \begin{definition}
   Let $F:M^m \to N^n$, $m\geq n$, be a smooth map between smooth manifolds.
-  A point $p\in M$ is said to be a \emph{regular point} of $F$ if $dF$ has rank $n$ at $p$, while it is called a \emph{critical point} if it is not.
+  A point $p\in M$ is said to be a \emph{regular point} of $F$ if $dF$ has maximal rank $n$ at $p$, while it is called a \emph{critical point} otherwise.
 
   Similarly, a point $q\in N$ is called a \emph{regular value} if every point in $F^{-1}(q)$ is a regular point, and \emph{critical value} otherwise. If $q\not\in F(M)$, then $q$ is considered a regular value (in the sense that there is nothing to check in its preimage by $F$).
   Cf. Figure~\ref{fig:2_8-crit_pts}.
@@ -354,7 +354,7 @@ Differently from the previous ones, the statement is not local.
 If you think about it carefully, this is an analogue of the implicit function theorem for manifolds, where some coordinate functions are implicitly defined as solution of a levelset equation.
 While the proof of Theorem~\ref{thm:impl_fun} is not particularly complicated and is also a direct application of the implicit function theorem, we will not pursue it here. You can find it in \cite[Theorem 5.12]{book:lee} or \cite[Theorem 9.9]{book:tu}.
 
-In the previous chapter, all manifolds were introduced as a set on top of which we had to explicitly provide a differentiable structure. With this theorem we can finally get it all for free as long as we provide an appropriate submersion $\psi$.
+In the previous chapter, all manifolds were introduced as a set on top of which we had to explicitly provide a differentiable structure. With this theorem we can finally get it all for free as long as we provide an appropriate submersion $F$.
 
 \begin{remark}
   If $F:M\to N$ is a submersion, Theorem~\ref{thm:impl_fun} implies that any $p\in M$ belongs to the $(m-n)$-dimensional embedded submanifold $F^{-1}(F(p))$.
@@ -391,8 +391,8 @@ In the previous chapter, all manifolds were introduced as a set on top of which 
 \end{remark}
 
 \begin{example}\label{ex:s2}
-  The sphere $\bS^2 = \{x\in\R^3 \mid \|x\| = 1\}$ is a $2$-dimensional submanifold of $N=\R^3$.
-  This is an immediate consequence of Theorem~\ref{thm:impl_fun}: let $\psi(x) = \|x\|^2 -1 : \R^3 \to \R$, then $\psi$ is smooth, $\bS^2 = \{x\in\R^3\mid\psi(x)=0\}$ and, denoting $t$ the coorindate on $\R$, $d\psi_x(v)= v^i \frac{\partial \psi}{\partial x^i}|_x \frac{\partial}{\partial t}|_0 = (2x\cdot v) \frac{\partial}{\partial t}|_0$, that is, as a 1x3 matrix $d\psi_x = 2(x^1\; x^2\; x^3)$ so it is of maximal rank $1$ for all $x\in\bS^2$.
+  The sphere $\bS^2 = \{x\in\R^3 \mid \|x\| = 1\}$ is a $2$-dimensional embedded submanifold of $N=\R^3$.
+  This is an immediate consequence of Theorem~\ref{thm:impl_fun}: let $F(x) = \|x\|^2 -1 : \R^3 \to \R$, then $F$ is smooth, $\bS^2 = \{x\in\R^3\mid F(x)=0\}$ and, denoting $t$ the coordinate on $\R$, $dF_x(v)= v^i \frac{\partial F}{\partial x^i}|_x \frac{\partial}{\partial t}|_0 = (2x\cdot v) \frac{\partial}{\partial t}|_0$, that is, as a 1x3 matrix $dF_x = 2(x^1\; x^2\; x^3)$ so it is of maximal rank $1$ for all $x\in\bS^2$.
 \end{example}
 
 \begin{example}

@@ -1,6 +1,6 @@
 We continue with our quest of generalizing multivariable calculus.
 The next familiar objects waiting to be questioned are vector fields.
-In the euclidean settings these are simply continuous maps that attach a vector to each point in their domain.
+In the euclidean settings these are simply smooth maps that attach a vector to each point in their domain.
 
 \section{Vector fields}
 
@@ -8,7 +8,7 @@ In the euclidean settings these are simply continuous maps that attach a vector 
 
 \begin{definition}\label{def:vfield}
   A $C^k$-map $X: M \to TM$ with $\pi\circ X = \id_M$, or equivalently $X_p\in T_pM$ for all $p\in M$, is called \emph{$C^k$-vector field}.
-  The vector field is smooth if it is $C^k$ for all $k\geq 1$.
+  The vector field is smooth if it is a $C^k$-vector field\footnote{Observe that it needs to be $C^k$ w.r.t. both the differentiable structures on $M$ and $TM$.} for all $k\geq 1$.
   We denote\footnote{Alternative notations are $\cT_0^1(M)$, $\cT(M)$ and $\Gamma(TM)$. The first two are related to vector fields being tensor fields of type $(1,0)$, a topic that we will discuss in the near future.} the set of smooth vector fields by $\fX(M)$.
 
   The map $\pi:TM \to M$ is called \emph{footpoint map} and the equation $\pi\circ X = \id_M$ is called \emph{section property}.
@@ -19,7 +19,7 @@ For convenience and to be consistent with our notation for elements of the tange
 Furthermore, we will often identify $X_p$ with its component in $T_pM$, thus considering it as if $X_p\in T_pM$, without explicitly projecting it to the second component.
 
 Let $M$ be a smooth $n$-manifold (with or without boundary).
-Let $X:M\to TM$ be a vector field, not necessarily smooth, and $(U, (x^i))$ a smooth coordinate chart for $M$. Then we can write the value of $X$ at any point $p\in U$ as a linear combination in terms of the coordinate basis vector:
+Let $X:M\to TM$ be a vector field, not necessarily smooth, and $(U, (x^i))$ a smooth coordinate chart for $M$. Then we can write the value of $X$ at any point $p\in U$ as a linear combination in terms of the coordinate basis vectors:
 \begin{equation}\label{eq:vfCoordBAsis0}
   X_p = X^i(p) \frac{\partial}{\partial x^i}\Big|_p.
 \end{equation}
@@ -31,7 +31,8 @@ This defines $n$ functions $X^i: U\to\R$, called \emph{component functions of $X
 
 \begin{example}
   If $(U, (x^i))$ is a smooth coordinate chart for a $n$-manifold $M$, the assignment $p \mapsto \frac{\partial}{\partial x^i}\big|_p$ determines a vector field on $U$, called the \emph{$i$th-coordinate vector field} and commonly denoted $\partial_{i}$, $\partial_{x^i}$ or $\frac{\partial}{\partial x^i}$.
-  The set $\{\frac{\partial}{\partial x^1}, \ldots, \frac{\partial}{\partial x^n}\}$ of vector fields that are pointwise a basis for the corresponding tangent spaces is called a local frame for $TM$.
+  A set of vector fields $\{X_1, \ldots, X_n\}$ that is pointwise a basis for the corresponding tangent space is called a \emph{local frame} for $TM$.
+  The set $\{\frac{\partial}{\partial x^1}, \ldots, \frac{\partial}{\partial x^n}\}$ is then called a \emph{coordinate frame} for $TM$.
 \end{example}
 
 The space of smooth vector fields is a vector space under pointwise addition and scalar multiplication: for all $p\in M$, $X,Y\in\fX(M)$, $\alpha, \beta \in \R$, we have
@@ -40,7 +41,7 @@ The space of smooth vector fields is a vector space under pointwise addition and
 \end{equation}
 The zero element of the vector space, called \emph{zero vector field}, is the vector field whose values is $0\in T_pM$ for all $p\in M$.
 
-Moreover, each vector field can be multiplied by smooth functions $f\in C^\infty(M)$ by defining $fX:M\to  TM$ by
+Moreover, vector fields can be multiplied by smooth functions $f\in C^\infty(M)$ by defining $fX:M\to  TM$ by
 \marginnote{Be careful, we are talking about two different structures here: $\fX(M)$ is both a real vector space and a $C^\infty(M)$-module.}
 \begin{equation}
   (fX)_p = f(p)X_p.
@@ -51,7 +52,7 @@ We can summarise this observation in the following proposition.
   Let $M$ be a smooth manifold with or without boundary.
   \begin{enumerate}
     \item If $X,Y \in \fX(M)$ and $f,g\in C^\infty(M)$, then $fX+gY \in\fX(M)$.
-    \item $\fX(M)$ is a module\footnote{A module over a unital ring $R$ is a generalization of the concept of vector space where the field of scalars is replaced by the ring $R$.} over the ring $C^\infty(M)$.
+    \item $\fX(M)$ is a module\footnote{A module over a unital ring $R$ is a generalisation of the concept of vector space where the field of scalars is replaced by the ring $R$.} over the ring $C^\infty(M)$.
   \end{enumerate}
 \end{proposition}
 
@@ -66,7 +67,7 @@ We have seen that differentials of smooth maps define maps between tangent bundl
 As it turns out, we can employ differentials of diffeomorphisms to map vector fields to vector fields.
 
 \begin{definition}
-  Let $F:M\to N$ be a diffeomorphism of smooth manifolds.
+  Let $F:M\to N$ be a diffeomorphism between smooth manifolds.
   Then, the \emph{pushforward} $F_*$ of $F$, defined by\footnote{In coordinates, this reads\begin{equation}
       (F_* X)_q = dF_{F^{-1}(q)}(X_{F^{-1}(q)}).
     \end{equation}}
@@ -202,7 +203,7 @@ Any vector field $X\in\fX(W)$ defines a derivation $\cX$ via $\cX(f) = Xf$. In f
   Since $X(f)=\cX(f)$ by construction, it is a smooth function for all $f\in C^\infty(W)$ and therefore is smooth as vector field, concluding the proof.
 \end{proof}
 
-Therefore, from now on, we will also interchange derivations of $C^\infty$ and vector fields, and call them with capital latin letters.
+Therefore, from now on, we will also use vector fields and derivations of $C^\infty(M)$ interchangeably, and denote them by capital Latin letters.
 
 \section{Lie brackets}
 
