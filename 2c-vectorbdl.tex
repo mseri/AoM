@@ -65,15 +65,16 @@ To compare vector bundles it is useful to define the following concept.
 Since an isomorphism preserves all the structure of a vector bundle, isomorphic bundles are often regarded as the same.
 
 Of course, we can also define subbundles.
-%
-\begin{marginfigure}[4cm]
-  \includegraphics{images/2.10-subbundle.pdf}
-\end{marginfigure}
-%
+
 \begin{definition}
   Let $\pi:E \to M$ be a rank-$r$ vector bundle and $F\subset E$ a submanifold.
   If for all $p\in M$, the intersection $F_p := F\cap E_p$ is a $k$-dimensional subspace of the vector space $E_p$ and $\pi|_F : F \to M$ defines a rank-$k$ vector bundle, then $\pi|_F: F \to M$ is called a \emph{subbundle} of $E$.
 \end{definition}
+%
+\begin{marginfigure}
+    \includegraphics{images/2.10-subbundle.pdf}
+\end{marginfigure}
+%
 
 All the examples given so far are nice and well, but how can we construct these vector bundles?
 The first idea that may come to mind, is to  try and mimic the construction we gave of the tangent bundle of a smooth manifold: provided a collection of vector spaces for each point of the manifolds, we need to construct a suitable topology for the whole space, equip the disjoint union of vector spaces with a smooth structure and then construct local trivializations that are compatible with such structure.
