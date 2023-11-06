@@ -413,6 +413,9 @@ You have already seen most of this in the context of multivariable analysis, how
      & = \sum_{i<j} \left(\frac{\partial \omega_j}{\partial x^i} - \frac{\partial \omega_i}{\partial x^j} \right) dx^i\wedge dx^j,
   \end{align}
   consistently with our previous definitions.
+
+  It is worth observing here that $d(df) = 0$ since $\frac{\partial^2 f}{\partial x^i \partial x^j} = \frac{\partial^2 f}{\partial x^j \partial x^i}$.
+  We will revisit this fact in Lemma~\ref{lem:ext_deriv}.
 \end{example}
 
 \begin{definition}
@@ -479,7 +482,7 @@ This local definition immediately extends to global one via the following theore
   \end{equation}
 \end{exercise}
 
-\begin{lemma}
+\begin{lemma}\label{lem:ext_deriv}
   The exterior derivative satisfies the following properties.
   For all $\omega,\omega_1,\omega_2\in\Omega^k(M)$, $\nu\in\Omega^h(M)$ and $f\in C^\infty(M)$,
   \begin{enumerate}[(i)]
@@ -548,14 +551,14 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
   \begin{equation}
     d\eta = \left(\frac{\partial u}{\partial z}-\frac{\partial v}{\partial y} + \frac{\partial w}{\partial x}\right) dx\wedge dy \wedge dz.
   \end{equation}
-  If you compare the results we obtained above with the gradient ($\nabla$), divergence ($\nabla\cdot$) and curl ($\nabla\times$) from multivariable analysis, you would likely notice that the components of the $2$-form $\d\omega$ are exactly the components of the curl of the vector field with components $(P, Q, R)$.
+  If you compare the results we obtained above with the gradient ($\nabla$), divergence ($\nabla\cdot$) and curl ($\nabla\times$) from multivariable analysis, you would likely notice that the components of the $2$-form $d\omega$ are exactly the components of the curl of the vector field with components $(P, Q, R)$.
   Similarly, the formula for the divergence will look very close to the formula for $d\eta$.
   What is going on?
 
-  The standard euclidean metric on $\R^n$ is the metric associated to the metric tensor\footnote{Cf. Definition~\ref{def:metric}.} $g_{ij} = \delta_{ij}$.
+  The euclidean metric on $\R^n$ is the metric associated to the metric tensor\footnote{Cf. Definition~\ref{def:metric}.} $g_{ij} = \delta_{ij}$.
   We can use the musical isomorphisms\footnote{Cf. Example~\ref{ex:musicaliso}.} to identify vector fields and $1$-forms, obtaining for the components with respect to cartesian coordinates that $v_i = v^i$.
 
-  Moreover, the interior multiplication yields another map $\beta: \fX(\R^3)\to\Omega^2(\R^3)$ defined by $\beta(X) = \iota_X (dx\wedge dy\wedge dz)$, which is linear over $C^\infty(\R^3)$ (why?) and, thus, corresponds to a smooth bundle homomorphism from $T\R^3$ to $\Lambda^2\R^3$ (why?).
+  Moreover, the interior multiplication yields another map $\beta: \fX(\R^3)\to\Omega^2(\R^3)$ defined by $\beta(X) = \iota_X (dx\wedge dy\wedge dz)$, which is linear over $C^\infty(\R^3)$ (why?) and, thus, corresponds to a smooth bundle isomorphism from $T\R^3$ to $\Lambda^2\R^3$ (why?).
 
   In a similar fashion, we can also define a smooth bundle isomorphism $\bigstar: C^\infty(\R^3) \to \Omega^3(\R^3)$ via
   \begin{equation}
@@ -579,7 +582,7 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
 
   The interest and need to generalize the operations of vector calculus in $\R^3$ to higher dimensional spaces have been one of the drives to develop the theory of differential forms.
 
-  This is a more general fact related to 3 dimensional manifolds with a Riemannian metric $M$. Then the maps defined above are still defined in the same exact way\footnote{There is a more general operator $\star : \Omega^k(M) \to \Omega^{n-k}(M)$ appearing here. This is called \emph{Hodge star} and is defined as the operator such that $\tau \wedge \star \sigma = g^\dagger(\tau,\sigma) \omega$, where $\omega := \star 1$ is the Riemannian volume and $g^\dagger$ is the inner product induced by $g$ on covector fields via the musical isomorphism between tangent and cotangent bundle. See \cite[Exercise 16-18]{book:lee} or \cite[Chapters 6.2--6.5]{book:abrahammarsdenratiu}.} up to using the correct isomorphism induced by $g$ and one obtains the following commutative diagram.
+This is a more general fact related to 3 dimensional manifolds with a Riemannian metric $M$. Then the maps defined above are still defined in the same exact way\footnote{There is a more general operator $\star : \Omega^k(M) \to \Omega^{n-k}(M)$ appearing here. This is called \emph{Hodge star} and is defined as the operator such that $\tau \wedge \star \sigma = g^\dagger(\tau,\sigma) \omega$, where $\omega := \star 1$ is the Riemannian volume and $g^\dagger$ is the inner product induced by $g$ on covector fields via the musical isomorphism between tangent and cotangent bundle (cf. Example~\ref{ex:musicaliso}). See \cite[Exercise 16-18]{book:lee} or \cite[Chapters 6.2--6.5]{book:abrahammarsdenratiu}.} up to using the correct isomorphism induced by $g$ and one obtains the following commutative diagram.
   \begin{equation}
     % https://q.uiver.app/?q=WzAsNSxbMSwxLCJcXE9tZWdhXjEoTSkiXSxbMCwwLCJcXG1hdGhjYWx7WH0oTSkiXSxbMSwyLCJcXE9tZWdhXjAoTSkiXSxbMiwyLCJcXE9tZWdhXjMoTSkiXSxbMiwxLCJcXE9tZWdhXjIoTSkiXSxbMSwwLCJcXGZsYXQiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiXFxzaGFycCIsMCx7Im9mZnNldCI6LTF9XSxbMCw0LCJkIiwwLHsib2Zmc2V0IjotMX1dLFszLDIsIlxcc3RhciIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFs0LDMsImQiXSxbMiwwLCJkIiwwLHsib2Zmc2V0IjoxfV0sWzAsNCwiXFxzdGFyIiwyLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XV0=
     \begin{tikzcd}
@@ -602,7 +605,7 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
     \item $\mathrm{curl} := \sharp \star d\; \flat : \fX(M) \to \fX(M)$;
   \end{itemize}
   where symbols' juxtaposition means their composition.
-  Since $\sharp$ and $\flat$ are defined in terms of $g$, it becaomes clear that all those operators are tightly related to the metric.
+  Since $\sharp$ and $\flat$ are defined in terms of $g$, it becomes clear that all those operators are tightly related to the metric.
   There could be a lot more to say, but that will be more suite for a course in Riemannian geometry.
   A comprehensive free resource on the subject is \cite{book:derivations}.
 \end{example}
@@ -646,6 +649,7 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
       \end{equation}
   \end{enumerate}
 \end{exercise}
+If you want to know more about symplectic manifolds and the role of differential geometry in classical mechanics, have a look at one of \cite{book:abrahammarsdenratiu, book:arnold, book:knauf, lectures:seri:hm}.
 
 \section{Lie derivative}
 

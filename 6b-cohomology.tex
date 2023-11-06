@@ -66,11 +66,11 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
 \begin{theorem}\label{thm:deRham-invariance}
   Let $M$ be a smooth manifold and $[0,1]\times M$ the product manifold with boundary $(\{0\}\times M) \cup (\{1\}\times M) \cup ((0,1)\times\partial M)$.
   Let $i_t : M \hookrightarrow [0,1]\times M$ be the injection $i_t(p) := (t,p)$ and $\pi : [0,1]\times M \to M$ the projection onto $M$.
-  Then, there is a map
+  Then, there is a linear map
   \begin{equation}
     K : \Omega^\ell([0,1]\times M)\to \Omega^{\ell-1}(M)
   \end{equation}
-  such that for every differential $\ell$-form $\omega\in\Omega^\ell([0,1]\times M)$ one has
+  such that for every differential $\ell$-form $\omega\in\Omega^\ell([0,1]\times M)$ one has\footnote{If you took an algebraic topology course, you may recognise such map $K$ as a cochain homotopy.}
   \begin{equation}
     K(d\omega) + d(K(\omega)) = i^*_1(\omega) - i^*_0(\omega)
   \end{equation}
@@ -137,7 +137,7 @@ A crucial observation for our means is the \emph{homotopy invariance} of the de 
 
   To conclude the proof, take a closed $\ell$-form on $[0,1]\times M$, then
   \begin{equation}
-    i_1^*([w]) - i_0^*([w]) = [K(d\omega) + dK(\omega)] = [dK(\omega)] =0,
+    i_1^*([\omega]) - i_0^*([\omega]) = [K(d\omega) + dK(\omega)] = [dK(\omega)] =0,
   \end{equation}
   completing the proof.
 \end{proof}
@@ -214,7 +214,9 @@ An important consequence of Theorem~\ref{thm:deRham-invariance} is the following
   Let $F:M\to N$ and $G:N\to M$ be continuous maps such that $F\circ G$ and $G\circ F$ are homotopic to the identity maps.
   By the Whitney Approximation Theorem~\ref{thm:WhitneyApproxCont} we can approximate $F$ and $G$ by smooth maps that we keep denoting with the same symbols.
   By the previous theorem, then, $(F\circ G)^*$ and $(G\circ F)^*$ coincide with the maps induced by the identity.
-  Since $\id^*$ is clearly the identity, we see that $F^*$ is an inverse to $G^*$, which concludes the proof.
+  Since $\id^*$ is clearly the identity, we see that $F^*$ is an inverse to $G^*$.
+  Hence $F^*$ is an isomorphism between the corresponding de Rham cohomology groups,
+  concluding the proof.
 \end{proof}
 
 We are almost there.

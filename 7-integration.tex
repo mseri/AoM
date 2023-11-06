@@ -1,4 +1,4 @@
-We finally have all the main ingredients to generalize our line integral detour and discuss integration of $n$-forms over $n$-dimensional manifolds.
+We finally have all the main ingredients to generalise our line integral detour and discuss integration of $n$-forms over $n$-dimensional manifolds.
 
 \newthought{We know from calculus one}, or our line integral examples, that the direction in which we traverse the interval, or a curve, can actually make a difference.
 As it turns out, the sign of the integral of a differential $n$-form is only fixed after choosing an orientation of the manifold.
@@ -48,7 +48,7 @@ Due to the way different bases are transformed by $n$-forms, this is equivalent 
 In fact, the orientation is completely characterized by the action of $n$-forms on the bases, as the following lemma shows.
 
 \begin{lemma}\label{lemma:orient}
-  Let $V$ be a $n$-dimensional vector space and let $ \omega\in\Lambda^n(V)$ be nowhere vanishing.
+  Let $V$ be a $n$-dimensional vector space and let $\omega\in\Lambda^n(V)$ be nonzero.
   Then, all bases $\{v_1, \ldots, v_n\}$ for which $\omega(v_1,\ldots, v_n) > 0$ give the same\footnote{Not necessarily the positive orientation!} orientation for $V$.
 \end{lemma}
 % \begin{proof}
@@ -63,10 +63,10 @@ In fact, the orientation is completely characterized by the action of $n$-forms 
   Let $V$ be a $n$-dimensional vector space, prove that two nonzero $n$-forms on $V$ determine the same orientation if and only if each is a positive multiple of the other.
 \end{exercise}
 
-This allows to define an eqivalence relation between orientations in terms of the nonzero elements in $\Lambda^n(V)$. We call these nonzero elements \emph{volume elements}.
+This allows to define an equivalence relation between orientations in terms of the nonzero elements in $\Lambda^n(V)$. We call these nonzero elements \emph{volume elements}.
 
 Two volume elements $\omega_1, \omega_2$ are equivalent if there exists $c > 0$ such that $\omega_1 = c\, \omega_2$.
-Then, the previous exercise implies that the classes of equivalence $[\omega]$ of volume elments on $V$ uniquely determine orientations on $V$.
+Then, the previous exercise implies that the classes of equivalence $[\omega]$ of volume elements on $V$ uniquely determine orientations on $V$.
 
 \begin{remark}
   Of course, if $V$ is a vector space, then an orientation on $V$ canonically determines an orientation on the dual space $V^*$ by declaring that the basis dual to a positive basis is itself positive.
@@ -76,7 +76,7 @@ We now need to extend all this to manifolds.
 
 \section{Orientation on manifolds}
 Tangent and cotangent spaces are vector spaces, so what we discussed in the previous section directly apply (as usual).
-Moreover, we can bundle up over our manifold into a vector bundle.
+Moreover, we can extend our point of view to the various tensor bundles over smooth manifold that we studied so far.
 Differential $n$-forms, then, seem a reasonable concept to define a notion of orientation for a manifold, at least if we think about their pointwise meaning of assigning an orientation to each fiber of $TM$.
 
 \begin{definition}
@@ -113,11 +113,11 @@ Thus, in order to get a globally consistent ordering, we need to worry about the
   Locally, for some chart with coordinates $(x^i)$ on $M$, we have $\omega_p = w(p)\, dx^{i_1}\wedge\cdots\wedge dx^{i_n}$ and $\eta_p = \eta(p)\, dx^{i_1}\wedge\cdots\wedge dx^{i_n}$, where both coefficients are in  $C^\infty(M)$.
   Since $\omega(p) \neq 0$ for all $p\in M$, $f(p) = \eta(p)/\omega(p)$ is a smooth function.
 
-  Conversely, if $\omega$ is a basis for $\Omega^n$, then it must be nonvanishing for all $p\in M$ since each fiber is one-dimensional.
+  Conversely, if $\omega$ is a basis\footnote{Here we mean a basis for $\Omega^n(M)$ as a $C^\infty(M)$-module, not as a vector space.} for $\Omega^n(M)$, then it must be nonvanishing for all $p\in M$ since each fiber is one-dimensional.
   \medskip
 
   \textbf{Part II: 1. $\Leftrightarrow$ 3.}
-  Assume $M$ is orientable witha volume form $\omega$.
+  Assume $M$ is orientable with a volume form $\omega$.
   By eventually restricting the domains, let the atlas $\cA = \{(U_i, \varphi_i)\}$ be such that $\varphi_i(U_i) \subset \R^n$ is connected.
   Denote $\omega_0 = dx^1 \wedge\cdots\wedge dx^n$ the standard volume form on $\R^n$, then by the previous part of the proof, $(\varphi_i)_*\omega = f_i\,\omega_0$ for some smooth function $f_i \neq 0$.
   Without loss of generality\footnote{Is it clear why?} we can assume $f_i > 0$.
@@ -164,7 +164,7 @@ Thus, in order to get a globally consistent ordering, we need to worry about the
 
 \begin{definition}
   A manifold $M$ with an oriented atlas is called \emph{oriented manifold}.
-  If an orientation exists, we call \emph{orientation} the equivalence class of atlases with the same orientation.
+  If an orientation exists, we call \emph{orientation} the equivalence class of atlases with the same orientation, i.e., the family of atlases whose union is still an oriented atlas.
   Otherwise we say that the manifold is \emph{non-orientable}.
 \end{definition}
 
@@ -175,7 +175,19 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
   If $(U,\varphi)$ is a chart with local coordinates $(x^i)$ such that, in the coordinate representation, the volume form $\omega = \omega(x) dx^1\wedge\cdots\wedge dx^n$ with $\omega(x) > 0$, then we say that the chart $\varphi$ is \emph{positively oriented} with respect to $\omega$, otherwise we say that it is \emph{negatively oriented}.
   Similarly, if $M$ is connected and the charts for the oriented manifold are positively (resp. negatively) oriented, we say that the manifold is positively (resp. negatively) oriented.
 \end{definition}
-%
+
+In fact, we can go one step further and define what does it mean for a diffeomorphism to preserve or reverse orientation.
+
+\begin{definition}
+  Let $(M, \omega)$ and $(N, \eta)$ be pairs of an oriented smooth manifold and its volume form.
+  A diffeomorphism $F: M \to N$ is called \emph{orientation preserving} if $F^* \eta$ is a volume form on $M$ with the same orientation as $\omega$.
+  We call it \emph{orientation reversing} if $F^*\eta$ has the opposite orientation as $\omega$.
+\end{definition}
+
+\begin{exercise}
+  Show that a diffeomorphism $F: M \to N$ is \emph{orientation preserving} if and only if for all $p\in M$, $dF_p : T_p M \to T_{F(p)}$ is an orientation preserving as a linear map, that is, if $\det(dF_p)>0$.
+\end{exercise}
+
 % \begin{theorem}
 %   Let $M$ be a $n$-dimensional smooth manifold.
 %   A nowhere-vanishing $n$-form $\omega\in\Omega^n(M)$ uniquely determines an orientation.
@@ -227,6 +239,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
   and $\frac{2}{1-p^2}>0$.
   If we perform the same computation on $U_2$, however, we obtain $(\varphi_2)_*(X) = -\frac{2}{1+p^2}\frac{\partial}{\partial x}\Big|_{\varphi_2(p)}$, with the negative coefficient $-\frac{2}{1+p^2} < 0$, corresponding to the opposite orientation on $U_2$.
   Of course, in this case, not all is lost: by choosing $\widetilde\varphi_2(p) = \varphi_2(-p^1, p^2)$ we obtain $(\widetilde\varphi_2)_*(X) = \frac{2}{1+p^2} \frac{\partial}{\partial x}\Big|_{\widetilde\varphi_2(p)}$ with the positive coefficient $\frac{2}{1+p^2} > 0$, which shows that $X_p$ defines an orientation on the whole $\bS^1$.
+  Note again that here the orientation is given as a positive basis for $T_p \bS^1$ at all points, not as a volume form.
 \end{example}
 
 \begin{exercise}
@@ -569,7 +582,7 @@ This justifies the following definition.
   \end{equation}
 \end{proof}
 
-This corollary has deep consequences in classical mechanics, which I am going to teach in the master and you are welcome to attend!
+This corollary has deep consequences in classical mechanics, which we teach in the master and you are welcome to attend! If you are curious you can have a look at \cite[Chapter 3]{lectures:seri:hm} and, in particular, at Liouville theorem (Theorem 3.30).
 
 \begin{remark}
   The integral defined in this section can be extended rather immediately to measurable functions.
@@ -588,7 +601,7 @@ This corollary has deep consequences in classical mechanics, which I am going to
 \section{Stokes' Theorem}
 
 Stokes' theorem states that if $\omega$ is an $(n-1)$-form on an orientable $n$-manifold $M$, then the integral of $d\omega$ over $M$ equals the integral of $\omega$ over $\partial M$, generalising our observations for the line integral.
-This is a beautiful and very important results, with deep consequences. The most immediate ones are the classical theorems of Gauss, Green and Stokes, which are just a special cases of this result.
+This is a beautiful and very important result, with deep consequences. The most immediate ones are the classical theorems of Gauss, Green and Stokes, which are just a special cases of this result.
 
 We are going to state the theorem, discuss some of its consequences and then give its proof.
 
