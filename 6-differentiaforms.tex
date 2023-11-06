@@ -2,7 +2,7 @@
 In the rest of the course we will focus on a particular class of tensors, which generalizes the differential one-forms that we studied on the cotangent bundle.
 It should not be surprising then, that these will be called differential $k$-forms and that they will be alternating $(0,k)$-tensors, that is, skew-symmetric in all arguments.
 
-Geometrically, they are not dissimilar from the forms you may have seen in multivariable calculus: a $k$-form takes $k$ vectors as arguments and computes the $k$-dimensional volume spanned by these $k$-vectors.
+Geometrically, they are similar\footnote{In fact, they are the same, just more general.} to the forms you may have seen in multivariable calculus: a $k$-form takes $k$ vectors as arguments and computes the $k$-dimensional volume spanned by these $k$-vectors.
 In this sense, they will be the key elements to define integration over $k$-dimensional manifolds, in the same way as one-forms and line integrals.
 
 In addition to their role in integration, differential forms provide a framework for generalizing such diverse concepts from multivariable calculus as the cross product, curl, divergence, and Jacobian determinant.
@@ -37,9 +37,9 @@ In addition to their role in integration, differential forms provide a framework
 
 \marginnote{You can find an interesting explanation of the exterior product, based on Penrose's book ``The road to reality'', \href{https://twitter.com/LucaAmb/status/1289244374996406273?s=20}{on a thread by @LucaAmb on Twitter}.}
 If you remember, we said that the determinant was an example of a $T_n^0(\R^n)$ tensor: an antisymmetric tensor nonetheless.
-At the same time, the determinant of a $n\times n$ matrix, is the signed volume of the parallelotope spanned by the $n$ vectors composing the matrix.
+At the same time, the determinant of a $n\times n$ matrix, is the signed volume of the parallelotope spanned by the $n$ vectors defining the matrix.
 We also saw that tensors can be multiplied with the tensor product, which gives rise to a graded algebra on the free sum of tensor spaces.
-This leads naturally to the following definition.
+Since we are looking for an alternating product, the previous observation leads naturally to the following definition.
 
 \begin{definition}
   Let $V$ be a real $n$-dimensional vector space.
@@ -92,8 +92,9 @@ It would be convenient to have a similar basis representation only involving ter
 \begin{proof}
   The last point of Exercise~\ref{ex:propAlt} implies that there are no non-zero alternating $k$-tensors on $V$ if $k >\dim V$, since in that case every $k$-tuple of vectors would be dependent.
   For $k\leq n$ we need to show that $E$ spans $\Lambda^k(V)$ and its vectors are linearly independent.
+  The second claim follows directly from \eqref{eq:detLeibniz}. For the rest of the proof we will focus on the first claim.
 
-  First of all, observe that by~\eqref{equiv:permut} all the wedge products ${e^{j_1}\wedge\ldots\wedge e^{j_k}\not\in E}$ either vanish\footnote{When two indices are repeated, i.e., a basis vector appears twice} or are linear multiples of an element\footnote{The exterior product with the indices in the same set but in increasing order} of $E$.
+  First of all, observe that by~\eqref{equiv:permut} all the wedge products ${e^{j_1}\wedge\ldots\wedge e^{j_k}\not\in E}$, where the indices $j_i$ are not necessarily in ascending order, either vanish\footnote{When two indices are repeated, i.e., a basis vector appears twice} or are linear multiples of an element\footnote{The exterior product with the indices in the same set but in increasing order} of $E$.
 
   Let now $\{e_i\}$ denote the basis for $V$ dual to $\{e^i\}$ and $\omega\in\Lambda^k$.
   By definition of alternating form, we have
@@ -117,7 +118,7 @@ It would be convenient to have a similar basis representation only involving ter
      & = \frac1{k!} \omega\left(e_{j_1}, \ldots, e_{j_k}\right) \sum_{\sigma\in S_k} \sgn(\sigma) \;\left(e^{j_{\sigma^{-1}(1)}}\otimes \cdots \otimes e^{j_{\sigma^{-1}(k)}} \;\mid\; v_1, \ldots, v_k\right) \\
     \overset{\mbox{\small\eqref{eq:detLeibniz}}}{}
      & = \frac1{k!} \omega\left(e_{j_1}, \ldots, e_{j_k}\right) \left( e^{j_1}\wedge \cdots \wedge e^{j_k} \;\mid\; v_1, \ldots, v_k\right)                                                                    \\
-    \overset{\mbox{\small dedup.}}{}
+    %\overset{\mbox{\tiny dedup.}}{}
      & = \sum_{j_1=1}^{n-k+1}\sum_{j_2=j_1+1}^{n-k+2}\cdots \sum_{j_k=j_{k-1}+1}^{n} \omega\left(e_{j_1}, \ldots, e_{j_k}\right) \left(e^{j_1}\wedge \cdots \wedge e^{j_k} \;\mid\; v_1, \ldots, v_k\right).
   \end{align}
   That is,
@@ -172,7 +173,7 @@ The following proposition gives us a tool to define an exterior product of alter
      & =(\Alt_k \tau)(v_1,\ldots, v_k),
   \end{align}
   where we used the fact that $\eta$ runs over all $S_k$, as $\sigma$ does.
-  Then the result follows from~\eqref{eq:detLeibniz}.
+  It remains to check that $\Alt_k(\tau)$ is alternating, but this follows directly from~\eqref{eq:detLeibniz}, completing the proof.
 \end{proof}
 
 As we were saying, now we can take the tensor product of two forms $\omega\otimes\nu$ and use the antisymmetrisation $\Alt_{k+h}$ to to project it onto the antisymmetric subspace $\Lambda^{k+h}$ of $T_{k+h}^0(V)$.
@@ -219,7 +220,7 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
 \end{exercise}
 
 \begin{remark}
-  As for tensors, if we define the $2^n$-dimensional vector space
+  As for tensors, if we define the $2^n$-dimensional\footnote{Exercise: why is the dimension $2^n$?} vector space
   \begin{equation}
     \Lambda(V) = \bigoplus_{k=0}^n \Lambda^k(V),
   \end{equation}
@@ -232,7 +233,7 @@ There is an extremely important operation that relates vectors with alternating 
 
 \begin{definition}
   Let $V$ be a real $n$-dimensional vector space.
-  For each $v\in V$, the \emph{interior product by $v$} is a contraction of a $k$-form by $v$, that is, the linear map $\iota_v:\Lambda^{k}(V)\to \Lambda^{k-1}(V)$ defined\footnote{Another common notation for the same operation is $v \iprod \omega$.} by
+  For each $v\in V$, the \emph{interior product} with $v$ is a contraction of a $k$-form by $v$, that is, the linear map $\iota_v:\Lambda^{k}(V)\to \Lambda^{k-1}(V)$ defined\footnote{Another common notation for the same operation is $v \iprod \omega$.} by
   \begin{equation}
     \iota_v\omega(w_1,\ldots,w_{k-1}) = \omega(v,w_1,\ldots,w_{k-1})
     \quad \forall w_1,\ldots,w_{k-1} \in V.
@@ -261,7 +262,7 @@ By convention $\iota_v\omega = 0$ if $\omega\in\Lambda^0(V)$.
 
 It is time to turn our attention back to smooth manifolds.
 Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the tensor fields $\cT_s^r(M)$ as the sections of $(r,s)$-tensor bundles $T_s^rM$ over $M$.
-The subset of $T_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda^kM:= \bigsqcup_{p\in M} \{p\}\times \Lambda^k(T_p M)$.
+The subset of $T_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda^kM:= \bigsqcup_{p\in M} \{p\}\times \Lambda^k(T_p M)$. This is\footnote{Exercise: prove the claims.} again a vector bundle, which is a subbundle of the $T_k^o M$ tensor bundle.
 \begin{definition}
   The sections of $\Lambda^kM$ are called \emph{differential $k$-forms}, or just $k$-forms: these are smooth tensor fields whose values at each point are alternating tensors. The integer $k$ is called the \emph{degree} of the $k$-form.
 
