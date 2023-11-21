@@ -512,7 +512,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
   \end{align}
   e.g. $\varphi_0([x^0, \ldots, x^n]) = (x^1/x_0, \ldots, x^n/x_0)$.
   This map is well--defined because its value is unchanged by multiplying $x$ by a non-zero constant.
-  Moreover, $\varphi_i$ is continuous and invertible, the inverses can be computed explicitly as
+  Moreover, $\varphi_i$ is continuous and invertible, the inverses can be computed explicitly\footnote{Check that the composition $\varphi_i \circ \varphi_i^{-1} = \id$. What happens if you define $\widetilde\varphi^{-1}_i(y^1, \ldots, y^n) := \left[y^1, \ldots, y^{i-1}, 42, y^{i+1}, \ldots, y^n\right]$, what would the corresponding $\widetilde\varphi_i$ be?} as
   \begin{equation}
     \varphi_i^{-1}(y^1,\ldots,y^n) = \left[y^1, \ldots, y^{i-1}, 1, y^{i+1}, \ldots, y^n\right].
   \end{equation}
