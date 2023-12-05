@@ -103,7 +103,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
   our choice of coordinates after the above observations implies that
   $\det \left( \frac{\partial Q^i}{\partial x^j} \right) \neq 0$ at $(x,y) = (0,0)$.
 
-  Since the gradient of $Q$ with respect to $z$ is regular, we are going to extend
+  Since the gradient of $Q$ with respect to $x$ is regular, we are going to extend
   the mapping with the identity on the rest of the coordinates to get a regular map
   on the whole neighbourhood.
   Let $\varphi : U \to \R^m$ be defined by $\varphi(x,y) = (Q(x,y), y)$. Then,
@@ -111,7 +111,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
     D\varphi(0,0) = 
     \begin{pmatrix}
       \frac{\partial Q^i}{\partial x^j}(0,0) & \frac{\partial Q^i}{\partial y^j}(0,0) \\
-      0 & \id_{\R^k}
+      0 & \id_{\R^{m-k}}
     \end{pmatrix}
   \end{equation}
   has nonvanishing determinant by hypothesis.
@@ -184,6 +184,12 @@ If some detail seems unclear, I would recommend you to go through the proof step
   \end{equation}
   concluding the proof.
 \end{proof}
+
+\begin{exercise}
+  Formulate and prove a version of the Rank theorem for a map $F : M^m \to N^n$ of constant rank $k$,
+  where $M$ is a smooth manifold with boundary, $N$ is a smooth manifold without boundary
+  and $\ker dF_p \not\subseteq T_p\partial M$.
+\end{exercise}
 
 \section{Embeddings, submersions and immersions}
 
@@ -261,7 +267,7 @@ It is probably no surprise at this point that smooth maps are going to be useful
 In the rest of this chapter we will try to give an answer to the following questions:
 \begin{itemize}
   \item if $F$ is an immersion, what can we say about its image $F(M)$ as a subset of $N$?
-  \item if $F$ is a submersion, what can we say about its levelsets $f^{-1}(q) \subset M$?
+  \item if $F$ is a submersion, what can we say about its levelsets $F^{-1}(q) \subset M$?
 \end{itemize}
 And what can we say about the corresponding tangent spaces?
 
