@@ -65,7 +65,7 @@ and their tangent spaces.
 In fact, if we restrict our attention to constant rank maps, that is, maps whose rank is the same at all points on the manifold, we can go quite a long way and the tool to get there is the following.
 
 \begin{theorem}[Rank theorem]\label{thm:rank}
-  Let $F : M^m \to N^n$ be a smooth function between smooth manifolds without boundary\footnote{The theorem can be extended to manifolds with boundary but we will omit this case here to keep the discussion more contained and avoid unnecessary technicalities.}.
+  Let $F : M^m \to N^n$ be a smooth function between smooth manifolds without boundary\footnote{The theorem can be extended to allow $M$ with boundary and $N$ without boundary assuming $\ker dF_p \not\subseteq T_p\partial M$ but we will omit this case here to keep the discussion more contained and avoid unnecessary technicalities.}.
   Assume that $F$ is of rank $k$ at all points $p\in M$.
   Then, for all $p\in M$ there exist smooth charts $(U, \varphi)$ centred at $p$ and $(V, \psi)$ centred at $F(p)$ with $F(U)\subseteq V$, such that the coordinate representation of $F$ with respect to the charts $\varphi$ and $\psi$ has the form
   \begin{align}
@@ -146,7 +146,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
   observing that this is the product of an invertible square matrix with $DF$.
   The claim then follows from a classical theorem in linear algebra.
 
-  Since $\id_{R^k}$ makes the first $k$ columns of the matrix \eqref{eq:diff_DFp-1}
+  Since $\id_{\R^k}$ makes the first $k$ columns of the matrix \eqref{eq:diff_DFp-1}
   linearly independent, the matrix can have rank $k$ only if the derivatives 
   $\frac{\partial \widetilde{R}^i}{\partial y^j}$ vanish identically on $W_0$.
   That means that $\widetilde{R}$ is independent of the corresponding variables
@@ -248,7 +248,7 @@ Looking at the statement of the Rank Theorem, one can already see that there can
 
     \item Let $m=1$, $n > 1$ and $\gamma:\R\to\R^n$ a smooth curve.
           The map $\gamma$ is an immersion if and only if its velocity vector satisfies $\gamma'(t)\neq0$ for all $t\in\R$.
-          If the curve intersects itself, e.g $f(t_1) = f(t_2)$ for some $t_1\neq t_2$, then $f$ is not an embedding.
+          If the curve intersects itself, e.g $\gamma(t_1) = \gamma(t_2)$ for some $t_1\neq t_2$, then $f$ is not an embedding.
   \end{enumerate}
 \end{example}
 
