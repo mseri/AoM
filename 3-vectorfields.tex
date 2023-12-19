@@ -67,7 +67,7 @@ We have seen that differentials of smooth maps define maps between tangent bundl
 As it turns out, we can employ differentials of diffeomorphisms to map vector fields to vector fields.
 
 \begin{definition}
-  Let $F:M\to N$ be a diffeomorphism between smooth manifolds.
+  Let $F:M\to N$ be a diffeomorphism\footnote{While to define the pushforward it is enough to have a smooth bijection, if you take a map with non-smooth inverse you may end up with a non-smooth vector field. Try it out: take $M=N=\mathbb{R}$, $X = \partial/\partial x$ and $F(x) = x^3$, and compute $F_* X$.} between smooth manifolds.
   Then, the \emph{pushforward} $F_*$ of $F$, defined by\footnote{In coordinates, this reads\begin{equation}
       (F_* X)_q = dF_{F^{-1}(q)}(X_{F^{-1}(q)}).
     \end{equation}}
