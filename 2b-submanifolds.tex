@@ -54,15 +54,20 @@ compare the following statements.
 Note that this theorem can fail for manifold with boundary.
 A counterexample\footnote{Exercise: why?} is given by the inclusion map $\cH^n \hookrightarrow \R^n$. 
 
-An important observation at this point is that the crucial property
-of the mapping in the inverse function theorem is the rank of its
-differential.
-If we think in euclidean terms and remember that the differential of a map
-is the best linear approximation to the map, then we can start
-wondering if we can use this as a tool to probe the structure of manifolds
-and their tangent spaces.
+An important observation at this point is that the rank of the mapping
+is a crucial property in the inverse function theorem and it is really a
+property of its differential.
+If we map our manifold via some function $F$ or via its charts into a
+euclidean space in such a way that the rank of the mapping remains fixed,
+and thus all the tangent spaces will be mapped to euclidean spaces of same dimensions,
+we may be able to use the shape of the mapping itself to describe the
+shape of the manifold.
 
-In fact, if we restrict our attention to constant rank maps, that is, maps whose rank is the same at all points on the manifold, we can go quite a long way and the tool to get there is the following.
+In fact, if we restrict our attention to constant rank maps, that is,
+maps whose rank is the same at all points on the manifold, we can go quite a
+long way and show that any manifold locally looks like a projection or an inclusion.
+The tool to get there is the following, we will see more clearly the link with
+projections and inclusions in the next subsection.
 
 \begin{theorem}[Rank theorem]\label{thm:rank}
   Let $F : M^m \to N^n$ be a smooth function between smooth manifolds without boundary\footnote{The theorem can be extended to allow $M$ with boundary and $N$ without boundary assuming $\ker dF_p \not\subseteq T_p\partial M$ but we will omit this case here to keep the discussion more contained and avoid unnecessary technicalities.}.
