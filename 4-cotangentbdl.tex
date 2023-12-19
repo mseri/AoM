@@ -364,6 +364,7 @@ Since differential 1-forms are dual objects to tangent vectors, the action of a 
 \end{exercise}
 
 Exercise~\ref{ex:propdiff} is particularly interesting if we look at it in relation to the pushforward.
+In particular, the first statement in Theorem~\ref{thm:liealgiso} can be rewritten as follows.
 \begin{proposition}
   Let $F:M\to N$ be a diffeomorphism and $X\in\fX(M)$.
   Then, for any $f\in C^\infty(N)$,
@@ -371,17 +372,17 @@ Exercise~\ref{ex:propdiff} is particularly interesting if we look at it in relat
     X(F^* f) = F_*X(f) \circ F.
   \end{equation}
 \end{proposition}
-\begin{proof}
-  Indeed, for any $p\in M$,
-  \begin{align}
-    F_*X(f) \circ F(p) & = ((F_*X) f) (F(p)) = (F_*X)_{F(p)} f                  \\
-                       & = (dF \circ X \circ F^{-1})(F(p)) f = (dF\circ X)(p) f \\
-                       & = dF_p(X_p) f,                                         \\
-    X (F^*f)(p)        & = X(f\circ F)(p) = X_p(f\circ F) = dF_p(X_p) f         \\
-    % &= d (f\circ F) \circ X = df \circ dF \circ X \\
-    % & = df \circ F_* X \circ F = F_* X (f) \circ F.
-  \end{align}
-\end{proof}
+% \begin{proof}
+%   Indeed, for any $p\in M$,
+%   \begin{align}
+%     F_*X(f) \circ F(p) & = ((F_*X) f) (F(p)) = (F_*X)_{F(p)} f                  \\
+%                        & = (dF \circ X \circ F^{-1})(F(p)) f = (dF\circ X)(p) f \\
+%                        & = dF_p(X_p) f,                                         \\
+%     X (F^*f)(p)        & = X(f\circ F)(p) = X_p(f\circ F) = dF_p(X_p) f         \\
+%     % &= d (f\circ F) \circ X = df \circ dF \circ X \\
+%     % & = df \circ F_* X \circ F = F_* X (f) \circ F.
+%   \end{align}
+% \end{proof}
 In this case you often say that the vector fields are $F$-related\footnote{This is a definition that can be properly formalized, but we will not spend any time on it in during the course.} or that they behave naturally: you can either pull back the function $f$ to $M$ or push forward the vector field $X$ to $N$.
 
 \begin{exercise}
