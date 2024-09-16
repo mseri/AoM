@@ -72,13 +72,13 @@ Without trying to give a precise definition for what a holonomic set of constrai
 
 \section{Prelude to Lie Algebroids}
 
-The Frobenius theorem is remarkable result, in that we can express a particularly desirable situation (complete integrability) in terms of a purely algebraic criterion (involutivity). These situations occur more often in mathematics and physics, as we now outline. We will not elaborate much on the definitions, as these topics could fill entire books. Rather, this is to motivate and encourage the interested reader.\par
+The Frobenius theorem is remarkable result, in that we can express a particularly desirable situation (complete integrability) in terms of a purely algebraic criterion (involutivity). These situations occur more often in mathematics and physics, as we now outline. We will not elaborate much on the definitions, as these topics could fill entire books, e.g. \cite{Crainic_2021}. Rather, this is to motivate and encourage the interested reader.\par
 There is a theory of complex manifolds, which is very much analogous to that of smooth manifolds, except using holomorphic atlases/transition functions/vector bundles, etc. The tangent bundle of a complex manifold $Z$ then inherits a pointwise linear map $J:TZ\to TZ$ satisfying $J^2=-\text{id}$, owing to its underlying complex structure. Such a map might also exist on a smooth (even-dimensional) manifold. It is then called an almost complex structure on $M$. It is a natural question to ask when such a map $J$ comes from the structure of a complex manifold, that is, can $M$ be given the structure of a complex manifold so that $J$ is its associated map $J:TM\to TM$ on the (holomorphic) tangent bundle? The answers can be reformulated in a certain "bracket criterion".
 \begin{theorem}[Newlander-Nirenberg Theorem \cite{Voisin2002}]
   %https://doi.org/10.1017/CBO9780511615344
   Let $J:TM\to TM$ be an almost complex structure on $M$. Then it comes from a complex structure if and only if $[J,J]_N=0$, where $[\cdot,\cdot]_N$ is the Nijenhuis bracket.
 \end{theorem}
-Related to the theory of almost complex structures, is symplectic geometry. This type of geometry is a "weaker" notion than that of Riemannian geometry, in the sense that it isn't as restrictive. Any Riemannian metric provides an isomorphism $TM\to T^*M$ given by $X\mapsto g(X,\cdot)$, but it provides other structure as well.
+Related to the theory of almost complex structures, is symplectic geometry. This type of geometry is a ``weaker'' notion than that of Riemannian geometry, in the sense that it isn't as restrictive. Any Riemannian metric provides an isomorphism $TM\to T^*M$ given by $X\mapsto g(X,\cdot)$, but it provides other structure as well.
 \begin{definition}
   An almost symplectic manifold is a pair $(M,\omega)$ where $\omega\in\Omega^2(M)$ provides an isomorphism $\phi:TM\to T^*M$ by $X\mapsto \omega(X,\cdot)$. If, additionally, $d\omega=0$, then the pair $(M,\omega)$ is called a symplectic manifold.
 \end{definition}
@@ -86,7 +86,7 @@ On an almost symplectic manifold, we can associate a vector field $X_h$ to any f
 \begin{theorem}
   The bracket $\{\cdot,\cdot\}:C^\infty(M)\times C^\infty(M)\to C^\infty(M)$ satisfies the Jacobi identity if and only if the almost symplectic structure is a symplectic structure. That is, if and only if $d\omega=0$. In this case, $(C^\infty(M),\{\cdot,\cdot\})$ is a Lie algebra.
 \end{theorem}
-Again, here we have an equivalence between the "integrability" of a certain structure, and a "bracket criterion" given by the Jacobi identity.
+Again, here we have an equivalence between the ``integrability'' of a certain structure, and a ``bracket criterion'' given by the Jacobi identity.
 \begin{example}
   Let $M$ be a smooth manifold. Then $T^*M$ can be given a natural symplectic structure. The key point here, is to notice that $T^*M\xrightarrow{\pi}M$ comes equipped with a natural $1$-form, called the tautological $1$-form $\tau\in\Omega^1(T^*M)$. To understand this, let $\eta\in T^*M$. Then $\eta\in \pi^{-1}(x)$ for some unique $x\in M$. That is, $\eta:T_xM\to \mathbb{R}$ is a linear map. Now, if $X\in T_\eta T^*M$, then we have $d\pi(X)\in T_{\pi(\eta)}M=T_xM$. As a result, we can evaluate $\eta(d\pi(X))$. In this way, we get a $1$-form $\tau_\eta(X)=\pi^*\eta(X)$. The $2$-form $\omega:=-d\tau$ is a symplectic form on $T^*M$, called the canonical (or tautological) symplectic form.
 \end{example}
@@ -106,14 +106,14 @@ Notice that we are dealing with a very special manifold here. It has \textit{two
 \end{example}
 Next, we have an example from the realm of Poisson geometry. This is in some sense a generalisation of symplectic geometry. The theory of Poisson manifolds is a very active research area, related to quantisation of physical theories, as well as modelling constraints on physical systems.
 \begin{definition}
-  An almost Poisson manifold is a pair $(M,\pi)$ such that the bracket $\{\cdot,\cdot\}:C^\infty(M)\times C^\infty(M)\to C^\infty(M)$ defined by $\{f,g\}=\pi(df,dg)$ satisfies the axioms of a Lie algebra, save for the Jacobi identity. If the bracket satisfies the Jacobi identity, the pair is called a Poisson manifold.
+  An almost Poisson manifold is a pair $(M,\Pi)$ where $\Pi\in\Gamma(\wedge^2TM)$ is such that the bracket $\{\cdot,\cdot\}:C^\infty(M)\times C^\infty(M)\to C^\infty(M)$ defined by $\{f,g\}=\Pi(df,dg)$ satisfies the axioms of a Lie algebra, save for the Jacobi identity. If the bracket satisfies the Jacobi identity, the pair is called a Poisson manifold.
 \end{definition}
 \begin{remark}
-  The Jacobi identity is precisely equivalent to the condition that $\text{ad}(X)=[X,\cdot]$ is a derivation of the Lie algebra $(\mathfrak{g},[\cdot,\cdot])$. In the context of the Poisson bracket above, we have two different algebraic operations on $C^\infty(M)$. Namely, pointwise multiplication and the Poisson bracket. By definition, $\{f,\cdot\}$ is a derivation of the algebra $(C^\infty(M),\cdot)$. The requirement that the Jacobi identify be satisfied, means that $\{f,\cdot\}$ is also a deriviation w.r.t. $(C^\infty(M),\{\cdot,\cdot\})$. A Poisson manifold is then a manifold with this mutually compatible structure, making $C^\infty(M)$ into an infinite-dimensional Lie algebra.
+  The Jacobi identity is precisely equivalent to the condition that $\text{ad}(X)=[X,\cdot]$ is a derivation of the Lie algebra $(\mathfrak{g},[\cdot,\cdot])$. In the context of the Poisson bracket above, we have two different algebraic operations on $C^\infty(M)$. Namely, pointwise multiplication and the Poisson bracket. By definition, $\{f,\cdot\}$ is a derivation of the algebra $(C^\infty(M),\cdot)$. The requirement that the Jacobi identify be satisfied, means that $\{f,\cdot\}$ is also a deriviation w.r.t. $(C^\infty(M),\{\cdot,\cdot\})$. A Poisson manifold is then a manifold with these mutually compatible structures, making $C^\infty(M)$ into an infinite-dimensional Lie algebra.
 \end{remark}
 Given an almost Poisson structure, we can again find a criterion for it being a Poisson structure in terms of a bracket operation.
 \begin{theorem}
-  Let $(M,\pi)$ be an almost Poisson manifold. Then this pair defines a Poisson structure if and only if $[\pi,\pi]_{SN}=0$ where $[\cdot,\cdot]_{SN}$ is the Schouten-Nijenhuis bracket.
+  Let $(M,\Pi)$ be an almost Poisson manifold. Then this pair defines a Poisson structure if and only if $[\Pi,\Pi]_{SN}=0$ where $[\cdot,\cdot]_{SN}$ is the Schouten-Nijenhuis bracket.
 \end{theorem}
 Let us give an important example of a Poisson manifold.
 \begin{example}
@@ -121,7 +121,10 @@ Let us give an important example of a Poisson manifold.
   $$\{f,g\}:= c_{ij}^k\mu_k\frac{\partial f}{\partial\mu^i}\frac{\partial g}{\partial\mu^j}$$
   where $c_{ij}^k$ are the structure constants of $\mathfrak{g}$, defined by $[x_i,x_j]=c_{ij}^kx_k$. This class of Poisson manifolds is called Lie-Poisson manifolds, and they were originally studied by Sophus Lie himself.
 \end{example}
-All of these types of geometry can be unified under one umbrella. In order to do this, we first want to define two operations on the space $\mathbb{T}M:=TM\oplus T^*M$. Elements of this space are denoted like $X+\eta$, where the capital letter is a vector and the Greek letter is a $1$-form. Then we define the following:
+\begin{exercise}
+In the above example, write down an expression for the Poisson tensor $\Pi$ corresponding to the defined bracket on functions.
+\end{exercise}
+All of geometries that we have discussed in this section can be unified under one umbrella. In order to do this, we first want to define two operations on the space $\mathbb{T}M:=TM\oplus T^*M$. Elements of this space are denoted like $X+\eta$, where the capital letter is a vector and the Greek letter is a $1$-form. Then we define the following:
 \begin{enumerate}
   \item A symmetric bilinear form $\langle\cdot,\cdot\rangle:\mathbb{T}M\to\mathbb{R}$ given by $$\langle X_p + \alpha_p,Y_p + \beta_p\rangle=\alpha_p(Y_p)+\beta_p(X_p)$$
   \item A bracket  $[\![\cdot,\cdot]\!]:\Gamma(\mathbb{T}M)\times\Gamma(\mathbb{T}M)\to\Gamma(\mathbb{T}M)$ defined by $$[\![X+\alpha,Y+\beta]\!]=([X,Y],\mathcal{L}_X\beta-\iota_Yd\alpha)$$
@@ -155,11 +158,11 @@ Now we can see how all the structures mentioned above can be unified through Dir
     Then $L$ is a Dirac structure if and only if $(M,\omega)$ is a symplectic manifold.
 \end{example}
 \begin{example}[Poisson Geometry]
-    Let $(M,\pi)$ be an almost Poisson manifold. Define
+    Let $(M,\Pi)$ be an almost Poisson manifold. Define
     \begin{equation}
-        L=\{\iota_\eta \pi +\eta\mid\eta\in T^*M\}\subseteq \mathbb{T}M
+        L=\{\iota_\eta \Pi +\eta\mid\eta\in T^*M\}\subseteq \mathbb{T}M
     \end{equation}
-    Then $L$ is a Dirac structure if and only if $(M,\pi)$ is a Poisson manifold.
+    Then $L$ is a Dirac structure if and only if $(M,\Pi)$ is a Poisson manifold.
 \end{example}
 
 \begin{definition}
@@ -174,7 +177,7 @@ Now we can see how all the structures mentioned above can be unified through Dir
 \begin{example}[See \cite{Courant_1990}]
   Let $L\subset\mathbb{T}M$ be a Dirac structure on $M$ and define $\rho:=\text{pr}|_L$, where $\text{pr}:\mathbb{T}M\to TM$ is the natural projection. Let $[\cdot,\cdot]_C$ be the restriction of the Courant bracket to $\Gamma(L)$. Then $(L,[\cdot,\cdot]_C,\rho)$ is a Lie algebroid.
 \end{example}
-Thus, we see that all kinds of geometry are unified by (higher) Lie theory. The study of these geometries, and more exotic ones, is an active area of research.
+Thus, we see that all kinds of geometry are unified by (higher) Lie theory. The study of these geometries, and more exotic ones, is an active area of research. We refer the interested reader to \cite{Crainic_2021} for an in-depth account of the theory of Poisson manifolds, Dirac structures, Lie algebroids and more.
 
 \chapter{Connections on Vector Bundles (B. Brongers)}
 
@@ -252,11 +255,11 @@ Thus, we have that $A_\beta=\phi_{\alpha\beta}^{-1}A_\alpha \phi_{\alpha\beta}+\
 
 \section{Geometric Intuition}
 
-Let's examine geometrically what a connection is. We will again do so on a trivial vector bundle $E=M\times\mathbb{R}^k$. In the case of the canonical connection, we are identifying the fibres in terms of "flat slices". The notion of flatness will be given a precise meaning in a moment.
+Let's examine geometrically what a connection is. We will again do so on a trivial vector bundle $E=M\times\mathbb{R}^k$. In the case of the canonical connection, we are identifying the fibres in terms of ``flat slices''. The notion of flatness will be given a precise meaning in a moment.
 \begin{example}\label{highschool}
   Let $M=\mathbb{R}$ and $E=\mathbb{R}^2$, which is the setting for highschool calculus. Sections of $E$ can be written as functions $f(x)$. Furthermore, a $1\times 1$ matrix of differential forms is just an ordinary differential form $df$. Let $f(x)=ax+b$, so that $df(x)=adx$. Define a connection on $E$ by $\nabla:=d-adx$. Ordinarily, we would say that functions of the form $g(x)=c$ are flat, because $dg(x)=0$. But now, we have $\nabla g(x)=-acdx$. If we consider the function $g(x)=e^{ax}$, then $dg=ag(x)dx$. Consequently, $\nabla g(x)=ag(x)dx-ag(x)dx=0$. Should we call $g(x)$ flat with respect to $\nabla$?
 \end{example}
-The example above illustrates informally how we identify the fibres of a vector bundle, using the connection, to inform our notion of "flatness". Formally, this is done through parallel transport.
+The example above illustrates informally how we identify the fibres of a vector bundle, using the connection, to inform our notion of ``flatness''. Formally, this is done through parallel transport.
 \begin{definition}
   Let $E$ be a vector bundle over $M$ and $\gamma:I\to M$ a curve. There is a linear map $P^\nabla_\gamma:E_{\gamma(0)}\to E_{\gamma(1)}$ called parallel transport along $\gamma$.
 \end{definition}
@@ -269,7 +272,7 @@ This is just a system of ordinary differential equations. Parallel transport is 
 
 \section{The Curvature of a Connection}
 
-Every connection has an associated curvature. Intuitively, we might think of the curvature as the "failure of the partial derivatives to commute". In ordinary Euclidean space, we have $\frac{\partial^2}{\partial y\partial x}=\frac{\partial^2}{\partial x\partial y}$, so the derivative operators do commute.
+Every connection has an associated curvature. Intuitively, we might think of the curvature as the ``failure of the partial derivatives to commute''. In ordinary Euclidean space, we have $\frac{\partial^2}{\partial y\partial x}=\frac{\partial^2}{\partial x\partial y}$, so the derivative operators do commute.
 \begin{definition}
   Consider the operator $R_\nabla:\Gamma(TM)\times\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$ defined by
   $$(X,Y,s)\mapsto(\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X,Y]})s$$
