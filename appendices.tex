@@ -72,13 +72,13 @@ Without trying to give a precise definition for what a holonomic set of constrai
 
 \section{Prelude to Lie Algebroids}
 
-The Frobenius theorem is remarkable result, in that we can express a particularly desirable situation (complete integrability) in terms of a purely algebraic criterion (involutivity). These situations occur more often in mathematics and physics, as we now outline. We will not elaborate much on the definitions, as these topics could fill entire books. Rather, this is to motivate and encourage the interested reader.\par
-There is a theory of complex manifolds, which is very much analogous to that of smooth manifolds, except using holomorphic atlases/transition functions/vector bundles, etc. The tangent bundle of a complex manifold $Z$ then inherits a pointwise linear map $J:TZ\to TZ$ satisfying $J^2=-\text{id}$, owing to its underlying complex structure. Such a map might also exist on a smooth (even-dimensional) manifold. It is then called an almost complex structure on $M$. It is a natural question to ask when such a map $J$ comes from the structure of a complex manifold, that is, can $M$ be given the structure of a complex manifold so that $J$ is its associated map $J:TM\to TM$ on the (holomorphic) tangent bundle? The answers can be reformulated in a certain "bracket criterion".
+The Frobenius theorem is remarkable result, in that we can express a particularly desirable situation (complete integrability) in terms of a purely algebraic criterion (involutivity). These situations occur more often in mathematics and physics, as we now outline. We will not elaborate much on the definitions, as these topics could fill entire books, e.g. \cite{Crainic_2021}. Rather, this is to motivate and encourage the interested reader.\par
+There is a theory of complex manifolds, which is very much analogous to that of smooth manifolds, except using holomorphic atlases/transition functions/vector bundles, etc. The tangent bundle of a complex manifold $Z$ then inherits a pointwise linear map $J:TZ\to TZ$ satisfying $J^2=-\text{id}$, owing to its underlying complex structure. Such a map might also exist on a smooth (even-dimensional) manifold. It is then called an almost complex structure on $M$. It is a natural question to ask when such a map $J$ comes from the structure of a complex manifold, that is, can $M$ be given the structure of a complex manifold so that $J$ is its associated map $J:TM\to TM$ on the (holomorphic) tangent bundle? The answers can be reformulated in a certain ``bracket criterion''.
 \begin{theorem}[Newlander-Nirenberg Theorem \cite{Voisin2002}]
   %https://doi.org/10.1017/CBO9780511615344
   Let $J:TM\to TM$ be an almost complex structure on $M$. Then it comes from a complex structure if and only if $[J,J]_N=0$, where $[\cdot,\cdot]_N$ is the Nijenhuis bracket.
 \end{theorem}
-Related to the theory of almost complex structures, is symplectic geometry. This type of geometry is a "weaker" notion than that of Riemannian geometry, in the sense that it isn't as restrictive. Any Riemannian metric provides an isomorphism $TM\to T^*M$ given by $X\mapsto g(X,\cdot)$, but it provides other structure as well.
+Related to the theory of almost complex structures, is symplectic geometry. This type of geometry is a ``weaker'' notion than that of Riemannian geometry, in the sense that it isn't as restrictive. Any Riemannian metric provides an isomorphism $TM\to T^*M$ given by $X\mapsto g(X,\cdot)$, but it provides other structure as well.
 \begin{definition}
   An almost symplectic manifold is a pair $(M,\omega)$ where $\omega\in\Omega^2(M)$ provides an isomorphism $\phi:TM\to T^*M$ by $X\mapsto \omega(X,\cdot)$. If, additionally, $d\omega=0$, then the pair $(M,\omega)$ is called a symplectic manifold.
 \end{definition}
@@ -86,58 +86,30 @@ On an almost symplectic manifold, we can associate a vector field $X_h$ to any f
 \begin{theorem}
   The bracket $\{\cdot,\cdot\}:C^\infty(M)\times C^\infty(M)\to C^\infty(M)$ satisfies the Jacobi identity if and only if the almost symplectic structure is a symplectic structure. That is, if and only if $d\omega=0$. In this case, $(C^\infty(M),\{\cdot,\cdot\})$ is a Lie algebra.
 \end{theorem}
-Again, here we have an equivalence between the "integrability" of a certain structure, and a "bracket criterion" given by the Jacobi identity.
+Again, here we have an equivalence between the ``integrability'' of a certain structure, and a ``bracket criterion'' given by the Jacobi identity.
 \begin{example}
   Let $M$ be a smooth manifold. Then $T^*M$ can be given a natural symplectic structure. The key point here, is to notice that $T^*M\xrightarrow{\pi}M$ comes equipped with a natural $1$-form, called the tautological $1$-form $\tau\in\Omega^1(T^*M)$. To understand this, let $\eta\in T^*M$. Then $\eta\in \pi^{-1}(x)$ for some unique $x\in M$. That is, $\eta:T_xM\to \mathbb{R}$ is a linear map. Now, if $X\in T_\eta T^*M$, then we have $d\pi(X)\in T_{\pi(\eta)}M=T_xM$. As a result, we can evaluate $\eta(d\pi(X))$. In this way, we get a $1$-form $\tau_\eta(X)=\pi^*\eta(X)$. The $2$-form $\omega:=-d\tau$ is a symplectic form on $T^*M$, called the canonical (or tautological) symplectic form.
 \end{example}
-Another important class of symplectic manifolds arises from complex geometry, and these are the so-called Kähler manifolds. Every smooth projective complex variety is an example of such a manifold, by Serre's GAGA theorem.
-\begin{theorem}[Serre \cite{Serre1956}]
-  %https://doi.org/10.5802%2Faif.59 
-  There is an equivalence of categories between smooth projective algebraic varieties, and connected projective complex manifolds $Z\subset\mathbb{CP}^n$.
-\end{theorem}
-In light of this theorem, we shall prove that $\mathbb{CP}^n$ has a canonical symplectic form, which provides us with a large class of symplectic manifolds with a canonical symplectic structure. One of the most well-known examples of homological mirror symmetry, which arose from string theory, is given by the quintic threefold
-\begin{equation}
-Z:=\left\{[z_0:z_1:z_2:z_3:z_4]\in\mathbb{CP}^4\mid \sum z_i^5=0\right\}.
-\end{equation}
-This is a smooth projective variety of great historical importance, because it propelled the idea of mirror symmetry from being an obscure physical theory, to a mathematical conjecture, as found in \cite{Kontsevich1994Homological}.
-%https://arxiv.org/abs/alg-geom/9411018
-The homological mirror symmetry conjecture (which has been verified for a large number of examples) uses the symplectic structure on a manifold to construct the so-called Fukaya category. The conjecture asserts that this category is equivalent to a certain category defined over its mirror pair.\\
-However, we cannot even hope to touch upon mirror symmetry here. Instead, we will carry on to prove our assertion that complex projective space has a canonical symplectic structure. The main result that we need is the following.
+There is another prototypical symplectic manifold.
 \begin{theorem}
-  Complex projective space $\mathbb{CP}^n$ inherits a metric $h$ from $\mathbb{C}^{n+1}$ called the Fubini-Study metric.
+  Complex projective space $\mathbb{CP}^n$ inherits a metric $h$ from $\mathbb{C}^{n+1}$ called the \emph{Fubini-Study metric}. Additionally, with respect to the Levi-Civita connection of $h$, it holds that $\nabla J=0$.  
 \end{theorem}
-\begin{proof}
-  We can obtain $\mathbb{CP}^n$ from $\mathbb{C}^{n+1}$ as follows. First we take $S^{2n+1}=\mathbb{C}^{n+1}/\sim$, where $z\sim\lambda z$ for $\lambda\in\mathbb{R}_+$. Then we obtain $\mathbb{CP}^n$ from $S^{2n+1}$ through the equivalence relation $z\sim ze^{i\theta}$. In summary, we have
-  $$\mathbb{C}^{n+1}\xhookrightarrow{\pi_1} S^{2n+1}\xhookrightarrow{\pi_2}\mathbb{CP}^n$$
-  On $\mathbb{C}^{n+1}$ we have a canonical metric defined by $g=\sum_{i=0}^{n}dz_i\otimes d\overline{z}_i$. We would like this metric to descend to the quotient. Let $\iota:S^{2n+1}\to\mathbb{C}^{n+1}$ be the inclusion map. Then $\iota^*g$ is a canonically defined metric on $S^{2n+1}$, called the round metric. It is constant on the fibres of $\pi_2$, since the fibres are the orbits of $U(1)$. We leave the details as an exercise. Therefore, $\iota^*g$ descends to $\mathbb{CP}^n$, to give the Fubini-Study metric. In local coordinates, it is given by
-  $$h(\frac{\partial}{\partial z_i},\frac{\partial}{\partial\overline{z}_j})=\frac{(1+|z|^2)\delta_{ij}-\overline{z}_iz_j}{(1+|z|^2)^2}$$
-\end{proof}
-\begin{remark}
-  As a part of the proof above, we established the Hopf fibration, which is an example of a so-called principal $G$-bundle, where $G$ is a Lie group. In this case, $G=S^1=U(1)$.
-  $$S^1\xhookrightarrow{}S^{2n+1}\to\mathbb{CP}^n$$
-\end{remark}
-Now that we have a metric, it is actually straightforward to define a symplectic structure, due to the following result.
-\begin{theorem}
-  Let $M$ be a smooth manifold. Then $M$ might have a symplectic, almost complex and/or Riemannian structure, denoted by $\omega$, $J$ and $g$ respectively. Given two of these structures, we can use them to construct the remaining one, in a compatible way.
-\end{theorem}
-\begin{proof}
-  The reader may verify that the following indeed defines each of the structures as claimed.
-  \begin{enumerate}
-    \item $\omega=g\circ (J\otimes\text{id})$
-    \item $g=\omega\circ(\text{id}\otimes J)$
-    \item Given $\omega$ and $g$, we obtain $J$ through polar decomposition, see \cite{book:cds}.
-          %https://math.mit.edu/classes/18.157/S2012/lecturesonsymplecticgeometryanacannas.pdf
-  \end{enumerate}
-\end{proof}
 \begin{corollary}
-  Any complex manifold with a metric has a symplectic structure defined by $\omega=g\circ (J\otimes\text{id})$. In particular, any projective complex manifold $Z\subset\mathbb{CP}^n$ has a canonical symplectic structure defined by $\omega(X,Y)=\iota^*h(J(X),Y)$.
+    The $2$-form defined by $\omega=h\circ J\otimes\text{id}$ is closed and non-degenerate. That is, $(\mathbb{CP}^n, \omega)$ is a symplectic manifold.
 \end{corollary}
+Notice that we are dealing with a very special manifold here. It has \textit{two} integrable structures. A complex structure, and a symplectic structure, which are compatible in the sense that $\omega(\cdot, J\cdot)$ defines a metric.
+\begin{definition}
+    A complex symplectic manifold $(M,\omega, J)$ such that $g=\omega(\cdot, J\cdot)$ defines a metric is called a \emph{Kähler manifold}.
+\end{definition}
+\begin{example}
+    Every complex submanifold $M\subseteq\mathbb{CP}^n$ is a Kähler manifold, by pulling back the Fubini-Study $2$-form to $M$. Notice that it isn't true that an arbitrary smooth submanifold of $\mathbb{CP}^n$ is a Kähler manifold! The condition that it is a \textit{complex} submanifold is crucial. Kähler manifolds are of great importance in algebraic geometry, and are also used by string theorists. 
+\end{example}
 Next, we have an example from the realm of Poisson geometry. This is in some sense a generalisation of symplectic geometry. The theory of Poisson manifolds is a very active research area, related to quantisation of physical theories, as well as modelling constraints on physical systems.
 \begin{definition}
-  An almost Poisson manifold is a pair $(M,\Pi)$ such that the bracket $\{\cdot,\cdot\}:C^\infty(M)\times C^\infty(M)\to C^\infty(M)$ defined by $\{f,g\}=\Pi(df,dg)$ satisfies the axioms of a Lie algebra, save for the Jacobi identity. If the bracket satisfies the Jacobi identity, the pair is called a Poisson manifold.
+  An \emph{almost Poisson manifold} is a pair $(M,\Pi)$ where $\Pi\in\Gamma(\wedge^2TM)$ is such that the bracket $\{\cdot,\cdot\}:C^\infty(M)\times C^\infty(M)\to C^\infty(M)$ defined by $\{f,g\}=\Pi(df,dg)$ satisfies the axioms of a Lie algebra, save for the Jacobi identity. If the bracket satisfies the Jacobi identity, the pair is called a \emph{Poisson manifold}.
 \end{definition}
 \begin{remark}
-  The Jacobi identity is precisely equivalent to the condition that $\text{ad}(X)=[X,\cdot]$ is a derivation of the Lie algebra $(\mathfrak{g},[\cdot,\cdot])$. In the context of the Poisson bracket above, we have two different algebraic operations on $C^\infty(M)$. Namely, pointwise multiplication and the Poisson bracket. By definition, $\{f,\cdot\}$ is a derivation of the algebra $(C^\infty(M),\cdot)$. The requirement that the Jacobi identify be satisfied, means that $\{f,\cdot\}$ is also a deriviation w.r.t. $(C^\infty(M),\{\cdot,\cdot\})$. A Poisson manifold is then a manifold with this mutually compatible structure, making $C^\infty(M)$ into an infinite-dimensional Lie algebra.
+  The Jacobi identity is precisely equivalent to the condition that $\text{ad}(X)=[X,\cdot]$ is a derivation of the Lie algebra $(\mathfrak{g},[\cdot,\cdot])$. In the context of the Poisson bracket above, we have two different algebraic operations on $C^\infty(M)$. Namely, pointwise multiplication and the Poisson bracket. By definition, $\{f,\cdot\}$ is a derivation of the algebra $(C^\infty(M),\cdot)$. The requirement that the Jacobi identify be satisfied, means that $\{f,\cdot\}$ is also a deriviation w.r.t. $(C^\infty(M),\{\cdot,\cdot\})$. A Poisson manifold is then a manifold with these mutually compatible structures, making $C^\infty(M)$ into an infinite-dimensional Lie algebra.
 \end{remark}
 Given an almost Poisson structure, we can again find a criterion for it being a Poisson structure in terms of a bracket operation.
 \begin{theorem}
@@ -149,46 +121,63 @@ Let us give an important example of a Poisson manifold.
   $$\{f,g\}:= c_{ij}^k\mu_k\frac{\partial f}{\partial\mu^i}\frac{\partial g}{\partial\mu^j}$$
   where $c_{ij}^k$ are the structure constants of $\mathfrak{g}$, defined by $[x_i,x_j]=c_{ij}^kx_k$. This class of Poisson manifolds is called Lie-Poisson manifolds, and they were originally studied by Sophus Lie himself.
 \end{example}
-In Poisson geometry, it is desirable to find a so-called symplectic realisation of a Poisson manifold. In some sense that can be made precise, this means "untangling" the Poisson manifold into a simpler structure, which is a symplectic manifold.
-\begin{theorem}[Crainic,Fernandes \cite{Crainic2003}]
-  %https://arxiv.org/abs/math/0105033
-  A Poisson manifold admits a complete symplectic realisation if and only if it is integrable.
-\end{theorem}
-The specifics of this notion of integrability are somewhat beyond our scope, because we are entering the realm of Lie groupoids and Lie algebroids. We shall state the definition of a Lie algebroid after the following example, so that the reader can see how all these concepts fit into the framework of Lie algebroids.\par
-Our final example is that of a Dirac structure on a manifold. In order to do this, we first want to define two operations on the space $\mathbb{T}M:=TM\oplus T^*M$. Namely,
+\begin{exercise}
+In the above example, write down an expression for the Poisson tensor $\Pi$ corresponding to the defined bracket on functions.
+\end{exercise}
+All of geometries that we have discussed in this section can be unified under one umbrella. In order to do this, we first want to define two operations on the space $\mathbb{T}M:=TM\oplus T^*M$. Elements of this space are denoted like $X+\eta$, where the capital letter is a vector and the Greek letter is a $1$-form. Then we define the following:
 \begin{enumerate}
-  \item A symmetric bilinear form $\langle\cdot,\cdot\rangle:\mathbb{T}M\to\mathbb{R}$ defined by $$\langle(X_p,\alpha_p),(Y_p,\beta_p)\rangle=\alpha_p(Y_p)+\beta_p(X_p)$$
-  \item A bracket  $[\![\cdot,\cdot]\!]:\Gamma(\mathbb{T}M)\times\Gamma(\mathbb{T}M)\to\Gamma(\mathbb{T}M)$ defined by $$[\![(X,\alpha),(Y,\beta)]\!]=([X,Y],\mathcal{L}_X\beta-\iota_Yd\alpha)$$
+  \item A symmetric bilinear form $\langle\cdot,\cdot\rangle:\mathbb{T}M\to\mathbb{R}$ given by $$\langle X_p + \alpha_p,Y_p + \beta_p\rangle=\alpha_p(Y_p)+\beta_p(X_p)$$
+  \item A bracket  $[\![\cdot,\cdot]\!]:\Gamma(\mathbb{T}M)\times\Gamma(\mathbb{T}M)\to\Gamma(\mathbb{T}M)$ defined by $$[\![X+\alpha,Y+\beta]\!]=([X,Y],\mathcal{L}_X\beta-\iota_Yd\alpha)$$
 \end{enumerate}
-\begin{remark}
-  There is also a skew-symmetric bracket on $\mathbb{T}M$, defined by
-  $$[(X,\alpha),(Y,\beta)]_C=([X,Y],\mathcal{L}_X\beta-\mathcal{L}_Y\alpha+\frac{1}{2}d(\alpha(Y)-\beta(X)))$$
-  called the Courant bracket. We will refer to this bracket later on, as it makes $\mathbb{T}M$ into a Lie algebroid. The bracket $[\![\cdot,\cdot]\!]$ instead produces a Courant algebroid.
-\end{remark}
-We are now interested in sub-bundles $L\subset\mathbb{T}M$ which are maximally isotropic with respect to the symmetric form above. This means that $L$ has rank $\dim M$, and $\langle L,L\rangle=0$. Indeed, this is not an inner product, so this does not only hold when $L=0$.
+
+We are now interested in sub-bundles $L\subset\mathbb{T}M$ which are maximally isotropic with respect to the symmetric form above. This means that $L$ has rank $\dim M$, and $\langle L,L\rangle=0$. Indeed, the signature of the bilinear form is $(n,n)$ so we have non-trivial isotropic subspaces.
 \begin{definition}
   An almost Dirac structure on $M$ is a sub-bundle $L\subset\mathbb{T}M$ which is maximally isotropic. $L$ is called a Dirac structure if $[\![\Gamma(L),\Gamma(L)]\!]\subset\Gamma(L)$.
 \end{definition}
-An important class of Dirac structures is determined by foliations. This is where we can use the theorem of Frobenius.
-\begin{example}
-  Let $\mathcal{D}\subset TM$ be a (regular) distribution. We define $$\text{Ann}(\mathcal{D})_p:=\{\alpha\in T_p^*M\mid \alpha(v)=0\quad\forall v\in \mathcal{D}_p\}$$
-  This determines a sub-bundle of $T^*M$ called the annihilator of $\mathcal{D}$, and we denote it by $\text{Ann}(\mathcal{D})$. Then by construction, $\mathcal{D}\oplus\text{Ann}(\mathcal{D})\subset\mathbb{T}M$ is maximally isotropic. This defines a Dirac structure if and only if $[\Gamma(\mathcal{D}),\Gamma(\mathcal{D})]\subset\Gamma(\mathcal{D})$. By Frobenius's theorem, this is equivalent to $\mathcal{D}$ being completely integrable.
+Now we can see how all the structures mentioned above can be unified through Dirac structures.
+\begin{example}[Distributions]
+  Let $\mathcal{D}\subset TM$ be a (regular) distribution, and define $$\text{Ann}(\mathcal{D})_p:=\{\alpha\in T_p^*M\mid \alpha(v)=0\quad\forall v\in \mathcal{D}_p\}$$
+  This determines a sub-bundle of $T^*M$ called the annihilator of $\mathcal{D}$, and we denote it by $\text{Ann}(\mathcal{D})$. Define
+  \begin{equation}
+      L=\mathcal{D}\oplus\text{Ann}(\mathcal{D})\subseteq\mathbb{T}M
+  \end{equation}
+  Then $L$ is a Dirac structure if and only if the distribution $\mathcal{D}$ is involutive. By Frobenius's theorem, this is equivalent to $\mathcal{D}$ being completely integrable.
 \end{example}
-We now give the definition of a Lie algebroid.
+\begin{example}[Complex Geometry]
+    Let $(M, J)$ be an almost complex manifold. Let $TM^{0,1}$ denote the $-i$-eigenbundle of $J$ in $TM\otimes\mathbb{C}$. Define
+    \begin{equation}
+        L=TM^{0,1}\oplus T^*M^{1,0}\subseteq TM\otimes\mathbb{C}
+    \end{equation}
+    Then $L$ is a (complex) Dirac structure if and only if $J$ is an integrable complex structure.
+\end{example}
+\begin{example}[Symplectic Geometry]
+    Let $(M,\omega)$ be an almost symplectic manifold. Define 
+    \begin{equation}
+        L=\{X+\iota_X\omega\mid X\in TM\}\subseteq \mathbb{T}M
+    \end{equation}
+    Then $L$ is a Dirac structure if and only if $(M,\omega)$ is a symplectic manifold.
+\end{example}
+\begin{example}[Poisson Geometry]
+    Let $(M,\Pi)$ be an almost Poisson manifold. Define
+    \begin{equation}
+        L=\{\iota_\eta \Pi +\eta\mid\eta\in T^*M\}\subseteq \mathbb{T}M
+    \end{equation}
+    Then $L$ is a Dirac structure if and only if $(M,\Pi)$ is a Poisson manifold.
+\end{example}
+
 \begin{definition}
-  A Lie algebroid is a vector bundle $E\xrightarrow{\pi}M$ with a bracket $[\cdot,\cdot]$ such that $(\Gamma(E),[\cdot,\cdot])$ is a Lie algebra. Furthermore, there is a vector bundle morphism $\rho:E\to TM$ called the anchor, such that $[X,f\cdot Y]=\rho(X)f\cdot Y+f\cdot[X,Y]$ for all $X,Y\in\Gamma(E)$, $f\in C^\infty(M)$.
+  A \emph{Lie algebroid} is a vector bundle $E\xrightarrow{\pi}M$ together with
+  \begin{enumerate}
+      \item a bracket $[\cdot,\cdot]$ such that $(\Gamma(E),[\cdot,\cdot])$ is a Lie algebra
+      \item a vector bundle morphism $\rho:E\to TM$ called the anchor, such that 
+      $$[X,f\cdot Y]=\rho(X)f\cdot Y+f\cdot[X,Y]$$ 
+      for all $X,Y\in\Gamma(E)$, $f\in C^\infty(M)$
+  \end{enumerate}
 \end{definition}
-We have encountered several of these in the text above.
-\begin{example}
-  Let $(M,\Pi)$ be a Poisson manifold, and define $\rho:T^*M\to TM$ by $\rho(\alpha)=\Pi(\alpha,\cdot)$. Define a bracket on $\Gamma(T^*M)$ by $$[\alpha,\beta]=\mathcal{L}_{\rho(\alpha)}\beta-\mathcal{L}_{\rho(\beta)}\alpha-d\Pi(\alpha,\beta)$$
-  Then the triple $(T^*M,[\cdot,\cdot],\rho)$ is a Lie algebroid.
-\end{example}
 \begin{example}[See \cite{Courant_1990}]
   Let $L\subset\mathbb{T}M$ be a Dirac structure on $M$ and define $\rho:=\text{pr}|_L$, where $\text{pr}:\mathbb{T}M\to TM$ is the natural projection. Let $[\cdot,\cdot]_C$ be the restriction of the Courant bracket to $\Gamma(L)$. Then $(L,[\cdot,\cdot]_C,\rho)$ is a Lie algebroid.
 \end{example}
-\begin{exercise}
-  Find a Lie algebroid structure for a given symplectic structure $(M,\omega)$.
-\end{exercise}
+Thus, we see that all kinds of geometry are unified by (higher) Lie theory. The study of these geometries, and more exotic ones, is an active area of research. We refer the interested reader to \cite{Crainic_2021} for an in-depth account of the theory of Poisson manifolds, Dirac structures, Lie algebroids and more.
 
 \chapter{Connections on Vector Bundles (B. Brongers)}
 
@@ -208,17 +197,25 @@ Notice here that we made use of the crucial fact that every section of the trivi
   \end{enumerate}
 \end{proposition}
 Notice how these properties are analogous to those of the exterior derivative. If $f,g\in C^\infty(M)$ and $X\in\Gamma(TM)$, then $df(gX)=g\cdot df(X)$ and $d(f\cdot g)(X)=df(X)\cdot g+f\cdot df(X)$.
-\begin{definition}
-  Let $E\xrightarrow{\pi}M$ be an arbitrary vector bundle. Any $\mathbb{R}$-linear map $\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$ satisfying the above two properties is called a connection on $E$. That is:
+\begin{definition}\label{def:linearConnection}
+  Let $E\xrightarrow{\pi}M$ be an arbitrary vector bundle. Any $\mathbb{R}$-linear map $\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$ satisfying the above two properties is called a \emph{connection} on $E$. That is:
   \begin{enumerate}
     \item $\nabla_{fX}s=f\nabla_Xs$
     \item $\nabla_X(f\cdot s)=X(f)\cdot s+f\cdot\nabla_X(s)$
   \end{enumerate}
 \end{definition}
-% TODO: mention pov \nabla: \Gamma(E) \to \Gamma(T^*M\otimes E) and refer to Chris Wendl lecture notes on connections (also for Ehresmann connection)
-Using the canonical connection on a trivial bundle and a partition of unity, one can show (exercise) that any vector bundle admits a connection. To this end, first prove that a convex linear combination of connections again defines a connection. The following result shows that, once we have a connection, we actually get an affine space of connections.
 \begin{proposition}
-  Let $E$ be a vector bundle over $M$. Suppose that $A\in\Omega^1(M)\otimes_\mathbb{R}\text{End}(E)$. Let $\nabla$ be a connection on $E$. Then $\nabla + A$ is also a connection on $E$.
+    A connection on a vector bundle $E\xrightarrow{\pi}M$ is equivalently defined as an $\mathbb{R}$-linear operator $\nabla:\Gamma(E)\to\Gamma(T^*M\otimes E)$ satisfying the Leibniz rule:
+    \begin{equation}
+        \nabla f\cdots = df\otimes s + f\cdot\nabla s\quad\quad\forall f\in C^\infty(M), s\in\Gamma(E)
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    Exercise.
+\end{proof}
+In particular, when $E=M\times\mathbb{R}$, we see that a connection is an $\mathbb{R}$-linear map $C^\infty(M)\to \Gamma(T^*M)$, such as the exterior derivative. Using the canonical connection on a trivial bundle and a partition of unity, one can show that any vector bundle admits a connection. To this end, first prove that a convex linear combination of connections again defines a connection. The following result shows that, once we have a connection, we actually get an affine space of connections.
+\begin{proposition}
+  Let $E$ be a vector bundle over $M$. Suppose that $A\in\Omega^1(M, \text{End}(E))$\footnote{This is a section of $T^*M\otimes\text{End}(E)$.}. Let $\nabla$ be a connection on $E$. Then $\nabla + A$ is also a connection on $E$.
 \end{proposition}
 \begin{proof}
   Denote $\nabla':=\nabla+A$.
@@ -227,7 +224,7 @@ Using the canonical connection on a trivial bundle and a partition of unity, one
     \item $\nabla'_X(f\cdot s)=\nabla_X(f\cdot s)+A(X)(f\cdot s)=X(f)\cdot s+f\cdot\nabla_Xs+f\cdot A(X)s=X(f)\cdot s+f\cdot\nabla'_Xs$
   \end{enumerate}
 \end{proof}
-If $E$ is trivial of rank $k$, then the above assumption just means that $A$ is a $k\times k$ matrix of $1$-forms. In fact, if $\nabla$ is a connection on the trivial vector bundle of rank $k$, we can always write $\nabla=d+A$ for some matrix of $1$-forms, and this $A$ is called the local connection $1$-form.
+If $E$ is trivial of rank $k$, then the above assumption just means that $A$ is a $k\times k$ matrix of $1$-forms. In fact, if $\nabla$ is a connection on the trivial vector bundle of rank $k$, we can always write $\nabla=d+A$ for some matrix of $1$-forms. For a local trivialisation $E|_U\cong U\times\mathbb{R}^k$, the matrix of $1$-forms such that $\nabla|_U=d+A$ is called the local connection $1$-form.
 \begin{remark}
   We can take the wedge product of matrices of $1$-forms as follows. We use standard matrix multiplication, but instead of scalar multiplication in the entries, we use the wedge product. For example:
   $$\begin{pmatrix}dx & dy\\ dy & dz\end{pmatrix}\wedge\begin{pmatrix}dy & dz\\ dx & dy\end{pmatrix}=\begin{pmatrix}0 & dx\wedge dz\\ -dx\wedge dz & 0\end{pmatrix}$$
@@ -236,7 +233,7 @@ The defining property of the local $1$-form is given in the following exercise:
 \begin{exercise}\label{local}
   Let $e=(e_1,\dots,e_k)$ be a local frame for $E$. Show that $\nabla e=eA$, where we are viewing vectors as rows.
 \end{exercise}
-The terminology arises from the fact that every vector bundle is locally isomorphic to the trivial bundle, so we can express the connection locally in terms of this connection $1$-form. Suppose that
+Suppose that
 $$\Phi_\alpha:E|_{U_\alpha}\to U_\alpha\times\mathbb{R}^k\quad \Phi_\beta:E|_{U_\beta}\to U_\beta\times\mathbb{R}^k$$
 are two local trivialisations for $E$. Then we can ask ourselves how the connection $1$-forms are related, when we restrict to the intersection $U_{\alpha\beta}$. As we know, a trivialisation is equivalent to a local frame for $E$. Let $\Phi_\alpha$ correspond to $\{e_i\}_{i=1}^k$ and $\Phi_\beta$ to $\{e'_i\}_{i=1}^k$. Then there exist a smooth map $\phi_{\alpha\beta}:U_{\alpha\beta}\to\text{GL}(k,\mathbb{R})$ such that $e'=e\phi_{\alpha\beta}$. Consequently, using the Leibniz rule, we find:
 \begin{align*}
@@ -258,11 +255,11 @@ Thus, we have that $A_\beta=\phi_{\alpha\beta}^{-1}A_\alpha \phi_{\alpha\beta}+\
 
 \section{Geometric Intuition}
 
-Let's examine geometrically what a connection is. We will again do so on a trivial vector bundle $E=M\times\mathbb{R}^k$. In the case of the canonical connection, we are identifying the fibres in terms of "flat slices". The notion of flatness will be given a precise meaning in a moment.
+Let's examine geometrically what a connection is. We will again do so on a trivial vector bundle $E=M\times\mathbb{R}^k$. In the case of the canonical connection, we are identifying the fibres in terms of ``flat slices''. The notion of flatness will be given a precise meaning in a moment.
 \begin{example}\label{highschool}
   Let $M=\mathbb{R}$ and $E=\mathbb{R}^2$, which is the setting for highschool calculus. Sections of $E$ can be written as functions $f(x)$. Furthermore, a $1\times 1$ matrix of differential forms is just an ordinary differential form $df$. Let $f(x)=ax+b$, so that $df(x)=adx$. Define a connection on $E$ by $\nabla:=d-adx$. Ordinarily, we would say that functions of the form $g(x)=c$ are flat, because $dg(x)=0$. But now, we have $\nabla g(x)=-acdx$. If we consider the function $g(x)=e^{ax}$, then $dg=ag(x)dx$. Consequently, $\nabla g(x)=ag(x)dx-ag(x)dx=0$. Should we call $g(x)$ flat with respect to $\nabla$?
 \end{example}
-The example above illustrates informally how we identify the fibres of a vector bundle, using the connection, to inform our notion of "flatness". Formally, this is done through parallel transport.
+The example above illustrates informally how we identify the fibres of a vector bundle, using the connection, to inform our notion of ``flatness''. Formally, this is done through parallel transport.
 \begin{definition}
   Let $E$ be a vector bundle over $M$ and $\gamma:I\to M$ a curve. There is a linear map $P^\nabla_\gamma:E_{\gamma(0)}\to E_{\gamma(1)}$ called parallel transport along $\gamma$.
 \end{definition}
@@ -275,7 +272,7 @@ This is just a system of ordinary differential equations. Parallel transport is 
 
 \section{The Curvature of a Connection}
 
-Every connection has an associated curvature. Intuitively, we might think of the curvature as the "failure of the partial derivatives to commute". In ordinary Euclidean space, we have $\frac{\partial^2}{\partial y\partial x}=\frac{\partial^2}{\partial x\partial y}$, so the derivative operators do commute.
+Every connection has an associated curvature. Intuitively, we might think of the curvature as the ``failure of the partial derivatives to commute''. In ordinary Euclidean space, we have $\frac{\partial^2}{\partial y\partial x}=\frac{\partial^2}{\partial x\partial y}$, so the derivative operators do commute.
 \begin{definition}
   Consider the operator $R_\nabla:\Gamma(TM)\times\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$ defined by
   $$(X,Y,s)\mapsto(\nabla_X\nabla_Y-\nabla_Y\nabla_X-\nabla_{[X,Y]})s$$
