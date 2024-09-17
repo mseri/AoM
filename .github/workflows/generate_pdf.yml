@@ -67,7 +67,7 @@ jobs:
 
     - name: Upload PDF
       if: ${{ success() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         path: assets/aom-tg.pdf
         name: aom-tg-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
@@ -83,7 +83,7 @@ jobs:
 
     - name: Upload PDF
       if: ${{ success() }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         path: assets/aom-od.pdf
         name: aom-od-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
