@@ -1008,16 +1008,19 @@ With such definition at hand, one can define compatibility, smooth atlases and d
 An alternative proof can be given by proving that charts preserve the interior of $M$.
 
 \begin{proof}[Alternative proof of Proposition~\ref{prop:bdwelldef}]
-	Let $p\in M$ be an interior point, that is, there exists $\varphi: U\subset M \to \cH^n$, $p\in U$, such that $x^n(p) = r^n\circ\varphi(p) > 0$.
+	Let $p\in M$ be mapped to an interior point in $\cH^n$, that is, there exists $\varphi: U\subset M \to \cH^n$, $p\in U$, such that $x^n(p) = r^n\circ\varphi(p) > 0$.
 
 	Consider a different chart $\psi:V\subset M\to \cH^n$, $p\in V$.
-	We want to show that $\psi^n(p) > 0$. Since
+	We want to show that, necessarily, $\psi^n(p) > 0$. Since
 	\begin{equation}\label{eq:trans-int-chart}
 		\psi\circ\varphi^{-1} : \varphi(U\cap V) \to \psi(U\cap V)
 	\end{equation}
 	is a diffeomorphism and $x^n(p) > 0$, there exists an open set $W\subset U\cap V$, $p\in W$, such that $\forall q\in W$, $x^n(q) > 0$.
 	Therefore $\varphi(W)\subset \cH^n$ is open also in $\R^n$ and $\psi\circ\varphi^{-1} : \varphi(W) \to \psi(W)$ is a diffeomorphism onto its image.
+
 	This implies that also $\psi(W)$ is open both in $\cH^n$ and in $\R^n$, and thus $\forall q \in W$, $y^n(q) = r^n\circ \psi(q) > 0$. That is, $p$ is an interior point also with respect to the new chart.
+
+	In particular, this implies that boundary points are mapped to boundary points by any chart. Assume that $p\in\partial M$ is mapped to an interior point by a chart $\varphi: U\subset M \to \cH^n$. Then, by the previous argument, $\varphi(p)$ is an interior point with respect to any other chart, leading to a contradiction.
 \end{proof}
 
 In fact, a stronger fact holds.
