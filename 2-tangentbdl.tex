@@ -363,14 +363,14 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   Thus, $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ is a basis of $T_p M$.
 \end{proposition}
 \begin{proof}
-  We may assume without loss of generality that $\varphi(p) = 0$ and, thanks to Corollary~\ref{cor:tgsubspace}, that $U$ is star-shaped.
+  We may assume without loss of generality that $\varphi(p) = 0$ and, thanks to Corollary~\ref{cor:tgsubspace}, that $V$ is star-shaped\sidenote[][1em]{Exercise: explain in details why it is the case.}.
   Let $f\in C^\infty(U)$.
   By Lemma~\ref{lem:Taylor} with $h = f \circ \varphi^{-1}$ we get
   \begin{equation}
     f = f(p) + x^i (g_i \circ \varphi),
     \quad g_i(0) = D_i (f \circ \varphi^{-1})(0) = \frac{\partial}{\partial x_i}\Big|_p(f).
   \end{equation}
-  \marginnote{If we are careful with the meaning of our notation, we could write more succintly $\frac{\partial f}{\partial x_i}(p)$ in place of $\frac{\partial}{\partial x_i}\big|_p(f)$ in the same fashion as in Example~\ref{ex:partialderivative}.}
+  \marginnote{If we are careful with the meaning of our notation, we could write more succinctly $\frac{\partial f}{\partial x_i}(p)$ in place of $\frac{\partial}{\partial x_i}\big|_p(f)$ in the same fashion as in Example~\ref{ex:partialderivative}.}
   Thus, for any derivation $v$, we obtain
   \begin{equation}
     v(f) = v(f(p)) + v(x^i)g_i(0) + x^i(p) v(g_i\circ\varphi) = v(x^i)  \frac{\partial}{\partial x_i}\Big|_p(f).
@@ -540,11 +540,11 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
   The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$. For any $j=1,\ldots,m$, Remark~\ref{rmk:chg_coords} implies
   \begin{align}
     dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right)
-     & =                                                                                                   %\sum_{i=1}^n 
+     & =                                                                                                   %\sum_{i=1}^n
     dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right) (y^i) \frac{\partial}{\partial y^i}\Big|_{F(p)} \\
-     & =                                                                                                   %\sum_{i=1}^n 
+     & =                                                                                                   %\sum_{i=1}^n
     \frac{\partial}{\partial x^j}\Big|_p (y^i \circ F) \frac{\partial}{\partial y^i}\Big|_{F(p)}           \\
-     & =                                                                                                   %\sum_{i=1}^n 
+     & =                                                                                                   %\sum_{i=1}^n
     D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
   \end{align}
 \end{proof}
