@@ -52,7 +52,7 @@ compare the following statements.
 \end{exercise}
 
 Note that this theorem can fail for manifold with boundary.
-A counterexample\footnote{Exercise: why?} is given by the inclusion map $\cH^n \hookrightarrow \R^n$. 
+A counterexample\footnote{Exercise: why?} is given by the inclusion map $\cH^n \hookrightarrow \R^n$.
 
 An important observation at this point is that the rank of the mapping
 is a crucial property in the inverse function theorem and it is really a
@@ -84,7 +84,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
 
 \begin{proof}
   We start with two important observations.
-  
+
   \newthought{First}. The statement is local on charts: without loss of generality,
   we can fix local coordinates on $M$ and $N$ respectively centred around $p$ and $F(p)$
   and replace them altogether by two open subsets $U\subseteq \R^m$ and $V \subseteq \R^n$.
@@ -105,15 +105,15 @@ If some detail seems unclear, I would recommend you to go through the proof step
 
   \newthought{Right hand side}.
   Writing $F(x,y) = (Q(x,y), R(x,y))$ for some smooth maps $Q: U \to \R^k$ and $R: U \to \R^{n-k}$,
-  our choice of coordinates after the above observations implies that
+  our choice of coordinates after the above observations implies that the gradient of $Q$ with respect to $x$ is regular, that is,
   $\det \left( \frac{\partial Q^i}{\partial x^j} \right) \neq 0$ at $(x,y) = (0,0)$.
 
-  Since the gradient of $Q$ with respect to $x$ is regular, we are going to extend
-  the mapping with the identity on the rest of the coordinates to get a regular map
+  In particular, this implies that we can extend the mapping with
+  the identity on the rest of the coordinates to obtain a regular map
   on the whole neighbourhood.
   Let $\varphi : U \to \R^m$ be defined by $\varphi(x,y) = (Q(x,y), y)$. Then,
   \begin{equation}
-    D\varphi(0,0) = 
+    D\varphi(0,0) =
     \begin{pmatrix}
       \frac{\partial Q^i}{\partial x^j}(0,0) & \frac{\partial Q^i}{\partial y^j}(0,0) \\
       0 & \id_{\R^{m-k}}
@@ -130,7 +130,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
     (x,y) = \varphi(A(x,y), B(x,y)) = (Q(A(x,y), B(x,y)), B(x,y)).
   \end{equation}
   That is, $B(x,y) = y$ and therefore $\varphi^{-1}(x,y) = (A(x,y), y)$.
-  Moreover, $\varphi \circ \varphi^{-1} = \id$ and thus $(Q(A(x,y),y) = x$.
+  Moreover, $\varphi \circ \varphi^{-1} = \id$ and thus $Q(A(x,y),y) = x$.
 
   This leaves us with
   \begin{equation}
@@ -152,11 +152,11 @@ If some detail seems unclear, I would recommend you to go through the proof step
   The claim then follows from a classical theorem in linear algebra.
 
   Since $\id_{\R^k}$ makes the first $k$ columns of the matrix \eqref{eq:diff_DFp-1}
-  linearly independent, the matrix can have rank $k$ only if the derivatives 
+  linearly independent, the matrix can have rank $k$ only if the derivatives
   $\frac{\partial \widetilde{R}^i}{\partial y^j}$ vanish identically on $W_0$.
   That means that $\widetilde{R}$ is independent of the corresponding variables
   $(y^1, \ldots, y^{m-k})$.
-  
+
   Defining $S(x) = \widetilde{R}(x, 0)$, we have
   \begin{equation}
     F\circ\varphi^{-1}(x,y) = (x, S(x)).
@@ -165,7 +165,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
   \newthought{Left hand side}.
   If we can find a smooth chart $\psi : V_0 \to \R^n$ in some neighbourhood $V_0$ of $(0,0)$,
   we will have concluded the proof.
-  Define 
+  Define
   \begin{equation}
     \psi(u, v) = (u, v - S(u))
     \quad\mbox{on}\quad
@@ -182,7 +182,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
   both $V$ and $W_0$ are neighbourhoods of $(0,0)$.
   The first claim follows by definition of $V_0$ since that requires $(x,0)\in W_0$,
   which is clearly the case by setting $y=0$.
-  
+
   Putting all pieces together, we get
   \begin{equation}
     \psi \circ F \circ \varphi^{-1} (x,y) = \psi(x, S(x)) = (x, S(x) - S(x)) = (x,0),
@@ -489,4 +489,3 @@ To finally answer the question, we will prove one last proposition.
   \textit{\small Hint: Find a suitable map $F: \mathrm{Mat}(n, \R) \to \mathrm{Sym}(n)$ such that $F^{-1}(\{p\}) = O(n)$ for some point $p$ in the image, e.g. $0$ or $\id_n$.
     Here $\mathrm{Sym}(n)$ denotes the space of symmetric matrices.}
 \end{exercise}
-
