@@ -7,11 +7,12 @@ In the euclidean settings these are simply smooth maps that attach a vector to e
 \newthought{The step to abstract manifolds} is rather intuitive in this case: a vector field will be a map that, at each point of a manifold, picks a tangent vector at that point in a smooth way.
 
 \begin{definition}\label{def:vfield}
-  A $C^k$-map $X: M \to TM$ with $\pi\circ X = \id_M$, or equivalently $X_p\in T_pM$ for all $p\in M$, is called \emph{$C^k$-vector field}.
+  A $C^k$-map $X: M \to TM$ with $\pi\circ X = \id_M$, or equivalently $X_p\in T_pM$ for all $p\in M$, is called \emph{$C^k$-vector field}. Here, the map $\pi:TM \to M$ is the projection that we defined when we introduced the tangent bundle $TM$ in Section~\ref{sec:tangentbundle}.
   The vector field is smooth if it is a $C^k$-vector field\footnote{Observe that it needs to be $C^k$ w.r.t. both the differentiable structures on $M$ and $TM$.} for all $k\geq 1$.
+
   We denote\footnote{Alternative notations are $\cT_0^1(M)$, $\cT(M)$ and $\Gamma(TM)$. The first two are related to vector fields being tensor fields of type $(1,0)$, a topic that we will discuss in the near future.} the set of smooth vector fields by $\fX(M)$.
 
-  The map $\pi:TM \to M$ is called \emph{footpoint map} and the equation $\pi\circ X = \id_M$ is called \emph{section property}.
+  The defining property of vector fields, summarized by the identity $\pi\circ X = \id_M$, is   called \emph{section property}. We will understand where this name comes from, once we introduce Vector Bundles in Section~\ref{sec:vec-bdls}.
 \end{definition}
 
 Beware of the curse of differential geometry.
@@ -567,7 +568,7 @@ When we want to emphasize the vector field $X$, we will write $\phi^X$.
 
   %   Suppose that $t_0\in\overline{J}$ and set $p_0 = \gamma_p(t_0)$.
   %   We are going to show that we can always extend smoothly the flow to a neighbourhood of $t_0$
-  %   Applying Theorem~\ref{thm:exuniqloc} at $p_0$ we obtain a local flow $\phi:(-\epsilon,\epsilon)\times U_0 \to M$ about $p_0$. 
+  %   Applying Theorem~\ref{thm:exuniqloc} at $p_0$ we obtain a local flow $\phi:(-\epsilon,\epsilon)\times U_0 \to M$ about $p_0$.
   %   Since $\gamma_p$ is continuous and $t_0$ is in the closure of $J$, we can choose $t_1\in J$ such that $t_0 - t_1 \in (-\epsilon, \epsilon)$ and $\gamma_p(t_1)\in U_0$.
 
   %   In fact, we can choose a whole interval $J_0\subset J$, $t_0\in J_0$, such that $t-t_1\in(-\epsilon, \epsilon)$ for all $t\in J_0$.
@@ -607,7 +608,7 @@ For a complete vector field $X$, $\cD = \R\times M$.
 \begin{definition}
   A \emph{one-parameter group of diffeomorphisms}\footnote{If you stumble upon a one-parameter group \emph{action}, don't be scared: it is the same exact thing where $\phi$ is required to be continuous instead of smooth.} is a smooth left $\R$-action on $M$, that is, a smooth map $\phi:\R\times M \to M$ such that for all $s,t\in\R$ and all $p\in M$:
   \begin{align}
-     & \phi(0,p) = p,                            \\
+     & \phi(0,p) = p,                      \\
      & \phi(t, \phi(s, p)) = \phi(t+s, p).
   \end{align}
 
@@ -798,7 +799,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   We can use the previous trick,~\eqref{eq:intcurvconst} and~\eqref{eq:expdiff} to get, for any $s\in\R$,
   \begin{align}
     \frac{\partial}{\partial s} \phi_s
-     & = \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{(s+\epsilon) Y}\circ e^{tX}                                                                                                  \\
+     & = \frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{(s+\epsilon) Y}\circ e^{tX}                                                                                               \\
      & = \LaTeXunderbrace{\frac{\partial}{\partial \epsilon} \Big|_{\epsilon = 0} e^{-tX}\circ e^{\epsilon Y}\circ e^{tX}}_{e^{-tX}_* Y} \circ \LaTeXunderbrace{e^{-tX}\circ e^{s Y}\circ e^{tX}}_{\phi_s} \\
      & = e^{-tX}_* Y \circ \phi_s = Y \circ \phi_s.
   \end{align}
@@ -881,18 +882,18 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   Thus, $\Omega$ is a well--defined diffeomorphism.
   Moreover,
   \begin{align}
-    \Omega \circ \phi^{\widetilde{L}}_t & = \lim_{s\to\infty} \phi_{-s}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_t                                                          \\
-                                           & = \lim_{s\to\infty} \phi_{-s}^L \circ \phi^{\widetilde{L}}_{s+t}                                                                                      \\
-                                           & = \lim_{\tau\to\infty} \phi_{t-\tau}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_\tau                                                \\
-                                           & = \lim_{\tau\to\infty} \phi_{t}^L \circ \phi_{-\tau}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_\tau = \phi_t^L \circ \Omega,
+    \Omega \circ \phi^{\widetilde{L}}_t & = \lim_{s\to\infty} \phi_{-s}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_t                                                    \\
+                                        & = \lim_{s\to\infty} \phi_{-s}^L \circ \phi^{\widetilde{L}}_{s+t}                                                                             \\
+                                        & = \lim_{\tau\to\infty} \phi_{t-\tau}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_\tau                                          \\
+                                        & = \lim_{\tau\to\infty} \phi_{t}^L \circ \phi_{-\tau}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_\tau = \phi_t^L \circ \Omega,
   \end{align}
   and therefore the flows are diffeomorphic.
   In particular, we also have $\phi_p^{\widetilde{L}} = \Omega^{-1} \circ \phi^L_{\Omega(x)}$.
   Differentiating this last equation we get
   \begin{align}
-    (\widetilde{L} \circ \phi^{\widetilde{L}})_p & = d\phi^{\widetilde{L}}_p                                                  \\
-                                                    & = d\Omega^{-1}_{\phi^L_{\Omega(x)}} \circ d\phi^L_{\Omega(x)}           \\
-                                                    & = d\Omega^{-1}_{\phi^L_{\Omega(x)}} \circ (L \circ \phi^L)_{\Omega(x)},
+    (\widetilde{L} \circ \phi^{\widetilde{L}})_p & = d\phi^{\widetilde{L}}_p                                               \\
+                                                 & = d\Omega^{-1}_{\phi^L_{\Omega(x)}} \circ d\phi^L_{\Omega(x)}           \\
+                                                 & = d\Omega^{-1}_{\phi^L_{\Omega(x)}} \circ (L \circ \phi^L)_{\Omega(x)},
   \end{align}
   which, at $t=0$, gives $\widetilde{L} = d\Omega^{-1} \circ L \circ \Omega = \Omega^{-1}_* L$.
 \end{proof}
