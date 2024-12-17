@@ -104,10 +104,10 @@ The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the
   \newthought{Part 1. $E$ has a structure of smooth manifold}.
   Let $(U_\alpha, \varphi_\alpha)$ be a smooth structure on $M$ adapted to the given open cover.
   We need to use this, and the given maps from the statement, to define charts from $E_p$ to $\R^n\times\R^k$.
-  For each $p\in M$, choose an open neighbourhood $V_p \subseteq U_\alpha$ for some $\alpha\in A$.
+  For each $p\in M$, choose an open neighbourhood $V_p \supseteq U_\alpha$ for some $\alpha\in A$.
   Observe that $\pi^{-1}(V_p) \subseteq E_p$ and $\widetilde{V}_p := \varphi_\alpha(V_p) \subseteq \R^n$ and therefore it may be natural to consider the collection $\{(\pi^{-1}(V_p), \widetilde{\varphi}_p)\mid p\in M\}$, where
   \begin{equation}
-    \widetilde{\varphi}_p := (\varphi_\alpha\times \id_k) \circ \varPhi_\alpha : \pi^{-1}(V_p) \xrightarrow{\varPhi_\alpha} V_p\times\R^k \xrightarrow{\varphi_\alpha\times \id_k} \widetilde{V}_p\times \R^n,
+    \widetilde{\varphi}_p := (\varphi_\alpha\times \id_k) \circ \varPhi_\alpha : \pi^{-1}(V_p) \xrightarrow{\varPhi_\alpha} V_p\times\R^k \xrightarrow{\varphi_\alpha\times \id_k} \widetilde{V}_p\times \R^k,
   \end{equation}
   as a candidate to apply the Smooth Manifold Lemma~\ref{lem:manifold_chart}.
   This would give $E$ both a topology and a smooth structure.
@@ -116,7 +116,7 @@ The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the
   First of all, observe that $\widetilde{\varphi}_p$ is a bijection from $\pi^{-1}(V_p)$ onto $\widetilde{V}_p\times\R^k \subseteq \R^{n+k}$ since it is the composition of bijective maps.
   By construction, for $p,q\in M$, we have
   \begin{equation}
-    \widetilde{\varphi}_p(\pi^{-1}(V_p) \cap \pi^{-1}(V_q)) = \phi_p(V_p\cap V_q)\times \R^k
+    \widetilde{\varphi}_p(\pi^{-1}(V_p) \cap \pi^{-1}(V_q)) = \varphi_p(V_p\cap V_q)\times \R^k
   \end{equation}
   which is open in $\R^{n+k}$ since $\varphi_p$ is a homeomorphism onto an open $V_p\subseteq\R^n$.
   Finally, on the overlap of two charts, there are $\alpha, \beta\in A$ such that
