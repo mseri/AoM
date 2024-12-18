@@ -3,60 +3,62 @@
 \newthought{The dual of a vector space} should be a well-known concept from linear algebra. We recall it here just for the sake of convenience.
 
 \begin{definition}
-  Let $V$ a vector space of dimension $n\in \N$.
-  Its \emph{dual space} $V^* := \cL(V, \R)$ is the $n$-dimensional real vector space of linear maps $\omega:V \to \R$.
-  The elements of $V^*$ are usually called \emph{linear functionals} and for $\omega\in V^*$ and $v\in V$ it is common to write
-  \begin{equation}
-    \omega(v) =: (\omega, v) =: (\omega \mid v).
-  \end{equation}
-  The notation can be deceiving: the \emph{dual pairing} $(\omega \mid v)$ is \emph{not} a scalar product.
+	Let $V$ a vector space of dimension $n\in \N$.
+	Its \emph{dual space} $V^* := \cL(V, \R)$ is the $n$-dimensional real vector space of linear maps $\omega:V \to R$.
+	The elements of $V^*$ are usually called \emph{linear functionals} and for $\omega\in V^*$ and $v\in V$ it is common to write
+	\footnote{The notation can be deceiving: the \emph{dual pairing} $(\omega \mid v)$ is \emph{not} a scalar product.}
+	\begin{equation}
+		\omega(v) =: (\omega, v) =: (\omega \mid v).
+	\end{equation}
+
+	Given any basis $\{e_1, \ldots, e_n\}$ of the vector space $V$, the corresponsing \emph{dual basis} $\{e^1, \ldots, e^n\}$ of $V^*$ is defined by $e^i(e_j) = \delta^i_j$.\marginnote{It is crucial here that the dimension of the vector space is finite. In general, for an infinite-dimensional vector space, the dual space will have a greater cardinality.}
 \end{definition}
 
 \begin{remark}\label{rmk:identification}
-  Note that a scalar product $\langle\cdot, \cdot\rangle :  V\times V \to \R$ on a vector space $V$ provides a natural identification of $V$ and $V^*$ via the map $V\ni v \mapsto \langle v, \cdot \rangle =: \omega(\cdot) \in V^*$.
-  Even though $\dim V = \dim V^*$ in any case, without the scalar product there is no such canonical\footnote{The keywords \emph{natural} and \emph{canonical} here are crucial: we are saying that in general there is no ``coordinate-free'' isomorphism, i.e., one that is independent of the choice of basis on $V$.} isomorphism.
+	Note that a scalar product $\langle\cdot, \cdot\rangle :  V\times V \to \R$ on a vector space $V$ provides a natural identification of $V$ and $V^*$ via the map $V\ni v \mapsto \langle v, \cdot \rangle =: \omega(\cdot) \in V^*$.
+	Even though $\dim V = \dim V^*$ in any case, without the scalar product there is no such canonical\footnote{The keywords \emph{natural} and \emph{canonical} here are crucial: we are saying that in general there is no ``coordinate-free'' isomorphism, i.e., one that is independent of the choice of basis on $V$.} isomorphism.
 \end{remark}
 
 In the previous chapter we defined the tangent space as a special vector space over each point in a manifold, which nicely fits in the requirements above.
 
 \begin{definition}
-  Let $M$ be a differentiable manifold and $p\in M$.
-  The dual space $T_p^*M := (T_pM)^*$ of the tangent space $T_pM$ is called the \emph{cotangent space} of $M$ at $p$.
-  The elements of $T^*_pM$ are called \emph{cotangent vectors}, \emph{covectors} or \emph{(differential) $1$-forms} at $p$.
+	Let $M$ be a differentiable manifold and $p\in M$.
+	The dual space $T_p^*M := (T_pM)^*$ of the tangent space $T_pM$ is called the \emph{cotangent space} of $M$ at $p$.
+	The elements of $T^*_pM$ are called \emph{cotangent vectors}, \emph{covectors} or \emph{(differential) $1$-forms} at $p$.
 \end{definition}
 
 For a function $f:\R^n\to\R$, we usually consider the gradient $\nabla f(x)$ at a point $x$ to be a vector.
 On a manifold however things a slightly different.
 
 \begin{example}[The differential of a function]
-  Let $f\in C^\infty(M)$.
-  Let's look carefully at its differential:
-  \begin{equation}
-    df_p: T_p M \to T_{f(p)}\R \simeq \R
-  \end{equation}
-  is a linear function from the tangent space to $\R$.
-  In other words, $df_p \in T_p^* M$.
+	Let $f\in C^\infty(M)$.
+	Let's look carefully at its differential:
+	\begin{equation}
+		df_p: T_p M \to T_{f(p)}\R \simeq \R
+	\end{equation}
+	is a linear function from the tangent space to $\R$.
+	In other words, $df_p \in T_p^* M$.
 \end{example}
 
 Whereas tangent vectors give us a coordinate-free interpretation of derivatives (of curves), it turns out that derivatives of real-valued functions on a manifold are most naturally interpreted as cotangent vectors.
 
 Indeed, we saw that the action of $df_p$ on a tangent vector $v\in T_p M$ can be interpreted as the directional derivative of $f$ at $p$ in the direction $v$ and, by using Definition~\ref{def:tg:ascurvespeed}, we have
 \begin{equation}
-  df_p(v) = \frac{d}{dt}f(\gamma(t))\Big|_{t=0}
+	df_p(v) = \frac{d}{dt}f(\gamma(t))\Big|_{t=0}
 \end{equation}
 for some curve $\gamma$ with $\gamma(0) = p$ and $\gamma'(0)=v$.
 We also know that the equation above can be rewritten by thinking of $v$ as a derivation, giving
 \begin{equation}
-  df_p(v) = v(f).
+	df_p(v) = v(f).
 \end{equation}
 That is, we can think of the dual pairing $(df\mid v)$ in a twofold way:
 \begin{itemize}
-  \item as a linear action of the covector $df$ on the vector $v$;
-  \item as the linear action of the vector $v$ as a derivation operating on the function $f$.
+	\item as a linear action of the covector $df$ on the vector $v$;
+	\item as the linear action of the vector $v$ as a derivation operating on the function $f$.
 \end{itemize}
 
 \begin{notation}
-  In analogy to the notation $\frac{\partial}{\partial x}\big|_p$ that we used for tangent vectors, when convenient we may write $df|_p$ instead of $df_p$.
+	In analogy to the notation $\frac{\partial}{\partial x}\big|_p$ that we used for tangent vectors, when convenient we may write $df|_p$ instead of $df_p$.
 \end{notation}
 
 To look more concretely at differential forms, let's compute its coordinate representation.
@@ -64,145 +66,152 @@ Let $(U,(x^i))$ be a chart on $M^n$.
 Since the coordinate functions $x^i\in C^\infty(U)$ are smooth real valued functions, we can define the corresponding coordinate $1$-forms $dx^i|_p \in T_p^* M$.
 Their action on the coordinate vector fields, then, is immediately computed as
 \begin{equation}
-  \left(dx^i|_p ,\; \frac{\partial}{\partial x^j}\Big|_p\right) =
-  dx^i|_p \left(\frac{\partial}{\partial x^j}\Big|_p\right)
-  = \frac{\partial}{\partial x^j}\Big|_p x^i
-  = \delta^i_j.
+	\left(dx^i|_p ,\; \frac{\partial}{\partial x^j}\Big|_p\right) =
+	dx^i|_p \left(\frac{\partial}{\partial x^j}\Big|_p\right)
+	= \frac{\partial}{\partial x^j}\Big|_p x^i
+	= \delta^i_j.
 \end{equation}
 Which proves the following statement.
 
 \begin{proposition}
-  Let $(x^i)$ be local coordinates on an open subset $U\subseteq M^n$.
-  At each point $p\in U$, the covectors $\left\{dx^1|_p, \ldots, dx^n|_p\right\}$ form a basis for the cotangent space $T_p^* M$ which is dual to the basis $\left\{\frac{\partial}{\partial x^1}\Big|_p, \ldots, \frac{\partial}{\partial x^n}\Big|_p\right\}$ for the tangent space $T_p M$.
+	Let $(x^i)$ be local coordinates on an open subset $U\subseteq M^n$.
+	At each point $p\in U$, the covectors $\left\{dx^1|_p, \ldots, dx^n|_p\right\}$ form a basis for the cotangent space $T_p^* M$ which is dual to the basis $\left\{\frac{\partial}{\partial x^1}\Big|_p, \ldots, \frac{\partial}{\partial x^n}\Big|_p\right\}$ for the tangent space $T_p M$.
 \end{proposition}
 
 That is, any $1$-form $\omega$ can be locally written as a linear combination
 \begin{equation}
-  \omega = \omega_i\; dx^i
+	\omega = \omega_i\; dx^i
 \end{equation}
 where $\omega_i:U\to\R$.
 In particular, if $f\in C^\infty(M)$, the restriction $df$ to points in $U$ should have the same form.
 Evaluating it on a coordinate vector field gives, for all $p\in U$,
 \begin{align}
-   & \underset{\shortparallel}{df_p} \left(\frac{\partial}{\partial x^j}\Big|_p\right)
-  = \omega_i\; dx^i|_p \left(\frac{\partial}{\partial x^j}\Big|_p\right) =
-  \omega_i \delta^i_j = \omega_j                                                       \\
-   & \frac{\partial f}{\partial x^j}(p).
+	 & \underset{\shortparallel}{df_p} \left(\frac{\partial}{\partial x^j}\Big|_p\right)
+	= \omega_i\; dx^i|_p \left(\frac{\partial}{\partial x^j}\Big|_p\right) =
+	\omega_i \delta^i_j = \omega_j                                                       \\
+	 & \frac{\partial f}{\partial x^j}(p).
 \end{align}
 
 That is, the local expression for $df$ is
 \begin{equation}\label{eq:localformofthedifferential}
-  df =  \frac{\partial f}{\partial x^i} dx^i.
+	df =  \frac{\partial f}{\partial x^i} dx^i.
 \end{equation}
 
 \begin{remark}
-  In calculus 1 you have probably been told that you can cancel out differentials when applying solving differential equations.
-  This was probably accompanied by a warning that it is just a formal thing, a computational convenience.
-  We can finally make sense of that in a general context: in one dimension,~\eqref{eq:localformofthedifferential}, reads as
-  \begin{equation}
-    d f = \frac{df}{dt}dt.
-  \end{equation}
+	In calculus 1 you have probably been told that you can cancel out differentials when applying solving differential equations.
+	This was probably accompanied by a warning that it is just a formal thing, a computational convenience.
+	We can finally make sense of that in a general context: in one dimension,~\eqref{eq:localformofthedifferential}, reads as
+	\begin{equation}
+		d f = \frac{df}{dt}dt.
+	\end{equation}
 \end{remark}
 
 \begin{example}\label{ex:diff1}
-  If $f(x,y) = x y^2 e^{3x}$ on $\R^2$, then $df$ is given by the formula
-  \begin{align}
-    df
-     & = \frac{\partial (x y^2 e^{3x})}{\partial x} dx + \frac{\partial (x y^2 e^{3x})}{\partial y} dy \\
-     & = (y^2 e^{3x} +3xy^2 e^{3x}) dx + 2xy e^{3x} dy.
-  \end{align}
+	If $f(x,y) = x y^2 e^{3x}$ on $\R^2$, then $df$ is given by the formula
+	\begin{align}
+		df
+		 & = \frac{\partial (x y^2 e^{3x})}{\partial x} dx + \frac{\partial (x y^2 e^{3x})}{\partial y} dy \\
+		 & = (y^2 e^{3x} +3xy^2 e^{3x}) dx + 2xy e^{3x} dy.
+	\end{align}
 \end{example}
 
 With the local basis, computing with covectors becomes much easier.
 Given a covector $\omega = \omega_j\; dx^j$ and a vector $v = v^i \frac{\partial}{\partial x^i}$ expressed in the respective coordinate bases for the local coordinates $(x^i)$, by linearity in both arguments the dual pairing takes the form
 \begin{equation}\label{eq:localdualpairing}
-  (\omega \mid v) =
-  \left(\omega_j\; dx^j \;\Big |\; v^i \frac{\partial}{\partial x^i} \right) =
-  \omega_j v^i \left(dx^j \;\Big |\; \frac{\partial}{\partial x^i} \right) =
-  \omega_j v^j.
+	(\omega \mid v) =
+	\left(\omega_j\; dx^j \;\Big |\; v^i \frac{\partial}{\partial x^i} \right) =
+	\omega_j v^i \left(dx^j \;\Big |\; \frac{\partial}{\partial x^i} \right) =
+	\omega_j v^j.
 \end{equation}
 
 \begin{example}
-  Let, now, $v = 7 \frac{\partial}{\partial x}\Big|_{(1,2)} + 3 \frac{\partial}{\partial y}\Big|_{(1,2)}\in T_{(1,2)}\R^2$, and $f$ from Example~\ref{ex:diff1}.
-  We have
-  \begin{align}
-    (df|_{(1,2)}, v)
-     & = \left((y^2 e^{3x} +3xy^2 e^{3x}) dx + 2xy e^{3x} dy, 7 \frac{\partial}{\partial x} + 3 \frac{\partial}{\partial y} \right)\Big|_{(1,2)} \\
-     & = 7(y^2 e^{3x} +3xy^2 e^{3x})|_{(1,2)} + 6 xy e^{3x}|_{(1,2)}                                                                             \\
-     & = 7(4 e^3 + 12 e^3) + 12 e^3 = 52e^3.
-  \end{align}
+	Let, now, $v = 7 \frac{\partial}{\partial x}\Big|_{(1,2)} + 3 \frac{\partial}{\partial y}\Big|_{(1,2)}\in T_{(1,2)}\R^2$, and $f$ from Example~\ref{ex:diff1}.
+	We have
+	\begin{align}
+		(df|_{(1,2)}, v)
+		 & = \left((y^2 e^{3x} +3xy^2 e^{3x}) dx + 2xy e^{3x} dy, 7 \frac{\partial}{\partial x} + 3 \frac{\partial}{\partial y} \right)\Big|_{(1,2)} \\
+		 & = 7(y^2 e^{3x} +3xy^2 e^{3x})|_{(1,2)} + 6 xy e^{3x}|_{(1,2)}                                                                             \\
+		 & = 7(4 e^3 + 12 e^3) + 12 e^3 = 52e^3.
+	\end{align}
 \end{example}
 
 \begin{exercise}
-  Let $M$ be a smooth manifold and let $f,g\in C^\infty(M)$. Show that the following properties hold:
-  \begin{enumerate}
-    \item $d(\alpha f + \beta g) = \alpha df + \beta dg$ for $\alpha,\beta\in\R$;
-    \item $d(fg) = f dg + g df$;
-    \item $d(f/g) = (g df - f dg)/g^2$ on the set where $g\neq 0$;
-    \item if $J\subseteq\R$ contains the image of $f$ and $h:J\to\R$ is smooth, then $d(h\circ f) = (h'\circ f) df$;
-    \item if $f$ is constant, then $df= 0$.
-  \end{enumerate}
+	Let $M$ be a smooth manifold and let $f,g\in C^\infty(M)$. Show that the following properties hold:
+	\begin{enumerate}
+		\item $d(\alpha f + \beta g) = \alpha df + \beta dg$ for $\alpha,\beta\in\R$;
+		\item $d(fg) = f dg + g df$;
+		\item $d(f/g) = (g df - f dg)/g^2$ on the set where $g\neq 0$;
+		\item if $J\subseteq\R$ contains the image of $f$ and $h:J\to\R$ is smooth, then $d(h\circ f) = (h'\circ f) df$;
+		\item if $f$ is constant, then $df= 0$.
+	\end{enumerate}
 \end{exercise}
 
-\begin{remark}[The double dual]
-  We said in Remark~\ref{rmk:identification} that unless we have an inner product, there is no canonical identification of a vector space with its dual.
-  This is true also for the tangent and cotangent spaces.
-  However, the situation is different for the double dual $T^{**}_pM := (T^*_pM)^*$.
+\begin{remark}[The double dual]\label{rmk:double_dual}
+	We said in Remark~\ref{rmk:identification} that unless we have an inner product, there is no canonical identification of a vector space with its dual.
+	This is true also for the tangent and cotangent spaces.
+	However, the situation is different for the double dual $T^{**}_pM := (T^*_pM)^*$.
 
-  For $v\in T_p M$, the map
-  \begin{equation}
-    i_v: T_p^*M\to \R, \qquad
-    \omega \mapsto i_v(\omega) := (\omega\mid v)
-  \end{equation}
-  is linear and therefore $i_v\in T^{**}_pM$.
+	For $v\in T_p M$, the map
+	\begin{equation}
+		i_v: T_p^*M\to \R, \qquad
+		\omega \mapsto i_v(\omega) := (\omega\mid v)
+	\end{equation}
+	is linear and therefore $i_v\in T^{**}_pM$.
 
-  Furthermore the map $i : T_pM \to T_p^{**}M$, $v\mapsto i_v$, is a vector space isomorphism. Indeed, it is injective since $\ker(i) = \{0\}$ and since $\dim T_p M = \dim T^{**}_p M$ also surjective\footnote{Why? If \emph{rank-nullity theorem} does not ring a bell, make sure to look it up. It is, e.g.,~\cite[Corollary B.21]{book:lee}}.
+	Furthermore the map $i : T_pM \to T_p^{**}M$, $v\mapsto i_v$, is a vector space isomorphism. Indeed, it is injective since $\ker(i) = \{0\}$ and since $\dim T_p M = \dim T^{**}_p M$ also surjective\footnote{Why? If \emph{rank-nullity theorem} does not ring a bell, make sure to look it up. It is, e.g.,~\cite[Corollary B.21]{book:lee}}.
 
-  That is, $T^{**}_pM$ can be canonically identified with $T_p M$.
+	That is, $T^{**}_pM$ can be canonically identified with $T_p M$.
 
-  So, to add up to our list of interpretations of geometric objects, we now have seen that
-  \begin{itemize}
-    \item a covector can act as a linear functional on vectors;
-    \item a vector can act as a linear functional on covectors.
-  \end{itemize}
+	So, to add up to our list of interpretations of geometric objects, we now have seen that
+	\begin{itemize}
+		\item a covector can act as a linear functional on vectors;
+		\item a vector can act as a linear functional on covectors.
+	\end{itemize}
 \end{remark}
 
 This should start giving you an idea of what is behind the following famous quote by Henri Poincar\'e:
 \begin{quote}
-  Mathematics is the art of giving the same name to different things.
+	Mathematics is the art of giving the same name to different things.
 \end{quote}
 
-\section{Change of coordinates}
 
-In Remark~\ref{rmk:chg_coords} we have seen that if we have two different charts with local coordinates $(x^i)$ and $(y^i)$ on a smooth manifold $M$,
+\begin{remark}
+	Observe that the proof in Remark~\ref{rmk:double_dual} is not restricted to the tangent spaces, the same exact reasoning holds for any finite dimensional vector space $V$ and its double dual $V^{**}$.
+	The identification that you obtain in this way is canonical, as mentioned previously, in the sense that it does not depend on the choice of basis for $V$. This has a number of consequences, many of which we don't have time to discuss during the course but that you can study under the umbrella of \emph{natural transformations} in category theory.
+
+	To give you a glimpse of this, let's introduce the concept of a dual mapping: given any linear map $L:V\to W$, its dual map $L^* : W^* \to V^*$ is the function that maps any $\omega\in W^*$ to $L^*(\omega) = \omega \circ L$, also called the pullback of $\omega$ along $L$ in a sense similar to the one that we will discuss later on in this chapter. A short computation in linear algebra, similar to one that we will perform in the tensor spaces chapter, shows that $L^*$ as a matrix is just the transpose of $L$. Now, given any vector $v\in V$, we have $L^**(i_v)=i_{L(v)}$. This property holds because the isomorphism doesn't assume a basis on $V$ or $W$ and would fail to hold for any naive identification of $V$ or $W$ with their duals.
+\end{remark}
+
+\section{Change of coordinates}
 \marginnote{Let's denote the two charts respectively by $\varphi$ and $\psi$, then if $\phi = \psi\circ\varphi^{-1}$ is the corresponding transition map, one has \begin{equation}
-    \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p = (D\phi(p))_i^j \frac{\partial}{\partial y^j}\Big|_p,
-  \end{equation}
-  where $D\phi$ is the Jacobian matrix of the transition map.}
+		\frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p = (D\phi(p))_i^j \frac{\partial}{\partial y^j}\Big|_p,
+	\end{equation}
+	where $D\phi$ is the Jacobian matrix of the transition map.}
+In Remark~\ref{rmk:chg_coords} we have seen that if we have two different charts with local coordinates $(x^i)$ and $(y^i)$ on a smooth manifold $M$,
 \begin{equation}
-  \frac{\partial}{\partial x^i}\Big|_p = \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p.
+	\frac{\partial}{\partial x^i}\Big|_p = \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p.
 \end{equation}
 Thus, if $v\in T_pM$ has local form $v = v^i \frac{\partial}{\partial x^i}\big|_p = \widetilde v^j \frac{\partial}{\partial y^j}\big|_p$, we get
 \begin{align}
-   & \underset{\shortparallel}{v^i \frac{\partial}{\partial x^i}\Big|_p} = v^i \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p \\
-   & \widetilde v^j \frac{\partial}{\partial y^j}\Big|_p,
+	 & \underset{\shortparallel}{v^i \frac{\partial}{\partial x^i}\Big|_p} = v^i \frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p \\
+	 & \widetilde v^j \frac{\partial}{\partial y^j}\Big|_p,
 \end{align}
 or, reading off the basis elements,
 \begin{equation}\label{eq:contravariant}
-  \widetilde v^j = \frac{\partial y^j}{\partial x^i}(p) v^i.
+	\widetilde v^j = \frac{\partial y^j}{\partial x^i}(p) v^i.
 \end{equation}
 
 Let now $\omega\in T_p^*M$ with local form $\omega = \omega_i dx^i|_p = \widetilde \omega_j dy^j|_p$.
 In analogy to our previous computations we get
 \begin{equation}
-  \omega_i
-  = \omega\left(\frac{\partial}{\partial x^i}\Big|_p\right)
-  = \omega\left(\frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p\right)
-  = \frac{\partial y^j}{\partial x^i}(p) \widetilde\omega_j.
+	\omega_i
+	= \omega\left(\frac{\partial}{\partial x^i}\Big|_p\right)
+	= \omega\left(\frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p\right)
+	= \frac{\partial y^j}{\partial x^i}(p) \widetilde\omega_j.
 \end{equation}
 That is,
 \begin{equation}\label{eq:covariant}
-  \omega_i = \frac{\partial y^j}{\partial x^i}(p) \widetilde\omega_j.
+	\omega_i = \frac{\partial y^j}{\partial x^i}(p) \widetilde\omega_j.
 \end{equation}
 
 There is an important difference\footnote{I have borrowed this explanation from~\cite[Chapter 11]{book:lee}.} between~\eqref{eq:covariant} and~\eqref{eq:contravariant}.
@@ -215,17 +224,17 @@ As we have seen, the differential of a smooth map yields a linear map between ta
 Its dual is going to be a map that pulls vector from one covector space to another.
 
 \begin{definition}\label{def:pullback:oneform}
-  Let $F:M\to N$ be a smooth map between smooth manifolds, let $\omega\in T^*_{F(p)}N$ for some $p\in M$.
-  The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the differential
-  \marginnote[-1.5em]{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
-  \begin{equation}
-    dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto dF^*\omega,
-  \end{equation}
-  defined by duality in the following way\footnote{Or, omitting the point of application, $\left(dF^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
-  \begin{equation}
-    \left(dF^*_p\omega \mid v\right) := \left(\omega \mid dF_p(v)\right),\quad
-    \forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
-  \end{equation}
+	Let $F:M\to N$ be a smooth map between smooth manifolds, let $\omega\in T^*_{F(p)}N$ for some $p\in M$.
+	The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the differential
+	\marginnote[-1.5em]{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
+	\begin{equation}
+		dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto dF^*\omega,
+	\end{equation}
+	defined by duality in the following way\footnote{Or, omitting the point of application, $\left(dF^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
+	\begin{equation}
+		\left(dF^*_p\omega \mid v\right) := \left(\omega \mid dF_p(v)\right),\quad
+		\forall v\in T_pM,\; \forall \omega\in T^*_{F(p)}N.
+	\end{equation}
 \end{definition}
 \marginnote{Equations are getting more and more tricky: this kind of dimensional analysis is extremely useful to check that you are doing the right thing.}
 \noindent Let's check that the definition above makes sense: $dF^*_p \omega \in T^*_p M$ so $v\in T_p M$, but $\omega\in T^*_{F(p)}N$ so $dF_p(v)\in T_{F(p)}N$ since $dF_p: T_pM\to T_{F(p)}N$.
@@ -235,19 +244,19 @@ Its dual is going to be a map that pulls vector from one covector space to anoth
 In analogy to Chapter~\ref{sec:tangentbundle} we can glue the cotangent space together into a vector bundle on $M$.
 
 \begin{definition}
-  The \emph{cotangent bundle} $T^*M$ of $M$ is the disjoint union of cotangent spaces
-  \begin{equation}
-    T^*M := \bigsqcup_{p\in M}\left(\{p\}\times T^*_pM\right)
-    = \{(p,\omega) \;\mid\; p\in M,\, \omega\in T^*_pM\}.
-  \end{equation}
+	The \emph{cotangent bundle} $T^*M$ of $M$ is the disjoint union of cotangent spaces
+	\begin{equation}
+		T^*M := \bigsqcup_{p\in M}\left(\{p\}\times T^*_pM\right)
+		= \{(p,\omega) \;\mid\; p\in M,\, \omega\in T^*_pM\}.
+	\end{equation}
 \end{definition}
 
 The cotangent bundle is a vector bundle of rank $n$ with projection $\pi:T^*M\to M$, $(p,\omega)\mapsto p$.
 The cotangent spaces are the fibres of the cotangent bundle.
 
 \begin{theorem}\label{thm:starmbld}
-  Let $M$ be a smooth $n$-manifold.
-  The smooth structure on $M$ naturally induces a smooth structure on $T^*M$, making $T^*M$ into a smooth manifold of dimension $2n$.
+	Let $M$ be a smooth $n$-manifold.
+	The smooth structure on $M$ naturally induces a smooth structure on $T^*M$, making $T^*M$ into a smooth manifold of dimension $2n$.
 \end{theorem}
 %\begin{proof}
 % The proof is analogous to that of Theorem~\ref{thm:tgbdlsmoothmfld}, so we will not do it again.
@@ -261,116 +270,116 @@ The cotangent spaces are the fibres of the cotangent bundle.
 %   (p, \omega) &\mapsto \left(\varphi_i(p), d(\varphi_i^{-1})^*)_p\omega \right).
 % \end{align}
 \begin{exercise}\label{exe:prooftstarmbld}
-  Mimicking what we did for Theorem~\ref{thm:tgbdlsmoothmfld}, complete the proof of Theorem~\ref{thm:starmbld}.
+	Mimicking what we did for Theorem~\ref{thm:tgbdlsmoothmfld}, complete the proof of Theorem~\ref{thm:starmbld}.
 \end{exercise}
 %\end{proof}
 
 In fact, the cotangent bundle is a specific example of a dual bundle.
 In the exercise below, we will construct it using Theorem~\ref{thm:bundle_chart_thm}.
 \begin{exercise}[The dual bundle]
-Let $M$ be a smooth manifold and $\pi:E\to M$ a smooth $k$-vector bundle over $M$.
-The \emph{dual bundle} to $E$ over $M$ is the bundle $E^* \to M$, where $E^* = \bigsqcup_{p\in m} E_p^*$ is the disjoint union of the duals to the fibers of $E$ with the projection $E_p^* \mapsto p$.
-\begin{enumerate}
-  \item Show that the dual bundle is a smooth vector bundle of rank $k$.
-  \item Show that the transition functions are given in terms of the transition functions $\tau : U\to GL(\R,k)$ of $E$ by $\tau^*(p) = (\tau(p)^{-1})^T$.
-\end{enumerate}
+	Let $M$ be a smooth manifold and $\pi:E\to M$ a smooth $k$-vector bundle over $M$.
+	The \emph{dual bundle} to $E$ over $M$ is the bundle $E^* \to M$, where $E^* = \bigsqcup_{p\in m} E_p^*$ is the disjoint union of the duals to the fibers of $E$ with the projection $E_p^* \mapsto p$.
+	\begin{enumerate}
+		\item Show that the dual bundle is a smooth vector bundle of rank $k$.
+		\item Show that the transition functions are given in terms of the transition functions $\tau : U\to GL(\R,k)$ of $E$ by $\tau^*(p) = (\tau(p)^{-1})^T$.
+	\end{enumerate}
 \end{exercise}
 
 \begin{definition}\label{def:covfield}
-  A \emph{covector field} or a \emph{(differential) $1$-form} on $M$ is a smooth section of $T^*M$.
-  That is, a $1$-form $\omega\in\Gamma(T^*M)$ is a smooth map $\omega: p \to \omega_p \in T_p^*M$ that assigns to each point $p\in M$ a cotangent vector at $p$.
-  Again, a covector field is smooth if its component functions w.r.t. all charts are smooth.
+	A \emph{covector field} or a \emph{(differential) $1$-form} on $M$ is a smooth section of $T^*M$.
+	That is, a $1$-form $\omega\in\Gamma(T^*M)$ is a smooth map $\omega: p \to \omega_p \in T_p^*M$ that assigns to each point $p\in M$ a cotangent vector at $p$.
+	Again, a covector field is smooth if its component functions w.r.t. all charts are smooth.
 
-  We denote the space of all smooth covector fields on $M$ by $\fX^*(M)$.
-  \marginnote[-1em]{For reasons related to tensor fields that we will understand soon, this is sometimes denoted $\cT_1^0(M)$.}
+	We denote the space of all smooth covector fields on $M$ by $\fX^*(M)$.
+	\marginnote[-1em]{For reasons related to tensor fields that we will understand soon, this is sometimes denoted $\cT_1^0(M)$.}
 
-  Of course, one can also define \emph{$C^p$-covector fields} as the $C^p$-maps $\omega:M\to T^*M$ such that $\pi\circ\omega = \id_M$.
+	Of course, one can also define \emph{$C^p$-covector fields} as the $C^p$-maps $\omega:M\to T^*M$ such that $\pi\circ\omega = \id_M$.
 \end{definition}
 
 \begin{remark}
-  In Exercise~\ref{exe:prooftstarmbld} you have shown that coordinate covector fields are smooth local sections for the cotangent bundle.
+	In Exercise~\ref{exe:prooftstarmbld} you have shown that coordinate covector fields are smooth local sections for the cotangent bundle.
 \end{remark}
 
 In analogy with the previous chapters, for covector fields $\omega\in\fX^*(M)$ we will often make the identification of its value $\omega(p) = \omega_p \in \{p\}\times T^*_p M$ at $p\in M$ with its part in $T_p^*M$ without necessarily making this explicit in the notation by projecting on the second factor.
 
 \begin{example}
-  Let $f\in C^\infty(M)$, then the map
-  \begin{equation}
-    df : M \to T^*M, \quad p \mapsto df|_p \in T^*_p M
-  \end{equation}
-  defines a $1$-form $df\in\fX^*(M)$.
+	Let $f\in C^\infty(M)$, then the map
+	\begin{equation}
+		df : M \to T^*M, \quad p \mapsto df|_p \in T^*_p M
+	\end{equation}
+	defines a $1$-form $df\in\fX^*(M)$.
 \end{example}
 
 As smooth sections of a vector bundle, covector fields can be multiplied by smooth functions: if $f\in C^\infty(M)$ and $\omega\in\fX^*(M)$, the covector field $f\omega$ is defined by
 \begin{equation}
-  (f\omega)_p = f(p)\omega_p.
+	(f\omega)_p = f(p)\omega_p.
 \end{equation}
 Also in this case, $\fX^*(M)$ is a module over $C^\infty(M)$.
 
 Since differential 1-forms are dual objects to tangent vectors, the action of a form $\omega$ on $X\in\fX(M)$ is well--defined and pointwise defines a function
 \begin{equation}
-  (\omega \mid X) : p \mapsto (\omega_p \mid X_p).
+	(\omega \mid X) : p \mapsto (\omega_p \mid X_p).
 \end{equation}
 
 \begin{exercise}
-  The differential form $\omega$ is smooth if and only if, for every smooth vector field $X\in\fX(M)$, the function $(\omega \mid X)\in C^\infty(M)$.
-  \textit{\small Hint: write it down in local coordinates.}
+	The differential form $\omega$ is smooth if and only if, for every smooth vector field $X\in\fX(M)$, the function $(\omega \mid X)\in C^\infty(M)$.
+	\textit{\small Hint: write it down in local coordinates.}
 \end{exercise}
 
 \begin{definition}\label{def:pullback1f}
-  The pullback of covectors immediately extends to covector fields.
-  The \emph{pullback} is the map
-  \begin{equation}
-    F^*: \fX^*(N) \to \fX^*(M), \quad \omega \mapsto F^* \omega
-  \end{equation}
-  defined by
-  \begin{equation}
-    (F^*\omega)_p := dF_p^*(\omega_{F(p)}).
-  \end{equation}
-  By definition, this acts on vectors $v\in T_p M$ by
-  \begin{equation}
-    ((F^*\omega)_p, v) = (\omega_{F(p)}, dF_p(v)) = \omega_{F(p)}(dF_p(v)).
-  \end{equation}
+	The pullback of covectors immediately extends to covector fields.
+	The \emph{pullback} is the map
+	\begin{equation}
+		F^*: \fX^*(N) \to \fX^*(M), \quad \omega \mapsto F^* \omega
+	\end{equation}
+	defined by
+	\begin{equation}
+		(F^*\omega)_p := dF_p^*(\omega_{F(p)}).
+	\end{equation}
+	By definition, this acts on vectors $v\in T_p M$ by
+	\begin{equation}
+		((F^*\omega)_p, v) = (\omega_{F(p)}, dF_p(v)) = \omega_{F(p)}(dF_p(v)).
+	\end{equation}
 \end{definition}
 
 \begin{exercise}\label{ex:propdiff}
-  Let $F:M\to N$ be a smooth map between smooth manifolds.
-  Suppose $f$ is a continuous real valued function on $N$ and $\omega\in\fX^*(N)$ is a covector field on $N$.
-  \begin{enumerate}
-    \item Show that
-          \begin{equation}
-            F^*(f\omega) = (f\circ F)F^*\omega := F^* f\; F^*\omega,
-          \end{equation}
-          where we introduced the \emph{pullback} of a smooth function as $F^*g := g\circ F$.
-    \item If in addition $f\in C^\infty(N)$, show that
-          \begin{equation}
-            F^* df = d (f\circ F) = d (F^* f).
-          \end{equation}
-  \end{enumerate}
-  \textit{\small Hint: apply the equations at a point $p\in M$ and keep rewriting the equations in different forms.}
+	Let $F:M\to N$ be a smooth map between smooth manifolds.
+	Suppose $f$ is a continuous real valued function on $N$ and $\omega\in\fX^*(N)$ is a covector field on $N$.
+	\begin{enumerate}
+		\item Show that
+		      \begin{equation}
+			      F^*(f\omega) = (f\circ F)F^*\omega := F^* f\; F^*\omega,
+		      \end{equation}
+		      where we introduced the \emph{pullback} of a smooth function as $F^*g := g\circ F$.
+		\item If in addition $f\in C^\infty(N)$, show that
+		      \begin{equation}
+			      F^* df = d (f\circ F) = d (F^* f).
+		      \end{equation}
+	\end{enumerate}
+	\textit{\small Hint: apply the equations at a point $p\in M$ and keep rewriting the equations in different forms.}
 \end{exercise}
 
 \begin{exercise}
-  Let $F:M\to N$ smooth map between smooth manifolds.
-  For $p\in M$, denote $(V, (y^i))$ a chart on $N$ around $F(p)$ and let $U=F^{-1}(N)$.
-  If $\omega = \omega_j dy^j \in\fX^*(N)$, apply twice Exercise~\ref{ex:propdiff} to show that in $U$
-  \begin{equation}
-    F^*\omega = (\omega_j\circ F) d(y^j \circ F).
-  \end{equation}
+	Let $F:M\to N$ smooth map between smooth manifolds.
+	For $p\in M$, denote $(V, (y^i))$ a chart on $N$ around $F(p)$ and let $U=F^{-1}(N)$.
+	If $\omega = \omega_j dy^j \in\fX^*(N)$, apply twice Exercise~\ref{ex:propdiff} to show that in $U$
+	\begin{equation}
+		F^*\omega = (\omega_j\circ F) d(y^j \circ F).
+	\end{equation}
 
-  Let $F:\R^3\to\R^2$ be the map $(u,v) = F(x,y,z) = (x y^2, y \sin z)$.
-  Let $\omega\in\fX^*(\R^2)$ denote the covector field $\omega(u,v) = u dv - v du$.
-  Compute $F^* \omega$.
+	Let $F:\R^3\to\R^2$ be the map $(u,v) = F(x,y,z) = (x y^2, y \sin z)$.
+	Let $\omega\in\fX^*(\R^2)$ denote the covector field $\omega(u,v) = u dv - v du$.
+	Compute $F^* \omega$.
 \end{exercise}
 
 Exercise~\ref{ex:propdiff} is particularly interesting if we look at it in relation to the pushforward.
 In particular, the first statement in Theorem~\ref{thm:liealgiso} can be rewritten as follows.
 \begin{proposition}
-  Let $F:M\to N$ be a diffeomorphism and $X\in\fX(M)$.
-  Then, for any $f\in C^\infty(N)$,
-  \begin{equation}
-    X(F^* f) = F_*X(f) \circ F.
-  \end{equation}
+	Let $F:M\to N$ be a diffeomorphism and $X\in\fX(M)$.
+	Then, for any $f\in C^\infty(N)$,
+	\begin{equation}
+		X(F^* f) = F_*X(f) \circ F.
+	\end{equation}
 \end{proposition}
 % \begin{proof}
 %   Indeed, for any $p\in M$,
@@ -386,77 +395,77 @@ In particular, the first statement in Theorem~\ref{thm:liealgiso} can be rewritt
 In this case you often say that the vector fields are $F$-related\footnote{This is a definition that can be properly formalized, but we will not spend any time on it in during the course.} or that they behave naturally: you can either pull back the function $f$ to $M$ or push forward the vector field $X$ to $N$.
 
 \begin{exercise}
-  Let $\{\rho_\alpha\}$ denote a partition of unity on a manifold $M$ subordinate to an open cover $\{U_\alpha\}$.
-  Let $F:N\to M$ denote a smooth map between smooth manifolds.
-  With the definition of pullback of functions given above, prove that
-  \begin{enumerate}
-    \item the collection of supports $\{\supp F^*\rho_\alpha\}$ is locally finite;
-    \item the collection of functions $\{F^*\rho_\alpha\}$ is a partition of unity on $N$ subordinate to the open cover $\{F^{-1}(U_\alpha)\}$ of $N$.
-  \end{enumerate}
+	Let $\{\rho_\alpha\}$ denote a partition of unity on a manifold $M$ subordinate to an open cover $\{U_\alpha\}$.
+	Let $F:N\to M$ denote a smooth map between smooth manifolds.
+	With the definition of pullback of functions given above, prove that
+	\begin{enumerate}
+		\item the collection of supports $\{\supp F^*\rho_\alpha\}$ is locally finite;
+		\item the collection of functions $\{F^*\rho_\alpha\}$ is a partition of unity on $N$ subordinate to the open cover $\{F^{-1}(U_\alpha)\}$ of $N$.
+	\end{enumerate}
 \end{exercise}
 
 When we discussed vector fields, we observed that pushforwards of vector fields under smooth maps are defined only in the special case of diffeomorphisms.
 The surprising thing about covectors is that covector fields always pull back to covector fields.
 
 \begin{example}[Polar coordinates on $\R^2$]
-  We can define polar coordinates in $\R^2$ via the map
-  \begin{align}
-    \psi : \R_+\times (-\pi, \pi) & \to \R^2\setminus\{x\in\R^2\mid x^2=0 \mbox{ and } x^1 \leq 0\} \\
-    (r, \theta)                   & \mapsto (r\cos\theta, r\sin\theta).
-  \end{align}
-  It is immediate to check that $\psi$ is a diffeomorphism between open subsets of $\R^2$, and we can think of $\psi^{-1}$ as local coordinates for a part of $\R^2$.
+	We can define polar coordinates in $\R^2$ via the map
+	\begin{align}
+		\psi : \R_+\times (-\pi, \pi) & \to \R^2\setminus\{x\in\R^2\mid x^2=0 \mbox{ and } x^1 \leq 0\} \\
+		(r, \theta)                   & \mapsto (r\cos\theta, r\sin\theta).
+	\end{align}
+	It is immediate to check that $\psi$ is a diffeomorphism between open subsets of $\R^2$, and we can think of $\psi^{-1}$ as local coordinates for a part of $\R^2$.
 
-  On the image of $\psi$ we have the coordinate basis $\{dx^1, dx^2\}$. In order to express them in terms of the coordinate basis $\{dr,d\theta\}$, we can apply Exercise~\ref{ex:propdiff}, the properties of differentials and the formulas for the change of coordinates to get
-  \begin{align}
-    \psi^*(d x^1) & = d(x^1\circ \psi) = d(r\cos\theta)                                            \\
-                  & = \cos\theta \,dr +r\,d(\cos\theta) = \cos\theta \,dr -r\,\sin\theta\,d\theta  \\
-    \psi^*(d x^2) & = d(x^2\circ \psi) = d(r\sin\theta)                                            \\
-                  & = \sin\theta \,dr +r\,d(\sin\theta) = \sin\theta \,dr +r\,\cos\theta\,d\theta.
-  \end{align}
+	On the image of $\psi$ we have the coordinate basis $\{dx^1, dx^2\}$. In order to express them in terms of the coordinate basis $\{dr,d\theta\}$, we can apply Exercise~\ref{ex:propdiff}, the properties of differentials and the formulas for the change of coordinates to get
+	\begin{align}
+		\psi^*(d x^1) & = d(x^1\circ \psi) = d(r\cos\theta)                                            \\
+		              & = \cos\theta \,dr +r\,d(\cos\theta) = \cos\theta \,dr -r\,\sin\theta\,d\theta  \\
+		\psi^*(d x^2) & = d(x^2\circ \psi) = d(r\sin\theta)                                            \\
+		              & = \sin\theta \,dr +r\,d(\sin\theta) = \sin\theta \,dr +r\,\cos\theta\,d\theta.
+	\end{align}
 \end{example}
 
 \begin{example}[Tautological one-form]
-  On $T^*M$ there is a $1$-form, called\footnote{As usual there are different names: two other common ones are \emph{Liouville form} or \emph{Poincar\'e form}, but don't be suprised if you find more.} \emph{tautological one-form}, defined as follows.
+	On $T^*M$ there is a $1$-form, called\footnote{As usual there are different names: two other common ones are \emph{Liouville form} or \emph{Poincar\'e form}, but don't be suprised if you find more.} \emph{tautological one-form}, defined as follows.
 
-  A point in $T^*M$ is a covector $\omega_p\in T^*_p M$ at some point $p\in M$. If $X_{\omega_p}\in T_{\omega_p}(T^*M)$ is a tangent vector to $T^*M$ at $\omega_p$. Let $\pi:T^*M \to M$, then the pushforward $\pi_*(X_{\omega_p})\in T_p M$ is a tangent vector to $M$ at $p$.
-  Therefore, one can pair $\omega_p$ and $\pi_*(X_{\omega_p})$ to obtain a real number $\left(\omega_p\;\big|\;\pi_*(X_{\omega_p})\right)$.
-  The tautological one-form $\theta\in\fX^*(T^*M)$ is then defined as
-  \begin{equation}
-    \theta_{\omega_p}(X_{\omega_p}) := \left(\omega_p\;\Big|\;\pi_*(X_{\omega_p})\right).
-  \end{equation}
+	A point in $T^*M$ is a covector $\omega_p\in T^*_p M$ at some point $p\in M$. If $X_{\omega_p}\in T_{\omega_p}(T^*M)$ is a tangent vector to $T^*M$ at $\omega_p$. Let $\pi:T^*M \to M$, then the pushforward $\pi_*(X_{\omega_p})\in T_p M$ is a tangent vector to $M$ at $p$.
+	Therefore, one can pair $\omega_p$ and $\pi_*(X_{\omega_p})$ to obtain a real number $\left(\omega_p\;\big|\;\pi_*(X_{\omega_p})\right)$.
+	The tautological one-form $\theta\in\fX^*(T^*M)$ is then defined as
+	\begin{equation}
+		\theta_{\omega_p}(X_{\omega_p}) := \left(\omega_p\;\Big|\;\pi_*(X_{\omega_p})\right).
+	\end{equation}
 
-  This is a very important concept in symplectic and contact geometry and in the mathematical theory of classical mechanics.
+	This is a very important concept in symplectic and contact geometry and in the mathematical theory of classical mechanics.
 \end{example}
 
 The pullback is a rather pervasive concept, and does provide us a new way to explore vector bundles.
 
 \begin{example}[The pullback bundle]
-  Let $F:M\to N$ be a smooth map between manifolds. Suppose that $\pi: E \to N$ be a vector bundle of rank $r$ over $N$.
-  Then $M\times E$ is a trivial bundle over $M$ with constant fibre $E$.
-  You may think that this is yet another trivial example, but it allows us to define the \emph{pullback bundle $F^* E$}: let
-  \begin{equation}
-    F^* E := \left\lbrace (p, v) \in M\times E \mid F(p) = \pi(v)\right\rbrace,
-  \end{equation}
-  with the projection $\Pi_1:F^* E \to M$.
-  The fibre of $F^*E$ over $p\in M$, then, is $\{p\}\times E_{F(p)}$, which under $\Pi_2:F^* E \to E$ is diffeomorphic to $E_{F(p)}$.
-  If $\varphi : \pi^{-1}(U) \to U\times\R^r$ is a bundle diffeomorphism for $E$, then $\varphi\circ\Pi_2: \Pi_1^{-1}(F^{-1}(U)) \to U\times\R^r$ is a bundle diffeomorphism for $F^*E$.
-  This $F^*E$ is a vector bundle of rank $r$ over $M$.
-  In summary, the following diagram commutes:
-  \begin{equation}
-    \begin{tikzcd}[row sep=huge, column sep=huge]
-      F^* E \arrow[r, "\Pi_2"] \arrow[d, "\Pi_1"]
-      & E \arrow[d, "\pi"] \\
-      M \arrow[r, "F"]
-      & N
-    \end{tikzcd}.
-  \end{equation}
+	Let $F:M\to N$ be a smooth map between manifolds. Suppose that $\pi: E \to N$ be a vector bundle of rank $r$ over $N$.
+	Then $M\times E$ is a trivial bundle over $M$ with constant fibre $E$.
+	You may think that this is yet another trivial example, but it allows us to define the \emph{pullback bundle $F^* E$}: let
+	\begin{equation}
+		F^* E := \left\lbrace (p, v) \in M\times E \mid F(p) = \pi(v)\right\rbrace,
+	\end{equation}
+	with the projection $\Pi_1:F^* E \to M$.
+	The fibre of $F^*E$ over $p\in M$, then, is $\{p\}\times E_{F(p)}$, which under $\Pi_2:F^* E \to E$ is diffeomorphic to $E_{F(p)}$.
+	If $\varphi : \pi^{-1}(U) \to U\times\R^r$ is a bundle diffeomorphism for $E$, then $\varphi\circ\Pi_2: \Pi_1^{-1}(F^{-1}(U)) \to U\times\R^r$ is a bundle diffeomorphism for $F^*E$.
+	This $F^*E$ is a vector bundle of rank $r$ over $M$.
+	In summary, the following diagram commutes:
+	\begin{equation}
+		\begin{tikzcd}[row sep=huge, column sep=huge]
+			F^* E \arrow[r, "\Pi_2"] \arrow[d, "\Pi_1"]
+			& E \arrow[d, "\pi"] \\
+			M \arrow[r, "F"]
+			& N
+		\end{tikzcd}.
+	\end{equation}
 \end{example}
 
 \begin{exercise}
-  Prove that the Whitney Sum\footnote{See Exercise~\ref{ex:whitney}.}
-  of two vector bundles $\pi_1 : E_1 \to M$ and $\pi_2 : E_2 \to M$
-  is the pullback $\Delta^*(E_1 \times E_2)$ of their product bundle by the diagonal map
-  $\Delta : M \to M \times M$, $\Delta(x) = (x, x)$.
+	Prove that the Whitney Sum\footnote{See Exercise~\ref{ex:whitney}.}
+	of two vector bundles $\pi_1 : E_1 \to M$ and $\pi_2 : E_2 \to M$
+	is the pullback $\Delta^*(E_1 \times E_2)$ of their product bundle by the diagonal map
+	$\Delta : M \to M \times M$, $\Delta(x) = (x, x)$.
 \end{exercise}
 
 \section{Line integrals}
@@ -468,71 +477,71 @@ We will not see this in too many details yet, but it is worth taking the time to
 The idea is to use the pullback to pull back the 1-form to the parameter space $\R$ and interpret the integral there as a usual Riemann integral.
 
 \begin{definition}
-  Let $M$ be a smooth manifold, $\gamma: I = [a,b]\subset \R \to M$ a smooth curve and $\omega\in\fX^*(M)$ a $1$-form.
-  The \emph{(line) integral of $\omega$ along $\gamma$} is the number
-  \begin{equation}
-    \int_\gamma \omega :=
-    \int_I \gamma^*\omega :=
-    \int_a^b \left(\gamma^*\omega \mid \frac{\partial}{\partial t}\right)(t)\, dt
-  \end{equation}
-  where $\gamma^*\omega$ is the pullback of $\omega$ to $I$ by $\gamma$ and $\frac{\partial}{\partial t}: I \to TI$ is the unit vector field on $I$.
-  The pointwise dual pairing $\left(\gamma^*\omega \mid \frac{\partial}{\partial t}\right)\in C^\infty(I)$ and is integrated in the usual Riemannian sense.
+	Let $M$ be a smooth manifold, $\gamma: I = [a,b]\subset \R \to M$ a smooth curve and $\omega\in\fX^*(M)$ a $1$-form.
+	The \emph{(line) integral of $\omega$ along $\gamma$} is the number
+	\begin{equation}
+		\int_\gamma \omega :=
+		\int_I \gamma^*\omega :=
+		\int_a^b \left(\gamma^*\omega \mid \frac{\partial}{\partial t}\right)(t)\, dt
+	\end{equation}
+	where $\gamma^*\omega$ is the pullback of $\omega$ to $I$ by $\gamma$ and $\frac{\partial}{\partial t}: I \to TI$ is the unit vector field on $I$.
+	The pointwise dual pairing $\left(\gamma^*\omega \mid \frac{\partial}{\partial t}\right)\in C^\infty(I)$ and is integrated in the usual Riemannian sense.
 \end{definition}
 
 \begin{example}\label{ex:li}
-  Let $M=\R^2\setminus\{0\}$. Let $\omega$ be the one-form
-  \begin{equation}
-    \omega = \frac{x dy - y dx}{x^2 + y^2}
-  \end{equation}
-  and let $\gamma:[0,2\pi]\to M$ be the curve segment defined by $\gamma(t) = (\cos t, \sin t)$.
+	Let $M=\R^2\setminus\{0\}$. Let $\omega$ be the one-form
+	\begin{equation}
+		\omega = \frac{x dy - y dx}{x^2 + y^2}
+	\end{equation}
+	and let $\gamma:[0,2\pi]\to M$ be the curve segment defined by $\gamma(t) = (\cos t, \sin t)$.
 
-  We already saw that thanks to covariance, $\gamma^*\omega$ is immediately computed with the substitution $x=\cos t$ and $y=\sin t$ in the definition of $\omega$, so we get
-  \begin{align}
-    \int_\gamma \omega
-     & = \int_{[0,2\pi]} \frac{\cos t\, d(\sin t) - \sin t \, d(\cos t)}{\sin^2 t + \cos^2 t} \\
-     & = \int_{[0,2\pi]} (\cos t\, \cos t\, dt - \sin t \, (-\sin t)\, dt)                    \\
-     & = \int_0^{2\pi} dt = 2\pi.
-  \end{align}
+	We already saw that thanks to covariance, $\gamma^*\omega$ is immediately computed with the substitution $x=\cos t$ and $y=\sin t$ in the definition of $\omega$, so we get
+	\begin{align}
+		\int_\gamma \omega
+		 & = \int_{[0,2\pi]} \frac{\cos t\, d(\sin t) - \sin t \, d(\cos t)}{\sin^2 t + \cos^2 t} \\
+		 & = \int_{[0,2\pi]} (\cos t\, \cos t\, dt - \sin t \, (-\sin t)\, dt)                    \\
+		 & = \int_0^{2\pi} dt = 2\pi.
+	\end{align}
 \end{example}
 
 \begin{exercise}\label{exe:FTC}
-  Let $M$ be a smooth manifold, $\gamma: I = [a,b]\subset \R \to M$ a smooth curve and $\omega\in\fX^*(M)$ a $1$-form.
-  Show the following properties.
-  \begin{enumerate}
-    \item Show that with the definition above
-          \begin{equation}\label{eq:lineIntCurve}
-            \int_\gamma \omega = \int_a^b \omega_{\gamma(t)}(\gamma'(t))\, dt.
-          \end{equation}
-    \item Let $J\subset\R$ be an open interval  and $F: J\to I$ a diffeomorphism with $F'(t) > 0$.
-          If $\delta : J \to M$ denotes the reparametrisation of $\gamma$ defined by $\delta(t) := F^*\gamma(t) = (\gamma\circ F)(t)$, show that
-          \marginnote{This shows that line integrals are independent of the parametrization.}
-          \begin{equation}
-            \int_\delta \omega = \int_\gamma \omega.
-          \end{equation}
-          \textit{\small Hint: use the chain rule to get $\delta'(t) = \gamma'(F(t))F'(t)$ and then apply~\eqref{eq:lineIntCurve}.}
-    \item Let $f\in C^\infty(M)$. Prove the fundamental theorem of calculus:
-          \begin{equation}
-            \int_\gamma df = f(\gamma(b)) - f(\gamma(a)).
-          \end{equation}
-          \textit{\small Hint: justify that $df_{\gamma(t)}(\gamma'(t)) = \frac{d}{ds}f(\gamma(s))\big|_{s=t}$ and then use the usual fundamental theorem of calculus on $\R$.}
-  \end{enumerate}
+	Let $M$ be a smooth manifold, $\gamma: I = [a,b]\subset \R \to M$ a smooth curve and $\omega\in\fX^*(M)$ a $1$-form.
+	Show the following properties.
+	\begin{enumerate}
+		\item Show that with the definition above
+		      \begin{equation}\label{eq:lineIntCurve}
+			      \int_\gamma \omega = \int_a^b \omega_{\gamma(t)}(\gamma'(t))\, dt.
+		      \end{equation}
+		\item Let $J\subset\R$ be an open interval  and $F: J\to I$ a diffeomorphism with $F'(t) > 0$.
+		      If $\delta : J \to M$ denotes the reparametrisation of $\gamma$ defined by $\delta(t) := F^*\gamma(t) = (\gamma\circ F)(t)$, show that
+		      \marginnote{This shows that line integrals are independent of the parametrization.}
+		      \begin{equation}
+			      \int_\delta \omega = \int_\gamma \omega.
+		      \end{equation}
+		      \textit{\small Hint: use the chain rule to get $\delta'(t) = \gamma'(F(t))F'(t)$ and then apply~\eqref{eq:lineIntCurve}.}
+		\item Let $f\in C^\infty(M)$. Prove the fundamental theorem of calculus:
+		      \begin{equation}
+			      \int_\gamma df = f(\gamma(b)) - f(\gamma(a)).
+		      \end{equation}
+		      \textit{\small Hint: justify that $df_{\gamma(t)}(\gamma'(t)) = \frac{d}{ds}f(\gamma(s))\big|_{s=t}$ and then use the usual fundamental theorem of calculus on $\R$.}
+	\end{enumerate}
 \end{exercise}
 
 \begin{example}[One-forms in thermodynamics]
-  Consider a physical system composed of a fixed number of particles.
-  The thermal equilibrium state of the system can be characterised in terms of its entropy $S\in\R_+$ and its volume $V\in\R_+$.
-  If we think at the thermodynamic state space $M=\R_+^2 \subset \R^2$ as a smooth manifold, we can define the energy of the system as a function $E = E(S,V): M \to\R$ on the space of equilibrium states.
+	Consider a physical system composed of a fixed number of particles.
+	The thermal equilibrium state of the system can be characterised in terms of its entropy $S\in\R_+$ and its volume $V\in\R_+$.
+	If we think at the thermodynamic state space $M=\R_+^2 \subset \R^2$ as a smooth manifold, we can define the energy of the system as a function $E = E(S,V): M \to\R$ on the space of equilibrium states.
 
-  Show that the differential $dE\in\fX^*(M)$ has the following representation with respect to the coordinate basis $\{dS,dV\}$:
-  \begin{equation}
-    dE = \frac{\partial E}{\partial S}dS + \frac{\partial E}{\partial V} dV =: T dS - p dV.
-  \end{equation}
-  Here $T$ and $p$ are the two functions denoting respectively the temperature of the system and its pressure.
-  The $1$-form $TdS$ is called the \emph{heat} absorbed by the system while $-p dV$ is the \emph{work} performed by the system.
+	Show that the differential $dE\in\fX^*(M)$ has the following representation with respect to the coordinate basis $\{dS,dV\}$:
+	\begin{equation}
+		dE = \frac{\partial E}{\partial S}dS + \frac{\partial E}{\partial V} dV =: T dS - p dV.
+	\end{equation}
+	Here $T$ and $p$ are the two functions denoting respectively the temperature of the system and its pressure.
+	The $1$-form $TdS$ is called the \emph{heat} absorbed by the system while $-p dV$ is the \emph{work} performed by the system.
 
-  Differently from the other properties of the system, these are not functions and thanks to this it makes sense to ask how much heat has been transferred or how much work has been performed: these are just the integrals of those one-forms over curves in the space of equilibrium states.
+	Differently from the other properties of the system, these are not functions and thanks to this it makes sense to ask how much heat has been transferred or how much work has been performed: these are just the integrals of those one-forms over curves in the space of equilibrium states.
 
-  Note that since the energy is the differential of a function, its integral over a closed curve is just the difference between initial and final energy and, thus, it vanishes.
-  However, work and heat are usually \emph{not} the differential of a function, which makes their integral dependent on the specific path taken and usually not vanish on closed loops.
-  This peculiar property is what makes possible to construct heat engines.
+	Note that since the energy is the differential of a function, its integral over a closed curve is just the difference between initial and final energy and, thus, it vanishes.
+	However, work and heat are usually \emph{not} the differential of a function, which makes their integral dependent on the specific path taken and usually not vanish on closed loops.
+	This peculiar property is what makes possible to construct heat engines.
 \end{example}
