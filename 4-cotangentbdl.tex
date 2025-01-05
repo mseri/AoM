@@ -440,13 +440,13 @@ The surprising thing about covectors is that covector fields always pull back to
 The pullback is a rather pervasive concept, and does provide us a new way to explore vector bundles.
 
 \begin{example}[The pullback bundle]
-	Let $F:M\to N$ be a smooth map between manifolds. Suppose that $\pi: E \to N$ be a vector bundle of rank $r$ over $N$.
-	Then $M\times E$ is a trivial bundle over $M$ with constant fibre $E$.
+	Let $F: M\to N$ be a smooth map between manifolds. Suppose that $\pi: E \to N$ is a vector bundle of rank $r$ over $N$.
+	Then we can think of $M\times E$ as a trivial (fiber)\marginnote{A fiber bundle is a bundle where the fibers are not necessarily vector spaces, but can be in general topological spaces. It is a good exercise to try and modify the definition of vector bundles so that it applies to this case (hint: drop any direct or indirect appearance of linearity). We will not discuss them in this course and for the sake of this example we don't really need to know more about them. For more details you can refer to \cite[Chapter 10]{book:lee}.} bundle over $M$ with constant fibre $E$.
 	You may think that this is yet another trivial example, but it allows us to define the \emph{pullback bundle $F^* E$}: let
 	\begin{equation}
 		F^* E := \left\lbrace (p, v) \in M\times E \mid F(p) = \pi(v)\right\rbrace,
 	\end{equation}
-	with the projection $\Pi_1:F^* E \to M$.
+	with the projection $\Pi_1: F^* E \to M$.
 	The fibre of $F^*E$ over $p\in M$, then, is $\{p\}\times E_{F(p)}$, which under $\Pi_2:F^* E \to E$ is diffeomorphic to $E_{F(p)}$.
 	If $\varphi : \pi^{-1}(U) \to U\times\R^r$ is a bundle diffeomorphism for $E$, then $\varphi\circ\Pi_2: \Pi_1^{-1}(F^{-1}(U)) \to U\times\R^r$ is a bundle diffeomorphism for $F^*E$.
 	This $F^*E$ is a vector bundle of rank $r$ over $M$.

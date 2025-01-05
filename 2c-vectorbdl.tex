@@ -102,8 +102,8 @@ Sound quite a mouthful, but turns out to be quite the right approach.
 The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the local trivializations.
 \begin{proof}
   \newthought{Part 1. $E$ has a structure of smooth manifold}.
-  Let $(U_\alpha, \varphi_\alpha)$ be a smooth structure on $M$ adapted to the given open cover.
-  We need to use this, and the given maps from the statement, to define charts from $E_p$ to $\R^n\times\R^k$.
+  Let $(U_\alpha, \varphi_\alpha)$ be a smooth structure on $M$ subordinate to the given open cover, see Theorem~\ref{thm:partitionof1}.
+  We need to use this, and the given maps from the statement, to define charts from some neighbourhood of fibers $E_p$ to $\R^n\times\R^k$.
   For each $p\in M$, choose an open neighbourhood $V_p \supseteq U_\alpha$ for some $\alpha\in A$.
   Observe that $\pi^{-1}(V_p) \subseteq E_p$ and $\widetilde{V}_p := \varphi_\alpha(V_p) \subseteq \R^n$ and therefore it may be natural to consider the collection $\{(\pi^{-1}(V_p), \widetilde{\varphi}_p)\mid p\in M\}$, where
   \begin{equation}
@@ -148,7 +148,7 @@ The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the
       \arrow["{\id_{n+k}}"', from=2-1, to=2-2]
     \end{tikzcd}.
   \end{equation}
-  In a similar way, the coordinate representation of $\pi : E \to M$ is $\varphi_\alpha \circ \pi \circ \widetilde{\varphi}_\alpha (x,v) = x$, so $\pi$ is smooth.
+  In a similar way, the coordinate representation of $\pi : E \to M$ is $\varphi_\alpha \circ \pi \circ \widetilde{\varphi}_\alpha^{-1} (x,v) = x$, so $\pi$ is smooth.
   Finally, $\Phi_\alpha$ satisfies all conditions to be a smooth local trivialization since $\varPhi_\alpha$ is linear by hypothesis and $\pi_1 \circ \varPhi_\alpha = \pi$, which follows from $\varPhi_\alpha(E_p) = \{p\}\times \R^k$.
 
   \newthought{Part 3. The smooth structure is unique}.
