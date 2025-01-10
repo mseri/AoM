@@ -35,7 +35,7 @@ In addition to their role in integration, differential forms provide a framework
 
 \section{The exterior product}
 
-\marginnote{You can find an interesting explanation of the exterior product, based on Penrose's book ``The road to reality'', \href{https://twitter.com/LucaAmb/status/1289244374996406273?s=20}{on a thread by @LucaAmb on Twitter}.}
+\marginnote{You can find an interesting explanation of the exterior product, based on Penrose's book ``The road to reality'', \href{https://web.archive.org/web/20200731170011/https://twitter.com/LucaAmb/status/1289244374996406273}{on a thread by @LucaAmb on Twitter}.}
 If you remember, we said that the determinant was an example of a $T_n^0(\R^n)$ tensor: an antisymmetric tensor nonetheless.
 At the same time, the determinant of a $n\times n$ matrix, is the signed volume of the parallelotope spanned by the $n$ vectors defining the matrix.
 We also saw that tensors can be multiplied with the tensor product, which gives rise to a graded algebra on the free sum of tensor spaces.
@@ -167,7 +167,7 @@ The following proposition gives us a tool to define an exterior product of alter
   \begin{align}
     (\Alt_k \Alt_k \tau)(v_1,\ldots, v_k)
      & = \frac1{k!k!}\sum_{\sigma,\sigma'\in S_k}\sgn(\sigma)\sgn(\sigma') \tau\left(v_{\sigma'\circ\sigma(1)}, \ldots, v_{\sigma'\circ\sigma(1)}\right) \\
-    \overset{\widetilde \sigma = \sigma'\circ\sigma}{}
+    \overset{\eta = \sigma'\circ\sigma}{}
      & =\frac1{k!k!}\sum_{\sigma,\eta\in S_k}\sgn(\eta) \tau\left(v_{\eta(1)}, \ldots, v_{\eta(1)}\right)                                                \\
      & =\frac1{k!}\sum_{\eta\in S_k}\sgn(\eta) \tau\left(v_{\eta(1)}, \ldots, v_{\eta(1)}\right)                                                         \\
      & =(\Alt_k \tau)(v_1,\ldots, v_k),
@@ -582,7 +582,7 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
 
   The interest and need to generalize the operations of vector calculus in $\R^3$ to higher dimensional spaces have been one of the drives to develop the theory of differential forms.
 
-This is a more general fact related to 3 dimensional manifolds with a Riemannian metric $M$. Then the maps defined above are still defined in the same exact way\footnote{There is a more general operator $\star : \Omega^k(M) \to \Omega^{n-k}(M)$ appearing here. This is called \emph{Hodge star} and is defined as the operator such that $\tau \wedge \star \sigma = g^\dagger(\tau,\sigma) \omega$, where $\omega := \star 1$ is the Riemannian volume and $g^\dagger$ is the inner product induced by $g$ on covector fields via the musical isomorphism between tangent and cotangent bundle (cf. Example~\ref{ex:musicaliso}). See \cite[Exercise 16-18]{book:lee} or \cite[Chapters 6.2--6.5]{book:abrahammarsdenratiu}.} up to using the correct isomorphism induced by $g$ and one obtains the following commutative diagram.
+  This is a more general fact related to 3 dimensional manifolds with a Riemannian metric $M$. Then the maps defined above are still defined in the same exact way\footnote{There is a more general operator $\star : \Omega^k(M) \to \Omega^{n-k}(M)$ appearing here. This is called \emph{Hodge star} and is defined as the operator such that $\tau \wedge \star \sigma = g^\dagger(\tau,\sigma) \omega$, where $\omega := \star 1$ is the Riemannian volume and $g^\dagger$ is the inner product induced by $g$ on covector fields via the musical isomorphism between tangent and cotangent bundle (cf. Example~\ref{ex:musicaliso}). See \cite[Exercise 16-18]{book:lee} or \cite[Chapters 6.2--6.5]{book:abrahammarsdenratiu}.} up to using the correct isomorphism induced by $g$ and one obtains the following commutative diagram.
   \begin{equation}
     % https://q.uiver.app/?q=WzAsNSxbMSwxLCJcXE9tZWdhXjEoTSkiXSxbMCwwLCJcXG1hdGhjYWx7WH0oTSkiXSxbMSwyLCJcXE9tZWdhXjAoTSkiXSxbMiwyLCJcXE9tZWdhXjMoTSkiXSxbMiwxLCJcXE9tZWdhXjIoTSkiXSxbMSwwLCJcXGZsYXQiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiXFxzaGFycCIsMCx7Im9mZnNldCI6LTF9XSxbMCw0LCJkIiwwLHsib2Zmc2V0IjotMX1dLFszLDIsIlxcc3RhciIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFs0LDMsImQiXSxbMiwwLCJkIiwwLHsib2Zmc2V0IjoxfV0sWzAsNCwiXFxzdGFyIiwyLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XV0=
     \begin{tikzcd}
@@ -632,7 +632,7 @@ This is a more general fact related to 3 dimensional manifolds with a Riemannian
             \quad
             q\in M, \;
             p\in T_q^*M,
-            %\;\xi\in T_{(q,p)}(T^*M), 
+            %\;\xi\in T_{(q,p)}(T^*M),
           \end{equation}
           where $\pi:T^*M\to M$ is the projection to the base.
           Show that $\omega := d\lambda$ is a symplectic form on $T^* M$, that is, every cotangent bundle is a symplectic manifold.
@@ -644,9 +644,9 @@ This is a more general fact related to 3 dimensional manifolds with a Riemannian
     \item[4.] Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alpha^3\wedge\alpha^4$.
 
     \item[5.] Generalize the previous computation to show that
-      \begin{equation}
-        \bigwedge_{k=1}^{2n} \alpha^k := \alpha^1\wedge\cdots\wedge\alpha^{2n} = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}} =: \frac{(-1)^{\binom{n}{2}}}{n!} \wedge^{n} \omega.
-      \end{equation}
+          \begin{equation}
+            \bigwedge_{k=1}^{2n} \alpha^k := \alpha^1\wedge\cdots\wedge\alpha^{2n} = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}} =: \frac{(-1)^{\binom{n}{2}}}{n!} \wedge^{n} \omega.
+          \end{equation}
   \end{enumerate}
 \end{exercise}
 If you want to know more about symplectic manifolds and the role of differential geometry in classical mechanics, have a look at one of \cite{book:abrahammarsdenratiu, book:arnold, book:knauf, lectures:seri:hm}.
@@ -765,4 +765,3 @@ Even though it is a bit impractical for computational purposes, flows are hard t
   Note that it does not allow us differentiate a tensor field (or a differential form) with respect to a single tangent vector: the value of $\cL_X(\tau)$ at a point depends on the values of $X$ in a neighbourhood of the point, not just on the germ at $X$.
   %This stems from the fact that $X\to\cL_X$ is not $C^\infty(M)$-linear: you can see this by using~\eqref{eq:cLXwBrackets} and show that $\cL_{fX}(\omega)(Y) = f\cL_X(\omega)(Y) + Y(f)\omega(X)$, and in general there is no reason for the correction $Y(f)\omega(X)$ to vanish.
 \end{remark}
-

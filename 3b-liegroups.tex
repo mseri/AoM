@@ -222,7 +222,7 @@ Before proceeding we need to introduce some more notation.
 %   If $X$ is left-invariant, the by definition, for all $g\in G$ we have
 %   \begin{equation}
 %     X_g = (L_g)_* X_e.
-%   \end{equation} 
+%   \end{equation}
 %   On the other hand, a vector field defined by $X_g = (L_g)_* v$ for some $v\in T_eG$ is automatically left-invariant.
 % \end{proof}
 
@@ -323,7 +323,7 @@ Since a finite dimensional Lie algebra is a purely linear-algebraic object, it i
 Much of the progress in the theory of Lie groups has come from a careful analysis of Lie algebras.
 
 \begin{proposition}
-  If $F: G\to H$ is a Lie group homomorphism, then there is a map $F_*:\fg\to\fh$ which is a Lie algebra homomorphism. We call this map, the \emph{induced Lie algebra homomorphism}.
+  If $F: G\to H$ is a Lie group homomorphism\footnote{See Definition~\ref{def:LAmorphism}.}, then there is a map $F_*:\fg\to\fh$ which is a Lie algebra homomorphism. We call this map, the \emph{induced Lie algebra homomorphism}.
 \end{proposition}
 \begin{proof}
   Let $v\in\fg$ and let $v^L\in\fX_L(G)$ denote the unique left-invariant vector field satisfying $v^L_e = v$.
@@ -394,26 +394,26 @@ Given the introduction, the following theorem should not come as a surprise.
 \begin{proof}
   \begin{itemize}
     \item[($\Longleftarrow$)]
-      Suppose that $\gamma$ is the maximal integral curve for some $v\in\fX_L(G)$ starting at the identity $e$.
-      Proposition~\ref{prop:XLcomplete} implies that $\gamma$ is defined on all $\R$. Since $L_g$ is a diffeomorphism for all $g\in G$ and $v$ is left-invariant, by Proposition~\ref{prop:conjpfX} $L_g$ maps integral curves of $v$ to integral curves of $v$ (why?).
-      If $g=\gamma(s)$ for some $s$, the curve $t\mapsto L_{\gamma(s)}(\gamma(t))$ is an integral curve starting at $\gamma(s)$.
-      By the group property of the flow, also $t\mapsto \gamma(t+s)$ is an integral curve starting at $\gamma(s)$, so they must be equal.
-      That is, for all $s,t\in \R$,
-      \begin{equation}
-        \gamma(s+t) = \gamma(s)\gamma(t).
-      \end{equation}
-      Which implies that $\gamma:\R\to G$ is a one-parameter subgroup.
+          Suppose that $\gamma$ is the maximal integral curve for some $v\in\fX_L(G)$ starting at the identity $e$.
+          Proposition~\ref{prop:XLcomplete} implies that $\gamma$ is defined on all $\R$. Since $L_g$ is a diffeomorphism for all $g\in G$ and $v$ is left-invariant, by Proposition~\ref{prop:conjpfX} $L_g$ maps integral curves of $v$ to integral curves of $v$ (why?).
+          If $g=\gamma(s)$ for some $s$, the curve $t\mapsto L_{\gamma(s)}(\gamma(t))$ is an integral curve starting at $\gamma(s)$.
+          By the group property of the flow, also $t\mapsto \gamma(t+s)$ is an integral curve starting at $\gamma(s)$, so they must be equal.
+          That is, for all $s,t\in \R$,
+          \begin{equation}
+            \gamma(s+t) = \gamma(s)\gamma(t).
+          \end{equation}
+          Which implies that $\gamma:\R\to G$ is a one-parameter subgroup.
     \item[($\Longrightarrow$)] Let now $\gamma:\R\to G$ be a one-parameter subgroup and $v = \gamma'(0)\in \fg$.
-      The claim is that $\gamma'(t) = v^L(\gamma(t))$.
-      Since $\gamma(s)\gamma(t) = \gamma(s+t) = L_{\gamma(t)}(\gamma(s))$ we have
-      \begin{align}
-        \gamma'(t) & = \frac{d}{ds}\Big|_{s=0} \gamma(t+s)              \\
-                   & = \frac{d}{ds}\Big|_{s=0} L_{\gamma(t)}(\gamma(s)) \\
-                   & = (dL_{\gamma(t)})_{\gamma(0)}(\gamma'(0))         \\
-                   & = (dL_{\gamma(t)})_{e}(v)
-        = v^L(\gamma(t)).
-      \end{align}
-      Again, due to uniqueness of the integral curves, we obtain the claim.
+          The claim is that $\gamma'(t) = v^L(\gamma(t))$.
+          Since $\gamma(s)\gamma(t) = \gamma(s+t) = L_{\gamma(t)}(\gamma(s))$ we have
+          \begin{align}
+            \gamma'(t) & = \frac{d}{ds}\Big|_{s=0} \gamma(t+s)              \\
+                       & = \frac{d}{ds}\Big|_{s=0} L_{\gamma(t)}(\gamma(s)) \\
+                       & = (dL_{\gamma(t)})_{\gamma(0)}(\gamma'(0))         \\
+                       & = (dL_{\gamma(t)})_{e}(v)
+            = v^L(\gamma(t)).
+          \end{align}
+          Again, due to uniqueness of the integral curves, we obtain the claim.
   \end{itemize}
 \end{proof}
 
