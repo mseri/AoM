@@ -208,16 +208,16 @@ version={4.0},
 \newpage
 
 \begin{fullwidth}
-	~\vfill
-	\thispagestyle{empty}
-	\setlength{\parindent}{0pt}
-	\setlength{\parskip}{\baselineskip}
-	Copyright \copyright\ \the\year\ \thanklessauthor
+  ~\vfill
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+  \setlength{\parskip}{\baselineskip}
+  Copyright \copyright\ \the\year\ \thanklessauthor
 
-	\par Version 1.6.6 -- \today
+  \par Version 1.6.6 -- \today
 
-	\vfill
-	\small{\doclicenseThis}
+  \vfill
+  \small{\doclicenseThis}
 \end{fullwidth}
 
 \pagenumbering{roman}
@@ -231,9 +231,9 @@ version={4.0},
 At the entry for \emph{Mathematical analysis}, our modern source of truth---Wikipedia---says
 
 \begin{quotation}
-	\emph{Mathematical analysis} is the branch of mathematics dealing with limits and related theories, such as differentiation, integration, measure, infinite series, and analytic functions.
+  \emph{Mathematical analysis} is the branch of mathematics dealing with limits and related theories, such as differentiation, integration, measure, infinite series, and analytic functions.
 
-	These theories are usually studied in the context of real numbers and functions. Analysis evolved from calculus, which involves the elementary concepts and techniques of analysis. Analysis may be distinguished from geometry; however, it can be applied to any space of mathematical objects that has a definition of nearness (a topological space) or specific distances between objects (a metric space).
+  These theories are usually studied in the context of real numbers and functions. Analysis evolved from calculus, which involves the elementary concepts and techniques of analysis. Analysis may be distinguished from geometry; however, it can be applied to any space of mathematical objects that has a definition of nearness (a topological space) or specific distances between objects (a metric space).
 \end{quotation}
 
 \newthought{In this sense}, our course will focus on generalizing the concepts of differentiation, integration and, up to some extent, differential equations to spaces that are more general than the standard Euclidean space.
@@ -254,7 +254,7 @@ This should not come as a surprise: differential geometry studies the natural sp
 
 An old mathematical joke says that
 \begin{quote}
-	differential geometry is the study of properties that are invariant under change of notation.
+  differential geometry is the study of properties that are invariant under change of notation.
 \end{quote}
 Sadly, this is \emph{funny because it is alarmingly close to the truth}\footnote{Cit. Lee~\cite{book:lee}.}.
 
@@ -275,7 +275,7 @@ In addition to the reference above, these lecture notes have found deep inspirat
 
 I am extremely grateful to Martijn Kluitenberg for his careful reading of the notes and his invaluable suggestions, comments and corrections, and to Bram Brongers\footnote{You can also have a look at \href{https://fse.studenttheses.ub.rug.nl/25344/}{his bachelor thesis} to learn more about some interesting advanced topics in differential geometry.} for his comments, corrections and the appendices that he contributed to these notes.\medskip
 
-Many thanks also to the following people for their comments and for reporting a number of misprints and corrections: Wojtek Anyszka, Bhavya Bhikha, Huub Bouwkamp, Anna de Bruijn, Daniel Cortlid, Harry Crane, Fionn Donogue, Jordan van Ekelenburg, Brian Elsinga, Hanneke van Harten, Martin Daan van IJcken, Mollie Jagoe Brown, Remko de Jong, Aron Karakai, Hanna Karwowska, Wietze Koops, Henrieke Krijgsheld, Justin Lin, Valeriy Malikov, Mar\'ia Diaz Marrero, Aiva Misieviciute, Levi Moes, Nicol\'as Moro, Jard Nijholt, Magnus Petz, Jorian Pruim, Tijmen van der Ree, Luuk de Ridder, Lisanne Sibma, Marit van Straaten, Bo Tielman, Dave Verweg, Ashwin Vishwakarma, Lars Wieringa, Federico Zadra and Jesse van der Zeijden.
+Many thanks also to the following people for their comments and for reporting a number of misprints and corrections: Wojtek Anyszka, Bhavya Bhikha, Huub Bouwkamp, Anna de Bruijn, Daniel Cortlid, Harry Crane, Fionn Donogue, Jordan van Ekelenburg, Brian Elsinga, Hanneke van Harten, Martin Daan van IJcken, Mollie Jagoe Brown, Remko de Jong, Aron Karakai, Hanna Karwowska, Wietze Koops, Henrieke Krijgsheld, Justin Lin, Valeriy Malikov, Mar\'ia Diaz Marrero, Aiva Misieviciute, Levi Moes, Nicol\'as Moro, Alexandru Oprea, Magnus Petz, Jorian Pruim, Luuk de Ridder, Lisanne Sibma, Marit van Straaten, Bo Tielman, Dave Verweg, Ashwin Vishwakarma, Lars Wieringa, Federico Zadra, Tijmen van der Ree, and Jesse van der Zeijden.
 
 \mainmatter
 
@@ -287,11 +287,11 @@ Therefore, throughout these notes we will apply the \emph{Einstein summation con
 
 For instance, the expression
 \begin{equation}
-	a^{ij}b_l^k e_i e_k
+  a^{ij}b_l^k e_i e_k
 \end{equation}
 is a shorthand for
 \begin{equation}
-	\sum_{i,k} a^{ij}b_l^k e_i e_k.
+  \sum_{i,k} a^{ij}b_l^k e_i e_k.
 \end{equation}
 
 In general, we will use lower indices for basis of vector spaces\footnote{E.g., $(e_1,\ldots,e_n)$ could be the standard basis of $\R^n$.}, and upper indices for the components of a vector with respect to a basis\footnote{E.g., the $i$th-coordinate $x^i$ of $x\in\R^n$.}.
@@ -299,11 +299,11 @@ In general, we will use lower indices for basis of vector spaces\footnote{E.g., 
 
 Note that an upper index ``in the denominator'' is regarded as a lower index, so the following are to be considered equivalent:
 \begin{equation}
-	\sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i}.
+  \sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i}.
 \end{equation}
 In fact, the expressions below are all equivalent and commonly used in the differential geometry literature:
 \begin{equation}
-	\sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i} = a^i \partial_{x^i} = a^i \partial_i.
+  \sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i} = a^i \partial_{x^i} = a^i \partial_i.
 \end{equation}
 
 \chapter{Manifolds}\label{ch:manifolds}
@@ -337,10 +337,10 @@ In fact, the expressions below are all equivalent and commonly used in the diffe
 \input{7-integration}
 
 \begin{appendices}
-	\chapter{Lie groups and Lie algebras}\label{appendix:Lie}
-	\input{3b-liegroups}
+  \chapter{Lie groups and Lie algebras}\label{appendix:Lie}
+  \input{3b-liegroups}
 
-	\input{appendices}
+  \input{appendices}
 \end{appendices}
 
 % \begin{appendices}
