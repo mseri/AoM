@@ -372,6 +372,8 @@ To avoid unnecessary complications, we will only integrate $n$-forms with compac
 Armed with our experience with line integrals, fond memories of multivariable analysis and our recent discoveries, we are finally ready to talk about integrals.
 Let's keep things simple and go one step at a time.
 
+% TODO: properly explain how the change of variable in Euclidean space requires the absolute value of the Jacobian determinant, and thus in our definition we need to take into account the orientation and compensate with a minus sign if necessary.
+
 \begin{definition}\label{def:intnform:chart}
   Let $M$ be a smooth $n$-manifold and $(U,\varphi)$ be a chart from an oriented atlas of $M$ with coordinates $(x^i)$.
   If $\omega\in\Omega^n(M)$ is a $n$-form, $n > 0$, with compact support in $U$, we define the integral of $\omega$ as\sidenote[][-1em]{Recall that for a diffeomorphism $\phi$, $\phi_* = (\phi^{-1})^*$.}
@@ -399,16 +401,16 @@ To make sure that this definition makes sense, let's show that the integral is w
   Suppose $\omega\in\Omega^n(M)$ with compact support $\supp \omega \subset U\cap V$, where $(U, \varphi)$ and $(V, \psi)$ are two positively oriented charts on the oriented manifold $M$.
   Then, the value of the integral $\int_M\omega$ is independent on the chosen chart.
 \end{lemma}
+\marginnote{In multivariable analysis you saw already the invariance of the Euclidean integral by orientation-preserving changes of coordinates, namely for $F: \R^n \to \R^n$ orientation preserving diffeomorphism and $\omega \in \Omega^n(\R^n)$, it holds $\int_{F(A)} \omega = \int_A F^* \omega$. This can be also directly used to show
+  \begin{align}
+    \int_{\varphi(W)} \varphi_*\omega & = \int_{\sigma^{-1}(\psi(W))} \varphi_*\omega \\
+                                      & = \int_{\psi(W))} \sigma_* (\varphi_*\omega)  \\
+                                      & = \int_{\psi(W)} \psi_* \omega.
+  \end{align}
+}
 \begin{proof}
   Let $\varphi$ and $\psi$ be two charts on $W = U\cap V$ with the same orientation and local coordinates $x$ and $y$, let $\sigma = \psi\circ\varphi^{-1}$ be the corresponding transition map.
   Then, a computation completely analogue to \eqref{form:cov} implies
-  \marginnote{In multivariable analysis you saw already the invariance of the Euclidean integral by orientation-preserving changes of coordinates, namely for $F: \R^n \to \R^n$ orientation preserving diffeomorphism and $\omega \in \Omega^n(\R^n)$, it holds $\int_{F(A)} \omega = \int_A F^* \omega$. This can be also directly used to show
-    \begin{align}
-      \int_{\varphi(W)} \varphi_*\omega & = \int_{\sigma^{-1}(\psi(W))} \varphi_*\omega \\
-                                        & = \int_{\psi(W))} \sigma_* (\varphi_*\omega)  \\
-                                        & = \int_{\psi(W)} \psi_* \omega.
-    \end{align}
-  }
   \begin{align}
     \int_{\varphi(W)} \varphi_*\omega = \int_{\psi(W)} \psi_*\omega.
   \end{align}
@@ -755,27 +757,38 @@ We are going to state the theorem, discuss some of its consequences and then giv
   \textit{\small Hint: if you look carefully, you may notice that you don't really need to write anything down in coordinates.}
 \end{exercise}
 
+\begin{exercise}
+Let $F: M \to N$ be a diffeomorphism of smooth manifolds.
+Prove that if $N$ is orientable, then $M$ is orientable.
+\end{exercise}
+
 \begin{example}
+  Consider the annulus \[M=\{(x,y)\in\R^2 \mid 1/2\leq x^2+y^2 \leq 1\}\] and the $1$-form \[\omega = \frac{-y dx + x dy}{x^2 + y^2}.\]
   \begin{marginfigure}
     \includegraphics{8_3_8-annulus.pdf}
   \end{marginfigure}
-  Consider the annulus $M=\{(x,y)\in\R^2 \mid 1/2\leq x^2+y^2 \leq 1\}$ and the $1$-form $\omega = \frac{-y dx + x dy}{x^2 + y^2} = d\theta$ where $(x,y) = (\rho\cos\theta, \rho\sin\theta)$.
+  A direct computation shows that $d\omega = 0$ and, thus, $\int_M d\omega = 0$.
 
-  Then $d\omega = 0$ and therefore $\int_M d\omega = 0$.
-  Furthermore,
+  Using polar coordinates $(x,y) = (\rho\cos\theta, \rho\sin\theta)$, with $\rho\in\R_+$ and $\theta \in (-\pi, \pi)$ or $(0, 2\pi)$, one can check that $\omega = d\theta$ is an exact form on $\R^2\setminus L$, where $L$ is the ray $\{(x,y) \mid \theta = 0\}$ or $\{(x,y) \mid \theta = \pi\}$ in the case of the chosen charts.
+
+  Furthermore, we can apply the euclidean Stokes' theorem to get
   \begin{align}
     \int_{\partial M}\omega
      & = \int_{x^2 + y^2 =1} \omega + \int_{x^2+y^2 =1/2}\omega \\
      & = \int_{0}^{2\pi} d\theta - \int_0^{2\pi}d \theta        \\
      & = 2\pi - 2\pi = 0.
   \end{align}
+  Where in the second identity we used the fact that the boundary orientation on the inner circle is opposite to the one on the outer circle.
 
-  An important consequence of this is that while locally $\omega$ is the differential of the angle function $\theta$, this cannot be exact on all $M$: indeed, if $\omega = d\eta$ for some $\eta$, we would have
+  An important consequence of this is that while locally $\omega$ is the differential of the angle function $\theta$, this cannot be exact on the full $M$: indeed, if $\omega = d\eta$ globally for some $\eta$, we would have that on any closed curve $\gamma$, $\int_\gamma \omega = \int_\gamma d\theta = \int_{\partial\gamma} \theta = 0$. In particular
   \begin{equation}
     2\pi = \int_{\bS^1}\omega = \int_{\bS^1}d\eta \overset{!}{=} \int_{\partial\bS^1}\eta = 0.
   \end{equation}
 
-  Moreover, since $2\pi = \int_{\bS^1}\omega$, Stokes' theorem also implies that $\bS^1$ is not the boundary of a compact regular domain in $\R^2\setminus\{0\}$.
+  Moreover, since $2\pi = \int_{\bS^1}\omega$, Stokes' theorem also implies that $\bS^1$ is not the boundary of a compact regular domain in $\R^2\setminus\{0\}$. If that was not the case, let $R$ be such a compact regular domain with $\partial R = \bS^1$; by Stokes' theorem, we would have
+  \begin{equation}
+    2\pi = \int_{\bS^1}\omega = \int_{R} d\omega = 0.
+  \end{equation}
 \end{example}
 
 In fact this example is a particular case of the following corollary of Stokes' theorem.
