@@ -40,7 +40,7 @@ jobs:
         echo "GITHUB_TAG=$(git describe --always --tags)" >> $GITHUB_ENV
         echo "BUILD_DATE=$(date +'%Y_%m_%d')" >> $GITHUB_ENV
 
-    - uses: actions/cache@v2
+    - uses: actions/cache@v4
       name: Tectonic Cache
       with:
         path: ~/.cache/Tectonic
