@@ -145,7 +145,7 @@ Thus, in order to get a globally consistent ordering, we need to worry about the
     \end{cases}.
   \end{equation}
   Since $\supp(\rho_i) \subset U_i$, we have $\widetilde\omega_i\in\Omega^n(M)$.
-  Let $\omega := \sum_i \widetilde \omega_i$. This sum is finite in a neigbourhood of each point so, in particular, $\omega \in \Omega^n(M)$. We need to show that it is a volume form on $M$.
+  Let $\omega := \sum_i \widetilde \omega_i$. This sum is finite in a neighbourhood of each point so, in particular, $\omega \in \Omega^n(M)$. We need to show that it is a volume form on $M$.
   On nonempty overlaps $U_k \cap U_l \neq \emptyset$ of charts we have
   \begin{align}
     \omega_l & = \varphi_l^*\, dx^1\wedge\cdots\wedge dx^n = \varphi_k^* \sigma_{lk}^*\, dx^1 \wedge\cdots\wedge dx^n \\
@@ -352,7 +352,7 @@ Let $\omega = dx^1\wedge\cdots\wedge dx^n$ be a positive volume form on $M$ on o
 Thus, for example, the boundary orientation on $\partial \cH^1 = \{0\}$ is $-1$, the one on $\partial \cH^2$ is the standard orientation on $\R$ given by $dx^1$ and the one on $\partial \cH^3$ is $-dx^1\wedge dx^2$, which is the clockwise orientation in the $(x^1, x^2)$-plane, etc.
 
 \begin{example}\label{ex:int:bdryo}
-  The closed interval $[a,b]\subset\R$ with standard euclidean coordinate $x$ has a standard orientation given by the vector field $\frac{\partial}{\partial x}$.
+  The closed interval $[a,b]\subset\R$ with standard Euclidean coordinate $x$ has a standard orientation given by the vector field $\frac{\partial}{\partial x}$.
   Therefore\footnote{Recall the charts in Example~\ref{ex:mfldbdryinterval}.}, the boundary orientation at $b$ is $\iota_{\frac{\partial}{\partial x}}(dx) = +1$ and the one at $a$ is $\iota_{-\frac{\partial}{\partial x}}(dx) = -1$.
 \end{example}
 
@@ -598,7 +598,7 @@ This corollary has deep consequences in classical mechanics, which we teach in t
      & = \sum_i \int_{\varphi_i(U_i)} (\rho_i f \circ\varphi_i^{-1})(x) \omega(x) d^n x,
   \end{align}
   where the last integral is a Lebesgue integral on $\R^n$.
-  One then calls $f:M\to \R$ integrable, saying $f\in L^1(M,\omega)$, if $\int_M|f|\omega < \infty$ and defines its integral as $\int_M f\omega := \int_M f^+\omega - \int_M f^-\omega$, where $f^\pm$ denote the positive and negative components of $f$ as in the euclidean case.
+  One then calls $f:M\to \R$ integrable, saying $f\in L^1(M,\omega)$, if $\int_M|f|\omega < \infty$ and defines its integral as $\int_M f\omega := \int_M f^+\omega - \int_M f^-\omega$, where $f^\pm$ denote the positive and negative components of $f$ as in the Euclidean case.
 \end{remark}
 
 \section{Stokes' Theorem}
@@ -667,7 +667,7 @@ We are going to state the theorem, discuss some of its consequences and then giv
 \end{remark}
 
 \begin{proof}
-  \newthought{Part I: euclidean boundary case}.
+  \newthought{Part I: Euclidean boundary case}.
   Let's start with a special case: suppose $M = \cH^n$ itself.
   Since $\omega$ has compact support, there is $R > 0$ such that $\supp \omega \subset A = [-R,R]^{n-1}\times[0,R]$ is enclosed within the rectangle $A$.
   We can write $\omega$ in standard coordinates to get
@@ -685,8 +685,8 @@ We are going to state the theorem, discuss some of its consequences and then giv
      & = \sum_{j=1}^n (-1)^{j-1} \int_A\frac{\partial \omega^j}{\partial x^j}dx^1\wedge\cdots\wedge dx^n                \\
      & = \sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) d^n x. %d x^1\cdots dx^n.
   \end{align}
-  The last are genuine euclidean integrals and we can change the order of integration in each term to always integrate the $x^j$ term first.
-  The usual euclidean fundamental theorem of calculus then, for the terms with $j\neq n$, implies
+  The last are genuine Euclidean integrals and we can change the order of integration in each term to always integrate the $x^j$ term first.
+  The usual Euclidean fundamental theorem of calculus then, for the terms with $j\neq n$, implies
   \begin{align}
     \int_{\cH^n} d\omega
      & = \sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) d^n x                                   \\ %dx^1\cdots dx^n \\
@@ -715,7 +715,7 @@ We are going to state the theorem, discuss some of its consequences and then giv
   \end{equation}
   Since coordinates $(x^1, \ldots, x^{n-1})$ are positively oriented for $\cH^n$ when $n$ is even and negatively oriented when $n$ is odd, we obtain the equality of \eqref{eq:lhsHn} and \eqref{eq:rhsHn}.
 
-  \newthought{Part II: euclidean case}.
+  \newthought{Part II: Euclidean case}.
   If $M=\R^n$ the considerations above apply without the need to make an exception for the case $j=n$, so all the terms vanish on the left-hand side of~\eqref{eq:Stokes} while the right-hand side is trivially zero due to the empty boundary.
 
   \newthought{Part III: ``arbitrary'' $M$ but $\supp\omega$ is contained in a single chart}.
@@ -771,7 +771,7 @@ Prove that if $N$ is orientable, then $M$ is orientable.
 
   Using polar coordinates $(x,y) = (\rho\cos\theta, \rho\sin\theta)$, with $\rho\in\R_+$ and $\theta \in (-\pi, \pi)$ or $(0, 2\pi)$, one can check that $\omega = d\theta$ is an exact form on $\R^2\setminus L$, where $L$ is the ray $\{(x,y) \mid \theta = 0\}$ or $\{(x,y) \mid \theta = \pi\}$ in the case of the chosen charts.
 
-  Furthermore, we can apply the euclidean Stokes' theorem to get
+  Furthermore, we can apply the Euclidean Stokes' theorem to get
   \begin{align}
     \int_{\partial M}\omega
      & = \int_{x^2 + y^2 =1} \omega + \int_{x^2+y^2 =1/2}\omega \\

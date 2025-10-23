@@ -13,7 +13,7 @@ We will conclude the chapter answering the question opened at the beginning of t
 Before getting at the core of the discussion, it is useful to
 recall some results from multivariable analysis.
 
-A function $f:\R^m \to \R^n$ between euclidean spaces has rank $k$ at $x\in\R^m$ if its ($n\times m$) Jacobian matrix $Df(x)$ has rank $k$.
+A function $f:\R^m \to \R^n$ between Euclidean spaces has rank $k$ at $x\in\R^m$ if its ($n\times m$) Jacobian matrix $Df(x)$ has rank $k$.
 The function has \emph{maximal rank}\footnote{Alternatively, it is of \emph{full rank}.} at $x$ if $k = \min(n,m)$.
 When $n=m$, $f$ has maximal rank at $x$ if and only if the square matrix $Df(x)$ is an invertible matrix.
 
@@ -48,7 +48,7 @@ compare the following statements.
 %   Therefore, once again since both $\varphi$ and $\psi$ are diffeomorphisms, $F\big|_W : W \to F(W)$ is also a diffeomorphism for $W := \varphi^{-1}(\Omega)$.
 % \end{proof}
 \begin{exercise}
-  Use the euclidean inverse function theorem (Theorem~\ref{thm:ift}) on $\R^n$ to prove Theorem~\ref{thm:iftm}.
+Use the Euclidean inverse function theorem (Theorem~\ref{thm:ift}) on $\R^n$ to prove Theorem~\ref{thm:iftm}.
 \end{exercise}
 
 Note that this theorem can fail for manifold with boundary.
@@ -58,8 +58,8 @@ An important observation at this point is that the rank of the mapping
 is a crucial property in the inverse function theorem and it is really a
 property of its differential.
 If we map our manifold via some function $F$ or via its charts into a
-euclidean space in such a way that the rank of the mapping remains fixed,
-and thus all the tangent spaces will be mapped to euclidean spaces of same dimensions,
+Euclidean space in such a way that the rank of the mapping remains fixed,
+and thus all the tangent spaces will be mapped to Euclidean spaces of same dimensions,
 we may be able to use the shape of the mapping itself to describe the
 shape of the manifold.
 
@@ -92,7 +92,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
   and $F(p) = F(0,\ldots,0) = (0,\ldots,0)$.
 
   \newthought{Second}. The fact that $F$, and thus $dF$, is of rank $k$, translates to
-  the euclidean setting to the fact that the matrix $DF$ is a $m\times n$ matrix of rank $k$
+  the Euclidean setting to the fact that the matrix $DF$ is a $m\times n$ matrix of rank $k$
   and thus with an invertible $k\times k$ submatrix.
   Rearranging the coordinates we can assume, again without loss of generality, that this
   $k\times k$ minor is is the upper left block of the matrix $DF$, that is, the block
@@ -453,7 +453,7 @@ To finally answer the question, we will prove one last proposition.
   \begin{equation}
     p^\perp := \big\{q\in\R^3 \;\mid\; \left\langle p, q\right\rangle = 0\big\},
   \end{equation}
-  where $\left\langle\cdot,\cdot\right\rangle$ is the usual euclidean dot product. The latter directly comes from computing $dF_p$ and its kernel, which we essentially already did in Example~\ref{ex:s2}.
+  where $\left\langle\cdot,\cdot\right\rangle$ is the usual Euclidean dot product. The latter directly comes from computing $dF_p$ and its kernel, which we essentially already did in Example~\ref{ex:s2}.
   Take a long deep breath and unfold the definitions in~\eqref{ex:tan_sph}, here it may be useful to draw a picture\footnote{Which is generally always the case in geometry and topology, and most other mathematical fields.}.
   Equation~\eqref{ex:tan_sph} implies that the tangent space to $\bS^2$ at a point $p$ is the plane tangent to $\bS^2$ at $p$, as claimed in Figure~\ref{fig:tan-embedded-sphere}.
 \end{example}

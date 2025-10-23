@@ -1,6 +1,6 @@
 We continue with our quest of generalizing multivariable calculus.
 The next familiar objects waiting to be questioned are vector fields.
-In the euclidean settings these are simply smooth maps that attach a vector to each point in their domain.
+In the Euclidean settings these are simply smooth maps that attach a vector to each point in their domain.
 
 \section{Vector fields}
 
@@ -130,7 +130,7 @@ where $v^j(x)$ are the components\footnote{As we start getting used to, the char
     X_{F^{-1}(u,v)} = \frac{u^2}{v^2}\frac{\partial}{\partial x}\Big|_{F^{-1}(u,v)},
   \end{equation}
   and, thus, by~\eqref{eq:pfvf} (with $p=(u,v)$) we get
-  \marginnote[-5em]{For the computation, keep in mind that the Jacobian is from a change of coordinates between the two euclidean spaces $T_{F^{-1}(u,v)}M$ and $T_{(u,v)}N$, where on the first we are using the coordinate basis $\left\{\frac{\partial}{\partial x}\Big|_{F^{-1}(u,v)},\frac{\partial}{\partial y}\Big|_{F^{-1}(u,v)}\right\}$ and on the second we are using the coordinate basis $\left\{\frac{\partial}{\partial u}\Big|_{(u,v)},\frac{\partial}{\partial v}\Big|_{(u,v)}\right\}$.}
+  \marginnote[-5em]{For the computation, keep in mind that the Jacobian is from a change of coordinates between the two Euclidean spaces $T_{F^{-1}(u,v)}M$ and $T_{(u,v)}N$, where on the first we are using the coordinate basis $\left\{\frac{\partial}{\partial x}\Big|_{F^{-1}(u,v)},\frac{\partial}{\partial y}\Big|_{F^{-1}(u,v)}\right\}$ and on the second we are using the coordinate basis $\left\{\frac{\partial}{\partial u}\Big|_{(u,v)},\frac{\partial}{\partial v}\Big|_{(u,v)}\right\}$.}
   \begin{equation}
     (F_*X)_{(u,v)} = \frac{u^2}{v^2}\frac{\partial}{\partial u}\Big|_{(u,v)} + \frac{u}{v}\frac{\partial}{\partial v}\Big|_{(u,v)}.
   \end{equation}
@@ -359,8 +359,8 @@ In Theorem~\ref{thm:liealgiso} we have thus shown that the pushforward is a Lie 
 
 \section{Flows and integral curves}
 
-Once again, a comparison with the euclidean world can open the door to a whole new world.
-Vector fields on euclidean spaces give rise to ordinary differential equations (ODEs) and to each vector field we can associate a flow, that is, the curve that solve the ODE.
+Once again, a comparison with the Euclidean world can open the door to a whole new world.
+Vector fields on Euclidean spaces give rise to ordinary differential equations (ODEs) and to each vector field we can associate a flow, that is, the curve that solve the ODE.
 
 The classical theorems of existence and uniqueness of solutions of ODEs, then, give us the necessary conditions to ensure that such flow exists locally or globally and it is well--defined.
 For a rather detailed account you can refer to~\cite[Chapters 3.2 and 3.3]{book:knauf} (which you can freely access on \href{https://link.springer.com/book/10.1007\%2F978-3-662-55774-7}{SpringerLink} via the university proxy).
@@ -369,7 +369,7 @@ In fact, if $X: U\subset\R^n \to \R^n$ is a vector field on an open subset $U$ o
 \begin{equation}\label{eq:XflowRn}
   \dot u(t) = X(u(t))
 \end{equation}
-is the corresponding ODE, then we have the following implications of the euclidean theorems on existence and uniqueness of solutions:
+is the corresponding ODE, then we have the following implications of the Euclidean theorems on existence and uniqueness of solutions:
 \begin{enumerate}[(i)]
   \item if $X$ is continuous, then for each $x\in U$ there exists $\epsilon > 0$ and a differentiable curve $u = u_{x} : (-\epsilon, \epsilon) \to U$ with $u_x(0) = x$ that solves~\eqref{eq:XflowRn};
   \item (Picard-Lindel\"of theorem) if $X$ is locally Lipschitz continuous, then the solution $u_x$ is unique;
@@ -442,7 +442,7 @@ As we are getting used to, the whole theory can be extended to manifolds in a qu
   In what follows we may chose any of the above notations depending of what we will find more convenient depending on the task at hand.
 \end{notation}
 
-Exercise~\ref{ex:tg_curve_iso} implies that in the euclidean case our definition (in terms of equality of tangent vectors on $T_{\gamma(t)}(M)$) coincides with the euclidean flow (defined in terms of equality of real numbers).
+Exercise~\ref{ex:tg_curve_iso} implies that in the Euclidean case our definition (in terms of equality of tangent vectors on $T_{\gamma(t)}(M)$) coincides with the Euclidean flow (defined in terms of equality of real numbers).
 Alternatively, one can pick a coordinate chart and use the pushforward to locally compare the definitions.
 
 Indeed, if $(U, \varphi)$ is a chart with coordinates\footnote{We will soon stop being so verbose and just write ``in local coordinates (on $U$)'' without specifying their names unless strictly necessary!} $(x^i)$, let $\gamma(t) = (\gamma^1(t), \ldots, \gamma^n(t))$ in these coordinates. Then, condition~\eqref{eq:integralCurve} above can be written as
@@ -459,7 +459,7 @@ These equations can be further rewritten as the system of ordinary differential 
     \dot\gamma^n(t) = X^n(\gamma^1(t), \ldots, \gamma^n(t))
   \end{cases},
 \end{equation}
-to which we can apply euclidean theorems of existence and uniqueness!
+to which we can apply Euclidean theorems of existence and uniqueness!
 Note also the terminology here, an ``integral curve'' for $X$ is the curve you obtain ``integrating'' the system of ODE associated to $X$.
 
 This immediately implies the following theorem.
@@ -530,7 +530,7 @@ This justifies the following definition.
 Note that $I_p$ is typically larger than the domain of definition $(-\epsilon, \epsilon)$ of $\phi_p$.
 By construction $\phi_p$ never leaves the coordinate set $U$ over which it was defined, on the other hand $\gamma_p$ can in general wander all over the manifold (even though $\gamma_p = \phi_p$ for values of $t$ small enough)!
 
-Again, theorems about existence and uniqueness of euclidean maximal flows imply that we can extend $\phi_p$ uniquely to a maximal flow.
+Again, theorems about existence and uniqueness of Euclidean maximal flows imply that we can extend $\phi_p$ uniquely to a maximal flow.
 
 \begin{theorem}[Existence and uniqueness of maximal solutions] %
   \label{thm:exuniqmax}
@@ -547,7 +547,7 @@ When we want to emphasize the vector field $X$, we will write $\phi^X$.
 
 \begin{proof}
   Both $\cD$ and $\phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so to prove the theorem one only needs to show that $\cD$ is open and that $\phi$ is smooth.
-  This is done by applying the euclidean theorems to extend the local flow, finally showing that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\phi$ is smooth.
+  This is done by applying the Euclidean theorems to extend the local flow, finally showing that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\phi$ is smooth.
 
   We are going to omit the details of the proof, the interested reader can refer to~\cite[Proposition 9.12]{book:lee}.
   The statements may seem different at a first glance, but a careful look will reveal that he is just taking a slightly different perspective.
@@ -727,7 +727,7 @@ Thus, if a solution does not exist for all times, then it must either run to inf
 
 \section{Normal forms}
 
-A natural question, at this point, is what happens when we map integral curves to different manifolds via diffeomorphisms, after all it looks like the mapping to euclidean spaces via the charts behaves quite nicely.
+A natural question, at this point, is what happens when we map integral curves to different manifolds via diffeomorphisms, after all it looks like the mapping to Euclidean spaces via the charts behaves quite nicely.
 
 \begin{proposition}\label{prop:conjpfX}
   Let $F: M \to N$ be a diffeomorphism between smooth manifolds, $X\in\fX(M)$ a vector field and $\gamma:I\to M$ an integral curve of $X$. Then $F\circ\gamma : I \to N$ is an integral curve of $F_* X$.
@@ -925,7 +925,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
   \end{equation}
   Close to $x=0$ we can thus approximate $\widetilde X_x$ by its linearisation $ d\widetilde X_0 x$.
   %
-  Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\widetilde X_0 x$ is independent of the choice of local coordinates.} of $d\widetilde X_0 x$ and their geometric multiplicities (cf.~\cite[Figure 9.8]{book:lee}). This is the same as you have seen in the euclidean case~\cite[Chapter 5.3]{book:knauf}.
+  Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\widetilde X_0 x$ is independent of the choice of local coordinates.} of $d\widetilde X_0 x$ and their geometric multiplicities (cf.~\cite[Figure 9.8]{book:lee}). This is the same as you have seen in the Euclidean case~\cite[Chapter 5.3]{book:knauf}.
 \end{remark}
 
 \begin{exercise}

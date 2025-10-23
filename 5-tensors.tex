@@ -1,4 +1,4 @@
-\marginnote{For a brief and \emph{concrete} explanation of tensors, I warmly recommend the following \href{https://youtu.be/f5liqUk0ZTw}{youtube video by Dan Fleisch} and \cite[Chapter XIV]{book:lieber}. For the role of tensors in the context of machine learning, you can have a look at the \href{https://ems.press/content/serial-article-files/25550}{following aricle on the EMS magazine 126 (2022)}.}
+\marginnote{For a brief and \emph{concrete} explanation of tensors, I warmly recommend the following \href{https://youtu.be/f5liqUk0ZTw}{youtube video by Dan Fleisch} and \cite[Chapter XIV]{book:lieber}. For the role of tensors in the context of machine learning, you can have a look at the \href{https://ems.press/content/serial-article-files/25550}{following article on the EMS magazine 126 (2022)}.}
 Many of the spaces that we have encountered so far are particular examples of a much larger class of objects.
 In this chapter we are going to introduce all the necessary algebraic concepts.
 
@@ -418,7 +418,7 @@ To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\
 
 \begin{example}[Change of coordinates for tensor fields]
   Let, as usual, $(U,\varphi)$ be a chart on $M$ with local coordinates $(x^i)$.
-  If $\{e^i:\R^n\to\R\}$ are the standard euclidean coordinates\footnote{Have a look at Notation~\ref{ntn:coords} if you don't remember what I am talking about.
+  If $\{e^i:\R^n\to\R\}$ are the standard Euclidean coordinates\footnote{Have a look at Notation~\ref{ntn:coords} if you don't remember what I am talking about.
     Here we are using the notation $e^i \equiv r^i$ since now we know that $\{e^i\}$ is just the dual basis to $\{e_i\}$. } and $\{e_i\}$ are the standard basis vectors in $\R^n$, then the coordinate $1$-forms and the coordinate vector fields on $U\subset M$ are given by
   \begin{equation}
     dx^i = \varphi^* de^i
@@ -552,7 +552,7 @@ Let's briefly look at the reason.
 
 \begin{example}
   \begin{enumerate}
-    \item The euclidean space $\R^n$ is a Riemannian manifold with the usual scalar product, which we can represent as $g = \sum_{i=1}^n dx^i\otimes dx^i$ (What is its matrix form?).
+    \item The Euclidean space $\R^n$ is a Riemannian manifold with the usual scalar product, which we can represent as $g = \sum_{i=1}^n dx^i\otimes dx^i$ (What is its matrix form?).
     \item If $M=\R^4$, an example of pseudo-Riemannian metric is the Minkowski metric $g = g_{ij} dx^i\otimes dx^j$ where $[g_{ij}] = {\left(\begin{smallmatrix} -1 & 0 & 0 & 0\\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{smallmatrix}\right)}$. The pseudo-Riemannian manifold $(M, g)$ is the space-time manifold of special relativity, with $x^1 = t$ is the time and $(x^2, x^3, x^4) = (x,y,z)$ is the space.
   \end{enumerate}
 \end{example}

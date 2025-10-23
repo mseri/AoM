@@ -5,7 +5,7 @@
 
 \section{Let the fun begin!}
 \newthought{It now remains to define derivatives} of functions between smooth manifolds.
-And, since we saw that euclidean spaces are manifolds, we must make sure that our definition coincides with the usual one in euclidean spaces.
+And, since we saw that Euclidean spaces are manifolds, we must make sure that our definition coincides with the usual one in Euclidean spaces.
 
 \begin{marginfigure}[7em]
   \includegraphics{2_1-embedded-sphere-tangent.pdf}
@@ -15,7 +15,7 @@ And, since we saw that euclidean spaces are manifolds, we must make sure that ou
 At the beginning of the previous chapter, we recalled that total derivatives are linear operators.
 Since topological spaces are not necessarily vector spaces, then, we need to devise some sort of assignment of vector spaces to points on the manifold.
 In this chapter we will see exactly how to do that: we will describe how to associate to each point $p\in M$ on an $n$-dimensional smooth manifold $M$ an $n$-dimensional vector space $T_p M$ called \emph{tangent space to $M$ at $p$}.
-For a manifold embedded into an euclidean ambient space this tangent space will coincide with the intuitive understanding of a tangent hyperplane to the point on the manifold, see also Figure~\ref{fig:tan-embedded-sphere}, however it will take a couple of chapters before we can show that it is the case.
+For a manifold embedded into an Euclidean ambient space this tangent space will coincide with the intuitive understanding of a tangent hyperplane to the point on the manifold, see also Figure~\ref{fig:tan-embedded-sphere}, however it will take a couple of chapters before we can show that it is the case.
 
 As we will see, there are various different definitions of tangent space but, in the end, they all turn out to be equivalent.
 Due to a certain amount of freedom in terms of different ``perspectives'' leading to different but equivalent definitions, there is no unique way of introducing tangent spaces.
@@ -32,7 +32,7 @@ Just to give you an idea, all the following ideas lead to equivalent definitions
 In this course we will start by describing derivations on the space of germs, the approach which emphasizes the local nature of derivations to its extreme.
 The equivalence between our approach and the one based on charts will be left as homework, while we will look into the equivalence of velocity vectors of curves and derivations together.
 
-\section{Directional derivatives in euclidean spaces}\label{sec:dd}
+\section{Directional derivatives in Euclidean spaces}\label{sec:dd}
 
 Let's take a brief detour.
 Suppose that $f: U\subset\R^n\to\R^k$ is a smooth map defined on an open subset $U\subset \R^n$.
@@ -45,7 +45,7 @@ Then, the partial derivative is obtained as the particular case
   \frac{\partial f}{\partial x^j}(x) := D_jf(x) := Df(x) e_j = \lim_{t\to0} \frac{f(x+te_j) - f(x)}{t}.
 \end{equation}
 Since $f=(f^1, \ldots, f^k)$ takes values in $\R^k$, instead of taking its total derivative $Df$ as above, we can also think to the derivatives of its components.
-In this case we can use the standard euclidean coordinates\footnote{See Notation~\ref{ntn:coords}.} $r^1, \ldots, r^n$ to isolate the components and then derive them, that is, we would be deriving $r^i \circ f : \R^n \to \R$.
+In this case we can use the standard Euclidean coordinates\footnote{See Notation~\ref{ntn:coords}.} $r^1, \ldots, r^n$ to isolate the components and then derive them, that is, we would be deriving $r^i \circ f : \R^n \to \R$.
 
 \newthought{Let's take it slow}, and compare all these various derivatives to each other.
 For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
@@ -60,7 +60,7 @@ For $f:U\subset\R^n\to\R^k$ and $x\in U$, we have
 \end{itemize}
 
 This notation using $D$ instead of spelling out the partial derivatives, comes with an important advantage.
-Let's use it to rewrite the chain rule from Proposition~\ref{thm:chainrule}(\ref{thm:chainrule2}):
+Let's use it to rewrite the chain rule from Theorem~\ref{thm:chainrule}(\ref{thm:chainrule2}):
 \marginnote[1em]{Using Einstein notation, since $l$ is the only index that appears both in lower and upper position, $D_j(r^i\circ g \circ f) (x) = D_l(r^i\circ g)(f(x))\; D_j(r^l \circ f)(x)$.}
 \begin{equation}
   D_j(r^i\circ g \circ f) (x) = \sum_{l=1}^k D_l(r^i\circ g)(f(x))\; D_j(r^l \circ f)(x),
@@ -125,7 +125,7 @@ where $(V,f)$ is any representative of $[f]_p$.
   Check that the $\eval_p$ map is well--defined.
 \end{exercise}
 
-We can now go back to our discussion of euclidean derivations to motivate our definition of tangent vectors.
+We can now go back to our discussion of Euclidean derivations to motivate our definition of tangent vectors.
 
 \begin{example}\label{ex:euclideanD}
   Let $U\subset\R^n$ open\footnote{In what follows, we will think of $U$ as both an open subset of $\R^n$ and a smooth manifold depending on what is most convenient for us.} and $f\in C^\infty(U)$.
@@ -141,7 +141,7 @@ We can now go back to our discussion of euclidean derivations to motivate our de
   \begin{equation}\label{eq:mapxvtoD}
     (x,v):C^\infty(U) \to\R, \quad (x,v)(f) := Df(x)v.
   \end{equation}
-  By the definition~\eqref{eq:diff} of the euclidean differential, we know that it is a local concept: the value $Df(x)$ only depends on the value of $f$ in an arbitrarily small neighbourhood of $x$, that is, on the germ of $f$ at $x$.
+  By the definition~\eqref{eq:diff} of the Euclidean differential, we know that it is a local concept: the value $Df(x)$ only depends on the value of $f$ in an arbitrarily small neighbourhood of $x$, that is, on the germ of $f$ at $x$.
   Thus we can rephrase~\eqref{eq:mapxvtoD} by saying that $v$ defines a \emph{linear} map
   \begin{equation}
     v : C_x^\infty(U) \to \R, \quad
@@ -325,7 +325,7 @@ To that end, we need a preliminary result from multivariable analysis.
     h = h(0) + r^i g_i
   \end{equation}
   \marginnote[-2em]{$\leftarrow$ This is our first use of Einstein notation, this equation should be read as $h(x) = h(0) + \sum_{i=1}^n r^i(x) g_i(x)$.
-    Using the global euclidean chart, $x^i = r^i(x)$ and $h(x) = h(0) + \sum_{i=1}^n x^i g_i(x)$, which you may recognize as the first iteration of the usual Taylor-MacLaurin formula.}
+    Using the global Euclidean chart, $x^i = r^i(x)$ and $h(x) = h(0) + \sum_{i=1}^n x^i g_i(x)$, which you may recognize as the first iteration of the usual Taylor-MacLaurin formula.}
   where $r^i$ are the coordinates introduced in Notation~\ref{ntn:coords}.
 \end{lemma}
 \begin{proof}
@@ -414,7 +414,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 \end{remark}
 
 \begin{example}
-  The transition map between the standard euclidean coordinates and the polar coordinates on appropriate open sets in $\R^2$ is given by $(x,y) = (\rho\cos(\theta), \rho\sin(\theta))$. Let $p\in\R^2$ denote the point with coordinates $(\rho, \theta) = (3, \pi)$ and $v\in T_p\R^2$ the tangent vector with polar coordinate representation
+  The transition map between the standard Euclidean coordinates and the polar coordinates on appropriate open sets in $\R^2$ is given by $(x,y) = (\rho\cos(\theta), \rho\sin(\theta))$. Let $p\in\R^2$ denote the point with coordinates $(\rho, \theta) = (3, \pi)$ and $v\in T_p\R^2$ the tangent vector with polar coordinate representation
   \begin{equation}
     v = 5\frac{\partial}{\partial \rho}\Big|_p - \frac{\partial}{\partial \theta}\Big|_p.
   \end{equation}
@@ -447,7 +447,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   This shows that the coordinate vectors in the tangent space depend on the whole coordinate system and not just on the single coordinate function they are associated to.
 \end{exercise}
 
-\newthought{We already mentioned} that there are multiple equivalent definitions of the tangent space. In the following exercises you will provide one in terms of charts and euclidean derivatives.
+\newthought{We already mentioned} that there are multiple equivalent definitions of the tangent space. In the following exercises you will provide one in terms of charts and Euclidean derivatives.
 Soon, we will see yet another definition.
 
 \begin{exercise}\label{exe:vsstruct}
@@ -476,7 +476,7 @@ Soon, we will see yet another definition.
 
 \section{The differential of a smooth map}\label{sec:diffsmooth}
 
-\newthought{In the case of a smooth map between euclidean spaces}, the total derivative of the map at a point (represented by its Jacobian matrix) is a linear map that represents the best linear approximation to the map near the given point.
+\newthought{In the case of a smooth map between Euclidean spaces}, the total derivative of the map at a point (represented by its Jacobian matrix) is a linear map that represents the best linear approximation to the map near the given point.
 \marginnote{If you are curious about what happens if you consider higher order approximations, try to look up \emph{Jet Space} with your favourite search engine.}
 In the manifold case there is a similar linear map but, as we discussed, it makes no sense to talk about a linear map between manifolds: we need to find a suitable linear map between tangent spaces.
 
@@ -562,9 +562,9 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
   \textit{\small Hint: show that $d F_p \left(\frac{\partial}{\partial x^i}\big|_p\right) (f) = \left(\frac{\partial F^j}{\partial x^i} (p) \frac{\partial}{\partial y^j}\big|_{F(p)}\right) (f)$.}
 \end{exercise}
 
-\newthought{A particularly important consequence} of this theorem is that if we set $M=\R^m$ and $N=\R^n$ our definition coincides with the euclidean notion.
+\newthought{A particularly important consequence} of this theorem is that if we set $M=\R^m$ and $N=\R^n$ our definition coincides with the Euclidean notion.
 This is easily checked by taking $\varphi = \id_{\R^m}$ and $\psi=\id_{\R^n}$.
-Then the coordinates $(x^1,\ldots,x^m)$ are the standard euclidean coordinates for $\R^m$ and the coordinates $(y^1,\ldots,y^n)$ the ones for $\R^n$.
+Then the coordinates $(x^1,\ldots,x^m)$ are the standard Euclidean coordinates for $\R^m$ and the coordinates $(y^1,\ldots,y^n)$ the ones for $\R^n$.
 
 Let $f:U\subset\R^m\to\R^n$ be a smooth function and define the linear isomorphisms
 \begin{equation}\label{def:lin_iso_Tp}
@@ -849,7 +849,7 @@ As it turns out, this is a particular instance of a more general fact.
   \end{itemize}
 
   The countable basis $\{U_j\}$ is a countable basis for the topology of $M$ (which is second countable), taking a countable basis $\{W_k\}$ for the topology of $\R^n$, we can define a countable basis for $TM$ as $\{\widetilde\varphi^{-1}(U_i)\times W_k)\}$.
-  The charts defined above make $TM$ automatically euclidean of dimension $2n$.
+  The charts defined above make $TM$ automatically Euclidean of dimension $2n$.
 
   \begin{exercise}
     This part of the proof seems unnecessarily detailed.
