@@ -7,168 +7,168 @@ The theory of Lie groups and Lie algebras is vast, and in these lectures we will
 \section{Lie groups}
 
 \begin{definition}
-  A \emph{Lie group $G$} is a smooth manifold (without boundary) that is also an algebraic group, with the property that the multiplication map $\mu: G\times G \to G$, $\mu:(g,h)\mapsto gh$, and the inversion map $\iota:G\to G$, $\iota: g\mapsto g^{-1}$ are smooth.
+	A \emph{Lie group $G$} is a smooth manifold (without boundary) that is also an algebraic group, with the property that the multiplication map $\mu: G\times G \to G$, $\mu:(g,h)\mapsto gh$, and the inversion map $\iota:G\to G$, $\iota: g\mapsto g^{-1}$ are smooth.
 \end{definition}
 
 \begin{example}
-  \begin{enumerate}
-    \item $\R^n$ is a Lie group under addition.
-    \item $\R^n\setminus\{0\}$ is a Lie group under multiplication.
-    \item A manifold can be equipped with different Lie group structures. For example, the following map
-          \begin{equation}
-            \mu(x,y) = (x^1+y^1,\, x^2+y^2,\, x^3+y^3+x^1y^2)
-          \end{equation}
-          induces\footnote{To see that this defines a group structure, identify $\R^3$ with upper triangular $3\times3$ matrices via
-            \begin{equation}\nonumber
-              x = (x^1, x^2, x^3) \mapsto \begin{pmatrix}
-                1 & x^1 & x^3 \\
-                0 & 1   & x^2 \\
-                0 & 0   & 1
-              \end{pmatrix}
-            \end{equation}
-            and observe that $m$ becomes the standard matrix multiplication.} an alternative structure of Lie group on $\R^n$ called \emph{Heisenberg group}.
-    \item The set $GL(n)$ of invertible $n\times n$ matrices is a Lie group under matrix multiplication. Indeed, it is a manifold of dimension $n^2$, the product is smooth since each matrix entry is given a polynomial and the inversion is smooth thanks to Cramer's rule~\cite[Proposition B.36]{book:lee}.
-    \item The $n$-torus $\bT^n = \R^n/\Z^n$ is an abelian Lie group with the group structure induced by addition on $\R^n$.
-    \item Given Lie groups $(G_1, \ldots, G_k)$, their direct product is the product manifold $G_1\times \cdots\times G_k$ with the group structure given by
-          \begin{equation}
-            (g_1, \ldots, g_k)(h_1,\ldots,h_k) = (g_1h_1, \ldots g_kh_k)
-          \end{equation}
-          is a Lie group (why?).
-    \item Not all smooth manifolds can be equipped with a Lie group structure: for example, $\bS^n$ admits a Lie group structure only for $n=0,1,3$.
-  \end{enumerate}
+	\begin{enumerate}
+		\item $\R^n$ is a Lie group under addition.
+		\item $\R^n\setminus\{0\}$ is a Lie group under multiplication.
+		\item A manifold can be equipped with different Lie group structures. For example, the following map
+		      \begin{equation}
+			      \mu(x,y) = (x^1+y^1,\, x^2+y^2,\, x^3+y^3+x^1y^2)
+		      \end{equation}
+		      induces\footnote{To see that this defines a group structure, identify $\R^3$ with upper triangular $3\times3$ matrices via
+			      \begin{equation}\nonumber
+				      x = (x^1, x^2, x^3) \mapsto \begin{pmatrix}
+					      1 & x^1 & x^3 \\
+					      0 & 1   & x^2 \\
+					      0 & 0   & 1
+				      \end{pmatrix}
+			      \end{equation}
+			      and observe that $m$ becomes the standard matrix multiplication.} an alternative structure of Lie group on $\R^n$ called \emph{Heisenberg group}.
+		\item The set $GL(n)$ of invertible $n\times n$ matrices is a Lie group under matrix multiplication. Indeed, it is a manifold of dimension $n^2$, the product is smooth since each matrix entry is given a polynomial and the inversion is smooth thanks to Cramer's rule~\cite[Proposition B.36]{book:lee}.
+		\item The $n$-torus $\bT^n = \R^n/\Z^n$ is an abelian Lie group with the group structure induced by addition on $\R^n$.
+		\item Given Lie groups $(G_1, \ldots, G_k)$, their direct product is the product manifold $G_1\times \cdots\times G_k$ with the group structure given by
+		      \begin{equation}
+			      (g_1, \ldots, g_k)(h_1,\ldots,h_k) = (g_1h_1, \ldots g_kh_k)
+		      \end{equation}
+		      is a Lie group (why?).
+		\item Not all smooth manifolds can be equipped with a Lie group structure: for example, $\bS^n$ admits a Lie group structure only for $n=0,1,3$.
+	\end{enumerate}
 \end{example}
 
 \begin{exercise}
-  Prove that any Lie group is orientable.
+	Prove that any Lie group is orientable.
 \end{exercise}
 
 \begin{definition}
-  A \emph{Lie group homomorphism} $F:G\to H$ is a smooth map which is also a group homomorphism. It is called \emph{Lie group isomorphism} if it is also a diffeomorphism, which implies that it has an inverse that is also a Lie group homomorphism. In this case we call $G$ and $H$ isomorphic Lie groups.
+	A \emph{Lie group homomorphism} $F:G\to H$ is a smooth map which is also a group homomorphism. It is called \emph{Lie group isomorphism} if it is also a diffeomorphism, which implies that it has an inverse that is also a Lie group homomorphism. In this case we call $G$ and $H$ isomorphic Lie groups.
 \end{definition}
 
 \begin{example}
-  It turns out that you know plenty of examples of Lie group homomorphisms.
-  \begin{enumerate}
-    \item The map $\exp:\R\to\R_+$ is a Lie group homomorphism. The image of $\exp$ is the open subgroup $\R_+$ and $\exp:\R\to\R_+$ is a Lie group isomorphism with inverse $\log:\R_+\to\R$.
-    \item The map $\epsilon:\R\to\bS^1$ defined by $\epsilon(t)=e^{2\pi i t}$ is a Lie group homomorphism whose kernel is $\Z$. Similarly, the map $\epsilon^n:\R^n\to\bT^n$ defined by $\epsilon^n(x^1, \ldots, x^n)=(e^{2\pi i x^1}, \ldots, e^{2\pi i x^n})$ is a Lie group homomorphism whose kernel is $\Z^n$.
-    \item The determinant function $\det:GL(n)\to\R\setminus\{0\}$ is smooth since $\det$ is a polynomial in the entries of the matrix and it is a Lie group homomorphism since $\det (AB) = \det(A) \det(B)$.
-  \end{enumerate}
+	It turns out that you know plenty of examples of Lie group homomorphisms.
+	\begin{enumerate}
+		\item The map $\exp:\R\to\R_+$ is a Lie group homomorphism. The image of $\exp$ is the open subgroup $\R_+$ and $\exp:\R\to\R_+$ is a Lie group isomorphism with inverse $\log:\R_+\to\R$.
+		\item The map $\epsilon:\R\to\bS^1$ defined by $\epsilon(t)=e^{2\pi i t}$ is a Lie group homomorphism whose kernel is $\Z$. Similarly, the map $\epsilon^n:\R^n\to\bT^n$ defined by $\epsilon^n(x^1, \ldots, x^n)=(e^{2\pi i x^1}, \ldots, e^{2\pi i x^n})$ is a Lie group homomorphism whose kernel is $\Z^n$.
+		\item The determinant function $\det:GL(n)\to\R\setminus\{0\}$ is smooth since $\det$ is a polynomial in the entries of the matrix and it is a Lie group homomorphism since $\det (AB) = \det(A) \det(B)$.
+	\end{enumerate}
 \end{example}
 
 \begin{definition}
-  If $G$ is a Lie group, for any element $g\in G$, we denote by $L_g:G\to G$ the \emph{left translation} and by $R_g:G\to G$ the \emph{right translation}, respectively defined
-  \begin{equation}
-    L_g(h) = gh
-    \quad\mbox{and}\quad
-    R_g(h) = hg.
-  \end{equation}
+	If $G$ is a Lie group, for any element $g\in G$, we denote by $L_g:G\to G$ the \emph{left translation} and by $R_g:G\to G$ the \emph{right translation}, respectively defined
+	\begin{equation}
+		L_g(h) = gh
+		\quad\mbox{and}\quad
+		R_g(h) = hg.
+	\end{equation}
 \end{definition}
 
 \marginnote{The fact that translations are diffeomorphisms of the groups onto itself is crucial, it implies that the group looks the same around any point. Indeed, they are \emph{homogeneous spaces}. To study the local structure of a Lie group, as we will see soon, it is enough to examine a neighbourhood of the identity element.}
 These are both diffeomorphisms, since they can be described by a composition of smooth maps. For instance,
 \begin{equation}
-  \underset{h}{G} \underset{\mapsto}{\to} \underset{(g,h)}{G\times G} \underset{\mapsto}{\to} \underset{gh}{G}.
+	\underset{h}{G} \underset{\mapsto}{\to} \underset{(g,h)}{G\times G} \underset{\mapsto}{\to} \underset{gh}{G}.
 \end{equation}
 Moreover, $L_{g^{-1}}$ is the inverse of $L_g$.
 Similarly for $R_g$.
 
 \begin{remark}
-  For convenience, we will only consider left translations.
-  There is nothing wrong with right translations and, in fact, you can reformulate all the results that follow in terms of them.
+	For convenience, we will only consider left translations.
+	There is nothing wrong with right translations and, in fact, you can reformulate all the results that follow in terms of them.
 \end{remark}
 
 The next theorem is important for understanding many of the properties of Lie group homomorphisms.
 
 \begin{theorem}
-  Every Lie group homomorphism has constant rank.
+	Every Lie group homomorphism has constant rank.
 \end{theorem}
 \begin{proof}
-  Let $F:G\to H$ be a Lie group homomorphism and let $e$ denote the identity element of $G$.
+	Let $F:G\to H$ be a Lie group homomorphism and let $e$ denote the identity element of $G$.
 
-  Fix $g\in G$.
-  We will show that $F$ has the same rank at $g$ as its rank at $e$.
-  Since $F$ is a homomorphism, for all $h\in G$ we have
-  \begin{equation}
-    F(L_g(h)) = F(gh) = F(g)F(h) = L_{F(g)}(F(h)),
-  \end{equation}
-  that is,
-  \begin{equation}
-    F\circ L_g = L_{F(g)}\circ F.
-  \end{equation}
-  Differentiating both sides at $e$ and using the chain rule, this reads
-  \begin{equation}
-    dF_g\circ d(L_g)_e = d(L_{F(g)})_{F(e)}\circ dF_e.
-  \end{equation}
-  Since the left translation is a diffeomorphism, both $d(L_g)_e$ and $d(L_{F(g)})_{F(e)}$ are isomorphisms, and as such they preserve the rank.
-  From this, it follows that $dF_g$ and $dF_e$ have the same rank.
+	Fix $g\in G$.
+	We will show that $F$ has the same rank at $g$ as its rank at $e$.
+	Since $F$ is a homomorphism, for all $h\in G$ we have
+	\begin{equation}
+		F(L_g(h)) = F(gh) = F(g)F(h) = L_{F(g)}(F(h)),
+	\end{equation}
+	that is,
+	\begin{equation}
+		F\circ L_g = L_{F(g)}\circ F.
+	\end{equation}
+	Differentiating both sides at $e$ and using the chain rule, this reads
+	\begin{equation}
+		dF_g\circ d(L_g)_e = d(L_{F(g)})_{F(e)}\circ dF_e.
+	\end{equation}
+	Since the left translation is a diffeomorphism, both $d(L_g)_e$ and $d(L_{F(g)})_{F(e)}$ are isomorphisms, and as such they preserve the rank.
+	From this, it follows that $dF_g$ and $dF_e$ have the same rank.
 \end{proof}
 
 The global rank theorem then immediately implies the following corollary.
 \begin{corollary}
-  A Lie group homomorphism is a Lie group isomorphism if and only if it is bijective.
+	A Lie group homomorphism is a Lie group isomorphism if and only if it is bijective.
 \end{corollary}
 
 \begin{definition}
-  Let $G$ be a Lie group. A \emph{Lie subgroup} of $G$ is a subgroup $H\subset G$ endowed with a topology and a smooth structure that make it at the same time a Lie group and an immersed submanifold of $G$.
+	Let $G$ be a Lie group. A \emph{Lie subgroup} of $G$ is a subgroup $H\subset G$ endowed with a topology and a smooth structure that make it at the same time a Lie group and an immersed submanifold of $G$.
 \end{definition}
 
 \begin{example}
-  This means for example that the set $GL^+(n)$ of invertible matrices with positive determinant is a Lie subgroup of $GL(n)$.
+	This means for example that the set $GL^+(n)$ of invertible matrices with positive determinant is a Lie subgroup of $GL(n)$.
 \end{example}
 
 It turns out that embedded submanifolds are automatically Lie groups. In fact more than that.
 
 \begin{theorem}[Closed subgroup theorem]
-  Let $G$ be a Lie group and suppose $H$ is any subgroup of $G$.
-  The following are equivalent:
-  \begin{enumerate}
-    \item $H$ is a closed subgroup\footnote{That is, $H$ is a closed subset of $G$.};
-    \item $H$ is an embedded submanifold of $G$;
-    \item $H$ is an embedded Lie subgroup of $G$.
-  \end{enumerate}
+	Let $G$ be a Lie group and suppose $H$ is any subgroup of $G$.
+	The following are equivalent:
+	\begin{enumerate}
+		\item $H$ is a closed subgroup\footnote{That is, $H$ is a closed subset of $G$.};
+		\item $H$ is an embedded submanifold of $G$;
+		\item $H$ is an embedded Lie subgroup of $G$.
+	\end{enumerate}
 \end{theorem}
 
 The proof of this theorem is not hard, but especially proving the equivalence of the first two claims is rather involved, so we will skip it.
 For a proof, look at the corresponding section in~\cite[Chapter 20]{book:lee}.
 
 \begin{example}
-  \marginnote{Since the closed subgroups of $GL(n)$ play a special role in Lie groups theory, they have their own name: they are the called \emph{matrix Lie group}.}
-  Let $O(n)\subset GL(n)$ denote the set of orthogonal matrices\footnote{That is, $A$ such that $AA^T = I$.}, then $O(n)$ is closed in $GL(n)$ and by the previous theorem is a Lie subgroup.
-  You have proven this when you solved Exercise~\ref{exe:onsubmanifold}.
+	\marginnote{Since the closed subgroups of $GL(n)$ play a special role in Lie groups theory, they have their own name: they are the called \emph{matrix Lie group}.}
+	Let $O(n)\subset GL(n)$ denote the set of orthogonal matrices\footnote{That is, $A$ such that $AA^T = I$.}, then $O(n)$ is closed in $GL(n)$ and by the previous theorem is a Lie subgroup.
+	You have proven this when you solved Exercise~\ref{exe:onsubmanifold}.
 \end{example}
 
 \begin{exercise}\label{ex:SL2LGA}
-  For this exercise is useful to remember that we can identify the space $\mathrm{Mat}(2,\R)$ of $2\times 2$-matrices with $\R^4$ by associating the matrix $X = \begin{pmatrix}x_{11} & x_{12}\\ x_{21} & x_{22}\end{pmatrix}$ with the point $(x_{11}, x_{12}, x_{21}, x_{22})\in\R^4$.
+	For this exercise is useful to remember that we can identify the space $\mathrm{Mat}(2,\R)$ of $2\times 2$-matrices with $\R^4$ by associating the matrix $X = \begin{pmatrix}x_{11} & x_{12}\\ x_{21} & x_{22}\end{pmatrix}$ with the point $(x_{11}, x_{12}, x_{21}, x_{22})\in\R^4$.
 
-  \begin{enumerate}
-    \item Show that the set
-          \begin{equation*}
-            \mathrm{SL}(2) := \mathrm{SL}(2,\R) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \det A = 1 \}
-          \end{equation*}
-          is a 3-dimensional smooth submanifold of $\mathrm{Mat}(2,\R)$.
-    \item Let $e\in\mathrm{Mat}(2,\R)$ denote the identity matrix. Show that
-          \begin{equation*}
-            T_e \mathrm{SL}(2) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \mathrm{tr}\, A = 0 \},
-          \end{equation*}
-          where $\mathrm{tr} A$ denotes the matrix trace, i.e., the sum of the diagonal entries of $A$.
-    \item Let $\iota: \mathrm{SL}(2)\to \mathrm{SL}(2)$ be the map $\iota(A) = A^{-1}$. Show that $\iota$ is smooth.
-    \item Show that $d\iota_e: T_e\mathrm{SL}(2)\to T_e\mathrm{SL}(2)$ is given by $d\iota_e(A) = -A$.
-  \end{enumerate}
+	\begin{enumerate}
+		\item Show that the set
+		      \begin{equation*}
+			      \mathrm{SL}(2) := \mathrm{SL}(2,\R) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \det A = 1 \}
+		      \end{equation*}
+		      is a 3-dimensional smooth submanifold of $\mathrm{Mat}(2,\R)$.
+		\item Let $e\in\mathrm{Mat}(2,\R)$ denote the identity matrix. Show that
+		      \begin{equation*}
+			      T_e \mathrm{SL}(2) = \{ A\in \mathrm{Mat}(2,\R) \;\mid\; \mathrm{tr}\, A = 0 \},
+		      \end{equation*}
+		      where $\mathrm{tr} A$ denotes the matrix trace, i.e., the sum of the diagonal entries of $A$.
+		\item Let $\iota: \mathrm{SL}(2)\to \mathrm{SL}(2)$ be the map $\iota(A) = A^{-1}$. Show that $\iota$ is smooth.
+		\item Show that $d\iota_e: T_e\mathrm{SL}(2)\to T_e\mathrm{SL}(2)$ is given by $d\iota_e(A) = -A$.
+	\end{enumerate}
 \end{exercise}
 
 In fact, some parts of the Exercise~\ref{ex:SL2LGA} above are instances of a them more general statement of Exercise~\ref{ex:DiffGroupMaps}.
 
 \begin{exercise}\label{ex:DiffGroupMaps}
-  Let $G$ be a Lie group.
-  \begin{enumerate}
-    \item Let $\mu:G\times G\to G$ denote the multiplication map.
-          Use the identification $T_{(e,e)}(G\times G) \simeq T_eG\times T_eG$ to show that $d\mu_{(e,e)}:T_eG\times T_eG\to T_eG$ is given by
-          \begin{equation}
-            d\mu_{(e,e)}(X,Y) = X + Y.
-          \end{equation}
-          \textit{\small Hint: compute $d\mu_{(e,e)}(X,0)$ and $d\mu_{(e,e)}(0,Y)$ separately.}
-    \item Let $\iota: G\to G$ denote the inversion map. Show that $d\iota_e:T_eG\to T_eG$ is given by $d\iota_e(X) = -X$.
-  \end{enumerate}
+	Let $G$ be a Lie group.
+	\begin{enumerate}
+		\item Let $\mu:G\times G\to G$ denote the multiplication map.
+		      Use the identification $T_{(e,e)}(G\times G) \simeq T_eG\times T_eG$ to show that $d\mu_{(e,e)}:T_eG\times T_eG\to T_eG$ is given by
+		      \begin{equation}
+			      d\mu_{(e,e)}(X,Y) = X + Y.
+		      \end{equation}
+		      \textit{\small Hint: compute $d\mu_{(e,e)}(X,0)$ and $d\mu_{(e,e)}(0,Y)$ separately.}
+		\item Let $\iota: G\to G$ denote the inversion map. Show that $d\iota_e:T_eG\to T_eG$ is given by $d\iota_e(X) = -X$.
+	\end{enumerate}
 \end{exercise}
 
 \section{Lie algebras}
@@ -176,42 +176,42 @@ In fact, some parts of the Exercise~\ref{ex:SL2LGA} above are instances of a the
 We are finally ready to see how Lie groups and Lie algebras ended up being related.
 
 \begin{definition}
-  Let $G$ be a Lie group.
-  We define the \emph{Lie algebra} of $G$, usually denoted\marginnote{Sometimes you find $\mathrm{Lie}(G)$.} $\fg$, as the tangent space to $G$ at the identity element $e$:
-  \begin{equation}
-    \fg := T_e G.
-  \end{equation}
+	Let $G$ be a Lie group.
+	We define the \emph{Lie algebra} of $G$, usually denoted\marginnote{Sometimes you find $\mathrm{Lie}(G)$.} $\fg$, as the tangent space to $G$ at the identity element $e$:
+	\begin{equation}
+		\fg := T_e G.
+	\end{equation}
 \end{definition}
 
 Of course, for this definition not to be completely insane, the Lie algebra of a Lie group better be a Lie algebra also in the sense of Definition~\ref{def:LieAlgebra}.
 We are going to prove this very soon, but let's first look at some examples.
 
 \begin{example}
-  \begin{enumerate}
-    \item The Lie algebra of $GL(n)$ is $\mathfrak{gl}(n)\simeq \mathrm{Mat}(n, \R)$.
-    \item The Lie algebra of $O(n)$ is $\mathfrak{o}(n) = \{A \in \mathfrak{gl}(n) \mid A+A^T = 0\}$. You have shown it in Exercise~\ref{exe:onsubmanifold}.
-    \item Can you guess what is the Lie algebra of $SL(2)$ from Exercise~\ref{ex:SL2LGA}?
-  \end{enumerate}
+	\begin{enumerate}
+		\item The Lie algebra of $GL(n)$ is $\mathfrak{gl}(n)\simeq \mathrm{Mat}(n, \R)$.
+		\item The Lie algebra of $O(n)$ is $\mathfrak{o}(n) = \{A \in \mathfrak{gl}(n) \mid A+A^T = 0\}$. You have shown it in Exercise~\ref{exe:onsubmanifold}.
+		\item Can you guess what is the Lie algebra of $SL(2)$ from Exercise~\ref{ex:SL2LGA}?
+	\end{enumerate}
 \end{example}
 
 \begin{exercise}
-  Show that the Lie algebra of $\bT^n$ is $\R^n$.\\
-  \textit{\small Hint: using the fact that $T(M\times N) \simeq T(M)\times T(N)$ and look at what happens in the case $n=1$.}
+	Show that the Lie algebra of $\bT^n$ is $\R^n$.\\
+	\textit{\small Hint: using the fact that $T(M\times N) \simeq T(M)\times T(N)$ and look at what happens in the case $n=1$.}
 \end{exercise}
 
 Before proceeding we need to introduce some more notation.
 
 \begin{definition}
-  Let $G$ be a Lie group.
-  A vector field $X\in\fX(G)$ is called \emph{left-invariant} if
-  \marginnote{That is, if for all $g,h\in G$ we have \begin{equation}
-      d(L_g)_h X_h = X_{gh}.
-    \end{equation}
-    Indeed, ${X = (L_g)_* X = d(L_g)\circ X \circ (L_{g})^{-1}}$ if and only if $X \circ L_{g} = d(L_g)\circ X$.}
-  \begin{equation}
-    (L_g)_*X = X \qquad \forall g\in G.
-  \end{equation}
-  We denote the set of left-invariant vector fields by $\fX_L(G)\subset \fX(G)$.
+	Let $G$ be a Lie group.
+	A vector field $X\in\fX(G)$ is called \emph{left-invariant} if
+	\marginnote{That is, if for all $g,h\in G$ we have \begin{equation}
+			d(L_g)_h X_h = X_{gh}.
+		\end{equation}
+		Indeed, ${X = (L_g)_* X = d(L_g)\circ X \circ (L_{g})^{-1}}$ if and only if $X \circ L_{g} = d(L_g)\circ X$.}
+	\begin{equation}
+		(L_g)_*X = X \qquad \forall g\in G.
+	\end{equation}
+	We denote the set of left-invariant vector fields by $\fX_L(G)\subset \fX(G)$.
 \end{definition}
 
 % \begin{proposition}
@@ -229,92 +229,92 @@ Before proceeding we need to introduce some more notation.
 % In particular, this also mean that left-invariant vector fields are always complete.
 
 \begin{proposition}
-  Let $G$ be a Lie group and $X,Y\in\fX_L(G)$.
-  Then $[X,Y]\in\fX_L(G)$ and, therefore, $\fX_L(G)$ is a Lie subalgebra of $\fX(G)$.
+	Let $G$ be a Lie group and $X,Y\in\fX_L(G)$.
+	Then $[X,Y]\in\fX_L(G)$ and, therefore, $\fX_L(G)$ is a Lie subalgebra of $\fX(G)$.
 \end{proposition}
 \begin{exercise}
-  Prove the proposition.
+	Prove the proposition.
 \end{exercise}
 
 \begin{remark}
-  The Lie algebra of all smooth left-invariant vector fields on a Lie group $G$, which we denoted $\fX_L(G)$ and is a subalgebra of $\fX(G)$, is also called the \emph{Lie algebra of $G$}.
-  In the next theorem we are going to see that this is isomorphic to the one defined above in terms of tangent at the identity.
+	The Lie algebra of all smooth left-invariant vector fields on a Lie group $G$, which we denoted $\fX_L(G)$ and is a subalgebra of $\fX(G)$, is also called the \emph{Lie algebra of $G$}.
+	In the next theorem we are going to see that this is isomorphic to the one defined above in terms of tangent at the identity.
 \end{remark}
 
 A fundamental difference with the Lie algebra of vector fields is that $\fX_L(G)$ is finite dimensional.
 
 \begin{theorem}
-  Let $G$ be a Lie group. The evaluation map
-  \begin{equation}
-    \mathrm{eval}:\fX_L(G)\to T_eG, \quad
-    \mathrm{eval}(X) = X_e,
-  \end{equation}
-  is a vector space isomorphism.
-  Thus, $\fX_L(G)$ is finite dimensional with the same dimension as $G$.
+	Let $G$ be a Lie group. The evaluation map
+	\begin{equation}
+		\mathrm{eval}:\fX_L(G)\to T_eG, \quad
+		\mathrm{eval}(X) = X_e,
+	\end{equation}
+	is a vector space isomorphism.
+	Thus, $\fX_L(G)$ is finite dimensional with the same dimension as $G$.
 \end{theorem}
 \begin{proof}
-  \newthought{Linearity}. Immediate (why?).
+	\newthought{Linearity}. Immediate (why?).
 
-  \newthought{Injectivity}. Follows immediately from the left-invariance: if $\mathrm{eval}(X) = X_e = 0$ for some $X\in\fX_L(G)$, then the left-invariance of $X$ implies that $X_g = d(L_g)_e(X_e) = 0$ for every $g\in G$, thus $X\equiv0$.
+	\newthought{Injectivity}. Follows immediately from the left-invariance: if $\mathrm{eval}(X) = X_e = 0$ for some $X\in\fX_L(G)$, then the left-invariance of $X$ implies that $X_g = d(L_g)_e(X_e) = 0$ for every $g\in G$, thus $X\equiv0$.
 
-  \newthought{Surjectivity}.
-  Fix an arbitrary $v\in \fg = T_eG$ and define the map $v^L:G\to TG$ by
-  \begin{equation}
-    v^L(g) := d(L_g)_e(v).
-  \end{equation}
-  By construction, $v^L$ satisfies the section property\footnote{If you don't know what we are talking about, have another look at Definition~\ref{def:vfield}.}, since $\d(L_g)_e:T_eG\to T_gG$.
-  \begin{itemize}
-    \item $v^L$ is a vector field: we will show that $v^L_g f := v^L(g) f$ is smooth for any $f\in C^\infty(G)$.
-          To this end, pick a smooth curve $\gamma:(-\epsilon,\epsilon)\to G$ such that $\gamma(0)=e$ and $\gamma'(0) = v$. Then, for any $g\in G$ we have
-          \begin{align}
-            v^L_g f & = v^L(g) f                      \\
-                    & = d(L_g)_e(v) f                 \\
-                    & = v(f\circ L_g)                 \\
-                    & = (f\circ L_g\circ \gamma)'(0).
-          \end{align}
-          If we define $\varphi:(-\delta, \delta)\times G \to \R$ by $\varphi(t,g) = f\circ L_g\circ \gamma(t) = f(g\gamma(t))$, the computation above shows that $v^L_gf = \frac{\partial \varphi}{\partial t}(0, g)$.
-          Since $\varphi$ is the composition of smooth functions, it is smooth, and thus $v^L f$ is smooth.
-    \item $v^L$ is left-invariant.
-          Indeed, for any $g,h\in G$, we have
-          \begin{align}
-            d(L_g)_h(v^L(h)) & = d(L_g)_h\circ d(L_h)_e(v) \\
-                             & = d(L_g\circ L_h)_e(V)      \\
-                             & = d(L_{gh})_e(v)            \\
-                             & = v^L(gh).
-          \end{align}
-  \end{itemize}
-  Thus $v^L\in\fX_L(G)$.
-  Since $\mathrm{eval}(v^L) = v^L(e) = v$, the map $\mathrm{eval}$ is surjective, concluding the proof.
+	\newthought{Surjectivity}.
+	Fix an arbitrary $v\in \fg = T_eG$ and define the map $v^L:G\to TG$ by
+	\begin{equation}
+		v^L(g) := d(L_g)_e(v).
+	\end{equation}
+	By construction, $v^L$ satisfies the section property\footnote{If you don't know what we are talking about, have another look at Definition~\ref{def:vfield}.}, since $\d(L_g)_e:T_eG\to T_gG$.
+	\begin{itemize}
+		\item $v^L$ is a vector field: we will show that $v^L_g f := v^L(g) f$ is smooth for any $f\in C^\infty(G)$.
+		      To this end, pick a smooth curve $\gamma:(-\epsilon,\epsilon)\to G$ such that $\gamma(0)=e$ and $\gamma'(0) = v$. Then, for any $g\in G$ we have
+		      \begin{align}
+			      v^L_g f & = v^L(g) f                      \\
+			              & = d(L_g)_e(v) f                 \\
+			              & = v(f\circ L_g)                 \\
+			              & = (f\circ L_g\circ \gamma)'(0).
+		      \end{align}
+		      If we define $\varphi:(-\delta, \delta)\times G \to \R$ by $\varphi(t,g) = f\circ L_g\circ \gamma(t) = f(g\gamma(t))$, the computation above shows that $v^L_gf = \frac{\partial \varphi}{\partial t}(0, g)$.
+		      Since $\varphi$ is the composition of smooth functions, it is smooth, and thus $v^L f$ is smooth.
+		\item $v^L$ is left-invariant.
+		      Indeed, for any $g,h\in G$, we have
+		      \begin{align}
+			      d(L_g)_h(v^L(h)) & = d(L_g)_h\circ d(L_h)_e(v) \\
+			                       & = d(L_g\circ L_h)_e(V)      \\
+			                       & = d(L_{gh})_e(v)            \\
+			                       & = v^L(gh).
+		      \end{align}
+	\end{itemize}
+	Thus $v^L\in\fX_L(G)$.
+	Since $\mathrm{eval}(v^L) = v^L(e) = v$, the map $\mathrm{eval}$ is surjective, concluding the proof.
 \end{proof}
 
 \begin{corollary}
-  Let $G$ be a Lie group of dimension $n$.
-  Then \emph{its} Lie algebra is \emph{a} Lie algebra of dimension $n$.
+	Let $G$ be a Lie group of dimension $n$.
+	Then \emph{its} Lie algebra is \emph{a} Lie algebra of dimension $n$.
 \end{corollary}
 \begin{proof}
-  We just need to define a Lie bracket on $\fg$.
-  But this is easier done than said: using the notation of the previous theorem, set
-  \begin{equation}
-    [v,w] := \mathrm{eval}([v^L, w^L]), \quad \forall v,w\in\fg.
-  \end{equation}
+	We just need to define a Lie bracket on $\fg$.
+	But this is easier done than said: using the notation of the previous theorem, set
+	\begin{equation}
+		[v,w] := \mathrm{eval}([v^L, w^L]), \quad \forall v,w\in\fg.
+	\end{equation}
 \end{proof}
 
 Another immediate consequence of this proposition is that every left-invariant vector field is complete, which immediately makes them all parallelizable.
 
 \begin{proposition}\label{prop:XLcomplete}
-  Let $G$ be a Lie group and $v\in\fX_L(G)$.
-  Then $v$ is complete.
+	Let $G$ be a Lie group and $v\in\fX_L(G)$.
+	Then $v$ is complete.
 \end{proposition}
 \begin{exercise}
-  Prove the proposition.\\
-  \textit{\small Hint: extend a curve starting at $e$ to a curve starting at $g$.}
+	Prove the proposition.\\
+	\textit{\small Hint: extend a curve starting at $e$ to a curve starting at $g$.}
 \end{exercise}
 
 \begin{corollary}
-  Every Lie group admits a smooth global frame of  left-invariant vector fields, and therefore every Lie group is parallelizable.
+	Every Lie group admits a smooth global frame of  left-invariant vector fields, and therefore every Lie group is parallelizable.
 \end{corollary}
 \begin{proof}
-  Every basis for $\fX_L$ is a left-invariant smooth global frame for $G$.
+	Every basis for $\fX_L$ is a left-invariant smooth global frame for $G$.
 \end{proof}
 
 Just as we can view the tangent space as a ``linear model'' of a smooth manifold near a point, the Lie algebra of a Lie group provides a ``linear model'' of the group, which reflects many of the properties of the group.
@@ -323,34 +323,34 @@ Since a finite dimensional Lie algebra is a purely linear-algebraic object, it i
 Much of the progress in the theory of Lie groups has come from a careful analysis of Lie algebras.
 
 \begin{proposition}
-  If $F: G\to H$ is a Lie group homomorphism\footnote{See Definition~\ref{def:LAmorphism}.}, then there is a map $F_*:\fg\to\fh$ which is a Lie algebra homomorphism. We call this map, the \emph{induced Lie algebra homomorphism}.
+	If $F: G\to H$ is a Lie group homomorphism\footnote{See Definition~\ref{def:LAmorphism}.}, then there is a map $F_*:\fg\to\fh$ which is a Lie algebra homomorphism. We call this map, the \emph{induced Lie algebra homomorphism}.
 \end{proposition}
 \begin{proof}
-  Let $v\in\fg$ and let $v^L\in\fX_L(G)$ denote the unique left-invariant vector field satisfying $v^L_e = v$.
-  Let $w := dF_e(v) =: F^*v$ and $w^L\in\fX_L(H)$ as above.
-  It is enough to show that $w^L_{F(g)} = (F^*v^L)_g = dF_g V^L_g$ for all $g\in G$.
+	Let $v\in\fg$ and let $v^L\in\fX_L(G)$ denote the unique left-invariant vector field satisfying $v^L_e = v$.
+	Let $w := dF_e(v) =: F^*v$ and $w^L\in\fX_L(H)$ as above.
+	It is enough to show that $w^L_{F(g)} = (F^*v^L)_g = dF_g V^L_g$ for all $g\in G$.
 
-  Indeed, we have
-  \begin{align}
-    dF_g(v^L_g) & = dF_g\circ d(L_g)_e(v)          \\
-                & =d(L_{F(g)})_{F(e)}\circ dF_e(v) \\
-                & =d(L_{F(g)})_{F(e)}(w)           \\
-                & =w^L_{F(g)}.
-  \end{align}
-  The result then follows from Theorem~\ref{thm:liealgiso}.
-  If $v_1,v_2 \in\fg$ and $w_i=F^*v_i$, $i=1,2$, then
-  \begin{equation}
-    dF_e[v_1,v_2] = [w_1, w_2].
-  \end{equation}
+	Indeed, we have
+	\begin{align}
+		dF_g(v^L_g) & = dF_g\circ d(L_g)_e(v)          \\
+		            & =d(L_{F(g)})_{F(e)}\circ dF_e(v) \\
+		            & =d(L_{F(g)})_{F(e)}(w)           \\
+		            & =w^L_{F(g)}.
+	\end{align}
+	The result then follows from Theorem~\ref{thm:liealgiso}.
+	If $v_1,v_2 \in\fg$ and $w_i=F^*v_i$, $i=1,2$, then
+	\begin{equation}
+		dF_e[v_1,v_2] = [w_1, w_2].
+	\end{equation}
 \end{proof}
 
 An immediate consequence of this proposition is the following.
 \begin{corollary}
-  Let $H\subset G$ be a Lie subgroup.
-  Then $\fh$ is a Lie subalgebra of $\fg$.
+	Let $H\subset G$ be a Lie subgroup.
+	Then $\fh$ is a Lie subalgebra of $\fg$.
 \end{corollary}
 \begin{proof}
-  Use the inclusion $i:H\hookrightarrow G$ as the homomorphism, then $di_e:\fh = T_eH\to \fg = T_eG$ is the Lie algebra homomorphism.
+	Use the inclusion $i:H\hookrightarrow G$ as the homomorphism, then $di_e:\fh = T_eH\to \fg = T_eG$ is the Lie algebra homomorphism.
 \end{proof}
 
 If we go back to the example of $GL(n)$, now we have two possibly different Lie brackets on $\mathfrak{gl}(n)=\mathrm{Mat}(n, \R)$: the one coming from the previous corollary and the matrix commutator.
@@ -358,21 +358,21 @@ The next result, which we will not prove, shows that they coincide.
 
 \marginnote{See~\cite[Proposition 8.41]{book:lee} for reference.}
 \begin{proposition}
-  The Lie bracket on $\mathfrak{gl}(n)$ is given by the matrix commutator.
-  Therefore, if $G$ is a matrix Lie group, the Lie bracket on $\fg$ is also the matrix commutator.
+	The Lie bracket on $\mathfrak{gl}(n)$ is given by the matrix commutator.
+	Therefore, if $G$ is a matrix Lie group, the Lie bracket on $\fg$ is also the matrix commutator.
 \end{proposition}
 
 In fact, the correspondence between Lie subgroups and Lie subalgebras goes both ways.
 
 \marginnote{See~\cite[Theorem 8.46]{book:lee} for reference.}
 \begin{theorem}
-  Let $G$ be a Lie group with Lie algebra $\fg$. If $\fh$ is a Lie subalgebra of $\fg$, then there is a unique connected Lie subgroup $H$ of $G$ whose Lie algebra is $\fh$.
+	Let $G$ be a Lie group with Lie algebra $\fg$. If $\fh$ is a Lie subalgebra of $\fg$, then there is a unique connected Lie subgroup $H$ of $G$ whose Lie algebra is $\fh$.
 \end{theorem}
 
 We close this section by stating a deep algebraic result about Lie algebras, whose proof is way out of our reach.
 \begin{theorem}[Ado's theorem]
-  Let $\mathfrak{gl}(V)$ denote the Lie algebra of linear maps from a finite dimensional vector space $V$ to itself.
-  Every finite-dimensional real Lie algebra $\fg$ admits a faithful finite-dimensional representation, that is, there exists an injective Lie algebra homomorphism $F: \fg \to \mathfrak{gl}(V)\simeq\mathfrak{gl}(n,\R)$ for some finite dimensional vector space $V$.
+	Let $\mathfrak{gl}(V)$ denote the Lie algebra of linear maps from a finite dimensional vector space $V$ to itself.
+	Every finite-dimensional real Lie algebra $\fg$ admits a faithful finite-dimensional representation, that is, there exists an injective Lie algebra homomorphism $F: \fg \to \mathfrak{gl}(V)\simeq\mathfrak{gl}(n,\R)$ for some finite dimensional vector space $V$.
 \end{theorem}
 
 \section{The exponential map}
@@ -381,188 +381,188 @@ We have seen that there is a tight relation between flows and exponentials, so m
 With Lie groups and Lie algebras, we will bring the construction to the next level, properly formalising the construction.
 
 \begin{definition}
-  \marginnote{There is a strict relation between one-parameter groups of diffeomorphisms and one-parameter subgroups of a Lie group. We will not discuss it here, just be aware that -- in some sense -- it mimicks what we are exploring here in the setting of infinite-dimensional Lie groups.}
-  Let $G$ be a Lie group with Lie algebra $\fg$.
-  We call a \emph{one-parameter subgroup} of $G$ a Lie group homomorphism $\R\to G$.
+	\marginnote{There is a strict relation between one-parameter groups of diffeomorphisms and one-parameter subgroups of a Lie group. We will not discuss it here, just be aware that -- in some sense -- it mimicks what we are exploring here in the setting of infinite-dimensional Lie groups.}
+	Let $G$ be a Lie group with Lie algebra $\fg$.
+	We call a \emph{one-parameter subgroup} of $G$ a Lie group homomorphism $\R\to G$.
 \end{definition}
 
 Given the introduction, the following theorem should not come as a surprise.
 \begin{theorem}
-  Let $G$ be a Lie group.
-  The one-parameter subgroups of $G$ are precisely the maximal integral curves of left-invariant vector fields starting at the identity.
+	Let $G$ be a Lie group.
+	The one-parameter subgroups of $G$ are precisely the maximal integral curves of left-invariant vector fields starting at the identity.
 \end{theorem}
 \begin{proof}
-  \begin{itemize}
-    \item[($\Longleftarrow$)]
-          Suppose that $\gamma$ is the maximal integral curve for some $v\in\fX_L(G)$ starting at the identity $e$.
-          Proposition~\ref{prop:XLcomplete} implies that $\gamma$ is defined on all $\R$. Since $L_g$ is a diffeomorphism for all $g\in G$ and $v$ is left-invariant, by Proposition~\ref{prop:conjpfX} $L_g$ maps integral curves of $v$ to integral curves of $v$ (why?).
-          If $g=\gamma(s)$ for some $s$, the curve $t\mapsto L_{\gamma(s)}(\gamma(t))$ is an integral curve starting at $\gamma(s)$.
-          By the group property of the flow, also $t\mapsto \gamma(t+s)$ is an integral curve starting at $\gamma(s)$, so they must be equal.
-          That is, for all $s,t\in \R$,
-          \begin{equation}
-            \gamma(s+t) = \gamma(s)\gamma(t).
-          \end{equation}
-          Which implies that $\gamma:\R\to G$ is a one-parameter subgroup.
-    \item[($\Longrightarrow$)] Let now $\gamma:\R\to G$ be a one-parameter subgroup and $v = \gamma'(0)\in \fg$.
-          The claim is that $\gamma'(t) = v^L(\gamma(t))$.
-          Since $\gamma(s)\gamma(t) = \gamma(s+t) = L_{\gamma(t)}(\gamma(s))$ we have
-          \begin{align}
-            \gamma'(t) & = \frac{d}{ds}\Big|_{s=0} \gamma(t+s)              \\
-                       & = \frac{d}{ds}\Big|_{s=0} L_{\gamma(t)}(\gamma(s)) \\
-                       & = (dL_{\gamma(t)})_{\gamma(0)}(\gamma'(0))         \\
-                       & = (dL_{\gamma(t)})_{e}(v)
-            = v^L(\gamma(t)).
-          \end{align}
-          Again, due to uniqueness of the integral curves, we obtain the claim.
-  \end{itemize}
+	\begin{itemize}
+		\item[($\Longleftarrow$)]
+		      Suppose that $\gamma$ is the maximal integral curve for some $v\in\fX_L(G)$ starting at the identity $e$.
+		      Proposition~\ref{prop:XLcomplete} implies that $\gamma$ is defined on all $\R$. Since $L_g$ is a diffeomorphism for all $g\in G$ and $v$ is left-invariant, by Proposition~\ref{prop:conjpfX} $L_g$ maps integral curves of $v$ to integral curves of $v$ (why?).
+		      If $g=\gamma(s)$ for some $s$, the curve $t\mapsto L_{\gamma(s)}(\gamma(t))$ is an integral curve starting at $\gamma(s)$.
+		      By the group property of the flow, also $t\mapsto \gamma(t+s)$ is an integral curve starting at $\gamma(s)$, so they must be equal.
+		      That is, for all $s,t\in \R$,
+		      \begin{equation}
+			      \gamma(s+t) = \gamma(s)\gamma(t).
+		      \end{equation}
+		      Which implies that $\gamma:\R\to G$ is a one-parameter subgroup.
+		\item[($\Longrightarrow$)] Let now $\gamma:\R\to G$ be a one-parameter subgroup and $v = \gamma'(0)\in \fg$.
+		      The claim is that $\gamma'(t) = v^L(\gamma(t))$.
+		      Since $\gamma(s)\gamma(t) = \gamma(s+t) = L_{\gamma(t)}(\gamma(s))$ we have
+		      \begin{align}
+			      \gamma'(t) & = \frac{d}{ds}\Big|_{s=0} \gamma(t+s)              \\
+			                 & = \frac{d}{ds}\Big|_{s=0} L_{\gamma(t)}(\gamma(s)) \\
+			                 & = (dL_{\gamma(t)})_{\gamma(0)}(\gamma'(0))         \\
+			                 & = (dL_{\gamma(t)})_{e}(v)
+			      = v^L(\gamma(t)).
+		      \end{align}
+		      Again, due to uniqueness of the integral curves, we obtain the claim.
+	\end{itemize}
 \end{proof}
 
 If we write $\Theta_t^v:=\varphi^{v^L}_t:G\to G$ for the flow of $v^L$, then by definition $\gamma^v = \Theta_t^v(e)$.
 
 Note that the trick employed in the proof above, can be used also to show the following.
 \begin{lemma}
-  For any $s,t\in\R$ one has $\gamma^v(st) = \gamma^{sv}(t)$, where we used the superscript to specify the generator of the subgroup.
+	For any $s,t\in\R$ one has $\gamma^v(st) = \gamma^{sv}(t)$, where we used the superscript to specify the generator of the subgroup.
 \end{lemma}
 
 \begin{proposition}\label{prop:liflow}
-  Let $G$ be a Lie group with Lie algebra $\fg$.
-  Let $\gamma:\R\to G$ be a smooth curve with $\gamma(0)=e$ and $\gamma'(0)=v\in\fg$. Then the following claims are equivalent:
-  \begin{enumerate}[(i)]
-    \item $\gamma$ is a one-parameter subgroup;
-    \item $\gamma(t) = \gamma^v(t)$ is the one-parameter subgroup generated by $v$;
-    \item the flow $\Theta_t^v$ of $v^L$ is given by $\Theta_t^v = R_{\gamma(t)}$.
-  \end{enumerate}
+	Let $G$ be a Lie group with Lie algebra $\fg$.
+	Let $\gamma:\R\to G$ be a smooth curve with $\gamma(0)=e$ and $\gamma'(0)=v\in\fg$. Then the following claims are equivalent:
+	\begin{enumerate}[(i)]
+		\item $\gamma$ is a one-parameter subgroup;
+		\item $\gamma(t) = \gamma^v(t)$ is the one-parameter subgroup generated by $v$;
+		\item the flow $\Theta_t^v$ of $v^L$ is given by $\Theta_t^v = R_{\gamma(t)}$.
+	\end{enumerate}
 \end{proposition}
 \begin{proof}
-  We have already seen $(i) \Leftrightarrow (ii)$.
-  To see $(iii)\Rightarrow(ii)$ observe that the first implies $\gamma^v(t) = \Theta_t^v(e) = R_{\gamma(t)}e = \gamma(t)$.
+	We have already seen $(i) \Leftrightarrow (ii)$.
+	To see $(iii)\Rightarrow(ii)$ observe that the first implies $\gamma^v(t) = \Theta_t^v(e) = R_{\gamma(t)}e = \gamma(t)$.
 
-  Finally, assume $(ii)$ holds and fix $g\in G$.
-  Since $v^L$ is left-invariant, $g\gamma^v = L_g \circ \gamma^v$ is another integral curve of $v^L$ starting at $g$, thus, again by uniqueness of integral curves, we have $R_{\gamma(t)}(g) = g\gamma^v(t) = \Theta_t^v(g)$. Which implies $(iii)$ by the arbitrariness of $g$.
+	Finally, assume $(ii)$ holds and fix $g\in G$.
+	Since $v^L$ is left-invariant, $g\gamma^v = L_g \circ \gamma^v$ is another integral curve of $v^L$ starting at $g$, thus, again by uniqueness of integral curves, we have $R_{\gamma(t)}(g) = g\gamma^v(t) = \Theta_t^v(g)$. Which implies $(iii)$ by the arbitrariness of $g$.
 \end{proof}
 
 Given $v\in\fX_L(G)$, the one-parameter subgroup $\gamma^v$ determined by $v$ in this way is called the \emph{one-parameter subgroup generated by $v$}.
 Because left-invariant vector fields are uniquely determined by their values at the identity, it follows that each one-parameter subgroup is uniquely determined by its initial velocity in $T_eG$, and thus there are one-to-one correspondences:
 \begin{equation}
-  \{\mbox{one-parameter subgroups of }G\}
-  \leftrightarrow
-  \fX_L(G)
-  \leftrightarrow
-  T_e G.
+	\{\mbox{one-parameter subgroups of }G\}
+	\leftrightarrow
+	\fX_L(G)
+	\leftrightarrow
+	T_e G.
 \end{equation}
 
 The exponential map, is the map that will allow us to dissipate some of the mystery around these isomorphisms.
 
 \begin{definition}
-  Let $G$ be a Lie group and $\fg$ its Lie algebra.
-  We define the \emph{exponential map of $G$} as the map
-  \begin{equation}
-    \exp: \fg \to G , \quad X \mapsto \gamma(1),
-  \end{equation}
-  where $\gamma$ is the one-parameter subgroup generated by $X$ or, equivalently, the integral curve of $X$ starting at the identity.
+	Let $G$ be a Lie group and $\fg$ its Lie algebra.
+	We define the \emph{exponential map of $G$} as the map
+	\begin{equation}
+		\exp: \fg \to G , \quad X \mapsto \gamma(1),
+	\end{equation}
+	where $\gamma$ is the one-parameter subgroup generated by $X$ or, equivalently, the integral curve of $X$ starting at the identity.
 \end{definition}
 
 \begin{exercise}
-  Let $G$ be a Lie group. For any $X\in\fX_L(G)$, $\gamma(s) =\exp(sX)$ is the one-parameter subgroup of $G$ generated by $X$.
+	Let $G$ be a Lie group. For any $X\in\fX_L(G)$, $\gamma(s) =\exp(sX)$ is the one-parameter subgroup of $G$ generated by $X$.
 \end{exercise}
 
 \begin{example}
-  Proposition~\ref{prop:expmat} shows that the exponential map of $GL(n)$ is given by $\exp A = e^A$.
-  This is where its name originated.
+	Proposition~\ref{prop:expmat} shows that the exponential map of $GL(n)$ is given by $\exp A = e^A$.
+	This is where its name originated.
 \end{example}
 
 This is a corollary of the properties of flows, of group properties and of the previous propositions.
 \begin{proposition}
-  The exponential map $\exp: \fg \to G$ satisfies the following.
-  For all $s,t\in\R$ and $v\in\fg$
-  \begin{enumerate}
-    \item $\exp$ is smooth;
-    \item $\exp((s+t)v) = \exp(sv)\exp(tv)$;
-    \item $\exp(-v) = (\exp(v))^{-1}$;
-    \item $\exp(tv) =\gamma^v(t)$;
-    \item the flow $\Theta_t^v$ of $v^L$ is given by $\Theta_t^v=R_{\exp(tv)}$.
-  \end{enumerate}
+	The exponential map $\exp: \fg \to G$ satisfies the following.
+	For all $s,t\in\R$ and $v\in\fg$
+	\begin{enumerate}
+		\item $\exp$ is smooth;
+		\item $\exp((s+t)v) = \exp(sv)\exp(tv)$;
+		\item $\exp(-v) = (\exp(v))^{-1}$;
+		\item $\exp(tv) =\gamma^v(t)$;
+		\item the flow $\Theta_t^v$ of $v^L$ is given by $\Theta_t^v=R_{\exp(tv)}$.
+	\end{enumerate}
 \end{proposition}
 
 The following property, on the other hand, deserves a bit more care.
 \begin{theorem}
-  The exponential map $\exp:\fg\to G$ is smooth.
-  Moreover, up to the canonical isomorphism $T_0\fg = \fg$, the differential $d\exp_0$ at $0\in\fg$ is the identity.
+	The exponential map $\exp:\fg\to G$ is smooth.
+	Moreover, up to the canonical isomorphism $T_0\fg = \fg$, the differential $d\exp_0$ at $0\in\fg$ is the identity.
 \end{theorem}
 \begin{proof}
-  \newthought{Smoothness}. We need to show that $\Theta_1^v(e)$ depends smoothly on $v$.
-  This is not covered by our previous analysis of flows, but can be via the following trick.
-  Define a vector field $\nu$ on $G\times\fg$ by
-  \begin{equation}
-    \nu_{(g,v)} = (v^L_g, 0)\in T_gG\times T_v\fg \sim T_{(g,v)}(G\times \fg).
-  \end{equation}
-  Clearly $\nu$ satisfies the section property, so for it to be a smooth vector field, we only need to show that it is smooth.
-  Pick any basis $(X_1,\ldots,X_k)$ for $\fg$ and let $(x^i)$ be the corresponding global coordinates for $\fg$ defined by $(x^i)\mapsto x^i X_i$.
-  For any $f\in C^\infty(G\times\fg)$ and given a $v\in\fg$, let $f_v:= f(\cdot, v):G\to\R$ denote the smooth function defined by regarding $v$ as fixed.
-  Then $\nu_{(g,v)}f = v^L_g f_v(g)$.
+	\newthought{Smoothness}. We need to show that $\Theta_1^v(e)$ depends smoothly on $v$.
+	This is not covered by our previous analysis of flows, but can be via the following trick.
+	Define a vector field $\nu$ on $G\times\fg$ by
+	\begin{equation}
+		\nu_{(g,v)} = (v^L_g, 0)\in T_gG\times T_v\fg \sim T_{(g,v)}(G\times \fg).
+	\end{equation}
+	Clearly $\nu$ satisfies the section property, so for it to be a smooth vector field, we only need to show that it is smooth.
+	Pick any basis $(X_1,\ldots,X_k)$ for $\fg$ and let $(x^i)$ be the corresponding global coordinates for $\fg$ defined by $(x^i)\mapsto x^i X_i$.
+	For any $f\in C^\infty(G\times\fg)$ and given a $v\in\fg$, let $f_v:= f(\cdot, v):G\to\R$ denote the smooth function defined by regarding $v$ as fixed.
+	Then $\nu_{(g,v)}f = v^L_g f_v(g)$.
 
-  Since $v^L$ depends linearly (and thus smoothly) on $v$ and $f$ is smooth in both $g$ and $v$, the expression $(g,v)\mapsto  v^L_g f_v(g)$ is smooth in both arguments. This confirms that $\nu_{(g,v)}$ is a vector field and, therefore, its flow $\Theta^\nu$, which by Proposition~\ref{prop:liflow} is given by
-  \begin{equation}
-    \Theta^\nu_t(g) := (g \exp(tv), v), \quad (t,g,v)\in\R\times G\times\fg,
-  \end{equation}
-  is smooth. In particular, $\Theta^\cdot_1(e)= (\exp(\cdot), \cdot): \fg\to G\times\fg$ is smooth and therefore $\exp$ itself is.
+	Since $v^L$ depends linearly (and thus smoothly) on $v$ and $f$ is smooth in both $g$ and $v$, the expression $(g,v)\mapsto  v^L_g f_v(g)$ is smooth in both arguments. This confirms that $\nu_{(g,v)}$ is a vector field and, therefore, its flow $\Theta^\nu$, which by Proposition~\ref{prop:liflow} is given by
+	\begin{equation}
+		\Theta^\nu_t(g) := (g \exp(tv), v), \quad (t,g,v)\in\R\times G\times\fg,
+	\end{equation}
+	is smooth. In particular, $\Theta^\cdot_1(e)= (\exp(\cdot), \cdot): \fg\to G\times\fg$ is smooth and therefore $\exp$ itself is.
 
-  \newthought{The differential $d\exp_0$}. We want to show that the following diagram commutes
-  \begin{equation}\nonumber
-    \begin{tikzcd}[row sep=large, column sep=large]
-      T_0\fg \arrow[rr, "d\exp_0" description] & & \fg \\
-      & \fg \arrow[ul, "\cT_0" description] \arrow[ur, "\id" description] &
-    \end{tikzcd}
-  \end{equation}
-  where $\cT_0:\fg\to T_o\fg$ is the map from Exercise~\ref{ex:tg_curve_iso}.
-  Let $v\in\fg$, then $\cT_0(v) = \delta'(t)$ where $\delta(t) = tv$.
-  Thus we have
-  \begin{align}
-    d\exp_0 (\cT_0 v) & = (\exp \circ \delta)'(0)          \\
-                      & = \frac{d}{dt}\Big|_{t=0} \exp(tv)
-    = \frac{d}{dt}\Big|_{t=0} \gamma^v(t)
-    = v,
-  \end{align}
-  which completes the proof.
+	\newthought{The differential $d\exp_0$}. We want to show that the following diagram commutes
+	\begin{equation}\nonumber
+		\begin{tikzcd}[row sep=large, column sep=large]
+			T_0\fg \arrow[rr, "d\exp_0" description] & & \fg \\
+			& \fg \arrow[ul, "\cT_0" description] \arrow[ur, "\id" description] &
+		\end{tikzcd}
+	\end{equation}
+	where $\cT_0:\fg\to T_o\fg$ is the map from Exercise~\ref{ex:tg_curve_iso}.
+	Let $v\in\fg$, then $\cT_0(v) = \delta'(t)$ where $\delta(t) = tv$.
+	Thus we have
+	\begin{align}
+		d\exp_0 (\cT_0 v) & = (\exp \circ \delta)'(0)          \\
+		                  & = \frac{d}{dt}\Big|_{t=0} \exp(tv)
+		= \frac{d}{dt}\Big|_{t=0} \gamma^v(t)
+		= v,
+	\end{align}
+	which completes the proof.
 \end{proof}
 \begin{corollary}
-  The exponential map is a diffeomorphism of some neighbourhood of the origin in $\fg$ onto its image in $G$.
+	The exponential map is a diffeomorphism of some neighbourhood of the origin in $\fg$ onto its image in $G$.
 \end{corollary}
 
 Finally, let's investigate how the exponential map behaves with respect to Lie group homomorphisms.
 
 \begin{proposition}
-  Let $G$ and $H$ be Lie groups with Lie algebras $\fg$ and $\fh$ respectively.
-  If $F:G\to H$ is a Lie group homomorphism, the following diagram commutes:
-  \begin{equation}\nonumber
-    \begin{tikzcd}[row sep=large, column sep=large]
-      \fg \arrow[r, "F_*"] \arrow[d, "\exp" left] & \fh \arrow[d, "\exp"] \\
-      G \arrow[r, "F"] & H
-    \end{tikzcd}
-  \end{equation}
+	Let $G$ and $H$ be Lie groups with Lie algebras $\fg$ and $\fh$ respectively.
+	If $F:G\to H$ is a Lie group homomorphism, the following diagram commutes:
+	\begin{equation}\nonumber
+		\begin{tikzcd}[row sep=large, column sep=large]
+			\fg \arrow[r, "F_*"] \arrow[d, "\exp" left] & \fh \arrow[d, "\exp"] \\
+			G \arrow[r, "F"] & H
+		\end{tikzcd}
+	\end{equation}
 \end{proposition}
 \begin{proof}
-  We need to show that $\exp(F_*v) = F(\exp(v))$ for every $v\in \fg$.
-  Instead, we will show the stronger result that for all $t\in\R$, $\exp(t F_*v) = F(\exp(tv))$.
-  The left-hand side is the subgroup generated by $F_* v$, thus if we put $\gamma(t) = F(\exp(tv))$, it is enough to show that $\gamma:\R\to H$ is a Lie group homomorphism such that $\gamma'(0) = (F_*v)_e$.
-  A composition of homomorphisms is a homomorphism, therefore $t\mapsto F(\exp(tv))$ is a one-parameter subgroup of $H$.
-  For the initial velocity, observe that
-  \begin{align}
-    (F\circ\exp)'(0) & = \frac{d}{dt}\Big|_{t=0} F(\exp(tv))               \\
-                     & =dF_0\left(\frac{d}{dt}\Big|_{t=0} \exp(tv) \right) \\
-                     & = dF_0(v_e) = (F_*v)_e.
-  \end{align}
+	We need to show that $\exp(F_*v) = F(\exp(v))$ for every $v\in \fg$.
+	Instead, we will show the stronger result that for all $t\in\R$, $\exp(t F_*v) = F(\exp(tv))$.
+	The left-hand side is the subgroup generated by $F_* v$, thus if we put $\gamma(t) = F(\exp(tv))$, it is enough to show that $\gamma:\R\to H$ is a Lie group homomorphism such that $\gamma'(0) = (F_*v)_e$.
+	A composition of homomorphisms is a homomorphism, therefore $t\mapsto F(\exp(tv))$ is a one-parameter subgroup of $H$.
+	For the initial velocity, observe that
+	\begin{align}
+		(F\circ\exp)'(0) & = \frac{d}{dt}\Big|_{t=0} F(\exp(tv))               \\
+		                 & =dF_0\left(\frac{d}{dt}\Big|_{t=0} \exp(tv) \right) \\
+		                 & = dF_0(v_e) = (F_*v)_e.
+	\end{align}
 \end{proof}
 
 \begin{remark}
-  \marginnote[1em]{The complete formula is called Baker-Campbell-Hausdorff formula and its use appears all over the place in mathematics and physics~\cite{book:bonfigliolifulci}.}
-  Note that we have not shown $\exp(X + Y) = (\exp X)(\exp Y)$.
-  In fact, this is \emph{false} in general.
-  As a matter of fact, $\exp X \exp Y = \exp Z$ where
-  \begin{equation}
-    Z = X + Y + \frac{1}2 [X,Y] + \frac1{12}[X,[X,Y]] - \frac1{12}[Y,[X,Y]] + \ldots,
-  \end{equation}
-  with the $\ldots$ indicating terms involving higher commutators of $X$ and $Y$.
+	\marginnote[1em]{The complete formula is called Baker-Campbell-Hausdorff formula and its use appears all over the place in mathematics and physics~\cite{book:bonfigliolifulci}.}
+	Note that we have not shown $\exp(X + Y) = (\exp X)(\exp Y)$.
+	In fact, this is \emph{false} in general.
+	As a matter of fact, $\exp X \exp Y = \exp Z$ where
+	\begin{equation}
+		Z = X + Y + \frac{1}2 [X,Y] + \frac1{12}[X,[X,Y]] - \frac1{12}[Y,[X,Y]] + \ldots,
+	\end{equation}
+	with the $\ldots$ indicating terms involving higher commutators of $X$ and $Y$.
 \end{remark}
 
 The one-parameter subgroups of $GL(n)$ follow nicely from the results introduced above.
@@ -573,15 +573,15 @@ This is a good place to see where the right shift is coming from.
 Let $A = (A^i_j)$ and let $(X^i_j)$ denote the global coordinates on $GL(n)$ given by the matrix entries.
 Then the natural isomorphism $T_{\id}GL(n) \simeq \mathfrak{gl}(n)$ is given by the mapping
 \begin{equation}
-  A^i_j \frac{\partial }{\partial X^i_j}\Big|_{\id} \mapsto (A^i_j).
+	A^i_j \frac{\partial }{\partial X^i_j}\Big|_{\id} \mapsto (A^i_j).
 \end{equation}
 Thus, if you remember that $v^L|_g = d(L_g)_e(v)$, the left-invariant vector field $A^L$ is given by
 \begin{equation}
-  A^L|_X = d(L_X)_{\id}(A) = d(L_X)_{\id}\left(A^i_j \frac{\partial }{\partial X^i_j}\right),
+	A^L|_X = d(L_X)_{\id}(A) = d(L_X)_{\id}\left(A^i_j \frac{\partial }{\partial X^i_j}\right),
 \end{equation}
 and, thus, in coordinates, its value at $X\in GL(n)$ is
 \begin{equation}
-  X^k_i A^i_j \frac{\partial }{\partial X^i_j}.
+	X^k_i A^i_j \frac{\partial }{\partial X^i_j}.
 \end{equation}
 Which means that the condition to be an integral curve, in coordinates, is $\frac{d}{dt}\gamma^i_j(t) = \gamma^i_k(t) A^k_j$ or, in matrix notation, $\gamma'(t) = \gamma(t) A$.
 By using the expansion $e^{tA} = \sum_{k\geq 0} \frac{A^k}{k!}$ one can verify that such $\gamma$ is exactly the matrix exponential.
@@ -589,69 +589,69 @@ By using the expansion $e^{tA} = \sum_{k\geq 0} \frac{A^k}{k!}$ one can verify t
 We can summarise\footnote{One should also prove convergence, if you are curious about the details you can refer to~\cite[Proposition 20.2]{book:lee}.} this as follows.
 
 \begin{proposition}\label{prop:expmat}
-  Let $A\in\mathfrak{gl}(n)$, then the one-parameter subgroup of $GL(n)$ generated by $A$ is
-  \begin{equation}
-    \exp(tA) = e^{tA} = \sum_{k\geq 0} \frac{A^k}{k!}.
-  \end{equation}
+	Let $A\in\mathfrak{gl}(n)$, then the one-parameter subgroup of $GL(n)$ generated by $A$ is
+	\begin{equation}
+		\exp(tA) = e^{tA} = \sum_{k\geq 0} \frac{A^k}{k!}.
+	\end{equation}
 \end{proposition}
 
 \begin{corollary}
-  Let $G$ be a matrix Lie group with Lie algebra $\fg$.
-  Then the exponential map $\exp:\fg\to G$ is given by matrix exponentiation: $\exp A = e^A$.
+	Let $G$ be a matrix Lie group with Lie algebra $\fg$.
+	Then the exponential map $\exp:\fg\to G$ is given by matrix exponentiation: $\exp A = e^A$.
 \end{corollary}
 
 \marginnote{This uncovers the structure behind the structure you encountered in Exercise~\ref{exe:onsubmanifold}.}
 \begin{exercise}
-  The one-parameter subgroups of $O(n)$ are the maps of the form $e^{tA}$ for arbitrary skew-symmetric matrices $A$.
-  In particular, this shows that the exponential of any skew-symmetric matrix is orthogonal.
+	The one-parameter subgroups of $O(n)$ are the maps of the form $e^{tA}$ for arbitrary skew-symmetric matrices $A$.
+	In particular, this shows that the exponential of any skew-symmetric matrix is orthogonal.
 \end{exercise}
 
 \begin{exercise}
-  Let $G$ a Lie group and $\fg$ its Lie algebra.
-  For any $X,Y\in\fg$, there show the following results.
-  \begin{enumerate}
-    \item For some $\epsilon>0$, there is a smooth function $Z:(-\epsilon, \epsilon)\to \fg$  such that, for all $t\in(-\epsilon, \epsilon)$,
-          \begin{equation}
-            (\exp tX)(\exp tY) = \exp(t (X+Y) + t^2 Z(t)).
-          \end{equation}
-    \item For some $\epsilon>0$, there is a smooth function $\widetilde Z:(-\epsilon, \epsilon)\to \fg$ such that, for all $t\in(-\epsilon, \epsilon)$,
-          \begin{equation}
-            (\exp tX)(\exp tY) = \exp\left(t (X+Y) + \frac12 t^2 [X,Y] + t^3 \widetilde Z(t)\right).
-          \end{equation}
-  \end{enumerate}
-  \textit{\small Hint: Taylor expansions and Exercise~\ref{ex:DiffGroupMaps} can help for this exercise.}
+	Let $G$ a Lie group and $\fg$ its Lie algebra.
+	For any $X,Y\in\fg$, there show the following results.
+	\begin{enumerate}
+		\item For some $\epsilon>0$, there is a smooth function $Z:(-\epsilon, \epsilon)\to \fg$  such that, for all $t\in(-\epsilon, \epsilon)$,
+		      \begin{equation}
+			      (\exp tX)(\exp tY) = \exp(t (X+Y) + t^2 Z(t)).
+		      \end{equation}
+		\item For some $\epsilon>0$, there is a smooth function $\widetilde Z:(-\epsilon, \epsilon)\to \fg$ such that, for all $t\in(-\epsilon, \epsilon)$,
+		      \begin{equation}
+			      (\exp tX)(\exp tY) = \exp\left(t (X+Y) + \frac12 t^2 [X,Y] + t^3 \widetilde Z(t)\right).
+		      \end{equation}
+	\end{enumerate}
+	\textit{\small Hint: Taylor expansions and Exercise~\ref{ex:DiffGroupMaps} can help for this exercise.}
 \end{exercise}
 
 The study of Lie groups acting on manifolds, opens a whole world of interesting topics, spanning across all fields of mathematics.
 We will not enter into the details here, however I want to leave you the main definitions.
 
 \begin{definition}
-  Let $G$ a Lie group and let $M$ be a manifold.
-  We call \emph{left action of $G$ on $M$} a smooth map $\ell: G\times M \to M$ such that
-  \begin{equation}
-    \ell(gh, p) = \ell(g,\ell(h,p)), \quad \ell(e, p) = p
-  \end{equation}
-  for all $g,h\in G$ and $p\in M$.
-  For any fixed $g\in G$, the map $p\mapsto \ell(g,p)$ is a diffeomorphism of $M$, which is usually denoted $\ell_g$.
-  Analogously, we call \emph{right action of $G$ on $M$} a smooth map $\rho: M\times G \to M$ such that
-  \begin{equation}
-    \rho(p, gh) = \rho(\rho(p,g), h), \quad \rho(p, e) = p
-  \end{equation}
-  for all $g,h\in G$ and $p\in M$.
-  For any fixed $g\in G$, the map $p\mapsto \rho(p,g)$ is a diffeomorphism of $M$ called \emph{orbit map}, which is usually denoted $\rho^p$ or $(p,g)\mapsto p\cdot g$.
+	Let $G$ a Lie group and let $M$ be a manifold.
+	We call \emph{left action of $G$ on $M$} a smooth map $\ell: G\times M \to M$ such that
+	\begin{equation}
+		\ell(gh, p) = \ell(g,\ell(h,p)), \quad \ell(e, p) = p
+	\end{equation}
+	for all $g,h\in G$ and $p\in M$.
+	For any fixed $g\in G$, the map $p\mapsto \ell(g,p)$ is a diffeomorphism of $M$, which is usually denoted $\ell_g$.
+	Analogously, we call \emph{right action of $G$ on $M$} a smooth map $\rho: M\times G \to M$ such that
+	\begin{equation}
+		\rho(p, gh) = \rho(\rho(p,g), h), \quad \rho(p, e) = p
+	\end{equation}
+	for all $g,h\in G$ and $p\in M$.
+	For any fixed $g\in G$, the map $p\mapsto \rho(p,g)$ is a diffeomorphism of $M$ called \emph{orbit map}, which is usually denoted $\rho^p$ or $(p,g)\mapsto p\cdot g$.
 \end{definition}
 
 There are many interesting types of Lie group actions. I am going to mention one here, which occurs when the action of $G$ on $M$ is transitive.
 In this case $M$ becomes a \emph{homogeneous space} and is diffeomorphic to the quotient $G/H$ for some Lie subgroup $H \subset G$.
 
 \begin{exercise}
-  Let $G$ be a Lie group with Lie algebra $\fg$.
-  For each $g\in G$, the differential at the identity of the conjugation map $C_g:=L_g\circ R_{g^{-1}}: G\to G$ is a linear isomorphism $C_{g*}:\fg\to\fg$.
-  Hence, $C_{g*}\in GL(\fg)$.
-  \begin{enumerate}
-    \item Show that the map $\mathrm{Ad}:G\to GL(\fg)$ defined $\mathrm{Ad}(g) = C_{g*}$ and called \emph{adjoint representation of $G$} is a group homomorphism.
-    \item Show that $\mathrm{Ad}:G\to GL(\fg)$ is smooth.
-  \end{enumerate}
+	Let $G$ be a Lie group with Lie algebra $\fg$.
+	For each $g\in G$, the differential at the identity of the conjugation map $C_g:=L_g\circ R_{g^{-1}}: G\to G$ is a linear isomorphism $C_{g*}:\fg\to\fg$.
+	Hence, $C_{g*}\in GL(\fg)$.
+	\begin{enumerate}
+		\item Show that the map $\mathrm{Ad}:G\to GL(\fg)$ defined $\mathrm{Ad}(g) = C_{g*}$ and called \emph{adjoint representation of $G$} is a group homomorphism.
+		\item Show that $\mathrm{Ad}:G\to GL(\fg)$ is smooth.
+	\end{enumerate}
 \end{exercise}
 
 We will come back to discuss Lie groups and Lie algebras in the appendix on distribution theory and Frobenius theorem.

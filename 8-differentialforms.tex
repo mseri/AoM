@@ -1,0 +1,767 @@
+\marginnote{There is a nice book by Guillemin and Haine which is all on differential forms \cite{book:guillemin-haine} and whose draft is freely available on the authors' course website.}
+In the rest of the course we will focus on a particular class of tensors, which generalizes the differential one-forms that we studied on the cotangent bundle.
+It should not be surprising then, that these will be called differential $k$-forms and that they will be alternating $(0,k)$-tensors, that is, skew-symmetric in all arguments.
+
+Geometrically, they are similar\footnote{In fact, they are the same, just more general.} to the forms you may have seen in multivariable calculus: a $k$-form takes $k$ vectors as arguments and computes the $k$-dimensional volume spanned by these $k$-vectors.
+In this sense, they will be the key elements to define integration over $k$-dimensional manifolds, in the same way as one-forms and line integrals.
+
+In addition to their role in integration, differential forms provide a framework for generalizing such diverse concepts from multivariable calculus as the cross product, curl, divergence, and Jacobian determinant.
+
+\section{Differential forms}
+
+\begin{definition}
+	Let $V$ be a real $n$-dimensional vector space.
+	Let $S_k$ denote the \emph{symmetric group on $k$ elements}, that is, the group of permutations of the set $\{1,\ldots,k\}$.
+	Recall that for any permutation $\sigma\in S_k$, the \emph{sign of $\sigma$}, denoted $\sgn(\sigma)$, is equal to $+1$ if $\sigma$ is even\footnote{It can be written as a composition of an even number of transpositions} and $-1$ is $\sigma$ is odd\footnote{It can be written as a composition of an odd number of transpositions}.
+
+	\marginnote{In particular, exchanging two arguments changes the sign of $\omega$.}
+	A tensor $\omega\in T_k^0(V)$, $0\leq k\leq n$, is called \emph{alternating} (or \emph{antisymmetric} or \emph{skew-symmetric}), if it changes sign whenever two of its arguments are interchanged, that is,
+	for all $v_1, \ldots, v_k\in V$ and for any permutation $\sigma\in S_k$ it holds that
+	\begin{equation}
+		\omega(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) = \sgn(\sigma) \omega(v_1, \ldots, v_k).
+	\end{equation}
+	The subspace of alternating tensors in $T_k^0(V)$ is denoted\footnote{Some authors also use $\Lambda^k(v^*)$ or $\Lambda_k(V^*)$ to denote the same space.} by $\Lambda^k(V) \subset T_k^0(V)$ and its elements are called \emph{exterior forms}, \emph{alternating $k$-forms} or just  \emph{$k$-forms}.
+	For $k=0$, we define $\Lambda^0(V) := T_0^0(V) := \R$.
+\end{definition}
+
+\begin{exercise}\label{ex:propAlt}
+	Show that the following are equivalent for a tensor $\omega\in T_k^0(V)$.
+	\begin{enumerate}
+		\item $\omega$ is alternating;
+		\item $\omega$ is $0$ whenever two of its arguments are equal, that is, ${\omega(v_1, \ldots, w, \ldots, w, \ldots, v_k) = 0}$;
+		\item $\omega(v_1, \ldots, v_k) = 0$ whenever the vectors $(v_1, \ldots, v_n)$ are linearly dependent.
+	\end{enumerate}
+\end{exercise}
+
+\section{The exterior product}
+
+\marginnote{You can find an interesting explanation of the exterior product, based on Penrose's book ``The road to reality'', \href{https://web.archive.org/web/20200731170011/https://twitter.com/LucaAmb/status/1289244374996406273}{on a thread by @LucaAmb on Twitter}.}
+If you remember, we said that the determinant was an example of a $T_n^0(\R^n)$ tensor: an antisymmetric tensor nonetheless.
+At the same time, the determinant of a $n\times n$ matrix, is the signed volume of the parallelotope spanned by the $n$ vectors defining the matrix.
+We also saw that tensors can be multiplied with the tensor product, which gives rise to a graded algebra on the free sum of tensor spaces.
+Since we are looking for an alternating product, the previous observation leads naturally to the following definition.
+
+\begin{definition}
+	Let $V$ be a real $n$-dimensional vector space.
+	Given $k$ covectors $\omega^1, \ldots, \omega^k\in T_1^0(V)$, their \emph{wedge product} (or \emph{exterior product}) $\omega^1\wedge\ldots\wedge\omega^k$ is defined by
+	\begin{equation}
+		\left(
+		\omega^1\wedge\ldots\wedge\omega^k\,\mid\, v_1,\ldots,v_k
+		\right) := \det\begin{pmatrix}
+			\omega^1(v_1) & \cdots & \omega^1(v_k) \\
+			\vdots        & \ddots & \vdots        \\
+			\omega^k(v_1) & \cdots & \omega^k(v_k)
+		\end{pmatrix} \qquad
+		\forall v_1,\ldots,v_k\in V.
+	\end{equation}
+\end{definition}
+
+Since the determinant changes sign when two of its columns are interchanged, $\omega^1\wedge\ldots\wedge\omega^k$ is alternating and thus an element of $\Lambda^k(V)$.
+Similarly, since the determinant changes sign when two of its columns are interchanged, it holds that, for any $\sigma\in S_k$,
+\begin{equation}\label{equiv:permut}
+	\omega^{\sigma(1)}\wedge\ldots\wedge\omega^{\sigma(k)} = \sgn(\sigma) \omega^1\wedge\ldots\wedge\omega^k.
+\end{equation}
+That is, using Leibniz formula for the determinant\footnote{\cite[Equation (B.3)]{book:lee}}, we get
+\begin{equation}\label{eq:detLeibniz}
+	\omega^1\wedge\ldots\wedge\omega^k = \sum_{\sigma\in S_k}\sgn(\sigma) \omega^{\sigma(1)}\otimes\ldots\otimes\omega^{\sigma(k)}.
+\end{equation}
+
+According to Proposition~\ref{prop:tensorbasis} we have the basis representation
+\begin{equation}
+	\omega = \omega_{j_1, \ldots, j_k} e^{j_1}\otimes \cdots \otimes e^{j_k}
+\end{equation}
+in $T_k^0(V)$.
+It would be convenient to have a similar basis representation only involving terms in $\Lambda^k(V)$ and wedge products.
+
+\begin{proposition}\label{prop:dimLkV}
+	Let $V$ be a real $n$-dimensional vector space, let $(e^j)$ denote a basis for $V^*$.
+	Then, for each $1\leq k \leq n$, the set of $k$-forms
+	\begin{equation}
+		E = \left\{
+		e^{j_1}\wedge\cdots\wedge e^{j_k} \;\mid\; 1\leq j_1<\cdots<j_k\leq n
+		\right\},
+	\end{equation}
+	forms a basis for the space $\Lambda^k(V) \subset T_k^0(V)$ of alternating $k$-forms.
+	Therefore, if $1\leq k\leq n$
+	\marginnote[3em]{In particular, $\Lambda^n(V) \equiv \Lambda^0(V) \equiv \R$.}
+	\begin{equation}
+		\dim \Lambda^k(V) = \binom{n}{k} = \frac{n!}{k!(n-k)!},
+	\end{equation}
+	while if $k>n$, $\dim \Lambda^k(V) = 0$.
+\end{proposition}
+\begin{proof}
+	The last point of Exercise~\ref{ex:propAlt} implies that there are no non-zero alternating $k$-tensors on $V$ if $k >\dim V$, since in that case every $k$-tuple of vectors would be dependent.
+	For $k\leq n$ we need to show that $E$ spans $\Lambda^k(V)$ and its vectors are linearly independent.
+	The second claim follows directly from \eqref{eq:detLeibniz}. For the rest of the proof we will focus on the first claim.
+
+	First of all, observe that by~\eqref{equiv:permut} all the wedge products ${e^{j_1}\wedge\ldots\wedge e^{j_k}\not\in E}$, where the indices $j_i$ are not necessarily in ascending order, either vanish\footnote{When two indices are repeated, i.e., a basis vector appears twice} or are linear multiples of an element\footnote{The exterior product with the indices in the same set but in increasing order} of $E$.
+
+	Let now $\{e_i\}$ denote the basis for $V$ dual to $\{e^i\}$ and $\omega\in\Lambda^k$.
+	By definition of alternating form, we have
+	\begin{equation}\label{eq:altchar}
+		\omega(e_{i_1}, \ldots, e_{i_k}) = \frac1{k!} \sum_{\sigma\in S_k}\sgn(\sigma) \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k).}}\right)
+	\end{equation}
+	Moreover, for any $v_1,\ldots,v_k\in V$ we have
+	\marginnote[3em]{Don't forget, $1\leq i\leq n$.}
+	\begin{equation}
+		v_j = e^i(v_j) e_i, \quad j=1,\ldots, k.
+	\end{equation}
+	Therefore,
+	\begin{align}
+		\omega(v_1, \ldots, v_k)
+		 & =\omega\left(e^{i_1}(v_q) e_{i_1}, \ldots, e^{i_k}(v_k) e_{i_k}\right)                                                                                                                                  \\
+		 & =e^{i_1}(v_1)\cdots e^{i_k}(v_k)\; \omega(e_{i_1}, \ldots, e_{i_k})                                                                                                                                     \\
+		 & =e^{i_1}(v_1)\cdots e^{i_k}(v_k) \frac1{k!} \sum_{\sigma\in S_k}\sgn(\sigma)\; \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k).}}\right)                                                         \\
+		\overset{\mbox{\small\eqref{eq:altchar}}}{}
+		 & = \frac1{k!} \left(e^{i_1}\otimes \cdots \otimes e^{i_k} \;\mid\; v_1, \ldots, v_k\right) \sum_{\sigma\in S_k}\sgn(\sigma)\; \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k)}}\right)            \\
+		\overset{[i_{\sigma(l)} \mapsto j_l]}{}
+		 & = \frac1{k!} \omega\left(e_{j_1}, \ldots, e_{j_k}\right) \sum_{\sigma\in S_k} \sgn(\sigma) \;\left(e^{j_{\sigma^{-1}(1)}}\otimes \cdots \otimes e^{j_{\sigma^{-1}(k)}} \;\mid\; v_1, \ldots, v_k\right) \\
+		\overset{\mbox{\small\eqref{eq:detLeibniz}}}{}
+		 & = \frac1{k!} \omega\left(e_{j_1}, \ldots, e_{j_k}\right) \left( e^{j_1}\wedge \cdots \wedge e^{j_k} \;\mid\; v_1, \ldots, v_k\right)                                                                    \\
+		%\overset{\mbox{\tiny dedup.}}{}
+		 & = \sum_{j_1=1}^{n-k+1}\sum_{j_2=j_1+1}^{n-k+2}\cdots \sum_{j_k=j_{k-1}+1}^{n} \omega\left(e_{j_1}, \ldots, e_{j_k}\right) \left(e^{j_1}\wedge \cdots \wedge e^{j_k} \;\mid\; v_1, \ldots, v_k\right).
+	\end{align}
+	That is,
+	\begin{equation}
+		\omega = \sum_{j_1=1}^{n-k+1}\sum_{j_2=j_1+1}^{n-k+2}\cdots \sum_{j_k=j_{k-1}+1}^{n} \omega_{j_1, \ldots, j_k} e^{j_1}\wedge \cdots \wedge e^{j_k},
+	\end{equation}
+	where $\omega_{j_1, \ldots, j_k} = \omega\left(e_{j_1}, \ldots, e_{j_k}\right)$, in analogy with Proposition~\ref{prop:tensorbasis}.
+\end{proof}
+
+\begin{remark}
+	There are multiple alternative definitions of the wedge product, which are equivalent up to a multiplicative factor.
+	Be careful when you consult the literature to check the conventions used.
+
+	The convention that we are using here is usually called the determinant convention and is usually the most convenient for computations. The name stems from the fact that if $(e^i)$ denotes the standard basis for ${(\R^n)}^*$, then for some vectors $v_1, \ldots, v_n \in\R^n$,
+	\begin{equation}
+		\det(\LaTeXunderbrace{v_1 \,\cdots\, v_n}_{\parbox{1.5cm}{\tiny $n\times n$ matrix with\\$v_i$ as columns}}) = e^1\wedge\cdots\wedge e^n(v_1,\ldots,v_n).
+	\end{equation}
+\end{remark}
+
+As you could see from the previous proof, Einstein notation can help but only to a certain extent.
+There is an extra bit of notation, also common in higher-dimensional analysis, that can be often convenient when working with many indices.
+\begin{notation}
+	Given a positive integer $k$, an ordered\footnote{That is, $1\leq i_1<\cdots<i_k\leq n$.} $k$-tuple $I=(i_1, \ldots, i_k)$ of positive integers is called \emph{multi-index of length $k$}.
+	If $I$ is such a multi-index and $\sigma\in S_k$ is a permutation of $\{1,\ldots,k\}$, then we denote $I_\sigma := (i_{\sigma(1)}, \ldots, i_{\sigma(k)})$.
+	Defining $e^I := e^{i_1}\wedge\cdots\wedge e^{i_k}$, we finally get the more compact notation $\omega = \omega_I e^I$.
+\end{notation}
+
+In general, the tensor product $\omega\otimes\nu\in T_{k+h}^0(V)$ of alternating forms $\omega\in\Lambda^k$ and $\nu\in\Lambda^{h}$ is not an alternating form.
+The following proposition gives us a tool to define an exterior product of alternating forms.
+
+\begin{proposition}
+	Let $\Alt_k: T_k^0(V)\to \Lambda^k(V)$ be the map\footnote{Often call alternation map or antisymmetrization} defined by
+	\begin{equation}
+		(\Alt_k\tau)(v_1,\ldots,v_k) := \frac1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) \tau(v_{\sigma(1)}, \ldots, v_{\sigma(k)}),
+		\qquad \forall v_1,\ldots,v_k \in V.
+	\end{equation}
+	Then $\Alt_k$ is a linear projection\footnote{That is, $\Alt_k\circ\Alt_k = \Alt_k$} and the following holds:
+	for all $\omega^1, \ldots, \omega^k \in T^0_1(V)$,
+	\begin{equation}
+		\omega^1 \wedge \cdots \wedge \omega^k = k! \Alt_k(\omega^1 \otimes \cdots \otimes \omega^k).
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	Linearity is there by construction, we need to check that $\Alt_k$ is a projection.
+	This follows from a direct computation of its idempotence:
+	\begin{align}
+		(\Alt_k \Alt_k \tau)(v_1,\ldots, v_k)
+		 & = \frac1{k!k!}\sum_{\sigma,\sigma'\in S_k}\sgn(\sigma)\sgn(\sigma') \tau\left(v_{\sigma'\circ\sigma(1)}, \ldots, v_{\sigma'\circ\sigma(1)}\right) \\
+		\overset{\eta = \sigma'\circ\sigma}{}
+		 & =\frac1{k!k!}\sum_{\sigma,\eta\in S_k}\sgn(\eta) \tau\left(v_{\eta(1)}, \ldots, v_{\eta(1)}\right)                                                \\
+		 & =\frac1{k!}\sum_{\eta\in S_k}\sgn(\eta) \tau\left(v_{\eta(1)}, \ldots, v_{\eta(1)}\right)                                                         \\
+		 & =(\Alt_k \tau)(v_1,\ldots, v_k),
+	\end{align}
+	where we used the fact that $\eta$ runs over all $S_k$, as $\sigma$ does.
+	It remains to check that $\Alt_k(\tau)$ is alternating, but this follows directly from~\eqref{eq:detLeibniz}, completing the proof.
+\end{proof}
+
+As we were saying, now we can take the tensor product of two forms $\omega\otimes\nu$ and use the antisymmetrisation $\Alt_{k+h}$ to to project it onto the antisymmetric subspace $\Lambda^{k+h}$ of $T_{k+h}^0(V)$.
+
+\begin{definition}[Wedge product of alternating forms]
+	We can extend the wedge product (or exterior product) to alternating forms by defining, for any $k,h\in\N$,
+	\begin{align}
+		\wedge : \Lambda^k(V)\times\Lambda^h(V) & \to \Lambda^{k+h}(V)                                                         \\
+		(\omega, \nu)                           & \mapsto \omega\wedge\nu := \frac{(k+h)!}{k!h!} \Alt_{k+h}(\omega\otimes\nu).
+	\end{align}
+\end{definition}
+
+\begin{example}
+	The wedge product of two $1$-forms $\omega$ and $\nu$ is
+	\begin{equation}
+		\omega\wedge\nu = 2\Alt_2(\omega\otimes\nu) = 2 \frac12 (\omega \otimes \nu - \nu \otimes \omega).
+	\end{equation}
+\end{example}
+
+\begin{exercise}
+	\begin{enumerate}
+		\item Compute the wedge product of three $1$-forms.
+		\item Compute the wedge product of a $1$-form and a $2$-form.
+	\end{enumerate}
+\end{exercise}
+
+\begin{proposition}
+	The wedge product has the following properties.
+	\begin{enumerate}
+		\item (associative) $(\omega^1\wedge\omega^2)\wedge\omega^3 = \omega^1\wedge(\omega^2\wedge\omega^3)$ for $\omega^i\in\Lambda^{k_i}(V)$, $i=1,\ldots, 3$;
+		\item (distributive) $(\omega^1+\omega^2)\wedge\omega^3 = \omega^1\wedge\omega^3+\omega^2\wedge\omega^3$ for $\omega^1,\omega^2\in\Lambda^{k}(V)$ and $\omega^3\in\Lambda^h(V)$;
+		\item (distributive) $\omega^1\wedge(\omega^2+\omega^3) = \omega^1\wedge\omega^2+\omega^1\wedge\omega^3$ for $\omega^1\in\Lambda^{k}(V)$ and $\omega^2,\omega^3\in\Lambda^h(V)$;
+		\item $\omega^1\wedge\omega^2 = {(-1)}^{hk}\omega^2\wedge\omega^1$ for $\omega^1\in\Lambda^{k}(V)$ and $\omega^2\in\Lambda^h(V)$.
+	\end{enumerate}
+\end{proposition}
+\begin{exercise}
+	Prove the proposition.\\
+	\textit{\small Hint: keep in mind the tricks used in the proof of the previous propositions.}
+\end{exercise}
+
+\begin{exercise}\label{ex:zeroform}
+	Let $V$ be a real $n$-dimensional vector space.
+	Prove that if an $n$-form $\omega$ vanishes on a basis $e_1,\ldots,e_n$ for $V$, then $\omega$ is the zero $n$-form on $V$.
+\end{exercise}
+
+\begin{remark}
+	As for tensors, if we define the $2^n$-dimensional\footnote{Exercise: why is the dimension $2^n$?} vector space
+	\begin{equation}
+		\Lambda(V) = \bigoplus_{k=0}^n \Lambda^k(V),
+	\end{equation}
+	then the wedge product turns it into an associative, anticommutative\footnote{A graded algebra is anticommutative if the product satisfies a relation of the form $uv = {(-1)}^{kh}vu$, where $u$ and $v$ are in the spaces of the gradation with indicex $k$ and $h$ respectively.} graded algebra, called \emph{exterior algebra of $V$}.
+\end{remark}
+
+\section{The interior product}
+
+There is an extremely important operation that relates vectors with alternating tensors.
+
+\begin{definition}
+	Let $V$ be a real $n$-dimensional vector space.
+	For each $v\in V$, the \emph{interior product} with $v$ is a contraction of a $k$-form by $v$, that is, the linear map $\iota_v:\Lambda^{k}(V)\to \Lambda^{k-1}(V)$ defined\footnote{Another common notation for the same operation is $v \iprod \omega$.} by
+	\begin{equation}
+		\iota_v\omega(w_1,\ldots,w_{k-1}) = \omega(v,w_1,\ldots,w_{k-1})
+		\quad \forall w_1,\ldots,w_{k-1} \in V.
+	\end{equation}
+\end{definition}
+
+In other words, $\iota_v\omega$ is obtained from $\omega$ by inserting $v$ into ``the first slot''.
+By convention $\iota_v\omega = 0$ if $\omega\in\Lambda^0(V)$.
+
+\begin{lemma}\label{lemma:intprod}
+	Let $V$ be a real $n$-dimensional vector space and $v\in V$.
+	Then the following hold.
+	\begin{enumerate}
+		\item $\iota_v\circ \iota_v = 0$ and $\iota_v\circ\iota_u = -\iota_u\circ\iota_v$;
+		\item if $\omega\in\Lambda^k(V)$ and $\eta\in\Lambda^h(V)$,
+		      \begin{equation}
+			      \iota_v(\omega\wedge\eta) = (\iota_v\omega)\wedge\eta + {(-1)}^k\omega\wedge(\iota_v\eta).
+		      \end{equation}
+	\end{enumerate}
+\end{lemma}
+\begin{exercise}
+	Prove the Lemma.
+\end{exercise}
+
+\section{Differential forms on manifolds}
+
+It is time to turn our attention back to smooth manifolds.
+Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the tensor fields $\cT_s^r(M)$ as the sections of $(r,s)$-tensor bundles $T_s^rM$ over $M$.
+The subset of $T_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda^kM:= \bigsqcup_{p\in M} \{p\}\times \Lambda^k(T_p M)$. This is\footnote{Exercise: prove the claims.} again a vector bundle, which is a subbundle of the $T_k^o M$ tensor bundle.
+\begin{definition}
+	The sections of $\Lambda^kM$ are called \emph{differential $k$-forms}, or just $k$-forms: these are smooth tensor fields whose values at each point are alternating tensors. The integer $k$ is called the \emph{degree} of the $k$-form.
+
+	We denote the vector space of smooth $k$-forms by
+	\begin{equation}
+		\Omega^k(M) = \Gamma(\Lambda^kM).
+	\end{equation}
+	The wedge product $\wedge:\Omega^k(M)\times\Omega^h(M)\to \Omega^{k+h}(M)$ of differential forms is defined pointwise as ${(\omega\wedge\nu)}_p = \omega_p\wedge\nu_p$.
+\end{definition}
+
+\begin{example}
+	\begin{enumerate}
+		\item A $0$-form is just a function $f\in C^\infty(M)$ and $1$-forms are just the covector fields $\omega\in\cT_1^0(M) = \fX^*(M)$ on $M$.
+		\item Let $M=\R^3$, then both $\cos(xy)dy\wedge dz$ and $dx\wedge dy - y dx\wedge dz + e^x/(x^2+y^2+1) dz\wedge dy$ are examples of smooth $2$-forms.
+		\item Every $3$-form in $\R^3$ is a continuous real-valued function times $dx\wedge dy\wedge dz$.
+	\end{enumerate}
+\end{example}
+
+\begin{remark}
+	If we define
+	\begin{equation}
+		\Omega^*(M) = \bigoplus_{k=0}^n \Omega^k(M),
+	\end{equation}
+	then the wedge product turns $\Omega^*(M)$ into an associative, anticommutative graded algebra\footnote{Recall Remark~\ref{rem:gradedtensoralgebra}}.
+\end{remark}
+
+The following theorem gives a computational rule for pullbacks of differential forms similar to the ones we developed for covector fields and arbitrary tensor fields earlier.
+In fact, it is a direct consequence of our previous observations.
+
+\begin{theorem}\label{thm:pullbacksdifferentialforms}
+	Let $F: M\to N$ be a smooth map between smooth manifolds.
+	Let $\omega\in\Omega^k(N)$ and $\nu\in\Omega^h(N)$.
+	Then,
+	\begin{equation}
+		F^*(\omega\wedge\nu) = F^*\omega \wedge F^*\nu,
+	\end{equation}
+	and, if $(y^i)$ denote some local coordinates on $V\subset N$, locally on $F^{-1}(V)$
+	\begin{equation}
+		F^*\left(\omega_J dy^J\right) = (\omega_{j_1,\ldots, j_k}\circ F) d(y^{j_1}\circ F)\wedge\cdots\wedge d(y^{j_k}\circ F).
+	\end{equation}
+\end{theorem}
+\begin{exercise}
+	Prove the theorem.
+\end{exercise}
+
+\begin{example}
+	Let $F:\R^2\to\R^3$ be defined by $F(u,v) = (u^2,v,u-v^2)$ and let $\omega = y dz\wedge dx + z dx\wedge dy$ on $\R^3$.
+	We can apply the previous theorem to compute $F^*\omega$:
+	\begin{align}
+		F^*\omega & = v d(u-v^2)\wedge d(u^2) + (u-v^2) d(u^2)\wedge dv     \\
+		          & = v (du-2vdv)\wedge (2 u du) + (u-v^2) (2u du)\wedge dv \\
+		          & = -4uv^2 dv\wedge du + 2u(u-v^2) du\wedge dv            \\
+		          & = 2u (u + v^2) du \wedge dv,
+	\end{align}
+	where we used that $du\wedge du =0$ and $du\wedge dv = -dv\wedge du$.
+\end{example}
+
+Of course, the same technique can also be used to compute the expression for a differential form in another smooth chart.
+
+\begin{example}
+	Let $\omega = dx\wedge dy$ on $\R^2$.
+	Consider the polar coordinates $(x,y)\mapsto (\rho\cos(\theta),\rho\sin(\theta))$, then
+	\begin{align}
+		dx\wedge dy & = d(\rho\cos\theta)\wedge d(\rho\sin\theta)                                                    \\
+		            & = (\cos\theta d\rho -\rho\sin\theta d\theta)\wedge (\sin\theta d\rho + \rho\cos\theta d\theta) \\
+		            & = \rho d\rho\wedge d\theta.
+	\end{align}
+
+	I am very confident that it is not the first time that you see the equation above\ldots
+\end{example}
+
+\begin{exercise}
+	Let $(x^i)$ and $(y^i)$ are two different local coordinates on some open $V\subset M$.
+	Show that the following identity holds:
+	\begin{equation}
+		dy^1\wedge\cdots\wedge dy^n = \det\left(\frac{\partial y^j}{\partial x^i}\right) dx^1\wedge\cdots\wedge dx^n.
+	\end{equation}
+\end{exercise}
+
+The previous exercise is a particular case of the following statement.
+
+\begin{proposition}\label{prop:wedgeToJDet}
+	Let $F:M\to N$ be a smooth map between $n$-manifolds.
+	Let $(x^i)$ and $(y^i)$ denote, respectively, smooth coordinates on open subsets $U\subseteq M$ and $V\subseteq N$.
+	Let $f$ be a continuous real-valued function on $V$.
+	Then, on $U\cap F^{-1}(V)$, the following holds:
+	\begin{equation}
+		F^*(f\, dy^1\wedge\cdots\wedge dy^n)
+		= (f\circ F) (\det DF) dx^1\wedge\cdots\wedge dx^n,
+	\end{equation}
+	where $DF$ represents the Jacobian matrix of $F$ in these coordinates.
+\end{proposition}
+
+\begin{exercise}
+	Prove the Proposition~\ref{prop:wedgeToJDet}.\\
+	\textit{\small Hint: look at Theorem~\ref{thm:pullbacksdifferentialforms}.}
+\end{exercise}
+
+\begin{exercise}
+	Let $f: \R^2 \to \R^3$ be defined by
+	\begin{equation}
+		f(x, y) = (x^2, y^2, xy).
+	\end{equation}
+	Compute the pullback $f^*\omega$ where $\omega$ is the form:
+	\begin{enumerate}
+		\item $\omega = y dy + z dz$;
+		\item $\omega = x dy \wedge dx$;
+		\item $\omega = dx \wedge dy\wedge dz$.
+	\end{enumerate}
+\end{exercise}
+
+Of course, also the interior product extends naturally to vector fields and differential forms, simply by letting it act pointwise: if $X\in\fX(M)$ and $\omega\in\Omega^k(M)$, then the $k-1$-form $\iota_X\omega\equiv X\iprod\omega$ is defined by $(X\iprod\omega)_p = X_p \iprod \omega_p$.
+
+\begin{exercise}
+	Let $X\in\fX(M)$. Prove the following statements.
+	\begin{enumerate}
+		\item If $\omega$ is a smooth differential form, then $\iota_X\omega$ is smooth.
+		\item The map $\iota_X:\Omega^k(M)\to\Omega^{k-1}(M)$ is linear over $C^\infty(M)$.
+	\end{enumerate}
+\end{exercise}
+
+\section{Exterior derivative}
+
+We already saw in the previous chapters that the differential of a function $f\in\Omega^0(M)$ can be thought as a $1$-form $df\in\Omega^1(M)$.
+We are finally ready to generalise the concept to a map $d:\Omega^k(M)\to\Omega^{k+1}(M)$.
+You have already seen most of this in the context of multivariable analysis, however it is good to repeat it to set the notational conventions.
+
+\begin{definition}
+	\marginnote{The same exact definition holds with $\R^n$ replaced by $\cH^n$.}
+	Let $\omega\in\Omega^k(U)$ for some open subset $U\subset\R^n$ and let $(e^i)$ denote the standard basis for ${(\R^n)}^*$. If
+	\begin{equation}
+		\omega = \omega_I de^I, \quad \omega_I\in C^\infty(U),
+	\end{equation}
+	then its \emph{exterior deriative} $d\omega \in\Omega^{k+1}(U)$ is defined by
+	\begin{equation}
+		d\omega := d\omega_I \wedge de^I = \sum_{1\leq i_1 < \cdots < i_k \leq n} d\omega_{i_1,\ldots,i_k}\wedge de^{i_1}\wedge\cdots\wedge de^{i_k},
+	\end{equation}
+	where $d\omega_I$ is the differential of the function $\omega_I$.
+\end{definition}
+
+\begin{example}
+	For a smooth $0$-form\footnote{A real valued function} $f$, we have that $df = \frac{\partial f}{\partial x^i}dx^i$.
+	If $\omega$ is a $1$-form, this instead becomes
+	\begin{align}
+		d(\omega_j dx^j)
+		 & = \frac{\partial \omega_j}{\partial x^i} dx^i \wedge dx^j                                                                                  \\
+		 & = \sum_{i<j} \frac{\partial \omega_j}{\partial x^i} dx^i \wedge dx^j  + \sum_{i>j} \frac{\partial \omega_j}{\partial x^i} dx^i \wedge dx^j \\
+		 & = \sum_{i<j} \left(\frac{\partial \omega_j}{\partial x^i} - \frac{\partial \omega_i}{\partial x^j} \right) dx^i\wedge dx^j,
+	\end{align}
+	consistently with our previous definitions.
+
+	It is worth observing here that $d(df) = 0$ since $\frac{\partial^2 f}{\partial x^i \partial x^j} = \frac{\partial^2 f}{\partial x^j \partial x^i}$.
+	We will revisit this fact in Lemma~\ref{lem:ext_deriv}.
+\end{example}
+
+\begin{definition}
+	Let now $M$ be a smooth $n$-manifold and $\omega\in\Omega^k(M)$.
+	Let $(U,\varphi)$ denote a chart on $U\subset M$ with local coordinates $(x^i)$.
+	Then, the \emph{exterior derivative} is defined locally as $d\omega|_U := \varphi^*d(\varphi_* \omega)$, that is, for
+	\begin{equation}
+		\omega|_U = \omega_I dx^I, \quad \omega_I \in C^\infty(M),
+	\end{equation}
+	we define
+	\begin{equation}\label{eq:localdw}
+		d\omega|_U := d\omega_I \wedge dx^I.
+	\end{equation}
+\end{definition}
+
+This local definition immediately extends to global one via the following theorem.
+
+\begin{theorem}\label{thm:differentialpushforward}
+	Let $M$ be a smooth $n$-manifold, $(U,\varphi)$ a chart on $U\subset M$ and $F:M\to N$ a diffeomorphism between smooth manifolds.
+	Then, for $\omega\in\Omega^k(N)$, we have $F^*(d\omega|_{F(U)}) = dF^*\omega|_U$.
+\end{theorem}
+\begin{proof}
+	Let $(x^i)$ denote the local coordinates of $\varphi$ and let
+	$(\widetilde U, \widetilde\varphi) := (F(U), \varphi\circ F^{-1})$ be the corresponding chart on $F(U)\subset N$ with local coordinates $(y^i)$ on $N$.
+	Locally, $\omega = \omega_I dy^I$, thus we get
+	\begin{align}
+		d F^* \omega|_U
+		 & = d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F) F^*(dy^{i_1})\wedge\cdots\wedge F^*(dy^{i_k})\right)          \\
+		 & = d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F) d(y^{i_1} \circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\right) \\
+		 & = d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F) dx^{i_1}\wedge\cdots\wedge dx^{i_k}\right)                    \\
+		 & = \sum_{I=(i_1,\ldots,i_k)} d(\omega_I\circ F)\wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k}                           \\
+		 & = \sum_{I=(i_1,\ldots,i_k)} F^* d(\omega_I)\wedge d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)            \\
+		 & = \sum_{I=(i_1,\ldots,i_k)} F^* d(\omega_I)\wedge F^*(dy^{i_1})\wedge\cdots\wedge F^*(dy^{i_k})                    \\
+		 & = F^*(d\omega|_{F(U)}),
+	\end{align}
+	where we repeatedly applied Proposition~\ref{thm:pullbacksdifferentialforms} and Exercise~\ref{ex:propdiff} to swap pushforwards and differentials.
+\end{proof}
+
+\begin{corollary}
+	Let $M$ be a smooth $n$-manifold and $(U_i, \varphi_i)$, $i=1,2$, two charts on $M$.
+	Then, for $\omega\in\Omega^k(M)$, the following holds
+	\begin{equation}
+		\varphi_1^*\left(d(\varphi_{1*}\omega)_{\varphi_1(U_1\cap U_2)}\right) =
+		\varphi_2^*\left(d(\varphi_{2*}\omega)_{\varphi_2(U_1\cap U_2)}\right).
+	\end{equation}
+	Therefore, the exterior derivative $d\omega\in\Omega^{k+1}(M)$ is uniquely defined by the local definition~\eqref{eq:localdw}.
+\end{corollary}
+\begin{proof}
+	Follows from Theorem~\ref{thm:differentialpushforward} applied with $F = \varphi_1\circ\varphi_2^{-1} : \varphi_2(U) \to \varphi_1(U)$, where $U=U_1\cap U_2$.
+	Indeed, since by the chain rule $F^* = (\varphi_2^{-1})^*\varphi_1^* = \varphi_{2*}(\varphi_1^{-1})_*$, we have
+	\begin{align}
+		\varphi_1^*\left(d(\varphi_{1*}\omega)_{\varphi_1(U)}\right)
+		 & = \varphi_2^* (\varphi_2^{-1})^* \varphi_1^*\left(d(\varphi_{1*}\omega)_{\varphi_1(U)}\right) \\
+		 & = \varphi_2^* F^*\left(d(\varphi_{1*}\omega)_{\varphi_1(U)}\right)                            \\
+		 & = \varphi_2^* \left(d(F^*\varphi_{1*}\omega)_{\varphi_2(U)}\right)                            \\
+		 & = \varphi_2^* \left(d(\varphi_{2*}\omega)_{\varphi_2(U)}\right).
+	\end{align}
+\end{proof}
+
+\begin{exercise}\label{ex:smoothpushforward}
+	Let $F:M\to N$ be a smooth map between smooth manifolds and $\omega\in\Omega^k(N)$, then
+	\begin{equation}
+		F^* (d\omega) = d(F^* \omega).
+	\end{equation}
+\end{exercise}
+
+\begin{lemma}\label{lem:ext_deriv}
+	The exterior derivative satisfies the following properties.
+	For all $\omega,\omega_1,\omega_2\in\Omega^k(M)$, $\nu\in\Omega^h(M)$ and $f\in C^\infty(M)$,
+	\begin{enumerate}[(i)]
+		\item $d(\omega_1 + \omega_2) = d\omega_1 + d\omega_2$;
+		\item $d(f\omega) = df\wedge \omega + f d\omega$;
+		\item $d(\omega\wedge\nu) = d\omega\wedge \nu + (-1)^k \omega\wedge d\nu$;
+		\item $d(d\omega) = 0$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	The first two properties immediately follow from the definition.
+	Property $(iii)$ follows observing that to compare the two sides of the equation, one needs to keep commuting the exterior derivatives of coefficients of $\nu$ through the $k$-form $\omega$.
+
+	The final property follows from the commutativity of the partial derivatives. Indeed, locally on a chart on $U\subset M$ with coordinates $(x^i)$, one has
+	\begin{align}
+		d(d\omega|_U) & = \frac{\partial^2 \omega_I}{\partial x^k\partial x^j} dx^k\wedge dx^j \wedge dx^I                                                                                \\
+		              & = \sum_{j<k} \left(\frac{\partial^2 \omega_I}{\partial x^k\partial x^j}  - \frac{\partial^2 \omega_I}{\partial x^j\partial x^k}\right)dx^k\wedge dx^j \wedge dx^I \\
+		              & = 0.
+	\end{align}
+\end{proof}
+
+\begin{exercise}
+	Compute the exterior derivatives of the following differential forms on $\R^3$:
+	\begin{enumerate}
+		\item $x dy \wedge dz$;
+		\item $x dy - y dx$;
+		\item $e^{-f}df$ where $f = x^2 + y^2 + z^2$;
+		\item $x dx + y dy + z dz$;
+		\item $x dy\wedge dz - y dx\wedge dz + z dx\wedge dy$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Solve the equation $d \nu = \omega$ for $\nu \in \Omega^1(\R^3)$ where $\omega$ is the $2$-form:
+	\begin{enumerate}
+		\item $d y \wedge d z$;
+		\item $y\; d y \wedge d z$;
+		\item $(x^2 + y^2) \; d x \wedge d y$;
+		\item $\cos(x)\; d x \wedge d z$.
+	\end{enumerate}
+\end{exercise}
+
+Let $N\subset M$ a submanifold and $i:N\hookrightarrow M$ the corresponding inclusion.
+For $\omega\in\Omega^k(M)$, we call $i^*\omega \in \Omega^k(N)$ the \emph{restriction} of $\omega$ to $N$.
+Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior derivative commute, that is, $i^*d\omega = d(i^*\omega)$.
+
+\begin{example}[Exterior derivatives and vector calculus in $\R^3$]
+	Let $M=\R^3$. Any smooth $1$-form $\omega\in\Omega^1(\R^3)$ can be written as
+	\begin{equation}
+		\omega = P dx + Q dy + R dz
+	\end{equation}
+	for some smooth functions $P,Q,R\in C^\infty(\R^3)$.
+	Using the properties of wedge product, we can compute its exterior derivative and get the two form
+	\begin{align}
+		d\omega & = \left(\frac{\partial P}{\partial x} dx + \frac{\partial P}{\partial y} dy + \frac{\partial P}{\partial z} dz \right) \wedge dx     \\
+		        & \quad+\left(\frac{\partial Q}{\partial x} dx + \frac{\partial Q}{\partial y} dy + \frac{\partial Q}{\partial z} dz \right) \wedge dy \\
+		        & \quad+\left(\frac{\partial R}{\partial x} dx + \frac{\partial R}{\partial y} dy + \frac{\partial R}{\partial z} dz \right) \wedge dz \\
+		        & = \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dx \wedge dy +
+		\left(\frac{\partial R}{\partial x} - \frac{\partial P}{\partial z}\right) dx \wedge dz + \left(\frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}\right) dy \wedge dz.
+	\end{align}
+	Similarly, an arbitrary $2$-form $\eta\in\Omega^2(\R^3)$ can be written as
+	\begin{equation}
+		\eta = u dx\wedge dy + v dx\wedge dz + w dy\wedge dz,
+	\end{equation}
+	and one can check (do it!)
+	\begin{equation}
+		d\eta = \left(\frac{\partial u}{\partial z}-\frac{\partial v}{\partial y} + \frac{\partial w}{\partial x}\right) dx\wedge dy \wedge dz.
+	\end{equation}
+	If you compare the results we obtained above with the gradient ($\nabla$), divergence ($\nabla\cdot$) and curl ($\nabla\times$) from multivariable analysis, you would likely notice that the components of the $2$-form $d\omega$ are exactly the components of the curl of the vector field with components $(P, Q, R)$.
+	Similarly, the formula for the divergence will look very close to the formula for $d\eta$.
+	What is going on?
+
+	The Euclidean metric on $\R^n$ is the metric associated to the metric tensor\footnote{Cf. Definition~\ref{def:metric}.} $g_{ij} = \delta_{ij}$.
+	We can use the musical isomorphisms\footnote{Cf. Example~\ref{ex:musicaliso}.} to identify vector fields and $1$-forms, obtaining for the components with respect to cartesian coordinates that $v_i = v^i$.
+
+	Moreover, the interior multiplication yields another map $\beta: \fX(\R^3)\to\Omega^2(\R^3)$ defined by $\beta(X) = \iota_X (dx\wedge dy\wedge dz)$, which is linear over $C^\infty(\R^3)$ (why?) and, thus, corresponds to a smooth bundle isomorphism from $T\R^3$ to $\Lambda^2\R^3$ (why?).
+
+	In a similar fashion, we can also define a smooth bundle isomorphism $\bigstar: C^\infty(\R^3) \to \Omega^3(\R^3)$ via
+	\begin{equation}
+		\bigstar(f) = f dx\wedge dy\wedge dz.
+	\end{equation}
+
+	%If $f\in C^\infty(\R^3)$ and $v\in\cT_0^1(\R^3)$,
+	We can use the exterior derivatives to observe that the following diagram commutes
+	\begin{equation}\label{diag:comm:r3ops}
+		\begin{tikzcd}
+			C^\infty(\R^3) \arrow[d, "\id"] \arrow[r, "\nabla"] &
+			\fX(\R^3) \arrow[d, "{}^\flat"] \arrow[r, "\nabla\times"] &
+			\fX(\R^3) \arrow[d, "\beta"] \arrow[r, "\nabla\cdot"] &
+			C^\infty(\R^3) \arrow[d, "\bigstar"] \\
+			\Omega^0(\R^3) \arrow[r, "d"] &
+			\Omega^1(\R^3) \arrow[r, "d"] &
+			\Omega^2(\R^3) \arrow[r, "d"] &
+			\Omega^3(\R^3)
+		\end{tikzcd}.
+	\end{equation}
+
+	The interest and need to generalize the operations of vector calculus in $\R^3$ to higher dimensional spaces have been one of the drives to develop the theory of differential forms.
+
+	This is a more general fact related to 3 dimensional manifolds with a Riemannian metric $M$. Then the maps defined above are still defined in the same exact way\footnote{There is a more general operator $\star : \Omega^k(M) \to \Omega^{n-k}(M)$ appearing here. This is called \emph{Hodge star} and is defined as the operator such that $\tau \wedge \star \sigma = g^\dagger(\tau,\sigma) \omega$, where $\omega := \star 1$ is the Riemannian volume and $g^\dagger$ is the inner product induced by $g$ on covector fields via the musical isomorphism between tangent and cotangent bundle (cf. Example~\ref{ex:musicaliso}). See \cite[Exercise 16-18]{book:lee} or \cite[Chapters 6.2--6.5]{book:abrahammarsdenratiu}.} up to using the correct isomorphism induced by $g$ and one obtains the following commutative diagram.
+	\begin{equation}
+		% https://q.uiver.app/?q=WzAsNSxbMSwxLCJcXE9tZWdhXjEoTSkiXSxbMCwwLCJcXG1hdGhjYWx7WH0oTSkiXSxbMSwyLCJcXE9tZWdhXjAoTSkiXSxbMiwyLCJcXE9tZWdhXjMoTSkiXSxbMiwxLCJcXE9tZWdhXjIoTSkiXSxbMSwwLCJcXGZsYXQiLDAseyJvZmZzZXQiOi0xfV0sWzAsMSwiXFxzaGFycCIsMCx7Im9mZnNldCI6LTF9XSxbMCw0LCJkIiwwLHsib2Zmc2V0IjotMX1dLFszLDIsIlxcc3RhciIsMCx7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6ImFycm93aGVhZCJ9fX1dLFs0LDMsImQiXSxbMiwwLCJkIiwwLHsib2Zmc2V0IjoxfV0sWzAsNCwiXFxzdGFyIiwyLHsib2Zmc2V0IjoxLCJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJhcnJvd2hlYWQifX19XV0=
+		\begin{tikzcd}
+			{\fX(M)} \\
+			& {\Omega^1(M)} & {\Omega^2(M)} \\
+			& {\Omega^0(M)} & {\Omega^3(M)}
+			\arrow["\flat", shift left=1, from=1-1, to=2-2]
+			\arrow["\sharp", shift left=1, from=2-2, to=1-1]
+			\arrow["d", shift left=1, from=2-2, to=2-3]
+			\arrow["\star", tail reversed, from=3-3, to=3-2]
+			\arrow["d", from=2-3, to=3-3]
+			\arrow["d", shift right=1, from=3-2, to=2-2]
+			\arrow["\star"', shift right=1, tail reversed, from=2-2, to=2-3]
+		\end{tikzcd}
+	\end{equation}
+	Walking the diagram\footnote{For a visual presentation of this material, refer to the beautiful youtube video \href{https://www.youtube.com/watch?v=ZpUvFn8Ni2I}{There is only one derivative: the exterior derivative} by G. Bracchi.}, one can directly generalize $\nabla$, $\nabla \cdot$, $\nabla\times$ and the Laplacian $\Delta$ to $3$-manifolds:  \begin{itemize}
+		\item $\mathrm{grad} := \sharp\, d : \Omega^0(M) \to \fX(M)$;
+		\item $\mathrm{div} := \star d \star \flat : \fX(M) \to \Omega^0(M)$;
+		\item $\Delta := \mathrm{div}\; \mathrm{grad} = \star d \star d : \Omega^0(M) \to \Omega^0(M)$;
+		\item $\mathrm{curl} := \sharp \star d\; \flat : \fX(M) \to \fX(M)$;
+	\end{itemize}
+	where symbols' juxtaposition means their composition.
+	Since $\sharp$ and $\flat$ are defined in terms of $g$, it becomes clear that all those operators are tightly related to the metric.
+	There could be a lot more to say, but that will be more suite for a course in Riemannian geometry.
+	A comprehensive free resource on the subject is \cite{book:derivations}.
+\end{example}
+
+\begin{exercise}
+	Show that the diagram~\eqref{diag:comm:r3ops} commutes; for example,
+	\begin{equation}
+		df = \frac{\partial f}{\partial x^i} = (\nabla f)_i dx^i = (\nabla f)^\flat.
+	\end{equation}
+	Use the diagram to give a quick proof that $(\nabla\times)\circ \nabla \equiv 0$ and that $(\nabla\cdot) \circ (\nabla\times) \equiv 0$ (physically this last identity implies that magnetic fields are divergence free).
+\end{exercise}
+
+\begin{exercise}\label{exe:symplectic}
+	Let $V$ be a vector space of dimension $k$.
+	A symplectic form on $V$ is an element $\omega\in\Lambda^2(V)$ which is non-degenerate in the sense that $\iota_v(\omega) = 0$ if and only if $v=0$.
+	Cf. Definition~\ref{def:metric}.
+	A \emph{symplectic manifold} is a smooth manifold $M$ equipped with a closed differential 2-form $\omega$ such that $\omega_q$ is a symplectic form on $T_q M$ for every $q\in M$.
+	\begin{enumerate}
+		\item Prove that if a symplectic form exists, then $k=2n$ for some $n\in\N$, i.e., it must be an even number.
+		\item Let $M$ be a smooth manifold. Define a $1$-form $\eta\in\Omega^1(T^*M)$ on the cotangent bundle of $M$ as
+		      \begin{equation}
+			      %\lambda_{(q,p)}(\xi) = p(d\pi_{(q,p)} \xi),
+			      \lambda_{(q,p)} = d\pi_{(q,p)}^*p,
+			      \quad
+			      q\in M, \;
+			      p\in T_q^*M,
+			      %\;\xi\in T_{(q,p)}(T^*M),
+		      \end{equation}
+		      where $\pi:T^*M\to M$ is the projection to the base.
+		      Show that $\omega := d\lambda$ is a symplectic form on $T^* M$, that is, every cotangent bundle is a symplectic manifold.
+		\item Show that for all $\nu \in \Omega^1(M)$, $\nu^* \lambda = \nu$.
+	\end{enumerate}
+
+	For example, $\omega = \sum_{i=1}^n \alpha^i\wedge \alpha^{i+n}\in\Omega^2(\R^{2n})$ is a symplectic form and plays a central role in classical mechanics. There, one usually calls $(\alpha^{n+1},\ldots,\alpha^{2n})$ the \emph{position coordinates} and $(\alpha^{1},\ldots,\alpha^{n})$ the \emph{momentum coordinates}.
+	\begin{enumerate}
+		\item[4.] Show that for $n=2$, $\omega \wedge \omega = -2 \alpha^1\wedge\alpha^2\wedge\alpha^3\wedge\alpha^4$.
+
+		\item[5.] Generalize the previous computation to show that
+		      \begin{equation}
+			      \bigwedge_{k=1}^{2n} \alpha^k := \alpha^1\wedge\cdots\wedge\alpha^{2n} = \frac{(-1)^{\binom{n}{2}}}{n!} \LaTeXunderbrace{\omega\wedge\cdots\wedge\omega}_{n\mbox{ times}} =: \frac{(-1)^{\binom{n}{2}}}{n!} \wedge^{n} \omega.
+		      \end{equation}
+	\end{enumerate}
+\end{exercise}
+If you want to know more about symplectic manifolds and the role of differential geometry in classical mechanics, have a look at one of \cite{book:abrahammarsdenratiu, book:arnold, book:knauf, lectures:seri:hm}.
+
+\section{Lie derivative}
+
+\begin{definition}
+	The \emph{Lie derivative} of a differentiable function $f:M\to\R$ on a smooth manifold $M$ in the direction of a vector field $X:M\to TM$ is the real function defined by
+	\begin{equation}
+		\cL_X f := df(X).
+	\end{equation}
+\end{definition}
+
+From the look of it, this seems just an alternative way to define the directional derivative.
+However, its power lies in the fact that we can extend it to $k$-forms with important consequences, one of which will be very useful in the next section.
+
+\begin{definition}[Cartan's Magic Formula]
+	Let $M$ be a smooth $n$-manifold and $X\in\fX(M)$.
+	For $\omega\in\Omega^k(M)$, we define the \emph{Lie derivative} of $\omega$ with respect to $X$ as the $k$-form
+	\begin{equation}\label{eq:cartanmagicf}
+		\cL_X\omega := \iota_X (d\omega) + d(\iota_X\omega).
+	\end{equation}
+\end{definition}
+
+Since the exterior derivative raises the degree of the form and the interior product decreases it, the net effect of the formula above, is indeed, the production of a $k$-form, so $\cL_X\omega \in \Omega^k(M)$.
+
+\begin{exercise}
+	Show that on functions the definition from~\eqref{eq:cartanmagicf} coincide with the one that we gave at the beginning of this section.
+\end{exercise}
+
+\begin{exercise}\label{exe:liederandwedge}
+	Show that the Lie derivative is a derivation in the algebra $\Omega^*(M)$ of differential forms, that is, for $\omega,\nu\in\Omega^*(M)$ one has
+	\begin{equation}
+		\cL_X(\omega\wedge\nu) = (\cL_X\omega)\wedge\nu + \omega\wedge(\cL_X \nu).
+	\end{equation}
+\end{exercise}
+
+It is possible to define the Lie derivative in a different way, in terms of the derivative of the pullback of $\omega$ along the flow of $X$.
+Then the definition that we gave above becomes a theorem, which is where the denotation \emph{Cartan's Magic Formula} comes from.
+
+Of course, we can recover the alternative definition as a theorem.
+Even though it is a bit impractical for computational purposes, flows are hard to compute, it gives a nice geometric interpretation of the Lie derivative: it describes the change of the differential form $\omega$ along the flow generated by the vector field $X$.
+
+\begin{theorem}\label{thm:LieDerivativeFlow}
+	Let $M$ be a smooth $n$-manifold, $X\in\fX(M)$ complete\footnote{This is here to avoid having to think about domains of existence. The result holds also without this extra hypotesis.} and $\varphi_t$ its flow.
+	Then, for all $\omega\in \Omega^*(M)$, one has
+	\begin{equation}
+		\frac{d}{dt}(\varphi_t^* \omega) = \varphi_t^*\cL_X\omega.
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	\newthought{Step I}.
+	Thanks to the group properties of the flow, it is enough to prove it for $t=0$.
+	Indeed,
+	\begin{align}
+		\frac{d}{dt}(\varphi_t^* \omega)
+		 & = \frac{d}{ds}(\varphi_{t+s}^* \omega)\Big|_{s=0}         \\
+		 & = \frac{d}{ds}(\varphi_t^*\varphi_s^*\omega)\Big|_{s=0}   \\
+		 & = \varphi^*_t \frac{d}{ds}(\varphi_s^*\omega)\Big|_{s=0}.
+	\end{align}
+
+	\newthought{Step II}.
+	We start with $f\in\Omega^0(M) = C^\infty(M)$.
+	In local coordinates $(x^i)$, we have
+	\begin{align}
+		\frac{d}{dt}\Big|_{t=0}\varphi_t^* f(x)
+		 & = \lim_{t\to0} \frac{f(\varphi_t(x)) - f(x)}{t} \\
+		 & = \frac{\partial f}{\partial x^i}\Big|_x X^i(x) \\
+		 & = df(X)(x) = \cL_X f(x).
+	\end{align}
+
+	\newthought{Step III}. Let $\omega = dx^i \in \Omega^1(M)$, then
+	\begin{align}
+		\frac{d}{dt}(\varphi_t^* dx^i)\Big|_{t=0}
+		 & = \frac{d}{dt}(d\varphi_t^* x^i)\Big|_{t=0}    \\
+		 & = d\, \frac{d}{dt}(\varphi_t^* x^i)\Big|_{t=0} \\
+		 & = dX^i.
+	\end{align}
+	On the other hand,
+	\begin{align}
+		\cL_X(dx^i)
+		 & = \iota_X(ddx^i) + d(\iota_X dx^i) \\
+		 & = d(\iota_X dx^i)                  \\
+		 & = dX^i.
+	\end{align}
+
+	\newthought{Step IV}. The statement follows from Theorem~\ref{thm:pullbacksdifferentialforms} and Exercise~\ref{exe:liederandwedge} since every $k$-form can be locally written as $\omega = \omega_I dx^I$.
+\end{proof}
+
+\begin{remark}
+	The Lie derivative can be extended to any tensor bundle $T_s^r(M)$ with the following definition.
+	This $T\in\cT_r^s(M)$, for any $p\in M$
+	\begin{equation}
+		(\cL_X T)_p := \frac{d}{dt}\Big|_{t=0}\left((\varphi_t^X)^* T\right)_p,
+	\end{equation}
+	where as usual $\varphi_t^X$ denotes the maximal integral curve\footnote{Remember, this is a diffeomorphims from a neighbourhood of $p$ onto a neighbourhood of $\varphi_t^X(p)$.} for $X$ with initial point $p$.
+
+	In general, for $\tau\in\cT_r^s(M)$ and $\sigma\in\cT_{r'}^{s'}$, the Lie derivative satisfies
+	\begin{equation}
+		\cL_X(\tau\otimes\sigma) = (\cL_X\tau)\otimes\sigma + \tau\otimes\cL_X(\sigma),
+	\end{equation}
+	and commutes with contractions.
+	Incidentally, it also satisfies
+	\begin{equation}
+		\cL_XY = [X,Y],
+	\end{equation}
+	and so it can be considered as a generalization of the Lie brackets.
+
+	One nice little perk of the general definition, is that it makes it relatively straightforward to show that
+	\begin{equation}\label{eq:cLXwBrackets}
+		\cL_X(\omega(Y)) = (\cL_X\omega)(Y) + \omega([X,Y]),
+	\end{equation}
+	which is often very useful in computations.
+
+	One can think to the Lie derivative as a mean to ``differentiate'' a tensor field (or a differential form) with respect to a vector field.
+	Note that it does not allow us differentiate a tensor field (or a differential form) with respect to a single tangent vector: the value of $\cL_X(\tau)$ at a point depends on the values of $X$ in a neighbourhood of the point, not just on the germ at $X$.
+	%This stems from the fact that $X\to\cL_X$ is not $C^\infty(M)$-linear: you can see this by using~\eqref{eq:cLXwBrackets} and show that $\cL_{fX}(\omega)(Y) = f\cL_X(\omega)(Y) + Y(f)\omega(X)$, and in general there is no reason for the correction $Y(f)\omega(X)$ to vanish.
+\end{remark}

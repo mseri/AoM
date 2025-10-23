@@ -1,0 +1,293 @@
+\section{De Rham cohomology}
+\begin{definition}
+	We say that a smooth differential form $\omega\in\Omega^k(M)$ is \emph{closed} if $d\omega = 0$, and \emph{exact} if there exists a smooth $(k-1)$-form $\eta$ on $M$ such that $\omega = d\eta$.
+
+	The fact that $d\circ d = 0$ implies that every exact form is closed.
+\end{definition}
+
+The following example shows that not all closed forms are exact.
+However, it turns out that closed forms are always locally exact but not necessarily globally, so the question of whether a given closed form is exact depends on global properties of the manifold.
+This is the statement of the so-called Poincar\'e lemma.
+We are going to prove it in two slightly different flavours: its classical version and a slight generalization.
+
+\begin{exercise}
+	Let $M=\R^2\setminus\{0\}$, $\{x,y\}$ denote the standard euclidean coordinates in $\R^2$ and $\omega$ be the one-form on $M$ from Example~\ref{ex:li} given by
+	\begin{equation}
+		\omega = \frac{xdy - ydx}{x^2+y^2}.
+	\end{equation}
+	\begin{enumerate}
+		\item Show that $\omega$ is closed.
+		\item Show that $\omega$ is not exact.\\
+		      \textit{\small Hint: compare Exercise~\ref{exe:FTC}.3 and Example~\ref{ex:li}.}
+	\end{enumerate}
+\end{exercise}
+
+\begin{definition}
+	We define \emph{$k$th de Rham cohomology group} the quotient vector space defined by
+	\begin{equation}
+		H_{\mathrm{dR}}^k(M) := \frac{\{\mbox{closed $k$-forms on $M$}\}}{\{\mbox{exact $k$-forms on $M$}\}}.
+	\end{equation}
+	We will denote the elements of $H_{\mathrm{dR}}^k(M)$ by $[\omega]$, where $\omega$ is a closed $k$-form. Thus, by definition, $[\omega + d\theta] = [\omega]$.
+\end{definition}
+
+We will use only elementary facts about de Rham theory in the course, but they play an important role in algebraic topology and mechanics.
+The de Rham groups, for example, turn out to be topological invariants.
+
+The following is a direct consequence of Exercise~\ref{ex:smoothpushforward}.
+
+\begin{corollary}
+	If $F:M\to N$ is a smooth map, then $F^*$ induces a well-defined map $F^*:H_{\mathrm{dR}}^k(N) \to H_{\mathrm{dR}}^k(M)$ (denoted with the same symbol) via $[\omega]\mapsto[F^*\omega]$.
+\end{corollary}
+
+\section{Poincar\'e lemma}
+Without further ado, let's look at a first version of Poincar\'e lemma on manifolds.
+As for all the local concepts we have seen so far, the proof will reduce the problem to a euclidean statement to which we will apply the Poincar\'e lemma that you have seen in multivariable calculus.
+
+\begin{theorem}
+	Let $M$ be a smooth manifold and $\omega\in\Omega^k(M)$ closed, that is, $d\omega = 0$.
+	Let $U\subset M$ be open and diffeomorphic to a star-shaped domain\footnote{Cf. Lemma~\ref{lem:Taylor}.} of $\R^n$.
+	Then, there exists $\nu\in\Omega^{k-1}(U)$ such that $\omega|_U = d\nu$.
+\end{theorem}
+\begin{proof}
+	Let $\varphi: U \to V\subset\R^n$ be a diffeomorphism between $U$ and the star-shaped domain $V\subset\R^n$.
+	Then $\widetilde\omega := \varphi_*\omega$ is a closed $k$-form on $V$ and, according to the Poincar\'e lemma on $\R^n$, there exists $\widetilde \nu \in \Omega^{k-1}(V)$ such that $\widetilde\omega = d\widetilde\nu$.
+\end{proof}
+
+To generalise this result further, we need to have a deeper look into de Rham theory.
+
+\begin{definition}
+	Two continuous maps $h_0, h_1:X\to Y$ between topological spaces are said to be \emph{homotopic} if there exists a continuous map $K: [0,1]\times X\to Y$ such that $K(0, \cdot) = h_0$ and $K(1,\cdot) = h_1$.
+
+	Two topological spaces $X$ and $Y$ are \emph{homotopy equivalent} if there exists continuous maps $f:X\to Y$ and $g:Y\to X$ such that $f\circ g$ and $g\circ f$ are homotopic to the respective identity maps.
+\end{definition}
+
+A crucial observation for our means is the \emph{homotopy invariance} of the de Rham cohomology, which is a scary sounding property which is formalised by the following statement.
+
+\begin{theorem}\label{thm:deRham-invariance}
+	Let $M$ be a smooth manifold and $[0,1]\times M$ the product manifold with boundary $(\{0\}\times M) \cup (\{1\}\times M) \cup ((0,1)\times\partial M)$.
+	Let $i_t : M \hookrightarrow [0,1]\times M$ be the injection $i_t(p) := (t,p)$ and $\pi : [0,1]\times M \to M$ the projection onto $M$.
+	Then, there is a linear map
+	\begin{equation}
+		K : \Omega^\ell([0,1]\times M)\to \Omega^{\ell-1}(M)
+	\end{equation}
+	such that for every differential $\ell$-form $\omega\in\Omega^\ell([0,1]\times M)$ one has\footnote{If you took an algebraic topology course, you may recognise such map $K$ as a cochain homotopy.}
+	\begin{equation}
+		K(d\omega) + d(K(\omega)) = i^*_1(\omega) - i^*_0(\omega)
+	\end{equation}
+	as elements of $\Omega^\ell(M)$.
+	Furthermore, the induced maps on the de Rham cohomology
+	\begin{equation}
+		i_0^*, i_1^* : H_{\mathrm{dR}}^\ell([0,1]\times M) \to H_{\mathrm{dR}}^\ell(M)
+	\end{equation}
+	coincide.
+\end{theorem}
+\begin{proof}
+	Saying that  $i_0^* = i_1^*$ on the cohomology means that for any $[\omega]\in H_{\mathrm{dR}}^\ell([0,1]\times M)$, their difference $i_1^*[\omega] - i_0^*[\omega] = [i_1^*\omega - i_1^*\omega] = 0$ is in the $0$ class, that is, for any closed $\omega$ the difference $i_1^*\omega - i_0^*\omega$ is exact.
+
+	If we apply the Fundamental Theorem of Calculus to $i^*_t\omega$ as a function of $t$, we obtain $i_1^*\omega - i_0^*\omega = \int_0^1 \frac{\partial}{\partial t} (i^*_t \omega) dt$,
+	where $\frac{\partial}{\partial t}$ is the vector field on $[0,1]\times M$ corresponding to the standard basis element of $[0,1]$.
+	The trouble, now, is that we don't really know what this integral is, and we need to show that on closed forms it produces an exact one.
+
+	Let $T:=\frac{\partial}{\partial t}$ as vector field on $[0,1]\times M$.
+	We are going to show that, for $\omega\in\Omega^\ell([0,1]\times M)$, the map $K$ is\footnote{Note that for any $p\in M$,
+		\begin{equation}
+			K(\omega)_p = \int_0^1 i_t^*(\iota_T(\omega)_{(t,p)})dt,
+		\end{equation}
+		where the integrand should be thought as a function of $t$ on the vector space $\Lambda^{\ell-1}(T_pM)$.
+		That is, this is still a common integral, not an integral on a manifold!}
+	\begin{equation}
+		K(\omega) := \int_0^1 i^*_t(\iota_T(\omega)) dt.
+	\end{equation}
+	%
+	By choosing local coordinates on $M$, we see that the integral is defining a smooth $(\ell-1)$-form on $M$.
+	In fact, to compute $d(K(\omega))$ we can pick some local coordinates $(x^i)$ and express $K(\omega)$ as a sum of terms of the form
+	\begin{equation}
+		\left(\int_0^1 f_I(t,x) dt\right)dx^I.
+	\end{equation}
+	Applying the exterior derivative and differentiating under the integral sign\footnote{Also known as Leibniz integral rule and Feynman's trick.} we get
+	\begin{equation}
+		\frac{\partial}{\partial x^j}\left(\int_0^1 f_I(t,x) dt\right)dx^j\wedge dx^I = \left(\int_0^1 \frac{\partial f_I}{\partial x^j}(t,x) dt\right)dx^j\wedge dx^I.
+	\end{equation}
+	That can be reassembled back to prove that the differential commutes with our integral:
+	\begin{equation}
+		d(K(\omega)) = \int_0^1 d(i_t^*(\iota_T(\omega)))dt.
+	\end{equation}
+	Then, it follows from Cartan's Magic Formula and Exercise~\ref{ex:smoothpushforward} that
+	\begin{align}
+		K(d\omega) + d(K(\omega))
+		 & = \int_0^1\left( i_t^*(\iota_T(d\omega)) + d (i_t^*(\iota_T\omega)) \right) dt \\
+		 & = \int_0^1\left( i_t^*(\iota_T(d\omega)) + i_t^* (d(\iota_T\omega)) \right) dt \\
+		 & = \int_0^1 i_t^*(\cL_T\omega) dt.
+	\end{align}
+
+	Let $\varphi_t$ now denote the flow of $T$, then $\varphi_t(s, p) = (t+s, p)$ and thus $i_t = \varphi_t \circ i_0$.
+	By Theorem~\ref{thm:LieDerivativeFlow} we can compute the integrand as
+	\begin{align}
+		i_t^*(\cL_T\omega) & = i^*_0(\varphi_t^*(\cL_T\omega))                    \\
+		                   & = i_0^*\left(\frac{d}{dt} \varphi_t^*(\omega)\right) \\
+		                   & = \frac{d}{dt} i_0^*(\varphi_t^*(\omega))            \\
+		                   & = \frac{d}{dt} i_t^*(\omega).
+	\end{align}
+
+	Thus, by the classical Fundamental Theorem of Calculus we get
+	\begin{equation}
+		K(d\omega) + d(K(\omega)) = \int_0^1 \frac{d}{dt} i_t^*(\omega) dt = i_1^*(\omega) - i_0^*(\omega),
+	\end{equation}
+	proving the first part of the theorem.
+
+	To conclude the proof, take a closed $\ell$-form on $[0,1]\times M$, then
+	\begin{equation}
+		i_1^*([\omega]) - i_0^*([\omega]) = [K(d\omega) + dK(\omega)] = [dK(\omega)] =0,
+	\end{equation}
+	completing the proof.
+\end{proof}
+
+\begin{remark}
+	An alternative way to construct the function $K$, perhaps slightly less explicit but that may give more clarity to some of the statements, is the following. Re-using the notations from the proof above, then Theorem~\ref{thm:LieDerivativeFlow} and Cartan's Magic formula imply
+	\begin{align}
+		\frac{d}{dt} (\varphi_t^*\omega) & = \varphi^*_t \cL_T \omega                                        \\
+		                                 & = \varphi_t^* ( \iota_T d\omega) + d \varphi_t^* (\iota_T \omega) \\
+		                                 & = \widetilde K_t (d\omega) + d \widetilde K_t (\omega),
+	\end{align}
+	where we defined
+	\begin{align}
+		\widetilde K_t(\nu) := \varphi_t^* (\iota_T \nu),
+		\qquad \nu \in \Omega^\ell([0,1]\times M).
+	\end{align}
+	The fundamental theorem of calculus then implies
+	\begin{align}
+		\varphi_1^* \omega - \varphi_0^* \omega & = \int_0^1 \frac{d}{dt} (\varphi_t^*\omega) dt                                 \\
+		                                        & = \int_0^1 \left(\widetilde K_t (d\omega) + d \widetilde K_t(\omega)\right) dt \\
+		                                        & = \widetilde K (d\omega) + d \widetilde K (\omega)
+	\end{align}
+	where we defined
+	\begin{align}
+		\widetilde K(\nu) := \int_0^1 \widetilde K_t (\nu) dt,
+		\qquad \nu \in \Omega^\ell([0,1]\times M).
+	\end{align}
+
+	The fact that $\varphi_t \circ i_0 = i_t$ and the computation above then imply\footnote{As shown using the coordinate representation at the beginning of our previous proof, $\widetilde K(\nu) \in \Omega^{\ell-1}(M)$ and the exterior derivative does not interact with the integral on $[0,1]$.}
+	\begin{align}
+		i_1^* \omega - i_0^* \omega & = i_0^* (\varphi_1^* \omega - \varphi_0^* \omega)                     \\
+		                            & = i_0^* \left(\widetilde K (d\omega) + d \widetilde K (\omega)\right) \\
+		                            & = K(d \omega) - d K(\omega)
+	\end{align}
+	with $K(\nu) := i_0^* \widetilde K(\nu)$.
+\end{remark}
+
+An important consequence of Theorem~\ref{thm:deRham-invariance} is the following theorem.
+
+\begin{theorem}
+	Let $M$ and $N$ two smooth manifolds and suppose $F,G: M\to N$ are two homotopic smooth maps.
+	Then, the induced maps $F^*$ and $G^*$ on the de Rham cohomology groups are the same.
+\end{theorem}
+\begin{proof}
+	Since $F$ and $G$ are homotopic, there is a continuous map $K: [0,1]\times M \to N$ such that $K(0,\cdot) = F$ and $K(1,\cdot) = G$.
+	If we could assume $K$ to be smooth, the theorem would follow from
+	\begin{equation}
+		F^* = (K\circ i_0)^* = i_0^*\circ K^* = i_1^*\circ K^* = (K\circ i_1)^* = G^*.
+	\end{equation}
+
+	In fact this is the case, thanks to the following theorem\sidenote[][-1em]{This is a deep result related to the Whitney Embedding Theorem from Remark~\ref{rmk:WhitneyET} and is out of the scope of our course, for more details refer to~\cite[Chapter 6 and Theorems 6.26 and 9.27]{book:lee}.}.
+	%
+	\begin{theorem}[Whitney Approximation Theorem for continuous maps]\label{thm:WhitneyApproxCont}
+		Given any continuous mapping $G \in C^0(M,N)$, there exists $F \in C^\infty(M,N)$ which is homotopic to $G$. Moreover, if $G$ is smooth\sidenote[][1em]{Note that a function $f : M \to N$ is defined to be smooth on a subset $A \subset M$ if there is some smooth function $g: U \to N$, defined on an open $U\supset A$ such that $g = f$ on $A$.} on a closed subset $A\subset M$, then one can choose $F$ so that $F=G$ on $A$.
+	\end{theorem}
+	%
+	In particular, if two smooth maps are homotopic then they are also smoothly homotopic: we can assume the map $K$ to be smooth.
+
+	To see this, continously extend $K$ to a mapping $\widetilde K : \R \times M \to N$ by defining
+	\begin{align}
+		\widetilde K(t, p) = K(0, p) \mbox{ if } t \leq 0,
+		\quad\mbox{and}\quad \widetilde K(t, p) = K(1, p) \mbox{ if } t \geq 1.
+	\end{align}
+	Then $\widetilde K \in C^0(\R\times M, N)$ and smooth on the closed subsets\footnote{By the definiton in the margin note above, in our case it is only required that $g(0, p) = f(0,p)$ for all $p\in M$ but \emph{nothing} is required on $f$ in a open neighbourhood of $\{0\}\times M$!} $\{0\}\times M$ and $\{1\}\times M$.
+	%
+	By Whitney Approximation Theorem for continuous maps, there exists $\widehat K : \R\times M \to M$ smooth and homotopic to $\widetilde K$ (but we don't really care here) such that $\widehat K = \widetilde K$ on $\{0\}\times M$ and $\{1\}\times M$, that is, $\widehat K(0, \cdot) = K(0, \cdot) = F$ and $\widehat K(1, \cdot) = K(1, \cdot) = G$.
+	That is, $\hat K$ is the smooth homotopy we were looking for.
+\end{proof}
+
+\begin{corollary}\label{cor:deRhamIso}
+	Let $M$ and $N$ be smooth manifolds that are homotopy equivalent. Then $M$ and $N$ have isomorphic de Rham cohomology groups.
+\end{corollary}
+\begin{proof}
+	Let $F:M\to N$ and $G:N\to M$ be continuous maps such that $F\circ G$ and $G\circ F$ are homotopic to the identity maps.
+	By the Whitney Approximation Theorem~\ref{thm:WhitneyApproxCont} we can approximate $F$ and $G$ by smooth maps that we keep denoting with the same symbols.
+	By the previous theorem, then, $(F\circ G)^*$ and $(G\circ F)^*$ coincide with the maps induced by the identity.
+	Since $\id^*$ is clearly the identity, we see that $F^*$ is an inverse to $G^*$.
+	Hence $F^*$ is an isomorphism between the corresponding de Rham cohomology groups,
+	concluding the proof.
+\end{proof}
+
+We are almost there.
+
+\begin{definition}
+	A topological space is said to be \emph{contractible} if it is homotopy equivalent to a point, that is, there exists $p_0\in M$ and a continuous\footnote{In fact, we now know that we can assume it is smooth.} map
+	\begin{equation}
+		K:[0,1]\times M \to M
+		\quad\mbox{with}\quad
+		K(0, \cdot) = \id_M
+		\mbox{ and }
+		K(1, \cdot) = p_0.
+	\end{equation}
+	\marginnote[-2em]{The map $K$ continuously ``contracts'' $M$ into a single point $p_0\in M$.}
+\end{definition}
+
+\marginnote{Note that this means that for contractible manifolds, the space of close and exact $k$-forms coincide for all $k \geq 1$.}
+\begin{corollary}
+	Let $M$ be contractible, then $H^k_{\mathrm{dR}}(M)=0$ for all $k\geq 1$.
+\end{corollary}
+\begin{proof}
+	The statement is clear\footnote{What is $\dim(M)$ in this case? What kinds of differential forms can we define?} if $M$ is equal to a point.
+	The rest follows applying Corollary~\ref{cor:deRhamIso}.
+\end{proof}
+
+\begin{exercise}
+	Let $M$ be a smooth manifold. Define the following spaces
+	\begin{align}
+		Z^k(M) & := \ker(d:\Omega^{k}(M) \to \Omega^{k+1}(M)) = \{ \mbox{closed $k$-forms on $M$} \},       \\
+		B^k(M) & := \mathrm{im}(d:\Omega^{k-1}(M) \to \Omega^{k}(M)) = \{ \mbox{exact $k$-forms on $M$} \}.
+	\end{align}
+	Then
+	\begin{equation}
+		H^k_{\mathrm{dR}}(M) = Z^k(M)/B^k(M).
+	\end{equation}
+	Reasoning on the structure of those spaces, prove the following statements:
+	\begin{enumerate}
+		\item $H^0_{\mathrm{dR}}(M) = \R^C$ where $C$ denotes the number of connected components of $M$;
+		\item if $M$ is $n$-dimensional, then $H^k_{\mathrm{dR}} = \{0\}$ for all $k > n$.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Prove that $H^0_{dR}(\R^n) = \R$ and $H^k_{dR}(\R^n) = \{0\}$ for all $k > 1$.
+\end{exercise}
+
+\begin{remark}\label{rmk:ch_topology_domain_invariance}
+	De Rham cohomology is defined in terms of spaces of differential forms and, as such, seems a priori deeply tied to the differential structure. However, the corollary that we just proved is all about topology and in particular tells us that de Rham cohomology cannot see the smooth structure on a topological manifold.
+	There is more, \emph{de Rham's theorem}~\cite[Theorem 18.14]{book:lee} states that the de Rahm cohomology group is isomorphic to the so--called singular cohomology, a purely topological concept.
+
+	On the face of it, we might start thinking that the de Rham cohomology is a far too coarse invariant to be useful: following the previous exercise, one might be led to believe that we cannot even distinguish between Euclidean spaces. Luckily, however, this is not the case.
+	For instance, we can prove the \emph{invariance of dimension theorem}\footnote{If $m\neq n$, then a nonempty topological space cannot be both an $m$-manifold and an $n$-manifold~\cite[Problem 13-3]{book:lee:topology}. See also the discussion at the end of chapter~\ref{sec:top_manifolds}.}, using de Rham cohomology. Let us sketch a proof here, based on the homotopy invariance of de Rham cohomology.
+
+	Suppose that $\R^n\cong\R^m$ and assume w.l.o.g. that $m>n$. If the spaces are homeomorphic, then also $\R^n\setminus\{0\}\cong\R^m\setminus\{0\}$. But $\R^n\setminus\{0\}\simeq S^{n-1}$, where $\simeq$ denotes homotopy equivalence. This homotopy is explicitly constructed by radially retracting $\R^n\setminus\{0\}$ onto the unit sphere. Then our assumption that $\R^n\cong\R^m$ implies that $H^k_{\mathrm{dR}}(S^{n-1})\cong H^k_{\mathrm{dR}}(S^{m-1})$ for all $k\geq 0$,
+	by homotopy invariance. However, from this we would derive a contradiction, due to the fact that
+	\begin{equation}
+		\begin{cases}
+			H_{\mathrm{dR}}^k(S^n)\cong\R & \mbox{if }k=0,n  \\
+			H_{\mathrm{dR}}^k(S^n)\cong 0 & \mbox{otherwise}
+		\end{cases}
+	\end{equation}
+	We leave the computation of the cohomology of spheres as an interesting exercise.
+	A useful tool for this computation is the Mayer-Vietoris sequence\footnote{For more details, see~\cite[Chapter 17.3]{book:lee} or~\cite[Chapter 26]{book:tu}.}, which is unfortunately not part of the course.
+\end{remark}
+
+Finally, we are ready to show a more general version of the Poincar\'e lemma as promised.
+
+\begin{corollary}[Poincar\'e lemma]\label{cor:plemma}
+	Let $M$ be a smooth manifold and let $\omega\in\Omega^k(M)$ be a closed differential form of positive degree $k>0$.
+	For any point $p\in M$ there exists a neighbourhood $U$ of $p$ such that $\omega|_U$ is an exact form in $\Omega^k(U)$.
+\end{corollary}
+\begin{proof}
+	Every point in a $n$-manifold has a neighbourhood which is homeomorphic to $\R^n$ and so is contractible.
+\end{proof}
