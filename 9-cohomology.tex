@@ -1,5 +1,5 @@
 \section{De Rham cohomology}
-\begin{definition}
+\begin{definition}\idxdef{de Rham cohomology}\idxdef{de Rham cohomology}
 	We say that a smooth differential form $\omega\in\Omega^k(M)$ is \emph{closed} if $d\omega = 0$, and \emph{exact} if there exists a smooth $(k-1)$-form $\eta$ on $M$ such that $\omega = d\eta$.
 
 	The fact that $d\circ d = 0$ implies that every exact form is closed.
@@ -43,7 +43,7 @@ The following is a direct consequence of Exercise~\ref{ex:smoothpushforward}.
 Without further ado, let's look at a first version of Poincar\'e lemma on manifolds.
 As for all the local concepts we have seen so far, the proof will reduce the problem to a euclidean statement to which we will apply the Poincar\'e lemma that you have seen in multivariable calculus.
 
-\begin{theorem}
+\begin{theorem}\idxthm{Poincar\'e lemma}
 	Let $M$ be a smooth manifold and $\omega\in\Omega^k(M)$ closed, that is, $d\omega = 0$.
 	Let $U\subset M$ be open and diffeomorphic to a star-shaped domain\footnote{Cf. Lemma~\ref{lem:Taylor}.} of $\R^n$.
 	Then, there exists $\nu\in\Omega^{k-1}(U)$ such that $\omega|_U = d\nu$.
@@ -55,7 +55,7 @@ As for all the local concepts we have seen so far, the proof will reduce the pro
 
 To generalise this result further, we need to have a deeper look into de Rham theory.
 
-\begin{definition}
+\begin{definition}\idxdef{Homotopy (equivalence)}
 	Two continuous maps $h_0, h_1:X\to Y$ between topological spaces are said to be \emph{homotopic} if there exists a continuous map $K: [0,1]\times X\to Y$ such that $K(0, \cdot) = h_0$ and $K(1,\cdot) = h_1$.
 
 	Two topological spaces $X$ and $Y$ are \emph{homotopy equivalent} if there exists continuous maps $f:X\to Y$ and $g:Y\to X$ such that $f\circ g$ and $g\circ f$ are homotopic to the respective identity maps.
@@ -63,7 +63,7 @@ To generalise this result further, we need to have a deeper look into de Rham th
 
 A crucial observation for our means is the \emph{homotopy invariance} of the de Rham cohomology, which is a scary sounding property which is formalised by the following statement.
 
-\begin{theorem}\label{thm:deRham-invariance}
+\begin{theorem}\label{thm:deRham-invariance}\idxthm{de Rham homotopy invariance}
 	Let $M$ be a smooth manifold and $[0,1]\times M$ the product manifold with boundary $(\{0\}\times M) \cup (\{1\}\times M) \cup ((0,1)\times\partial M)$.
 	Let $i_t : M \hookrightarrow [0,1]\times M$ be the injection $i_t(p) := (t,p)$ and $\pi : [0,1]\times M \to M$ the projection onto $M$.
 	Then, there is a linear map
@@ -221,7 +221,7 @@ An important consequence of Theorem~\ref{thm:deRham-invariance} is the following
 
 We are almost there.
 
-\begin{definition}
+\begin{definition}\idxdef{Contractible space}
 	A topological space is said to be \emph{contractible} if it is homotopy equivalent to a point, that is, there exists $p_0\in M$ and a continuous\footnote{In fact, we now know that we can assume it is smooth.} map
 	\begin{equation}
 		K:[0,1]\times M \to M
@@ -284,7 +284,7 @@ We are almost there.
 
 Finally, we are ready to show a more general version of the Poincar\'e lemma as promised.
 
-\begin{corollary}[Poincar\'e lemma]\label{cor:plemma}
+\begin{corollary}[Poincar\'e lemma]\label{cor:plemma}\idxthm{Poincar\'e lemma}
 	Let $M$ be a smooth manifold and let $\omega\in\Omega^k(M)$ be a closed differential form of positive degree $k>0$.
 	For any point $p\in M$ there exists a neighbourhood $U$ of $p$ such that $\omega|_U$ is an exact form in $\Omega^k(U)$.
 \end{corollary}

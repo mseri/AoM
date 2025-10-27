@@ -74,7 +74,7 @@ This will prove extremely convenient for the development of the theory.
 	Define some nontrivial function $f: \R^3 \to \R^4$ and compute the 4 objects described above for that function.
 \end{exercise}
 
-\section{Germs and derivations}
+\section{Germs and derivations}\idxdef{Germ}\idxdef{Derivation}
 
 \newthought{To reach our goal, defining derivations on manifolds}, a direct extension of partial derivatives is not enough: we will need to introduce some more levels of abstraction.
 
@@ -165,7 +165,7 @@ Motivated by Example~\ref{ex:euclideanD}, we define a tangent vector as a deriva
 
 \begin{definition}
 	Let $M$ be a smooth manifold of dimension $n$ and let $p\in M$.
-	A \emph{tangent vector at $p$} is a linear map
+	A \emph{tangent vector at $p$}\idxdef{Tangent vector} is a linear map
 	\marginnote{Keep always in mind that the value $v([f]_p)$ only depends on the value of $f$ around the point $p$.}
 	\begin{equation}\label{def:tangentvector}
 		v: C_p^\infty(M)\to\R
@@ -177,7 +177,7 @@ Motivated by Example~\ref{ex:euclideanD}, we define a tangent vector as a deriva
 		+ \eval_p([g]_p)v([f]_p).
 	\end{equation}
 
-	Since a tangent vector is a linear map from the vector space $C_p^\infty(M)$ to $\R$, the set of all tangent vectors at a point $p$ is itself a vector space\footnote{Exercise: why is this true?} which we denote $T_p M$ and call \emph{tangent space}.
+	Since a tangent vector is a linear map from the vector space $C_p^\infty(M)$ to $\R$, the set of all tangent vectors at a point $p$ is itself a vector space\footnote{Exercise: why is this true?} which we denote $T_p M$ and call \emph{tangent space}\idxdef{Tangent space}.
 \end{definition}
 
 Let's poke our definition and see if it makes any sense.
@@ -203,7 +203,7 @@ For example, is the derivative of constant functions actually zero?
 As you can see, working with equivalence classes is doable... but it is also unnecessarily cumbersome.
 As we did with atlases, we would like to get it over with.
 
-\begin{definition}
+\begin{definition}\idxdef{Derivation at a point}
 	Let $M$ be a smooth manifold and $p\in M$.
 	Let $W\subseteq M$ be any neighbourhood of $p$.
 	\marginnote{We are still talking about derivations of functions at specific points, not to be confused with the derivations of the algebra $C^\infty(W)$ which we will introduce later and will be maps of the kind $C^\infty(W)\to C^\infty(W)$.}
@@ -482,7 +482,7 @@ In the manifold case there is a similar linear map but, as we discussed, it make
 
 It should not come a surprise that with the constructions developed so far not only do we have one such map, but we can directly relate it to a derivative.
 
-\begin{definition}\label{def:differentialMap}
+\begin{definition}\label{def:differentialMap}\idxdef{Differential (of a map)}
 	Let $F: M \to N$ be a smooth map between the smooth manifolds $M$ and $N$, and let $p\in M$.
 	The \emph{differential $d F_p$ of $F$ at $p$} is the map\footnote{In the differential geometry literature, the differential has many names: you can find it called \emph{tangent map}, \emph{total derivative} or \emph{derivative} of $F$.
 		Since it ``pushes'' tangent vectors forward from the domain manifold to the codomain, it is also called the \emph{pushforward}. If that was not enough, different authors use different notations for it: besides $dF_p(v)$, you can find $F_* v_p$, $F'(p)$, $T_pF$, $DF(p)[v]$ or variations thereof.}
@@ -502,7 +502,7 @@ Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F
 	What is $d F_{(1,1,1)} \left(\frac{\partial}{\partial x^1} - 2 \frac{\partial}{\partial x^2}\right)$?
 \end{exercise}
 
-\begin{theorem}[The chain rule on manifolds]\label{thm:chainrule_mfld}
+\begin{theorem}[The chain rule on manifolds]\label{thm:chainrule_mfld}\idxthm{Chain rule (manifolds)}
 	Let $M, N, P$ be smooth manifolds and $F: M \to N$, $G: N\to P$ be two smooth maps. Then
 	\marginnote{The alternative $D$ notation, in this case, makes the relation to the usual chain rule even more evident: $D(G\circ F)(p) = DG(F(p))\circ DF(p)$.}
 	\begin{equation}
@@ -737,7 +737,7 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
 	\label{fig:2_4-v_cur}
 \end{marginfigure}
 This means that we can actually give an alternative definition of $T_pM$ in terms of tangents to curves:
-\begin{definition}\label{def:tg:ascurvespeed}
+\begin{definition}\label{def:tg:ascurvespeed}\idxdef{Tangent vector}
 	A tangent vector at $p\in M$ is an equivalence class\footnote{Usually we say that two such equivalent curves have \emph{a first order contact at $p$}.} of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ for some chart $\varphi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
 \end{definition}
 
@@ -772,7 +772,7 @@ To conclude this part, the next proposition shows that velocity vectors behave w
 	\textit{\small Hint: use the definitions to rewrite the formula in different ways.}
 \end{exercise}
 
-\section{The tangent bundle}\label{sec:tangentbundle}
+\section{The tangent bundle}\label{sec:tangentbundle}\idxdef{Tangent bundle}
 
 Instead of working separately with the various tangent spaces, we can ``glue'' them together into a big manifold.
 

@@ -2,7 +2,7 @@
 
 \newthought{The dual of a vector space} should be a well-known concept from linear algebra. We recall it here just for the sake of convenience.
 
-\begin{definition}
+\begin{definition}\idxdef{Dual space}
 	Let $V$ a vector space of dimension $n\in \N$.
 	Its \emph{dual space} $V^* := \cL(V, \R)$ is the $n$-dimensional real vector space of linear maps $\omega:V \to R$.
 	The elements of $V^*$ are usually called \emph{linear functionals} and for $\omega\in V^*$ and $v\in V$ it is common to write
@@ -21,7 +21,7 @@
 
 In the previous chapter we defined the tangent space as a special vector space over each point in a manifold, which nicely fits in the requirements above.
 
-\begin{definition}
+\begin{definition}\idxdef{Cotangent space}
 	Let $M$ be a differentiable manifold and $p\in M$.
 	The dual space $T_p^*M := (T_pM)^*$ of the tangent space $T_pM$ is called the \emph{cotangent space} of $M$ at $p$.
 	The elements of $T^*_pM$ are called \emph{cotangent vectors}, \emph{covectors} or \emph{(differential) $1$-forms} at $p$.
@@ -146,7 +146,7 @@ Given a covector $\omega = \omega_j\; dx^j$ and a vector $v = v^i \frac{\partial
 	\end{enumerate}
 \end{exercise}
 
-\begin{remark}[The double dual]\label{rmk:double_dual}
+\begin{remark}[The double dual]\label{rmk:double_dual}\idxdef{Double dual}
 	We said in Remark~\ref{rmk:identification} that unless we have an inner product, there is no canonical identification of a vector space with its dual.
 	This is true also for the tangent and cotangent spaces.
 	However, the situation is different for the double dual $T^{**}_pM := (T^*_pM)^*$.
@@ -179,7 +179,8 @@ This should start giving you an idea of what is behind the following famous quot
 	Observe that the proof in Remark~\ref{rmk:double_dual} is not restricted to the tangent spaces, the same exact reasoning holds for any finite dimensional vector space $V$ and its double dual $V^{**}$.
 	The identification that you obtain in this way is canonical, as mentioned previously, in the sense that it does not depend on the choice of basis for $V$. This has a number of consequences, many of which we don't have time to discuss during the course but that you can study under the umbrella of \emph{natural transformations} in category theory.
 
-	To give you a glimpse of this, let's introduce the concept of a dual mapping: given any linear map $L:V\to W$, its dual map $L^* : W^* \to V^*$ is the function that maps any $\omega\in W^*$ to $L^*(\omega) = \omega \circ L$, also called the pullback of $\omega$ along $L$ in a sense similar to the one that we will discuss later on in this chapter. A short computation in linear algebra, similar to one that we will perform in the tensor spaces chapter, shows that $L^*$ as a matrix is just the transpose of $L$. Now, given any vector $v\in V$, we have $L^**(i_v)=i_{L(v)}$. This property holds because the isomorphism doesn't assume a basis on $V$ or $W$ and would fail to hold for any naive identification of $V$ or $W$ with their duals.
+	To give you a glimpse of this, let's introduce the concept of a dual mapping: given any linear map $L:V\to W$, its dual map $L^* : W^* \to V^*$ is the function that maps any $\omega\in W^*$ to $L^*(\omega) = \omega \circ L$, also called the pullback of $\omega$ along $L$ in a sense similar to the one that we will discuss later on in the next chapter, see \eqref{eq:dualmap}.
+	A short computation in linear algebra, similar to the general one that we will perform Chapter~\ref{cg:tf}, shows that $L^*$ as a matrix is just the transpose of $L$. Now, given any vector $v\in V$, we have $L^**(i_v)=i_{L(v)}$. This property holds because the isomorphism doesn't assume a basis on $V$ or $W$ and would fail to hold for any naive identification of $V$ or $W$ with their duals.
 \end{remark}
 
 \section{Change of coordinates}
@@ -223,7 +224,7 @@ The difference in the way vector and covector transform is reflected also in the
 As we have seen, the differential of a smooth map yields a linear map between tangent spaces that pushes vectors from one space to the other.
 Its dual is going to be a map that pulls vector from one covector space to another.
 
-\begin{definition}\label{def:pullback:oneform}
+\begin{definition}\label{def:pullback:oneform}\idxdef{Pullback of covectors}
 	Let $F:M\to N$ be a smooth map between smooth manifolds, let $\omega\in T^*_{F(p)}N$ for some $p\in M$.
 	The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the differential
 	\marginnote[-1.5em]{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
@@ -243,7 +244,7 @@ Its dual is going to be a map that pulls vector from one covector space to anoth
 
 In analogy to Section~\ref{sec:tangentbundle} we can glue the cotangent space together into a vector bundle on $M$.
 
-\begin{definition}
+\begin{definition}\idxdef{Cotangent bundle}
 	The \emph{cotangent bundle} $T^*M$ of $M$ is the disjoint union of cotangent spaces
 	\begin{equation}
 		T^*M := \bigsqcup_{p\in M}\left(\{p\}\times T^*_pM\right)
@@ -285,7 +286,7 @@ In the exercise below, we will construct it using Theorem~\ref{thm:bundle_chart_
 	\end{enumerate}
 \end{exercise}
 
-\begin{definition}\label{def:covfield}
+\begin{definition}\label{def:covfield}\idxdef{Covector field}\idxdef{Differential one-form}
 	A \emph{covector field} or a \emph{(differential) $1$-form} on $M$ is a smooth section of $T^*M$.
 	That is, a $1$-form $\omega\in\Gamma(T^*M)$ is a smooth map $\omega: p \to \omega_p \in T_p^*M$ that assigns to each point $p\in M$ a cotangent vector at $p$.
 	Again, a covector field is smooth if its component functions w.r.t. all charts are smooth.
@@ -326,7 +327,7 @@ Since differential 1-forms are dual objects to tangent vectors, the action of a 
 	\textit{\small Hint: write it down in local coordinates.}
 \end{exercise}
 
-\begin{definition}\label{def:pullback1f}
+\begin{definition}\label{def:pullback1f}\idxdef{Pullback of one-forms}
 	The pullback of covectors immediately extends to covector fields.
 	The \emph{pullback} is the map
 	\begin{equation}
@@ -425,7 +426,7 @@ The surprising thing about covectors is that covector fields always pull back to
 \end{example}
 
 \begin{example}[Tautological one-form]
-	On $T^*M$ there is a $1$-form, called\footnote{As usual there are different names: two other common ones are \emph{Liouville form} or \emph{Poincar\'e form}, but don't be suprised if you find more.} \emph{tautological one-form}, defined as follows.
+	On $T^*M$ there is a $1$-form, called\footnote{As usual there are different names: two other common ones are \emph{Liouville form} or \emph{Poincar\'e form}, but don't be surprised if you find more.} \emph{tautological one-form}, defined as follows.
 
 	A point in $T^*M$ is a covector $\omega_p\in T^*_p M$ at some point $p\in M$. If $X_{\omega_p}\in T_{\omega_p}(T^*M)$ is a tangent vector to $T^*M$ at $\omega_p$. Let $\pi:T^*M \to M$, then the pushforward $\pi_*(X_{\omega_p})\in T_p M$ is a tangent vector to $M$ at $p$.
 	Therefore, one can pair $\omega_p$ and $\pi_*(X_{\omega_p})$ to obtain a real number $\left(\omega_p\;\big|\;\pi_*(X_{\omega_p})\right)$.
@@ -439,7 +440,7 @@ The surprising thing about covectors is that covector fields always pull back to
 
 The pullback is a rather pervasive concept, and does provide us a new way to explore vector bundles.
 
-\begin{example}[The pullback bundle]
+\begin{example}[The pullback bundle]\idxdef{Pullback bundle}
 	Let $F: M\to N$ be a smooth map between manifolds. Suppose that $\pi: E \to N$ is a vector bundle of rank $r$ over $N$.
 	Then we can think of $M\times E$ as a trivial (fiber)\marginnote{A fiber bundle is a bundle where the fibers are not necessarily vector spaces, but can be in general topological spaces. It is a good exercise to try and modify the definition of vector bundles so that it applies to this case (hint: drop any direct or indirect appearance of linearity). We will not discuss them in this course and for the sake of this example we don't really need to know more about them. For more details you can refer to \cite[Chapter 10]{book:lee}.} bundle over $M$ with constant fibre $E$.
 	You may think that this is yet another trivial example, but it allows us to define the \emph{pullback bundle $F^* E$}: let
@@ -476,7 +477,7 @@ We will not see this in too many details yet, but it is worth taking the time to
 
 The idea is to use the pullback to pull back the 1-form to the parameter space $\R$ and interpret the integral there as a usual Riemann integral.
 
-\begin{definition}
+\begin{definition}\idxdef{Line integral of one-forms along curves}
 	Let $M$ be a smooth manifold, $\gamma: I = [a,b]\subset \R \to M$ a smooth curve and $\omega\in\fX^*(M)$ a $1$-form.
 	The \emph{(line) integral of $\omega$ along $\gamma$} is the number
 	\begin{equation}

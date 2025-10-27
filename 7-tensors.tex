@@ -18,7 +18,7 @@ Keep in mind, that at a certain point, we will replace $V$ with the tangent spac
 
 \section{Tensors}
 
-\begin{definition}
+\begin{definition}\idxdef{Tensor}\idxdef{Tensor of type $(r,s)$}
 	Let $V$ be a $n$-dimensional vector space and $V^*$ its dual.
 	Let
 	\begin{equation}
@@ -66,7 +66,7 @@ Take now, for example, two covectors $\omega^1, \omega^2 \in V^*$. We can define
 called the tensor product of $\omega^1$ and $\omega^2$.
 This can be generalized immediately to general tensors in order to define new higher order tensors.
 
-\begin{definition}
+\begin{definition}\idxdef{Tensor product}
 	Let $V$ an $n$-dimensional vector space, $\tau_1\in T_s^r(V)$, $\tau_2\in T_{s'}^{r'}(V)$.
 	We define the \emph{tensor product} $\tau_1\otimes\tau_2$ as the $(r+r', s+s')$-tensor defined by
 	\begin{align}
@@ -139,7 +139,7 @@ Let's go back for a moment to the example of inner products.
 
 \begin{definition}\label{def:metric}
 	\marginnote[1em]{In Definition~\ref{def:metric} and Example~\ref{ex:musicaliso} we are slightly abusing notation: as we will see, the ``true'' pseudo-metric, metric and symplectic tensors will be sections of certain tensor bundles over manifolds which pointwise share the properties presented here. Nevertheless, this definition provides a good intuition for what is coming.}
-	We call \emph{pseudo-metric tensor}, any tensor $g\in T_2^0(V)$ that is
+	We call \emph{pseudo-metric tensor}\idxdef{Pseudo-metric tensor}, any tensor $g\in T_2^0(V)$ that is
 	\begin{enumerate}
 		\item symmetric, i.e. $g(v,w) = g(w,v)$ for all $v,w\in T_0^1(V)$;
 		\item positive semidefinite, i.e. $g(v,v)\geq0$ for all $v\neq 0$.
@@ -150,13 +150,13 @@ Let's go back for a moment to the example of inner products.
 		g(v,w) = 0 \quad\forall w\in V \qquad\Longrightarrow\qquad v=0.
 	\end{equation}
 
-	A \emph{metric tensor} or \emph{inner product} is a non-degenerate pseudo-metric tensor, that is, a symmetric, positive definite $(0,2)$-tensor.
+	A \emph{metric tensor}\idxdef{Metric tensor} or \emph{inner product}\idxdef{Inner product} is a non-degenerate pseudo-metric tensor, that is, a symmetric, positive definite $(0,2)$-tensor.
 	We will briefly see later that a Riemannian metric is one such object and it provides an inner product on the tangent spaces of a manifold.
 
-	An example of non-degenerate tensor which is not a metric is the so-called \emph{symplectic tensor}: a skew-symmetric non-degenerate $(0,2)$-tensor related to the symplectic form, a fundamental object in topology, classical mechanics and the study of Hamiltonian systems.
+	An example of non-degenerate tensor which is not a metric is the so-called \emph{symplectic tensor}\idxdef{Symplectic tensor}: a skew-symmetric non-degenerate $(0,2)$-tensor related to the symplectic form, a fundamental object in topology, classical mechanics and the study of Hamiltonian systems.
 \end{definition}
 
-\begin{example}\label{ex:musicaliso}
+\begin{example}\label{ex:musicaliso}\idxdef{Musical isomorphisms}
 	Let $V$ be a $n$-dimensional real vector space with an inner product $g(\cdot, \cdot)$.
 	%
 	Denote $\{e_1, \ldots, e_n\}$ the basis for $V$ and $\{e^1, \ldots, e^n\}$ its dual basis\footnote{This is what we called $\{\varepsilon^1, \ldots,\varepsilon^n\}$ before. In this example we follow a common practice in Riemannian geometry: the same letter is used for bases elements of both spaces and the position of the indices is then what discerns where the elements belong.} for $V^*$.
@@ -210,9 +210,9 @@ Thinking in linear algebraic terms, what is the linear map $\Lambda:V^*\to V^*$ 
 	\delta^i_j = (\widetilde e^i \mid \widetilde e_j) = (\Lambda e^i \mid L e_j).
 \end{align}
 
-It is convenient, at this point, to introduce the \emph{dual map} $L^* : V^* \to V^*$ to $L$.
+It is convenient, at this point, to introduce the \emph{dual map} $L^* : V^* \to V^*$ to $L$\idxdef{Dual map}.
 This is defined as the map such that for all $v\in V$ and for all $w\in V^*$
-\begin{equation}
+\begin{equation}\label{eq:dualmap}
 	(w | Lv) = (L^* w | v).
 \end{equation}
 But we already know how to define such kind of map! This is like a pullback: $L^*(w) := w \circ L$ for $w\in V^*$.
@@ -286,7 +286,7 @@ applying the previous reasoning and comparing term by term we get
 
 Before moving on, there is an important operation on tensors that will come back later on and is worth to introduce in its generality.
 
-\begin{definition}
+\begin{definition}\idxdef{$(h,k)$-contraction of a tensor}
 	Let $V$ be a vector space and fix $r,s\geq0$.
 	For $h\leq r$ and $k\leq s$, we define the \emph{$(h,k)$-contraction} of a tensor as the linear mapping $T_s^r(V)\to T_{s-1}^{r-1}(V)$ defined through
 	\begin{align}
@@ -336,7 +336,8 @@ It is time to leave the abstract world of vector spaces and start getting closer
 In the previous chapters we have shown that the tangent bundle and the cotangent bundle are families of vector spaces built over $M$ that are dual to each other.
 We now have the tools to further extend this idea and define tensor bundles as families of tensor spaces build on top of the fibres of the tangent bundle.
 
-\begin{definition}
+\begin{definition}\idxdef{$(r,s)$-tensor bundle}
+	Let $M$ be a smooth manifold.
 	The \emph{$(r,s)$-tensor bundle over $M$} is the bundle
 	\begin{equation}
 		T_s^r M = \bigsqcup_{p\in M}\left(\{p\}\times T_s^r(T_p M)\right)
@@ -363,7 +364,7 @@ is defined by linearity on the fibres via
 
 In analogy to the definition of vector fields, we can introduce tensor fields: these will just be local assignments of tensors to points.
 
-\begin{definition}
+\begin{definition}\idxdef{Tensor field}
 	A section $\Gamma(T_s^r M)$ of $T_s^r M$, that is, a smooth map $\tau : M \to T_s^r M$ such that $\pi\circ \tau = \id_M$, is called a \emph{tensor field} of type $(r,s)$.
 	We denote the space of tensor fields of type $(r,s)$ by $\cT_s^r(M)$ and define $\cT_0^0(M) := C^\infty(M)$.
 \end{definition}
@@ -390,7 +391,7 @@ where $\tau^{j_1\cdots j_r}_{i_1\cdots i_s}\in C^\infty(M)$.
 Again in analogy with what we saw on tangent and cotangent bundles, we can provide a general definition of pullback and pushforward on tensor bundles.
 This will be extremely useful soon, when we start dealing with differential forms.
 
-\begin{definition}\label{def:pullback0s}
+\begin{definition}\label{def:pullback0s}\idxdef{Pullback of a $(0,s)$-tensor field}
 	Let $F:M\to N$ be a smooth map between smooth manifolds and let $\omega \in \cT_s^0(N)$ be a $(0,s)$-tensor field on $N$. We define the \emph{pullback of $\omega$ by $F$} as the $(0,s)$-tensor field $F^*\omega \in \cT_s^0(M)$ on $M$ defined for any $p\in M$ by
 	\begin{align}
 		 & F^* : \cT_s^0(N) \to \cT_s^0(M),                             \\
@@ -498,7 +499,7 @@ We can also use the pullback to construct a diffeomorphism between tensor bundle
 
 With this diffeomorphism at hand, we can finally generalize the pushforward.
 
-\begin{definition}
+\begin{definition}\idxdef{Pushforward of an $(r,s)$-tensor field}
 	Let $F:M\to N$ be a diffeomorphism between smooth manifolds.
 	We define \emph{pushforward of $(r,s)$-tensor fields} by $F$ as the map $F_*: \cT_s^r(M) \to \cT_s^r(N)$ for which the following diagram commutes:
 	\begin{equation}
@@ -544,7 +545,7 @@ Can you show why?
 \newthought{If you work on Riemannian geometry or in Relativit}y, you cannot avoid hearing about tensors.
 Let's briefly look at the reason.
 
-\begin{definition}
+\begin{definition}\idxdef{(Pseudo-)Riemannian manifold}
 	A non-degenerate symmetric bilinear form $g\in \cT_2^0(M)$ is a \emph{pseudo-Riemannian metric} and the pair $(M,g)$ a \emph{pseudo-Riemannian} (or \emph{semi-Riemannian}) \emph{manifold}.
 	If $g$ is also fibre-wise positive definite, then $g$ is a \emph{Riemannian metric} and $(M,g)$ is a \emph{Riemannian manifold}.
 	From this you see that the Riemannian metric is just an inner product on the tangent bundle of the manifold.

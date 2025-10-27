@@ -9,7 +9,7 @@ In addition to their role in integration, differential forms provide a framework
 
 \section{Differential forms}
 
-\begin{definition}
+\begin{definition}\idxdef{Alternating $k$-form}\idxdef{Differential form}
 	Let $V$ be a real $n$-dimensional vector space.
 	Let $S_k$ denote the \emph{symmetric group on $k$ elements}, that is, the group of permutations of the set $\{1,\ldots,k\}$.
 	Recall that for any permutation $\sigma\in S_k$, the \emph{sign of $\sigma$}, denoted $\sgn(\sigma)$, is equal to $+1$ if $\sigma$ is even\footnote{It can be written as a composition of an even number of transpositions} and $-1$ is $\sigma$ is odd\footnote{It can be written as a composition of an odd number of transpositions}.
@@ -41,7 +41,7 @@ At the same time, the determinant of a $n\times n$ matrix, is the signed volume 
 We also saw that tensors can be multiplied with the tensor product, which gives rise to a graded algebra on the free sum of tensor spaces.
 Since we are looking for an alternating product, the previous observation leads naturally to the following definition.
 
-\begin{definition}
+\begin{definition}\idxdef{Wedge product of covectors}\idxdef{Exterior product of covectors}
 	Let $V$ be a real $n$-dimensional vector space.
 	Given $k$ covectors $\omega^1, \ldots, \omega^k\in T_1^0(V)$, their \emph{wedge product} (or \emph{exterior product}) $\omega^1\wedge\ldots\wedge\omega^k$ is defined by
 	\begin{equation}
@@ -178,8 +178,8 @@ The following proposition gives us a tool to define an exterior product of alter
 
 As we were saying, now we can take the tensor product of two forms $\omega\otimes\nu$ and use the antisymmetrisation $\Alt_{k+h}$ to to project it onto the antisymmetric subspace $\Lambda^{k+h}$ of $T_{k+h}^0(V)$.
 
-\begin{definition}[Wedge product of alternating forms]
-	We can extend the wedge product (or exterior product) to alternating forms by defining, for any $k,h\in\N$,
+\begin{definition}[Wedge product of alternating forms]\idxdef{Wedge product of alternating forms}\idxdef{Exterior product of alternating forms}
+	We can extend the \emph{wedge product} (or \emph{exterior product}) to alternating forms by defining, for any $k,h\in\N$,
 	\begin{align}
 		\wedge : \Lambda^k(V)\times\Lambda^h(V) & \to \Lambda^{k+h}(V)                                                         \\
 		(\omega, \nu)                           & \mapsto \omega\wedge\nu := \frac{(k+h)!}{k!h!} \Alt_{k+h}(\omega\otimes\nu).
@@ -200,7 +200,7 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
 	\end{enumerate}
 \end{exercise}
 
-\begin{proposition}
+\begin{proposition}\idxthm{Properties of the wedge product}
 	The wedge product has the following properties.
 	\begin{enumerate}
 		\item (associative) $(\omega^1\wedge\omega^2)\wedge\omega^3 = \omega^1\wedge(\omega^2\wedge\omega^3)$ for $\omega^i\in\Lambda^{k_i}(V)$, $i=1,\ldots, 3$;
@@ -231,7 +231,7 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
 
 There is an extremely important operation that relates vectors with alternating tensors.
 
-\begin{definition}
+\begin{definition}\idxdef{Interior product}\idxdef{Contraction of a form by a vector}
 	Let $V$ be a real $n$-dimensional vector space.
 	For each $v\in V$, the \emph{interior product} with $v$ is a contraction of a $k$-form by $v$, that is, the linear map $\iota_v:\Lambda^{k}(V)\to \Lambda^{k-1}(V)$ defined\footnote{Another common notation for the same operation is $v \iprod \omega$.} by
 	\begin{equation}
@@ -263,7 +263,7 @@ By convention $\iota_v\omega = 0$ if $\omega\in\Lambda^0(V)$.
 It is time to turn our attention back to smooth manifolds.
 Let $M$ be a $n$-dimensional smooth manifold, recall that we had defined the tensor fields $\cT_s^r(M)$ as the sections of $(r,s)$-tensor bundles $T_s^rM$ over $M$.
 The subset of $T_k^0(M)$ consisting of alternating $k$-tensors is denoted by $\Lambda^kM:= \bigsqcup_{p\in M} \{p\}\times \Lambda^k(T_p M)$. This is\footnote{Exercise: prove the claims.} again a vector bundle, which is a subbundle of the $T_k^o M$ tensor bundle.
-\begin{definition}
+\begin{definition}\idxdef{Differential $k$-form}\idxdef{Wedge product of differential forms}\idxdef{Exterior product of differential forms}
 	The sections of $\Lambda^kM$ are called \emph{differential $k$-forms}, or just $k$-forms: these are smooth tensor fields whose values at each point are alternating tensors. The integer $k$ is called the \emph{degree} of the $k$-form.
 
 	We denote the vector space of smooth $k$-forms by
@@ -374,7 +374,7 @@ The previous exercise is a particular case of the following statement.
 	\end{enumerate}
 \end{exercise}
 
-Of course, also the interior product extends naturally to vector fields and differential forms, simply by letting it act pointwise: if $X\in\fX(M)$ and $\omega\in\Omega^k(M)$, then the $k-1$-form $\iota_X\omega\equiv X\iprod\omega$ is defined by $(X\iprod\omega)_p = X_p \iprod \omega_p$.
+Of course, also the \emph{interior product}\idxdef{Interior product of differential forms} extends naturally to vector fields and differential forms, simply by letting it act pointwise: if $X\in\fX(M)$ and $\omega\in\Omega^k(M)$, then the $k-1$-form $\iota_X\omega\equiv X\iprod\omega$ is defined by $(X\iprod\omega)_p = X_p \iprod \omega_p$.
 
 \begin{exercise}
 	Let $X\in\fX(M)$. Prove the following statements.
@@ -418,7 +418,7 @@ You have already seen most of this in the context of multivariable analysis, how
 	We will revisit this fact in Lemma~\ref{lem:ext_deriv}.
 \end{example}
 
-\begin{definition}
+\begin{definition}\idxdef{Exterior derivative of a differential form}
 	Let now $M$ be a smooth $n$-manifold and $\omega\in\Omega^k(M)$.
 	Let $(U,\varphi)$ denote a chart on $U\subset M$ with local coordinates $(x^i)$.
 	Then, the \emph{exterior derivative} is defined locally as $d\omega|_U := \varphi^*d(\varphi_* \omega)$, that is, for
@@ -433,7 +433,7 @@ You have already seen most of this in the context of multivariable analysis, how
 
 This local definition immediately extends to global one via the following theorem.
 
-\begin{theorem}\label{thm:differentialpushforward}
+\begin{theorem}\label{thm:differentialpushforward}\idxthm{Naturality of exterior derivative}
 	Let $M$ be a smooth $n$-manifold, $(U,\varphi)$ a chart on $U\subset M$ and $F:M\to N$ a diffeomorphism between smooth manifolds.
 	Then, for $\omega\in\Omega^k(N)$, we have $F^*(d\omega|_{F(U)}) = dF^*\omega|_U$.
 \end{theorem}
@@ -482,7 +482,7 @@ This local definition immediately extends to global one via the following theore
 	\end{equation}
 \end{exercise}
 
-\begin{lemma}\label{lem:ext_deriv}
+\begin{lemma}\label{lem:ext_deriv}\idxthm{Properties of the exterior derivative}
 	The exterior derivative satisfies the following properties.
 	For all $\omega,\omega_1,\omega_2\in\Omega^k(M)$, $\nu\in\Omega^h(M)$ and $f\in C^\infty(M)$,
 	\begin{enumerate}[(i)]
@@ -529,7 +529,7 @@ Let $N\subset M$ a submanifold and $i:N\hookrightarrow M$ the corresponding incl
 For $\omega\in\Omega^k(M)$, we call $i^*\omega \in \Omega^k(N)$ the \emph{restriction} of $\omega$ to $N$.
 Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior derivative commute, that is, $i^*d\omega = d(i^*\omega)$.
 
-\begin{example}[Exterior derivatives and vector calculus in $\R^3$]
+\begin{example}[Exterior derivatives and vector calculus in $\R^3$]\idx{There is only one derivative}
 	Let $M=\R^3$. Any smooth $1$-form $\omega\in\Omega^1(\R^3)$ can be written as
 	\begin{equation}
 		\omega = P dx + Q dy + R dz
@@ -653,7 +653,7 @@ If you want to know more about symplectic manifolds and the role of differential
 
 \section{Lie derivative}
 
-\begin{definition}
+\begin{definition}\idxdef{Lie derivative of a function}
 	The \emph{Lie derivative} of a differentiable function $f:M\to\R$ on a smooth manifold $M$ in the direction of a vector field $X:M\to TM$ is the real function defined by
 	\begin{equation}
 		\cL_X f := df(X).
@@ -663,7 +663,7 @@ If you want to know more about symplectic manifolds and the role of differential
 From the look of it, this seems just an alternative way to define the directional derivative.
 However, its power lies in the fact that we can extend it to $k$-forms with important consequences, one of which will be very useful in the next section.
 
-\begin{definition}[Cartan's Magic Formula]
+\begin{definition}[Cartan's Magic Formula]\idxdef{Cartan's Magic Formula}\idxdef{Lie derivative of a differential form}
 	Let $M$ be a smooth $n$-manifold and $X\in\fX(M)$.
 	For $\omega\in\Omega^k(M)$, we define the \emph{Lie derivative} of $\omega$ with respect to $X$ as the $k$-form
 	\begin{equation}\label{eq:cartanmagicf}
@@ -691,7 +691,7 @@ Of course, we can recover the alternative definition as a theorem.
 Even though it is a bit impractical for computational purposes, flows are hard to compute, it gives a nice geometric interpretation of the Lie derivative: it describes the change of the differential form $\omega$ along the flow generated by the vector field $X$.
 
 \begin{theorem}\label{thm:LieDerivativeFlow}
-	Let $M$ be a smooth $n$-manifold, $X\in\fX(M)$ complete\footnote{This is here to avoid having to think about domains of existence. The result holds also without this extra hypotesis.} and $\varphi_t$ its flow.
+	Let $M$ be a smooth $n$-manifold, $X\in\fX(M)$ complete\footnote{This is here to avoid having to think about domains of existence. The result holds also without this extra hypothesis.} and $\varphi_t$ its flow.
 	Then, for all $\omega\in \Omega^*(M)$, one has
 	\begin{equation}
 		\frac{d}{dt}(\varphi_t^* \omega) = \varphi_t^*\cL_X\omega.
@@ -736,7 +736,7 @@ Even though it is a bit impractical for computational purposes, flows are hard t
 	\newthought{Step IV}. The statement follows from Theorem~\ref{thm:pullbacksdifferentialforms} and Exercise~\ref{exe:liederandwedge} since every $k$-form can be locally written as $\omega = \omega_I dx^I$.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\idxdef{Lie derivative of a tensor field}
 	The Lie derivative can be extended to any tensor bundle $T_s^r(M)$ with the following definition.
 	This $T\in\cT_r^s(M)$, for any $p\in M$
 	\begin{equation}

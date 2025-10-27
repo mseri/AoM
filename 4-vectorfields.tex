@@ -6,7 +6,7 @@ In the Euclidean settings these are simply smooth maps that attach a vector to e
 
 \newthought{The step to abstract manifolds} is rather intuitive in this case: a vector field will be a map that, at each point of a manifold, picks a tangent vector at that point in a smooth way.
 
-\begin{definition}\label{def:vfield}
+\begin{definition}\label{def:vfield}\idxdef{Vector field}
 	A $C^k$-map $X: M \to TM$ with $\pi\circ X = \id_M$, or equivalently $X_p\in T_pM$ for all $p\in M$, is called \emph{$C^k$-vector field}. Here, the map $\pi:TM \to M$ is the projection that we defined when we introduced the tangent bundle $TM$ in Section~\ref{sec:tangentbundle}.
 	The vector field is smooth if it is a $C^k$-vector field\footnote{Observe that it needs to be $C^k$ w.r.t. both the differentiable structures on $M$ and $TM$.} for all $k\geq 1$.
 
@@ -67,7 +67,7 @@ where $X^i\in C^\infty(M)$ denotes the component of the vector field $X$ in the 
 We have seen that differentials of smooth maps define maps between tangent bundles.
 As it turns out, we can employ differentials of diffeomorphisms to map vector fields to vector fields.
 
-\begin{definition}
+\begin{definition}\idxdef{Pushforward (vector field)}
 	Let $F:M\to N$ be a diffeomorphism\footnote{While to define the pushforward it is enough to have a smooth bijection, if you take a map with non-smooth inverse you may end up with a non-smooth vector field. Try it out: take $M=N=\mathbb{R}$, $X = \partial/\partial x$ and $F(x) = x^3$, and compute $F_* X$.} between smooth manifolds.
 	Then, the \emph{pushforward} $F_*$ of $F$, defined by\footnote{In coordinates, this reads\begin{equation}
 			(F_* X)_q = dF_{F^{-1}(q)}(X_{F^{-1}(q)}).
@@ -177,7 +177,7 @@ In this sense, $X\in\fX(M)$ induces a linear map on the algebra $C^\infty(M)$ of
 
 This whole discussion allows us to extend the notion of derivation at a point to a derivation on the whole space.
 \marginnote[2em]{Don't confuse this with the derivations at a point, which produce real numbers. In this case we map functions to functions. }
-\begin{definition}
+\begin{definition}\idxdef{Derivation (on functions)}
 	Let $M$ be a smooth manifold and $\emptyset\neq W\subseteq M$ an open set.
 	A \emph{derivation on $C^\infty(W)$} is a linear map
 	\begin{equation}
@@ -232,7 +232,7 @@ One way to let it cancel out, is to consider the \emph{commutator} of the two ve
 Indeed, $[X,Y]$ is a derivation.
 
 \marginnote{Do not confound Lie with lie. Here Lie is the surname of Sophus Lie, an important Norwegian mathematician that lived in the second half of the 19th century.}
-\begin{definition}
+\begin{definition}\idxdef{Lie bracket}
 	Let $X,Y\in\fX(W)$. We call \emph{Lie bracket} of $X$ and $Y$ the derivation given by their commutator $[X,Y] := X Y - Y X$.
 \end{definition}
 
@@ -321,7 +321,7 @@ We will see a few applications of the Lie bracket throughout the rest of the cou
 	completing the proof.
 \end{proof}
 
-\begin{definition}\label{def:LieAlgebra}
+\begin{definition}\label{def:LieAlgebra}\idxdef{Lie algebra}
 	A \emph{Lie algebra} (over $\R$) is a real vector space $\fg$, endowed with a bilinear antisymmetric map
 	\begin{equation}
 		\fg \times \fg \to \fg, \quad (v,w)\mapsto [v,w],
@@ -345,7 +345,7 @@ We will see a few applications of the Lie bracket throughout the rest of the cou
 	\end{enumerate}
 \end{example}
 
-\begin{definition}\label{def:LAmorphism}
+\begin{definition}\label{def:LAmorphism}\idxdef{Lie algebra homomorphism}
 	Let $\fg$ and $\fh$ be two Lie algebras.
 	A \emph{Lie algebra homomorphism} is a linear map $T:\fg\to\fh$ which preserves the Lie brackets, i.e.
 	\begin{equation}
@@ -378,7 +378,7 @@ is the corresponding ODE, then we have the following implications of the Euclide
 
 As we are getting used to, the whole theory can be extended to manifolds in a quite direct but perhaps surprising fashion.
 
-\begin{definition}
+\begin{definition}\idxdef{Integral curve}
 	Let $M$ be a manifold and let $X\in\fX(M)$.
 	A smooth curve $\gamma: (a,b)\subset\R \to M$ is an \emph{integral curve} of $X$ if
 	\begin{equation}\label{eq:integralCurve}
@@ -606,7 +606,7 @@ For a complete vector field $X$, $\cD = \R\times M$.
 	Note that $\diff(M)$ is a group under composition, where the identity element is just the identity map.
 \end{definition}
 
-\begin{definition}
+\begin{definition}\idxdef{One-parameter group of diffeomorphisms}\idxdef{Infinitesimal generator}
 	A \emph{one-parameter group of diffeomorphisms}\footnote{If you stumble upon a one-parameter group \emph{action}, don't be scared: it is the same exact thing where $\phi$ is required to be continuous instead of smooth.} is a smooth left $\R$-action on $M$, that is, a smooth map $\phi:\R\times M \to M$ such that for all $s,t\in\R$ and all $p\in M$:
 	\begin{align}
 		 & \phi(0,p) = p,                      \\

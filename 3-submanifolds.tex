@@ -26,12 +26,12 @@ As for many local properties, this definition carries over to manifolds rather `
 The same applies to the inverse function theorem:
 compare the following statements.
 %
-\begin{theorem}[Inverse function theorem for $\R^n$]\label{thm:ift}
+\begin{theorem}[Inverse function theorem for $\R^n$]\label{thm:ift}\idxthm{Inverse function theorem (Euclidean)}
 	Let $U\subset\R^n$ open and $f:U \to \R^n$ be a smooth map.
 	Assume that $f$ has maximal rank at some $x\in U$, then there exists an open neighbourhood $\Omega\subset U$ of $x$ such that  $f\big|_\Omega : \Omega \to f(\Omega)$ is a diffeomorphism.
 \end{theorem}
 
-\begin{theorem}[Inverse function theorem for manifolds]\label{thm:iftm}
+\begin{theorem}[Inverse function theorem for manifolds]\label{thm:iftm}\idxthm{Inverse function theorem (manifolds)}
 	Let $F:M\to N$ be a smooth function between smooth manifolds without boundary of the same dimension $n$.
 	Let $p\in M$ such that $F$ has maximal rank $n$ at $p$.
 	Then there exists an open neighbourhood $V$ of $p$ such that the restriction $F|_V : V\to F(V)$ is a diffeomorphism.
@@ -69,7 +69,7 @@ long way and show that any manifold locally looks like a projection or an inclus
 The tool to get there is the following, we will see more clearly the link with
 projections and inclusions in the next subsection.
 
-\begin{theorem}[Rank theorem]\label{thm:rank}
+\begin{theorem}[Rank theorem]\label{thm:rank}\idxthm{Rank theorem}
 	Let $F : M^m \to N^n$ be a smooth function between smooth manifolds without boundary\footnote{The theorem can be extended to allow $M$ with boundary and $N$ without boundary assuming $\ker dF_p \not\subseteq T_p\partial M$ but we will omit this case here to keep the discussion more contained and avoid unnecessary technicalities.}.
 	Assume that $F$ is of rank $k$ at all points $p\in M$.
 	Then, for all $p\in M$ there exist smooth charts $(U, \varphi)$ centred at $p$ and $(V, \psi)$ centred at $F(p)$ with $F(U)\subseteq V$, such that the coordinate representation of $F$ with respect to the charts $\varphi$ and $\psi$ has the form
@@ -206,9 +206,9 @@ Looking at the statement of the Rank Theorem, one can already see that there can
 \begin{definition}
 	Let $M^m$ and $N^n$ be differentiable manifolds and $F:M\to N$ a smooth function.
 	\begin{itemize}
-		\item $F$ is a \emph{immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
-		\item $F$ is a \emph{submersion} if $dF_p$ is surjective for all $p\in M$ ($\Rightarrow\; m\geq n$);
-		\item $F$ is a \emph{embedding}\footnote{This is a particular case of a more general concept, the topological embedding, which is defined as an injective continuous map that is a homeomorphism onto its image.} if $F$ is an injective immersion that is also a diffeomorphism onto its image $F(M)\subset N$, where the topology on $F(M)$ is the subspace topology as a subset of $N$.
+		\item $F$ is a \emph{immersion}\idxdef{Immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
+		\item $F$ is a \emph{submersion}\idxdef{Submersion} if $dF_p$ is surjective for all $p\in M$ ($\Rightarrow\; m\geq n$);
+		\item $F$ is a \emph{embedding}\idxdef{Embedding}\footnote{This is a particular case of a more general concept, the topological embedding, which is defined as an injective continuous map that is a homeomorphism onto its image.} if $F$ is an injective immersion that is also a diffeomorphism onto its image $F(M)\subset N$, where the topology on $F(M)$ is the subspace topology as a subset of $N$.
 	\end{itemize}
 \end{definition}
 
@@ -265,7 +265,7 @@ Looking at the statement of the Rank Theorem, one can already see that there can
 
 \begin{definition}
 	Let $M$ and $N$ be smooth manifolds such that $M\subset N$ as a set.
-	We say that $M$ is an \emph{embedded (or regular) submanifold} of $N$ if the inclusion $M\hookrightarrow N$ is an embedding. If the inclusion is just an immersion, we say that $M$ is an \emph{immersed submanifold}.
+	We say that $M$ is an \emph{embedded (or regular) submanifold}\idxdef{Embedded submanifold} of $N$ if the inclusion $M\hookrightarrow N$ is an embedding. If the inclusion is just an immersion, we say that $M$ is an \emph{immersed submanifold}\idxdef{Immersed submanifold}.
 \end{definition}
 
 It is probably no surprise at this point that smooth maps are going to be useful in providing ways to nicely include a manifold into the another and in giving new ways to construct manifolds in the first place.
@@ -345,7 +345,7 @@ For this case we will need to be able to identify some special points depending 
 	\label{fig:2_8-crit_pts}
 \end{marginfigure}
 
-\begin{definition}
+\begin{definition}\idxdef{Regular point}\idxdef{Critical point}\idxdef{Regular value}\idxdef{Critical value}
 	Let $F:M^m \to N^n$, $m\geq n$, be a smooth map between smooth manifolds.
 	A point $p\in M$ is said to be a \emph{regular point} of $F$ if $dF$ has maximal rank $n$ at $p$, while it is called a \emph{critical point} otherwise.
 
@@ -356,7 +356,7 @@ For this case we will need to be able to identify some special points depending 
 With this definition at hand, we are ready to state one of the most important theorems in this lecture.
 Differently from the previous ones, the statement is not local.
 
-\begin{theorem}[Regular levelset theorem]\label{thm:impl_fun}
+\begin{theorem}[Regular levelset theorem]\label{thm:impl_fun}\idxthm{Regular levelset theorem}\idxthm{Implicit function theorem (manifolds)}
 	Let $m\geq n$ and let $F: M^m \to N^n$ be a smooth map between smooth manifolds.
 	If $q\in N$ is a regular value of $F$ and $P := F^{-1}(q)$ is not empty, then $P$ is a topological manifold of dimension $m-n$.
 	Moreover, there exists a smooth structure on $P$ which makes it into a smooth embedded submanifold of $M$.
@@ -425,7 +425,7 @@ In the previous chapter, all manifolds were introduced as a set on top of which 
 Is the tangent space to a sphere the one that we naively imagine (see Figure~\ref{fig:tan-embedded-sphere})?
 To finally answer the question, we will prove one last proposition.
 
-\begin{proposition}
+\begin{proposition}\label{prop:tangent_levelset}\idxthm{Tangent space to a levelset}
 	Let $F:M^m\to N^n$ be a smooth map between smooth manifolds.
 	Let $q\in N$ be a regular value of $F$ such that $P:=F^{-1}(q)\neq\emptyset$ and let $i:P\hookrightarrow M$ denote the inclusion.
 	Then, for all $p\in P$, one has

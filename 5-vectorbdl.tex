@@ -2,7 +2,7 @@ What we have seen in the previous chapter is our first example of vector bundle,
 
 \section{Vector bundles}\label{sec:vec-bdls}
 
-\begin{definition}\label{def:vector_bundle}
+\begin{definition}\label{def:vector_bundle}\idxdef{Vector bundle}\idxdef{Trivial bundle}\idxdef{Trivialization}
 	A \emph{vector bundle of rank $r$} over a manifold $M$ is a manifold $E$ together with a smooth surjective map $\pi : E \to M$ such that, for all $p\in M$, the following properties hold:
 	\begin{enumerate}[(i)]
 		\item the \emph{fibre over $p$}, $E_p := \pi^{-1}(p)$, has the structure of vector space of dimension $r$;
@@ -56,7 +56,7 @@ What we have seen in the previous chapter is our first example of vector bundle,
 \end{example}
 
 To compare vector bundles it is useful to define the following concept.
-\begin{definition}
+\begin{definition}\idxdef{Isomorphism of vector bundles}
 	An \emph{isomorphism} between two vector bundles $\pi_i: E_i \to M$, $i=1,2$, over the same base space $M$ is a homeomorphism $h:E_1 \to E_2$ which maps every fiber $\pi_1^{-1}(p)$ to the corresponding fiber $\pi_2^{-1}(p)$ by a linear isomorphism.
 	The map $h$ is a \emph{diffeomorphism} between vector bundles if it is a diffeomorphism which maps fibres to fibres isomorphically.
 	In this case we say that the vector bundles are \emph{diffeomorphic}.
@@ -66,7 +66,7 @@ Since an isomorphism preserves all the structure of a vector bundle, isomorphic 
 
 Of course, we can also define subbundles.
 
-\begin{definition}
+\begin{definition}\idxdef{Subbundle}
 	Let $\pi:E \to M$ be a rank-$r$ vector bundle and $F\subset E$ a submanifold.
 	If for all $p\in M$, the intersection $F_p := F\cap E_p$ is a $k$-dimensional subspace of the vector space $E_p$ and $\pi|_F : F \to M$ defines a rank-$k$ vector bundle, then $\pi|_F: F \to M$ is called a \emph{subbundle} of $E$.
 \end{definition}
@@ -185,7 +185,7 @@ We saw in Example~\ref{ex:simple_bundles} that given two vector bundles on some 
 In the special case of two bundles $E^1 \to M$ and $E^2 \to M$ over the same manifold, this would lead to $E^1 \times E^2 \to M \times M$.
 It is natural to ask oneself if we can make a construction that combines multiple vector bundles over the same base space to a new bundle over that same base space.
 This is call the Whitney sum of the bundles.
-\begin{exercise}[Whitney sum]\label{ex:whitney}
+\begin{exercise}[Whitney sum]\label{ex:whitney}\idxdef{Whitney sum}
 	Let $\pi^1 : E^1 \to M$ and $\pi^2 : E^2 \to M$ be two smooth vector bundles over $M$ of rank $k^1$ and $k^2$ respectively.
 	The Whitney sum $E^1 \oplus E^2$ of $E^1$ and $E^2$ is the smooth vector bundle $\pi: E^1 \oplus E^2 \to M$ whose fibers
 	\begin{equation}
@@ -220,7 +220,7 @@ Even if we will not discuss these examples in the notes, Appendix~\ref{appendix:
 	\caption{A useful mnemonic to remember what is a section, is to imagine it as a cross-section of the bundle.}
 \end{marginfigure}
 
-\begin{definition}
+\begin{definition}\idxdef{Section (of a vector bundle)}
 	A \emph{section} of a vector bundle $\pi:E \to M$ is a smooth map $S:M \to E$ such that $\pi\circ S = \id_M$. We denote the set of all sections of $E$ by $\Gamma(E)$.
 
 	If, in the definition, $M$ is replaced by $U\subset M$, the section is called \emph{local section}. The set of local sections on $U\subset M$ is denoted $\Gamma(E|_U)$, where $E|_U := \pi^{-1}(U) = \{\eta\in E\;\mid\;\pi(\eta)\in U\} \subset E$ is the vector bundle obtained by restriction of the base of $E$ to $U$.
@@ -253,7 +253,7 @@ Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R
 	Show that $TM$ is diffeomorphic to $M\times\R^n$ (without applying Proposition~\ref{prop:trivializable}).
 \end{exercise}
 
-\begin{definition}
+\begin{definition}\idxdef{Local frame}\idxdef{Global frame}
 	A \emph{local frame} of a bundle $\pi:E\to M$ of rank $r$ is a family of $r$ local sections $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ such that $\{S_1(p), \ldots, S_r(p)\}$ is a basis for $E_p$ for all $p\in U$.
 	If $U=M$ then $\{S_1, \ldots, S_r\}$ is called \emph{global frame}.
 	Sometimes, the sections $S_j$ are called \emph{basis sections}.

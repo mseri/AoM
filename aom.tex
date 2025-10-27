@@ -125,6 +125,9 @@ version={4.0},
 \usepackage{doi}
 \addbibresource{aom.bib}
 
+\usepackage{makeidx}
+\makeindex
+
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cD}{\mathcal{D}}
@@ -196,6 +199,10 @@ version={4.0},
 \newcommand{\LaTeXunderbrace}[2]{\underbrace{#1}_{#2}}
 \newcommand{\LaTeXoverbrace}[2]{\overbrace{#1}^{#2}}
 }
+
+\newcommand{\idx}[1]{\index{#1}}
+\newcommand{\idxdef}[1]{\index{Definitions!#1}}
+\newcommand{\idxthm}[1]{\index{Theorems!#1}}
 
 \title{Analysis\\ \noindent
   on\\ \noindent
@@ -363,4 +370,6 @@ In fact, the expressions below are all equivalent and commonly used in the diffe
 
 \printbibliography
 \addcontentsline{toc}{chapter}{Bibliography}
+\cleardoublepage
+\printindex
 \end{document}

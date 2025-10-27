@@ -11,7 +11,7 @@ For manifolds, the situation is much more complicated: for example, on a M\"obiu
 \section{Orientation on vector spaces}
 Let's proceed step by step by first revisiting some results from multivariable analysis. If you need a reference to review this material, you can refer to \cite[Chapter 6.2]{book:abrahammarsdenratiu} or \cite[Chapters 21.1-21.2]{book:tu}.
 
-\begin{definition}
+\begin{definition}\idxdef{Oriented manifold}
 	Let $V$ be a one-dimensional vector space. Then $V\setminus\{0\}$ has two components.
 	An \emph{orientation} of $V$ is a choice of one of these components, which one then labels as ``positive'' and ``negative''.
 	A \emph{positive basis} of $V$ then is a choice of any non-zero vector belonging to the positive component, while a \emph{negative basis} of $V$ is a choice of any non-zero vector belonging to the negative component.
@@ -25,7 +25,7 @@ Let's proceed step by step by first revisiting some results from multivariable a
 If $V$ be a $n$-dimensional vector space, we know by Proposition~\ref{prop:dimLkV}, that $\Lambda^n(V)$ is a one-dimensional vector space.
 Moreover, if $\{e_1,\ldots,e_n\}$ is a basis for $V$, then $e^1\wedge\cdots\wedge e^n$ is a basis for $\Lambda^n(V)$.
 
-\begin{definition}
+\begin{definition}\idxdef{Orientation of a vector space}\idxdef{Positive orientation}
 	Let $V$ be a $n$-dimensional vector space.
 	An \emph{orientation} on $V$ is a choice of orientation\footnote{That is, we are talking about a representative from an equivalence class.} on the one-dimensional vector space $\Lambda^n(V)$.
 	Therefore there are exactly two orientations: we say that a basis $\{e_1,\ldots,e_n\}$ of $V$ is \emph{positive} (or positively oriented) if $e^1\wedge\cdots\wedge e^n$ is a positive basis of $\Lambda^n(V)$ and \emph{negative} (or negatively oriented) otherwise.
@@ -63,7 +63,7 @@ In fact, the orientation is completely characterized by the action of $n$-forms 
 	Let $V$ be a $n$-dimensional vector space, prove that two nonzero $n$-forms on $V$ determine the same orientation if and only if each is a positive multiple of the other.
 \end{exercise}
 
-This allows to define an equivalence relation between orientations in terms of the nonzero elements in $\Lambda^n(V)$. We call these nonzero elements \emph{volume elements}.
+This allows to define an equivalence relation between orientations in terms of the nonzero elements in $\Lambda^n(V)$. We call these nonzero elements \emph{volume elements}\idxdef{Volume element} on $V$.
 
 Two volume elements $\omega_1, \omega_2$ are equivalent if there exists $c > 0$ such that $\omega_1 = c\, \omega_2$.
 Then, the previous exercise implies that the classes of equivalence $[\omega]$ of volume elements on $V$ uniquely determine orientations on $V$.
@@ -79,9 +79,9 @@ Tangent and cotangent spaces are vector spaces, so what we discussed in the prev
 Moreover, we can extend our point of view to the various tensor bundles over smooth manifold that we studied so far.
 Differential $n$-forms, then, seem a reasonable concept to define a notion of orientation for a manifold, at least if we think about their pointwise meaning of assigning an orientation to each fiber of $TM$.
 
-\begin{definition}
-	A \emph{volume form}\footnote{Sometimes also called \emph{orientation form}.} on a $n$-dimensional smooth manifold $M$ is a $n$-form $\omega\in\Omega^n(M)$ such that $\omega(p) \neq 0$ for all $p\in M$.
-	We say that $M$ is \emph{orientable} if there exists a volume form on $M$.
+\begin{definition}\idxdef{Volume form}\idxdef{Orientation-preserving diffeomorphism}
+	A \emph{volume form}\footnote{Sometimes also called \emph{orientation form}.}\idxdef{Volume form} on a $n$-dimensional smooth manifold $M$ is a $n$-form $\omega\in\Omega^n(M)$ such that $\omega(p) \neq 0$ for all $p\in M$.
+	We say that $M$ is \emph{orientable}\idxdef{Orientable manifold} if there exists a volume form on $M$.
 \end{definition}
 
 \begin{example}
@@ -162,7 +162,7 @@ Thus, in order to get a globally consistent ordering, we need to worry about the
 \end{proof}
 
 
-\begin{definition}
+\begin{definition}\idxdef{Oriented manifold}\idxdef{Orientation of a manifold}
 	A manifold $M$ with an oriented atlas is called \emph{oriented manifold}.
 	If an orientation exists, we call \emph{orientation} the equivalence class of atlases with the same orientation, i.e., the family of atlases whose union is still an oriented atlas.
 	Otherwise we say that the manifold is \emph{non-orientable}.
@@ -178,7 +178,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
 
 In fact, we can go one step further and define what does it mean for a diffeomorphism to preserve or reverse orientation.
 
-\begin{definition}
+\begin{definition}\idxdef{Orientation-preserving diffeomorphism}
 	Let $(M, \omega)$ and $(N, \eta)$ be pairs of an oriented smooth manifold and its volume form.
 	A diffeomorphism $F: M \to N$ is called \emph{orientation preserving} if $F^* \eta$ is a volume form on $M$ with the same orientation as $\omega$.
 	We call it \emph{orientation reversing} if $F^*\eta$ has the opposite orientation as $\omega$.
@@ -374,7 +374,7 @@ Let's keep things simple and go one step at a time.
 
 % TODO: properly explain how the change of variable in Euclidean space requires the absolute value of the Jacobian determinant while the transformation of a k-form only involves the determinant itself, and thus in our definition we need to take into account the orientation and compensate with a minus sign if necessary.
 
-\begin{definition}\label{def:intnform:chart}
+\begin{definition}\label{def:intnform:chart}\idxdef{Integral of n-forms supported on a single chart}
 	Let $M$ be a smooth $n$-manifold and $(U,\varphi)$ be a chart from an oriented atlas of $M$ with coordinates $(x^i)$.
 	If $\omega\in\Omega^n(M)$ is a $n$-form, $n > 0$, with compact support in $U$, we define the integral of $\omega$ as\sidenote[][-1em]{Recall that for a diffeomorphism $\phi$, $\phi_* = (\phi^{-1})^*$.}
 	\begin{equation}
@@ -418,7 +418,7 @@ To make sure that this definition makes sense, let's show that the integral is w
 
 To be able to integrate charts which are not supported in the domain of a single chart, we now need the help of a partition of unity.
 
-\begin{definition}
+\begin{definition}\idxdef{Integral of n-forms on manifolds}
 	Let $M$ be a smooth oriented manifold and $\cA = \{(U_i,\varphi_i)\}$ a positively oriented atlas.
 	If $\omega \in \Omega^n(M)$ has compact support, then the \emph{integral of $\omega$} is defined as
 	\begin{equation}\label{eq:intnform}
@@ -449,7 +449,7 @@ The definition above makes sense only if the value of the integral is independen
 \end{proof}
 
 Which immediately implies the following nice result.
-\begin{theorem}[Global change of variables]\label{thm:gcv}
+\begin{theorem}[Global change of variables]\label{thm:gcv}\idxthm{Global change of variables}
 	Suppose $M$ and $N$ are oriented $n$-manifolds and $F:M\to N$ is an orientation preserving diffeomorphism.
 	If $\omega\in\Omega^n(N)$ has compact support, then $F^*\omega$ has compact support and the following holds
 	\begin{equation}
@@ -608,7 +608,7 @@ This is a beautiful and very important result, with deep consequences. The most 
 
 We are going to state the theorem, discuss some of its consequences and then give its proof.
 
-\begin{theorem}[Stokes' theorem]\label{thm:Stokes}
+\begin{theorem}[Stokes' theorem]\label{thm:Stokes}\idxthm{Stokes' theorem}
 	Let $M$ be an oriented $n$-manifold with boundary and let $\omega\in\Omega^{n-1}(M)$ be compactly supported.
 	Then,
 	\begin{equation}\label{eq:Stokes}
