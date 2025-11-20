@@ -395,7 +395,7 @@ Instead of always constructing a topological manifold and then specify a smooth 
 This is especially useful when the initial set is not equipped with a topology.
 In this respect, the following lemma provides a welcome shortcut: in brief it says that given a set with suitable ``charts'' that overlap smoothly, we can use those to define both a topology and a smooth structure on the set.
 
-\begin{lemma}[Smooth manifold lemma]\label{lem:manifold_chart}
+\begin{lemma}[Smooth manifold lemma]\label{lem:manifold_chart}\idxthm{Smooth manifold lemma}
 	Let $M$ be a set. Assume that we are given a collection $\{U_\alpha\mid \alpha\in A\}$ of subsets of $M$ together with bijections $\varphi_\alpha: U_\alpha\to\varphi_\alpha(U_\alpha)\subseteq\R^n$, where $\varphi_\alpha(U_\alpha)$ is an open subset of $\R^n$. Assume in addition that the following hold:
 	\begin{enumerate}[(i)]
 		\item For each $\alpha, \beta \in A$, the sets $\varphi_\alpha(U_\alpha \cap U_\beta)$ and $\varphi_\beta(U_\alpha \cap U_\beta)$ are open in $\R^n$.
@@ -493,7 +493,11 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	\end{exercise}
 
 	\newthought{Let's first show that $\RP^n$ is a topological $n$-manifold}.
-	The structure of topological manifold follows immediately from the Theorem~\ref{thm:openproj} and $\pi$ being open, so let's prove that.
+	The structure of topological manifold follows directly from the Theorem~\ref{thm:openproj} and $\pi$ being open, so let's prove that.
+
+	\begin{exercise}
+		Assume that $\pi$ is an open map. Show that $\RP^n$ is a Hausdorff and second-countable topological manifold of dimension $n$.
+	\end{exercise}
 
 	Let $U\subset\R_0^{n+1}$, since $\pi$ is continuous by construction, $\pi(U)$ is open if $\pi^{-1}(\pi(U))$ is open in $\R^{n+1}_0$.
 	By definition
@@ -520,10 +524,10 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	\newthought{Let's equip $\RP^n$ with a smooth structure}.
 	We are already half-way through: we are going to show that the coordinate charts $(U_i, \varphi_i)$ defined above are, in fact, all smoothly compatible.
 	Without loss of generality, let's assume $i>j$.
-	Then, a brief computation shows
+	Then, a brief computation (requiring a lot of attention to the indices) shows
 	\begin{align}
-		\varphi_j\circ\varphi_i^{-1} & (y^1, \ldots, y^n)                                                                                                                                             \\
-		                             & = \left(\frac{y^1}{y^j},\ldots,\frac{y^{j-1}}{y^j},\frac{y^{j+1}}{y^j},\ldots,\frac{y^i}{y^j},\frac1{y^j},\frac{y^{i+1}}{y^j}, \ldots, \frac{y^n}{y^j}\right),
+		\varphi_j\circ\varphi_i^{-1} & (y^1, \ldots, y^n)                                                                                                                                                                       \\
+		                             & = \left(\frac{y^1}{y^{j+1}},\ldots,\frac{y^{j}}{y^{j+1}},\frac{y^{j+2}}{y^{j+1}},\ldots,\frac{y^i}{y^{j+1}},\frac1{y^{j+1}},\frac{y^{i+1}}{y^{j+1}}, \ldots, \frac{y^n}{y^{j+1}}\right),
 	\end{align}
 	which is a diffeomorphism from $\varphi_i(U_i\cap U_j)$ to $\varphi_j(U_i\cap U_j)$ since $x^j\neq 0$ on $U_j$.
 	The atlas defined by the collection $\{(U_i, \varphi_i)\}$ is called \emph{standard atlas} and makes $\RP^n$ a smooth manifold.
@@ -683,7 +687,7 @@ It can be useful to know that there are alternative ways to characterize smooth 
 
 The following corollary is just a restatement of Proposition~\ref{prop:smoothlocal}, but provides a useful perspective on the construction of smooth maps.
 
-\begin{proposition}[Gluing lemma for smooth maps]
+\begin{proposition}[Gluing lemma for smooth maps]\idxthm{Gluing lemma for smooth maps}
 	Let $M$ and $N$ be two smooth manifolds and let $\{U_\alpha\mid\alpha\in A\}$ be an open cover of $M$.
 	Suppose that for each $\alpha\in A$ we are given a smooth map $F_
 		\alpha:U_\alpha\to N$ such that the maps agree on the overlaps: $F_\alpha|_{U_\alpha\cap U_\beta} = F_\beta|_{U_\alpha\cap U_\beta}$ for all $\alpha,\beta\in A$.
@@ -706,7 +710,7 @@ This is a subtle but fundamental point. The charts themselves, at first, are mer
 The choice of a smooth atlas, ensures that we only select a family of charts whose transition maps, as euclidean functions, are smooth.
 This warrants the definition of a new type of map that extends the notion of homeomorphism from topological manifolds to smooth manifolds.
 
-\begin{definition}
+\begin{definition}\idxdef{Diffeomorphism between manifolds}
 	A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
 	%
 	Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomorphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
@@ -814,7 +818,7 @@ We will introduce those functions with a proposition, and will spend the rest of
 	\includegraphics{1_6-cutoffs.pdf}
 \end{figure}
 
-\begin{proposition}[Cutoff functions]\label{prop:cutoff}
+\begin{proposition}[Cutoff functions]\label{prop:cutoff}\idxthm{Existence of cutoff functions}
 	Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is closed and $U$ is open.
 	Then, there exists a smooth function $\chi: M \to\R$, called \emph{cutoff} function, with the following properties
 	\begin{enumerate}[(i)]
