@@ -243,12 +243,12 @@ The solution is to introduce a little more structure to the problem.
 
 With these at hand, let's jump into the definition of smooth manifolds.
 
-\begin{definition}\label{def:cratlas}\idxdef{Atlas}
+\begin{definition}\label{def:cratlas}\idxdef{Atlas}\idxdef{Open cover}
 	A \emph{smooth atlas} is a collection
 	\begin{equation}
 		\cA = \{\varphi_\alpha: U_\alpha \to V_\alpha \;\mid\; \alpha\in A\}
 	\end{equation}
-	of pairwise compatible charts that cover\footnote{I.e. such that $M = \cup_{\alpha\in A} U_\alpha$. One calls the set $\{U_\alpha \;\mid\; \alpha\in A\}$, covering $M$ with open sets, an \emph{open cover} of $M$. Here $A$ is some index set, not necessarily countable.} $M$.
+	of pairwise compatible charts that cover\footnote{I.e. such that $M = \cup_{\alpha\in A} U_\alpha$. One calls the set $\{U_\alpha \;\mid\; \alpha\in A\}$, covering $M$ with open sets, an \emph{open cover} of $M$. Here $A$ is some \emph{index set}, not necessarily countable.} $M$.
 
 	Two smooth atlases are \emph{equivalent} if their union is also a smooth atlas. That is if any two charts in the atlases are compatible.
 \end{definition}
@@ -270,7 +270,7 @@ With these at hand, let's jump into the definition of smooth manifolds.
 	\marginnote[1em]{There are no preferred coordinate charts on a manifold: all coordinate systems compatible with the differentiable structure are on equal footing.}
 \end{definition}
 
-\begin{notation}
+\begin{notation}\idxdef{Smooth chart}\idxdef{Smooth coordinate map}
 	By a \emph{smooth chart $(U, \varphi)$} in a smooth manifold $M$ we mean a chart in the maximal atlas of the differentiable structure of $M$, in this case we call $\phi$ a \emph{smooth coordinate map} on $M$. We say that the chart is around $p$ or about $p$ if $p\in U$.
 \end{notation}
 
@@ -310,7 +310,7 @@ Note that not all topological manifolds can be made into smooth manifolds, but c
 \end{exercise}
 
 \vspace{1em}
-\begin{notation}\label{ntn:coords}
+\begin{notation}\label{ntn:coords}\idxdef{Local coordinates}\idxdef{Coordinate functions}\idxdef{Standard coordinates $r^i$}
 	We will stick to the notation of~\cite{book:tu}.
 	In the context of manifolds, denote $r^i: \R^n\to\R$, $1\leq i\leq n$, the standard coordinates on $\R^n$.
 	With this notation, if $e_i$ denotes the $i$th standard basis vector\footnote{Identified with the \emph{point} $(0,\ldots,0,\LaTeXunderbrace{1}_{i\mbox{th component}},0,\ldots,0) \in\R^n$.} in $\R^n$, then $r^i(e_j) = \delta^i_j$.
@@ -495,7 +495,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	\newthought{Let's first show that $\RP^n$ is a topological $n$-manifold}.
 	The structure of topological manifold follows directly from the Theorem~\ref{thm:openproj} and $\pi$ being open, so let's prove that.
 
-	\begin{exercise}
+	\begin{exercise}\label{exe:RPnmanifold}
 		Assume that $\pi$ is an open map. Show that $\RP^n$ is a Hausdorff and second-countable topological manifold of dimension $n$.
 	\end{exercise}
 
@@ -504,7 +504,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	\begin{equation}
 		\pi^{-1}(\pi(U)) = \bigcup_{t\neq 0} tU = \bigcup_{t\neq 0}\{tp \mid p\in U\}.
 	\end{equation}
-	Since multiplication by $t\neq 0$ is a homeomorphism of $\R_0^{n+1}$, the set $t U$ is open for any $t$, as is their union, thus $\RP^n$ is both Hausdorff and second-countable.
+	Since multiplication by $t\neq 0$ is a homeomorphism of $\R_0^{n+1}$, the set $t U$ is open for any $t$, as is their union, thus it follows from Exercise~\ref{exe:RPnmanifold} that $\RP^n$ is both Hausdorff and second-countable.
 
 	For each $i=0,\ldots,n$, define $\widetilde U_i := \{x\in\R^{n+1}_0 \mid x^i\neq0\}$, the set where the $i$-th coordinate is not $0$, and let $U_i = \pi(\widetilde U_i)\subset \RP^n$.
 	Since $\widetilde U_i$ is open, $U_i$ is open.
@@ -515,7 +515,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	\end{align}
 	e.g. $\varphi_0([x^0, \ldots, x^n]) = (x^1/x_0, \ldots, x^n/x_0)$.
 	This map is well--defined because its value is unchanged by multiplying $x$ by a non-zero constant.
-	Moreover, $\varphi_i$ is continuous and invertible, the inverses can be computed explicitly\footnote{Check that the composition $\varphi_i \circ \varphi_i^{-1} = \id$. What happens if you define $\widetilde\varphi^{-1}_i(y^1, \ldots, y^n) := \left[y^1, \ldots, y^{i-1}, 42, y^{i+1}, \ldots, y^n\right]$, what would the corresponding $\widetilde\varphi_i$ be?} as
+	Moreover, $\varphi_i$ is continuous and invertible, the inverses can be computed explicitly\footnote{Check that the composition $\varphi_i \circ \varphi_i^{-1} = \id$. What happens if you define $\widetilde\varphi^{-1}_i(y^1, \ldots, y^n) := \left[y^1, \ldots, y^{i}, 42, y^{i+1}, \ldots, y^n\right]$, what would the corresponding $\widetilde\varphi_i$ be?} as
 	\begin{equation}
 		\varphi_i^{-1}(y^1,\ldots,y^n) = \left[y^1, \ldots, y^{i}, 1, y^{i+1}, \ldots, y^n\right].
 	\end{equation}
@@ -688,7 +688,7 @@ It can be useful to know that there are alternative ways to characterize smooth 
 The following corollary is just a restatement of Proposition~\ref{prop:smoothlocal}, but provides a useful perspective on the construction of smooth maps.
 
 \begin{proposition}[Gluing lemma for smooth maps]\idxthm{Gluing lemma for smooth maps}
-	Let $M$ and $N$ be two smooth manifolds and let $\{U_\alpha\mid\alpha\in A\}$ be an open cover of $M$.
+	Let $M$ and $N$ be two smooth manifolds and let $\{U_\alpha\mid\alpha\in A\}$ be an open cover of $M$ with some index set $A$.
 	Suppose that for each $\alpha\in A$ we are given a smooth map $F_
 		\alpha:U_\alpha\to N$ such that the maps agree on the overlaps: $F_\alpha|_{U_\alpha\cap U_\beta} = F_\beta|_{U_\alpha\cap U_\beta}$ for all $\alpha,\beta\in A$.
 	Then there exists a unique smooth map $F:M\to N$ such that $F|_{U_\alpha} = F_\alpha$ for each $\alpha\in A$.
