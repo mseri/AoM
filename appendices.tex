@@ -28,7 +28,7 @@ The definition may seem rather messy, in spite of the concept being quite intuit
 \end{exercise}
 One of the primary motivations for studying foliations arises from the concept of distributions, which at first might not seem related.
 \begin{definition}
-  Let $M$ be a smooth manifold. A distribution $\mathcal{D}$ on $M$ is a subpsace $\mathcal{D}\subset TM$ such that there exists a neighbourhood $U$ of every point $x\in M$ with the following property. Given $y\in U$, there exist vector fields $X_1,\dots,X_k$ such that $\mathcal{D}_y=\text{span}\{(X_1)_y,\dots,(X_k)_y\}$.
+  Let $M$ be a smooth manifold. A distribution $\mathcal{D}$ on $M$ is a subspace $\mathcal{D}\subset TM$ such that there exists a neighbourhood $U$ of every point $x\in M$ with the following property. Given $y\in U$, there exist vector fields $X_1,\dots,X_k$ such that $\mathcal{D}_y=\text{span}\{(X_1)_y,\dots,(X_k)_y\}$.
 \end{definition}
 Consequently $\mathcal{D}_x$ is a linear subspace of $T_xM$ for all $x\in M$. However, a distribution is not necessarily a sub-bundle of the tangent bundle, because the fibres may have different dimensions. If $\mathcal{D}$ is a sub-bundle of rank $k$, then we say that the distribution is regular. \par
 We can immediately give a reason for why we might want to consider such objects, as follows. In many physical systems, there are certain constraints to be imposed. One way we might think of such constraints, is a limitation on the paths that a particle is allowed to take, whether that is in phase space, or in physical space. Concretely, this means that at certain points, we want to exclude directions from the space of possible trajectories of this particle. As such, the space of velocities of the particle at a point $x\in M$ is no longer the entire tangent space, but rather a linear subspace $\mathcal{D}_x\subset T_xM$. We would then patch all of these subspaces together to get a distribution on $M$.
@@ -92,7 +92,7 @@ Again, here we have an equivalence between the ``integrability'' of a certain st
 \end{example}
 There is another prototypical symplectic manifold.
 \begin{theorem}
-  Complex projective space $\mathbb{CP}^n$ inherits a metric $h$ from $\mathbb{C}^{n+1}$ called the \emph{Fubini-Study metric}. Additionally, with respect to the Levi-Civita connection of $h$, it holds that $\nabla J=0$.  
+  Complex projective space $\mathbb{CP}^n$ inherits a metric $h$ from $\mathbb{C}^{n+1}$ called the \emph{Fubini-Study metric}. Additionally, with respect to the Levi-Civita connection of $h$, it holds that $\nabla J=0$.
 \end{theorem}
 \begin{corollary}
     The $2$-form defined by $\omega=h\circ J\otimes\text{id}$ is closed and non-degenerate. That is, $(\mathbb{CP}^n, \omega)$ is a symplectic manifold.
@@ -102,7 +102,7 @@ Notice that we are dealing with a very special manifold here. It has \textit{two
     A complex symplectic manifold $(M,\omega, J)$ such that $g=\omega(\cdot, J\cdot)$ defines a metric is called a \emph{Kähler manifold}.
 \end{definition}
 \begin{example}
-    Every complex submanifold $M\subseteq\mathbb{CP}^n$ is a Kähler manifold, by pulling back the Fubini-Study $2$-form to $M$. Notice that it isn't true that an arbitrary smooth submanifold of $\mathbb{CP}^n$ is a Kähler manifold! The condition that it is a \textit{complex} submanifold is crucial. Kähler manifolds are of great importance in algebraic geometry, and are also used by string theorists. 
+    Every complex submanifold $M\subseteq\mathbb{CP}^n$ is a Kähler manifold, by pulling back the Fubini-Study $2$-form to $M$. Notice that it isn't true that an arbitrary smooth submanifold of $\mathbb{CP}^n$ is a Kähler manifold! The condition that it is a \textit{complex} submanifold is crucial. Kähler manifolds are of great importance in algebraic geometry, and are also used by string theorists.
 \end{example}
 Next, we have an example from the realm of Poisson geometry. This is in some sense a generalisation of symplectic geometry. The theory of Poisson manifolds is a very active research area, related to quantisation of physical theories, as well as modelling constraints on physical systems.
 \begin{definition}
@@ -151,7 +151,7 @@ Now we can see how all the structures mentioned above can be unified through Dir
     Then $L$ is a (complex) Dirac structure if and only if $J$ is an integrable complex structure.
 \end{example}
 \begin{example}[Symplectic Geometry]
-    Let $(M,\omega)$ be an almost symplectic manifold. Define 
+    Let $(M,\omega)$ be an almost symplectic manifold. Define
     \begin{equation}
         L=\{X+\iota_X\omega\mid X\in TM\}\subseteq \mathbb{T}M
     \end{equation}
@@ -169,8 +169,8 @@ Now we can see how all the structures mentioned above can be unified through Dir
   A \emph{Lie algebroid} is a vector bundle $E\xrightarrow{\pi}M$ together with
   \begin{enumerate}
       \item a bracket $[\cdot,\cdot]$ such that $(\Gamma(E),[\cdot,\cdot])$ is a Lie algebra
-      \item a vector bundle morphism $\rho:E\to TM$ called the anchor, such that 
-      $$[X,f\cdot Y]=\rho(X)f\cdot Y+f\cdot[X,Y]$$ 
+      \item a vector bundle morphism $\rho:E\to TM$ called the anchor, such that
+      $$[X,f\cdot Y]=\rho(X)f\cdot Y+f\cdot[X,Y]$$
       for all $X,Y\in\Gamma(E)$, $f\in C^\infty(M)$
   \end{enumerate}
 \end{definition}
@@ -292,7 +292,7 @@ The curvature of a connection can be interpreted in several different ways. For 
   The expression for $\nabla_Y\nabla_X$ is derived similarly. It follows that
   \begin{align*}
     R(X,Y)e &= (XA(Y)-YA(X)-A([X,Y]))e \\
-            &\quad +(A(X)A(Y)-A(Y)A(X))e\\ 
+            &\quad +(A(X)A(Y)-A(Y)A(X))e\\
             &= dA(X,Y)e+A\wedge A(X,Y)e \\
             &= (dA+A\wedge A)(X,Y)e
   \end{align*}
