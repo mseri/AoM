@@ -413,8 +413,8 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
   In other words, $D(\varphi\circ\psi^{-1})(\psi(p))$ is the transition matrix from the basis $\left\{\frac{\partial}{\partial y^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ to the basis $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$.
 \end{remark}
 
-\begin{example}
-  The transition map between the standard euclidean coordinates and the polar coordinates on appropriate open sets in $\R^2$ is given by $(x,y) = (\rho\cos(\theta), \rho\sin(\theta))$. Let $p\in\R^2$ denote the point with coordinates $(\rho, \theta) = (3, \pi)$ and $v\in T_p\R^2$ the tangent vector with polar coordinate representation
+\begin{example}\label{ex:vec:chg_coords_polar}
+  The transition map between the standard euclidean coordinates and the polar coordinates on appropriate open sets in $\R^2$ is given by $(x,y) = \tau(\rho,\theta) = (\rho\cos(\theta), \rho\sin(\theta))$. Let $p\in\R^2$ denote the point with coordinates $(\rho, \theta) = (3, \pi)$ and $v\in T_p\R^2$ the tangent vector with polar coordinate representation
   \begin{equation}
     v = 5\frac{\partial}{\partial \rho}\Big|_p - \frac{\partial}{\partial \theta}\Big|_p.
   \end{equation}
@@ -496,6 +496,7 @@ Indeed, $v \mapsto d F_p (v)$ is a linear map (why?) defining a derivation at $F
 \begin{exercise}
   Answer the two \emph{(why?)} above.
 \end{exercise}
+
 \begin{exercise}
   Let $M = \R^3$ and $N = \R^2$ with coordinates $x=(x^1,x^2,x^3)$ and $y=(y^1,y^2)$ respectively.
   Consider the function $F(x^1,x^2,x^3) = (x^1 x^3, (x^2)^2-1)$.
@@ -548,6 +549,65 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
     D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p)) \frac{\partial}{\partial y^i}\Big|_{F(p)}.
   \end{align}
 \end{proof}
+
+\begin{example}
+Let's have another look at Example~\ref{ex:vec:chg_coords_polar}.
+The transition map $(x,y) = \tau(\rho,\theta) = (\rho\cos(\theta), \rho\sin(\theta))$ can itself be interpreted as a smooth map $\tau: M=\R_+\times(0,2\pi) \to N=\R^2$ between smooth manifolds.
+
+Let $p=(3, \pi) \in M$ and $v\in T_pM$ the tangent vector
+\begin{equation}
+  v = 5\frac{\partial}{\partial \rho}\Big|_p - \frac{\partial}{\partial \theta}\Big|_p,
+\end{equation}
+as in the example.
+If the theory developed here is correct, we should be able to recover the vector in cartesian coordinates as the vector in $T_{\tau(p)}N$ obtained by computing $d\tau_p(v)$.
+
+Applying $d\tau_p$ to $v$ we get
+\begin{align}
+  d\tau_p (v)
+    & = 5 d\tau_p \left(\frac{\partial}{\partial \rho}\Big|_p\right) - d\tau_p \left(\frac{\partial}{\partial \theta}\Big|_p\right) \\
+    & = 5 \left(\frac{\partial\, \rho \cos(\theta)}{\partial \rho}\Big|_p \frac{\partial}{\partial x}\Big|_{\tau(p)} + \frac{\partial\, \rho \sin(\theta)}{\partial \rho}\Big|_p \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)
+    \\
+    &\quad - \left(\frac{\partial\, \rho \cos(\theta)}{\partial \theta}\Big|_p \frac{\partial}{\partial x}\Big|_{\tau(p)} + \frac{\partial\, \rho \sin(\theta)}{\partial \theta}\Big|_p \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)               \\
+    & = 5 \left(-1 \frac{\partial}{\partial x}\Big|_{\tau(p)} + 0 \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)
+      - \left(0 \frac{\partial}{\partial x}\Big|_{\tau(p)} - 3 \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)               \\
+    & = -5 \frac{\partial}{\partial x}\Big|_{\tau(p)} + 3 \frac{\partial}{\partial y}\Big|_{\tau(p)},
+\end{align}
+which is exactly the same vector we obtained in Example~\ref{ex:vec:chg_coords_polar} by direct computation.
+
+Since $M$ and $N$ are open subsets of euclidean spaces, we can use the global charts given by the identity maps $\varphi = \id_M$ and $\psi = \id_N$.
+The Jacobian matrix of $\tau$ at $p$ is
+\begin{equation}
+  D\tau(p) =
+  \begin{pmatrix}
+    \cos(\pi) & -3\sin(\pi) \\
+    \sin(\pi) &  3\cos(\pi)
+  \end{pmatrix} =
+  \begin{pmatrix}
+    -1 &  0 \\
+     0 & -3
+  \end{pmatrix}.
+\end{equation}
+Thus, by Proposition~\ref{prop:DiffCoords}, the matrix of $d\tau_p$ with respect to the bases $\left\{\frac{\partial}{\partial \rho}\big|_p, \frac{\partial}{\partial \theta}\big|_p\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial x}\big|_{\tau(p)}, \frac{\partial}{\partial y}\big|_{\tau(p)}\right\}$ of $T_{\tau(p)}N$ is given by $D\tau(p)$.
+This means that we should be able to recover $d\tau_p(v)$ by multiplying the matrix $D\tau(p)$ by the coordinate vector of $v$ with respect to the basis $\left\{\frac{\partial}{\partial \rho}\big|_p, \frac{\partial}{\partial \theta}\big|_p\right\}$, which is $(5, -1)$.
+Indeed,
+\begin{equation}
+  D\tau(p) v =
+  \begin{pmatrix}
+    -1 & 0 \\
+    0  & -3
+  \end{pmatrix}
+  \begin{pmatrix}
+    5 \\ -1
+  \end{pmatrix} =
+  \begin{pmatrix}
+    -5 \\ 3
+  \end{pmatrix},
+\end{equation}
+which is the coordinate vector of $d\tau_p(v)$ with respect to the basis $\left\{\frac{\partial}{\partial x}\big|_{\tau(p)}, \frac{\partial}{\partial y}\big|_{\tau(p)}\right\}$.
+And, indeed, is the same vector as before\marginnote{Can you see why? Look carefully at the coefficients}.
+\end{example}
+
+This example leads us immediately to the following exercise and the observation that follows it.
 
 \begin{exercise}
   Show that the matrix of $d F_p$ in terms of the coordinate bases is
