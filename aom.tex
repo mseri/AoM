@@ -34,15 +34,15 @@
 \usepackage{graphicx} % allow embedded images
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \graphicspath{{images/}} % set of paths to search for images
-\usepackage{amsmath,amssymb,amsthm,amsfonts,ulem,tikz}  % extended mathematics
+\usepackage{amsmath,amssymb,amsthm,amsfonts}  % extended mathematics
+\usepackage[normalem]{ulem}
 \usepackage{booktabs} % book-quality tables
 \usepackage{units}    % non-stacked fractions and better unit spacing
 \usepackage{multicol} % multiple column layout facilities
-\usepackage{fancyvrb,xcolor} % extended verbatim environments
+\usepackage{fancyvrb} % extended verbatim environments
 \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
-\usepackage{tikz,tikz-cd,quiver,bbm,mathbbol}
+\usepackage{tikz,tikz-cd,quiver,mathbbol}
 \DeclareSymbolFontAlphabet{\mathbbl}{bbold} %let's you use \mathbbl{k} for a field k
-\hypersetup{colorlinks} %puts color to hyperlinks
 \setcounter{secnumdepth}{2}
 \usepackage{enumerate}
 \usepackage{mathabx}
@@ -97,7 +97,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \addQEDstyle{definition}{$\lozenge$}
 \newtheorem{conjecture}[theorem]{Conjecture}
-\addQEDstyle{conjecture}{$(\clubsuit)uit$}
+\addQEDstyle{conjecture}{$\clubsuit$}
 
 \theoremstyle{remark}
 \newtheorem{example}[theorem]{Example}
@@ -128,6 +128,9 @@ version={4.0},
 %\renewcommand{\bibfont}{\small}
 \usepackage{doi}
 \addbibresource{aom.bib}
+
+\usepackage{makeidx}
+\makeindex
 
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cC}{\mathcal{C}}
@@ -195,6 +198,16 @@ version={4.0},
 \newcommand{\todo}[1]{\footnote{\textcolor{red}{#1}}}
 \newcommand{\TODO}{\textcolor{red}{\hrulefill}}
 
+\usepackage{etoolbox}
+\ifcsdef{LaTeXunderbrace}{}{
+\newcommand{\LaTeXunderbrace}[2]{\underbrace{#1}_{#2}}
+\newcommand{\LaTeXoverbrace}[2]{\overbrace{#1}^{#2}}
+}
+
+\newcommand{\idx}[1]{\index{#1}}
+\newcommand{\idxdef}[1]{\index{Definitions!#1}}
+\newcommand{\idxthm}[1]{\index{Theorems!#1}}
+
 \title{Analysis\\ \noindent
   on\\ \noindent
   Manifolds
@@ -211,16 +224,16 @@ version={4.0},
 \newpage
 
 \begin{fullwidth}
-  ~\vfill
-  \thispagestyle{empty}
-  \setlength{\parindent}{0pt}
-  \setlength{\parskip}{\baselineskip}
-  Copyright \copyright\ \the\year\ \thanklessauthor
+	~\vfill
+	\thispagestyle{empty}
+	\setlength{\parindent}{0pt}
+	\setlength{\parskip}{\baselineskip}
+	Copyright \copyright\ \the\year\ \thanklessauthor
 
   \par Version \docversion -- \today
 
-  \vfill
-  \small{\doclicenseThis}
+	\vfill
+	\small{\doclicenseThis}
 \end{fullwidth}
 
 \pagenumbering{roman}
@@ -234,9 +247,9 @@ version={4.0},
 At the entry for \emph{Mathematical analysis}, our modern source of truth---Wikipedia---says
 
 \begin{quotation}
-  \emph{Mathematical analysis} is the branch of mathematics dealing with limits and related theories, such as differentiation, integration, measure, infinite series, and analytic functions.
+	\emph{Mathematical analysis} is the branch of mathematics dealing with limits and related theories, such as differentiation, integration, measure, infinite series, and analytic functions.
 
-  These theories are usually studied in the context of real numbers and functions. Analysis evolved from calculus, which involves the elementary concepts and techniques of analysis. Analysis may be distinguished from geometry; however, it can be applied to any space of mathematical objects that has a definition of nearness (a topological space) or specific distances between objects (a metric space).
+	These theories are usually studied in the context of real numbers and functions. Analysis evolved from calculus, which involves the elementary concepts and techniques of analysis. Analysis may be distinguished from geometry; however, it can be applied to any space of mathematical objects that has a definition of nearness (a topological space) or specific distances between objects (a metric space).
 \end{quotation}
 
 \newthought{In this sense}, our course will focus on generalizing the concepts of differentiation, integration and, up to some extent, differential equations to spaces that are more general than the standard Euclidean space.
@@ -244,7 +257,7 @@ We will do this by trying to make everything look Euclidean and, in this sense, 
 
 Euclidean spaces, and the Riemannian charts that you may have already encountered in the Geometry course, have a very strong property: they can be described with a set of \emph{global} coordinates.
 Even though this means that all computations are explicit, it does make it harder to distinguish \emph{intrinsic}\footnote{I.e. independent from the choice of coordinates.} concepts.
-Manifolds will force our hand to work in a \emph{coordinate-free} setting and isolate these instrisic concepts.
+Manifolds will force our hand to work in a \emph{coordinate-free} setting and isolate these intrinsic concepts.
 We will see that this will unleash a surprising power that will allow us to lay the foundation for a lot of the mathematics that will come in the rest of the curriculum.
 
 These notes will focus on fundamental ideas of differential geometry, in particular we will discuss manifolds, differential forms, integration, with a wink to the study of vector fields as dynamical systems and topology via cohomology.
@@ -257,7 +270,7 @@ This should not come as a surprise: differential geometry studies the natural sp
 
 An old mathematical joke says that
 \begin{quote}
-  differential geometry is the study of properties that are invariant under change of notation.
+	differential geometry is the study of properties that are invariant under change of notation.
 \end{quote}
 Sadly, this is \emph{funny because it is alarmingly close to the truth}\footnote{Cit. Lee~\cite{book:lee}.}.
 
@@ -265,7 +278,7 @@ You will soon see that different references use different notations for just abo
 I'll try to stick to the ones you used in the past courses when possible, falling back to~\cite{book:lee} and~\cite{book:tu} and to my personal preference when the latter disagree.
 
 \newthought{These lecture notes} are by no means comprehensive.
-As complementery sources you can use the textbook~\cite{book:tu} or the extensive reference~\cite{book:lee}.
+As complementary sources you can use the textbook~\cite{book:tu} or the extensive reference~\cite{book:lee}.
 You should have access to both books via the University library and, in addition, Lee's ebook can be downloaded via the University proxy on \href{https://link.springer.com/book/10.1007/978-1-4419-9982-5}{SpringerLink}.
 
 The book~\cite{book:McInerney} is a nice compact companion that develops most of the concepts of the course in the specific case of $\R^n$ and could provide further examples and food for thought.
@@ -278,7 +291,7 @@ In addition to the reference above, these lecture notes have found deep inspirat
 
 I am extremely grateful to Martijn Kluitenberg for his careful reading of the notes and his invaluable suggestions, comments and corrections, and to Bram Brongers\footnote{You can also have a look at \href{https://fse.studenttheses.ub.rug.nl/25344/}{his bachelor thesis} to learn more about some interesting advanced topics in differential geometry.} for his comments, corrections and the appendices that he contributed to these notes.\medskip
 
-Many thanks also to the following people for their comments and for reporting a number of misprints and corrections: Jamara Admiraal, Wojtek Anyszka, Bhavya Bhikha, Huub Bouwkamp, Anna de Bruijn, Daniel Cortlid, Harry Crane, Fionn Donogue, Jordan van Ekelenburg, Brian Elsinga, Hanneke van Harten, Martin Daan van IJcken, Mollie Jagoe Brown, Remko de Jong, Aron Karakai, Hanna Karwowska, Wietze Koops, Henrieke Krijgsheld, Justin Lin, Valeriy Malikov, Mar\'ia Diaz Marrero, Aiva Misieviciute, Levi Moes, Nicol\'as Moro, Alexandru Oprea, Magnus Petz, Jorian Pruim, Luuk de Ridder, Lisanne Sibma, Marit van Straaten, Bo Tielman, Dave Verweg, Ashwin Vishwakarma, Lars Wieringa, Federico Zadra, Tijmen van der Ree, and Jesse van der Zeijden.
+Many thanks also to the following people for their comments and for reporting a number of misprints and corrections: Jamara Admiraal, Wojtek Anyszka, Bhavya Bhikha, Huub Bouwkamp, Anna de Bruijn, Daniel Cortlid, Harry Crane, Fionn Donogue, Jordan van Ekelenburg, Brian Elsinga, Hanneke van Harten, Martin Daan van IJcken, Mollie Jagoe Brown, Remko de Jong, Aron Karakai, Hanna Karwowska, Wietze Koops, Henrieke Krijgsheld, Justin Lin, Valeriy Malikov, Mar\'ia Diaz Marrero, Aiva Misieviciute, Levi Moes, Nicol\'as Moro, Alexandru Oprea, Magnus Petz, Jorian Pruim, Luuk de Ridder, Lisanne Sibma, Marit van Straaten, Bo Tielman, Dave Verweg, Ashwin Vishwakarma, Lisa Werkman, Lars Wieringa, Federico Zadra, Tijmen van der Ree, and Jesse van der Zeijden.
 
 \mainmatter
 
@@ -290,11 +303,11 @@ Therefore, throughout these notes we will apply the \emph{Einstein summation con
 
 For instance, the expression
 \begin{equation}
-  a^{ij}b_l^k e_i e_k
+	a^{ij}b_l^k e_i e_k
 \end{equation}
 is a shorthand for
 \begin{equation}
-  \sum_{i,k} a^{ij}b_l^k e_i e_k.
+	\sum_{i,k} a^{ij}b_l^k e_i e_k.
 \end{equation}
 
 In general, we will use lower indices for basis of vector spaces\footnote{E.g., $(e_1,\ldots,e_n)$ could be the standard basis of $\R^n$.}, and upper indices for the components of a vector with respect to a basis\footnote{E.g., the $i$th-coordinate $x^i$ of $x\in\R^n$.}.
@@ -302,11 +315,11 @@ In general, we will use lower indices for basis of vector spaces\footnote{E.g., 
 
 Note that an upper index ``in the denominator'' is regarded as a lower index, so the following are to be considered equivalent:
 \begin{equation}
-  \sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i}.
+	\sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i}.
 \end{equation}
 In fact, the expressions below are all equivalent and commonly used in the differential geometry literature:
 \begin{equation}
-  \sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i} = a^i \partial_{x^i} = a^i \partial_i.
+	\sum_{i} a^i \frac{\partial}{\partial x^i} = a^i \frac{\partial}{\partial x^i} = a^i \partial_{x^i} = a^i \partial_i.
 \end{equation}
 
 \chapter{Manifolds}\label{ch:manifolds}
@@ -316,34 +329,34 @@ In fact, the expressions below are all equivalent and commonly used in the diffe
 \input{2-tangentbdl}
 
 \chapter{Submanifolds}\label{ch:sub}
-\input{2b-submanifolds}
+\input{3-submanifolds}
 
 \chapter{Vector fields}\label{ch:vf}
-\input{3-vectorfields}
+\input{4-vectorfields}
 
 \chapter{Vector bundles}\label{sec:vectorbundle}
-\input{2c-vectorbdl}
+\input{5-vectorbdl}
 
 \chapter{Cotangent bundle}\label{cg:ctb}
-\input{4-cotangentbdl}
+\input{6-cotangentbdl}
 
 \chapter{Tensor fields}\label{cg:tf}
-\input{5-tensors}
+\input{7-tensors}
 
 \chapter{Differential forms}
-\input{6-differentiaforms}
+\input{8-differentialforms}
 
 \chapter{De Rham cohomology and Poincar\'e lemma}
-\input{6b-cohomology}
+\input{9-cohomology}
 
 \chapter{Integration of forms}
-\input{7-integration}
+\input{10-integration}
 
 \begin{appendices}
-  \chapter{Lie groups and Lie algebras}\label{appendix:Lie}
-  \input{3b-liegroups}
+	\chapter{Lie groups and Lie algebras}\label{appendix:Lie}
+	\input{3b-liegroups}
 
-  \input{appendices}
+	\input{appendices}
 \end{appendices}
 
 % \begin{appendices}
@@ -361,4 +374,6 @@ In fact, the expressions below are all equivalent and commonly used in the diffe
 
 \printbibliography
 \addcontentsline{toc}{chapter}{Bibliography}
+\cleardoublepage
+\printindex
 \end{document}

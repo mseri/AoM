@@ -55,7 +55,7 @@ Without further ado, let's get started.
 \newthought{Since to speak of continuity we need topological spaces}, it may be a good idea to remind you what they are and set some notation.
 I will be very brief: if you need a more extensive reminder, you can refer to Appendix A of either~\cite{book:tu} or~\cite{book:lee}.
 
-\begin{definition}
+\begin{definition}\idxdef{Topological space}
 	Let $X$ be some set and $\cT$ a set of subsets of $X$.
 	A pair $(X, \cT)$ is a \emph{topological space}\footnote{In such case the elements $O\in\cT$ of $\cT$ are all subsets of $X$ called \emph{open} subsets and $\cT$ is a \emph{topology} on $X$.} if
 	\begin{enumerate}[(i)]
@@ -67,7 +67,7 @@ I will be very brief: if you need a more extensive reminder, you can refer to Ap
 
 With topological spaces at hand, we can give a definition of continuity and introduce a way to compare topological spaces.
 
-\begin{definition}
+\begin{definition}\idxdef{Continuous map}\idxdef{Homeomorphism}
 	A map $f: X \to Y$ between two topological spaces $(X,\cT)$ and $(Y, \cU)$ is called:
 	\begin{itemize}
 		\item \emph{continuous} if $U\in\cU$ implies that $f^{-1}(U)\in\cT$, that is, preimages of open sets under $f$ are open;
@@ -80,7 +80,7 @@ With topological spaces at hand, we can give a definition of continuity and intr
 	\vspace{5pt}
 \end{marginfigure}
 
-\begin{definition}
+\begin{definition}\idxdef{Hausdorff space}
 	A topological space $(X, \cT)$ is \emph{Hausdorff} if every two distinct points admit disjoint open neighbourhoods. That is, for every pair $x\neq y$ of points in $X$, there exist open subsets $U_x, U_y\in\cT$ such that $x\in U_x$, $y\in U_y$ and $U_x \cap U_y = \emptyset$.
 \end{definition}
 
@@ -96,7 +96,7 @@ You can see this for yourself with the following exercise.
 
 Hausdorff spaces are still rather general: in particular, any metric space with the metric topology\footnote{Recall that in a metric space $X$ the \emph{metric topology} is defined in the following way: a set $U\subset X$ is called open if for any $x\in U$ there exists $\epsilon>0$ such that $U$ fully contains the ball of radius $\epsilon$ around $x$.} is Hausdorff.
 
-\begin{definition}
+\begin{definition}\idxdef{Second countable}
 	A topological space $(X, \cT)$ is \emph{second countable} if there exists a countable set $\cB\subset\cT$ such that any open set can be written as a union of sets in $\cB$.
 	In such case, $\cB$ is called a (countable) basis for the topology $\cT$.
 \end{definition}
@@ -106,7 +106,7 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
 	Show that the topological space defined on $\R^n$ is Hausdorff and second countable.
 \end{exercise}
 
-\begin{definition}[Topological manifold]
+\begin{definition}[Topological manifold]\idxdef{Topological manifold}
 	A topological space\sidenote[][-1.5em]{From now on, if we say that $X$ is a topological space we are implying that there is a topology $\cT$ defined on $X$.} $M$ is a \emph{topological manifold} of dimension $n$, or topological $n$-manifold, if it has the following properties:
 	\marginnote[-0.5em]{Note that the finite dimensionality is a somewhat artificial restriction: manifolds can be infinitely dimensional~\cite{book:lang:infinite}. For example, the space of continuous functions between manifolds is a so-called infinite-dimensional Banach manifold.\vspace{1em}}
 	\begin{enumerate}[(i)]
@@ -116,7 +116,7 @@ Hausdorff spaces are still rather general: in particular, any metric space with 
 	\end{enumerate}
 \end{definition}
 
-\begin{notation}\label{def:coords_obj}
+\begin{notation}\label{def:coords_obj}\idxdef{Chart}
 	Reusing the notation of the definition above, we call \emph{(coordinate) chart} the pair $(U, \varphi)$ of a \emph{coordinate neighbourhood}\footnote{Or \emph{coordinate open set}} $U$ and an associated \emph{coordinate map}\footnote{Or \emph{coordinate system}.} $\varphi: U\to V$ onto an open subset $V=\varphi(U)\subseteq\R^n$ of $\R^n$.
 	Furthermore, we say that a chart is \emph{centred at $p\in U$} if $\varphi(p) = 0$.
 \end{notation}
@@ -168,7 +168,7 @@ Don't get scared by conditions (i) and (ii) in the definition of topological man
 	\begin{equation}
 		D_r(x) := \{z\in\R^n \;\mid\; d(z,x) \leq r\},
 	\end{equation}
-	is \emph{not} a topological manifold of dimension $n$. Can you see why? In fact, this is an example of a more general concept of \emph{manifold with boundary} that we will introduce later in Chapter~\ref{sec:mbnd}.
+	is \emph{not} a topological manifold of dimension $n$. Can you see why? In fact, this is an example of a more general concept of \emph{manifold with boundary} that we will introduce later in Section~\ref{sec:mbnd}.
 \end{example}
 
 \begin{example}
@@ -184,13 +184,13 @@ In our definition of topological manifolds, we are taking for granted that the d
 
 Before entering into the details of new definitions, let's recall what will be the most important tools throughout the rest of the course.
 
-\begin{definition}
+\begin{definition}\idxdef{Partition of unity}
 	A map $f: U \to V$ between open sets $U\subset\R^n$ and $V\subset\R^m$ is in $C^r(U,V)$ or \emph{of class $C^r$}, if it is continuously differentiable $r$-times.
 	It is called a $C^r$-\emph{diffeomorphism}\footnote{With this definition a homeomorphism is a $C^0$-diffeomorphism} if it is bijective and of class $C^r$ with inverse of class $C^r$.
 	We say that $f$ is \emph{smooth}, or of class $C^\infty$, if it is of class $C^r$ for every $r \geq 1$.
 \end{definition}
 
-\begin{theorem}[Chain rule]\label{thm:chainrule}
+\begin{theorem}[Chain rule]\label{thm:chainrule}\idxthm{Chain rule (Euclidean)}
 	Let $U\subseteq\R^n$ and $V\subseteq\R^k$ be open sets and $f: U \to \R^k$, $g: V\to\R^m$ two continuously differentiable functions such that $f(U)\subseteq V$.
 	Then, the following holds.
 	\begin{enumerate}[(i)]
@@ -243,12 +243,12 @@ The solution is to introduce a little more structure to the problem.
 
 With these at hand, let's jump into the definition of smooth manifolds.
 
-\begin{definition}\label{def:cratlas}
+\begin{definition}\label{def:cratlas}\idxdef{Atlas}\idxdef{Open cover}
 	A \emph{smooth atlas} is a collection
 	\begin{equation}
 		\cA = \{\varphi_\alpha: U_\alpha \to V_\alpha \;\mid\; \alpha\in A\}
 	\end{equation}
-	of pairwise compatible charts that cover\footnote{I.e. such that $M = \cup_{\alpha\in A} U_\alpha$. One calls the set $\{U_\alpha \;\mid\; \alpha\in A\}$, covering $M$ with open sets, an \emph{open cover} of $M$. Here $A$ is some index set, not necessarily countable.} $M$.
+	of pairwise compatible charts that cover\footnote{I.e. such that $M = \cup_{\alpha\in A} U_\alpha$. One calls the set $\{U_\alpha \;\mid\; \alpha\in A\}$, covering $M$ with open sets, an \emph{open cover} of $M$. Here $A$ is some \emph{index set}, not necessarily countable.} $M$.
 
 	Two smooth atlases are \emph{equivalent} if their union is also a smooth atlas. That is if any two charts in the atlases are compatible.
 \end{definition}
@@ -257,7 +257,7 @@ With these at hand, let's jump into the definition of smooth manifolds.
 	Show that the equivalence of atlases is really an equivalence relation.
 \end{exercise}
 
-\begin{definition}\label{def:diffstr}
+\begin{definition}\label{def:diffstr}\idxdef{Smooth structure}
 	A \emph{differentiable structure}, or more precisely a \emph{smooth structure}, on a topological manifold is an equivalence class of smooth atlases.
 \end{definition}
 
@@ -265,12 +265,12 @@ With these at hand, let's jump into the definition of smooth manifolds.
 	The union of all atlases in a differentiable structure is the \emph{unique} \emph{maximal} atlas in the equivalence class.\footnote{There is a one-to-one correspondence between differentiable structures and maximal differentiable atlases \cite[Proposition 1.17]{book:lee}: for convenience and to lighten the notation, from now on, we will always regard a differentiable structure as a differentiable maximal atlas without further comments.}
 \end{remark}
 
-\begin{definition}\label{def:diffmanifold}
+\begin{definition}\label{def:diffmanifold}\idxdef{Smooth manifold}
 	A \emph{smooth manifold} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold $M$ and a smooth structure $\cA$ on $M$.
 	\marginnote[1em]{There are no preferred coordinate charts on a manifold: all coordinate systems compatible with the differentiable structure are on equal footing.}
 \end{definition}
 
-\begin{notation}
+\begin{notation}\idxdef{Smooth chart}\idxdef{Smooth coordinate map}
 	By a \emph{smooth chart $(U, \varphi)$} in a smooth manifold $M$ we mean a chart in the maximal atlas of the differentiable structure of $M$, in this case we call $\phi$ a \emph{smooth coordinate map} on $M$. We say that the chart is around $p$ or about $p$ if $p\in U$.
 \end{notation}
 
@@ -310,7 +310,7 @@ Note that not all topological manifolds can be made into smooth manifolds, but c
 \end{exercise}
 
 \vspace{1em}
-\begin{notation}\label{ntn:coords}
+\begin{notation}\label{ntn:coords}\idxdef{Local coordinates}\idxdef{Coordinate functions}\idxdef{Standard coordinates $r^i$}
 	We will stick to the notation of~\cite{book:tu}.
 	In the context of manifolds, denote $r^i: \R^n\to\R$, $1\leq i\leq n$, the standard coordinates on $\R^n$.
 	With this notation, if $e_i$ denotes the $i$th standard basis vector\footnote{Identified with the \emph{point} $(0,\ldots,0,\LaTeXunderbrace{1}_{i\mbox{th component}},0,\ldots,0) \in\R^n$.} in $\R^n$, then $r^i(e_j) = \delta^i_j$.
@@ -376,7 +376,7 @@ dropping the distinction between $p$ and $x$, both in place of
 	The \emph{quotient topology} on $N$ is given by defining $U\subset N$ to be open if and only if its preimage $\pi^{-1}(U)\subset M$ is open.
 	If $\sim$ is an equivalence relation on $M$, the quotient space $M/\!\sim$ is the set of equivalence classes $[p]:=\{q\in M \mid p\sim q\}$ and the projection $\pi: M\to M/\!\sim$, $\pi(p) = [p]$, is a surjective map. Then $U\in M/\!\sim$ is open if $\cup_{[p]\in U} [p] \subset M$ is open.
 	Here $\R/\Z$ denotes the quotient space $\R/\!\sim$ where the equivalence relation is induced by the canonical group action of $\Z$ on $\R$, that is, $x\sim y$ if and only if $x-y\in\Z$.
-	This means that $[x] = \{x+k \mid k\in\Z\}$ and each interval $[x_0, x_0+1)$ of length $1$ contains exactly one representative per class. You can look further to Chapter~\ref{sec:quotient} for more information.
+	This means that $[x] = \{x+k \mid k\in\Z\}$ and each interval $[x_0, x_0+1)$ of length $1$ contains exactly one representative per class. You can look further to Section~\ref{sec:quotient} for more information.
 	Note that we are talking about topological spaces: the quotient, in general, does not preserve the Hausdorff property or second countability.} $\R/\Z$ with the two charts
 	\begin{equation}\textstyle
 		\varphi_1 : \R/\Z \setminus\{[0]\} \to (0,1)
@@ -395,7 +395,7 @@ Instead of always constructing a topological manifold and then specify a smooth 
 This is especially useful when the initial set is not equipped with a topology.
 In this respect, the following lemma provides a welcome shortcut: in brief it says that given a set with suitable ``charts'' that overlap smoothly, we can use those to define both a topology and a smooth structure on the set.
 
-\begin{lemma}[Smooth manifold lemma]\label{lem:manifold_chart}
+\begin{lemma}[Smooth manifold lemma]\label{lem:manifold_chart}\idxthm{Smooth manifold lemma}
 	Let $M$ be a set. Assume that we are given a collection $\{U_\alpha\mid \alpha\in A\}$ of subsets of $M$ together with bijections $\varphi_\alpha: U_\alpha\to\varphi_\alpha(U_\alpha)\subseteq\R^n$, where $\varphi_\alpha(U_\alpha)$ is an open subset of $\R^n$. Assume in addition that the following hold:
 	\begin{enumerate}[(i)]
 		\item For each $\alpha, \beta \in A$, the sets $\varphi_\alpha(U_\alpha \cap U_\beta)$ and $\varphi_\beta(U_\alpha \cap U_\beta)$ are open in $\R^n$.
@@ -426,7 +426,7 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
 	is a smooth manifold of dimension $n$.
 \end{exercise}
 
-\subsection{Quotient manifolds}\label{sec:quotient}
+\section{Quotient manifolds}\label{sec:quotient}
 
 If $M$ is a topological space and $\sim$ an equivalence relation we have seen that it is sometimes possible to define smooth manifolds.
 Since in general the quotient does not behave nicely it is convenient to get a few tricks to check if the manifold structure can be preserved.
@@ -493,14 +493,18 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	\end{exercise}
 
 	\newthought{Let's first show that $\RP^n$ is a topological $n$-manifold}.
-	The structure of topological manifold follows immediately from the Theorem~\ref{thm:openproj} and $\pi$ being open, so let's prove that.
+	The structure of topological manifold follows directly from the Theorem~\ref{thm:openproj} and $\pi$ being open, so let's prove that.
+
+	\begin{exercise}\label{exe:RPnmanifold}
+		Assume that $\pi$ is an open map. Show that $\RP^n$ is a Hausdorff and second-countable topological manifold of dimension $n$.
+	\end{exercise}
 
 	Let $U\subset\R_0^{n+1}$, since $\pi$ is continuous by construction, $\pi(U)$ is open if $\pi^{-1}(\pi(U))$ is open in $\R^{n+1}_0$.
 	By definition
 	\begin{equation}
 		\pi^{-1}(\pi(U)) = \bigcup_{t\neq 0} tU = \bigcup_{t\neq 0}\{tp \mid p\in U\}.
 	\end{equation}
-	Since multiplication by $t\neq 0$ is a homeomorphism of $\R_0^{n+1}$, the set $t U$ is open for any $t$, as is their union, thus $\RP^n$ is both Hausdorff and second-countable.
+	Since multiplication by $t\neq 0$ is a homeomorphism of $\R_0^{n+1}$, the set $t U$ is open for any $t$, as is their union, thus it follows from Exercise~\ref{exe:RPnmanifold} that $\RP^n$ is both Hausdorff and second-countable.
 
 	For each $i=0,\ldots,n$, define $\widetilde U_i := \{x\in\R^{n+1}_0 \mid x^i\neq0\}$, the set where the $i$-th coordinate is not $0$, and let $U_i = \pi(\widetilde U_i)\subset \RP^n$.
 	Since $\widetilde U_i$ is open, $U_i$ is open.
@@ -511,7 +515,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	\end{align}
 	e.g. $\varphi_0([x^0, \ldots, x^n]) = (x^1/x_0, \ldots, x^n/x_0)$.
 	This map is well--defined because its value is unchanged by multiplying $x$ by a non-zero constant.
-	Moreover, $\varphi_i$ is continuous and invertible, the inverses can be computed explicitly\footnote{Check that the composition $\varphi_i \circ \varphi_i^{-1} = \id$. What happens if you define $\widetilde\varphi^{-1}_i(y^1, \ldots, y^n) := \left[y^1, \ldots, y^{i-1}, 42, y^{i+1}, \ldots, y^n\right]$, what would the corresponding $\widetilde\varphi_i$ be?} as
+	Moreover, $\varphi_i$ is continuous and invertible, the inverses can be computed explicitly\footnote{Check that the composition $\varphi_i \circ \varphi_i^{-1} = \id$. What happens if you define $\widetilde\varphi^{-1}_i(y^1, \ldots, y^n) := \left[y^1, \ldots, y^{i}, 42, y^{i+1}, \ldots, y^n\right]$, what would the corresponding $\widetilde\varphi_i$ be?} as
 	\begin{equation}
 		\varphi_i^{-1}(y^1,\ldots,y^n) = \left[y^1, \ldots, y^{i}, 1, y^{i+1}, \ldots, y^n\right].
 	\end{equation}
@@ -520,10 +524,10 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	\newthought{Let's equip $\RP^n$ with a smooth structure}.
 	We are already half-way through: we are going to show that the coordinate charts $(U_i, \varphi_i)$ defined above are, in fact, all smoothly compatible.
 	Without loss of generality, let's assume $i>j$.
-	Then, a brief computation shows
+	Then, a brief computation (requiring a lot of attention to the indices) shows
 	\begin{align}
-		\varphi_j\circ\varphi_i^{-1} & (y^1, \ldots, y^n)                                                                                                                                             \\
-		                             & = \left(\frac{y^1}{y^j},\ldots,\frac{y^{j-1}}{y^j},\frac{y^{j+1}}{y^j},\ldots,\frac{y^i}{y^j},\frac1{y^j},\frac{y^{i+1}}{y^j}, \ldots, \frac{y^n}{y^j}\right),
+		\varphi_j\circ\varphi_i^{-1} & (y^1, \ldots, y^n)                                                                                                                                                                       \\
+		                             & = \left(\frac{y^1}{y^{j+1}},\ldots,\frac{y^{j}}{y^{j+1}},\frac{y^{j+2}}{y^{j+1}},\ldots,\frac{y^i}{y^{j+1}},\frac1{y^{j+1}},\frac{y^{i+1}}{y^{j+1}}, \ldots, \frac{y^n}{y^{j+1}}\right),
 	\end{align}
 	which is a diffeomorphism from $\varphi_i(U_i\cap U_j)$ to $\varphi_j(U_i\cap U_j)$ since $x^j\neq 0$ on $U_j$.
 	The atlas defined by the collection $\{(U_i, \varphi_i)\}$ is called \emph{standard atlas} and makes $\RP^n$ a smooth manifold.
@@ -683,8 +687,8 @@ It can be useful to know that there are alternative ways to characterize smooth 
 
 The following corollary is just a restatement of Proposition~\ref{prop:smoothlocal}, but provides a useful perspective on the construction of smooth maps.
 
-\begin{proposition}[Gluing lemma for smooth maps]
-	Let $M$ and $N$ be two smooth manifolds and let $\{U_\alpha\mid\alpha\in A\}$ be an open cover of $M$.
+\begin{proposition}[Gluing lemma for smooth maps]\idxthm{Gluing lemma for smooth maps}
+	Let $M$ and $N$ be two smooth manifolds and let $\{U_\alpha\mid\alpha\in A\}$ be an open cover of $M$ with some index set $A$.
 	Suppose that for each $\alpha\in A$ we are given a smooth map $F_
 		\alpha:U_\alpha\to N$ such that the maps agree on the overlaps: $F_\alpha|_{U_\alpha\cap U_\beta} = F_\beta|_{U_\alpha\cap U_\beta}$ for all $\alpha,\beta\in A$.
 	Then there exists a unique smooth map $F:M\to N$ such that $F|_{U_\alpha} = F_\alpha$ for each $\alpha\in A$.
@@ -706,7 +710,7 @@ This is a subtle but fundamental point. The charts themselves, at first, are mer
 The choice of a smooth atlas, ensures that we only select a family of charts whose transition maps, as euclidean functions, are smooth.
 This warrants the definition of a new type of map that extends the notion of homeomorphism from topological manifolds to smooth manifolds.
 
-\begin{definition}
+\begin{definition}\idxdef{Diffeomorphism between manifolds}
 	A \emph{diffeomorphism} $F$ between two smooth manifolds $M_1$ and $M_2$ is a bijective map such that $F\in C^\infty(M_1, M_2)$ and $F^{-1}\in C^\infty(M_2, M_1)$.
 	%
 	Two smooth manifolds $M_1$ and $M_2$ are called \emph{diffeomorphic} if there exists a diffeomorphism $F:M_1\to M_2$ between them.
@@ -814,7 +818,7 @@ We will introduce those functions with a proposition, and will spend the rest of
 	\includegraphics{1_6-cutoffs.pdf}
 \end{figure}
 
-\begin{proposition}[Cutoff functions]\label{prop:cutoff}
+\begin{proposition}[Cutoff functions]\label{prop:cutoff}\idxthm{Existence of cutoff functions}
 	Let $M$ be a smooth manifold and $K\subset U\subset M$ two subsets such that $K$ is closed and $U$ is open.
 	Then, there exists a smooth function $\chi: M \to\R$, called \emph{cutoff} function, with the following properties
 	\begin{enumerate}[(i)]
@@ -883,7 +887,7 @@ Instead, we will show a special case of Proposition~\ref{prop:cutoff}. The main 
 
 We are not there yet. To extend this result to our needs will need a new tool, which will be useful throughout the course and in many courses to come.
 
-\begin{definition}
+\begin{definition}\idxdef{Partition of unity}
 	Let $M$ be a smooth manifold. A \emph{partition of unity} is a collection $\{\rho_\alpha \mid \alpha\in A\}$ of functions $\rho_\alpha:M\to\R$ such that
 	\begin{enumerate}[(i)]
 		\item $0 \leq \rho_\alpha \leq 1$ for all $p\in M$ and $\alpha\in A$;
@@ -899,7 +903,7 @@ We are not there yet. To extend this result to our needs will need a new tool, w
 
 Throughout the course we will be mostly interested in partitions of unity $\{\rho_\alpha \mid \alpha\in A\}$ which are \emph{subordinate} to an open cover $\{U_\alpha\mid\alpha\in A\}$, that is, such that $\supp_\alpha(\rho_\alpha) \subset U_\alpha$ for each $\alpha\in A$.
 
-\begin{theorem}\label{thm:partitionof1}
+\begin{theorem}\label{thm:partitionof1}\idxthm{Partition of unity (existence)}
 	\marginnote[1.5em]{We are going to omit the proof of this theorem, for its details you can refer to~\cite[Proposition 13.6]{book:tu} or~\cite[Theorem 2.23]{book:lee}.}
 	Let $M$ be a smooth manifold. For any open cover $\{U_\alpha\mid\alpha\in A\}$ of $M$, there exists a partition of unity $\{\rho_\alpha \mid \alpha\in A\}$ subordinate to $\{U_\alpha\mid\alpha\in A\}$.
 \end{theorem}
@@ -972,7 +976,7 @@ With such definition at hand, one can define compatibility, smooth atlases and d
 	Explicitly state the definitions above in the case of manifolds with boundary.
 \end{exercise}
 
-\begin{definition}\label{def:diffmanifoldwb}
+\begin{definition}\label{def:diffmanifoldwb}\idxdef{Manifold with boundary}
 	\marginnote{Remember that the differentiable structure is an equivalence class of smooth atlases.}
 	A \emph{smooth manifold with boundary} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold with boundary $M$ and a smooth differentiable structure $\cA = \{(U_\alpha, \varphi_\alpha) \mid \alpha\in A\}$ on $M$.
 

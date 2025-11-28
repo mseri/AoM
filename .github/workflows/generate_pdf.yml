@@ -23,78 +23,80 @@ jobs:
   latex-job:
     needs: create_draft_release
     runs-on: ubuntu-latest
-    
+
     name: Compile And Upload PDF
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    
-    - name: Set git user
-      run: |
-        git config --global user.name github-actions
-        git config --global user.email github-actions-bot@users.noreply.github.com
-    
-    - name: Define env
-      run: |
-        echo "GITHUB_TAG=$(git describe --always --tags)" >> $GITHUB_ENV
-        echo "BUILD_DATE=$(date +'%Y_%m_%d')" >> $GITHUB_ENV
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - uses: actions/cache@v2
-      name: Tectonic Cache
-      with:
-        path: ~/.cache/Tectonic
-        key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
-        restore-keys: |
-          ${{ runner.os }}-tectonic-
+      - name: Set git user
+        run: |
+          git config --global user.name github-actions
+          git config --global user.email github-actions-bot@users.noreply.github.com
 
-    - uses: wtfjoke/setup-tectonic@v2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        biber-version: 2.17
- 
-    - name: Prepare env
-      run: |
-        sudo apt update
-        sudo apt install fonts-opendyslexic fonts-texgyre texlive-bibtex-extra biber
-        sudo rm -rf /usr/share/fonts/woff/opendyslexic
-        mkdir assets
+      - name: Define env
+        run: |
+          echo "GITHUB_TAG=$(git describe --always --tags)" >> $GITHUB_ENV
+          echo "BUILD_DATE=$(date +'%Y_%m_%d')" >> $GITHUB_ENV
 
-    - name: Run Tectonic
-      run: |
-        tectonic aom.tex
-        mv aom.pdf assets/aom-tg.pdf
+      - uses: actions/cache@v4
+        name: Tectonic Cache
+        with:
+          path: ~/.cache/Tectonic
+          key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-tectonic-
 
-    - name: Upload PDF
-      if: ${{ success() }}
-      uses: actions/upload-artifact@v4
-      with:
-        path: assets/aom-tg.pdf
-        name: aom-tg-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
-        if-no-files-found: error
-    
-    - name: Remove TeX Gyre font customizations, falls back to OpenDyslxic
-      run: sed -i.bak '12,14d' aom.tex
-   
-    - name: Run Tectonic
-      run: |
-        tectonic aom.tex
-        mv aom.pdf assets/aom-od.pdf
+      - uses: wtfjoke/setup-tectonic@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          biber-version: 2.17
 
-    - name: Upload PDF
-      if: ${{ success() }}
-      uses: actions/upload-artifact@v4
-      with:
-        path: assets/aom-od.pdf
-        name: aom-od-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
-        if-no-files-found: error
-    
-    - name: Upload release assets
-      if: ${{ success() && startsWith(github.ref, 'refs/tags/') }}
-      id: upload-release-assets
-      uses: dwenegar/upload-release-assets@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        release_id: ${{ needs.create_draft_release.outputs.id }}
-        assets_path: assets/
+      - name: Prepare env
+        run: |
+          sudo apt update
+          sudo apt install fonts-opendyslexic fonts-texgyre texlive-bibtex-extra biber texlive-binaries
+          sudo rm -rf /usr/share/fonts/woff/opendyslexic
+          mkdir assets
+
+      - name: Run Tectonic
+        run: |
+          tectonic aom.tex
+          makeindex aom.idx
+          mv aom.pdf assets/aom-tg.pdf
+
+      - name: Upload PDF
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v4
+        with:
+          path: assets/aom-tg.pdf
+          name: aom-tg-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
+          if-no-files-found: error
+
+      - name: Remove TeX Gyre font customizations, falls back to OpenDyslxic
+        run: sed -i.bak '12,14d' aom.tex
+
+      - name: Run Tectonic
+        run: |
+          tectonic aom.tex
+          makeindex aom.idx
+          mv aom.pdf assets/aom-od.pdf
+
+      - name: Upload PDF
+        if: ${{ success() }}
+        uses: actions/upload-artifact@v4
+        with:
+          path: assets/aom-od.pdf
+          name: aom-od-${{ env.BUILD_DATE }}-${{ env.GITHUB_TAG }}.pdf
+          if-no-files-found: error
+
+      - name: Upload release assets
+        if: ${{ success() && startsWith(github.ref, 'refs/tags/') }}
+        id: upload-release-assets
+        uses: dwenegar/upload-release-assets@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_id: ${{ needs.create_draft_release.outputs.id }}
+          assets_path: assets/
