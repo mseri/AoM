@@ -552,7 +552,7 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
 
 \begin{example}
 Let's have another look at Example~\ref{ex:vec:chg_coords_polar}.
-The transition map $(x,y) = \tau(\rho,\theta) = (\rho\cos(\theta), \rho\sin(\theta))$ can itself be interpreted as a smooth map $\tau: M=\R_+\times(0,2\pi) \to N=\R^2$ between smooth manifolds.
+The transition map $(x,y) = \tau(\rho,\theta) = (\rho\cos(\theta), \rho\sin(\theta))$ can itself be interpreted as a smooth map $\tau: \R_+\times(0,2\pi)=:M \to N:=\R^2$ between smooth manifolds.
 
 Let $p=(3, \pi) \in M$ and $v\in T_pM$ the tangent vector
 \begin{equation}
@@ -574,8 +574,8 @@ Applying $d\tau_p$ to $v$ we get
 \end{align}
 which is exactly the same vector we obtained in Example~\ref{ex:vec:chg_coords_polar} by direct computation.
 
-Since $M$ and $N$ are open subsets of euclidean spaces, we can use the global charts given by the identity maps $\varphi = \id_M$ and $\psi = \id_N$.
-The Jacobian matrix of $\tau$ at $p$ is
+Since $M$ and $N$ are open subsets of euclidean spaces, we can use their global charts given by the identity maps $\varphi = \id_M$ and $\psi = \id_N$.
+The Jacobian matrix of $\tau$ at $p$ is then simply given by
 \begin{equation}
   D\tau(p) =
   \begin{pmatrix}
@@ -604,7 +604,7 @@ Indeed,
   \end{pmatrix},
 \end{equation}
 which is the coordinate vector of $d\tau_p(v)$ with respect to the basis $\left\{\frac{\partial}{\partial x}\big|_{\tau(p)}, \frac{\partial}{\partial y}\big|_{\tau(p)}\right\}$.
-And, indeed, is the same vector as before\marginnote{Can you see why? Look carefully at the coefficients}.
+And, indeed, we obtained the same vector as before\footnote{Can you see why? Look carefully at the coefficients!}.
 \end{example}
 
 This example leads us immediately to the following exercise and the observation that follows it.
@@ -622,8 +622,8 @@ This example leads us immediately to the following exercise and the observation 
 	\textit{\small Hint: show that $d F_p \left(\frac{\partial}{\partial x^i}\big|_p\right) (f) = \left(\frac{\partial F^j}{\partial x^i} (p) \frac{\partial}{\partial y^j}\big|_{F(p)}\right) (f)$.}
 \end{exercise}
 
-\newthought{A particularly important consequence} of this theorem is that if we set $M=\R^m$ and $N=\R^n$ our definition coincides with the Euclidean notion.
-This is easily checked by taking $\varphi = \id_{\R^m}$ and $\psi=\id_{\R^n}$.
+\newthought{A particularly important consequence} of Proposition~\ref{prop:DiffCoords} is that if we set $M=\R^m$ and $N=\R^n$ our definition coincides with the Euclidean notion.
+This can be checked in full generality by taking $\varphi = \id_{\R^m}$ and $\psi=\id_{\R^n}$ along the lines of the previous example.
 Then the coordinates $(x^1,\ldots,x^m)$ are the standard Euclidean coordinates for $\R^m$ and the coordinates $(y^1,\ldots,y^n)$ the ones for $\R^n$.
 
 Let $f:U\subset\R^m\to\R^n$ be a smooth function and define the linear isomorphisms
@@ -665,7 +665,7 @@ More generally, the same kind of reasoning shows the following fact. For any smo
 \end{equation}
 where $T_x$ and $T_{F(x)}$ are defined as above.
 
-\newthought{An aspect of the construction above is particularly disturbing}: it forced us to fix a basis on the spaces; if this were truly necessary it would defeat the purpose of this whole chapter.
+\newthought{There is an aspect of the construction above that is particularly disturbing} to a differential geometer: it forced us to fix a basis on the spaces; if this were truly necessary it would defeat the purpose of this whole chapter.
 Fortunately for us, the following exercise shows that, at any given point, the tangent space to a vector space is \emph{canonically}\footnote{That is, independently of the choice of basis.} identified with the vector space itself.
 
 \begin{exercise}\label{ex:tg_curve_iso}
