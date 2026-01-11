@@ -460,28 +460,29 @@ We can also use the pullback to construct a diffeomorphism between tensor bundle
 \end{proposition}
 \begin{proof}
 	\newthought{Step I}.
-	We know that the pullback induces on the fibres a diffeomorphism of cotangent bundles. Let $p\in M$.
-	We have already seen that on the fibres the pullback is a diffeomorphism:
+	We know that the pullback induces on the fibres a diffeomorphism of cotangent bundles, obtained by collecting the pullbacks on each fibre into a single map:
 	\begin{equation}
 		T^*N \to T^* M, \quad
 		(q,\omega) \mapsto (\varphi^*\omega)_q = \left(\varphi^{-1}(q), d\varphi^*\omega|_{\varphi^{-1}(q)}\right).
 	\end{equation}
-	This can be inverted giving rise to the so-called \emph{cotangent lift}\footnote{This is often denoted also $\varphi_\sharp$.}
+	Since $\phi$ is a differential, this can be inverted giving rise to the so-called \emph{cotangent lift}\footnote{This is often denoted also $\varphi_\sharp$.} of $\varphi$:
 	\begin{equation}
-		d\varphi^\dagger :=(d\varphi)^\dagger := (\varphi^{-1})^*: T^*M \to T^*N.
+		d\varphi^\dagger: T^*M \to T^*N.
 	\end{equation}
+	This is a map that acts on each covector, pointwise, as $d(\varphi^{-1})^*$.%
 	\marginnote{An aid to understand this map is the following commuting diagram:
 		\begin{equation}\nonumber
 			\begin{tikzcd}[row sep=normal, column sep=normal, ampersand replacement=\&]
 				T_p^* M \arrow[d, "\pi_M" left] \arrow[r, "d\varphi^\dagger"] \& T^*_{\varphi(p)}N \arrow[d, "\pi_N"] \\
 				M \arrow[r, "\varphi" below] \& N
 			\end{tikzcd}
-		\end{equation}}
-	For any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
+		\end{equation}}%
+	Note that if $p\in M$, for any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
 	\begin{align}
-		(d\varphi^\dagger_p \omega \;\mid\; d\varphi_p v)_{\varphi(p)} & =  d(\varphi^{-1})^*(\omega|_{\varphi^{-1}\circ\varphi(p)} (d\varphi_p v) ) \\
-		                                                               & = \omega_p(d\varphi^{-1}_{\varphi(p)} \circ d\varphi_p v )                  \\
-		                                                               & = \omega_p(v) = (\omega \mid v)_p.
+		(d\varphi^\dagger_p \omega \;\mid\; d\varphi_p v)
+		& =  d(\varphi^{-1})^*(\omega|_{\varphi^{-1}\circ\varphi(p)} (d\varphi_p v) ) \\
+		& = \omega_p(d\varphi^{-1}_{\varphi(p)} \circ d\varphi_p v ) \\
+		& = \omega_p(v) = (\omega_p \mid v).
 	\end{align}
 
 	\newthought{Step II}.

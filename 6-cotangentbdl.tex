@@ -229,7 +229,7 @@ Its dual is going to be a map that pulls vector from one covector space to anoth
 	The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the differential
 	\marginnote[-1.5em]{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
 	\begin{equation}
-		dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto dF^*\omega,
+		dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto dF^*_p\omega,
 	\end{equation}
 	defined by duality in the following way\footnote{Or, omitting the point of application, $\left(dF^*\omega, v\right) := \left(\omega, dF(v)\right)$.}:
 	\begin{equation}
@@ -335,11 +335,11 @@ Since differential 1-forms are dual objects to tangent vectors, the action of a 
 	\end{equation}
 	defined by
 	\begin{equation}
-		(F^*\omega)_p := dF_p^*(\omega_{F(p)}).
+		(F^*\omega)_p := dF_p^*(\omega_{F(p)}), \quad \forall\, p\in M, \; \forall \omega\in\fX^*(N).
 	\end{equation}
 	By definition, this acts on vectors $v\in T_p M$ by
 	\begin{equation}
-		((F^*\omega)_p, v) = (\omega_{F(p)}, dF_p(v)) = \omega_{F(p)}(dF_p(v)).
+		((F^*\omega)_p \,|\, v) = (\omega_{F(p)} \,|\, dF_p(v)) = \omega_{F(p)}(dF_p(v)).
 	\end{equation}
 \end{definition}
 
@@ -365,7 +365,7 @@ Since differential 1-forms are dual objects to tangent vectors, the action of a 
 	For $p\in M$, denote $(V, (y^i))$ a chart on $N$ around $F(p)$ and let $U=F^{-1}(N)$.
 	If $\omega = \omega_j dy^j \in\fX^*(N)$, apply twice Exercise~\ref{ex:propdiff} to show that in $U$
 	\begin{equation}
-		F^*\omega = (\omega_j\circ F) d(y^j \circ F).
+		F^*\omega = (\omega_j\circ F)\, d(y^j \circ F).
 	\end{equation}
 
 	Let $F:\R^3\to\R^2$ be the map $(u,v) = F(x,y,z) = (x y^2, y \sin z)$.
