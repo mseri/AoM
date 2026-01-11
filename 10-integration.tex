@@ -395,7 +395,7 @@ Let's keep things simple and go one step at a time.
 	The compactness assumption here implies that there are only finitely many nonzero terms in the sum.
 \end{definition}
 
-To make sure that this definition makes sense, let's show that the integral is well-defined, that is, up to orientation it does not depend on the chosen chart.
+To make sure that our definition makes sense, let's show that the integral is well-defined, that is, up to orientation it does not depend on the chosen chart.
 
 \begin{lemma}\label{lemma:intindep:chart}
 	Suppose $\omega\in\Omega^n(M)$ with compact support $\supp \omega \subset U\cap V$, where $(U, \varphi)$ and $(V, \psi)$ are two positively oriented charts on the oriented manifold $M$.
@@ -415,6 +415,22 @@ To make sure that this definition makes sense, let's show that the integral is w
 		\int_{\varphi(W)} \varphi_*\omega = \int_{\psi(W)} \psi_*\omega.
 	\end{align}
 \end{proof}
+
+\begin{remark}
+  Definition~\ref{def:intnform:chart} reduces the integral to a usual Riemannian integral on $\R^n$ (or $\cH^n$). This is in principle blind to the orientation of the manifold, which is encoded in the choice of the chart from the oriented atlas.
+
+  If we consider a different chart $\psi$ and change coordinates, the Euclidean integral transforms as
+  \begin{align}
+    \int_{\R^n} \omega(x) d x^1\cdots dx^n  = \int_{\R^n} \omega(y) \left|\det(D\sigma^{-1}|_y)\right| d y^1\cdots dy^n,
+  \end{align}
+  where $\sigma = \psi\circ\varphi^{-1}$ is the corresponding transition map.
+  Comparing this with Proposition~\ref{prop:wedgeToJDet}, we see that the positivity of the Jacobian determinant $\det(D\sigma^{-1}|_y)$ is exactly what guarantees that our definition remain consistent.
+
+  It is possible, and customary, to extend the definition of integral to negatively oriented charts by manually adding a minus sign in front of the integral to compensate for the negative Jacobian determinant.
+
+  This can be pushed further and one can define integrals on non-orientable manifolds by means of densities, which are objects similar to differential forms but that transform with the absolute value of the Jacobian determinant.
+  However, this is beyond the scope of this course. You can find all the details in \cite[Chapter 16]{book:lee} or \cite[Chapters 6 and 7]{book:abrahammarsdenratiu}.
+\end{remark}
 
 To be able to integrate charts which are not supported in the domain of a single chart, we now need the help of a partition of unity.
 
