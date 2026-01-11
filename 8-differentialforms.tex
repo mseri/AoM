@@ -443,13 +443,14 @@ This local definition immediately extends to global one via the following theore
 	Locally, $\omega = \omega_I dy^I$, thus we get
 	\begin{align}
 		d F^* \omega|_U
-		 & = d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F) F^*(dy^{i_1})\wedge\cdots\wedge F^*(dy^{i_k})\right)          \\
-		 & = d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F) d(y^{i_1} \circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\right) \\
-		 & = d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F) dx^{i_1}\wedge\cdots\wedge dx^{i_k}\right)                    \\
-		 & = \sum_{I=(i_1,\ldots,i_k)} d(\omega_I\circ F)\wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k}                           \\
+		 & = d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F)\, F^*(dy^{i_1})\wedge\cdots\wedge F^*(dy^{i_k})\right)          \\
+		 & = d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F)\, d(y^{i_1} \circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)\right) \\
+		 & = d\left( \sum_{I=(i_1,\ldots,i_k)}(\omega_I\circ F)\, dx^{i_1}\wedge\cdots\wedge dx^{i_k}\right)                    \\
+		 & \stackrel{\eqref{eq:localdw}}{=} \sum_{I=(i_1,\ldots,i_k)} d(\omega_I\circ F)\wedge dx^{i_1}\wedge\cdots\wedge dx^{i_k}                           \\
 		 & = \sum_{I=(i_1,\ldots,i_k)} F^* d(\omega_I)\wedge d(y^{i_1}\circ F)\wedge\cdots\wedge d(y^{i_k}\circ F)            \\
 		 & = \sum_{I=(i_1,\ldots,i_k)} F^* d(\omega_I)\wedge F^*(dy^{i_1})\wedge\cdots\wedge F^*(dy^{i_k})                    \\
-		 & = F^*(d\omega|_{F(U)}),
+		 & = F^*\left( \sum_{I=(i_1,\ldots,i_k)} d\omega_I \wedge dy^{i_1}\wedge\cdots\wedge dy^{i_k} \right)            \\
+		 & \stackrel{\eqref{eq:localdw}}{=} F^*\left(d\omega|_{F(U)}\right),
 	\end{align}
 	where we repeatedly applied Proposition~\ref{thm:pullbacksdifferentialforms} and Exercise~\ref{ex:propdiff} to swap pushforwards and differentials.
 \end{proof}
@@ -469,8 +470,9 @@ This local definition immediately extends to global one via the following theore
 	\begin{align}
 		\varphi_1^*\left(d(\varphi_{1*}\omega)_{\varphi_1(U)}\right)
 		 & = \varphi_2^* (\varphi_2^{-1})^* \varphi_1^*\left(d(\varphi_{1*}\omega)_{\varphi_1(U)}\right) \\
-		 & = \varphi_2^* F^*\left(d(\varphi_{1*}\omega)_{\varphi_1(U)}\right)                            \\
-		 & = \varphi_2^* \left(d(F^*\varphi_{1*}\omega)_{\varphi_2(U)}\right)                            \\
+		 & = \varphi_2^* F^*\left(d(\varphi_{2*}(\varphi_{1}^{-1})_*\varphi_{1*}\omega)_{\varphi_2\circ\varphi_1^{-1}(\varphi_1(U))}\right) \\
+		 & = \varphi_2^* F^*\left(d(\varphi_{2*}\omega)_{\varphi_2(U)}\right)                            \\
+		 & = \varphi_2^* \left(d(F^*\varphi_{2*}\omega)_{\varphi_2(U)}\right)                            \\
 		 & = \varphi_2^* \left(d(\varphi_{2*}\omega)_{\varphi_2(U)}\right).
 	\end{align}
 \end{proof}
