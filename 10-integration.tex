@@ -417,19 +417,19 @@ To make sure that our definition makes sense, let's show that the integral is we
 \end{proof}
 
 \begin{remark}
-  Definition~\ref{def:intnform:chart} reduces the integral to a usual Riemannian integral on $\R^n$ (or $\cH^n$). This is in principle blind to the orientation of the manifold, which is encoded in the choice of the chart from the oriented atlas.
+	Definition~\ref{def:intnform:chart} reduces the integral to a usual Riemannian integral on $\R^n$ (or $\cH^n$). This is in principle blind to the orientation of the manifold, which is encoded in the choice of the chart from the oriented atlas.
 
-  If we consider a different chart $\psi$ and change coordinates, the Euclidean integral transforms as
-  \begin{align}
-    \int_{\R^n} \omega(x) d x^1\cdots dx^n  = \int_{\R^n} \omega(y) \left|\det(D\sigma^{-1}|_y)\right| d y^1\cdots dy^n,
-  \end{align}
-  where $\sigma = \psi\circ\varphi^{-1}$ is the corresponding transition map.
-  Comparing this with Proposition~\ref{prop:wedgeToJDet}, we see that the positivity of the Jacobian determinant $\det(D\sigma^{-1}|_y)$ is exactly what guarantees that our definition remain consistent.
+	If we consider a different chart $\psi$ and change coordinates, the Euclidean integral transforms as
+	\begin{align}
+		\int_{\R^n} \omega(x) d x^1\cdots dx^n  = \int_{\R^n} \omega(y) \left|\det(D\sigma^{-1}|_y)\right| d y^1\cdots dy^n,
+	\end{align}
+	where $\sigma = \psi\circ\varphi^{-1}$ is the corresponding transition map.
+	Comparing this with Proposition~\ref{prop:wedgeToJDet}, we see that the positivity of the Jacobian determinant $\det(D\sigma^{-1}|_y)$ is exactly what guarantees that our definition remain consistent.
 
-  It is possible, and customary, to extend the definition of integral to negatively oriented charts by manually adding a minus sign in front of the integral to compensate for the negative Jacobian determinant.
+	It is possible, and customary, to extend the definition of integral to negatively oriented charts by manually adding a minus sign in front of the integral to compensate for the negative Jacobian determinant.
 
-  This can be pushed further and one can define integrals on non-orientable manifolds by means of densities, which are objects similar to differential forms but that transform with the absolute value of the Jacobian determinant.
-  However, this is beyond the scope of this course. You can find all the details in \cite[Chapter 16]{book:lee} or \cite[Chapters 6 and 7]{book:abrahammarsdenratiu}.
+	This can be pushed further and one can define integrals on non-orientable manifolds by means of densities, which are objects similar to differential forms but that transform with the absolute value of the Jacobian determinant.
+	However, this is beyond the scope of this course. You can find all the details in \cite[Chapter 16]{book:lee} or \cite[Chapters 6 and 7]{book:abrahammarsdenratiu}.
 \end{remark}
 
 To be able to integrate charts which are not supported in the domain of a single chart, we now need the help of a partition of unity.
@@ -794,7 +794,8 @@ We are going to state the theorem, discuss some of its consequences and then giv
 		 & = \int_{0}^{2\pi} d\theta - \int_0^{2\pi}d \theta        \\
 		 & = 2\pi - 2\pi = 0.
 	\end{align}
-	Where in the second identity we used the fact that the boundary orientation on the inner circle is opposite to the one on the outer circle.
+	Where in the second identity we used the fact that the boundary orientation on the inner circle is opposite to the one on the outer circle\footnote{
+	One can see this by observing that $dx\wedge dy = \rho\, d\rho \wedge d\theta$ and thus the outer boundary is positively oriented, as $\iota_{\frac{\partial}{\partial \rho}} \rho\, d\rho \wedge d\theta|_{\rho = 1} = d\theta$. Conversely, the inner boundary is negatively oriented, since the outer normal points inward: $\iota_{-\frac{\partial}{\partial \rho}} \rho\, d\rho \wedge d\theta|_{\rho = \frac{1}{\sqrt{2}}} = - \frac{1}{\sqrt{2}} d\theta$. Note that since orientation is defined by an equivalence class of volume forms, only the sign of the coefficient relative to $d\theta$ determines the orientation.}.
 
 	An important consequence of this is that while locally $\omega$ is the differential of the angle function $\theta$, this cannot be exact on the full $M$: indeed, if $\omega = d\eta$ globally for some $\eta$, we would have that on any closed curve $\gamma$, $\int_\gamma \omega = \int_\gamma d\theta = \int_{\partial\gamma} \theta = 0$. In particular
 	\begin{equation}
