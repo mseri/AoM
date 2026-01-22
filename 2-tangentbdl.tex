@@ -357,7 +357,7 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 	Let $\varphi: U \to V$ be a chart on $M$ around $p$, i.e. $p\in U$.
 	Then any tangent vector $v\in T_p M$ can be uniquely written as a linear combination
 	\begin{equation}
-		v = v^i \frac{\partial}{\partial x^i}\Big|_p, \quad v_i = v(x^i).
+		v = v^i \frac{\partial}{\partial x^i}\Big|_p, \quad v^i = v(x^i).
 	\end{equation}
 	\marginnote[-3em]{$\leftarrow$ Since we consider upper indices in the denominator as lower indices, the equation should be read as $v = \sum_{i=1}^n v^i \frac{\partial}{\partial x^i}\Big|_p$. If $M=\R^n$, what we are saying here is that $v(f) = v\cdot\nabla f = Df\; v$, that is, $v$ acts as the directional derivative in its direction.}
 	Thus, $\left\{\frac{\partial}{\partial x^i}\Big|_p\;\mid\; 1\leq i\leq n\right\}$ is a basis of $T_p M$.
@@ -551,60 +551,60 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
 \end{proof}
 
 \begin{example}
-Let's have another look at Example~\ref{ex:vec:chg_coords_polar}.
-The transition map $(x,y) = \tau(\rho,\theta) = (\rho\cos(\theta), \rho\sin(\theta))$ can itself be interpreted as a smooth map $\tau: \R_+\times(0,2\pi)=:M \to N:=\R^2$ between smooth manifolds.
+	Let's have another look at Example~\ref{ex:vec:chg_coords_polar}.
+	The transition map $(x,y) = \tau(\rho,\theta) = (\rho\cos(\theta), \rho\sin(\theta))$ can itself be interpreted as a smooth map $\tau: \R_+\times(0,2\pi)=:M \to N:=\R^2$ between smooth manifolds.
 
-Let $p=(3, \pi) \in M$ and $v\in T_pM$ the tangent vector
-\begin{equation}
-  v = 5\frac{\partial}{\partial \rho}\Big|_p - \frac{\partial}{\partial \theta}\Big|_p,
-\end{equation}
-as in the example.
-If the theory developed here is correct, we should be able to recover the vector in cartesian coordinates as the vector in $T_{\tau(p)}N$ obtained by computing $d\tau_p(v)$.
+	Let $p=(3, \pi) \in M$ and $v\in T_pM$ the tangent vector
+	\begin{equation}
+		v = 5\frac{\partial}{\partial \rho}\Big|_p - \frac{\partial}{\partial \theta}\Big|_p,
+	\end{equation}
+	as in the example.
+	If the theory developed here is correct, we should be able to recover the vector in cartesian coordinates as the vector in $T_{\tau(p)}N$ obtained by computing $d\tau_p(v)$.
 
-Applying $d\tau_p$ to $v$ we get
-\begin{align}
-  d\tau_p (v)
-    & = 5 d\tau_p \left(\frac{\partial}{\partial \rho}\Big|_p\right) - d\tau_p \left(\frac{\partial}{\partial \theta}\Big|_p\right) \\
-    & = 5 \left(\frac{\partial\, \rho \cos(\theta)}{\partial \rho}\Big|_p \frac{\partial}{\partial x}\Big|_{\tau(p)} + \frac{\partial\, \rho \sin(\theta)}{\partial \rho}\Big|_p \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)
-    \\
-    &\quad - \left(\frac{\partial\, \rho \cos(\theta)}{\partial \theta}\Big|_p \frac{\partial}{\partial x}\Big|_{\tau(p)} + \frac{\partial\, \rho \sin(\theta)}{\partial \theta}\Big|_p \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)               \\
-    & = 5 \left(-1 \frac{\partial}{\partial x}\Big|_{\tau(p)} + 0 \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)
-      - \left(0 \frac{\partial}{\partial x}\Big|_{\tau(p)} - 3 \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)               \\
-    & = -5 \frac{\partial}{\partial x}\Big|_{\tau(p)} + 3 \frac{\partial}{\partial y}\Big|_{\tau(p)},
-\end{align}
-which is exactly the same vector we obtained in Example~\ref{ex:vec:chg_coords_polar} by direct computation.
+	Applying $d\tau_p$ to $v$ we get
+	\begin{align}
+		d\tau_p (v)
+		 & = 5 d\tau_p \left(\frac{\partial}{\partial \rho}\Big|_p\right) - d\tau_p \left(\frac{\partial}{\partial \theta}\Big|_p\right)                                                                                                        \\
+		 & = 5 \left(\frac{\partial\, \rho \cos(\theta)}{\partial \rho}\Big|_p \frac{\partial}{\partial x}\Big|_{\tau(p)} + \frac{\partial\, \rho \sin(\theta)}{\partial \rho}\Big|_p \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)
+		\\
+		 & \quad - \left(\frac{\partial\, \rho \cos(\theta)}{\partial \theta}\Big|_p \frac{\partial}{\partial x}\Big|_{\tau(p)} + \frac{\partial\, \rho \sin(\theta)}{\partial \theta}\Big|_p \frac{\partial}{\partial y}\Big|_{\tau(p)}\right) \\
+		 & = 5 \left(-1 \frac{\partial}{\partial x}\Big|_{\tau(p)} + 0 \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)
+		- \left(0 \frac{\partial}{\partial x}\Big|_{\tau(p)} - 3 \frac{\partial}{\partial y}\Big|_{\tau(p)}\right)                                                                                                                              \\
+		 & = -5 \frac{\partial}{\partial x}\Big|_{\tau(p)} + 3 \frac{\partial}{\partial y}\Big|_{\tau(p)},
+	\end{align}
+	which is exactly the same vector we obtained in Example~\ref{ex:vec:chg_coords_polar} by direct computation.
 
-Since $M$ and $N$ are open subsets of euclidean spaces, we can use their global charts given by the identity maps $\varphi = \id_M$ and $\psi = \id_N$.
-The Jacobian matrix of $\tau$ at $p$ is then simply given by
-\begin{equation}
-  D\tau(p) =
-  \begin{pmatrix}
-    \cos(\pi) & -3\sin(\pi) \\
-    \sin(\pi) &  3\cos(\pi)
-  \end{pmatrix} =
-  \begin{pmatrix}
-    -1 &  0 \\
-     0 & -3
-  \end{pmatrix}.
-\end{equation}
-Thus, by Proposition~\ref{prop:DiffCoords}, the matrix of $d\tau_p$ with respect to the bases $\left\{\frac{\partial}{\partial \rho}\big|_p, \frac{\partial}{\partial \theta}\big|_p\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial x}\big|_{\tau(p)}, \frac{\partial}{\partial y}\big|_{\tau(p)}\right\}$ of $T_{\tau(p)}N$ is given by $D\tau(p)$.
-This means that we should be able to recover $d\tau_p(v)$ by multiplying the matrix $D\tau(p)$ by the coordinate vector of $v$ with respect to the basis $\left\{\frac{\partial}{\partial \rho}\big|_p, \frac{\partial}{\partial \theta}\big|_p\right\}$, which is $(5, -1)$.
-Indeed,
-\begin{equation}
-  D\tau(p) v =
-  \begin{pmatrix}
-    -1 & 0 \\
-    0  & -3
-  \end{pmatrix}
-  \begin{pmatrix}
-    5 \\ -1
-  \end{pmatrix} =
-  \begin{pmatrix}
-    -5 \\ 3
-  \end{pmatrix},
-\end{equation}
-which is the coordinate vector of $d\tau_p(v)$ with respect to the basis $\left\{\frac{\partial}{\partial x}\big|_{\tau(p)}, \frac{\partial}{\partial y}\big|_{\tau(p)}\right\}$.
-And, indeed, we obtained the same vector as before\footnote{Can you see why? Look carefully at the coefficients!}.
+	Since $M$ and $N$ are open subsets of euclidean spaces, we can use their global charts given by the identity maps $\varphi = \id_M$ and $\psi = \id_N$.
+	The Jacobian matrix of $\tau$ at $p$ is then simply given by
+	\begin{equation}
+		D\tau(p) =
+		\begin{pmatrix}
+			\cos(\pi) & -3\sin(\pi) \\
+			\sin(\pi) & 3\cos(\pi)
+		\end{pmatrix} =
+		\begin{pmatrix}
+			-1 & 0  \\
+			0  & -3
+		\end{pmatrix}.
+	\end{equation}
+	Thus, by Proposition~\ref{prop:DiffCoords}, the matrix of $d\tau_p$ with respect to the bases $\left\{\frac{\partial}{\partial \rho}\big|_p, \frac{\partial}{\partial \theta}\big|_p\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial x}\big|_{\tau(p)}, \frac{\partial}{\partial y}\big|_{\tau(p)}\right\}$ of $T_{\tau(p)}N$ is given by $D\tau(p)$.
+	This means that we should be able to recover $d\tau_p(v)$ by multiplying the matrix $D\tau(p)$ by the coordinate vector of $v$ with respect to the basis $\left\{\frac{\partial}{\partial \rho}\big|_p, \frac{\partial}{\partial \theta}\big|_p\right\}$, which is $(5, -1)$.
+	Indeed,
+	\begin{equation}
+		D\tau(p) v =
+		\begin{pmatrix}
+			-1 & 0  \\
+			0  & -3
+		\end{pmatrix}
+		\begin{pmatrix}
+			5 \\ -1
+		\end{pmatrix} =
+		\begin{pmatrix}
+			-5 \\ 3
+		\end{pmatrix},
+	\end{equation}
+	which is the coordinate vector of $d\tau_p(v)$ with respect to the basis $\left\{\frac{\partial}{\partial x}\big|_{\tau(p)}, \frac{\partial}{\partial y}\big|_{\tau(p)}\right\}$.
+	And, indeed, we obtained the same vector as before\footnote{Can you see why? Look carefully at the coefficients!}.
 \end{example}
 
 This example leads us immediately to the following exercise and the observation that follows it.
