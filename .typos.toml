@@ -1,0 +1,7 @@
+[default]
+extend-ignore-re = [
+    # Using rust regex crate syntax
+    # Ignore all words within the \label{...} and \ref{...} commands
+    # and all words within the \cite{...} command
+    "\\(label|ref|cite)\{[^\}]*\}",
+]
