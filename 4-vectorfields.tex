@@ -190,7 +190,7 @@ This whole discussion allows us to extend the notion of derivation at a point to
 \end{definition}
 
 Any vector field $X\in\fX(W)$ defines a derivation $\cX$ via $\cX(f) = Xf$. In fact the opposite is also true:
-\begin{proposition}
+\begin{proposition}\label{prop:vfderivationiso}
 	Let $M$ be a smooth manifold and $\emptyset\neq W\subset M$ an open set.
 	The set of derivations on $W$ and $\fX(W)$ are isomorphic as $C^\infty(W)$-modules.
 \end{proposition}
@@ -204,7 +204,9 @@ Any vector field $X\in\fX(W)$ defines a derivation $\cX$ via $\cX(f) = Xf$. In f
 	Since $X(f)=\cX(f)$ by construction, it is a smooth function for all $f\in C^\infty(W)$ and therefore is smooth as vector field, concluding the proof.
 \end{proof}
 
+\begin{tcolorbox}
 Therefore, from now on, we will also use vector fields and derivations of $C^\infty(M)$ interchangeably, and denote them by capital Latin letters.
+\end{tcolorbox}
 
 \section{Lie brackets}
 
@@ -229,9 +231,9 @@ One way to let it cancel out, is to consider the \emph{commutator} of the two ve
 \begin{equation}\label{def:commutator}
 	[X,Y] := X Y - Y X.
 \end{equation}
-Indeed, $[X,Y]$ is a derivation.
+Indeed, $[X,Y]$ is a derivation, and so by Proposition~\ref{prop:vfderivationiso} this also defines a vector field.
 
-\marginnote{Do not confound Lie with lie. Here Lie is the surname of Sophus Lie, an important Norwegian mathematician that lived in the second half of the 19th century.}
+\marginnote{Do not confound Lie with lie. Here Lie is the surname of \href{https://www.wikipedia.org/wiki/Sophus_Lie}{Sophus Lie}, an important Norwegian mathematician that lived in the second half of the 19th century.}
 \begin{definition}\idxdef{Lie bracket}
 	Let $X,Y\in\fX(W)$. We call \emph{Lie bracket} of $X$ and $Y$ the derivation given by their commutator $[X,Y] := X Y - Y X$.
 \end{definition}

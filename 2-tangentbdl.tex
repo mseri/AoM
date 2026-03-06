@@ -273,7 +273,11 @@ Showing that the opposite is also true will require a bit of work.
 
 This seemingly innocent proposition, has some very important consequences.
 
-First of all, from now on we are free to interpret tangent vectors in $T_p M$ as derivations of $C^\infty(W)$ at $p$ for \emph{any}\footnote{In particular, it is often convenient to have $W$ coincide with the domain of a chart or with the whole manifold $M$.} open set $W\subseteq M$ containing $p$.
+\begin{tcolorbox}
+First of all, from now on we are free to interpret tangent vectors in $T_p M$ as derivations of $C^\infty(W)$ at $p$ for \emph{any} open set $W\subseteq M$ containing $p$.
+
+In particular, it is often convenient to have $W$ coincide with the domain of a chart or with the whole manifold $M$.
+\end{tcolorbox}
 As it turns out, this allows us to give our first example of tangent vector.
 
 \begin{example}\label{ex:partialderivative}
@@ -284,7 +288,7 @@ As it turns out, this allows us to give our first example of tangent vector.
 		 & \frac{\partial}{\partial x^i}\Big|_p : C^\infty(U) \to \R,                                                             \\
 		 & \frac{\partial}{\partial x^i}\Big|_p (f) := \frac{\partial f}{\partial x^i}(p) := D_i(f\circ\varphi^{-1})(\varphi(p)).
 	\end{align}
-	From now on, it will get more and more convenient to draw commutative diagrams to see ``how things are moving around'':
+	It is already becoming more and more convenient to draw commutative diagrams to see ``how things are moving around'':
 	\begin{equation}
 		\begin{tikzcd}[column sep = huge, row sep = huge]
 			M\supset U \arrow[r, "\varphi" description] \arrow[d, "f" description] & V \subset\R^n \arrow [dl, "f\circ\varphi^{-1}" description]\\
