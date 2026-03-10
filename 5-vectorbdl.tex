@@ -87,9 +87,8 @@ Sound quite a mouthful, but turns out to be quite the right approach.
 		E := \bigsqcup_{p\in M} E_p, \qquad
 		\pi : E\to M \mbox{ such that } \pi : v_p \in E_p \mapsto p,
 	\end{equation}
-	and assume the following holds
+	and assume there exists an open cover $\{U_\alpha\}_{\alpha\in A}$ of $M$ for which the following holds
 	\begin{enumerate}[(i)]
-		\item there exists an open cover $\{U_\alpha\}_{\alpha\in A}$ of $M$;
 		\item for each $\alpha\in A$, there exists a bijection $\varPhi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha\times\R^k$ whose restriction $\varPhi_\alpha|_{E_p} : E_p \to \{p\}\times\R^k \sim \R^k$ is a linear isomorphism;
 		\item for each $\alpha,\beta \in A$ with $U_{\alpha\beta}:=U_\alpha \cap U_\beta \neq \emptyset$, there exists a matrix-valued smooth map $\tau_{\alpha\beta}: U_{\alpha\beta} \to GL(k,\R)$ such that\footnote{Here $\tau_{\alpha\beta}(p) v$ denotes the usual product of the $k\times k$ matrix $\tau_{\alpha\beta}(p)$ with the vector $v\in\R^k$.}
 		      \begin{align}
@@ -125,11 +124,11 @@ The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the
 		(\varphi_\alpha \times \id_k) \circ \varPhi_\alpha \circ \varPhi_\beta^{-1} \circ (\varphi_\beta \times \id_k)^{-1}.
 	\end{equation}
 	Such transition map is a diffeomorphism since it is the composition of diffeomorphisms.
-	Therefore properties (i) and (ii) of the theorem are satisfied.
+	Therefore properties (i) and (ii) of the Smooth Manifold Lemma are satisfied.
 
-	Property (iii) follows from the fact that $M$ is a manifold and thus the open cover $\{V_p | p \in M\}$ has a countable subcover.
+	Property (iii) of the Smooth Manifold Lemma follows from the fact that $M$ is a manifold and thus the open cover $\{V_p | p \in M\}$ has a countable subcover.
 
-	We are left with the Hausdorff property (iv).
+	We are left with the Hausdorff property, that is, property (iv) of the Smooth Manifold Lemma.
 	This can be checked in the same vein as we did for the analogous proof in the case of the tangent bundle:
 	if two vectors belong to the same space $E_p$, then they belong to one of the charts we have constructed and we can separate them taking the preimages of two disjoint open neighbourhoods of $\R^k$ containing them; if the two points belong to two distinct spaces $E_p$ and $E_q$, $p\neq q$, we can pick two disjoint neighbourhoods $V_p$ and $V_q$ so that their preimages $\pi^{-1}(V_p)$ and $\pi^{-1}(V_q)$ are disjoint coordinate neighbourhoods separating the two points.
 
