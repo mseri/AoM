@@ -4,43 +4,53 @@ However, the generalization of calculus to curved spaces will require us to care
 This process will help us to discover the rich geometric structure that lies at the root of derivation and integration, which ultimately is of great mathematical interest and has revolutionized mathematical physics.
 
 If you think carefully, this abstraction step was already in the air. Think about the concept of continuity.
+\medskip
 
-\begin{enumerate}
-	\item (High school) A function $f:\R\to\R$ is \emph{continuous} if you can draw it without lifting your pen from the page.
-	      Then, the derivative $f'(x)$ of $f$ at a point $x$ is just the slope of the function $f$ at the point $x$.
+\paragraph{High school.} A function $f:\R\to\R$ is \emph{continuous} if you can draw it without lifting your pen from the page.
 
-	\item (Analysis) A function is continuous if its left and right limits at each point exist and have the same value.
-	      Then, $f:\R\to\R$ is \emph{differentiable} at a point $x$ if the limit
-	      \begin{equation}
-		      f'(x) := \lim_{h\to0} \frac{f(x+h) - f(x)}{h}
-	      \end{equation}
-	      exists, and is \emph{continuously differentiable} if $x\mapsto f'(x)$ is itself a continuous function.
+\paragraph{Analysis.} A function is continuous if its left and right limits at each point exist and have the same value.
 
-	\item (Multivariable analysis) You generalized the concepts to functions with more than one variable.
-	      Continuity is practically unchanged but, now, a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is differentiable at $x=(x^1,\ldots,x^n)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix with respect to some chosen basis.} $T: \R^n\to\R^m$ such that
-	      \begin{equation}\label{eq:diff}
-		      \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
-	      \end{equation}
-	      The map $Df(x) := T$ is the \emph{total derivative}\sidenote[][-2em]{This is sometimes called (total) differential in multivariable analysis, but this terminology may become a source of confusion for us.} of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
-	      \begin{equation}\label{eq:jacobian}
-		      Df(x) = \begin{pmatrix}
-			      \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
-			      \vdots                               & \ddots & \vdots                               \\
-			      \frac{\partial f^m}{\partial x^1}(x) & \cdots & \frac{\partial f^m}{\partial x^n}(x) \\
-		      \end{pmatrix}.
-	      \end{equation}
-	      The notion of continuous differentiability is unchanged\footnote{Note how the spaces are changing though: since it takes values in the space of $m\times n$ matrices, the differential $x\mapsto Df(x)$ is in fact a mapping of $\R^n \to \R^{m\times n}$.}, and in fact for $m=n=1$ it coincides with the one you gave for real functions.
+\paragraph{Metric and topological spaces.} A map $f:X\to Y$ between \emph{topological spaces} is continuous if preimages of open sets under $f$ are open. More explicitly, $f$ is continuous if for every open set $O\subset Y$, $f^{-1}(O)\subset X$ is an open set.
+\medskip
 
-	\item (Metric and topological spaces) A map $f:X\to Y$ between \emph{topological spaces} is continuous if preimages of open sets under $f$ are open. More explicitly, $f$ is continuous if for every open set $O\subset Y$, $f^{-1}(O)\subset X$ is an open set.
+The latter immediately generalizes also to higher dimensional spaces, and can be directly taken as definition for \emph{Multivariable Analysis}. This already hints at the need to maintain topological spaces as a central underlying structure for our further discussions.
+\medskip
 
-	      If $X$ and $Y$ are \emph{metric spaces}, then this reduces to the definition given above.
-	      But how can we make sense of differentiability in this case?
+\newthought{Central to analysis is also the notion of derivation}, and then things get more interesting and challenging. Again, let's step trough the various stages of abstraction you likely saw until now.
+\medskip
 
-	      If you have taken a course on calculus of variations, you know that you can make sense of~\eqref{eq:diff} and give a notion of differentiability in the case $X$ and $Y$ are Banach spaces\footnote{Complete normed vector spaces.}.
-	      In general, a topological space is \emph{not} a vector space: there is no notion of adding points and, least of all, one of linearity.
-\end{enumerate}
+\paragraph{High school.} The derivative $f'(x)$ of $f$ at a point $x$ is just the slope of the function $f$ at the point $x$.
 
-This is where differential geometry comes into play.
+\paragraph{Analysis.} We make it more precise by saying that $f:\R\to\R$ is \emph{differentiable} at a point $x$ if the limit
+\begin{equation}
+  f'(x) := \lim_{h\to0} \frac{f(x+h) - f(x)}{h}
+\end{equation}
+exists, defining in this way its derivative $f'$.
+
+This new function $f'$ does not need to be continuous, so we say that $f$ \emph{continuously differentiable} if $x\mapsto f'(x)$ is itself a continuous function.
+
+\paragraph{Multivariable analysis.} Now things start getting interesting. To generalize derivatives to functions with more than one variable we suddenly need more structure: a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is \emph{differentiable} at $x=(x^1,\ldots,x^n)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix with respect to some chosen basis.} $T: \R^n\to\R^m$ such that
+\begin{equation}\label{eq:diff}
+  \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
+\end{equation}
+The map $Df(x) := T$ is the \emph{total derivative}\footnote{This is sometimes called (total) differential in multivariable analysis, but this terminology may become a source of confusion for us.} of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
+\begin{equation}\label{eq:jacobian}
+  Df(x) = \begin{pmatrix}
+    \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
+    \vdots                               & \ddots & \vdots                               \\
+    \frac{\partial f^m}{\partial x^1}(x) & \cdots & \frac{\partial f^m}{\partial x^n}(x) \\
+  \end{pmatrix}.
+\end{equation}
+The notion of continuous differentiability is unchanged\footnote{Note how the spaces are changing though: since it takes values in the space of $m\times n$ matrices, the differential $x\mapsto Df(x)$ is in fact a mapping of $\R^n \to \R^{m\times n}$.}, and in fact for $m=n=1$ it coincides with the one you gave for real functions.
+\medskip
+
+As we discussed above, the definition of continuity is extremely general. And defining limits in general is not a problem\footnote{They can be defined \href{https://en.wikipedia.org/wiki/Filter_(mathematics)#Examples}{very abstractly in terms of filters}.}. Moreover, if $X$ and $Y$ are \emph{metric spaces}, the definition of continuity reduces to the definition given above for instance.
+But how can we make sense of differentiability in the general case?
+
+If you have taken a course on \emph{Calculus of Variations}, you probably know that you can make sense of~\eqref{eq:diff} and give a notion of differentiability in the case $X$ and $Y$ are Banach spaces\footnote{Complete normed vector spaces, possibly infinite dimensional.}.
+But, in general, a topological space is \emph{not} a vector space: there is no notion of adding points and, least of all, one of linearity.
+
+\newthought{This is where differential geometry comes into play}.
 The rest of this chapter will be devoted to the introduction of \emph{smooth manifolds}, which are a class of topological spaces on which it is possible to make sense of the notion of differentiation---even though they are not necessarily vector spaces---and which allows us to reason in a way that will not depend on the way we define coordinates on them.
 
 We will do this in two stages.
