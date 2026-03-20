@@ -403,7 +403,7 @@ This will be extremely useful soon, when we start dealing with differential form
 	\end{equation}
 \end{definition}
 
-To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\omega \in\cT_s^0(N)$, then we define $f\otimes \omega := f\omega$ and $F^* f := f\circ F$.
+To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\omega \in\cT_s^0(N)$, $\sigma \in\cT_s^0(P)$ then we define $f\otimes \omega := f\omega$ and $F^* f := f\circ F$.
 
 \begin{exercise}
 	Show that the tensor pullback satisfies the following properties.
@@ -412,7 +412,7 @@ To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\
 		\item $F^*(f\otimes\omega) = F^*(f \omega) = (f\circ F) F^*\omega = (F^* f)(F^*\omega)$;
 		\item $F^*(\omega\otimes\nu) = F^*\omega\otimes F^*\nu$;
 		\item $F^*(\omega + \nu) = F^*\omega + F^*\nu$;
-		\item $(G\circ F)^*\omega = F^*(G^* \omega)$;
+		\item $(G\circ F)^*\sigma = F^*(G^* \sigma)$;
 		\item $(\id_N)^* \omega = \omega$.
 	\end{enumerate}
 \end{exercise}
@@ -480,9 +480,9 @@ We can also use the pullback to construct a diffeomorphism between tensor bundle
 	Note that if $p\in M$, for any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
 	\begin{align}
 		(d\varphi^\dagger_p \omega \;\mid\; d\varphi_p v)
-		& =  d(\varphi^{-1})^*_{\varphi^{-1}\circ\varphi(p)}\omega (d\varphi_p v) \\
-		& = \omega(d\varphi^{-1}_{\varphi(p)} \circ d\varphi_p v ) \\
-		& = \omega(v) = (\omega \mid v).
+		 & =  d(\varphi^{-1})^*_{\varphi^{-1}\circ\varphi(p)}\omega (d\varphi_p v) \\
+		 & = \omega(d\varphi^{-1}_{\varphi(p)} \circ d\varphi_p v )                \\
+		 & = \omega(v) = (\omega \mid v).
 	\end{align}
 
 	\newthought{Step II}.
