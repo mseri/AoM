@@ -23,7 +23,7 @@ The latter immediately generalizes also to higher dimensional spaces, and can be
 
 \paragraph{Analysis.} We make it more precise by saying that $f:\R\to\R$ is \emph{differentiable} at a point $x$ if the limit
 \begin{equation}
-  f'(x) := \lim_{h\to0} \frac{f(x+h) - f(x)}{h}
+	f'(x) := \lim_{h\to0} \frac{f(x+h) - f(x)}{h}
 \end{equation}
 exists, defining in this way its derivative $f'$.
 
@@ -31,20 +31,20 @@ This new function $f'$ does not need to be continuous, so we say that $f$ \emph{
 
 \paragraph{Multivariable analysis.} Now things start getting interesting. To generalize derivatives to functions with more than one variable we suddenly need more structure: a continuous function $f=(f^1, \ldots, f^m):\R^n\to\R^m$ is \emph{differentiable} at $x=(x^1,\ldots,x^n)\in\R^n$ if there is a \emph{linear map}\footnote{That is, $T$ is a $m\times n$ matrix with respect to some chosen basis.} $T: \R^n\to\R^m$ such that
 \begin{equation}\label{eq:diff}
-  \lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
+	\lim_{\|h\|\to 0} \frac{\|f(x+h) - f(x) - T h\|}{\|h\|} = 0.
 \end{equation}
 The map $Df(x) := T$ is the \emph{total derivative}\footnote{This is sometimes called (total) differential in multivariable analysis, but this terminology may become a source of confusion for us.} of $f$ and is nothing else than the Jacobian matrix of $f$ at the point $x$, that is
 \begin{equation}\label{eq:jacobian}
-  Df(x) = \begin{pmatrix}
-    \frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
-    \vdots                               & \ddots & \vdots                               \\
-    \frac{\partial f^m}{\partial x^1}(x) & \cdots & \frac{\partial f^m}{\partial x^n}(x) \\
-  \end{pmatrix}.
+	Df(x) = \begin{pmatrix}
+		\frac{\partial f^1}{\partial x^1}(x) & \cdots & \frac{\partial f^1}{\partial x^n}(x) \\
+		\vdots                               & \ddots & \vdots                               \\
+		\frac{\partial f^m}{\partial x^1}(x) & \cdots & \frac{\partial f^m}{\partial x^n}(x) \\
+	\end{pmatrix}.
 \end{equation}
 The notion of continuous differentiability is unchanged\footnote{Note how the spaces are changing though: since it takes values in the space of $m\times n$ matrices, the differential $x\mapsto Df(x)$ is in fact a mapping of $\R^n \to \R^{m\times n}$.}, and in fact for $m=n=1$ it coincides with the one you gave for real functions.
 \medskip
 
-As we discussed above, the definition of continuity is extremely general. And defining limits in general is not a problem\footnote{They can be defined \href{https://en.wikipedia.org/wiki/Filter_(mathematics)#Examples}{very abstractly in terms of filters}.}. Moreover, if $X$ and $Y$ are \emph{metric spaces}, the definition of continuity reduces to the definition given above for instance.
+As we discussed above, the definition of continuity is extremely general. And defining limits in general is not a problem\footnote{They can be defined \href{https://en.wikipedia.org/wiki/Filter_(mathematics)\#Examples}{very abstractly in terms of filters}.}. Moreover, if $X$ and $Y$ are \emph{metric spaces}, the definition of continuity reduces to the definition given above for instance.
 But how can we make sense of differentiability in the general case?
 
 If you have taken a course on \emph{Calculus of Variations}, you probably know that you can make sense of~\eqref{eq:diff} and give a notion of differentiability in the case $X$ and $Y$ are Banach spaces\footnote{Complete normed vector spaces, possibly infinite dimensional.}.
