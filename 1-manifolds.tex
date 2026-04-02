@@ -272,8 +272,13 @@ With these at hand, let's jump into the definition of smooth manifolds.
 \end{definition}
 
 \begin{remark}
-	The union of all atlases in a differentiable structure is the \emph{unique} \emph{maximal} atlas in the equivalence class.\footnote{There is a one-to-one correspondence between differentiable structures and maximal differentiable atlases \cite[Proposition 1.17]{book:lee}: for convenience and to lighten the notation, from now on, we will always regard a differentiable structure as a differentiable maximal atlas without further comments.}
+	The union of all atlases in a differentiable structure is the \emph{unique} \emph{maximal} atlas in the equivalence class.
+	There is a one-to-one correspondence between differentiable structures and maximal differentiable atlases \cite[Proposition 1.17]{book:lee}.
 \end{remark}
+
+\begin{tcolorbox}
+	For convenience and to lighten the notation, from now on, we will always regard a differentiable structure as a differentiable maximal atlas without further comments.
+\end{tcolorbox}
 
 \begin{definition}\label{def:diffmanifold}\idxdef{Smooth manifold}
 	A \emph{smooth manifold} of dimension $n$ is a pair $(M, \cA)$ of a topological $n$-manifold $M$ and a smooth structure $\cA$ on $M$.
@@ -380,7 +385,7 @@ dropping the distinction between $p$ and $x$, both in place of
 
 \begin{example}
 	The definition of smooth manifold does not require $M$ to be embedded into some ambient space as in the examples above.
-	In fact, we can define the differentiable manifold $\bS^1$ by equipping the topological quotient space\sidenote[][-11em]{
+	In fact, we can define the differentiable manifold $\bS^1$ by equipping the topological quotient space\sidenote[][-14em]{
 	There is a standard way to induce a topology on a quotient space.
 	Let $M$ be a topological space and $\pi:M\to N$ surjective.
 	The \emph{quotient topology} on $N$ is given by defining $U\subset N$ to be open if and only if its preimage $\pi^{-1}(U)\subset M$ is open.
@@ -473,7 +478,10 @@ Treating this will be far too much for the course, but we will provide along the
 For further reference, you can look at~\cite[Chapter 21]{book:lee}.
 
 Before moving on, below we are going to look at a couple of simpler, notable, examples of quotient manifolds.
-
+\begin{marginfigure}
+	\includegraphics{1_2_25-sphere}
+	\caption{The identification $\sim'$ of antipodal points maps the sphere to a disk. Embedding $\bS^n/\!\sim'$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^n = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself). }
+\end{marginfigure}
 \begin{example}
 	Let $\RP^n$ denote the $n$-dimensional \emph{real projective space}, that is, the space of lines in $\R^{n+1}$ passing through the origin.
 	This is a notable example of quotient manifold: we are going to show that $\RP^n$ is a smooth manifold of dimension $n$.
@@ -486,11 +494,6 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	Then, the \emph{real projective space} is the quotient space $\RP^n := \R^{n+1}_0/\!\sim$.
 	For the sake of the example, let's denote the class of equivalence of a point $x=(x^0,\ldots,x^n)\in\R^{n+1}_0$ by $[x]=[x^0,\ldots,x^n]$ and the projection to the quotient by $\pi:\R^{n+1}_0\to\RP^n$.
 	The classes of equivalence $[x]$ are called \emph{homogeneous coordinates} on $\RP^n$.
-
-	\begin{marginfigure}
-		\includegraphics{1_2_25-sphere}
-		\caption{The identification $\sim'$ of antipodal points maps the sphere to a disk. Embedding $\bS^n/\!\sim'$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^n = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself). }
-	\end{marginfigure}
 	There is a nice interpretation of this construction in terms of flattening spheres.
 	Observe that a line through the origin always intersects a sphere $\bS^n$ at two antipodal points and, conversely, each pair of antipodal points determines a unique line through the center.
 	So we can define an equivalence relation on the sphere by identifying the antipodal points: given $x,y\in\bS^n$, $x\sim' y$ if and only if $x = \pm y$.
@@ -690,7 +693,7 @@ It can be useful to know that there are alternative ways to characterize smooth 
 	Let $M_1$ and $M_2$ be smooth manifolds.
 	Show that a map $F:M_1\to M_2$ is smooth if and only if either of the following conditions holds:
 	\begin{enumerate}
-		\item for every $p\in M_1$, there are smooth charts $(V_1,\phi_1)$, $p\in V_1$, and $(V_2,\phi_1)$, $F(p) \in V_2$, such that $F(V_1) \subseteq V_2$ and $\phi_2 \circ F \circ \phi_1^{-1}$ is smooth from $\phi_1(V_1)$ to $\phi_2(V_2)$;
+		\item for every $p\in M_1$, there are smooth charts $(V_1,\phi_1)$, $p\in V_1$, and $(V_2,\phi_2)$, $F(p) \in V_2$, such that $F(V_1) \subseteq V_2$ and $\phi_2 \circ F \circ \phi_1^{-1}$ is smooth from $\phi_1(V_1)$ to $\phi_2(V_2)$;
 		\item $F$ is continuous and there exists two smooth atlases $\{(V^1_\alpha, \phi^1_\alpha)\}$ and $\{(V^2_\beta, \phi^2_\beta)\}$, respectively for $M_1$ and $M_2$, such that for each $\alpha$ and $\beta$, $\phi^2_\beta \circ F \circ (\phi^1_\alpha)^{-1}$ is a smooth map from $\phi^1_\alpha(V^1_\alpha \cap F(V_\beta^2))$ to $\phi^2_\beta(V^2_\beta)$.
 	\end{enumerate}
 \end{exercise}
