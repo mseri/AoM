@@ -247,7 +247,8 @@ version={4.0},
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-At the entry for \emph{Mathematical analysis}, our modern source of truth---Wikipedia---says
+At the entry for \href{https://en.wikipedia.org/wiki/Mathematical_analysis}{\emph{Mathematical analysis}}, our modern source of truth---Wikipedia---says
+\medskip
 
 \begin{quotation}
 	\emph{Mathematical analysis} is the branch of mathematics dealing with limits and related theories, such as differentiation, integration, measure, infinite series, and analytic functions.
@@ -262,6 +263,7 @@ Euclidean spaces, and the Riemannian charts that you may have already encountere
 Even though this means that all computations are explicit, it does make it harder to distinguish \emph{intrinsic}\footnote{I.e. independent from the choice of coordinates.} concepts.
 Manifolds will force our hand to work in a \emph{coordinate-free} setting and isolate these intrinsic concepts.
 We will see that this will unleash a surprising power that will allow us to lay the foundation for a lot of the mathematics that will come in the rest of the curriculum.
+\medskip
 
 These notes will focus on fundamental ideas of differential geometry, in particular we will discuss manifolds, differential forms, integration, with a wink to the study of vector fields as dynamical systems and topology via cohomology.
 If the time permits it, we may give a brief tour of Lie groups and Lie algebras, Riemannian metrics and the notion of curvature, or distributions and Frobenius theorem, depending on the preferences expressed in class.
@@ -271,28 +273,30 @@ Throughout the course and these notes, I will try to give particular emphasis on
 The course relies \emph{heavily} on your knowledge of linear and multilinear algebra, multivariable analysis and dynamical systems.
 This should not come as a surprise: differential geometry studies the natural space in which analysis, in the sense of derivation and integration, can be performed, and was born together with classical mechanics, somehow as unique discipline, before these started diverging on their own paths.
 
-An old mathematical joke says that
+\newthought{An old mathematical joke} says that
 \begin{quote}
 	differential geometry is the study of properties that are invariant under change of notation.
 \end{quote}
 Sadly, this is \emph{funny because it is alarmingly close to the truth}\footnote{Cit. Lee~\cite{book:lee}.}.
 
 You will soon see that different references use different notations for just about everything we are going to discuss.
-I'll try to stick to the ones you used in the past courses when possible, falling back to~\cite{book:lee} and~\cite{book:tu} and to my personal preference when the latter disagree.
+I'll try to stick to the ones that were used in our past courses when possible, falling back to~\cite{book:lee} and~\cite{book:tu} and to my personal preference when the latter disagree.
 
 \newthought{These lecture notes} are by no means comprehensive.
 As complementary sources you can use the textbook~\cite{book:tu} or the extensive reference~\cite{book:lee}.
 You should have access to both books via the University library and, in addition, Lee's ebook can be downloaded via the University proxy on \href{https://link.springer.com/book/10.1007/978-1-4419-9982-5}{SpringerLink}.
 
 The book~\cite{book:McInerney} is a nice compact companion that develops most of the concepts of the course in the specific case of $\R^n$ and could provide further examples and food for thought.
-The books \cite{book:nicolaescu}\footnote{Beware of typos, there are many.}, \cite{book:crane} and \cite{lectures:nanda}, freely available from the authors' website, are not really suitable as references for this course but provide fantastic resources for the readers that want to dig further and see where the material discussed in the course can lead.
+The books \cite{book:nicolaescu}\footnote{Beware of typos, there are many.}, \cite{book:crane} and \cite{lectures:nanda}, freely available from the authors' website, are not really suitable as references for this course but provide fantastic resources for the readers that want to dig deeper and see where the material discussed in the course can lead.
 Finally, a colleague mentioned~\cite{book:lang}. I don't have experience with this book but from a brief look it seems to follow a similar path as these lecture notes, so it might provide yet an alternative reference after all.
 
 The idea for the cut that I want to give to this course was inspired by the online \href{https://www.video.uni-erlangen.de/course/id/242}{Lectures on the Geometric Anatomy of Theoretical Physics} by Frederic Schuller, by the lecture notes of Stefan Teufel's Classical Mechanics course~\cite{lectures:teufel} (in German), by the classical mechanics book by Arnold~\cite{book:arnold} and by the Analysis of Manifolds chapter in~\cite{book:thirring}.
 In some sense I would like this course to provide the introduction to geometric analysis that I wish was there when I prepared my \href{https://www.mseri.me/lecture-notes-hamiltonian-mechanics/}{first edition} of the Hamiltonian mechanics course (see also my lecture notes for that course \cite{lectures:seri:hm}).
-In addition to the reference above, these lecture notes have found deep inspiration from~\cite{lectures:merry,lectures:hitchin} (all freely downloadable from the respective authors' websites), and from the book~\cite{book:abrahammarsdenratiu}.\medskip
+In addition to the references above, these lecture notes have found profound inspiration also from~\cite{lectures:merry,lectures:hitchin} (all freely downloadable from the respective authors' websites), and from the book~\cite{book:abrahammarsdenratiu}.
+\medskip
 
-I am extremely grateful to Martijn Kluitenberg for his careful reading of the notes and his invaluable suggestions, comments and corrections, and to Bram Brongers\footnote{You can also have a look at \href{https://fse.studenttheses.ub.rug.nl/25344/}{his bachelor thesis} to learn more about some interesting advanced topics in differential geometry.} for his comments, corrections and the appendices that he contributed to these notes.\medskip
+I am extremely grateful to Martijn Kluitenberg for his careful reading of the notes and his invaluable suggestions, comments and corrections, and to Bram Brongers\footnote{You can also have a look at \href{https://fse.studenttheses.ub.rug.nl/25344/}{his bachelor thesis} to learn more about some interesting advanced topics in differential geometry.} for his comments, corrections and the appendices that he contributed to these notes.
+\medskip
 
 Many thanks also to the following people for their comments and for reporting a number of misprints and corrections: Jamara Admiraal, Wojtek Anyszka, Bhavya Bhikha, Huub Bouwkamp, Anna de Bruijn, Daniel Cortlid, Harry Crane, Fionn Donogue, Jordan van Ekelenburg, Brian Elsinga, Hanneke van Harten, Martin Daan van IJcken, Mollie Jagoe Brown, Nicolas Jal\'on Stewart, Remko de Jong, Aron Karakai, Hanna Karwowska, Dalibor J\'an Kom\'arik, Wietze Koops, Tuluhan Kosova, Henrieke Krijgsheld, Justin Lin, Valeriy Malikov, Mar\'ia Diaz Marrero, Marcell Matk\'o, Aiva Misieviciute, Levi Moes, Nicol\'as Moro, Alexandru Oprea, Magnus Petz, Jorian Pruim, Luuk de Ridder, Lisanne Sibma, Marit van Straaten, Bo Tielman, Dave Verweg, Ashwin Vishwakarma, Lisa Werkman, Lars Wieringa, Federico Zadra, Tijmen van der Ree, and Jesse van der Zeijden.
 
