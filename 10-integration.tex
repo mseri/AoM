@@ -617,6 +617,45 @@ This corollary has deep consequences in classical mechanics, which we teach in t
 	One then calls $f:M\to \R$ integrable, saying $f\in L^1(M,\omega)$, if $\int_M|f|\omega < \infty$ and defines its integral as $\int_M f\omega := \int_M f^+\omega - \int_M f^-\omega$, where $f^\pm$ denote the positive and negative components of $f$ as in the Euclidean case.
 \end{remark}
 
+\section{Divergence with respect to a volume form}\label{sec:divergence}
+
+You are already familiar with the concept of divergence of a vector field from Multivariable Analysis. As it turns out, this is a special case of a much more general concept that holds for any differentiable manifold, as we are going to see now.
+
+\begin{definition}\idxdef{Divergence}
+	Let $M$ be a smooth $n$-manifold, $n\geq 1$, with volume form $\mu$, and let $X\in\fX(M)$.
+	The \emph{divergence of $X$ with respect to $\mu$} is the unique smooth function $\divergence_\mu X$ satisfying
+	\begin{equation}\label{eq:divergence-volume}
+		(\divergence_\mu X)\,\mu = \cL_X\mu.
+	\end{equation}
+\end{definition}
+
+Notice in particular the extra factor $\mu$ on the left, without it the identity would not make sense: the divergence of a vector field is a function, whereas $\cL_X\mu$ is an $n$-form.
+
+Of course, the fact that the expression makes sense it is not enough to guarantee that ``the thing'' is well defined, but in this case the existence and uniqueness of the divergence function follows directly from the fact that $\mu$ is nowhere vanishing and each space of top-degree alternating tensors is one-dimensional.
+
+Since, as we know well at this point, $d\mu=0$ for a volume form, Cartan's magic formula formula \eqref{eq:cartanmagicf} gives
+\begin{equation}\label{eq:divergence-exterior}
+	(\divergence_\mu X)\,\mu = d(\iota_X\mu).
+\end{equation}
+Thus the divergence measures the infinitesimal change of volume along the flow of $X$.
+In particular, on a manifold without boundary, the local flow of $X$ preserves $\mu$ if and only if $\divergence_\mu X=0$.
+Indeed, if $\phi_t$ is the local flow, then by~\eqref{eq:LieDerivativeFlow} we have $\frac{d}{dt}\phi_t^*\mu=\phi_t^*(\cL_X\mu)$, which for a nontrivial flow vanishes only when the Lie derivative, and thus the divergence, does.
+
+In local coordinates, writing $\mu=\mu(x)\,dx^1\wedge\cdots\wedge dx^n$ with $\mu(x)\neq 0$ and $X=\sum_{i=1}^n X^i\frac{\partial}{\partial x^i}$, we have
+\begin{align}
+	\iota_X\mu
+	 & = \sum_{i=1}^n (-1)^{i-1}\mu X^i\,dx^1\wedge\cdots\wedge\widehat{dx^i}\wedge\cdots\wedge dx^n, \\
+	d(\iota_X\mu)
+	 & = \left(\sum_{i=1}^n\frac{\partial(\mu X^i)}{\partial x^i}\right)dx^1\wedge\cdots\wedge dx^n.
+\end{align}
+Consequently,
+\begin{equation}
+	\divergence_\mu X = \frac{1}{\mu}\sum_{i=1}^n\frac{\partial(\mu X^i)}{\partial x^i},
+\end{equation}
+which, for the standard volume form on $\R^n$, coincides with the familiar formula $\divergence X=\sum_i\frac{\partial X^i}{\partial x^i}$.
+
+It may seem a triviality, but this function plays an interesting role in many applications. If you are curious, have a look, for instance, at some book of geometric mechanics or spectral geometry.
+
 \section{Stokes' Theorem}
 
 Stokes' theorem states that if $\omega$ is an $(n-1)$-form on an orientable $n$-manifold $M$, then the integral of $d\omega$ over $M$ equals the integral of $\omega$ over $\partial M$, generalising our observations for the line integral.
@@ -662,6 +701,30 @@ We are going to state the theorem, discuss some of its consequences and then giv
 	\end{equation}
 	where $\partial N$ inherits the orientation of $N$.
 \end{corollary}
+
+\begin{corollary}[Divergence theorem]\label{cor:divergence}\idxthm{Divergence theorem}
+	Let $M$ be an orientable smooth $n$-manifold with boundary, let $\mu$ be a a volume form on $M$, and let $X\in\fX(M)$ be compactly supported.
+	If $i:\partial M\hookrightarrow M$ is the inclusion and $\partial M$ has the induced orientation, then
+	\begin{equation}
+		\int_M (\divergence_\mu X)\,\mu = \int_{\partial M}i^*(\iota_X\mu).
+	\end{equation}
+	In particular, the compact-support condition is automatic when $M$ is compact.
+\end{corollary}
+\begin{proof}
+	By~\eqref{eq:divergence-exterior}, $(\divergence_\mu X)\,\mu=d(\iota_X\mu)$.
+	The form $\iota_X\mu$ is compactly supported, so the claim follows from Stokes' theorem.
+\end{proof}
+
+To recover the classical flux formula, let $D\subset\R^n$ be a compact regular domain with the standard volume form $\mu=dx^1\wedge\cdots\wedge dx^n$.
+Let $\nu$ be the outward unit normal along $\partial D$ and let $dS=i^*(\iota_\nu\mu)$ be the induced positive boundary volume form.
+Along $\partial D$, decompose $X=\langle X,\nu\rangle\,\nu + X^\top$, where $X^\top$ is tangent to the boundary.
+The pullback of $\iota_{X^\top}\mu$ vanishes, since it evaluates $\mu$ on $n$ vectors in the $(n-1)$-dimensional tangent space of $\partial D$.
+Hence $i^*(\iota_X\mu)=\langle X,\nu\rangle\,dS$, and the theorem becomes
+\begin{equation}
+	\int_D (\divergence X)\,dx^1\cdots dx^n = \int_{\partial D}\langle X,\nu\rangle\,dS.
+\end{equation}
+
+And we can keep going. For example, we can also recover Green's theorem.
 
 \begin{corollary}[Green's theorem]
 	Suppose $D$ is a compact regular domain in $\R^2$ and $P,Q\in C^\infty(D)$, then
