@@ -270,7 +270,7 @@ This is just a system of ordinary differential equations. Parallel transport is 
   Consider the vector bundle $E$ with connection from \ref{highschool}. We see that flat paths are given by function of the form $g(x)=ce^{ax}$ with $c\in\mathbb{R}$. Do these paths give a foliation of $E$? If we instead take $\nabla=d-xdx$, calculate the flat paths in $E$ and give the parallel transport maps.
 \end{exercise}
 
-\section{The Curvature of a Connection}
+\section{The Curvature of a Connection}\label{sec:connection-curvature}
 
 Every connection has an associated curvature. Intuitively, we might think of the curvature as the ``failure of the partial derivatives to commute''. In ordinary Euclidean space, we have $\frac{\partial^2}{\partial y\partial x}=\frac{\partial^2}{\partial x\partial y}$, so the derivative operators do commute.
 \begin{definition}
@@ -317,6 +317,58 @@ We conclude this section with one particular interpretation of curavture, in the
   The distribution $\mathcal{H}$ determined by a connection $\nabla$ is integrable if and only if its curvature vanishes.
 \end{theorem}
 The proof of this theorem uses the Frobenius theorem from the previous chapter. This result has a more natural interpretation in the context of connections on principal bundles, and we encourage the reader to explore this material.
+
+\subsection{The first Chern number}\label{sec:first-chern-number}
+
+We now have enough machinery to go back to the example of the Fermi surface briefly sketched at the beginning of Chapter~\ref{sec:vectorbundle}.
+The question we left hanging was whether we could construct a smoothly varying global frame on a certain complex line bundle. What does curvature have to do with this?
+
+Let $L\to\Sigma$ be a complex line bundle\footnote{Note that for the specific example, we need \emph{complex line bundles} rather than real ones, but this does not change the overall picture much: the definitions of bundle, connection and its curvature are practically the same, with complex-linear maps instead of real-valued ones.} over a compact oriented surface without boundary.
+Choose a \emph{Hermitian metric} on $L$, that is, a smoothly varying Hermitian inner product on each fibre, and a connection $\nabla$ preserving this metric. Such a connection is called \emph{unitary} since it preserves inner products under parallel transport.
+
+It turns out that there is no obstruction to making these choices: we can construct them locally and patch them together using a partition of unity.
+
+In a local frame of unit length we can write $\nabla=d+A$, where $A$ is now an imaginary-valued $1$-form.
+Since we are working with a line bundle, $F_\nabla=dA$, and a change of frame leaves the curvature unchanged. Thus $F_\nabla$ is a globally defined imaginary-valued $2$-form on $\Sigma$, even when $A$ is only defined locally.
+
+\begin{definition}\label{def:first-chern-number}
+  The \emph{first Chern number} of $L\to\Sigma$ is
+  \begin{equation}
+    c_1(L)[\Sigma] := \frac{i}{2\pi}\int_\Sigma F_\nabla.
+  \end{equation}
+\end{definition}
+The notation comes from the \emph{first Chern class} $c_1(L)$: in de Rham cohomology this is the class represented by $\frac{i}{2\pi}F_\nabla$, and $c_1(L)[\Sigma]$ is its evaluation on the oriented surface.
+Of course, we should check that this does not depend on the connection we chose.
+Two unitary connections for the same Hermitian metric differ by a globally defined imaginary-valued $1$-form $a$, so their curvatures differ by $da$.
+Stokes' theorem then gives
+\begin{equation}
+  \frac{i}{2\pi}\int_\Sigma (F_{\nabla'}-F_\nabla)
+  =\frac{i}{2\pi}\int_\Sigma da=0.
+\end{equation}
+The same argument with a complex-valued $a$ shows that changing the Hermitian metric does not change the result either.
+So this number depends on the bundle and the orientation of the surface, not on the choices we made to compute it.
+
+What is less obvious is that this number is always an integer!
+We will not prove this here, but the rough idea is to apply Stokes' theorem and observe that on overlaps of local trivializations the unit frames differ by functions with values in a circle, and the remaining boundary integrals count their winding numbers.
+
+This is a bit too much to go in all details here and we refer the interested reader to \cite[Section~8.2.2, especially Remark~8.2.2]{book:nicolaescu} for the relation with the integral first Chern class, and to Section~8.1.4 there for the general Chern--Weil construction.
+For our purposes, the important consequence is much easier to prove.
+
+\begin{proposition}
+  If $L\to\Sigma$ admits a nowhere-vanishing smooth section, then $c_1(L)[\Sigma]=0$.
+\end{proposition}
+\begin{proof}[Sketch]
+  We can define a global unit frame $u$ by normalizing the section and a unitary connection by $\nabla(fu)=df\otimes u$.
+  Since its curvature is zero, its Chern number vanishes as well, and since this is independent of the connection, this is the Chern number of $L$.
+\end{proof}
+In particular, a nonzero Chern number prevents us from choosing a smooth nonzero vector in every fibre at once, which is precisely the kind of global obstruction we wanted to describe.
+
+Let us return to the physical example. A smooth isolated nondegenerate band gives us a complex line bundle over a smooth closed component $\Sigma$ of its Fermi surface, and locally we can choose a normalized eigenstate $u(k)$, which actually has a name, it is called Bloch state. Projecting the derivative onto the eigenspace gives a unitary connection, whose local connection form is $A=\langle u,du\rangle$, with the inner product taken to be complex-linear in the second argument.
+In the physics convention $\mathcal{A}=i\langle u,du\rangle$ is the \emph{Berry connection}, and its curvature $\Omega=d\mathcal{A}=iF_\nabla$ is the real-valued \emph{Berry curvature}. Bringing it all together, we have
+\begin{equation}
+  c_1(L)[\Sigma]=\frac{1}{2\pi}\int_\Sigma\Omega.
+\end{equation}
+So the Berry curvature, which at a first look could seem to be a property of our local choices of eigenstates, actually carries a topological property of the bundle itself. Similarly to our brief excursus on cohomology, this is another examples of the surprising interplay between local (analytical or differential) and global (topological) properties of smooth manifolds.
 
 \section{The Exterior Covariant Derivative}
 

@@ -1,5 +1,34 @@
 What we have seen in the previous chapter is our first example of vector bundle, which is just a way to call a vector space depending continuously (or smoothly) on some parameters, for example points on a manifold.
 
+This concept can be useful for example to extend the meaning of vector-valued functions to the manifold setting.
+We saw that vector fields assign to each $p\in M$ a vector in the space $T_pM$ which varies with $p$. We would like to have a way to do the same, but mapping the point to some higher dimensional vector space which also varies with $p$.
+A vector bundle does exactly this: it provides a vector space $E_p$ of some dimension $r$ over each point $p$. As we will see, its \emph{section}s assign a vector $s(p)\in E_p$ smoothly to every point, and the construction is done in such a way that, locally, these sections looks like ordinary vector-valued functions. Where this gets particularly interesting is the global picture, though what I mean would become clear only in more advanced courses.
+
+This may seem to be just a pointless exercise, but vector bundles (and their generalizations), pop up in very disparate parts of mathematics. See for instance \href{https://mathoverflow.net/questions/7836/why-is-it-useful-to-study-vector-bundles}{this MathOverflow answer} or \cite{Zakharevich2019Attitudes}. They are also common in physics, for instance in gauge theory, where the gauge field is a connection on a principal bundle, and the matter fields are sections of associated vector bundles, and solid-state physics.
+
+Let's briefly look at a particular case of the latter example. In a periodic crystal, the states of an electron depend on a parameter $k$, called \emph{quasi-momentum}, which in three dimensions lives on a torus $\bT^3$, the so-called \emph{Brillouin zone}.
+The possible energies for the electron are given by functions $\varepsilon_n(k)$, whose images while varying $k$ are called \emph{energy bands}.
+There is a special energy, that we will denote $E_F$, called the \emph{Fermi energy}, which in some sense informs physicisrs about the insulating or metallic properties of the crystal\footnote{Don't worry if you don't know what it means, it is just a way to say that they determine if the crystal is an electrical insulator or if it allows electrons to travel freely through it.}.
+If we fix one of the bands, its contribution to the \emph{Fermi surface} is the level set
+\begin{equation}
+	\Sigma = \{k\in\bT^3 : \varepsilon_n(k)=E_F\},
+\end{equation}
+where $E_F$ is the energy separating occupied from unoccupied states at zero temperature.
+We are going very fast here, don't worry too much about the physical details, but if you want to get a glimpse to the physics behind this, you can have a look at \cite{Dugdale_2016} or dig out a book on topological insulators from your university library.
+
+The space above is something we already know how to handle: if $E_F$ is a regular value of $\varepsilon_n$, then $\Sigma$ is a smooth surface.
+
+So, where is the vector bundle? Assuming that the band is nondegenerate and stays separated from the other bands near $\Sigma$, the corresponding electron states at each $k$ span a one-dimensional complex vector space $L_k$.
+So we have again a vector space moving with a point on a manifold, only this time the vectors are quantum states rather than tangent vectors, and the manifold is the Fermi surface.\footnote{Here the vector spaces are complex rather than real. We will give the definition for real vector spaces, but the construction is practically the same if we replace $\R$ by $\mathbb{C}$.}
+
+Locally we can choose a normalized state $u(k)$ depending smoothly on $k$, and use it as a basis for $L_k$.
+On the overlap of two different charts, the two choices of state differ by a phase $e^{i\theta(k)}$, which we can think of a change of basis in a one-dimensional complex vector space.
+Now, it is tempting to think that we could keep adjusting these phases until we have a smooth choice of basis on the whole surface... but this is not always possible!
+
+For example, a Fermi surface surrounding a \emph{Weyl point}, a particular crossing between energy bands, can carry a bundle for which there is no such global choice\footnote{The obstruction in this example is measured by an integer called the \emph{first Chern number}, proportional to the flux of the \emph{Berry curvature} through the surface. A nonzero value rules out a global smooth choice of normalized eigenstate. In Appendix~\ref{sec:first-chern-number} we will concisely define this number and explain its relation to Berry curvature. For more details see for instance the \href{https://web.math.princeton.edu/~js129/PDFs/paris_top_insul_july_2022.pdf}{Paris Lectures on Topological Insulators by J.~Shapiro}.}.
+
+Understanding this example would take us well beyond the scope of these notes, but the point is the same as before: knowing each vector space separately does not tell us how they fit together, and this extra information can have consequences, in this case even for the electrical properties of a material.
+
 \section{Vector bundles}\label{sec:vec-bdls}
 
 \begin{definition}\label{def:vector_bundle}\idxdef{Vector bundle}\idxdef{Trivial bundle}\idxdef{Trivialization}
