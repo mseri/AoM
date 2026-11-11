@@ -816,21 +816,21 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 \end{proof}
 
 \begin{exercise}
-	Let $M$ be a smooth manifolds and $X,Y\in\fX(M)$.
+	Let $M$ be a smooth manifold and $X,Y\in\fX(M)$.
 	Define $(\ad X) Y := [X,Y]$.
 	Use the semigroup property\footnote{We have shown it at the beginning of the previous proof!}
 	\begin{equation}
-		\frac{\partial}{\partial t} e_*^{tX} Y = e_*^{tX}[X,Y],
+		\frac{\partial}{\partial t} e_*^{-tX} Y = e_*^{-tX}[X,Y],
 	\end{equation}
 	to deduce the following \emph{formal} series expansion:
 	\begin{align}
 		e_*^{-tX} Y
-		 & = \sum_{n=0}^\infty \frac{t^n}{b!}(\ad X)^n Y                                   \\
+		 & = \sum_{n=0}^\infty \frac{t^n}{n!}(\ad X)^n Y                                   \\
 		 & = Y + t[X,Y] + \frac{t^2}{2}[X, [X, Y]] + \frac{t^3}{6} [X,[X,[X,Y]]] + \cdots.
 	\end{align}
 \end{exercise}
 
-\newthought{We can finally justify} our comment in Figure~\ref{fig:3_1-vfield-infgen}: the following theorem shows that every flow $\phi^X$ admits local coordinates on its support which map it into a linear flow.
+\newthought{We can finally justify} our comment in Figure~\ref{fig:3_1-vfield-infgen}: the following theorem shows that every flow $\phi^X$ admits local coordinates near each of its regular points which map it into a linear flow.
 
 \begin{definition}
 	Let $M$ be a smooth manifold and $X\in\fX(M)$.
@@ -838,12 +838,12 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 	\begin{equation}
 		\supp(X):=\overline{\left\lbrace p\in M \;\mid\; X_p\neq 0 \in T_p M\right\rbrace}\subset M.
 	\end{equation}
-	Points $p\in\supp(X)$ are called \emph{regular points of $X$}.
-	The points $p\in M\setminus\supp(X)$, i.e. such that $X_p = 0$, are the \emph{fixed points (or equilibrium points) of $X$}: for such points the unique integral curve through $p$ is $\gamma(t) \equiv p$ for all $t\in\R$.
+	Points $p\in M$ such that $X_p\neq 0$ are called \emph{regular points of $X$}.
+	The points $p\in M$ such that $X_p = 0$ are the \emph{fixed points (or equilibrium points) of $X$}: for such points the unique integral curve through $p$ is $\gamma(t) \equiv p$ for all $t\in\R$.
 \end{definition}
 
 \begin{theorem}[Normal form of a flow away from the fixed points]
-	Let $M$ be a smooth manifold, $X\in\fX(M)$ and $p\in\supp(X)\subset M$.
+	Let $M$ be a smooth manifold without boundary, $X\in\fX(M)$ and $p\in M$ a regular point of $X$.
 	Then, there exists a chart $(U, \varphi)$ with $p\in U$ such that
 	\begin{equation}
 		\varphi_* X = L,
@@ -855,21 +855,23 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 	\end{equation}
 \end{theorem}
 \begin{proof}
-	Choose\footnote{This can always be done via a parametrisation of the hyperplane transversal to $X$ by $(x^2, \ldots, x^{n}) = (0,\ldots,0)$, where the $(x^i)$ denote the local coordinates. Cf. Example~\ref{ex:hyplin}.} a coordinate patch $(U_1, \psi)$ centred at $p$ (so $\psi(p) = 0$) such that $\psi_* X(0) = (1,0,0,\ldots, 0)$.
-	By continuity of $\psi_*X\in \fX(\psi(U_1))$, we can always restrict to a smaller neighbourhood $V_2\subset \psi(U_1)$ on which $(\psi_*X)^1(q) > \frac12$ for all $q\in V_2$.
+	Choose\footnote{Take any chart $(U_1,\psi_0)$ centred at $p$. Since $X_p\neq0$, the vector $d(\psi_0)_pX_p\in\R^n$ is nonzero, so there is $A\in GL(n,\R)$ mapping it to $e_1 := (1,0,\ldots,0)$. Then $\psi = A\circ\psi_0$ does the job.} a coordinate patch $(U_1, \psi)$ centred at $p$ (so $\psi(p) = 0$) such that $\psi_* X(0) = (1,0,0,\ldots, 0)$.
+	By continuity of $\psi_*X\in \fX(\psi(U_1))$, we can always restrict to a smaller bounded neighbourhood $V_2$ of $0$, with $\overline{V_2}\subset \psi(U_1)$, on which $(\psi_*X)^1(q) > \frac12$ for all $q\in V_2$.
 
-	Our objective is to interpolate $\psi_* X$ on $V\subset V_2$ and $L$ on $V_2^c$ to obtain a new vector field $\widetilde{L}$ on all of $\R^n$ which is diffeomorphic to $\widetilde{L}$.
+	Our objective is to interpolate $\psi_* X$ on $V\subset V_2$ and $L$ on $V_2^c$ to obtain a new vector field $\widetilde{L}$ on all of $\R^n$ which is diffeomorphic to $L$.
 	If $\Omega:\R^n\to\R^n$ is such diffeomorphism, i.e. $\Omega_* \widetilde  L = L$, then $\varphi = \Omega\circ\psi$ is the chart we are looking for: indeed, on $U=\psi^{-1}(V)$ we have $\varphi_* X = \Omega_*\psi_*X = \Omega_* \widetilde{L} = L$.
 
-	\newthought{Interpolated vector field $\widetilde{L}$}. Let $V\subset V_2$ be an open set around $0$. Pick a cutoff function $\chi\in C^\infty(\R^n)$ such that $\chi(x) = 1$ for $x\in U$ and $\chi(x) =0$ for $x\in U_2^c$.
+	\newthought{Interpolated vector field $\widetilde{L}$}. Let $V\subset V_2$ be an open set around $0$ with $\overline{V}\subset V_2$. Pick a cutoff function $\chi\in C^\infty(\R^n)$ such that $0\leq\chi\leq1$, $\chi(x) = 1$ for $x\in \overline V$ and $\supp\chi\subset V_2$.
 	Then the interpolating vector field is immediately obtained as
 	\begin{equation}
-		\widetilde{L} = \chi \psi_*X + (1-\chi)L \in \fX(\R^n).
+		\widetilde{L} = \chi \psi_*X + (1-\chi)L \in \fX(\R^n),
 	\end{equation}
+	where $\chi \psi_*X$ is extended by zero outside $\psi(U_1)$.
 	\begin{marginfigure}
 		\includegraphics{3_2-vfield-patched.pdf}
 	\end{marginfigure}
-	Clearly its flow $\phi_t^{\widetilde{L}}$ is global as $\R^n$ has no boundary and the regularity of the functions involved implies that no integral curve can escape to infinity in finite time.
+	Note that $\widetilde L^1 = \chi(\psi_*X)^1 + (1-\chi) \geq \frac12$ everywhere, and that $\widetilde L = L$ outside the compact set $\supp\chi$.
+	Its flow $\phi_t^{\widetilde{L}}$ is global: $\|\widetilde L\|$ is bounded by some $C>0$, so an integral curve starting at $q$ remains in the ball of radius $C|t|$ around $q$ and, by Lemma~\ref{lemma:charactNotCompleteVF}, it cannot escape to infinity in finite time.
 
 	\newthought{Diffeomorphism $\Omega$}. We will now show that
 	\begin{equation}
@@ -877,28 +879,25 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 	\end{equation}
 	exists and defines a diffeomorphism such that $\Omega_* \widetilde{L} = L$.
 	\marginnote{It is interesting to compare $\Omega$ with the so called M\o{}ller transformations in scattering theory (cf.~\cite[Chapter 12.2]{book:knauf}).}
-	Since by construction $(\phi_t^{\widetilde{L}}(q))^1 \geq q^1 + \frac12$, every integral curve leaves $V_2$ after a finite time.
+	Since by construction $(\phi_t^{\widetilde{L}}(q))^1 \geq q^1 + \frac t2$, every integral curve leaves $V_2$ after a finite time and never comes back.
 	So, on compact sets $K\subset\R^n$, there is a finite time $t_0(K)$ after which the limit is attained (can you explain why?):
 	\begin{equation}
 		\lim_{t\to\infty} \phi_{-t}^L \circ \phi_t^{\widetilde{L}}\Big|_K = \phi_{-t_0}^L \circ \phi_{t_0}^{\widetilde{L}}.
 	\end{equation}
-	Thus, $\Omega$ is a well--defined diffeomorphism.
+	Thus, $\Omega$ is a well--defined smooth map and, with an argument similar to the above, a diffeomorphism.
 	Moreover,
 	\begin{align}
-		\Omega \circ \phi^{\widetilde{L}}_t & = \lim_{s\to\infty} \phi_{-s}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_t                                                    \\
-		                                    & = \lim_{s\to\infty} \phi_{-s}^L \circ \phi^{\widetilde{L}}_{s+t}                                                                             \\
-		                                    & = \lim_{\tau\to\infty} \phi_{t-\tau}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_\tau                                          \\
-		                                    & = \lim_{\tau\to\infty} \phi_{t}^L \circ \phi_{-\tau}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_\tau = \phi_t^L \circ \Omega,
+		\Omega \circ \phi^{\widetilde{L}}_t & = \lim_{s\to\infty} \phi_{-s}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_t                     \\
+		                                    & = \lim_{s\to\infty} \phi_{-s}^L \circ \phi^{\widetilde{L}}_{s+t}                                              \\
+		                                    & = \lim_{\tau\to\infty} \phi_{t-\tau}^L \circ \phi^{\widetilde{L}}_\tau                                        \\
+		                                    & = \lim_{\tau\to\infty} \phi_{t}^L \circ \phi_{-\tau}^L \circ \phi^{\widetilde{L}}_\tau = \phi_t^L \circ \Omega,
 	\end{align}
 	and therefore the flows are diffeomorphic.
-	In particular, we also have $\phi_p^{\widetilde{L}} = \Omega^{-1} \circ \phi^L_{\Omega(x)}$.
-	Differentiating this last equation we get
-	\begin{align}
-		(\widetilde{L} \circ \phi^{\widetilde{L}})_p & = d\phi^{\widetilde{L}}_p                                               \\
-		                                             & = d\Omega^{-1}_{\phi^L_{\Omega(x)}} \circ d\phi^L_{\Omega(x)}           \\
-		                                             & = d\Omega^{-1}_{\phi^L_{\Omega(x)}} \circ (L \circ \phi^L)_{\Omega(x)},
-	\end{align}
-	which, at $t=0$, gives $\widetilde{L} = d\Omega^{-1} \circ L \circ \Omega = \Omega^{-1}_* L$.
+	Differentiating this last equation with respect to $t$ at $t=0$ we get
+	\begin{equation}
+		d\Omega_q \widetilde{L}_q = L_{\Omega(q)} \qquad \mbox{for all } q\in\R^n,
+	\end{equation}
+	that is, $\Omega_*\widetilde{L} = L$.
 \end{proof}
 
 \begin{example}\label{ex:hyplin}

@@ -305,8 +305,8 @@ Notice that for a line bundle, the local connection $1$-form is an ordinary diff
 \begin{example}
   We return to the previous example \ref{highschool}. Since we have a line bundle and local connection $1$-form given by $-cdx$, the curvature of this connection is $0$. Indeed, if $M$ is a $1$-dimensional manifold, and $A=f(x)dx$ is the local connection form for a rank $1$ vector bundle over $M$, then $F=dA=\frac{\partial f}{\partial x}dx\wedge dx=0$, so all rank $1$ vector bundles over $1$-dimensional manifolds are flat.
 \end{example}
-\begin{theorem}[Fundamental Theorem of Riemannian Geometry]
-  Let $(M,g)$ be a Riemannian manifold. Then there exists a unique connection on the tangent bundle $TM$ called the Levi-Civita connection, which satisfies $\nabla\langle X,Y\rangle_g=\langle\nabla X,Y\rangle_g+\langle X,\nabla Y\rangle_g$ for all $X,Y\in\Gamma(TM)$. The curvature of this connection is called the Riemann curvature tensor.
+\begin{theorem}[Fundamental Theorem of Riemannian Geometry~{\cite[Theorem 5.10]{book:lee:riemannian}}]
+  Let $(M,g)$ be a Riemannian manifold. Then there exists a unique connection on the tangent bundle $TM$ called the Levi-Civita connection, which satisfies $\nabla\langle X,Y\rangle_g=\langle\nabla X,Y\rangle_g+\langle X,\nabla Y\rangle_g$ for all $X,Y\in\Gamma(TM)$ and is torsion-free, i.e. $\nabla_XY-\nabla_YX = [X,Y]$ for all $X,Y\in\Gamma(TM)$. The curvature of this connection is called the Riemann curvature tensor.
 \end{theorem}
 Our example above illustrates that any $1$-dimensional manifold is flat. This isn't necessarily intuitive, given the shape of a circle.
 \begin{exercise}
@@ -377,7 +377,7 @@ One of the defining properties of the exterior derivative is that $d^2=0$. This 
   We define the covariant exterior derivative $d_\nabla:\Omega^k(M,E)\to\Omega^{k+1}(M,E)$ by
   \begin{align*}
     d_\nabla\omega(X_1,\dots,X_{k+1}) &= \sum^{k+1}_{i=1}(-1)^{i+1}\nabla_{X_i}\omega(X_1\dots,\widehat{X}_i,\dots,X_{k+1})\\
-                                      &\quad +\sum_{i<j}^{k+1}(-1)^{i+j+1}\omega([X_i,X_j],X_1,\dots,\widehat{X}_i,\dots,\widehat{X}_j,\dots,X_{k+1})
+                                      &\quad +\sum_{i<j}^{k+1}(-1)^{i+j}\omega([X_i,X_j],X_1,\dots,\widehat{X}_i,\dots,\widehat{X}_j,\dots,X_{k+1})
   \end{align*}
 \end{definition}
 We have a natural module structure for $\bigoplus_k\Omega^k(M,E)$ over the ring $\bigoplus_k\Omega^k(M)$. Let $\omega\in\Omega^k(M)$ and $\eta\in\Omega^{k'}(M,E)$. The covariant exterior derivative satisfies

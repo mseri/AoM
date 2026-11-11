@@ -149,15 +149,15 @@ Thus, in order to get a globally consistent ordering, we need to worry about the
 	On nonempty overlaps $U_k \cap U_l \neq \emptyset$ of charts we have
 	\begin{align}
 		\omega_l & = \varphi_l^*\, dx^1\wedge\cdots\wedge dx^n = \varphi_k^* \sigma_{lk}^*\, dx^1 \wedge\cdots\wedge dx^n \\
-		         & = (\det(D\sigma_{lk})\circ \varphi_k)\circ \varphi^*_k\, dx^1\wedge\cdots\wedge dx^n                   \\
-		         & = (\det(D\sigma_{lk})\circ \varphi_k)\, \omega_k =: \alpha_{lk} \omega_k \label{form:cov}
+		         & = (\det(D\sigma_{lk})\circ \varphi_k)\, \varphi^*_k\, dx^1\wedge\cdots\wedge dx^n                   \\
+		         & = (\det(D\sigma_{lk})\circ \varphi_k)\, \omega_k =: a_{lk} \omega_k \label{form:cov}
 	\end{align}
-	where $\alpha_{lk}\in C^{\infty}(U_k\cap U_l)$, $a_{lk} > 0$ and there is no implied sum\footnote{All indices are low indices.}.
-	Since the covering $\{U_i\}$ is locally finite\footnote{See Theorem~\ref{thm:partitionof1}.}, a point $p\in M$ belongs only to a finite number of open sets, let's call them $U_{i_0}, U_{i_1}, \ldots, U_{i_N}$. That is,
+	where $a_{lk}\in C^{\infty}(U_k\cap U_l)$, $a_{lk} > 0$ and there is no implied sum\footnote{All indices are low indices.}.
+	Since the supports $\{\supp\rho_i\}$ are locally finite\footnote{See Theorem~\ref{thm:partitionof1}.}, a point $p\in M$ belongs only to a finite number of them, let's call them $\supp\rho_{i_0}, \ldots, \supp\rho_{i_N}$, and we have $p\in U_{i_0}\cap\cdots\cap U_{i_N}$. Since $\sum_i\rho_i(p) = 1$, up to reordering we can assume that $\rho_{i_0}(p)>0$. That is,
 	\begin{equation}
-		\omega(p) = \sum_{k=0}^N \omega_{i_k}(p) = \left( 1 + \sum_{k = 1}^N a_{i_k i_0} \right) \omega_{i_0}(p) \neq 0
+		\omega(p) = \sum_{k=0}^N \rho_{i_k}(p)\omega_{i_k}(p) = \left( \rho_{i_0}(p) + \sum_{k = 1}^N \rho_{i_k}(p) a_{i_k i_0}(p) \right) \omega_{i_0}(p) \neq 0
 	\end{equation}
-	since $\omega_{i_0}(p) \neq 0$ and $a_{i_k i_0} > 0$.
+	since $\omega_{i_0}(p) \neq 0$, $\rho_{i_0}(p)>0$, $\rho_{i_k}\geq 0$ and $a_{i_k i_0} > 0$.
 	That is, for all $p\in M$ we have that $\omega(p) \neq 0$.
 \end{proof}
 
@@ -543,7 +543,7 @@ This justifies the following definition.
 \end{exercise}
 
 \begin{exercise}[Exercise 7.1-9 \cite{book:abrahammarsdenratiu}]
-	Let $\{e_1,\ldots,e_{n+1}\}$ be the standard basis of $\R^{n+1}$ and $\Omega_{n+1} := e_1\wedge\cdots\wedge e_{n+1}$ the induced volume form.
+	Let $\{e_1,\ldots,e_{n+1}\}$ be the standard basis of $\R^{n+1}$ and $\Omega_{n+1} := e^1\wedge\cdots\wedge e^{n+1}$ the induced volume form, where $\{e^1,\ldots,e^{n+1}\}$ is the dual basis.
 	On $\bS^n$ define $\omega_n\in\Omega^n(\bS^n)$ by
 	\begin{equation}
 		\omega_n(s)(v_1, \ldots, v_n) = \Omega_{n+1}(s, v_1, \ldots, v_n)
@@ -552,7 +552,7 @@ This justifies the following definition.
 
 	In this exercise we are going to define a canonical volume $\omega_n$ on $\bS^n$ and prove that
 	\begin{equation}
-		\int_{\bS^n} \omega_n = \frac{2^{m+1}\pi^m}{(2m-1)!}, \quad\mbox{if } n=2m,\; m\geq 1,
+		\int_{\bS^n} \omega_n = \frac{2^{m+1}\pi^m}{(2m-1)!!}, \quad\mbox{if } n=2m,\; m\geq 1,
 	\end{equation}
 	and
 	\begin{equation}
@@ -561,7 +561,7 @@ This justifies the following definition.
 
 	\begin{enumerate}
 		\item Show that $\omega_n$ is a volume form on $\bS^n$. In fact it is the so-called standard volume form on $\bS^n$.
-		\item Let $f:\R_+\times\R^{n+1}\setminus\{0\}\to \R^{n+1}\setminus\{0\}$ be given by $f(t,s) = ts$, where $\R_+$ is defined to be the set $\{t\in\R \mid t >0\}$.
+		\item Let $f:\R_+\times\bS^n\to \R^{n+1}\setminus\{0\}$ be given by $f(t,s) = ts$, where $\R_+$ is defined to be the set $\{t\in\R \mid t >0\}$.
 		      Show that if $\R_+$ is oriented by $dt$, $\bS^n$ is oriented by $\omega_n$ and $\R^{n+1}$ is oriented by $\Omega_{n+1}$, then the Jacobian determinant $\det(Df(t,s))= t^n$.
 		      Conclude that $f$ is orientation preserving.
 		\item Let $M$ be the annulus $M = \{x\in\R^{n+1} \mid 0<a<\|x\|<b<\infty\}$. Consider the restriction $f|_{(a,b)\times \bS^n}$ and show that for $x\in\R^{n+1}$,
@@ -571,7 +571,7 @@ This justifies the following definition.
 		      where $dt\times\omega_n$ is a product volume form as in Exercise~\ref{exe:fubini}.
 		\item Show that
 		      \begin{equation}
-			      \int_{\R^{n+1}}e^{-\|x\|^2}\Omega_{n+1} = \int_a^b t^ne^{-t^2} dt \int_{\bS^n}\omega_n.
+			      \int_{M}e^{-\|x\|^2}\Omega_{n+1} = \int_a^b t^ne^{-t^2} dt \int_{\bS^n}\omega_n.
 		      \end{equation}
 		\item Consider the limits $a\to0^+$ and $b\to+\infty$ and show that
 		      \begin{equation}
@@ -748,7 +748,7 @@ And we can keep going. For example, we can also recover Green's theorem.
 \begin{proof}
 	\newthought{Part I: Euclidean boundary case}.
 	Let's start with a special case: suppose $M = \cH^n$ itself.
-	Since $\omega$ has compact support, there is $R > 0$ such that $\supp \omega \subset A = [-R,R]^{n-1}\times[0,R]$ is enclosed within the rectangle $A$.
+	Since $\omega$ has compact support, there is $R > 0$ such that $\supp \omega \subset (-R,R)^{n-1}\times[0,R)$; in particular, $\supp\omega$ is contained in the rectangle $A = [-R,R]^{n-1}\times[0,R]$ and $\omega$ vanishes on the faces $\{x^j=\pm R\}$, $j<n$, and $\{x^n=R\}$ of $A$.
 	We can write $\omega$ in standard coordinates to get
 	\begin{equation}
 		\omega = \sum_{j=1}^n \omega^j dx^1 \wedge \cdots\wedge \widehat{dx}^j \wedge \cdots\wedge dx^n
@@ -768,9 +768,9 @@ And we can keep going. For example, we can also recover Green's theorem.
 	The usual Euclidean fundamental theorem of calculus then, for the terms with $j\neq n$, implies
 	\begin{align}
 		\int_{\cH^n} d\omega
-		 & = \sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) d^n x                                   \\ %dx^1\cdots dx^n \\
-		 & =\sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) dx^j dx^1\cdots\widehat{dx^j}\cdots dx^n \\
-		 & =\sum_{j=1}^n (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\omega^j(x) \Big|_{x^j=-R}^{x^j=R} dx^1\cdots\widehat{dx^j}\cdots dx^n             \\
+		 & = \sum_{j=1}^{n-1} (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) d^n x                                   \\ %dx^1\cdots dx^n \\
+		 & =\sum_{j=1}^{n-1} (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\frac{\partial \omega^j}{\partial x^j}(x) dx^j dx^1\cdots\widehat{dx^j}\cdots dx^n \\
+		 & =\sum_{j=1}^{n-1} (-1)^{j-1} \int_0^R\int_{-R}^R\cdots\int_{-R}^{R}\omega^j(x) \Big|_{x^j=-R}^{x^j=R} dx^1\cdots\widehat{dx^j}\cdots dx^n             \\
 		 & = 0
 	\end{align}
 	since $R$ is larger than the support of $\omega$ at each coordinate.
@@ -778,21 +778,22 @@ And we can keep going. For example, we can also recover Green's theorem.
 	In that case, for the same reasons,
 	\begin{align}
 		\int_{\cH^n} d\omega
-		 & =(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R\int_{0}^{R}\frac{\partial \omega^n}{\partial x^j}(x) dx^n d^{n-1} x \\ %dx^1\cdots dx^{n-1} \\
-		 & =(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R \omega^n(x)\Big|_{x^n=0}^{x^n=R} dx^n d^{n-1} x                     \\ %dx^1\cdots dx^{n-1} \\
-		 & =(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R \omega^n(x^1, \ldots, x^{n-1}, 0) d^{n-1} x                         %dx^1\cdots dx^{n-1}.
+		 & =(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R\int_{0}^{R}\frac{\partial \omega^n}{\partial x^n}(x) dx^n d^{n-1} x \\ %dx^1\cdots dx^{n-1} \\
+		 & =(-1)^{n-1} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R \omega^n(x)\Big|_{x^n=0}^{x^n=R} d^{n-1} x                     \\ %dx^1\cdots dx^{n-1} \\
+		 & =(-1)^{n} \int_{-R}^R\int_{-R}^R\cdots\int_{-R}^R \omega^n(x^1, \ldots, x^{n-1}, 0) d^{n-1} x                         %dx^1\cdots dx^{n-1}.
 		.\label{eq:lhsHn}
 	\end{align}
 	We now need to compare this with the right-hand side of~\eqref{eq:Stokes}.
 	To this end, compute he following
 	\begin{equation}
-		\int_{\partial \cH^n}\omega = \sum_{j=1}^n \int_{A\cap\cH^n} \omega_j(x^1, \ldots, x^{n-1}, 0) dx^1 \wedge \cdots\wedge \widehat{dx}^j \wedge \cdots\wedge dx^n.
+		\int_{\partial \cH^n}\omega = \sum_{j=1}^n \int_{A\cap\partial\cH^n} \omega^j(x^1, \ldots, x^{n-1}, 0) dx^1 \wedge \cdots\wedge \widehat{dx}^j \wedge \cdots\wedge dx^n.
 	\end{equation}
 	Since $x^n$ vanishes on $\partial\cH^n$, the pullback of $dx^n$ to the boundary is zero, and thus the only surviving term in the sum is the last one, that is,
 	\begin{equation}\label{eq:rhsHn}
-		\int_{\partial \cH^n}\omega = \int_{A\cap\cH^n} \omega_n(x^1, \ldots, x^{n-1}, 0) dx^1 \wedge\cdots\wedge dx^{n-1}.
+		\int_{\partial \cH^n}\omega = \int_{A\cap\partial\cH^n} \omega^n(x^1, \ldots, x^{n-1}, 0) dx^1 \wedge\cdots\wedge dx^{n-1}.
 	\end{equation}
-	Since coordinates $(x^1, \ldots, x^{n-1})$ are positively oriented for $\cH^n$ when $n$ is even and negatively oriented when $n$ is odd, we obtain the equality of \eqref{eq:lhsHn} and \eqref{eq:rhsHn}.
+	The outward pointing normal to $\partial\cH^n$ is $-\partial_n$ and $\det(-e_n, e_1, \ldots, e_{n-1}) = (-1)^n$, therefore the coordinates $(x^1, \ldots, x^{n-1})$ are positively oriented for $\partial\cH^n$ when $n$ is even and negatively oriented when $n$ is odd.
+	That is, the right-hand side of~\eqref{eq:rhsHn} equals $(-1)^n \int_{-R}^R\cdots\int_{-R}^R \omega^n(x^1, \ldots, x^{n-1}, 0) d^{n-1} x$, and we obtain the equality of \eqref{eq:lhsHn} and \eqref{eq:rhsHn}.
 
 	\newthought{Part II: Euclidean case}.
 	If $M=\R^n$ the considerations above apply without the need to make an exception for the case $j=n$, so all the terms vanish on the left-hand side of~\eqref{eq:Stokes} while the right-hand side is trivially zero due to the empty boundary.

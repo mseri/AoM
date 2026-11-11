@@ -44,14 +44,17 @@ Without further ado, let's look at a first version of Poincar\'e lemma on manifo
 As for all the local concepts we have seen so far, the proof will reduce the problem to a euclidean statement to which we will apply the Poincar\'e lemma that you have seen in multivariable calculus.
 
 \begin{theorem}\idxthm{Poincar\'e lemma}
-	Let $M$ be a smooth manifold and $\omega\in\Omega^k(M)$ closed, that is, $d\omega = 0$.
+	Let $M$ be a smooth manifold, $k\geq1$ and $\omega\in\Omega^k(M)$ closed, that is, $d\omega = 0$.
 	Let $U\subset M$ be open and diffeomorphic to a star-shaped domain\footnote{Cf. Lemma~\ref{lem:Taylor}.} of $\R^n$.
 	Then, there exists $\nu\in\Omega^{k-1}(U)$ such that $\omega|_U = d\nu$.
 \end{theorem}
 \begin{proof}
 	Let $\varphi: U \to V\subset\R^n$ be a diffeomorphism between $U$ and the star-shaped domain $V\subset\R^n$.
 	Then $\widetilde\omega := \varphi_*\omega$ is a closed $k$-form on $V$ and, according to the Poincar\'e lemma on $\R^n$, there exists $\widetilde \nu \in \Omega^{k-1}(V)$ such that $\widetilde\omega = d\widetilde\nu$.
+	Then $\nu := \varphi^*\widetilde\nu\in\Omega^{k-1}(U)$ satisfies $d\nu = \varphi^* d\widetilde\nu = \varphi^*\widetilde\omega = \omega|_U$.
 \end{proof}
+
+Note that the assumption $k\geq1$ cannot be dropped: the constant function $1\in\Omega^0(M)$ is closed, but it is not exact since there are no $(-1)$-forms.
 
 To generalise this result further, we need to have a deeper look into de Rham theory.
 
