@@ -80,8 +80,8 @@ This will prove extremely convenient for the development of the theory.
 
 \begin{definition}
 	Let $M$ be a smooth manifold and $p\in M$.
-	Let $U,V\subset M$ be two neighbourhoods of $p$.
-	We say that two functions $f\in C^\infty(U)$ and $g\in C^\infty(V)$ have the same \emph{germ} at $p$ if there exists a neighbourhood $W\subset U\cap V$ of $p$ where $f$ and $g$ agree, that is, $f|_W = g|_W$.
+	Let $U,V\subset M$ be two open neighbourhoods of $p$.
+	We say that two functions $f\in C^\infty(U)$ and $g\in C^\infty(V)$ have the same \emph{germ} at $p$ if there exists an open neighbourhood $W\subset U\cap V$ of $p$ where $f$ and $g$ agree, that is, $f|_W = g|_W$.
 \end{definition}
 \begin{marginfigure}
 	\includegraphics{images/2_3-def_2_3_1.png}
@@ -93,13 +93,13 @@ This will prove extremely convenient for the development of the theory.
 	Make it concrete: pick $M=\R$ first and then try with $M=\R^3$, and choose some specific values for $p$ and $p'$.
 \end{exercise}
 
-Germs define an equivalence relation on the set of smooth functions defined on a neighbourhood of a point $p$: $(U, f) \sim_p (V, g)$ if they have the same germ at $p$. Then, a germ $[f]_p$, where $(U, f)$ is one representative for $[f]_p$, is an equivalence class in the quotient space
+Germs define an equivalence relation on the set of pairs $(U, f)$, where $U$ is an open neighbourhood of a point $p$ and $f\in C^\infty(U)$: $(U, f) \sim_p (V, g)$ if they have the same germ at $p$. Then, a germ $[f]_p$, where $(U, f)$ is one representative for $[f]_p$, is an equivalence class in the quotient space
 \begin{equation}
-	C_p^\infty(M) := C^\infty(M)/\!\sim_p.
+	C_p^\infty(M) := \{(U,f) \mid U\subset M \mbox{ open}, p\in U, f\in C^\infty(U)\}/\!\sim_p.
 \end{equation}
 
 \begin{exercise}
-	Show that $\sim_p$ defined above is an equivalence relation in $C^\infty(M)$.
+	Show that $\sim_p$ defined above is an equivalence relation.
 \end{exercise}
 
 For $c\in\R$ and $[f]_p, [g]_p$ germs with representatives $(U, f), (V, g)$, we have
@@ -205,7 +205,7 @@ As we did with atlases, we would like to get it over with.
 
 \begin{definition}\idxdef{Derivation at a point}
 	Let $M$ be a smooth manifold and $p\in M$.
-	Let $W\subseteq M$ be any neighbourhood of $p$.
+	Let $W\subseteq M$ be any open neighbourhood of $p$.
 	\marginnote{We are still talking about derivations of functions at specific points, not to be confused with the derivations of the algebra $C^\infty(W)$ which we will introduce later and will be maps of the kind $C^\infty(W)\to C^\infty(W)$.}
 	A map $w_p:C^\infty(W)\to\R$ is called a \emph{derivation of $C^\infty(W)$ at $p$} if it is linear over $\R$ and satisfies Leibniz rule
 	\begin{equation}
@@ -221,7 +221,7 @@ In this case
 Showing that the opposite is also true will require a bit of work.
 
 \begin{proposition}
-	Let $M$ be a smooth manifold, $p\in M$ and $W$ any neighbourhood of $p$.
+	Let $M$ be a smooth manifold, $p\in M$ and $W$ any open neighbourhood of $p$.
 	Then there is a linear isomorphism between $T_p M$ and the space of derivations of $C^\infty(W)$ at $p$.
 \end{proposition}
 \begin{proof}
@@ -231,7 +231,7 @@ Showing that the opposite is also true will require a bit of work.
 	\newthought{Step I}. Let $w_p:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ of $p$.
 	We are going to show that $w_p(f)=0$.
 
-	By Proposition~\ref{prop:cutoff}, we can find a cutoff function $\rho:M\to\R$ such that $\rho(p)=1$ in a closed set $W_1 \subset W_0$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$.
+	By Proposition~\ref{prop:cutoff}, applied with the closed set $K=\{p\}$ and the open set $W_0$, we can find a cutoff function $\rho:M\to\R$ such that $\rho(p)=1$ and $\supp(\rho) \subset W_0$. Consider now $g = \rho f : W \to \R$.
 	Then $g$ is identically zero everywhere in $W$, and thus\footnote{Follows by linearity, exactly as in Lemma~\ref{lem:f'0is0forconst}} $w_p(g) = 0$.
 	Using Leibniz rule, the fact that $\rho(p)=1$ and $f(p) = 0$, we get
 	\begin{equation}
@@ -259,7 +259,7 @@ Showing that the opposite is also true will require a bit of work.
 	Let $w_p:C^\infty(W) \to\R$ be a derivation at $p$.
 	A tangent vector is a linear map $v:C_p^\infty(M)\to\R$, see~\eqref{def:tangentvector}, and a derivation.
 	We would like to define one in terms of $w$.
-	Given any $[f]_p\in C_p^\infty(W)$, the previous step guarantees that there exists a representative\footnote{Here we have been using $\widetilde{f}$ to emphasize that the specific function may be different from $f$ on the set. Since it makes no difference for any practical purpose, later on we will reuse the same symbol $f$ without further comments.} $(W,\widetilde{f})$ for it, so we can define
+	Given any $[f]_p\in C_p^\infty(M)$, the previous step guarantees that there exists a representative\footnote{Here we have been using $\widetilde{f}$ to emphasize that the specific function may be different from $f$ on the set. Since it makes no difference for any practical purpose, later on we will reuse the same symbol $f$ without further comments.} $(W,\widetilde{f})$ for it, so we can define
 	\begin{equation}
 		v([f]_p) := w_p(\widetilde{f}), \quad\mbox{where $(W,\widetilde{f})$ is any representative of $[f]_p$}.
 	\end{equation}
@@ -352,6 +352,8 @@ To that end, we need a preliminary result from multivariable analysis.
 	\begin{equation}
 		g_i(x) := \int_0^1 D_i h(tx)\; dt.
 	\end{equation}
+	Clearly $g_i(0) = D_i h(0)$.
+	Moreover, the integrand $(t,x)\mapsto D_i h(tx)$ is smooth on $[0,1]\times U$ and the domain of integration is compact: thus we can differentiate under the integral sign as many times as we want, and the functions $g_i$ are smooth.
 \end{proof}
 
 Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
@@ -372,12 +374,12 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 	By Lemma~\ref{lem:Taylor} with $h = f \circ \varphi^{-1}$ we get
 	\begin{equation}
 		f = f(p) + x^i (g_i \circ \varphi),
-		\quad g_i(0) = D_i (f \circ \varphi^{-1})(0) = \frac{\partial}{\partial x_i}\Big|_p(f).
+		\quad g_i(0) = D_i (f \circ \varphi^{-1})(0) = \frac{\partial}{\partial x^i}\Big|_p(f).
 	\end{equation}
-	\marginnote{If we are careful with the meaning of our notation, we could write more succinctly $\frac{\partial f}{\partial x_i}(p)$ in place of $\frac{\partial}{\partial x_i}\big|_p(f)$ in the same fashion as in Example~\ref{ex:partialderivative}.}
+	\marginnote{If we are careful with the meaning of our notation, we could write more succinctly $\frac{\partial f}{\partial x^i}(p)$ in place of $\frac{\partial}{\partial x^i}\big|_p(f)$ in the same fashion as in Example~\ref{ex:partialderivative}.}
 	Thus, for any derivation $v$, we obtain
 	\begin{equation}
-		v(f) = v(f(p)) + v(x^i)g_i(0) + x^i(p) v(g_i\circ\varphi) = v(x^i)  \frac{\partial}{\partial x_i}\Big|_p(f).
+		v(f) = v(f(p)) + v(x^i)g_i(0) + x^i(p) v(g_i\circ\varphi) = v(x^i)  \frac{\partial}{\partial x^i}\Big|_p(f).
 	\end{equation}
 	The right hand side is obtained observing that $\varphi(p) = 0$, and thus the components $x^i(p) = 0$ are all zero, and applying Corollary~\ref{cor:derzero} to the constant $f(p)$, which implies $v(f(p)) = 0$.
 
@@ -385,14 +387,14 @@ Theorem~\ref{thm:dimensionTpM} now follows from the next statement.
 	We now need to show that its elements are linearly independent.
 	Observe that
 	\begin{align}
-		\frac{\partial}{\partial x_i}\Big|_p (x^j) & =
-		\frac{\partial}{\partial x_i}\Big|_p (r^j \circ \varphi)                                               \\
+		\frac{\partial}{\partial x^i}\Big|_p (x^j) & =
+		\frac{\partial}{\partial x^i}\Big|_p (r^j \circ \varphi)                                               \\
 		                                           & = D_i (r^j \circ \varphi \circ \varphi^{-1}) (\varphi(p)) \\
 		                                           & = D_i r^j(\varphi(p)) = \delta^j_i.
 	\end{align}
 	Thus, if
 	\begin{equation}
-		v = a^i \frac{\partial}{\partial x_i}\Big|_p = 0,
+		v = a^i \frac{\partial}{\partial x^i}\Big|_p = 0,
 	\end{equation}
 	by letting $v$ act on $x^j$, $1\leq j\leq n$, we obtain $(a^1, \ldots, a^n) = 0$, proving the linear independence.
 \end{proof}
@@ -542,7 +544,7 @@ The definition we gave seems quite abstract, let's see what it looks like in coo
 	If $(x^i)$ denotes the local coordinates of $\varphi$ and $(y^i)$ the ones of $\psi$, the matrix of $dF_p$ with respect to the bases $\left\{\frac{\partial}{\partial x^j}\big|_p \;\mid\; j=1,\ldots,m\right\}$ of $T_pM$ and $\left\{\frac{\partial}{\partial y^j}\big|_{F(p)} \;\mid\; j=1,\ldots,n\right\}$ of $T_{F(p)}N$ is given by the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$.
 \end{proposition}
 \begin{proof}
-	The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$. For any $j=1,\ldots,m$, Remark~\ref{rmk:chg_coords} implies
+	The proof follows from the following direct computation after observing that the number $D_j(r^i \circ \psi \circ F \circ \varphi^{-1})(\varphi(p))$ is the $(i,j)$ entry of the Jacobian matrix $D(\psi\circ F \circ\varphi^{-1})(\varphi(p))$. For any $j=1,\ldots,m$, Proposition~\ref{prop:basis_TpM} applied in $T_{F(p)}N$ implies
 	\begin{align}
 		dF_p \left(\frac{\partial}{\partial x^j}\Big|_p\right)
 		 & =                                                                                                   %\sum_{i=1}^n
@@ -617,9 +619,9 @@ This example leads us immediately to the following exercise and the observation 
 	Show that the matrix of $d F_p$ in terms of the coordinate bases is
 	\begin{equation}
 		\begin{pmatrix}
-			\frac{\partial F^1}{\partial x^1} (p) & \cdot  & \frac{\partial F^1}{\partial x^n} (p) \\
+			\frac{\partial F^1}{\partial x^1} (p) & \cdot  & \frac{\partial F^1}{\partial x^m} (p) \\
 			\vdots                                & \ddots & \vdots                                \\
-			\frac{\partial F^m}{\partial x^1} (p) & \cdot  & \frac{\partial F^m}{\partial x^n} (p)
+			\frac{\partial F^n}{\partial x^1} (p) & \cdot  & \frac{\partial F^n}{\partial x^m} (p)
 		\end{pmatrix}
 	\end{equation}
 	without using the Proposition above. Here $\frac{\partial F^i}{\partial x^j} (p) = \frac{\partial}{\partial x^j}\big|_p (F^i)$, where $F^i$ is the $i$th component of $F$ with respect to the chart with coordinates $y^j$.\\
@@ -640,7 +642,7 @@ Let $f:U\subset\R^m\to\R^n$ be a smooth function and define the linear isomorphi
 where $\{e_1,\ldots,e_m\}$ denotes the standard basis of $\R^m$ and $\{e_1',\ldots,e_n'\}$ denotes the standard basis of $\R^n$.
 
 On the one hand, we have the total derivative $Df(x):\R^m\to\R^n$ from multivariable calculus: a linear map, the Jacobian matrix of partial derivatives.
-On the other, we have the differential $df_x : T_x \R^m \to T_{f(x)}\R^m$ defined above: also a linear map, related to the Jacobian matrix of partial derivatives by Proposition~\ref{prop:DiffCoords}.
+On the other, we have the differential $df_x : T_x \R^m \to T_{f(x)}\R^n$ defined above: also a linear map, related to the Jacobian matrix of partial derivatives by Proposition~\ref{prop:DiffCoords}.
 In fact we know more, since Proposition~\ref{prop:DiffCoords} tells us that the following diagram commutes:
 \begin{equation}
 	\begin{tikzcd}[row sep=huge, column sep=huge]
@@ -886,7 +888,7 @@ As it turns out, this is a particular instance of a more general fact.
 	\newthought{Step 2: compatibility of the extended charts.}
 	Suppose we have two smooth charts $(U,\varphi)$, $(V,\psi)$ for $M$ with the respective local coordinates $(x^i)$ and $(y^i)$.
 	Let $(\pi^{-1}(U),\widetilde\varphi)$, $(\pi^{-1}(V),\widetilde\psi)$ be their extension\footnote{These are called \emph{bundle charts}.} to $TM$ as in the previous step.
-	By construction\footnote{They are both homeomorphisms.}, both $\widetilde\varphi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \varphi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
+	Since $\pi^{-1}(U)\cap\pi^{-1}(V) = \pi^{-1}(U\cap V)$, by construction both $\widetilde\varphi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \varphi(U\cap V)\times\R^n$ and $\widetilde\psi(\pi^{-1}(U)\cap\pi^{-1}(V)) = \psi(U\cap V)\times\R^n$ are open in $\R^{2n}$.
 	Moreover, we can take advantage of Remark~\ref{rmk:chg_coords} to write explicitly the transition map  $\widetilde\psi\circ\widetilde\varphi^{-1}: \varphi(U\cap V)\times\R^n \to \psi(U\cap V)\times\R^n$ as
 	\begin{align}
 		\widetilde\psi\circ & \widetilde\varphi^{-1}\left(x^1, \ldots, x^n, v^1, \ldots, v^n\right)                                                            \\
@@ -906,13 +908,14 @@ As it turns out, this is a particular instance of a more general fact.
 
 	Let $(p_1, v_1), (p_2, v_2) \in TM$ be different points: either $p_1\neq p_2$, or $p_1 = p_2$ and $v_1 \neq v_2$.
 	\begin{itemize}
-		\item In the first case, there are disjoint open sets $V_1, V_2 \subset U_i$ (for some $i$) containing respectively $p_1$ and $p_2$.
-		      Then $\widetilde\varphi_i^{-1}(\varphi_i(V_1)\times\R^n)$ and $\widetilde\varphi_i^{-1}(\varphi_i(V_2)\times\R^n)$ are disjoint open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$.
+		\item In the first case, since $M$ is Hausdorff, there are disjoint open sets $V_1, V_2 \subset M$ containing respectively $p_1$ and $p_2$. Pick $i, j$ such that $p_1\in U_i$ and $p_2\in U_j$.
+		      Then $\widetilde\varphi_i^{-1}(\varphi_i(U_i\cap V_1)\times\R^n)$ and $\widetilde\varphi_j^{-1}(\varphi_j(U_j\cap V_2)\times\R^n)$ are open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$, and they are disjoint since they are contained in $\pi^{-1}(V_1)$ and $\pi^{-1}(V_2)$ respectively.
 		\item In the second case, $p=p_1=p_2$ but there are disjoint open sets $V_1,V_2\subset \R^n$ containing $v_1$ and $v_2$ respectively;
-		      again, the preimages $\widetilde\varphi_i^{-1}(\varphi_i(U_i)\times V_1)$ and $\widetilde\varphi_i^{-1}(\varphi_i(U_2)\times V_2)$ (for some $i$ such that $p\in U_i$) are disjoint open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$.
+		      again, the preimages $\widetilde\varphi_i^{-1}(\varphi_i(U_i)\times V_1)$ and $\widetilde\varphi_i^{-1}(\varphi_i(U_i)\times V_2)$ (for some $i$ such that $p\in U_i$) are disjoint open sets containing respectively $(p_1, v_1)$ and $(p_2, v_2)$.
 	\end{itemize}
 
-	The countable basis $\{U_j\}$ is a countable basis for the topology of $M$ (which is second countable), taking a countable basis $\{W_k\}$ for the topology of $\R^n$, we can define a countable basis for $TM$ as $\{\widetilde\varphi^{-1}(U_i)\times W_k)\}$.
+	Finally, let $\{B_k\}$ be a countable basis for the topology of $\R^{2n}$.
+	Since the sets $\pi^{-1}(U_i)$ cover $TM$ and each $\widetilde\varphi_i$ is a homeomorphism onto the open set $\varphi_i(U_i)\times\R^n$, the countable family $\{\widetilde\varphi_i^{-1}(B_k\cap(\varphi_i(U_i)\times\R^n))\}_{i,k}$ is a basis for the topology of $TM$.
 	The charts defined above make $TM$ automatically Euclidean of dimension $2n$.
 
 	\begin{exercise}
