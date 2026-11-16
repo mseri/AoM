@@ -92,10 +92,10 @@ If some detail seems unclear, I would recommend you to go through the proof step
 	and $F(p) = F(0,\ldots,0) = (0,\ldots,0)$.
 
 	\newthought{Second}. The fact that $F$, and thus $dF$, is of rank $k$, translates to
-	the Euclidean setting to the fact that the matrix $DF$ is a $m\times n$ matrix of rank $k$
+	the Euclidean setting to the fact that the matrix $DF$ is a $n\times m$ matrix of rank $k$
 	and thus with an invertible $k\times k$ submatrix.
 	Rearranging the coordinates we can assume, again without loss of generality, that this
-	$k\times k$ minor is is the upper left block of the matrix $DF$, that is, the block
+	$k\times k$ minor is the upper left block of the matrix $DF$, that is, the block
 	$\left( \frac{\partial F^i}{\partial x^j} \right)$, $i,j = 1,\ldots, k$.
 
 	In what follows, we will denote the coordinates as follows:
@@ -105,7 +105,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
 
 	\newthought{Right hand side}.
 	Writing $F(x,y) = (Q(x,y), R(x,y))$ for some smooth maps $Q: U \to \R^k$ and $R: U \to \R^{n-k}$,
-	our choice of coordinates after the above observations implies that the gradient of $Q$ with respect to $x$ is regular, that is,
+	our choice of coordinates after the above observations implies that the Jacobian of $Q$ with respect to $x$ is regular, that is,
 	$\det \left( \frac{\partial Q^i}{\partial x^j} \right) \neq 0$ at $(x,y) = (0,0)$.
 
 	In particular, this implies that we can extend the mapping with
@@ -136,7 +136,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
 	\begin{equation}
 		F\circ\varphi^{-1}(x,y) = (x, \widetilde{R}(x,y)),
 	\end{equation}
-	where $\widetilde{R} : W_0 \to\R^{m-k}$ is defined by $\widetilde{R}(x,y) = R(A(x,y), y)$.
+	where $\widetilde{R} : W_0 \to\R^{n-k}$ is defined by $\widetilde{R}(x,y) = R(A(x,y), y)$.
 	Therefore, for $(x,y)\in W_0$ we have
 	\begin{equation}\label{eq:diff_DFp-1}
 		D(F\circ\varphi^{-1})(x,y) = \begin{pmatrix}
@@ -198,7 +198,7 @@ If some detail seems unclear, I would recommend you to go through the proof step
 
 \section{Embeddings, submersions and immersions}
 
-Looking at the statement of the Rank Theorem, one can already see that there can be different possibilities depending on the relation between, $m$, $n$ and $k$. This warrants a definition.
+Looking at the statement of the Rank Theorem, one can already see that there can be different possibilities depending on the relation between $m$, $n$ and $k$. This warrants a definition.
 
 \begin{marginfigure}
 	\includegraphics{2_8_1-immersion-embedding}
@@ -206,9 +206,9 @@ Looking at the statement of the Rank Theorem, one can already see that there can
 \begin{definition}
 	Let $M^m$ and $N^n$ be differentiable manifolds and $F:M\to N$ a smooth function.
 	\begin{itemize}
-		\item $F$ is a \emph{immersion}\idxdef{Immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
+		\item $F$ is an \emph{immersion}\idxdef{Immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
 		\item $F$ is a \emph{submersion}\idxdef{Submersion} if $dF_p$ is surjective for all $p\in M$ ($\Rightarrow\; m\geq n$);
-		\item $F$ is a \emph{embedding}\idxdef{Embedding}\footnote{This is a particular case of a more general concept, the topological embedding, which is defined as an injective continuous map that is a homeomorphism onto its image.} if $F$ is an injective immersion that is also a diffeomorphism onto its image $F(M)\subset N$, where the topology on $F(M)$ is the subspace topology as a subset of $N$.
+		\item $F$ is an \emph{embedding}\idxdef{Embedding}\footnote{This is a particular case of a more general concept, the topological embedding, which is defined as an injective continuous map that is a homeomorphism onto its image.} if $F$ is an injective immersion that is also a diffeomorphism onto its image $F(M)\subset N$, where the topology on $F(M)$ is the subspace topology as a subset of $N$.
 	\end{itemize}
 \end{definition}
 
@@ -253,7 +253,7 @@ Looking at the statement of the Rank Theorem, one can already see that there can
 
 		\item Let $m=1$, $n > 1$ and $\gamma:\R\to\R^n$ a smooth curve.
 		      The map $\gamma$ is an immersion if and only if its velocity vector satisfies $\gamma'(t)\neq0$ for all $t\in\R$.
-		      If the curve intersects itself, e.g $\gamma(t_1) = \gamma(t_2)$ for some $t_1\neq t_2$, then $f$ is not an embedding.
+		      If the curve intersects itself, e.g $\gamma(t_1) = \gamma(t_2)$ for some $t_1\neq t_2$, then $\gamma$ is not an embedding.
 	\end{enumerate}
 \end{example}
 
@@ -268,7 +268,7 @@ Looking at the statement of the Rank Theorem, one can already see that there can
 	We say that $M$ is an \emph{embedded (or regular) submanifold}\idxdef{Embedded submanifold} of $N$ if the inclusion $M\hookrightarrow N$ is an embedding. If the inclusion is just an immersion, we say that $M$ is an \emph{immersed submanifold}\idxdef{Immersed submanifold}.
 \end{definition}
 
-It is probably no surprise at this point that smooth maps are going to be useful in providing ways to nicely include a manifold into the another and in giving new ways to construct manifolds in the first place.
+It is probably no surprise at this point that smooth maps are going to be useful in providing ways to nicely include a manifold into another and in giving new ways to construct manifolds in the first place.
 In the rest of this chapter we will try to give an answer to the following questions:
 \begin{itemize}
 	\item if $F$ is an immersion, what can we say about its image $F(M)$ as a subset of $N$?
@@ -277,7 +277,7 @@ In the rest of this chapter we will try to give an answer to the following quest
 And what can we say about the corresponding tangent spaces?
 
 
-To begin with, since all our result so-far have been local in nature, we can use locality to our advantage.
+To begin with, since all our results so far have been local in nature, we can use locality to our advantage.
 Say that we have an immersion $F$, then we can restrict its domain to obtain a local embedding, that is
 a function that is locally an embedding onto its image.
 The proof of this fact will show that a $k$-dimensional submanifold is also a $k$-dimensional manifold
@@ -357,13 +357,14 @@ With this definition at hand, we are ready to state one of the most important th
 Differently from the previous ones, the statement is not local.
 
 \begin{theorem}[Regular levelset theorem]\label{thm:impl_fun}\idxthm{Regular levelset theorem}\idxthm{Implicit function theorem (manifolds)}
-	Let $m\geq n$ and let $F: M^m \to N^n$ be a smooth map between smooth manifolds.
+	Let $m\geq n$ and let $F: M^m \to N^n$ be a smooth map between smooth manifolds without boundary.
+	\marginnote{Note that the assumption on the boundary is necessary: on $M=\{(x,y)\in\R^2\mid y\geq0\}$, the function $F(x,y)=x^2+y$ has $F^{-1}(0)=\{(0,0)\}$ and $dF_{(0,0)} = dy \neq 0$, so $0$ is a regular value, but $F^{-1}(0)$ is a point and not a manifold of dimension $1$.}
 	If $q\in N$ is a regular value of $F$ and $P := F^{-1}(q)$ is not empty, then $P$ is a topological manifold of dimension $m-n$.
 	Moreover, there exists a smooth structure on $P$ which makes it into a smooth embedded submanifold of $M$.
 \end{theorem}
 
 If you think about it carefully, this is an analogue of the implicit function theorem for manifolds, where some coordinate functions are implicitly defined as solution of a levelset equation.
-While the proof of Theorem~\ref{thm:impl_fun} is not particularly complicated and is also a direct application of the implicit function theorem, we will not pursue it here. You can find it in \cite[Theorem 5.12]{book:lee} or \cite[Theorem 9.9]{book:tu}.
+While the proof of Theorem~\ref{thm:impl_fun} is not particularly complicated and is also a direct application of the implicit function theorem, we will not pursue it here. You can find it in \cite[Corollary 5.14]{book:lee} or \cite[Theorem 9.9]{book:tu}.
 
 In the previous chapter, all manifolds were introduced as a set on top of which we had to explicitly provide a differentiable structure. With this theorem we can finally get it all for free as long as we provide an appropriate submersion $F$.
 
@@ -416,8 +417,9 @@ In the previous chapter, all manifolds were introduced as a set on top of which 
 	A real-valued function $f:M\to\R$ on a manifold has a local maximum at $p\in M$ if there is a neighbourhood $U\subset M$ of $p$ such that $f(p) \geq f(q)$ for all $q\in U$.
 	\begin{enumerate}
 		\item Show that if a differentiable function $f:(a,b)\to\R$, has a local maximum at $x\in (a,b)$, then $f'(x) = 0$.
-		\item Prove that a local maximum of a function $f\in C^\infty(M)$ is a critical point of $f$.\\
-		      \textit{\small Hint: choose $X_p\in T_pM$ and let $\gamma(t)$ be a curve in $M$ starting at $p$ with initial velocity $X_p$. The $f\circ \gamma$ is a real-valued function with local maximum at $0$...}
+		\item Prove that a local maximum $p\in M\setminus\partial M$ of a function $f\in C^\infty(M)$ is a critical point of $f$.\\
+		      \textit{\small Hint: choose $X_p\in T_pM$ and let $\gamma(t)$ be a curve in $M$ starting at $p$ with initial velocity $X_p$. Then $f\circ \gamma$ is a real-valued function with local maximum at $0$...}
+		\item Provide a counterexample showing why the point above requires $p\not\in\partial M$.
 	\end{enumerate}
 \end{exercise}
 
@@ -426,7 +428,7 @@ Is the tangent space to a sphere the one that we naively imagine (see Figure~\re
 To finally answer the question, we will prove one last proposition.
 
 \begin{proposition}\label{prop:tangent_levelset}\idxthm{Tangent space to a levelset}
-	Let $F:M^m\to N^n$ be a smooth map between smooth manifolds.
+	Let $F:M^m\to N^n$ be a smooth map between smooth manifolds without boundary.
 	Let $q\in N$ be a regular value of $F$ such that $P:=F^{-1}(q)\neq\emptyset$ and let $i:P\hookrightarrow M$ denote the inclusion.
 	Then, for all $p\in P$, one has
 	\begin{equation}
@@ -436,7 +438,7 @@ To finally answer the question, we will prove one last proposition.
 \begin{proof}
 	Both $d i_p(T_p P)\subset T_p M$ and $\ker dF_p \subset T_p M$ are linear subspaces of the same dimension $m-n$, therefore we only need to show that one contains the other, e.g. $d i_p(T_p P) \subset \ker dF_p$.
 
-	Take $f\in C^\infty(N)$ and $v\in T_p P$. By the chain rule\footnote{Proposition~\ref{thm:chainrule_mfld}} we get
+	Take $f\in C^\infty(N)$ and $v\in T_p P$. By the chain rule\footnote{Theorem~\ref{thm:chainrule_mfld}} we get
 	\begin{align}
 		(d F_p \circ d i_p)(v)(f) = d(F\circ i)_p(v)(f) = v(f\circ F\circ i).
 	\end{align}
@@ -468,7 +470,7 @@ To finally answer the question, we will prove one last proposition.
 	\begin{equation}
 		g(x) = (x, f(x)).
 	\end{equation}
-	Show that $g$ is a smooth embedding and, therefore, that $g(U)$ is a smooth embedded $n$-dimensional submanifold\footnote{$g(U)$ is the the \emph{graph} of $f$!} of $\R^{n+1}$.
+	Show that $g$ is a smooth embedding and, therefore, that $g(U)$ is a smooth embedded $n$-dimensional submanifold\footnote{$g(U)$ is the \emph{graph} of $f$!} of $\R^{n+1}$.
 \end{exercise}
 
 \begin{exercise}\label{exe:onsubmanifold}

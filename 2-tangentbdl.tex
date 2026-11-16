@@ -225,7 +225,7 @@ Showing that the opposite is also true will require a bit of work.
 	Then there is a linear isomorphism between $T_p M$ and the space of derivations of $C^\infty(W)$ at $p$.
 \end{proposition}
 \begin{proof}
-	To prove the theorem we need to invert~\eqref{eq:derivfromtg} and define a tangent vector in terms of of a derivation of $C^\infty(W)$ at $p$.
+	To prove the theorem we need to invert~\eqref{eq:derivfromtg} and define a tangent vector in terms of a derivation of $C^\infty(W)$ at $p$.
 	We will proceed in three steps.
 
 	\newthought{Step I}. Let $w_p:C^\infty(W) \to\R$ be a derivation at $p$ and suppose that $f\in C^\infty(W)$ is identically zero on a neighbourhood $W_0\subset W$ of $p$.
@@ -486,7 +486,7 @@ Soon, we will see yet another definition.
 \marginnote{If you are curious about what happens if you consider higher order approximations, try to look up \emph{Jet Space} with your favourite search engine.}
 In the manifold case there is a similar linear map but, as we discussed, it makes no sense to talk about a linear map between manifolds: we need to find a suitable linear map between tangent spaces.
 
-It should not come a surprise that with the constructions developed so far not only do we have one such map, but we can directly relate it to a derivative.
+It should not come as a surprise that with the constructions developed so far not only do we have one such map, but we can directly relate it to a derivative.
 
 \begin{definition}\label{def:differentialMap}\idxdef{Differential (of a map)}
 	Let $F: M \to N$ be a smooth map between the smooth manifolds $M$ and $N$, and let $p\in M$.
@@ -619,9 +619,9 @@ This example leads us immediately to the following exercise and the observation 
 	Show that the matrix of $d F_p$ in terms of the coordinate bases is
 	\begin{equation}
 		\begin{pmatrix}
-			\frac{\partial F^1}{\partial x^1} (p) & \cdot  & \frac{\partial F^1}{\partial x^m} (p) \\
+			\frac{\partial F^1}{\partial x^1} (p) & \cdots & \frac{\partial F^1}{\partial x^m} (p) \\
 			\vdots                                & \ddots & \vdots                                \\
-			\frac{\partial F^n}{\partial x^1} (p) & \cdot  & \frac{\partial F^n}{\partial x^m} (p)
+			\frac{\partial F^n}{\partial x^1} (p) & \cdots & \frac{\partial F^n}{\partial x^m} (p)
 		\end{pmatrix}
 	\end{equation}
 	without using the Proposition above. Here $\frac{\partial F^i}{\partial x^j} (p) = \frac{\partial}{\partial x^j}\big|_p (F^i)$, where $F^i$ is the $i$th component of $F$ with respect to the chart with coordinates $y^j$.\\
@@ -702,7 +702,7 @@ For example, since $GL_n(\R)$ is an open submanifold of the vector space $\mathr
 	Let $M_1, \ldots, M_k$ be smooth manifolds (without boundary\footnote{The statement is true also if one (only one!) of the $M_i$ spaces is a smooth manifold with boundary. If there is more than one manifold with boundary, the product space will have ``corners'' that cannot be mapped to half spaces and thus is not a smooth manifold, as a simple example you can consider the closed square $[0,1]\times [0,1]$.}), and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
 	For any point $p=(p_1,\ldots,p_k)\in M_1\times\cdots\times M_k$, the map
 	\begin{align}
-		\sigma & : T_p(M_1\times\cdots\times M_k) \to T_p M_1\times\cdots\times T_p M_k \\
+		\sigma & : T_p(M_1\times\cdots\times M_k) \to T_{p_1} M_1\times\cdots\times T_{p_k} M_k \\
 		\sigma & : v \mapsto \left(d(\pi_1)_p(v), \ldots, d(\pi_k)_p(v)\right)
 	\end{align}
 	is an isomorphism.
@@ -781,7 +781,7 @@ And it would seem reasonable to identify curves that have the same tangent vecto
 There is still a potential problem, though: we don't yet know if \emph{every} tangent vector can be written as the velocity vector of a curve.
 
 \begin{theorem}
-	Let $M$ be a smooth $n$-manifold, let $p\in M$ and let $v\in T_pM$.
+	Let $M$ be a smooth $n$-manifold without boundary, let $p\in M$ and let $v\in T_pM$.
 	There exists a smooth curve $\gamma: (-\epsilon,\epsilon) \to M$ such that $\gamma(0)=p$ and $\gamma'(0) = v$.
 \end{theorem}
 \begin{proof}
@@ -790,9 +790,9 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
 	\begin{equation}
 		v = a^i \frac{\partial}{\partial x^i}\Big|_p, \qquad a^i \in\R \mbox{ for all } i=1,\ldots,n.
 	\end{equation}
-	For $\epsilon$ small enough, by continuity the vector $(ta^1, \ldots, ta^n) \in \varphi(U)$ for all $|t|<\epsilon$. Therefore, the curve
+	For $\epsilon$ small enough, the vector $\varphi(p) + (ta^1, \ldots, ta^n) \in \varphi(U)$ for all $|t|<\epsilon$. Therefore, the curve
 	\begin{equation}
-		\gamma: (-\epsilon, \epsilon) \to M, \quad \gamma(t):=\varphi^{-1}(ta^1, \ldots, ta^n),
+		\gamma: (-\epsilon, \epsilon) \to M, \quad \gamma(t):=\varphi^{-1}\big(\varphi(p) + (ta^1, \ldots, ta^n)\big),
 	\end{equation}
 	is well-defined, smooth, satisfies $\gamma(0) = p$ and, by~\eqref{eq:tg_curve_vec}, $\gamma'(0) = v$.
 \end{proof}
@@ -804,7 +804,7 @@ There is still a potential problem, though: we don't yet know if \emph{every} ta
 \end{marginfigure}
 This means that we can actually give an alternative definition of $T_pM$ in terms of tangents to curves:
 \begin{definition}\label{def:tg:ascurvespeed}\idxdef{Tangent vector}
-	A tangent vector at $p\in M$ is an equivalence class\footnote{Usually we say that two such equivalent curves have \emph{a first order contact at $p$}.} of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ for some chart $\varphi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
+	A tangent vector at $p\in M\setminus\partial M$ is an equivalence class\footnote{Usually we say that two such equivalent curves have \emph{a first order contact at $p$}.} of smooth curves $\gamma:(-\epsilon, \epsilon)\to M$ such that $\gamma(0)=p$, where $\gamma\sim\delta$ if and only if $(\varphi\circ \gamma)'(0) = (\varphi\circ\delta)'(0)$ for some chart $\varphi$ centred about $p$ (see Lemma~\ref{lem:equiv_tg_curves}).
 \end{definition}
 
 In fact, it is possible to start the whole tangent space discussion with the above definition. In that case, you would first need to prove Exercise~\ref{exe:vsstruct} and endow $T_pM$ with a vector space structure\footnote{To get the analogue result as Proposition~\ref{prop:basis_TpM}}.
@@ -853,14 +853,14 @@ Instead of working separately with the various tangent spaces, we can ``glue'' t
 	\end{equation}
 \end{definition}
 
-Elements in $TM$ are pairs\footnote{We will often abuse notation and identify $T_pM$ with with its image under the canonical injection $v\mapsto(p,v)$ and use interchangeably any of the notations $v$, $v_p$ or $(p,v)$ for a vector in $T_pM$ (depending on how much emphasis we need to put on the base point).} $(p,v)$ of a \emph{base point} $p\in M$ and a \emph{tangent vector} $v\in T_pM$.
+Elements in $TM$ are pairs\footnote{We will often abuse notation and identify $T_pM$ with its image under the canonical injection $v\mapsto(p,v)$ and use interchangeably any of the notations $v$, $v_p$ or $(p,v)$ for a vector in $T_pM$ (depending on how much emphasis we need to put on the base point).} $(p,v)$ of a \emph{base point} $p\in M$ and a \emph{tangent vector} $v\in T_pM$.
 
 To the tangent bundle we associate a surjective map $\pi:TM \to M$, the \emph{projection (onto the base)}, which sends each vector in a tangent space to the point at which it is tangent, that is, $\pi(p,v) = p$.
 The second component of the pre-image $\pi^{-1}(\{p\}) = \{p\}\times T_pM$, that is $T_pM$ itself, is called the \emph{fibre} over $p\in M$.
 We will come back to this later on once we talk about vector bundles.
 
 \begin{example}
-	Let $M\subset \R^n$ be an an open set.
+	Let $M\subset \R^n$ be an open set.
 	We can identify $TM$ in a natural way with $M\times\R^n$.
 	Since $M\times\R^n \subset \R^{2n}$ and thus is a manifold, we can equip the tangent bundle $TM$ with the structure of a manifold induced by this identification.
 \end{example}
@@ -904,7 +904,7 @@ As it turns out, this is a particular instance of a more general fact.
 	\newthought{Step 3: $TM$ is a manifold.}
 	With the procedure delineated above, a countable smooth atlas $\{(U_i, \varphi_i)\}$ of $M$ induces a countable atlas $\{(\pi^{-1}(U_i), \widetilde\varphi_i)\}$ of $TM$.
 	First of all, $\{\pi^{-1}(U_i)\}$ provides a countable covering of $TM$.
-	We need to show that the topology induced by those charts\footnote{Given a family of functions $\cF$ from the same set $X$ into (possibly different) topological spaces, the topology $\cT_{\cF}$ induced by the functions in $\cF$ is the smallest topology such that all the functions are continuous. It is possible to show that such a topology exists and it has as a basis the set $\{V\subset X \,\mid\, \exists n\in\N, f_i\in\cF, U_i \mbox{ open} : \bigcap_{i=1}^n f_i^{-1}(U_i) \}$.} is Hausdorff and second countable.
+	We need to show that the topology induced by those charts\footnote{Given a family of functions $\cF$ from the same set $X$ into (possibly different) topological spaces, the topology $\cT_{\cF}$ induced by the functions in $\cF$ is the smallest topology such that all the functions are continuous. It is possible to show that such a topology exists and it has as a basis the set $\{V\subset X \,\mid\, \exists n\in\N, f_i\in\cF, U_i \mbox{ open} : V=\bigcap_{i=1}^n f_i^{-1}(U_i) \}$.} is Hausdorff and second countable.
 
 	Let $(p_1, v_1), (p_2, v_2) \in TM$ be different points: either $p_1\neq p_2$, or $p_1 = p_2$ and $v_1 \neq v_2$.
 	\begin{itemize}
@@ -916,7 +916,7 @@ As it turns out, this is a particular instance of a more general fact.
 
 	Finally, let $\{B_k\}$ be a countable basis for the topology of $\R^{2n}$.
 	Since the sets $\pi^{-1}(U_i)$ cover $TM$ and each $\widetilde\varphi_i$ is a homeomorphism onto the open set $\varphi_i(U_i)\times\R^n$, the countable family $\{\widetilde\varphi_i^{-1}(B_k\cap(\varphi_i(U_i)\times\R^n))\}_{i,k}$ is a basis for the topology of $TM$.
-	The charts defined above make $TM$ automatically Euclidean of dimension $2n$.
+	The charts defined above make $TM$ locally Euclidean of dimension $2n$.
 
 	\begin{exercise}
 		This part of the proof seems unnecessarily detailed.
