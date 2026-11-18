@@ -3,7 +3,7 @@ Many of the spaces that we have encountered so far are particular examples of a 
 In this chapter we are going to introduce all the necessary algebraic concepts.
 
 We have seen that covectors in $V^*$ are real linear maps $V\to\R$ from the underlying space $V$ while, through the double dual, vectors can be understood as real linear maps $V^*\to\R$ from the dual space $V^*$.
-In practice, \emph{tensors} are just multilinear real-valued maps on cartesian products of the form $V^*\times \cdots \times V^* \times V \times \cdot \times V$.
+In practice, \emph{tensors} are just multilinear real-valued maps on cartesian products of the form $V^*\times \cdots \times V^* \times V \times \cdots \times V$.
 We have already encountered some examples; covectors, inner products and even determinants are examples of tensors:
 \begin{itemize}
 	\item a scalar product is a bilinear map $\langle\cdot,\cdot\rangle:V\times V\to \R$;
@@ -61,13 +61,13 @@ Keep in mind, that at a certain point, we will replace $V$ with the tangent spac
 Take now, for example, two covectors $\omega^1, \omega^2 \in V^*$. We can define the bilinear map
 \begin{equation}
 	\omega^1\otimes \omega^2 : V\times V \to \R,\quad
-	\omega^1\otimes \omega^2(v_1, v_2) = \omega_1(v_1)\omega_2(v_2),
+	\omega^1\otimes \omega^2(v_1, v_2) = \omega^1(v_1)\omega^2(v_2),
 \end{equation}
 called the tensor product of $\omega^1$ and $\omega^2$.
 This can be generalized immediately to general tensors in order to define new higher order tensors.
 
 \begin{definition}\idxdef{Tensor product}
-	Let $V$ an $n$-dimensional vector space, $\tau_1\in T_s^r(V)$, $\tau_2\in T_{s'}^{r'}(V)$.
+	Let $V$ be an $n$-dimensional vector space, $\tau_1\in T_s^r(V)$, $\tau_2\in T_{s'}^{r'}(V)$.
 	We define the \emph{tensor product} $\tau_1\otimes\tau_2$ as the $(r+r', s+s')$-tensor defined by
 	\begin{align}
 		 & \tau_1\otimes\tau_2(\omega^1,\ldots,\omega^{r+r'}, v_1,\ldots,v_{s+s'})                                                          \\
@@ -92,12 +92,12 @@ Of course, there is no reason to restrict ourselves to just two tensors: the def
 \marginnote{A more general approach to this proposition is by proving the universal property of tensor spaces. See for instance~\cite[Propositions 12.5, 12.7 and 12.8]{book:lee}.}
 \begin{proposition}\label{prop:tensorbasis}
 	Let $V$ be an $n$-dimensional vector space.
-	Let $\{e_j\}$ and $\{\varepsilon^i\}$ respectively denote bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$ respectively.
+	Let $\{e_j\}$ and $\{\varepsilon^i\}$ denote bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$ respectively.
 	Then, every $\tau\in T_s^r(V)$ can be uniquely written as the linear combination\marginnote{\textit{Exercise}: expand Einstein's notation to write the full sum on the left with the relevant indices.}% In the expression, all indices $j_1,\ldots,j_r$, $i_1,\ldots,i_s$ run from $1$ to $n$.}
 	\begin{equation}\label{eq:tensor:decomposition}
 		\tau = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s},
 	\end{equation}
-	where the coefficients $\tau^{j_1\cdots j_r}_{i_1\cdots i_n}\in\R$.
+	where the coefficients $\tau^{j_1\cdots j_r}_{i_1\cdots i_s}\in\R$.
 	%
 	Thus the $n^{r+s}$ tensor products
 	\begin{equation}\label{eq:tensor:decompo}
@@ -132,7 +132,7 @@ Of course, there is no reason to restrict ourselves to just two tensors: the def
 	\begin{equation}
 		T^r_s(V) \simeq \LaTeXoverbrace{V\otimes \cdots \otimes V}^{r\mbox{ times}} \otimes \LaTeXunderbrace{V^*\otimes \cdots \otimes V^*}_{s\mbox{ times}}.
 	\end{equation}
-	This allows us to choose whichever interpretation\footnote{If you are not familiar with tensor products of vector spaces and want to know more, you can start from this \href{https://web.archive.org/web/20231106094511/https://math.stackexchange.com/questions/2138459/understanding-the-definition-of-tensors-as-multilinear-maps/2141663\#2141663}{detailed Stack Exchange answer}. If you want to go deeper, I warmly recommend \href{https://web.archive.org/web/20230922070935/https://www.dpmms.cam.ac.uk/~wtg10/tensors3.html}{Tim Gower's blog post \emph{How to lose your fear of tensor products}}.} is more convenient for the problem at hand: being it a multilinear map on a cross product of spaces or an element of the tensor product of spaces.
+	This allows us to choose whichever interpretation\footnote{If you are not familiar with tensor products of vector spaces and want to know more, you can start from this \href{https://web.archive.org/web/20231106094511/https://math.stackexchange.com/questions/2138459/understanding-the-definition-of-tensors-as-multilinear-maps/2141663\#2141663}{detailed Stack Exchange answer}. If you want to go deeper, I warmly recommend \href{https://web.archive.org/web/20230922070935/https://www.dpmms.cam.ac.uk/~wtg10/tensors3.html}{Tim Gowers' blog post \emph{How to lose your fear of tensor products}}.} is more convenient for the problem at hand: being it a multilinear map on a Cartesian product of spaces or an element of the tensor product of spaces.
 \end{remark}
 
 Let's go back for a moment to the example of inner products.
@@ -247,7 +247,7 @@ applying the previous reasoning and comparing term by term we get
 \end{align}
 
 \begin{remark}
-	An important consequence of this fact is that we can use a metric tensor, and the associated musical isomorphisms ${}^\flat$ and ${}^\sharp$, to canonically identify a tensor space $T_s^r(V)$ with $T_r^s(V)$, $T_0^{r+s}(V)$ and $T_{t+s}^0(V)$ by concatenating the correct number of maps, for example
+	An important consequence of this fact is that we can use a metric tensor, and the associated musical isomorphisms ${}^\flat$ and ${}^\sharp$, to canonically identify a tensor space $T_s^r(V)$ with $T_r^s(V)$, $T_0^{r+s}(V)$ and $T_{r+s}^0(V)$ by concatenating the correct number of maps, for example
 	\begin{align}
 		\cI = \cI_g : T_s^r (V) \to T_r^s(V) \\
 		\cI : \tau \mapsto \tau \circ (\LaTeXunderbrace{{\cdot}^\flat, \ldots, {\cdot}^\flat}_{r\mbox{ times}}, \LaTeXoverbrace{{\cdot}^\sharp, \ldots, {\cdot}^\sharp}^{s\mbox{ times}}).
@@ -266,8 +266,8 @@ applying the previous reasoning and comparing term by term we get
 
 \begin{exercise}
 	\begin{enumerate}
-		\item What do the canonical identifications of $T_s^r(V)$ with $T_0^{r+s}$ and $T_{t+s}^0$ look like?
-		\item Fix a basis for $V$. What does $I_g$ in the previous remark look like with respect to this basis?
+		\item What do the canonical identifications of $T_s^r(V)$ with $T_0^{r+s}$ and $T_{r+s}^0$ look like?
+		\item Fix a basis for $V$. What does $\cI_g$ in the previous remark look like with respect to this basis?
 		\item Write down $G$ with respect to the basis from the previous point.
 	\end{enumerate}
 	%In coordinates the one mapping $(r,s)$-tensors to $(r+s, 0)$-tensors is $I_g(\tau) = \tau_{i_1\ldots i_r}^{j_1\ldots j_s} g_{j_1 j_{r+1}} \ldots g_{j_s j_{r+s}}}$
@@ -296,12 +296,12 @@ Before moving on, there is an important operation on tensors that will come back
 	and then extended by linearity, thus mapping $\tau \mapsto \widetilde\tau$ where
 	\begin{align}
 		\widetilde\tau & (\nu^1,\ldots,\nu^{r-1}, v_1,\ldots,v_{s-1})                                                                                                       \\
-		               & = \tau(\nu^1,\ldots,\LaTeXunderbrace{e^i}_{h\mbox{th index}},\ldots,\nu^{r-1},w_1,\ldots,\LaTeXunderbrace{e_i}_{k\mbox{th index}},\ldots,w_{s-1}).
+		               & = \tau(\nu^1,\ldots,\LaTeXunderbrace{e^i}_{h\mbox{th index}},\ldots,\nu^{r-1},v_1,\ldots,\LaTeXunderbrace{e_i}_{k\mbox{th index}},\ldots,v_{s-1}).
 	\end{align}
 \end{definition}
 
 \begin{notation}[Hat notation for erased elements]\label{notation:hat}
-	It is common to use an hat to denote elements that have been removed from the tensor product.
+	It is common to use a hat to denote elements that have been removed from the tensor product.
 	For instance, the contraction above would look like
 	\begin{align}
 		v_1 & \otimes\cdots\otimes v_r\otimes\omega^1\otimes\cdots\otimes\omega^s                                                                                                              \\
@@ -334,7 +334,7 @@ Before moving on, there is an important operation on tensors that will come back
 
 It is time to leave the abstract world of vector spaces and start getting closer to our main focus: manifolds.
 In the previous chapters we have shown that the tangent bundle and the cotangent bundle are families of vector spaces built over $M$ that are dual to each other.
-We now have the tools to further extend this idea and define tensor bundles as families of tensor spaces build on top of the fibres of the tangent bundle.
+We now have the tools to further extend this idea and define tensor bundles as families of tensor spaces built on top of the fibres of the tangent bundle.
 
 \begin{definition}\idxdef{$(r,s)$-tensor bundle}
 	Let $M$ be a smooth manifold.
@@ -354,18 +354,18 @@ is defined by linearity on the fibres via
 \marginnote{Study hint: look carefully at the domains and codomains of all the maps involved and make sure that you understand how this is defined.}
 \begin{align}
 	\widetilde\varphi & (p, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{k_1}\otimes \cdots\otimes \varepsilon^{k_s})                                                                     \\
-	                  & :=(\varphi(p), d\varphi_p e_{j_1}\otimes\cdots\otimes d\varphi_p e_{j_r}\otimes d(\varphi^{-1})^*\varepsilon^{i_1}\otimes \cdots\otimes d(\varphi^{-1})^*\varepsilon^{i_s}).
+	                  & :=(\varphi(p), d\varphi_p e_{j_1}\otimes\cdots\otimes d\varphi_p e_{j_r}\otimes d(\varphi^{-1})^*\varepsilon^{k_1}\otimes \cdots\otimes d(\varphi^{-1})^*\varepsilon^{k_s}).
 \end{align}
 
 \begin{exercise}
-	Let $M$ be a $m$-smooth manifold.
+	Let $M$ be a smooth $m$-manifold.
 	Show that $T^r_sM$ is a vector bundle of rank $m^{r+s}$.
 \end{exercise}
 
 In analogy to the definition of vector fields, we can introduce tensor fields: these will just be local assignments of tensors to points.
 
 \begin{definition}\idxdef{Tensor field}
-	A section $\Gamma(T_s^r M)$ of $T_s^r M$, that is, a smooth map $\tau : M \to T_s^r M$ such that $\pi\circ \tau = \id_M$, is called a \emph{tensor field} of type $(r,s)$.
+	A section $\tau\in\Gamma(T_s^r M)$ of $T_s^r M$, that is, a smooth map $\tau : M \to T_s^r M$ such that $\pi\circ \tau = \id_M$, is called a \emph{tensor field} of type $(r,s)$.
 	We denote the space of tensor fields of type $(r,s)$ by $\cT_s^r(M)$ and define $\cT_0^0(M) := C^\infty(M)$.
 \end{definition}
 
@@ -385,7 +385,7 @@ where $\tau^{j_1\cdots j_r}_{i_1\cdots i_s}\in C^\infty(M)$.
 	\begin{equation}
 		\supp \tau := \overline{\{p\in M\mid \tau(p) \neq 0\}} \subset M.
 	\end{equation}
-	We sat that $\tau\in\cT_s^r(M)$ is \emph{compactly supported} if $\supp\tau$ is a compact set.
+	We say that $\tau\in\cT_s^r(M)$ is \emph{compactly supported} if $\supp\tau$ is a compact set.
 \end{definition}
 
 Again in analogy with what we saw on tangent and cotangent bundles, we can provide a general definition of pullback and pushforward on tensor bundles.
@@ -437,17 +437,17 @@ To be consistent with this definition, if $f\in C^\infty(M) = \cT_0^0(M)$ and $\
 	which may be easier to think about in terms of the following diagram
 	\begin{equation}\nonumber
 		\begin{tikzcd}[row sep=large, column sep=tiny]
-			& \frac{\partial}{\partial x^i} \in \cT_0^1(U) \ni (D\sigma)_i^j \frac{\partial}{\partial y^j} \arrow[dl, "\varphi_*" description] \arrow[dr, "\psi*" description] & \\
+			& \frac{\partial}{\partial x^i} \in \cT_0^1(U) \ni (D\sigma)_i^j \frac{\partial}{\partial y^j} \arrow[dl, "\varphi_*" description] \arrow[dr, "\psi_*" description] & \\
 			e_i \in \cT_0^1(V) \arrow[rr, "\sigma_*" description] & & \cT_0^1(W) \ni \LaTeXunderbrace{\sigma_* e_i}_{= (D\sigma)_i^j e_j}
 		\end{tikzcd}
 	\end{equation}
 	where $V = \varphi(U)$ and $W = \psi(U)$.
 
-	From this, we immediately get $dy^j = (D\phi)_i^j dx^i$ and, therefore, $dx^i =  (D\sigma^{-1})_j^i dy^j$.
+	From this, we immediately get $dy^j = (D\sigma)_i^j dx^i$ and, therefore, $dx^i =  (D\sigma^{-1})_j^i dy^j$.
 \end{example}
 
 \begin{exercise}
-	Let $F:N\to M$ be a smooth map between smooth manifolds.
+	Let $F:N\to M$ be a smooth map between smooth manifolds, with $N$ connected.
 	Show that a function $f\in C^\infty(M)$ is constant on $F(N)\subset M$ if and only if $F^* df \equiv 0$.\\
 	\textit{\small Hint: if you get stuck start by looking at a simple example, like $N=M$ and $F=\id_M$.}
 \end{exercise}
@@ -465,7 +465,7 @@ We can also use the pullback to construct a diffeomorphism between tensor bundle
 		T^*N \to T^* M, \quad
 		(q,\omega) \mapsto (\varphi^*\omega)_q = \left(\varphi^{-1}(q), d\varphi^*_{\varphi^{-1}(q)}\omega\right).
 	\end{equation}
-	Since $\phi$ is a differential, this can be inverted giving rise to the so-called \emph{cotangent lift}\footnote{This is often denoted also $\varphi_\sharp$.} of $\varphi$:
+	Since $\varphi$ is a diffeomorphism, this can be inverted giving rise to the so-called \emph{cotangent lift}\footnote{This is often denoted also $\varphi_\sharp$.} of $\varphi$:
 	\begin{equation}
 		d\varphi^\dagger: T^*M \to T^*N.
 	\end{equation}
@@ -543,7 +543,7 @@ Note that thanks to this duality between pullback and pushforward, the dual pair
 \end{equation}
 Can you show why?
 
-\newthought{If you work on Riemannian geometry or in Relativit}y, you cannot avoid hearing about tensors.
+\newthought{If you work on Riemannian geometry or in Relativity}, you cannot avoid hearing about tensors.
 Let's briefly look at the reason.
 
 \begin{definition}\idxdef{(Pseudo-)Riemannian manifold}
@@ -559,7 +559,7 @@ Let's briefly look at the reason.
 	\end{enumerate}
 \end{example}
 
-A metric on a manifold $M$ provides an inner product at each point of the tangent bundle: this allows to compute lengths of curves and angles between vectors. We can then induce a distance function $d: M \times M \to [0, \infty)$ by defining
+A metric on a manifold $M$ provides an inner product at each point of the tangent bundle: this allows to compute lengths of curves and angles between vectors. If $M$ is connected, we can then induce a distance function $d: M \times M \to [0, \infty)$ by defining
 \begin{equation}
 	d(p,q) = \inf_{\gamma \in \cC(p,q)} \ell(\gamma),
 \end{equation}
