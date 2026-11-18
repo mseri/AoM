@@ -1,14 +1,15 @@
 What we have seen in the previous chapter is our first example of vector bundle, which is just a way to call a vector space depending continuously (or smoothly) on some parameters, for example points on a manifold.
 
 This concept can be useful for example to extend the meaning of vector-valued functions to the manifold setting.
-We saw that vector fields assign to each $p\in M$ a vector in the space $T_pM$ which varies with $p$. We would like to have a way to do the same, but mapping the point to some higher dimensional vector space which also varies with $p$.
-A vector bundle does exactly this: it provides a vector space $E_p$ of some dimension $r$ over each point $p$. As we will see, its \emph{section}s assign a vector $s(p)\in E_p$ smoothly to every point, and the construction is done in such a way that, locally, these sections looks like ordinary vector-valued functions. Where this gets particularly interesting is the global picture, though what I mean would become clear only in more advanced courses.
+We saw that vector fields assign to each $p\in M$ a vector in the space $T_pM$ which varies with $p$. Vector bundles are a way to do the same, but mapping the point to some vector space $E_p$ which also varies with $p$.
+As we will see, their \emph{section}s are a way to assign a vector $s(p)\in E_p$ to every point, akin to what we did with vector fields, and, indeed, the construction is done in such a way that, locally, these sections look like ordinary vector-valued functions.
+Where this gets particularly interesting is investigating the global properties of the construction, though what I mean would become cleared only in more advanced courses.
 
 This may seem to be just a pointless exercise, but vector bundles (and their generalizations), pop up in very disparate parts of mathematics. See for instance \href{https://mathoverflow.net/questions/7836/why-is-it-useful-to-study-vector-bundles}{this MathOverflow answer} or \cite{Zakharevich2019Attitudes}. They are also common in physics, for instance in gauge theory, where the gauge field is a connection on a principal bundle, and the matter fields are sections of associated vector bundles, and solid-state physics.
 
 Let's briefly look at a particular case of the latter example. In a periodic crystal, the states of an electron depend on a parameter $k$, called \emph{quasi-momentum}, which in three dimensions lives on a torus $\bT^3$, the so-called \emph{Brillouin zone}.
 The possible energies for the electron are given by functions $\varepsilon_n(k)$, whose images while varying $k$ are called \emph{energy bands}.
-There is a special energy, that we will denote $E_F$, called the \emph{Fermi energy}, which in some sense informs physicisrs about the insulating or metallic properties of the crystal\footnote{Don't worry if you don't know what it means, it is just a way to say that they determine if the crystal is an electrical insulator or if it allows electrons to travel freely through it.}.
+There is a special energy, that we will denote $E_F$, called the \emph{Fermi energy}, which in some sense informs physicists about the insulating or metallic properties of the crystal\footnote{Don't worry if you don't know what it means, it is just a way to say that they determine if the crystal is an electrical insulator or if it allows electrons to travel freely through it.}.
 If we fix one of the bands, its contribution to the \emph{Fermi surface} is the level set
 \begin{equation}
 	\Sigma = \{k\in\bT^3 : \varepsilon_n(k)=E_F\},
@@ -22,7 +23,7 @@ So, where is the vector bundle? Assuming that the band is nondegenerate and stay
 So we have again a vector space moving with a point on a manifold, only this time the vectors are quantum states rather than tangent vectors, and the manifold is the Fermi surface.\footnote{Here the vector spaces are complex rather than real. We will give the definition for real vector spaces, but the construction is practically the same if we replace $\R$ by $\mathbb{C}$.}
 
 Locally we can choose a normalized state $u(k)$ depending smoothly on $k$, and use it as a basis for $L_k$.
-On the overlap of two different charts, the two choices of state differ by a phase $e^{i\theta(k)}$, which we can think of a change of basis in a one-dimensional complex vector space.
+On the overlap of two different charts, the two choices of state differ by a phase $e^{i\theta(k)}$, which we can think of as a change of basis in a one-dimensional complex vector space.
 Now, it is tempting to think that we could keep adjusting these phases until we have a smooth choice of basis on the whole surface... but this is not always possible!
 
 For example, a Fermi surface surrounding a \emph{Weyl point}, a particular crossing between energy bands, can carry a bundle for which there is no such global choice\footnote{The obstruction in this example is measured by an integer called the \emph{first Chern number}, proportional to the flux of the \emph{Berry curvature} through the surface. A nonzero value rules out a global smooth choice of normalized eigenstate. In Appendix~\ref{sec:first-chern-number} we will concisely define this number and explain its relation to Berry curvature. For more details see for instance the \href{https://web.math.princeton.edu/~js129/PDFs/paris_top_insul_july_2022.pdf}{Paris Lectures on Topological Insulators by J.~Shapiro}.}.
@@ -49,7 +50,7 @@ Understanding this example would take us well beyond the scope of these notes, b
 
 \begin{example}\label{ex:simple_bundles}
 	\begin{itemize}
-		\item Perhaps the simplest examples of vector bundle is the trivial vector bundle of rank $1$, often called \emph{trivial line bundle}, $E = M \times \R$ with projection on the first component $\pi_1: E \to M$.
+		\item Perhaps the simplest example of vector bundle is the trivial vector bundle of rank $1$, often called \emph{trivial line bundle}, $E = M \times \R$ with projection on the first component $\pi_1: E \to M$.
 		\item In the same spirit, a trivial vector bundle of rank $r$ over a manifold $M$ is the product space $E = M\times \R^r$ with the projection on the first component $\pi_1: E\to M$.
 		\item The tangent bundle $TM$ with its projection to the base $\pi:TM\to M$ is a vector bundle\footnote{Exercise: prove the statement constructing the local diffeomorphisms.}.
 		      In this case the fibres are the tangent spaces $\pi^{-1}(p) = T_pM$.
@@ -72,17 +73,36 @@ Understanding this example would take us well beyond the scope of these notes, b
 	Show that if $\pi:E\to M$ is a vector bundle and $U\subset M$ is an open set, then $\pi\big|_{\pi^{-1}(U)}: \pi^{-1}(U) \to U$ is a vector bundle of the same rank.
 \end{exercise}
 
-\begin{example}
+\begin{remark}
 	Let $\pi:E \to M$ be a vector bundle of rank $r$.
 	Assume that $E$ itself is the base space of another vector bundle $\pi_1: E_1\to E$ of rank $s$.
-	Then $\pi\circ\pi_1: E_1 \to M$ is a vector bundle of rank $r+s$ called the \emph{composite bundle}. Indeed, if $\varphi:\pi^{-1}(U)\to U\times\R^r$ is a bundle diffeomorphism for $E$ over $U\subset M$ and $\varphi_1:\pi_1^{-1}(U_1)\to U_1\times\R^s$ is a bundle diffeomorphism for $E_1$ over $U_1\subset E$ such that $V := \pi(U_1)\cap U\neq \emptyset$, then
-	\begin{equation}
-		\Psi:=(\varphi\circ\pi_1, \varphi_1): (\pi\circ\pi_1)^{-1}(V)\to (U\times\R^r)\times (U_1\times\R^s)
-	\end{equation}
-	is a bundle diffeomorphism for $\pi\circ\pi_1$ over $W$.
+	It is tempting to assume that the \emph{composite} $\pi\circ\pi_1: E_1 \to M$ is a vector bundle of rank $r+s$ over $M$, perhaps interestingly, this would lead us off-track: the local trivializations of $E$ and $E_1$, in general, do not even give a vector space structure on the fibers $(\pi\circ\pi_1)^{-1}(p)$.
 
-	A particular example of this is the tangent bundle of the tangent bundle: if $M$ is a $n$-manifold, its tangent bundle $TM$ is a $2n$-manifold, and its tangent bundle $T(TM)$ is a vector bundle over $M$ of rank $3n$.
-\end{example}
+	A particular example of this is the tangent bundle of the tangent bundle: if $M$ is a $n$-manifold, its tangent bundle $TM$ is a $2n$-manifold, and its tangent bundle $T(TM)$ is a $4n$-manifold.
+	Repeating the construction in the proof of Theorem~\ref{thm:tgbdlsmoothmfld} with the charts $(\pi^{-1}(U),\widetilde\varphi)$ of $TM$, we obtain charts of $T(TM)$ with coordinates $(x,v,\xi,\eta)\in\varphi(U)\times\R^n\times\R^n\times\R^n$.
+	If $\sigma := \psi\circ\varphi^{-1}$ is the transition map between two charts of $M$, the transition map of $TM$ is $(x,v)\mapsto(\sigma(x), D\sigma(x)v)$ and, differentiating it once more, the one of $T(TM)$ is
+	\begin{equation}
+		(x,v,\xi,\eta)\mapsto \big(\sigma(x),\, D\sigma(x)v,\, D\sigma(x)\xi,\, D\sigma(x)\eta + D^2\sigma(x)(\xi,v)\big),
+	\end{equation}
+	where $D^2\sigma(x)(\xi,v)$ denotes the vector with components $\frac{\partial^2\sigma^i}{\partial x^j\partial x^k}(x)\,\xi^j v^k$.
+	For fixed $x$, the map $(v,\xi,\eta)\mapsto\big(D\sigma(x)v, D\sigma(x)\xi, D\sigma(x)\eta + D^2\sigma(x)(\xi,v)\big)$ is not linear\footnote{The appearance of second derivatives of the transition maps is a first glimpse of the \emph{jet bundles}, geometric structures that keep track in an invariant way of the Taylor polynomials of functions (or sections) up to some fixed order.
+	The simplest one is the \emph{$1$-jet bundle} $J^1M = \R\times T^*M$ of a manifold $M$, built out of the cotangent bundle that we will meet in the next chapter.
+	Jet bundles, together with their higher-order versions, provide a natural setting for the study of partial differential equations on manifolds and are often playing an important role, for instance, in geometric mechanics. We will not discuss them further here, but for a first and brief encounter with these ideas you can refer to~\cite[Chapter 22]{book:lee}.} as soon as $D^2\sigma(x)\neq0$: for example, if $\sigma(x) = (x^1+(x^1)^2, x^2, \ldots, x^n)$, the first component of the last block is $(1+2x^1)\eta^1 + 2\xi^1v^1$.
+	So, sadly, these charts do not make $T(TM)$ into a vector bundle of rank $3n$ over $M$.
+
+	They are however an example of a more general structure, the \emph{fiber bundle}.
+	A smooth fiber bundle with \emph{typical fiber} a manifold $F$ is a smooth surjective map $\pi:E\to M$ such that each $p\in M$ has a neighbourhood $U$ with a diffeomorphism $\varPhi:\pi^{-1}(U)\to U\times F$ satisfying $\operatorname{pr}_U\circ\varPhi = \pi$, where $\operatorname{pr}_U:U\times F\to U$ is the projection on the first factor.
+	On overlaps, the transition maps take the form $\varPhi_\alpha\circ\varPhi_\beta^{-1}(p,f) = (p, \tau_{\alpha\beta}(p)(f))$ with $\tau_{\alpha\beta}(p)\in\diff(F)$.
+	Vector bundles are the fiber bundles with $F=\R^r$ whose local trivializations are linear on the fibers, so that $\tau_{\alpha\beta}(p)\in GL(r,\R)$.
+
+	In the case of $T(TM)$, we have $(\pi\circ\pi_1)^{-1}(U) = T(\pi^{-1}(U))$, and the chart of $T(TM)$ constructed above followed by $\varphi^{-1}\times\id_{\R^{3n}}$ is a diffeomorphism $(\pi\circ\pi_1)^{-1}(U)\to U\times\R^{3n}$ compatible with the projections on $U$.
+	The corresponding $\tau_{\alpha\beta}$ are the maps of $\R^{3n}$ written above, which are diffeomorphisms with inverse
+	\begin{equation}
+		(w,\zeta,\theta)\mapsto\big(Aw,\, A\zeta,\, A\big(\theta - D^2\sigma(x)(A\zeta,Aw)\big)\big),
+		\qquad A := D\sigma(x)^{-1}.
+	\end{equation}
+	Thus $\pi\circ\pi_1: T(TM)\to M$ is a fiber bundle with typical fiber $\R^{3n}$.
+\end{remark}
 
 To compare vector bundles it is useful to define the following concept.
 \begin{definition}\idxdef{Isomorphism of vector bundles}
@@ -107,7 +127,7 @@ Of course, we can also define subbundles.
 
 All the examples given so far are nice and well, but how can we construct these vector bundles?
 The first idea that may come to mind, is to  try and mimic the construction we gave of the tangent bundle of a smooth manifold: provided a collection of vector spaces for each point of the manifolds, we need to construct a suitable topology for the whole space, equip the disjoint union of vector spaces with a smooth structure and then construct local trivializations that are compatible with such structure.
-Sound quite a mouthful, but turns out to be quite the right approach.
+This may sound quite a mouthful, but turns out to be the right approach.
 
 \begin{theorem}\label{thm:bundle_chart_thm}
 	Let $M$ be a smooth $n$-manifold without boundary and let $E_p$ be a given $k$-dimensional real vector space for each $p\in M$.
@@ -130,12 +150,11 @@ Sound quite a mouthful, but turns out to be quite the right approach.
 The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the local trivializations.
 \begin{proof}
 	\newthought{Part 1. $E$ has a structure of smooth manifold}.
-	Let $(U_\alpha, \varphi_\alpha)$ be a smooth structure on $M$ whose charts' domains form the given open cover\footnote{We can always construct one by patching together charts from another atlas using a subordinate partition of unity, see Theorem~\ref{thm:partitionof1}.}.
-	We need to use this, and the given maps from the statement, to define charts from some neighbourhood of fibers $E_p$ to $\R^n\times\R^k$.
-	For each $p\in M$, choose an open neighbourhood $V_p \supseteq U_\alpha$ for some $\alpha\in A$.
-	Observe that $\pi^{-1}(V_p) \subseteq E_p$ and $\widetilde{V}_p := \varphi_\alpha(V_p) \subseteq \R^n$ and therefore it may be natural to consider the collection $\{(\pi^{-1}(V_p), \widetilde{\varphi}_p)\mid p\in M\}$, where
+	We need to use charts of $M$ to define charts from some neighbourhood of fibers $E_p$ to $\R^n\times\R^k$.
+	For each $p\in M$, choose some $\alpha\in A$ with $p\in U_\alpha$ and a smooth chart $(V_p, \varphi_p)$ of $M$ such that $p\in V_p \subseteq U_\alpha$.
+	Observe that $E_p\subseteq\pi^{-1}(V_p) \subseteq \pi^{-1}(U_\alpha)$ and $\widetilde{V}_p := \varphi_p(V_p) \subseteq \R^n$ is open, and therefore it may be natural to consider the collection $\{(\pi^{-1}(V_p), \widetilde{\varphi}_p)\}$ of all the charts obtained in this way, for all $p\in M$ and all possible choices of $\alpha$ and $(V_p,\varphi_p)$, where
 	\begin{equation}
-		\widetilde{\varphi}_p := (\varphi_\alpha\times \id_k) \circ \varPhi_\alpha : \pi^{-1}(V_p) \xrightarrow{\varPhi_\alpha} V_p\times\R^k \xrightarrow{\varphi_\alpha\times \id_k} \widetilde{V}_p\times \R^k,
+		\widetilde{\varphi}_p := (\varphi_p\times \id_k) \circ \varPhi_\alpha : \pi^{-1}(V_p) \xrightarrow{\varPhi_\alpha} V_p\times\R^k \xrightarrow{\varphi_p\times \id_k} \widetilde{V}_p\times \R^k,
 	\end{equation}
 	as a candidate to apply the Smooth Manifold Lemma~\ref{lem:manifold_chart}.
 	This would give $E$ both a topology and a smooth structure.
@@ -146,11 +165,11 @@ The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the
 	\begin{equation}
 		\widetilde{\varphi}_p(\pi^{-1}(V_p) \cap \pi^{-1}(V_q)) = \varphi_p(V_p\cap V_q)\times \R^k
 	\end{equation}
-	which is open in $\R^{n+k}$ since $\varphi_p$ is a homeomorphism onto an open $V_p\subseteq\R^n$.
-	Finally, on the overlap of two charts, there are $\alpha, \beta\in A$ such that
+	which is open in $\R^{n+k}$ since $\varphi_p$ is a homeomorphism onto an open $\widetilde{V}_p\subseteq\R^n$.
+	Finally, on the overlap of two charts, if $\alpha, \beta\in A$ are the indices chosen for $\widetilde{\varphi}_p$ and $\widetilde{\varphi}_q$ respectively, we have
 	\begin{equation}
 		\widetilde{\varphi}_p \circ \widetilde{\varphi}_q^{-1} =
-		(\varphi_\alpha \times \id_k) \circ \varPhi_\alpha \circ \varPhi_\beta^{-1} \circ (\varphi_\beta \times \id_k)^{-1}.
+		(\varphi_p \times \id_k) \circ \varPhi_\alpha \circ \varPhi_\beta^{-1} \circ (\varphi_q \times \id_k)^{-1}.
 	\end{equation}
 	Such transition map is a diffeomorphism since it is the composition of diffeomorphisms.
 	Therefore properties (i) and (ii) of the Smooth Manifold Lemma are satisfied.
@@ -176,7 +195,8 @@ The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the
 			\arrow["{\id_{n+k}}"', from=2-1, to=2-2]
 		\end{tikzcd}.
 	\end{equation}
-	In a similar way, the coordinate representation of $\pi : E \to M$ is $\varphi_\alpha \circ \pi \circ \widetilde{\varphi}_\alpha^{-1} (x,v) = x$, so $\pi$ is smooth.
+	Since the sets $\pi^{-1}(V_p)$ with $V_p\subseteq U_\alpha$ cover $\pi^{-1}(U_\alpha)$, the bijection $\varPhi_\alpha:\pi^{-1}(U_\alpha)\to U_\alpha\times\R^k$ and its inverse are smooth, that is, $\varPhi_\alpha$ is a diffeomorphism.
+	In a similar way, the coordinate representation of $\pi : E \to M$ is $\varphi_p \circ \pi \circ \widetilde{\varphi}_p^{-1} (x,v) = x$, so $\pi$ is smooth.
 	Finally, $\Phi_\alpha$ satisfies all conditions to be a smooth local trivialization since $\varPhi_\alpha$ is linear by hypothesis and $\pi_1 \circ \varPhi_\alpha = \pi$, which follows from $\varPhi_\alpha(E_p) = \{p\}\times \R^k$.
 
 	\newthought{Part 3. The smooth structure is unique}.
@@ -212,7 +232,7 @@ Of course, there is no reason to restrict ourselves to manifolds without boundar
 We saw in Example~\ref{ex:simple_bundles} that given two vector bundles on some manifolds there is a way to construct a product bundle out of them over the product of the manifolds.
 In the special case of two bundles $E^1 \to M$ and $E^2 \to M$ over the same manifold, this would lead to $E^1 \times E^2 \to M \times M$.
 It is natural to ask oneself if we can make a construction that combines multiple vector bundles over the same base space to a new bundle over that same base space.
-This is call the Whitney sum of the bundles.
+This is called the Whitney sum of the bundles.
 \begin{exercise}[Whitney sum]\label{ex:whitney}\idxdef{Whitney sum}
 	Let $\pi^1 : E^1 \to M$ and $\pi^2 : E^2 \to M$ be two smooth vector bundles over $M$ of rank $k^1$ and $k^2$ respectively.
 	The Whitney sum $E^1 \oplus E^2$ of $E^1$ and $E^2$ is the smooth vector bundle $\pi: E^1 \oplus E^2 \to M$ whose fibers
@@ -315,7 +335,7 @@ Which was to be expected: after all, for each $p\in U\subset M$, the local frame
 \end{proposition}
 \begin{proof}
 	Let $\varphi: E \to M\times\R^r$ be a global trivialization and $\{e_1, \ldots, e_r\}$ the canonical basis for $\R^r$.
-	For $q\in M\times\R^r$, $\{S_1(q), \ldots, S_r(q)\} := \left\{\varphi^{-1}\big|_q(e_1), \ldots, \varphi^{-1}\big|_q(e_r) \right\}$ is a global frame for $E$ (why?).
+	For $p\in M$, $\{S_1(p), \ldots, S_r(p)\} := \left\{\varphi^{-1}(p, e_1), \ldots, \varphi^{-1}(p, e_r) \right\}$ is a global frame for $E$ (why?).
 
 	Conversely, let $\{S_1, \ldots, S_r\}$ be a global frame for $E$. Then
 	\begin{equation}
@@ -335,7 +355,7 @@ Which was to be expected: after all, for each $p\in U\subset M$, the local frame
 	Let $F:M\to N$ be an embedding and denote $\widetilde M = F(M)\subset N$.
 	\begin{enumerate}
 		\item Show that the tangent bundle of $M$ in $N$, given by $T\widetilde M := dF(TM) \subset TN\big|_{\widetilde M}$, is a subbundle of $TN\big|_{\widetilde M}$ by providing explicit local trivializations in terms of the charts $(U, \varphi)$ for $M$.
-		\item Assume that there exist a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that\footnote{Here $T\,N|_{\widetilde{M}}$ denotes the tangent bundle of $N$ restricted to the base points in $\widetilde{M}$.}
+		\item Assume that there exists a smooth function $\Phi:N\to\R^{n-m}$ such that $\widetilde M := \{p\in N \mid \Phi(p) = 0\}$ and $d\Phi_p$ has full rank for all $p\in\widetilde M$. Prove that\footnote{Here $T\,N|_{\widetilde{M}}$ denotes the tangent bundle of $N$ restricted to the base points in $\widetilde{M}$.}
 		      \begin{equation}
 			      T\widetilde{M} = \left\{(p,v)\in T\,N|_{\widetilde{M}} \mid v\in\ker(d\Phi_p)\right\}.
 		      \end{equation}
