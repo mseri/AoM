@@ -26,7 +26,7 @@ Let $X:M\to TM$ be a vector field, not necessarily smooth, and $(U, (x^i))$ a sm
 \end{equation}
 This defines $n$ functions $X^i: U\to\R$, called \emph{component functions of $X$} in the chart.
 
-\begin{exercise}
+\begin{exercise}\label{ex:vfcomponents}
 	Show that, in the notation above, the restriction of $X$ to $U$ is smooth if and only if its component functions with respect to the chart are smooth.
 \end{exercise}
 
@@ -201,7 +201,7 @@ Any vector field $X\in\fX(W)$ defines a derivation $\cX$ via $\cX(f) = Xf$. In f
 	\end{equation}
 	We can then think of $X$ as a map $W\to TW$ via $p\mapsto X_p$.
 	\marginnote{Challenge: count how many times we are using the isomorphism between derivations at points and tangent vectors in this proof.}
-	Since $X(f)=\cX(f)$ by construction, it is a smooth function for all $f\in C^\infty(W)$ and therefore is smooth as vector field, concluding the proof.
+	Since $X(f)=\cX(f)$ by construction, it is a smooth function for all $f\in C^\infty(W)$. Up to extending the coordinate functions to $C^\infty(W)$ by means of a cutoff function (Proposition~\ref{prop:cutoff}), this says that the components of $X$ are smooth, and thus $X$ is smooth as vector field by Exercise~\ref{ex:vfcomponents}, concluding the proof.
 \end{proof}
 
 \begin{tcolorbox}
@@ -555,7 +555,7 @@ When we want to emphasize the vector field $X$, we will write $\phi^X$.
 	We are going to omit the details of the proof, the interested reader can refer to~\cite[Proposition 9.12]{book:lee}.
 	The statements may seem different at a first glance, but a careful look will reveal that he is just taking a slightly different perspective.
 
-	Indeed, if we reverse the roles of $t$ and $x$, we can define for any given $t\in M$ the set
+	Indeed, if we reverse the roles of $t$ and $p$, we can define for any given $t\in \R$ the set
 	\begin{equation}
 		M_t := \{p\in M \;\mid\; (t,p)\in\cD\}.
 	\end{equation}
