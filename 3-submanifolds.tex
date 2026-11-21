@@ -208,7 +208,7 @@ Looking at the statement of the Rank Theorem, one can already see that there can
 	\begin{itemize}
 		\item $F$ is an \emph{immersion}\idxdef{Immersion} if $dF_p$ is injective for all $p\in M$ ($\Rightarrow\; m\leq n$);
 		\item $F$ is a \emph{submersion}\idxdef{Submersion} if $dF_p$ is surjective for all $p\in M$ ($\Rightarrow\; m\geq n$);
-		\item $F$ is an \emph{embedding}\idxdef{Embedding}\footnote{This is a particular case of a more general concept, the topological embedding, which is defined as an injective continuous map that is a homeomorphism onto its image.} if $F$ is an injective immersion that is also a diffeomorphism onto its image $F(M)\subset N$, where the topology on $F(M)$ is the subspace topology as a subset of $N$.
+		\item $F$ is an \emph{embedding}\idxdef{Embedding} if $F$ is an injective immersion that is also a homeomorphism onto its image $F(M)\subset N$, where the topology on $F(M)$ is the subspace topology as a subset of $N$.
 	\end{itemize}
 \end{definition}
 
@@ -268,6 +268,17 @@ Looking at the statement of the Rank Theorem, one can already see that there can
 	We say that $M$ is an \emph{embedded (or regular) submanifold}\idxdef{Embedded submanifold} of $N$ if the inclusion $M\hookrightarrow N$ is an embedding. If the inclusion is just an immersion, we say that $M$ is an \emph{immersed submanifold}\idxdef{Immersed submanifold}.
 \end{definition}
 
+You may have already noticed that when defining the embedding, we made no use of any smooth structure. Incredibly, it turns out that the definition above already gives us one for free!
+
+If $F:M\to N$ is an embedding and $\cA:=\{(U_\alpha,\varphi_\alpha)\}$ is an atlas of $M$, we can map this atlas to the one in $F(M)$ defined by
+\begin{equation}
+	F(\cA) := \left\{\left(F(U_\alpha),\ \varphi_\alpha\circ F^{-1}\big|_{F(U_\alpha)}\right)\right\}.
+\end{equation}
+Since $F$ is a homeomorphism onto $F(M)$, the sets $F(U_\alpha)$ are open in $F(M)$ and the maps $\varphi_\alpha\circ F^{-1}$ are homeomorphisms onto the open sets $\varphi_\alpha(U_\alpha)$.
+The transition maps, then, are $(\varphi_\beta\circ F^{-1})\circ(\varphi_\alpha\circ F^{-1})^{-1} = \varphi_\beta\circ\varphi_\alpha^{-1}$, that is, exactly the ones of $M$, so $F(\cA)$ is also a smooth atlas and, with its charts, $F:M\to F(M)$ is a diffeomorphism.
+
+Note that this is argument is all due to the additional condition of the map being an homeomorphism on its image, and indeed an injective immersion does not need to be an embedding, as we will see in Exercise~\ref{exe:injimmersion} below.
+
 It is probably no surprise at this point that smooth maps are going to be useful in providing ways to nicely include a manifold into another and in giving new ways to construct manifolds in the first place.
 In the rest of this chapter we will try to give an answer to the following questions:
 \begin{itemize}
@@ -298,7 +309,7 @@ whose charts are the ones obtained from the Rank Theorem after we drop the final
 
 In fact we can say more if the manifold is compact.
 
-\begin{exercise}
+\begin{exercise}\label{exe:injimmersion}
 	Prove the following statements.
 	\begin{enumerate}
 		\item If $M$ is compact, an injective immersion $F:M\to N$ is always an embedding.
@@ -392,7 +403,7 @@ In the previous chapter, all manifolds were introduced as a set on top of which 
 % \end{proposition}
 
 \begin{remark}\label{rmk:WhitneyET}
-	Whitney Embedding Theorem states that any smooth $n$-dimensional manifold can be smoothly embedded into $\R^{2n}$.
+	Whitney Embedding Theorem states that any smooth $n$-dimensional manifold, $n\geq1$, can be smoothly embedded into $\R^{2n}$.
 	Thus any abstract manifold is diffeomorphic to a submanifold of $\R^m$ (for some $m$).
 \end{remark}
 
