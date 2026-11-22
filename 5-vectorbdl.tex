@@ -171,7 +171,12 @@ The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the
 		\widetilde{\varphi}_p \circ \widetilde{\varphi}_q^{-1} =
 		(\varphi_p \times \id_k) \circ \varPhi_\alpha \circ \varPhi_\beta^{-1} \circ (\varphi_q \times \id_k)^{-1}.
 	\end{equation}
-	Such transition map is a diffeomorphism since it is the composition of diffeomorphisms.
+
+	At this point, though, $E$ has no topology yet and the maps $\varPhi_\alpha$ are just bijections. However, we still have hypothesis (ii) in our toolbox, which is exactly what we need: for $(x,v)\in\varphi_q(V_p\cap V_q)\times\R^k$,
+	\begin{equation}
+		\widetilde{\varphi}_p \circ \widetilde{\varphi}_q^{-1}(x,v) = \left(\varphi_p\circ\varphi_q^{-1}(x),\ \tau_{\alpha\beta}\big(\varphi_q^{-1}(x)\big)v\right),
+	\end{equation}
+	and it is smooth, since $\varphi_p\circ\varphi_q^{-1}$ and $\tau_{\alpha\beta}\circ\varphi_q^{-1}$ are smooth.
 	Therefore properties (i) and (ii) of the Smooth Manifold Lemma are satisfied.
 
 	Property (iii) of the Smooth Manifold Lemma follows from the fact that $M$ is a manifold and thus the open cover $\{V_p | p \in M\}$ has a countable subcover.
@@ -314,13 +319,16 @@ Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R
 In the spirit of what we have seen about the previous example, we have the following proposition.
 
 \begin{proposition}
-	Let $\pi:E \to M$ be a smooth vector bundle and $X:M\to E$ a section.
+	Let $\pi:E \to M$ be a smooth vector bundle of rank $k$.
+	Let $X:M\to E$ be a map such that $\pi\circ X = \id_M$.
 	If $\{S_i\}$ is a smooth local frame for $E$ over an open subset $U\subseteq M$, then $X$ is smooth on $U$ if and only if its component functions with respect to $\{S_i\}$ are smooth.
 \end{proposition}
 \begin{proof}
-	Let $\varphi:\pi^{-1}(U) \to U\times\R^k$ be the local trivialization associated with the local frame $\{S_i\}$.
-	Since $\varphi$ is a diffeomorphism, $X$ is smooth on $U$ if and only if $\varphi\circ X$ is smooth on $U$.
-	If $\{X^i\}$ denotes the component function of $X$ with respect to $S_i$, then $\varphi\circ X (p) = (p, (X^1(p), \ldots, X^k(p)))$, so $\varphi\circ X$ is smooth if and only if the component functions $\{X^i\}$ are smooth.
+	Smoothness is a local property, so fix an arbitrary $q\in U$ and consider a neighbourhood $V\subseteq U$ of $q$ over which there is a local trivialization $\psi:\pi^{-1}(V)\to V\times\R^k$.
+
+	Since $\psi$ is a diffeomorphism, $X$ is smooth on $V$ if and only if $\psi\circ X$ is smooth on $V$.
+	Write $\psi\circ S_i(p) = (p, A(p)e_i)$, with $\{e_i\}$ the canonical basis of $\R^k$: the matrix $A(p)$ is invertible and depends smoothly on $p$ because the $S_i$ are smooth.
+	If $\{X^i\}$ denote the component functions of $X$ with respect to $\{S_i\}$, then $\psi\circ X (p) = (p, A(p)(X^1(p), \ldots, X^k(p)))$ and, since matrix inversion is smooth on $GL(k,\R)$, $\psi\circ X$ is smooth if and only if the component functions $\{X^i\}$ are smooth.
 \end{proof}
 
 That is, given a local frame $\{S_1, \ldots, S_r\}\subset\Gamma(E|_U)$ of a vector bundle $\pi: E \to M$ we can express any section $X\in\Gamma(E)$ as a linear combination of elements of the frame:
@@ -343,6 +351,17 @@ Which was to be expected: after all, for each $p\in U\subset M$, the local frame
 		\left(p, v^i S_i(p)\right) \mapsto \left(p, (v^1, \ldots, v^r)\right),
 	\end{equation}
 	is a global trivialization for $E$.
+	Indeed, $\varphi$ is a bijection since it is a linear isomorphism on each fiber and $\pi_1\circ\varphi = \pi$, and we only need to check that it is a diffeomorphism.
+
+	Let $\psi:\pi^{-1}(V)\to V\times\R^r$ be any local trivialization and $A(p)$ the invertible matrix defined by $\psi\circ S_i(p) = (p, A(p)e_i)$, as in the proof of the previous proposition.
+	Then
+	\begin{align}
+		\psi\circ\varphi^{-1}(p,v) &= \psi\left(v^iS_i(p)\right) = \big(p, A(p)v\big), \\
+		\varphi\circ\psi^{-1}(p,w) &= \big(p, A(p)^{-1}w\big),
+	\end{align}
+	which are both smooth on $V\times\R^r$.
+	Hence $\varphi = (\varphi\circ\psi^{-1})\circ\psi$ is smooth on $\pi^{-1}(V)$ and $\varphi^{-1} = \psi^{-1}\circ(\psi\circ\varphi^{-1})$ is smooth on $V\times\R^r$.
+	Finally, since the sets $\pi^{-1}(V)$ cover $E$ and the sets $V\times\R^r$ cover $M\times\R^r$, both $\varphi$ and $\varphi^{-1}$ are smooth.
 \end{proof}
 
 \begin{example}
