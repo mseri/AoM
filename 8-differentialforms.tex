@@ -12,7 +12,7 @@ In addition to their role in integration, differential forms provide a framework
 \begin{definition}\idxdef{Alternating $k$-form}\idxdef{Differential form}
 	Let $V$ be a real $n$-dimensional vector space.
 	Let $S_k$ denote the \emph{symmetric group on $k$ elements}, that is, the group of permutations of the set $\{1,\ldots,k\}$.
-	Recall that for any permutation $\sigma\in S_k$, the \emph{sign of $\sigma$}, denoted $\sgn(\sigma)$, is equal to $+1$ if $\sigma$ is even\footnote{It can be written as a composition of an even number of transpositions} and $-1$ is $\sigma$ is odd\footnote{It can be written as a composition of an odd number of transpositions}.
+	Recall that for any permutation $\sigma\in S_k$, the \emph{sign of $\sigma$}, denoted $\sgn(\sigma)$, is equal to $+1$ if $\sigma$ is even\footnote{It can be written as a composition of an even number of transpositions} and $-1$ if $\sigma$ is odd\footnote{It can be written as a composition of an odd number of transpositions}.
 
 	\marginnote{In particular, exchanging two arguments changes the sign of $\omega$.}
 	A tensor $\omega\in T_k^0(V)$, $0\leq k\leq n$, is called \emph{alternating} (or \emph{antisymmetric} or \emph{skew-symmetric}), if it changes sign whenever two of its arguments are interchanged, that is,
@@ -20,7 +20,7 @@ In addition to their role in integration, differential forms provide a framework
 	\begin{equation}
 		\omega(v_{\sigma(1)}, \ldots, v_{\sigma(k)}) = \sgn(\sigma) \omega(v_1, \ldots, v_k).
 	\end{equation}
-	The subspace of alternating tensors in $T_k^0(V)$ is denoted\footnote{Some authors also use $\Lambda^k(v^*)$ or $\Lambda_k(V^*)$ to denote the same space.} by $\Lambda^k(V) \subset T_k^0(V)$ and its elements are called \emph{exterior forms}, \emph{alternating $k$-forms} or just  \emph{$k$-forms}.
+	The subspace of alternating tensors in $T_k^0(V)$ is denoted\footnote{Some authors also use $\Lambda^k(V^*)$ or $\Lambda_k(V^*)$ to denote the same space.} by $\Lambda^k(V) \subset T_k^0(V)$ and its elements are called \emph{exterior forms}, \emph{alternating $k$-forms} or just  \emph{$k$-forms}.
 	For $k=0$, we define $\Lambda^0(V) := T_0^0(V) := \R$.
 \end{definition}
 
@@ -29,7 +29,7 @@ In addition to their role in integration, differential forms provide a framework
 	\begin{enumerate}
 		\item $\omega$ is alternating;
 		\item $\omega$ is $0$ whenever two of its arguments are equal, that is, ${\omega(v_1, \ldots, w, \ldots, w, \ldots, v_k) = 0}$;
-		\item $\omega(v_1, \ldots, v_k) = 0$ whenever the vectors $(v_1, \ldots, v_n)$ are linearly dependent.
+		\item $\omega(v_1, \ldots, v_k) = 0$ whenever the vectors $(v_1, \ldots, v_k)$ are linearly dependent.
 	\end{enumerate}
 \end{exercise}
 
@@ -38,7 +38,7 @@ In addition to their role in integration, differential forms provide a framework
 \marginnote{You can find an interesting explanation of the exterior product, based on Penrose's book ``The road to reality'', \href{https://web.archive.org/web/20200731170011/https://twitter.com/LucaAmb/status/1289244374996406273}{on a thread by @LucaAmb on Twitter}.}
 If you remember, we said that the determinant was an example of a $T_n^0(\R^n)$ tensor: an antisymmetric tensor nonetheless.
 At the same time, the determinant of a $n\times n$ matrix, is the signed volume of the parallelotope spanned by the $n$ vectors defining the matrix.
-We also saw that tensors can be multiplied with the tensor product, which gives rise to a graded algebra on the free sum of tensor spaces.
+We also saw that tensors can be multiplied with the tensor product, which gives rise to a graded algebra on the direct sum of tensor spaces.
 Since we are looking for an alternating product, the previous observation leads naturally to the following definition.
 
 \begin{definition}\idxdef{Wedge product of covectors}\idxdef{Exterior product of covectors}
@@ -96,10 +96,10 @@ It would be convenient to have a similar basis representation only involving ter
 
 	First of all, observe that by~\eqref{equiv:permut} all the wedge products ${e^{j_1}\wedge\ldots\wedge e^{j_k}\not\in E}$, where the indices $j_i$ are not necessarily in ascending order, either vanish\footnote{When two indices are repeated, i.e., a basis vector appears twice} or are linear multiples of an element\footnote{The exterior product with the indices in the same set but in increasing order} of $E$.
 
-	Let now $\{e_i\}$ denote the basis for $V$ dual to $\{e^i\}$ and $\omega\in\Lambda^k$.
+	Let now $\{e_i\}$ denote the basis for $V$ dual to $\{e^i\}$ and $\omega\in\Lambda^k(V)$.
 	By definition of alternating form, we have
 	\begin{equation}\label{eq:altchar}
-		\omega(e_{i_1}, \ldots, e_{i_k}) = \frac1{k!} \sum_{\sigma\in S_k}\sgn(\sigma) \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k).}}\right)
+		\omega(e_{i_1}, \ldots, e_{i_k}) = \frac1{k!} \sum_{\sigma\in S_k}\sgn(\sigma) \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k)}}\right).
 	\end{equation}
 	Moreover, for any $v_1,\ldots,v_k\in V$ we have
 	\marginnote[3em]{Don't forget, $1\leq i\leq n$.}
@@ -109,9 +109,9 @@ It would be convenient to have a similar basis representation only involving ter
 	Therefore,
 	\begin{align}
 		\omega(v_1, \ldots, v_k)
-		 & =\omega\left(e^{i_1}(v_q) e_{i_1}, \ldots, e^{i_k}(v_k) e_{i_k}\right)                                                                                                                                  \\
+		 & =\omega\left(e^{i_1}(v_1) e_{i_1}, \ldots, e^{i_k}(v_k) e_{i_k}\right)                                                                                                                                  \\
 		 & =e^{i_1}(v_1)\cdots e^{i_k}(v_k)\; \omega(e_{i_1}, \ldots, e_{i_k})                                                                                                                                     \\
-		 & =e^{i_1}(v_1)\cdots e^{i_k}(v_k) \frac1{k!} \sum_{\sigma\in S_k}\sgn(\sigma)\; \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k).}}\right)                                                         \\
+		 & =e^{i_1}(v_1)\cdots e^{i_k}(v_k) \frac1{k!} \sum_{\sigma\in S_k}\sgn(\sigma)\; \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k)}}\right)                                                         \\
 		\overset{\mbox{\small\eqref{eq:altchar}}}{}
 		 & = \frac1{k!} \left(e^{i_1}\otimes \cdots \otimes e^{i_k} \;\mid\; v_1, \ldots, v_k\right) \sum_{\sigma\in S_k}\sgn(\sigma)\; \omega\left(e_{i_{\sigma(1)}}, \ldots, e_{i_{\sigma(k)}}\right)            \\
 		\overset{[i_{\sigma(l)} \mapsto j_l]}{}
@@ -150,7 +150,7 @@ In general, the tensor product $\omega\otimes\nu\in T_{k+h}^0(V)$ of alternating
 The following proposition gives us a tool to define an exterior product of alternating forms.
 
 \begin{proposition}
-	Let $\Alt_k: T_k^0(V)\to \Lambda^k(V)$ be the map\footnote{Often call alternation map or antisymmetrization} defined by
+	Let $\Alt_k: T_k^0(V)\to \Lambda^k(V)$ be the map\footnote{Often called alternation map or antisymmetrization} defined by
 	\begin{equation}
 		(\Alt_k\tau)(v_1,\ldots,v_k) := \frac1{k!} \sum_{\sigma\in S_k} \sgn(\sigma) \tau(v_{\sigma(1)}, \ldots, v_{\sigma(k)}),
 		\qquad \forall v_1,\ldots,v_k \in V.
@@ -166,17 +166,17 @@ The following proposition gives us a tool to define an exterior product of alter
 	This follows from a direct computation of its idempotence:
 	\begin{align}
 		(\Alt_k \Alt_k \tau)(v_1,\ldots, v_k)
-		 & = \frac1{k!k!}\sum_{\sigma,\sigma'\in S_k}\sgn(\sigma)\sgn(\sigma') \tau\left(v_{\sigma'\circ\sigma(1)}, \ldots, v_{\sigma'\circ\sigma(1)}\right) \\
-		\overset{\eta = \sigma'\circ\sigma}{}
-		 & =\frac1{k!k!}\sum_{\sigma,\eta\in S_k}\sgn(\eta) \tau\left(v_{\eta(1)}, \ldots, v_{\eta(1)}\right)                                                \\
-		 & =\frac1{k!}\sum_{\eta\in S_k}\sgn(\eta) \tau\left(v_{\eta(1)}, \ldots, v_{\eta(1)}\right)                                                         \\
+		 & = \frac1{k!k!}\sum_{\sigma,\sigma'\in S_k}\sgn(\sigma)\sgn(\sigma') \tau\left(v_{\sigma\circ\sigma'(1)}, \ldots, v_{\sigma\circ\sigma'(k)}\right) \\
+		\overset{\eta = \sigma\circ\sigma'}{}
+		 & =\frac1{k!k!}\sum_{\sigma,\eta\in S_k}\sgn(\eta) \tau\left(v_{\eta(1)}, \ldots, v_{\eta(k)}\right)                                                \\
+		 & =\frac1{k!}\sum_{\eta\in S_k}\sgn(\eta) \tau\left(v_{\eta(1)}, \ldots, v_{\eta(k)}\right)                                                         \\
 		 & =(\Alt_k \tau)(v_1,\ldots, v_k),
 	\end{align}
 	where we used the fact that $\eta$ runs over all $S_k$, as $\sigma$ does.
 	It remains to check that $\Alt_k(\tau)$ is alternating, but this follows directly from~\eqref{eq:detLeibniz}, completing the proof.
 \end{proof}
 
-As we were saying, now we can take the tensor product of two forms $\omega\otimes\nu$ and use the antisymmetrisation $\Alt_{k+h}$ to to project it onto the antisymmetric subspace $\Lambda^{k+h}$ of $T_{k+h}^0(V)$.
+As we were saying, now we can take the tensor product of two forms $\omega\otimes\nu$ and use the antisymmetrisation $\Alt_{k+h}$ to project it onto the antisymmetric subspace $\Lambda^{k+h}$ of $T_{k+h}^0(V)$.
 
 \begin{definition}[Wedge product of alternating forms]\idxdef{Wedge product of alternating forms}\idxdef{Exterior product of alternating forms}
 	We can extend the \emph{wedge product} (or \emph{exterior product}) to alternating forms by defining, for any $k,h\in\N$,
@@ -224,7 +224,7 @@ As we were saying, now we can take the tensor product of two forms $\omega\otime
 	\begin{equation}
 		\Lambda(V) = \bigoplus_{k=0}^n \Lambda^k(V),
 	\end{equation}
-	then the wedge product turns it into an associative, anticommutative\footnote{A graded algebra is anticommutative if the product satisfies a relation of the form $uv = {(-1)}^{kh}vu$, where $u$ and $v$ are in the spaces of the gradation with indicex $k$ and $h$ respectively.} graded algebra, called \emph{exterior algebra of $V$}.
+	then the wedge product turns it into an associative, anticommutative\footnote{A graded algebra is anticommutative if the product satisfies a relation of the form $uv = {(-1)}^{kh}vu$, where $u$ and $v$ are in the spaces of the gradation with indices $k$ and $h$ respectively.} graded algebra, called \emph{exterior algebra of $V$}.
 \end{remark}
 
 \section{The interior product}
@@ -335,7 +335,7 @@ Of course, the same technique can also be used to compute the expression for a d
 \end{example}
 
 \begin{exercise}
-	Let $(x^i)$ and $(y^i)$ are two different local coordinates on some open $V\subset M$.
+	Let $(x^i)$ and $(y^i)$ be two different local coordinates on some open $V\subset M$.
 	Show that the following identity holds:
 	\begin{equation}
 		dy^1\wedge\cdots\wedge dy^n = \det\left(\frac{\partial y^j}{\partial x^i}\right) dx^1\wedge\cdots\wedge dx^n.
@@ -396,7 +396,7 @@ You have already seen most of this in the context of multivariable analysis, how
 	\begin{equation}
 		\omega = \omega_I de^I, \quad \omega_I\in C^\infty(U),
 	\end{equation}
-	then its \emph{exterior deriative} $d\omega \in\Omega^{k+1}(U)$ is defined by
+	then its \emph{exterior derivative} $d\omega \in\Omega^{k+1}(U)$ is defined by
 	\begin{equation}
 		d\omega := d\omega_I \wedge de^I = \sum_{1\leq i_1 < \cdots < i_k \leq n} d\omega_{i_1,\ldots,i_k}\wedge de^{i_1}\wedge\cdots\wedge de^{i_k},
 	\end{equation}
@@ -452,7 +452,7 @@ This local definition immediately extends to global one via the following theore
 		 & = F^*\left( \sum_{I=(i_1,\ldots,i_k)} d\omega_I \wedge dy^{i_1}\wedge\cdots\wedge dy^{i_k} \right)            \\
 		 & \stackrel{\eqref{eq:localdw}}{=} F^*\left(d\omega|_{F(U)}\right),
 	\end{align}
-	where we repeatedly applied Proposition~\ref{thm:pullbacksdifferentialforms} and Exercise~\ref{ex:propdiff} to swap pushforwards and differentials.
+	where we repeatedly applied Theorem~\ref{thm:pullbacksdifferentialforms} and Exercise~\ref{ex:propdiff} to swap pullbacks and differentials.
 \end{proof}
 
 \begin{corollary}
@@ -527,7 +527,7 @@ This local definition immediately extends to global one via the following theore
 	\end{enumerate}
 \end{exercise}
 
-Let $N\subset M$ a submanifold and $i:N\hookrightarrow M$ the corresponding inclusion.
+Let $N\subset M$ be a submanifold and $i:N\hookrightarrow M$ the corresponding inclusion.
 For $\omega\in\Omega^k(M)$, we call $i^*\omega \in \Omega^k(N)$ the \emph{restriction} of $\omega$ to $N$.
 Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior derivative commute, that is, $i^*d\omega = d(i^*\omega)$.
 
@@ -608,14 +608,14 @@ Exercise~\ref{ex:smoothpushforward}, then, implies that restriction and exterior
 	\end{itemize}
 	where symbols' juxtaposition means their composition.
 	Since $\sharp$ and $\flat$ are defined in terms of $g$, it becomes clear that all those operators are tightly related to the metric.
-	There could be a lot more to say, but that will be more suite for a course in Riemannian geometry.
+	There could be a lot more to say, but that will be more suited for a course in Riemannian geometry.
 	A comprehensive free resource on the subject is \cite{book:derivations}.
 \end{example}
 
 \begin{exercise}
 	Show that the diagram~\eqref{diag:comm:r3ops} commutes; for example,
 	\begin{equation}
-		df = \frac{\partial f}{\partial x^i} = (\nabla f)_i dx^i = (\nabla f)^\flat.
+		df = \frac{\partial f}{\partial x^i} dx^i = (\nabla f)_i dx^i = (\nabla f)^\flat.
 	\end{equation}
 	Use the diagram to give a quick proof that $(\nabla\times)\circ \nabla \equiv 0$ and that $(\nabla\cdot) \circ (\nabla\times) \equiv 0$ (physically this last identity implies that magnetic fields are divergence free).
 \end{exercise}
@@ -676,7 +676,7 @@ However, its power lies in the fact that we can extend it to $k$-forms with impo
 Since the exterior derivative raises the degree of the form and the interior product decreases it, the net effect of the formula above, is indeed, the production of a $k$-form, so $\cL_X\omega \in \Omega^k(M)$.
 
 \begin{exercise}
-	Show that on functions the definition from~\eqref{eq:cartanmagicf} coincide with the one that we gave at the beginning of this section.
+	Show that on functions the definition from~\eqref{eq:cartanmagicf} coincides with the one that we gave at the beginning of this section.
 \end{exercise}
 
 \begin{exercise}\label{exe:liederandwedge}
@@ -744,7 +744,7 @@ Even though it is a bit impractical for computational purposes, flows are hard t
 	\begin{equation}
 		(\cL_X T)_p := \frac{d}{dt}\Big|_{t=0}\left((\varphi_t^X)^* T\right)_p,
 	\end{equation}
-	where as usual $\varphi_t^X$ denotes the maximal integral curve\footnote{Remember, this is a diffeomorphims from a neighbourhood of $p$ onto a neighbourhood of $\varphi_t^X(p)$.} for $X$ with initial point $p$.
+	where as usual $\varphi_t^X$ denotes the maximal integral curve\footnote{Remember, this is a diffeomorphism from a neighbourhood of $p$ onto a neighbourhood of $\varphi_t^X(p)$.} for $X$ with initial point $p$.
 
 	In general, for $\tau\in\cT_r^s(M)$ and $\sigma\in\cT_{r'}^{s'}$, the Lie derivative satisfies
 	\begin{equation}
@@ -763,7 +763,7 @@ Even though it is a bit impractical for computational purposes, flows are hard t
 	\end{equation}
 	which is often very useful in computations.
 
-	One can think to the Lie derivative as a mean to ``differentiate'' a tensor field (or a differential form) with respect to a vector field.
-	Note that it does not allow us differentiate a tensor field (or a differential form) with respect to a single tangent vector: the value of $\cL_X(\tau)$ at a point depends on the values of $X$ in a neighbourhood of the point, not just on the germ at $X$.
+	One can think of the Lie derivative as a means to ``differentiate'' a tensor field (or a differential form) with respect to a vector field.
+	Note that it does not allow us differentiate a tensor field (or a differential form) with respect to a single tangent vector: the value of $\cL_X(\tau)$ at a point depends on the values of $X$ in a neighbourhood of the point, not just on the value of $X$ at the point.
 	%This stems from the fact that $X\to\cL_X$ is not $C^\infty(M)$-linear: you can see this by using~\eqref{eq:cLXwBrackets} and show that $\cL_{fX}(\omega)(Y) = f\cL_X(\omega)(Y) + Y(f)\omega(X)$, and in general there is no reason for the correction $Y(f)\omega(X)$ to vanish.
 \end{remark}
