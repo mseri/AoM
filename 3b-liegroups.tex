@@ -328,7 +328,7 @@ Much of the progress in the theory of Lie groups has come from a careful analysi
 \begin{proof}
 	Let $v\in\fg$ and let $v^L\in\fX_L(G)$ denote the unique left-invariant vector field satisfying $v^L_e = v$.
 	Let $w := dF_e(v) =: F_*v$ and $w^L\in\fX_L(H)$ as above.
-	It is enough to show that $w^L_{F(g)} = dF_g v^L_g$ for all $g\in G$.
+	It is enough to show that $w^L_{F(g)} = dF_g v^L_g$ for all $g\in G$, that is, that $v^L$ is $F$-related to $w^L$ (see Definition~\ref{def:Frelated}).
 
 	Indeed, we have
 	\begin{align}
@@ -337,13 +337,8 @@ Much of the progress in the theory of Lie groups has come from a careful analysi
 		            & =d(L_{F(g)})_{F(e)}(w)           \\
 		            & =w^L_{F(g)}.
 	\end{align}
-	Since $F$ need not be a diffeomorphism, we cannot apply Theorem~\ref{thm:liealgiso} directly, but its proof still works.
-	For $f\in C^\infty(H)$ and $g\in G$, the identity above gives $v^L_g(f\circ F) = dF_g(v^L_g)f = w^L_{F(g)}f$, that is, $v^L(f\circ F) = (w^L f)\circ F$.
-	If $v_1,v_2 \in\fg$ and $w_i=F_*v_i$, $i=1,2$, applying this twice we get
-	\begin{equation}
-		[v_1^L,v_2^L](f\circ F) = v_1^L\big((w_2^L f)\circ F\big) - v_2^L\big((w_1^L f)\circ F\big) = \big([w_1^L,w_2^L]f\big)\circ F.
-	\end{equation}
-	Evaluating at $e$, $dF_e([v_1^L,v_2^L]_e)f = [w_1^L,w_2^L]_{e}f$ for all $f\in C^\infty(H)$, that is,
+	If $v_1,v_2 \in\fg$ and $w_i=F_*v_i$, $i=1,2$, Theorem~\ref{thm:liealgiso} then implies that $[v_1^L,v_2^L]$ is $F$-related to $[w_1^L,w_2^L]$.
+	Evaluating at $e$, and recalling that $F(e)=e$, we get $dF_e([v_1^L,v_2^L]_e) = [w_1^L,w_2^L]_{e}$, that is,
 	\begin{equation}
 		dF_e[v_1,v_2] = [w_1, w_2].
 	\end{equation}

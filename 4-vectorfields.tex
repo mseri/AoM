@@ -291,36 +291,62 @@ We will see a few applications of the Lie bracket throughout the rest of the cou
 	\end{align}
 \end{example}
 
+The definition of the pushforward involves $F^{-1}$, so it only makes sense for diffeomorphisms.
+However, there is a way to partly circumvent this problem by shifting the evaluation at $F(p)$, so that the definition simplifies to $(F_*X)_{F(p)} = dF_p(X_p)$, which does make sense for any smooth function.
+Of course this changes the nature of the object, and we need to introduce yet another concept...
+
+\begin{definition}\label{def:Frelated}\idxdef{F-related vector fields}
+	Let $F:M\to N$ be a smooth map between smooth manifolds with or without boundary.
+	We say that $X\in\fX(M)$ and $\widetilde X\in\fX(N)$ are \emph{$F$-related} if
+	\begin{equation}
+		dF_p(X_p) = \widetilde X_{F(p)}, \quad \forall p\in M.
+	\end{equation}
+\end{definition}
+
+If $F$ is a diffeomorphism, then $F_*X$ is the unique vector field on $N$ which is $F$-related to $X$.
+Indeed, $(F_*X)_{F(p)} = dF_p(X_p)$ by definition and, since $F$ is surjective, this condition determines $F_*X$ at every point of $N$.
+While this concept makes sense for an arbitrary smooth map, it is important to mention that in general, for an arbitrary smooth map, a vector field $\widetilde X$ which is $F$-related to $X$ may not exist or may fail to be unique.
+
 \begin{theorem}\label{thm:liealgiso}
-	Let $F:M\to N$ be a diffeomorphism between smooth manifolds with or without boundary and let $X, Y \in\fX(M)$. Then, for all $f\in C^\infty(N)$,
+	Let $F:M\to N$ be a smooth map between smooth manifolds with or without boundary, let $X, Y \in\fX(M)$ and let $\widetilde X, \widetilde Y \in\fX(N)$ be such that $X$ is $F$-related to $\widetilde X$ and $Y$ is $F$-related to $\widetilde Y$. Then, for all $f\in C^\infty(N)$,
+	\begin{equation}
+		(\widetilde X f)\circ F = X(f\circ F), \quad\mbox{and}\quad
+		[X,Y] \mbox{ is $F$-related to } [\widetilde X, \widetilde Y].
+	\end{equation}
+
+	In particular, if $F$ is a diffeomorphism, then for all $f\in C^\infty(N)$,
 	\begin{equation}
 		\left((F_* X)f\right)\circ F = X(f\circ F), \quad\mbox{and}\quad
 		F_* [X,Y] = [F_* X, F_* Y].
 	\end{equation}
 \end{theorem}
 \begin{proof}
-	By definition, for $f\in C^\infty(N)$, $X\in\fX(M)$ and any $p\in M$
+	By definition, for $f\in C^\infty(N)$ and any $p\in M$
 	\begin{align}
-		X(f\circ F)(p) & = X_p(f\circ F)                            \\
-		               & = dF_p(X_p)f = (F_* X)_{F(p)}f             \\
-		               & = ((F_*X) f)(F(p)) = ((F_*X) f)\circ F(p).
+		X(f\circ F)(p) & = X_p(f\circ F)                                   \\
+		               & = dF_p(X_p)f = \widetilde X_{F(p)}f               \\
+		               & = (\widetilde X f)(F(p)) = (\widetilde X f)\circ F(p).
 	\end{align}
 	Which proves the first equation.
 	Therefore,
 	\begin{align}
-		X Y (f\circ F) = X ((F_* Y) f \circ F)
-		= ((F_* X) (F_* Y) f) \circ F,
+		X Y (f\circ F) = X ((\widetilde Y f) \circ F)
+		= (\widetilde X \widetilde Y f) \circ F,
 	\end{align}
 	and similarly for $Y X$.
-	Finally, by definition we have
+	Finally, for any $p\in M$, by definition we have
 	\begin{align}
-		(F_* [X,Y] f)\circ F
-		 & = [X,Y](f\circ F)                                       \\
-		 & = XY (f\circ F) - YX (f\circ F)                         \\
-		 & = ((F_* X) (F_* Y)f)\circ F - ((F_* Y) (F_* X)f)\circ F \\
-		 & = ([F_* X, F_* Y]f)\circ F,
+		dF_p([X,Y]_p) f
+		 & = [X,Y](f\circ F)(p)                                                   \\
+		 & = XY (f\circ F)(p) - YX (f\circ F)(p)                                  \\
+		 & = (\widetilde X \widetilde Y f)(F(p)) - (\widetilde Y \widetilde X f)(F(p)) \\
+		 & = [\widetilde X, \widetilde Y]_{F(p)} f.
 	\end{align}
-	completing the proof.
+	Since this holds for all $f\in C^\infty(N)$, $dF_p([X,Y]_p) = [\widetilde X, \widetilde Y]_{F(p)}$, that is, $[X,Y]$ is $F$-related to $[\widetilde X, \widetilde Y]$.
+
+	If $F$ is a diffeomorphism, we can apply what we just proved with $\widetilde X = F_*X$ and $\widetilde Y = F_*Y$.
+	The first equation is then exactly the one in the statement.
+	Moreover, $[X,Y]$ is $F$-related both to $F_*[X,Y]$ and to $[F_*X, F_*Y]$, and since the vector field $F$-related to $[X,Y]$ is unique, they coincide, completing the proof.
 \end{proof}
 
 \begin{definition}\label{def:LieAlgebra}\idxdef{Lie algebra}
