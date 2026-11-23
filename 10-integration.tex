@@ -11,18 +11,18 @@ For manifolds, the situation is much more complicated: for example, on a M\"obiu
 \section{Orientation on vector spaces}
 Let's proceed step by step by first revisiting some results from multivariable analysis. If you need a reference to review this material, you can refer to \cite[Chapter 6.2]{book:abrahammarsdenratiu} or \cite[Chapters 21.1-21.2]{book:tu}.
 
-\begin{definition}\idxdef{Oriented manifold}
+\begin{definition}
 	Let $V$ be a one-dimensional vector space. Then $V\setminus\{0\}$ has two components.
 	An \emph{orientation} of $V$ is a choice of one of these components, which one then labels as ``positive'' and ``negative''.
 	A \emph{positive basis} of $V$ then is a choice of any non-zero vector belonging to the positive component, while a \emph{negative basis} of $V$ is a choice of any non-zero vector belonging to the negative component.
 \end{definition}
 
 \begin{example}
-	The standard orientation of $\R$ is give by declaring that the positive numbers are the positive components of $\R\setminus\{0\}$.
+	The standard orientation of $\R$ is given by declaring that the positive numbers are the positive components of $\R\setminus\{0\}$.
 	A common choice as positive basis for $\R$ is $\{e_1 \equiv 1\}$ while a negative basis could be $\{-e_1\}$.
 \end{example}
 
-If $V$ be a $n$-dimensional vector space, we know by Proposition~\ref{prop:dimLkV}, that $\Lambda^n(V)$ is a one-dimensional vector space.
+If $V$ is a $n$-dimensional vector space, we know by Proposition~\ref{prop:dimLkV}, that $\Lambda^n(V)$ is a one-dimensional vector space.
 Moreover, if $\{e_1,\ldots,e_n\}$ is a basis for $V$, then $e^1\wedge\cdots\wedge e^n$ is a basis for $\Lambda^n(V)$.
 
 \begin{definition}\idxdef{Orientation of a vector space}\idxdef{Positive orientation}
@@ -79,13 +79,13 @@ Tangent and cotangent spaces are vector spaces, so what we discussed in the prev
 Moreover, we can extend our point of view to the various tensor bundles over smooth manifold that we studied so far.
 Differential $n$-forms, then, seem a reasonable concept to define a notion of orientation for a manifold, at least if we think about their pointwise meaning of assigning an orientation to each fiber of $TM$.
 
-\begin{definition}\idxdef{Volume form}\idxdef{Orientation-preserving diffeomorphism}
+\begin{definition}
 	A \emph{volume form}\footnote{Sometimes also called \emph{orientation form}.}\idxdef{Volume form} on a $n$-dimensional smooth manifold $M$ is a $n$-form $\omega\in\Omega^n(M)$ such that $\omega(p) \neq 0$ for all $p\in M$.
 	We say that $M$ is \emph{orientable}\idxdef{Orientable manifold} if there exists a volume form on $M$.
 \end{definition}
 
 \begin{example}
-	According to this defitinion $\R^3$ has the standard volume form $\omega = dx \wedge dy \wedge dz$.
+	According to this definition $\R^3$ has the standard volume form $\omega = dx \wedge dy \wedge dz$.
 \end{example}
 
 Of course, one does need to make sure that locally we can make sense of this concept of orientation for it to even make sense as a definition.
@@ -176,7 +176,7 @@ A consequence of Lemma~\ref{lemma:orient} and the first part of Proposition~\ref
 	Similarly, if $M$ is connected and the charts for the oriented manifold are positively (resp. negatively) oriented, we say that the manifold is positively (resp. negatively) oriented.
 \end{definition}
 
-In fact, we can go one step further and define what does it mean for a diffeomorphism to preserve or reverse orientation.
+In fact, we can go one step further and define what it means for a diffeomorphism to preserve or reverse orientation.
 
 \begin{definition}\idxdef{Orientation-preserving diffeomorphism}
 	Let $(M, \omega)$ and $(N, \eta)$ be pairs of an oriented smooth manifold and its volume form.
@@ -256,7 +256,7 @@ In fact, we can go one step further and define what does it mean for a diffeomor
 	The M\"obius strip inherits the differentiable structure from $\R^2$, so we need to show that there is no orientable atlas which is also compatible with the differentiable structure on $M$.
 	\begin{enumerate}
 		\item Define the map $\sigma:\R\times(-1,1)\to\R\times(-1,1)$ by $\sigma(x,y) = (x+1, -y)$ and show that $\pi\circ\sigma = \pi$.
-		\item If $\eta\in\Omega^2(M)$ defines\footnote{This statement should not be surprising: both $\eta$ and $\omega$ are $2$-forms on a $2$-dimensional manifold and thus they must be linearly dependent.} $f$ by $\pi^* \eta = f \omega$ where $\omega = dx\wedge dy$ is an area\footnote{I.e. a volume $2$-form.} form on $\R\times(-1,1)$.
+		\item Let $\eta\in\Omega^2(M)$ and define\footnote{This statement should not be surprising: both $\eta$ and $\omega$ are $2$-forms on a $2$-dimensional manifold and thus they must be linearly dependent.} $f$ by $\pi^* \eta = f \omega$ where $\omega = dx\wedge dy$ is an area\footnote{I.e. a volume $2$-form.} form on $\R\times(-1,1)$.
 		      Show that $f(x+1, -y) = - f(x,y)$.
 		\item Conclude that $f$ must vanish at some point of $\R\times(-1,1)$, which implies that $M$ is non-orientable.
 	\end{enumerate}
@@ -285,7 +285,7 @@ In fact, we can go one step further and define what does it mean for a diffeomor
 	This, in particular, proves that the total space $TM$ of the tangent bundle is always orientable, regardless of the orientability of $M$.
 \end{exercise}
 
-A remarkable consequence of Exercise~\ref{ex:TMorient} is that $TM$, as a manifold on its own right, is always orientable, even if $M$ is not.
+A remarkable consequence of Exercise~\ref{ex:TMorient} is that $TM$, as a manifold in its own right, is always orientable, even if $M$ is not.
 
 \newthought{What about orientation on the boundaries?}
 
@@ -305,10 +305,10 @@ Thus, a vector field along $\partial M$ is a function $X:\partial M\to T_pM$ (no
 	On a smooth manifold $M$ with boundary, there is a smooth outward pointing vector field along $\partial M$.
 \end{proposition}
 \begin{proof}
-	Pick an open cover of $\partial M$ with coordinate charts $\{(U_\alpha, (x^1_\alpha,\ldots,x^n_\alpha) \mid \alpha\in I\}$.
+	Pick an open cover of $\partial M$ with coordinate charts $\{(U_\alpha, (x^1_\alpha,\ldots,x^n_\alpha)) \mid \alpha\in I\}$.
 	Then $X_\alpha = -\frac{\partial}{\partial x^n_\alpha}$ on $U_\alpha\cap \partial M$ is smooth and outward pointing.
 	Choose a partition of unity $\{\rho_\alpha \mid \alpha\in I\}$ on $\partial M$ subordinate to the open cover $\{U_\alpha\cap \partial M \mid \alpha\in I\}$.
-	Then $X:= \sum_{\alpha\in I}\rho_\alpha X_\alpha$ is a smooth ouwtard pointing vector field along $\partial M$.
+	Then $X:= \sum_{\alpha\in I}\rho_\alpha X_\alpha$ is a smooth outward pointing vector field along $\partial M$.
 \end{proof}
 
 We can use this to introduce a notion of induced orientation on $\partial M$.
@@ -321,7 +321,7 @@ We can use this to introduce a notion of induced orientation on $\partial M$.
 	Since both $\omega$ and $X$ are smooth, the contraction $\iota_X\omega$ is also smooth.
 	We need to check that it cannot vanish.
 
-	Assume that $\iota_X\omega$ does vanish at some point $p\in\partial M$, that is, $(\iota_X)(v_1, \ldots, v_{n-1}) = 0$ for all $v_1, \ldots, v_{n-1}\in T_p(\partial M)$.
+	Assume that $\iota_X\omega$ does vanish at some point $p\in\partial M$, that is, $(\iota_X\omega)(v_1, \ldots, v_{n-1}) = 0$ for all $v_1, \ldots, v_{n-1}\in T_p(\partial M)$.
 	Let $\{e_1,\ldots,e_{n-1}\}$ be a basis for $T_p(\partial M)$.
 	Then $\{X_p,e_1,\ldots,e_{n-1}\}$ is a basis for $T_p M$ such that
 	\begin{equation}
@@ -336,12 +336,12 @@ We can use this to introduce a notion of induced orientation on $\partial M$.
 	Let $M$ be an oriented manifold with boundary, $\omega$ a volume form for $M$ and $X$ a smooth outward pointing vector field along $\partial M$.
 	Prove the following statements.
 	\begin{enumerate}
-		\item It $\sigma$ is another volume form on $M$, then $\sigma = f\omega$ for some everywhere positive $f\in C^\infty(M)$. Prove that  $\iota_X\sigma = f\iota_X \omega$ on $\partial M$.
+		\item If $\sigma$ is another volume form on $M$, then $\sigma = f\omega$ for some everywhere positive $f\in C^\infty(M)$. Prove that  $\iota_X\sigma = f\iota_X \omega$ on $\partial M$.
 		\item Show that if $Y$ is another smooth outward pointing vector field along $\partial M$, then there is an everywhere positive $f\in C^\infty(M)$ such that $\iota_Y\sigma = f \iota_X \omega$ on $\partial M$.
 	\end{enumerate}
 \end{exercise}
 
-Note that if $\{(U_i, \varphi_i)\}$ is a positively oriented atlas on $M$, then $\{(U_i|_{\partial M}, \varphi_i|_{\partial M})\}$ can be negatively oriented.
+Note that if $\{(U_i, \varphi_i)\}$ is a positively oriented atlas on $M$, then $\{(U_i\cap\partial M, \varphi_i|_{U_i\cap\partial M})\}$ can be negatively oriented.
 Let $\omega = dx^1\wedge\cdots\wedge dx^n$ be a positive volume form on $M$ on one of the charts, then $-\frac{\partial}{\partial x^n}$ is an outward pointing on $\partial \cH^n$ and we have\footnote{Recall Lemma~\ref{lemma:intprod}.}
 \begin{align}
 	\iota_{-{\partial}/\!{\partial x^n}} (dx^1\wedge\cdots\wedge dx^n)
@@ -380,14 +380,14 @@ Let's keep things simple and go one step at a time.
 	\begin{equation}
 		\int_M \omega = \int_U \omega := \int_{\varphi(U)} \varphi_*\omega := \int_{\R^n} \omega(x) d x^1\cdots dx^n,
 	\end{equation}
-	where the last is the usual Riemannian integral on $\R^n$ and, on the chart\sidenote[][-2em]{In general, locally $\omega = \frac1{n!}\omega_{i_1,\ldots,i_n}(x) dx^{i_1}\wedge\cdots\wedge dx^{i_n}$, but, by reordering the basis element for each term in the sum, we can always write it in the more compact form presented here.}
+	where the last is the usual Riemann integral on $\R^n$ and, on the chart\sidenote[][-2em]{In general, locally $\omega = \frac1{n!}\omega_{i_1,\ldots,i_n}(x) dx^{i_1}\wedge\cdots\wedge dx^{i_n}$, but, by reordering the basis element for each term in the sum, we can always write it in the more compact form presented here.}
 	\begin{equation}
 		\varphi_*\omega = \omega(x)\; dx^{1}\wedge \cdots\wedge dx^{n}\in\Omega^n(\R^n).
 	\end{equation}
 	For convenience we may sometimes write $d^n x := dx^1 \cdots dx^n$.
 	\marginnote{Everything in Definition~\ref{def:intnform:chart} remains valid if $\R^n$ is replaced by $\cH^n$.}
 
-	If $M$ is an oriented $0$-dimensional manifold and $f\in\Omega^0(M) = C^\infty(M)$, than we define the integral to be the sum
+	If $M$ is an oriented $0$-dimensional manifold and $f\in\Omega^0(M) = C^\infty(M)$, then we define the integral to be the sum
 	\begin{equation}
 		\int_M f := \sum_{p\in M} \pm f(p),
 	\end{equation}
@@ -399,12 +399,12 @@ To make sure that our definition makes sense, let's show that the integral is we
 
 \begin{lemma}\label{lemma:intindep:chart}
 	Suppose $\omega\in\Omega^n(M)$ with compact support $\supp \omega \subset U\cap V$, where $(U, \varphi)$ and $(V, \psi)$ are two positively oriented charts on the oriented manifold $M$.
-	Then, the value of the integral $\int_M\omega$ is independent on the chosen chart.
+	Then, the value of the integral $\int_M\omega$ is independent of the chosen chart.
 \end{lemma}
 \marginnote{In multivariable analysis you saw already the invariance of the Euclidean integral by orientation-preserving changes of coordinates, namely for $F: \R^n \to \R^n$ orientation preserving diffeomorphism and $\omega \in \Omega^n(\R^n)$, it holds $\int_{F(A)} \omega = \int_A F^* \omega$. This can be also directly used to show
 	\begin{align}
 		\int_{\varphi(W)} \varphi_*\omega & = \int_{\sigma^{-1}(\psi(W))} \varphi_*\omega \\
-		                                  & = \int_{\psi(W))} \sigma_* (\varphi_*\omega)  \\
+		                                  & = \int_{\psi(W)} \sigma_* (\varphi_*\omega)  \\
 		                                  & = \int_{\psi(W)} \psi_* \omega.
 	\end{align}
 }
@@ -417,14 +417,14 @@ To make sure that our definition makes sense, let's show that the integral is we
 \end{proof}
 
 \begin{remark}
-	Definition~\ref{def:intnform:chart} reduces the integral to a usual Riemannian integral on $\R^n$ (or $\cH^n$). This is in principle blind to the orientation of the manifold, which is encoded in the choice of the chart from the oriented atlas.
+	Definition~\ref{def:intnform:chart} reduces the integral to a usual Riemann integral on $\R^n$ (or $\cH^n$). This is in principle blind to the orientation of the manifold, which is encoded in the choice of the chart from the oriented atlas.
 
 	If we consider a different chart $\psi$ and change coordinates, the Euclidean integral transforms as
 	\begin{align}
 		\int_{\R^n} \omega(x) d x^1\cdots dx^n  = \int_{\R^n} \omega(y) \left|\det(D\sigma^{-1}|_y)\right| d y^1\cdots dy^n,
 	\end{align}
 	where $\sigma = \psi\circ\varphi^{-1}$ is the corresponding transition map.
-	Comparing this with Proposition~\ref{prop:wedgeToJDet}, we see that the positivity of the Jacobian determinant $\det(D\sigma^{-1}|_y)$ is exactly what guarantees that our definition remain consistent.
+	Comparing this with Proposition~\ref{prop:wedgeToJDet}, we see that the positivity of the Jacobian determinant $\det(D\sigma^{-1}|_y)$ is exactly what guarantees that our definition remains consistent.
 
 	It is possible, and customary, to extend the definition of integral to negatively oriented charts by manually adding a minus sign in front of the integral to compensate for the negative Jacobian determinant.
 
@@ -432,7 +432,7 @@ To make sure that our definition makes sense, let's show that the integral is we
 	However, this is beyond the scope of this course. You can find all the details in \cite[Chapter 16]{book:lee} or \cite[Chapters 6 and 7]{book:abrahammarsdenratiu}.
 \end{remark}
 
-To be able to integrate charts which are not supported in the domain of a single chart, we now need the help of a partition of unity.
+To be able to integrate forms which are not supported in the domain of a single chart, we now need the help of a partition of unity.
 
 \begin{definition}\idxdef{Integral of n-forms on manifolds}
 	Let $M$ be a smooth oriented manifold and $\cA = \{(U_i,\varphi_i)\}$ a positively oriented atlas.
@@ -473,9 +473,9 @@ Which immediately implies the following nice result.
 	\end{equation}
 \end{theorem}
 \begin{proof}
-	First of all, observe that $\supp(F^*\omega) = F^{-1}(\supp(\omega))$ which is compact since manifolds are Hausdorff spaces and $F$ is continuous.
+	First of all, observe that $\supp(F^*\omega) = F^{-1}(\supp(\omega))$ which is compact since it is the image of the compact set $\supp(\omega)$ under the continuous map $F^{-1}$.
 
-	Let now $\{(U_i,\varphi_i)\}$ be an atlas of a positively oriented chart on $M$ and $\{\rho_i\}$ a subordinate partition of unity.
+	Let now $\{(U_i,\varphi_i)\}$ be an atlas of positively oriented charts on $M$ and $\{\rho_i\}$ a subordinate partition of unity.
 	Then, $\{(F(U_i),\varphi_i\circ F^{-1})\}$ is an atlas of positively oriented charts for $N$ and $\{\rho_i \circ F^{-1}\}$ is a partition of unity subordinate to the covering $\{F(U_i)\}$.
 	By Lemma~\ref{lemma:intinman} we have,
 	\begin{align}
@@ -525,7 +525,7 @@ This justifies the following definition.
 
 \begin{exercise}[Fubini's theorem, Exercise 7.1-5 \cite{book:abrahammarsdenratiu}]\label{exe:fubini}
 	Let $M^m$ and $N^n$ be oriented manifolds. Endow $M\times N$ with the product orientation, that is\footnote{An equivalent way is to say that if $v_1,\ldots,v_m\in T_pM$ and $w_1, \ldots, w_n\in T_q N$ are positively oriented bases in the respective spaces, then \begin{align}
-			 & (v_1,0),\ldots,(v_n,0),       \\
+			 & (v_1,0),\ldots,(v_m,0),       \\
 			 & (0,w_1), \ldots, (0,w_n)      \\
 			 & \quad\in T_{(p,q)}(M\times N)
 		\end{align}
@@ -595,7 +595,7 @@ This justifies the following definition.
 	\end{equation}
 \end{corollary}
 \begin{proof}
-	Follows form the previous exercise by observing
+	Follows from Theorem~\ref{thm:gcv} by observing
 	\begin{equation}
 		F^*(f\omega) = (f\circ F) F^*\omega = (f\circ F)\omega.
 	\end{equation}
@@ -631,9 +631,9 @@ You are already familiar with the concept of divergence of a vector field from M
 
 Notice in particular the extra factor $\mu$ on the left, without it the identity would not make sense: the divergence of a vector field is a function, whereas $\cL_X\mu$ is an $n$-form.
 
-Of course, the fact that the expression makes sense it is not enough to guarantee that ``the thing'' is well defined, but in this case the existence and uniqueness of the divergence function follows directly from the fact that $\mu$ is nowhere vanishing and each space of top-degree alternating tensors is one-dimensional.
+Of course, the fact that the expression makes sense is not enough to guarantee that ``the thing'' is well defined, but in this case the existence and uniqueness of the divergence function follows directly from the fact that $\mu$ is nowhere vanishing and each space of top-degree alternating tensors is one-dimensional.
 
-Since, as we know well at this point, $d\mu=0$ for a volume form, Cartan's magic formula formula \eqref{eq:cartanmagicf} gives
+Since, as we know well at this point, $d\mu=0$ for a volume form, Cartan's magic formula \eqref{eq:cartanmagicf} gives
 \begin{equation}\label{eq:divergence-exterior}
 	(\divergence_\mu X)\,\mu = d(\iota_X\mu).
 \end{equation}
@@ -659,7 +659,7 @@ It may seem a triviality, but this function plays an interesting role in many ap
 \section{Stokes' Theorem}
 
 Stokes' theorem states that if $\omega$ is an $(n-1)$-form on an orientable $n$-manifold $M$, then the integral of $d\omega$ over $M$ equals the integral of $\omega$ over $\partial M$, generalising our observations for the line integral.
-This is a beautiful and very important result, with deep consequences. The most immediate ones are the classical theorems of Gauss, Green and Stokes, which are just a special cases of this result.
+This is a beautiful and very important result, with deep consequences. The most immediate ones are the classical theorems of Gauss, Green and Stokes, which are just special cases of this result.
 
 We are going to state the theorem, discuss some of its consequences and then give its proof.
 
@@ -703,7 +703,7 @@ We are going to state the theorem, discuss some of its consequences and then giv
 \end{corollary}
 
 \begin{corollary}[Divergence theorem]\label{cor:divergence}\idxthm{Divergence theorem}
-	Let $M$ be an orientable smooth $n$-manifold with boundary, let $\mu$ be a a volume form on $M$, and let $X\in\fX(M)$ be compactly supported.
+	Let $M$ be an orientable smooth $n$-manifold with boundary, let $\mu$ be a volume form on $M$, and let $X\in\fX(M)$ be compactly supported.
 	If $i:\partial M\hookrightarrow M$ is the inclusion and $\partial M$ has the induced orientation, then
 	\begin{equation}
 		\int_M (\divergence_\mu X)\,\mu = \int_{\partial M}i^*(\iota_X\mu).
@@ -734,7 +734,7 @@ And we can keep going. For example, we can also recover Green's theorem.
 \end{corollary}
 
 \begin{remark}
-	The requirement of compactness in Stokes' theorem may seem there just to avoid technicalities involving the convergence of the integral, however, it also avoid subtleties due to the boundary as shown in the following example.
+	The requirement of compactness in Stokes' theorem may seem there just to avoid technicalities involving the convergence of the integral, however, it also avoids subtleties due to the boundary as shown in the following example.
 	Let $M=(a,b)$, thus $\partial M = \emptyset$, and $f(x)=x$.
 	Then,
 	\begin{equation}
@@ -742,7 +742,7 @@ And we can keep going. For example, we can also recover Green's theorem.
 	\end{equation}
 	But this does not contradict Stokes' theorem since $f$ is not compactly supported.
 
-	If you close the interval, then $f$ becomes with compact support and we are back in the case of Example~\ref{ex:intint} where we had already seen Stokes' theorem.
+	If you close the interval, then $f$ becomes compactly supported and we are back in the case of Example~\ref{ex:intint} where we had already seen Stokes' theorem.
 \end{remark}
 
 \begin{proof}
@@ -784,7 +784,7 @@ And we can keep going. For example, we can also recover Green's theorem.
 		.\label{eq:lhsHn}
 	\end{align}
 	We now need to compare this with the right-hand side of~\eqref{eq:Stokes}.
-	To this end, compute he following
+	To this end, compute the following
 	\begin{equation}
 		\int_{\partial \cH^n}\omega = \sum_{j=1}^n \int_{A\cap\partial\cH^n} \omega^j(x^1, \ldots, x^{n-1}, 0) dx^1 \wedge \cdots\wedge \widehat{dx}^j \wedge \cdots\wedge dx^n.
 	\end{equation}
@@ -884,7 +884,7 @@ In fact this example is a particular case of the following corollary of Stokes' 
 \end{corollary}
 \begin{exercise}
 	Prove this corollary. \\
-	\textit{\small Hint: follows from two the previous corollaries.}
+	\textit{\small Hint: follows from the two previous corollaries.}
 \end{exercise}
 
 
