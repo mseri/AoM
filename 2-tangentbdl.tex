@@ -220,7 +220,7 @@ In this case
 \end{equation}
 Showing that the opposite is also true will require a bit of work.
 
-\begin{proposition}
+\begin{proposition}\label{prop:derivations_tangent}
 	Let $M$ be a smooth manifold, $p\in M$ and $W$ any open neighbourhood of $p$.
 	Then there is a linear isomorphism between $T_p M$ and the space of derivations of $C^\infty(W)$ at $p$.
 \end{proposition}
@@ -699,7 +699,7 @@ More generally, if $M$ is an open submanifold of a vector space $V$, we can comb
 For example, since $GL_n(\R)$ is an open submanifold of the vector space $\mathrm{Mat}(n, \R)$, we can identify its tangent space at each point $X\in GL_n(\R)$ with the full space of matrices $\mathrm{Mat}(n, \R)$.
 
 \begin{exercise}[Tangent space of a product manifold]
-	Let $M_1, \ldots, M_k$ be smooth manifolds (without boundary\footnote{The statement is true also if one (only one!) of the $M_i$ spaces is a smooth manifold with boundary. If there is more than one manifold with boundary, the product space will have ``corners'' that cannot be mapped to half spaces and thus is not a smooth manifold, as a simple example you can consider the closed square $[0,1]\times [0,1]$.}), and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
+	Let $M_1, \ldots, M_k$ be smooth manifolds (without boundary\footnote{The statement is true also if one (only one!) of the $M_i$ spaces is a smooth manifold with boundary. If there is more than one manifold with boundary, the product space will have ``corners'' that cannot be mapped to half spaces and thus is not a smooth manifold with boundary (it is still a topological manifold with boundary), as a simple example you can consider the closed square $[0,1]\times [0,1]$.}), and for each $j$ let $\pi_j:M_1\times\cdots\times M_k \to M_j$ be the projection onto the $M_j$ factor.
 	For any point $p=(p_1,\ldots,p_k)\in M_1\times\cdots\times M_k$, the map
 	\begin{align}
 		\sigma & : T_p(M_1\times\cdots\times M_k) \to T_{p_1} M_1\times\cdots\times T_{p_k} M_k \\
@@ -709,8 +709,9 @@ For example, since $GL_n(\R)$ is an open submanifold of the vector space $\mathr
 \end{exercise}
 
 \begin{remark}
-	When $M$ is a smooth manifold with boundary and $p$ is an interior point, all the discussions above apply verbatim. In particular, the tangent space at a boundary point of an $n$-dimensional manifold with boundary is also an $n$-dimensional real vector space that can be identified (non-uniquely) with $\R^n$ using a chart containing that point.
+	When $M$ is a smooth manifold with boundary and $p$ is an interior point, all the discussions above apply verbatim.
 
+	One can thus show that the tangent space at a boundary point of an $n$-dimensional manifold with boundary is also an $n$-dimensional real vector space that can be identified (non-uniquely) with $\R^n$ using a chart containing that point.
 	For $p\in\partial M$ the only change that needs to be made is to substitute $\cH^n$ for $\R^n$, with the understanding that the notation $\frac{\partial}{\partial x^i}\big|_{\varphi(p)}$ can be used interchangeably to denote either an element of $T_{\varphi(p)}\R^n$ or of $T_{\varphi(p)}\cH^n$. In the latter case, the $n$th coordinate vector $\frac{\partial}{\partial x^n}\big|_{p}$ should be interpreted as a one-sided derivative.
 \end{remark}
 
