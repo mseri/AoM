@@ -44,7 +44,7 @@ The map $Df(x) := T$ is the \emph{total derivative}\footnote{This is sometimes c
 The notion of continuous differentiability is unchanged\footnote{Note how the spaces are changing though: since it takes values in the space of $m\times n$ matrices, the differential $x\mapsto Df(x)$ is in fact a mapping of $\R^n \to \R^{m\times n}$.}, and in fact for $m=n=1$ it coincides with the one you gave for real functions.
 \medskip
 
-As we discussed above, the definition of continuity is extremely general. And defining limits in general is not a problem\footnote{They can be defined \href{https://en.wikipedia.org/wiki/Filter_(mathematics)\#Examples}{very abstractly in terms of filters}.}. Moreover, if $X$ and $Y$ are \emph{metric spaces}, the definition of continuity reduces to the definition given above for instance.
+As we discussed above, the definition of continuity is extremely general. And defining limits in general is not a problem\footnote{They can be defined \href{https://en.wikipedia.org/wiki/Filter_(mathematics)\#Examples}{very abstractly in terms of filters}.}. Moreover, if $X$ and $Y$ are \emph{metric spaces}, the definition of continuity reduces to the usual $\epsilon$--$\delta$ definition for instance.
 But how can we make sense of differentiability in the general case?
 
 If you have taken a course on \emph{Calculus of Variations}, you probably know that you can make sense of~\eqref{eq:diff} and give a notion of differentiability in the case $X$ and $Y$ are Banach spaces\footnote{Complete normed vector spaces, possibly infinite dimensional.}.
@@ -188,7 +188,7 @@ Don't get scared by conditions (i) and (ii) in the definition of topological man
 \end{example}
 
 \newthought{There is still an elephant in the room} in need of a comment.
-In our definition of topological manifolds, we are taking for granted that the dimension of the manifold is well--defined, that is, if we have two different charts, $\varphi_1: U \to \R^n$ and $\varphi_2: U \to \R^m$, then necessarily $m=n$. Luckily this is true\footnote{There is a caveat, the theorem holds for \emph{connected} components of a manifold. If you consider two distinct connected components, you can indeed have different dimensions for each of them.}! The result is called \emph{Invariance Domain Theorem} and, since its proof requires advanced concepts of topology, we will not pursue it further in the course\footnote{We will sketch, however, an alternative argument based on cohomology invariance in Remark~\ref{rmk:ch_topology_domain_invariance}.}.
+In our definition of topological manifolds, we are taking for granted that the dimension of the manifold is well--defined, that is, if we have two different charts, $\varphi_1: U \to \R^n$ and $\varphi_2: U \to \R^m$, with the same domain $U$, then necessarily $m=n$. Luckily this is true\footnote{There is a caveat: this only compares charts around the same points. Distinct connected components of a manifold can indeed have different dimensions.}! The result is called \emph{Invariance of Domain Theorem} and, since its proof requires advanced concepts of topology, we will not pursue it further in the course\footnote{We will sketch, however, an alternative argument based on cohomology invariance in Remark~\ref{rmk:ch_topology_domain_invariance}.}.
 
 \section{Differentiable manifolds}
 
@@ -247,7 +247,7 @@ The solution is to introduce a little more structure to the problem.
 \begin{figure*}[htp]
 	\centering
 	\includegraphics{1_2-compatible-charts.pdf}
-	\caption{Charts are compatible if they coincide on the intersections of their coordinate neighbourhoods.}
+	\caption{Charts are compatible if their transition maps are diffeomorphisms on the images of the intersections of their coordinate neighbourhoods.}
 	\label{fig:1.2-compatible-charts}
 \end{figure*}
 
@@ -303,7 +303,7 @@ Note that not all topological manifolds can be made into smooth manifolds, but c
 \end{exercise}
 
 \begin{exercise}
-	Show that on a second countable differentiable manifold it is always possible to find a countable atlas.
+	Show that on a differentiable manifold it is always possible to find a countable atlas.
 \end{exercise}
 
 \begin{exercise}\label{exe:subsetsmanifolds}
@@ -399,7 +399,7 @@ dropping the distinction between $p$ and $x$, both in place of
 		\varphi_2 : \R/\Z \setminus\{[\frac12]\} \to (-\frac12,\frac12)
 	\end{equation}
 	which map $[x]\in\R/\Z$ to its representation in $[0,1)$ or $[-\frac12, \frac12)$ respectively.
-	The manifold obtained in this way is diffeomorphic to the one defined in Example~\ref{ex:S1emb}.
+	The manifold obtained in this way is diffeomorphic\footnote{We will define diffeomorphisms between manifolds, i.e. smooth bijections with smooth inverses, in Section~\ref{sec:smoothfn}. For now, think of it as a way to compare smooth manifolds.} to the one defined in Example~\ref{ex:S1emb}.
 \end{example}
 
 \begin{example}[Product manifolds]\label{ex:pm}
@@ -428,7 +428,7 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
 \begin{example}
 	Lemma~\ref{lem:manifold_chart} simplifies life a lot.
 	Consider the product manifolds from Example~\ref{ex:pm}.
-	Since both $M$ and $N$ are smooth manifolds, the product manifold is a $(m+n)$-dimensional smooth manifold with the atlas introduced in the example.
+	Since both $M_1$ and $M_2$ are smooth manifolds, say of dimension $m$ and $n$ respectively, the product manifold is a $(m+n)$-dimensional smooth manifold with the atlas introduced in the example.
 
 	The proof of this fact is trivial in the sense that each of the maps in the atlas satisfies all the properties of the lemma by construction, after all they are already part of the differentiable structure of a smooth manifold.
 \end{example}
@@ -443,8 +443,8 @@ In this respect, the following lemma provides a welcome shortcut: in brief it sa
 
 \section{Quotient manifolds}\label{sec:quotient}
 
-If $M$ is a topological space and $\sim$ an equivalence relation we have seen that it is sometimes possible to define smooth manifolds.
-Since in general the quotient does not behave nicely it is convenient to get a few tricks to check if the manifold structure can be preserved.
+If $M$ is a topological space and $\sim$ an equivalence relation we have seen that it is sometimes possible to define a smooth manifold by taking the quotient $M/\!\sim$.
+Since in general the quotient does not behave nicely it is convenient to get a few tricks to check when the manifold structure can be preserved.
 
 In this case it is convenient to have some tools to check continuity of functions.
 
@@ -480,7 +480,7 @@ For further reference, you can look at~\cite[Chapter 21]{book:lee}.
 Before moving on, below we are going to look at a couple of simpler, notable, examples of quotient manifolds.
 \begin{marginfigure}
 	\includegraphics{1_2_25-sphere}
-	\caption{The identification $\sim'$ of antipodal points maps the sphere to a disk. Embedding $\bS^n/\!\sim'$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^n = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself). }
+	\caption{The identification $\sim'$ of antipodal points maps the sphere to a disk whose antipodal boundary points are identified. Embedding $\bS^n/\!\sim'$ in $\R^{n+1}$, one can define a map $\pi_D$ that projects the representative of $[x]$ in the north hemisphere orthogonally to the disk $D^n = \{x\in\R^{n+1} \mid \|x\|\leq 1, \; x^{n+1}=0\}$ (the equator is mapped to itself, but since its antipodal points are identified, it is somewhat folded in half). }
 \end{marginfigure}
 \begin{example}
 	Let $\RP^n$ denote the $n$-dimensional \emph{real projective space}, that is, the space of lines in $\R^{n+1}$ passing through the origin.
@@ -498,7 +498,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 	Observe that a line through the origin always intersects a sphere $\bS^n$ at two antipodal points and, conversely, each pair of antipodal points determines a unique line through the center.
 	So we can define an equivalence relation on the sphere by identifying the antipodal points: given $x,y\in\bS^n$, $x\sim' y$ if and only if $x = \pm y$.
 	This leads to the bijection $\RP^n \simeq \bS^n/\!\sim'$.
-	Note that by gluing antipodal points, we are identifying the north and south hemispheres, thus essentially flattening the sphere to a disk.
+	Note that by gluing antipodal points, we are identifying the north and south hemispheres, thus essentially flattening the sphere to a disk with antipodal boundary points glued to each other.
 
 	\begin{exercise}\label{exe:RPSN}
 		Show that the map $n: \R^{n+1}_0\to \bS^n$, $n(x) = \frac{x}{\|x\|}$, induces a homeomorphism $\hat n:\RP^n \to \bS^n/\!\sim'$.\\
@@ -512,7 +512,7 @@ Before moving on, below we are going to look at a couple of simpler, notable, ex
 		Assume that $\pi$ is an open map. Show that $\RP^n$ is a Hausdorff and second-countable topological manifold of dimension $n$.
 	\end{exercise}
 
-	Let $U\subset\R_0^{n+1}$, since $\pi$ is continuous by construction, $\pi(U)$ is open if $\pi^{-1}(\pi(U))$ is open in $\R^{n+1}_0$.
+	Let $U\subset\R_0^{n+1}$ be open. By definition of the quotient topology, $\pi$ is continuous, and thus $\pi(U)$ is open if $\pi^{-1}(\pi(U))$ is open in $\R^{n+1}_0$.
 	By definition
 	\begin{equation}
 		\pi^{-1}(\pi(U)) = \bigcup_{t\neq 0} tU = \bigcup_{t\neq 0}\{tp \mid p\in U\}.
@@ -608,7 +608,7 @@ This, colloquially speaking, means that a function is differentiable if it is di
 	Then, the space $C^\infty(M)$ endowed with the operations above is an \emph{algebra}\footnote{I.e. a vector space where you can also multiply two elements.} over $\R$.
 \end{exercise}
 
-The following theorem can be very convenient when you work with smooth functions.
+The following proposition can be very convenient when you work with smooth functions.
 
 \begin{proposition}
 	Let $M$ be a smooth $n$-manifold and $f:M\to\R$ a real-valued function on $M$. Then, the following are equivalent:
@@ -628,7 +628,7 @@ At this point, the generalization of smooth functions to smooth maps between man
 
 \begin{definition}
 	Let $F:M_1\to M_2$ be a continuous map \footnote{Remember: continuity is not a problem since $M_1$ and $M_2$ are topological spaces.} between two smooth manifolds of dimension $n_1$ and $n_2$ respectively.
-	We say that $F$ is \emph{smooth}, or \emph{of class $C^\infty$}, if, for any chart $(\varphi_1, V_1)$ of $M_1$ and $(\varphi_2, V_2)$ of $M_2$, the map
+	We say that $F$ is \emph{smooth}, or \emph{of class $C^\infty$}, if, for any chart $(V_1, \varphi_1)$ of $M_1$ and $(V_2, \varphi_2)$ of $M_2$, the map
 	\begin{align}
 		\varphi_2 \circ F \circ \varphi_1^{-1}: U_1 \to U_2,\qquad
 		\begin{cases}
@@ -658,13 +658,13 @@ Very often, where there is no ambiguity, we will simply identify $f$ and $\hat f
 	in the local coordinates $(\rho,\theta)$ on $U$, $f(\rho,\theta) = \rho^2$.
 \end{quote}
 
-A first observation about our definition of smooth maps is that, as one would hope, smoothness implies continuity.
+A first observation about our definition of smooth maps is that, as one would hope, smoothness does not depend on the choice of charts.
 %
 \begin{exercise}
 	Let $F:M_1\to M_2$ be a map between smooth manifolds of dimension $n_1$ and $n_2$ respectively.
-	Assume that there are two charts $(\varphi_1, V_1)$ of $M_1$ and $(\varphi_2, V_2)$ of $M_2$ such that
+	Assume that there are two charts $(V_1, \varphi_1)$ of $M_1$ and $(V_2, \varphi_2)$ of $M_2$ such that
 	$\varphi_2\circ F\circ \varphi_1^{-1}$ is smooth.
-	Prove that if $(\psi_1, V_1)$ and $(\psi_2, V_2)$ are two other charts,
+	Prove that if $(V_1, \psi_1)$ and $(V_2, \psi_2)$ are two other charts,
 	respectively of $M_1$ and $M_2$, then also $\psi_2\circ F\circ \psi_1^{-1}$ is smooth.
 \end{exercise}
 %
@@ -698,7 +698,7 @@ It can be useful to know that there are alternative ways to characterize smooth 
 	\end{enumerate}
 \end{exercise}
 
-The following corollary is just a restatement of Proposition~\ref{prop:smoothlocal}, but provides a useful perspective on the construction of smooth maps.
+The following proposition is just a restatement of Proposition~\ref{prop:smoothlocal}, but provides a useful perspective on the construction of smooth maps.
 
 \begin{proposition}[Gluing lemma for smooth maps]\idxthm{Gluing lemma for smooth maps}
 	Let $M$ and $N$ be two smooth manifolds and let $\{U_\alpha\mid\alpha\in A\}$ be an open cover of $M$ with some index set $A$.
@@ -933,7 +933,7 @@ With this result at hand, Proposition~\ref{prop:cutoff} can be shown very easily
 \newthought{The definition of manifolds has a serious limitation}, even though it is perfectly good to describe curves\footnote{E.g. the circle seen in Example~\ref{ex:S1emb}.} and surfaces\footnote{E.g. the $2$-spheres $\bS^2$.}, it fails to describe many natural objects like a \emph{closed} interval $[a,b]\subset\R$ or the \emph{closed} disk $D_1^2(0)$ of Example~\ref{ex:uball}.
 Note that in each of these cases, both the interior and the boundary are smooth manifolds and their dimension differ by one\footnote{In the first case the interior $(a,b)$ is a $1$-manifold and the boundary, the set $\partial[a,b] = \{a,b\}$, is a $0$-manifold. In the second case the interior of $D_1^2(0)$ is the open unit ball, a $2$-manifold, and the boundary $\partial D_1^2(0)$ is the $1$-manifold $\bS^1$.}.
 
-Let's do a step back and think about topological manifolds: since both the closed interval and the closed disk are closed sets, we have problems to make them locally euclidean in neighbourhoods of their boundaries.
+Let's do a step back and think about topological manifolds: since both the closed interval and the closed disk contain their boundary points, we have problems to make them locally euclidean in neighbourhoods of those points.
 Can we modify our local model to resemble something with a boundary?
 
 Of course this is a rhetorical question.
@@ -1035,6 +1035,7 @@ An alternative proof can be given by proving that charts preserve the interior o
 	is a diffeomorphism and $x^n(p) > 0$, there exists an open set $W\subset U\cap V$, $p\in W$, such that $\forall q\in W$, $x^n(q) > 0$.
 	Therefore $\varphi(W)\subset \cH^n$ is open also in $\R^n$ and $\psi\circ\varphi^{-1} : \varphi(W) \to \psi(W)$ is a diffeomorphism onto its image.
 
+	Exactly as in the first proof, the chain rule shows that the Jacobian of $\psi\circ\varphi^{-1}$ is invertible on $\varphi(W)$ and the inverse function theorem implies that $\psi\circ\varphi^{-1}$ is an open map there.
 	This implies that also $\psi(W)$ is open both in $\cH^n$ and in $\R^n$, and thus $\forall q \in W$, $y^n(q) = r^n\circ \psi(q) > 0$. That is, $p$ is an interior point also with respect to the new chart.
 
 	In particular, this implies that boundary points are mapped to boundary points by any chart. Assume that $p\in\partial M$ is mapped to an interior point by a chart $\varphi: U\subset M \to \cH^n$. Then, by the previous argument, $\varphi(p)$ is an interior point with respect to any other chart, leading to a contradiction.
@@ -1042,7 +1043,7 @@ An alternative proof can be given by proving that charts preserve the interior o
 
 In fact, a stronger fact holds.
 \begin{proposition}
-	Any diffeomorphism between smooth $n$-manifolds $F: M \to N$ satisfies $F(\partial M) = \partial N$.
+	Any diffeomorphism between smooth $n$-manifolds with boundary $F: M \to N$ satisfies $F(\partial M) = \partial N$.
 \end{proposition}
 \begin{proof}
 	Let $p\in\partial M$.
@@ -1055,7 +1056,8 @@ In fact, a stronger fact holds.
 	\end{equation}
 	is a diffeomorphism between open subsets of either $\R^n$ or $\cH^n$.
 	Furthermore, $(U, \widetilde{F}\circ\varphi)$ is a smooth chart for $M$.
-	By the previous proposition, $\widetilde{F}(\varphi(U))\subset \cH^n$ with $\widetilde{F}(\varphi(p))\in\partial \cH^n$, then we would have shown that $\psi(F(U)) \subset \cH^n$ with $\psi(F(p))\in\partial\cH^n$, i.e. $F(p)\in \partial N$ and, thus, $F(\partial M)\subset \partial N$.
+	Since $p\in\partial M$, by the previous proposition $p$ is mapped to $\partial\cH^n$ by every chart of $M$, thus in particular by $\widetilde{F}\circ\varphi$. Therefore $\psi(F(p)) = \widetilde{F}(\varphi(p))\in\partial\cH^n$, i.e. $F(p)\in \partial N$ and therefore $F(\partial M)\subset \partial N$.
+	Applying the same argument to the diffeomorphism $F^{-1}$ we get $F^{-1}(\partial N)\subset\partial M$, and therefore $F(\partial M) = \partial N$.
 \end{proof}
 
 \begin{remark}
@@ -1154,7 +1156,8 @@ Can we make sense of such observation using our newly introduced definition?
 		\item Show that $M$ is a topological manifold with boundary in which each point of $\partial M = \bS^{n-1}$ is a boundary point and each point in $\mathring M = \{x\in\R^n\mid\|x\|<1\}$ is an interior point.
 		\item Give a smooth structure to $M$ such that every smooth interior chart is a smooth chart for the standard smooth structure on $\mathring M$.
 	\end{enumerate}
-	\textit{\small Hint: consider the map $\pi\circ\sigma^{-1}:\R^n\to\R^n$ where $\sigma:\bS^n\to\R^n$ is the stereographic projection from Exercise~\ref{ex:stereo} and $\pi:\R^{n+1}\to\R^n$ is a projection that omits one of the first $n$ coordinates.}
+	\textit{\small Hint: consider the restriction to $\cH^n$ of the map $\pi\circ\sigma^{-1}:\R^n\to\R^n$ where $\sigma:\bS^n\to\R^n$ is the stereographic projection from Exercise~\ref{ex:stereo} and $\pi:\R^{n+1}\to\R^n$ is the projection that omits the $n$-th coordinate.
+	Remember that you need enough such maps to cover $M$.}
 \end{exercise}
 
 \begin{tcolorbox}
