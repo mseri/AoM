@@ -67,32 +67,32 @@ To generalise this result further, we need to have a deeper look into de Rham th
 A crucial observation for our purposes is the \emph{homotopy invariance} of the de Rham cohomology, which is a scary sounding property which is formalised by the following statement.
 
 \begin{theorem}\label{thm:deRham-invariance}\idxthm{de Rham homotopy invariance}
-	Let $M$ be a smooth manifold without boundary and $[0,1]\times M$ the product manifold with boundary $(\{0\}\times M) \cup (\{1\}\times M)$.
-	Let $i_t : M \hookrightarrow [0,1]\times M$ be the injection $i_t(p) := (t,p)$ and $\pi : [0,1]\times M \to M$ the projection onto $M$.
+	Let $M$ be a smooth manifold without boundary and consider the product  manifold $\R\times M$.
+	Let $i_t : M \hookrightarrow \R\times M$ be the injection $i_t(p) := (t,p)$ and $\pi : \R\times M \to M$ the projection onto $M$.
 	Then, there is a linear map
 	\begin{equation}
-		K : \Omega^\ell([0,1]\times M)\to \Omega^{\ell-1}(M)
+		K : \Omega^\ell(\R\times M)\to \Omega^{\ell-1}(M)
 	\end{equation}
-	such that for every differential $\ell$-form $\omega\in\Omega^\ell([0,1]\times M)$ one has\footnote{If you took an algebraic topology course, you may recognise such map $K$ as a cochain homotopy.}
+	such that for every differential $\ell$-form $\omega\in\Omega^\ell(\R\times M)$ one has\footnote{If you took an algebraic topology course, you may recognise such map $K$ as a cochain homotopy.}
 	\begin{equation}
 		K(d\omega) + d(K(\omega)) = i^*_1(\omega) - i^*_0(\omega)
 	\end{equation}
 	as elements of $\Omega^\ell(M)$.
 	Furthermore, the induced maps on the de Rham cohomology
 	\begin{equation}
-		i_0^*, i_1^* : H_{\mathrm{dR}}^\ell([0,1]\times M) \to H_{\mathrm{dR}}^\ell(M)
+		i_0^*, i_1^* : H_{\mathrm{dR}}^\ell(\R\times M) \to H_{\mathrm{dR}}^\ell(M)
 	\end{equation}
 	coincide.
 \end{theorem}
 \begin{proof}
-	Saying that  $i_0^* = i_1^*$ on the cohomology means that for any $[\omega]\in H_{\mathrm{dR}}^\ell([0,1]\times M)$, their difference $i_1^*[\omega] - i_0^*[\omega] = [i_1^*\omega - i_0^*\omega] = 0$ is in the $0$ class, that is, for any closed $\omega$ the difference $i_1^*\omega - i_0^*\omega$ is exact.
+	Saying that  $i_0^* = i_1^*$ on the cohomology means that for any $[\omega]\in H_{\mathrm{dR}}^\ell(\R\times M)$, their difference $i_1^*[\omega] - i_0^*[\omega] = [i_1^*\omega - i_0^*\omega] = 0$ is in the $0$ class, that is, for any closed $\omega$ the difference $i_1^*\omega - i_0^*\omega$ is exact.
 
 	If we apply the Fundamental Theorem of Calculus to $i^*_t\omega$ as a function of $t$, we obtain $i_1^*\omega - i_0^*\omega = \int_0^1 \frac{\partial}{\partial t} (i^*_t \omega) dt$,
-	where $\frac{\partial}{\partial t}$ is the vector field on $[0,1]\times M$ corresponding to the standard basis element of $[0,1]$.
+	where $\frac{\partial}{\partial t}$ is the vector field on $\R\times M$ corresponding to the standard basis element of $\R$.
 	The trouble, now, is that we don't really know what this integral is, and we need to show that on closed forms it produces an exact one.
 
-	Let $T:=\frac{\partial}{\partial t}$ as vector field on $[0,1]\times M$.
-	We are going to show that, for $\omega\in\Omega^\ell([0,1]\times M)$, the map $K$ is\footnote{Note that for any $p\in M$,
+	Let $T:=\frac{\partial}{\partial t}$ as vector field on $\R\times M$.
+	We are going to show that, for $\omega\in\Omega^\ell(\R\times M)$, the map $K$ is\footnote{Note that for any $p\in M$,
 		\begin{equation}
 			K(\omega)_p = \int_0^1 i_t^*(\iota_T(\omega)_{(t,p)})dt,
 		\end{equation}
@@ -124,7 +124,7 @@ A crucial observation for our purposes is the \emph{homotopy invariance} of the 
 	\end{align}
 
 	Let $\varphi_t$ now denote the flow of $T$, then $\varphi_t(s, p) = (t+s, p)$ and thus $i_t = \varphi_t \circ i_0$.
-	By Theorem~\ref{thm:LieDerivativeFlow} we can compute the integrand as
+	Since $T$ is complete, by Theorem~\ref{thm:LieDerivativeFlow} we can compute the integrand as
 	\begin{align}
 		i_t^*(\cL_T\omega) & = i^*_0(\varphi_t^*(\cL_T\omega))                    \\
 		                   & = i_0^*\left(\frac{d}{dt} \varphi_t^*(\omega)\right) \\
@@ -138,7 +138,7 @@ A crucial observation for our purposes is the \emph{homotopy invariance} of the 
 	\end{equation}
 	proving the first part of the theorem.
 
-	To conclude the proof, take a closed $\ell$-form on $[0,1]\times M$, then
+	To conclude the proof, take a closed $\ell$-form on $\R\times M$, then
 	\begin{equation}
 		i_1^*([\omega]) - i_0^*([\omega]) = [K(d\omega) + dK(\omega)] = [dK(\omega)] =0,
 	\end{equation}
@@ -179,6 +179,19 @@ A crucial observation for our purposes is the \emph{homotopy invariance} of the 
 	with $K(\nu) := i_0^* \widetilde K(\nu)$.
 \end{remark}
 
+\begin{remark}
+	It is more common to state Theorem~\ref{thm:deRham-invariance} using the actual domain of the homotopies, so for forms using $[0,1]\times M$.
+	With the introduction of the boundary, however, translations $(s,p)\mapsto(t+s,p)$ no longer map the manifold to itself and $T$ is no longer complete, so we cannot apply Theorem~\ref{thm:LieDerivativeFlow}.
+	This can be circumvented with a small price: the only place where we directly used the completeness of the flow is the identity
+	\begin{align}
+	  i_t^*(\cL_T\omega) = \frac{d}{dt} i_t^*(\omega),
+	\end{align}
+	and this can be checked directly taking local coordinates $(t, x^1, \ldots, x^n)$ on $[0,1]\times U$. This is an interesting exercise if you are curious to see how the alternative proof goes.
+
+	With such an identity out of the way, the rest of the proof would go through unchanged, giving a more natural statement with $[0,1]\times M$ in place of $\R\times M$.
+	In the notes I opted for this slightly more restrictive version on $\R\times M$ for simplicity, but, as we are about to see, it is more than enough for our purposes.
+\end{remark}
+
 An important consequence of Theorem~\ref{thm:deRham-invariance} is the following theorem.
 
 \begin{theorem}
@@ -187,7 +200,7 @@ An important consequence of Theorem~\ref{thm:deRham-invariance} is the following
 \end{theorem}
 \begin{proof}
 	Since $F$ and $G$ are homotopic, there is a continuous map $K: [0,1]\times M \to N$ such that $K(0,\cdot) = F$ and $K(1,\cdot) = G$.
-	If we could assume $K$ to be smooth, the theorem would follow from
+	If we could assume $K$ to be the restriction of a smooth map $K:\R\times M\to N$, the theorem would follow from
 	\begin{equation}
 		F^* = (K\circ i_0)^* = i_0^*\circ K^* = i_1^*\circ K^* = (K\circ i_1)^* = G^*.
 	\end{equation}
@@ -198,7 +211,7 @@ An important consequence of Theorem~\ref{thm:deRham-invariance} is the following
 		Given any continuous mapping $G \in C^0(M,N)$, there exists $F \in C^\infty(M,N)$ which is homotopic to $G$. Moreover, if $G$ is smooth\sidenote[][1em]{Note that a function $f : M \to N$ is defined to be smooth on a subset $A \subset M$ if there is some smooth function $g: U \to N$, defined on an open $U\supset A$ such that $g = f$ on $A$.} on a closed subset $A\subset M$, then one can choose $F$ so that $F=G$ on $A$.
 	\end{theorem}
 	%
-	In particular, if two smooth maps are homotopic then they are also smoothly homotopic: we can assume the map $K$ to be smooth.
+	In particular, if two smooth maps are homotopic then they are also smoothly homotopic: we can assume the map $K$ to be smooth and defined on $\R\times M$.
 
 	To see this, continuously extend $K$ to a mapping $\widetilde K : \R \times M \to N$ by defining
 	\begin{align}
@@ -207,8 +220,8 @@ An important consequence of Theorem~\ref{thm:deRham-invariance} is the following
 	\end{align}
 	Then $\widetilde K \in C^0(\R\times M, N)$ and smooth on the closed subsets\footnote{By the definition in the margin note above, in our case it is only required that $g(0, p) = f(0,p)$ for all $p\in M$ but \emph{nothing} is required on $f$ in an open neighbourhood of $\{0\}\times M$!} $\{0\}\times M$ and $\{1\}\times M$.
 	%
-	By Whitney Approximation Theorem for continuous maps, there exists $\widehat K : \R\times M \to M$ smooth and homotopic to $\widetilde K$ (but we don't really care here) such that $\widehat K = \widetilde K$ on $\{0\}\times M$ and $\{1\}\times M$, that is, $\widehat K(0, \cdot) = K(0, \cdot) = F$ and $\widehat K(1, \cdot) = K(1, \cdot) = G$.
-	That is, $\hat K$ is the smooth homotopy we were looking for.
+	By Whitney Approximation Theorem for continuous maps, there exists $\widehat K : \R\times M \to N$ smooth and homotopic to $\widetilde K$ (but we don't really care here) such that $\widehat K = \widetilde K$ on $\{0\}\times M$ and $\{1\}\times M$, that is, $\widehat K(0, \cdot) = K(0, \cdot) = F$ and $\widehat K(1, \cdot) = K(1, \cdot) = G$.
+	That is, $\widehat K$ is the smooth homotopy, defined on $\R\times M$, we were looking for.
 \end{proof}
 
 \begin{corollary}\label{cor:deRhamIso}
