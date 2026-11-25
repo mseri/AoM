@@ -34,7 +34,7 @@ The theory of Lie groups and Lie algebras is vast, and in these lectures we will
 			      (g_1, \ldots, g_k)(h_1,\ldots,h_k) = (g_1h_1, \ldots g_kh_k)
 		      \end{equation}
 		      is a Lie group (why?).
-		\item Not all smooth manifolds can be equipped with a Lie group structure: for example, $\bS^n$ admits a Lie group structure only for $n=0,1,3$.
+		\item Not all smooth manifolds can be equipped with a Lie group structure: for example, $\bS^n$ admits a Lie group structure only for $n=0,1,3$. See Exercise~\ref{exe:noLGeven} for the even-dimensional spheres.
 	\end{enumerate}
 \end{example}
 
@@ -243,7 +243,7 @@ Before proceeding we need to introduce some more notation.
 
 A fundamental difference with the Lie algebra of vector fields is that $\fX_L(G)$ is finite dimensional.
 
-\begin{theorem}
+\begin{theorem}\label{thm:evaliso}
 	Let $G$ be a Lie group. The evaluation map
 	\begin{equation}
 		\mathrm{eval}:\fX_L(G)\to T_eG, \quad
@@ -299,7 +299,29 @@ A fundamental difference with the Lie algebra of vector fields is that $\fX_L(G)
 	\end{equation}
 \end{proof}
 
-Another immediate consequence of the identification of $\fX_L(G)$ with $\fg$ is that every left-invariant vector field is complete, and thus that every Lie group is parallelizable, since a basis of $\fX_L(G)$ is a global frame.
+The identification of $\fX_L(G)$ with $\fg$ has two further consequences.
+The most immediate is that a basis of $\fg$ extends to a basis of $\fX_L(G)$, which is a global frame, so every Lie group is parallelizable.
+
+\begin{corollary}\label{cor:LGparallel}
+	Every Lie group admits a smooth global frame of left-invariant vector fields, and therefore every Lie group is parallelizable.
+\end{corollary}
+\begin{proof}
+	Let $\{v_1,\ldots,v_n\}$ be a basis of $\fg$. Since $\d(L_g)_e$ is an isomorphism, $\{v_1^L(g),\ldots,v_n^L(g)\}$ is a basis of $T_gG$ for every $g\in G$, and the $v_i^L$ are smooth by Theorem~\ref{thm:evaliso}. Hence $\{v_i^L\}$ is a global frame.
+\end{proof}
+
+\begin{exercise}\label{exe:noLGeven}
+	Let $k\geq1$.
+	\begin{enumerate}
+		\item Use Corollary~\ref{cor:LGparallel} and the hairy ball theorem~\cite[Theorem 2.28]{book:hatcher}, which says that every continuous tangent vector field on $\bS^{2k}$ vanishes somewhere, to show that $\bS^{2k}$ admits no Lie group structure.
+		\item (For the algebraic topology curious that are looking for a related challenge) Show that $\bS^{2k}$ is not even a topological group, that is, it admits no group structure with continuous multiplication and inversion.\\
+		\textit{\small Hint: for $g\neq e$ the left translation $L_g$ has no fixed points, but it is homotopic to the identity (why?), whose Lefschetz number~\cite[p. 179] {book:hatcher} is the Euler characteristic~\cite[p. 146]{book:hatcher} $\chi(\bS^{2k})=2\neq0$. Then use the Lefschetz fixed point theorem~\cite[Theorem 2C.3]{book:hatcher}.}
+	\end{enumerate}
+	See \href{https://math.stackexchange.com/questions/829928}{this discussion} for a solution of the above and for a cohomological argument, using the Hopf algebra structure of the cohomology as in~\cite[Example 3C.2]{book:hatcher}.
+
+	Note that studying the odd spheres is much harder. By a theorem of Adams, $\bS^0$, $\bS^1$, $\bS^3$ and $\bS^7$ are the only spheres with a continuous multiplication having a two-sided identity up to homotopy~\cite[Section 3.C]{book:hatcher}, and so they are candidates to admit Lie group structures. To exclude $\bS^7$ one needs yet another argument, describing it in terms of unitary octonions, whose multiplication is not associative and thus cannot form a group~\cite{article:wei:S7}.
+\end{exercise}
+
+The second consequence requires a little more work but boils down to the fact that by using left translations one can extend every left-invariant vector field, eventually showing that they have to be complete.
 
 \begin{proposition}\label{prop:XLcomplete}
 	Let $G$ be a Lie group and $v\in\fX_L(G)$.
@@ -309,13 +331,6 @@ Another immediate consequence of the identification of $\fX_L(G)$ with $\fg$ is 
 	Prove the proposition.\\
 	\textit{\small Hint: extend a curve starting at $e$ to a curve starting at $g$.}
 \end{exercise}
-
-\begin{corollary}
-	Every Lie group admits a smooth global frame of  left-invariant vector fields, and therefore every Lie group is parallelizable.
-\end{corollary}
-\begin{proof}
-	Every basis for $\fX_L$ is a left-invariant smooth global frame for $G$.
-\end{proof}
 
 Just as we can view the tangent space as a ``linear model'' of a smooth manifold near a point, the Lie algebra of a Lie group provides a ``linear model'' of the group, which reflects many of the properties of the group.
 Because Lie groups have more structure than ordinary smooth manifolds, it should come as no surprise that their linear models have more structure than ordinary vector spaces.
