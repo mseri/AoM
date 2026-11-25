@@ -767,3 +767,20 @@ Even though it is a bit impractical for computational purposes, flows are hard t
 	Note that it does not allow us differentiate a tensor field (or a differential form) with respect to a single tangent vector: the value of $\cL_X(\tau)$ at a point depends on the values of $X$ in a neighbourhood of the point, not just on the value of $X$ at the point.
 	%This stems from the fact that $X\to\cL_X$ is not $C^\infty(M)$-linear: you can see this by using~\eqref{eq:cLXwBrackets} and show that $\cL_{fX}(\omega)(Y) = f\cL_X(\omega)(Y) + Y(f)\omega(X)$, and in general there is no reason for the correction $Y(f)\omega(X)$ to vanish.
 \end{remark}
+
+\begin{exercise}\label{exe:dinvariant}
+	Let $\omega\in\Omega^1(M)$ and $X,Y\in\fX(M)$.
+	Use~\eqref{eq:cartanmagicf} and~\eqref{eq:cLXwBrackets} to show that
+	\begin{equation}
+		d\omega(X,Y) = X(\omega(Y)) - Y(\omega(X)) - \omega([X,Y]).
+	\end{equation}
+	Then double check the formula with a direct computation in local coordinates.
+\end{exercise}
+
+\begin{exercise}
+	Let $X,Y\in\fX(M)$. Show that, for all $\omega\in\Omega^k(M)$,
+	\begin{equation}
+		\cL_X(\iota_Y\omega) - \iota_Y(\cL_X\omega) = \iota_{[X,Y]}\omega.
+	\end{equation}
+	\textit{\small Hint: $\iota_Y\omega$ is the contraction of $Y\otimes\omega$ that pairs $Y$ with the first argument of $\omega$. Use the properties of the Lie derivative listed in the remark above.}
+\end{exercise}
