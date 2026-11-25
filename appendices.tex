@@ -1,4 +1,4 @@
-\chapter{Foliations and Frobenius' Theorem (B. Brongers)}
+\chapter{Foliations and Frobenius' Theorem (B. Brongers)}\label{appendix:frobenius}
 
 \section{Foliations and Distributions}
 
@@ -64,7 +64,7 @@ We outline the proof as it is presented in \cite{book:lee}. We first establish t
 \end{proposition}
 This result is actually rather straightforward. The converse implication of the Frobenius theorem, however, will require more work.
 \begin{proof}
-  Suppose that $X,Y\in\Gamma(\mathcal{D}|_U)$, $x\in U$ and $x\in D$, where $D$ is an integral manifold of $\mathcal{D}$. Then we actually have $X,Y\in\Gamma(TD)$, whence $[X,Y]\in\Gamma(TD)$, so $[X,Y]\in\Gamma(\mathcal{D}|_U)$. Consequently, $\Gamma(\mathcal{D})$ is indeed a Lie subalgebra of $TM$.
+  Suppose that $X,Y\in\Gamma(\mathcal{D}|_U)$, $x\in U$ and $x\in D$, where $D$ is an integral manifold of $\mathcal{D}$. Then we actually have that $X,Y$ are tangent to $D$, whence $[X,Y]$ is tangent to $D$~\cite[Corollary 8.32]{book:lee}, so $[X,Y]\in\Gamma(\mathcal{D}|_U)$. Consequently, $\Gamma(\mathcal{D})$ is indeed a Lie subalgebra of $\Gamma(TM)$.
 \end{proof}
 The converse implication is proved in \cite[Theorem 19.12]{book:lee}, and here we only give a sketch of that proof. The argument is based on the canonical form theorem for commuting vector fields \cite[Theorem 9.46]{book:lee}, which shows that a distribution is completely integrable if it has a local basis given by commuting vector fields. The proof then shows how every involutive distribution can be given such a local basis.
 If $\mathcal{D}$ is an involutive distribution of rank $k$ and $p\in M$, transferring to Euclidean space through a chart map, we can assume that $M$ is an open subset of $\mathbb{R}^n$ and, after possibly reordering the coordinates, that $\mathcal{D}_p$ is the complement of $\text{span}\{\partial_{k+1}|_p,\dots,\partial_n|_p\}$. With the projection map $\pi:(x^1,\dots,x^n)\mapsto (x^1,\dots, x^k)$, then, $d\pi_p$ restricted to $\mathcal{D}_p$ gives a bijection, a fact that extends to $d\pi_q$ restricted to $\mathcal{D}_q$ for all $q$ in a neighbourhood of $p$. There, we can then define a local basis of $\mathcal{D}$ by
@@ -111,7 +111,7 @@ On an almost symplectic manifold, we can associate a vector field $X_h$ to any f
 \end{theorem}
 Again, here we have an equivalence between the ``integrability'' of a certain structure, and a ``bracket criterion'' given by the Jacobi identity.
 \begin{example}
-  Let $M$ be a smooth manifold. Then $T^*M$ can be given a natural symplectic structure. The key point here, is to notice that $T^*M\xrightarrow{\pi}M$ comes equipped with a natural $1$-form, called the tautological $1$-form $\tau\in\Omega^1(T^*M)$. To understand this, let $\eta\in T^*M$. Then $\eta\in \pi^{-1}(x)$ for some unique $x\in M$. That is, $\eta:T_xM\to \mathbb{R}$ is a linear map. Now, if $X\in T_\eta T^*M$, then we have $d\pi(X)\in T_{\pi(\eta)}M=T_xM$. As a result, we can evaluate $\eta(d\pi(X))$. In this way, we get a $1$-form $\tau_\eta(X)=\pi^*\eta(X)$. The $2$-form $\omega:=-d\tau$ is a symplectic form on $T^*M$, called the canonical (or tautological) symplectic form.
+  Let $M$ be a smooth manifold. Then $T^*M$ can be given a natural symplectic structure. The key point here, is to notice that $T^*M\xrightarrow{\pi}M$ comes equipped with a natural $1$-form, called the tautological $1$-form $\theta\in\Omega^1(T^*M)$. To understand this, let $\eta\in T^*M$. Then $\eta\in \pi^{-1}(x)$ for some unique $x\in M$. That is, $\eta:T_xM\to \mathbb{R}$ is a linear map. Now, if $X\in T_\eta T^*M$, then we have $d\pi(X)\in T_{\pi(\eta)}M=T_xM$. As a result, we can evaluate $\eta(d\pi(X))$. In this way, we get a $1$-form $\theta_\eta(X)=\pi^*\eta(X)$. The $2$-form $\omega:=-d\theta$ is a symplectic form on $T^*M$, called the canonical (or tautological) symplectic form.
 \end{example}
 There is another prototypical symplectic manifold.
 \begin{theorem}
@@ -122,7 +122,7 @@ There is another prototypical symplectic manifold.
 \end{corollary}
 Notice that we are dealing with a very special manifold here. It has \textit{two} integrable structures. A complex structure, and a symplectic structure, which are compatible in the sense that $\omega(\cdot, J\cdot)$ defines a metric.
 \begin{definition}
-    A complex symplectic manifold $(M,\omega, J)$ such that $g=\omega(\cdot, J\cdot)$ defines a metric is called a \emph{Kähler manifold}.
+    A complex manifold with a symplectic form, $(M,\omega, J)$, such that $g=\omega(\cdot, J\cdot)$ defines a metric is called a \emph{Kähler manifold}.
 \end{definition}
 \begin{example}
     Every complex submanifold $M\subseteq\mathbb{CP}^n$ is a Kähler manifold, by pulling back the Fubini-Study $2$-form to $M$. Notice that it isn't true that an arbitrary smooth submanifold of $\mathbb{CP}^n$ is a Kähler manifold! The condition that it is a \textit{complex} submanifold is crucial. Kähler manifolds are of great importance in algebraic geometry, and are also used by string theorists.
@@ -140,8 +140,8 @@ Given an almost Poisson structure, we can again find a criterion for it being a 
 \end{theorem}
 Let us give an important example of a Poisson manifold.
 \begin{example}
-  Let $\mathfrak{g}$ be a Lie algebra of finite dimension, and let $\mathfrak{g}^*$ be its dual as a vector space, with its standard smooth manifold structure. Let $x^1,\dots,x^n$ denote the coordinates on $\mathfrak{g}$ and $\mu^1,\dots,\mu^n$ the dual coordinates on $\mathfrak{g}^*$. Then we can define a bracket on $C^\infty(\mathfrak{g}^*)$ by
-  $$\{f,g\}:= c_{ij}^k\mu_k\frac{\partial f}{\partial\mu^i}\frac{\partial g}{\partial\mu^j}$$
+  Let $\mathfrak{g}$ be a Lie algebra of finite dimension, and let $\mathfrak{g}^*$ be its dual as a vector space, with its standard smooth manifold structure. Let $x_1,\dots,x_n$ denote a basis of $\mathfrak{g}$ and $\mu_1,\dots,\mu_n$ the corresponding linear coordinates on $\mathfrak{g}^*$, $\mu_i(\xi) := \xi(x_i)$. Then we can define a bracket on $C^\infty(\mathfrak{g}^*)$ by
+  $$\{f,g\}:= c_{ij}^k\mu_k\frac{\partial f}{\partial\mu_i}\frac{\partial g}{\partial\mu_j}$$
   where $c_{ij}^k$ are the structure constants of $\mathfrak{g}$, defined by $[x_i,x_j]=c_{ij}^kx_k$. This class of Poisson manifolds is called Lie-Poisson manifolds, and they were originally studied by Sophus Lie himself.
 \end{example}
 \begin{exercise}
@@ -150,7 +150,8 @@ In the above example, write down an expression for the Poisson tensor $\Pi$ corr
 All of the geometries that we have discussed in this section can be unified under one umbrella. In order to do this, we first want to define two operations on the space $\mathbb{T}M:=TM\oplus T^*M$. Elements of this space are denoted like $X+\eta$, where the capital letter is a vector and the Greek letter is a $1$-form. Then we define the following:
 \begin{enumerate}
   \item A symmetric bilinear form $\langle\cdot,\cdot\rangle:\mathbb{T}M\times_M\mathbb{T}M\to\mathbb{R}$ given by $$\langle X_p + \alpha_p,Y_p + \beta_p\rangle=\alpha_p(Y_p)+\beta_p(X_p)$$
-  \item A bracket  $[\![\cdot,\cdot]\!]:\Gamma(\mathbb{T}M)\times\Gamma(\mathbb{T}M)\to\Gamma(\mathbb{T}M)$ defined by $$[\![X+\alpha,Y+\beta]\!]=([X,Y],\mathcal{L}_X\beta-\iota_Yd\alpha)$$
+  \item A bracket  $[\![\cdot,\cdot]\!]:\Gamma(\mathbb{T}M)\times\Gamma(\mathbb{T}M)\to\Gamma(\mathbb{T}M)$ defined by $$[\![X+\alpha,Y+\beta]\!]=([X,Y],\mathcal{L}_X\beta-\iota_Yd\alpha).$$
+  This is the so-called Courant--Dorfman bracket, see~\cite[Theorem~2.1(a)]{book:dorfman} and~\cite[eq.~(2.3) with $H=0$]{Gualtieri_2011}. In general it is not skew-symmetric, since $[\![a,b]\!]+[\![b,a]\!] = d\langle a,b\rangle$ and, to add to the possible confusion, its skew-symmetrisation is often called the Courant bracket. In any case, this won't be a problem for us, as the two brackets coincide on sections of isotropic sub-bundles, like the ones we are about to discuss.
 \end{enumerate}
 
 We are now interested in sub-bundles $L\subset\mathbb{T}M$ which are maximally isotropic with respect to the symmetric form above. This means that $L$ has rank $\dim M$, and $\langle L,L\rangle=0$. Indeed, the signature of the bilinear form is $(n,n)$ so we have non-trivial isotropic subspaces.
@@ -264,7 +265,10 @@ are two local trivialisations for $E$. Then we can ask ourselves how the connect
   (eA_\alpha)\phi_{\alpha\beta}+ed\phi_{\alpha\beta} \\
             &= (e'\phi_{\alpha\beta}^{-1})A_\alpha\phi_{\alpha\beta}+(e'\phi_{\alpha\beta}^{-1})d\phi_{\alpha\beta}=e'(\phi_{\alpha\beta}^{-1}A_\alpha\phi_{\alpha\beta}+\phi_{\alpha\beta}^{-1}d\phi_{\alpha\beta})
 \end{align*}
-Thus, we have that $A_\beta=\phi_{\alpha\beta}^{-1}A_\alpha \phi_{\alpha\beta}+\phi_{\alpha\beta}^{-1}d\phi_{\alpha\beta}$. Notice that this does not transform tensorially. A remarkable fact that we will show later, is that applying $\nabla$ twice results in an operator which does transform tensorially. This will be the curvature of $\nabla$. Before we end this section, we give one important way of obtaining connections. Every vector bundle is a sub-bundle of a trivial vector bundle of sufficiently high rank. This trivial bundle has a canonical connection. Consequently, the following result is often useful.
+Thus, we have that $A_\beta=\phi_{\alpha\beta}^{-1}A_\alpha \phi_{\alpha\beta}+\phi_{\alpha\beta}^{-1}d\phi_{\alpha\beta}$. Notice that this does not transform tensorially. A remarkable fact that we will show later, is that applying $\nabla$ twice results in an operator which does transform tensorially. This will be the curvature of $\nabla$. Before we end this section, we give one important way of obtaining connections.
+
+Every vector bundle over a compact manifold is a sub-bundle, in fact a direct summand, of a trivial vector bundle of sufficiently high rank\footnote{This is an analogue of Whitney's embedding theorem for vector bundles, proved by Swan~\cite[Lemma 5 and Corollary 5]{article:swan} for vector bundles over compact Hausdorff spaces, and is one of many similar results obtained for example by relaxing the compactness assumption or by working in the smooth, holomorphic or algebraic categories.}.
+This trivial bundle has a canonical connection and, consequently, the following result is often useful.
 \begin{proposition}\label{projection}
   Let $E\subseteq E'$ be a vector sub-bundle. Let $\pi_x:E'_x\to E_x$ denote fibre-wise projection, which we assume to result in a smooth map $\pi:E'\to E$. Let $\nabla'$ be a connection on $E'$. Then $\nabla:=\pi\circ\nabla'$ defines a connection on $E$.
 \end{proposition}
@@ -280,15 +284,15 @@ Thus, we have that $A_\beta=\phi_{\alpha\beta}^{-1}A_\alpha \phi_{\alpha\beta}+\
 
 Let's examine geometrically what a connection is. We will again do so on a trivial vector bundle $E=M\times\mathbb{R}^k$. In the case of the canonical connection, we are identifying the fibres in terms of ``flat slices''. The notion of flatness will be given a precise meaning in a moment.
 \begin{example}\label{highschool}
-  Let $M=\mathbb{R}$ and $E=\mathbb{R}^2$, which is the setting for highschool calculus. Sections of $E$ can be written as functions $f(x)$. Furthermore, a $1\times 1$ matrix of differential forms is just an ordinary differential form $df$. Let $f(x)=ax+b$, so that $df(x)=adx$. Define a connection on $E$ by $\nabla:=d-adx$. Ordinarily, we would say that functions of the form $g(x)=c$ are flat, because $dg(x)=0$. But now, we have $\nabla g(x)=-acdx$. If we consider the function $g(x)=e^{ax}$, then $dg=ag(x)dx$. Consequently, $\nabla g(x)=ag(x)dx-ag(x)dx=0$. Should we call $g(x)$ flat with respect to $\nabla$?
+  Let $M=\mathbb{R}$ and $E=\mathbb{R}^2$, which is the setting for highschool calculus. Sections of $E$ can be written as functions $f(x)$. Furthermore, a $1\times 1$ matrix of differential forms is just an ordinary differential $1$-form. Fix $a\in\mathbb{R}$ and define a connection on $E$ by $\nabla:=d-a\,dx$. Ordinarily, we would say that functions of the form $g(x)=c$ are flat, because $dg(x)=0$. But now, we have $\nabla g(x)=-acdx$. If we consider the function $g(x)=e^{ax}$, then $dg=ag(x)dx$. Consequently, $\nabla g(x)=ag(x)dx-ag(x)dx=0$. Should we call $g(x)$ flat with respect to $\nabla$?
 \end{example}
 The example above illustrates informally how we identify the fibres of a vector bundle, using the connection, to inform our notion of ``flatness''. Formally, this is done through parallel transport.
 \begin{definition}
-  Let $E$ be a vector bundle over $M$ and $\gamma:I\to M$ a curve. There is a linear map $P^\nabla_\gamma:E_{\gamma(0)}\to E_{\gamma(1)}$ called parallel transport along $\gamma$.
+  Given a vector bundle $E$ over $M$ with a connection $\nabla$ and a curve $\gamma:I\to M$, $I=[0,1]$, we will obtain a linear map $P^\nabla_\gamma:E_{\gamma(0)}\to E_{\gamma(1)}$ called \emph{parallel transport}\idxdef{parallel transport} along $\gamma$.
 \end{definition}
-For an arbitrary vector bundle, we would need to introduce the notion of the pull-back connection to give an explicit equation for parallel transport. Instead, we continue to restrict ourselves to trivial vector bundles. In this case, consider $\overline{\gamma}:I\to E$, which is a curve in $E$ such that $\pi(\overline{\gamma})=\gamma$, and is called a lift of $\gamma$ to $E$. We can write $\overline{\gamma}(t)=(\gamma_1(t),\dots,\gamma_k(t))$ since we are assuming $E$ to be trivial. Then a lift of $\gamma$ is said to be flat with respect to $\nabla=d+A$ if
+For an arbitrary vector bundle, we would need to introduce the notion of the pull-back connection to give an explicit equation for parallel transport. Instead, we continue to restrict ourselves to trivial vector bundles. In this case, consider $\overline{\gamma}:I\to E$, which is a curve in $E$ such that $\pi\circ\overline{\gamma}=\gamma$, and is called a lift of $\gamma$ to $E$. We can write $\overline{\gamma}(t)=(\gamma_1(t),\dots,\gamma_k(t))$ since we are assuming $E$ to be trivial. Then a lift of $\gamma$ is said to be flat with respect to $\nabla=d+A$ if
 $$\frac{d\overline{\gamma}}{dt}+A(\frac{d\gamma}{dt})\overline{\gamma}=0$$
-This is just a system of ordinary differential equations. Parallel transport is the precise way in which a connection identifies the fibres of the vector bundle.
+This is just a system of ordinary differential equations. Since it is linear, for every $v\in E_{\gamma(0)}$ it has a unique solution $\overline{\gamma}$ defined on all of $I$ with $\overline{\gamma}(0)=v$, and we define $P^\nabla_\gamma(v):=\overline{\gamma}(1)$, which in particular is linear in $v$ (can you see why?). Parallel transport is the precise way in which a connection identifies the fibres of the vector bundle.
 \begin{exercise}
   Consider the vector bundle $E$ with connection from \ref{highschool}. We see that flat paths are given by functions of the form $g(x)=ce^{ax}$ with $c\in\mathbb{R}$. Do these paths give a foliation of $E$? If we instead take $\nabla=d-xdx$, calculate the flat paths in $E$ and give the parallel transport maps.
 \end{exercise}
@@ -308,25 +312,25 @@ The curvature of a connection can be interpreted in several different ways. For 
 \begin{proof}
   We calculate how $R(X,Y)$ acts on a local frame $e$, using \ref{local}. First, we have
   \begin{align*}
-    \nabla_X\nabla_Ye &=\nabla_XA(Y)e \\
-                      &=XA(Y)e+A(Y)\nabla_Xe \\
-                      &=XA(Y)e+A(Y)A(X)e
+    \nabla_X\nabla_Ye &=\nabla_X(eA(Y)) \\
+                      &=e\,X(A(Y))+(\nabla_Xe)A(Y) \\
+                      &=e\,X(A(Y))+eA(X)A(Y)
   \end{align*}
   The expression for $\nabla_Y\nabla_X$ is derived similarly. It follows that
   \begin{align*}
-    R(X,Y)e &= (XA(Y)-YA(X)-A([X,Y]))e \\
-            &\quad +(A(X)A(Y)-A(Y)A(X))e\\
-            &= dA(X,Y)e+A\wedge A(X,Y)e \\
-            &= (dA+A\wedge A)(X,Y)e
+    R(X,Y)e &= e\,(X(A(Y))-Y(A(X))-A([X,Y])) \\
+            &\quad +e\,(A(X)A(Y)-A(Y)A(X))\\
+            &= e\,dA(X,Y)+e\,A\wedge A(X,Y) \\
+            &= e\,(dA+A\wedge A)(X,Y)
   \end{align*}
   Where we have used the formula for the exterior derivative on $1$-forms, which is $$d\omega(X,Y)=X\omega(Y)-Y\omega(X)-\omega([X,Y])$$
 \end{proof}
 \begin{exercise}
   Use \ref{cartan} to prove that $F_\beta=\phi^{-1}_{\alpha\beta}F_\alpha\phi_{\alpha\beta}$. This shows that the curvature of a connection does transform tensorially, which means $F\in\Omega^2(M,\text{End}(E))$ defines a global $2$-form.
 \end{exercise}
-Notice that for a line bundle, the local connection $1$-form is an ordinary differential form. In this case, we find $A\wedge A=0$, whence $F=dA$. This is actually the origin of the notation $A$ and $F$ for the connection and curvature, respectively. Classically, $F$ would be the electromagnetic tensor, and $A$ would be the electric potential. However, to see the exact relation, we would need to investigate principal bundles, which is somewhat beyond our scope.
+Notice that for a line bundle, the local connection $1$-form is an ordinary differential form. In this case, we find $A\wedge A=0$, whence $F=dA$. This is actually the origin of the notation $A$ and $F$ for the connection and curvature, respectively. Classically, $F$ would be the electromagnetic tensor, and $A$ would be the electromagnetic (four-)potential. However, to see the exact relation, we would need to investigate principal bundles, which is somewhat beyond our scope.
 \begin{example}
-  We return to the previous example \ref{highschool}. Since we have a line bundle and local connection $1$-form given by $-cdx$, the curvature of this connection is $0$. Indeed, if $M$ is a $1$-dimensional manifold, and $A=f(x)dx$ is the local connection form for a rank $1$ vector bundle over $M$, then $F=dA=\frac{\partial f}{\partial x}dx\wedge dx=0$, so all rank $1$ vector bundles over $1$-dimensional manifolds are flat.
+  We return to the previous example \ref{highschool}. Since we have a line bundle and local connection $1$-form given by $-a\,dx$, the curvature of this connection is $0$. Indeed, if $M$ is a $1$-dimensional manifold, and $A=f(x)dx$ is the local connection form for a rank $1$ vector bundle over $M$, then $F=dA=\frac{\partial f}{\partial x}dx\wedge dx=0$, so all connections on rank $1$ vector bundles over $1$-dimensional manifolds are flat. In fact, the same holds in any rank: $F$ is a $2$-form, and there are no non-zero $2$-forms on a $1$-dimensional manifold.
 \end{example}
 \begin{theorem}[Fundamental Theorem of Riemannian Geometry~{\cite[Theorem 5.10]{book:lee:riemannian}}]
   Let $(M,g)$ be a Riemannian manifold. Then there exists a unique connection on the tangent bundle $TM$ called the Levi-Civita connection, which satisfies $\nabla\langle X,Y\rangle_g=\langle\nabla X,Y\rangle_g+\langle X,\nabla Y\rangle_g$ for all $X,Y\in\Gamma(TM)$ and is torsion-free, i.e. $\nabla_XY-\nabla_YX = [X,Y]$ for all $X,Y\in\Gamma(TM)$. The curvature of this connection is called the Riemann curvature tensor.
@@ -335,7 +339,7 @@ Our example above illustrates that any $1$-dimensional manifold is flat. This is
 \begin{exercise}
   Use \ref{projection} to induce a connection on $TS^2$, where we take $\iota:S^2\to\mathbb{R}^3$ and give $\mathbb{R}^3$ its standard metric $g$. Show that the induced connection is the Levi-Civita connection of the pullback metric $\iota^*g$, and calculate the curvature tensor.
 \end{exercise}
-We conclude this section with one particular interpretation of curvature, in the spirit of the previous chapter. Another will be given in the next section. What we explain here generalises naturally to principal bundles as well. First, we note that a vector bundle is itself a smooth manifold, so it has a tangent bundle $TE$. Associated to each vector bundle, we have the canonically defined differential $d\pi:TE\to TM$. The vertical sub-bundle $\mathcal{V}$ of $TE$ is defined as $\ker\pi$. A connection can then also be seen as a sub-bundle $\mathcal{H}$ of $TE$ such that $TE=\mathcal{H}\oplus\mathcal{V}$, subject to some compatibility conditions. This $\mathcal{H}$ is called a horizontal sub-bundle. It is determined by the derivatives of flat paths in $E$, which is where the adjectives horizontal and vertical come from. Now, another interpretation of curvature can be given as follows:
+We conclude this section with one particular interpretation of curvature, in the spirit of the previous chapter. Another will be given in the next section. What we explain here generalises naturally to principal bundles as well. First, we note that a vector bundle is itself a smooth manifold, so it has a tangent bundle $TE$. Associated to each vector bundle, we have the canonically defined differential $d\pi:TE\to TM$. The vertical sub-bundle $\mathcal{V}$ of $TE$ is defined as $\ker d\pi$. A connection can then also be seen as a sub-bundle $\mathcal{H}$ of $TE$ such that $TE=\mathcal{H}\oplus\mathcal{V}$, subject to some compatibility conditions. This $\mathcal{H}$ is called a horizontal sub-bundle. It is determined by the derivatives of flat paths in $E$, which is where the adjectives horizontal and vertical come from. Now, another interpretation of curvature can be given as follows:
 \begin{theorem}
   The distribution $\mathcal{H}$ determined by a connection $\nabla$ is integrable if and only if its curvature vanishes.
 \end{theorem}
@@ -434,10 +438,11 @@ Any connection $\nabla$ on $E$ induces a connection $\nabla^\text{End}$ on the v
 \end{proof}
 Now, if we have a connection on $E$, this gives us a connection on $E\otimes E^*=\text{End}(E)$, by the two results above. Explicitly, it is given as follows. Let $\varphi\in\Gamma(\text{End}(E))$ and $s\in\Gamma(E)$. Then
 $$(\nabla^\text{End}\varphi)(s)=\nabla(\varphi(s))-\varphi(\nabla s)$$
-As a result, from the definition of the exterior covariant derivative, we get the following equation:
+As a result, from the definition of the exterior covariant derivative, we get the following equation for $\varphi\in\Omega^k(M,\text{End}(E))$:
 \begin{equation}\label{eq:1}
-  (d_{\nabla^\text{End}}\varphi)(s)=d_\nabla(\varphi(s))-\varphi\wedge\nabla s
+  (d_{\nabla^\text{End}}\varphi)(s)=d_\nabla(\varphi(s))-(-1)^k\varphi\wedge\nabla s
 \end{equation}
+which for $k=0$ reduces to the previous formula.
 Note here that there exists a natural well-defined wedge product $\wedge:\Omega^k(\text{End}(E))\times\Omega^{k'}(E)\to\Omega^{k+k'}(E)$.
 The following result is one that has important implications in physics, as well as in the classification of vector bundles through characteristic classes. It is known as the Bianchi identity.
 \begin{theorem}
