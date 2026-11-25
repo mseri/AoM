@@ -317,34 +317,44 @@ In fact we can say more if the manifold is compact.
 	\end{enumerate}
 \end{exercise}
 
-% \begin{lemma}
-%   Assume that around any point $p\in M$ there is a chart $(V, (y^i))$ of the form
-%   \begin{equation}
-%     M\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\} \subset N.
-%   \end{equation}
-%   Then, if we endow $M$ with the subspace topology on $N$, $M$ is a topological manifold of dimension $m$.
-%   Furthermore, it has a smooth structure that makes it into an embedded submanifold of $N$.
-% \end{lemma}
-% \begin{proof}[Sketch]
-%   Let $\pi: \R^n\to\R^m$ be the projection as in the examples above.
-%   Let $p\in M$ and let $(V,\psi)$ be a chart with coordinates $(y^i)$ of the form above.
-%   If we endow $M$ with the subspace topology, then $\sigma:= \pi \circ \psi\big|_{M\cap V}$ is a homeomorphism.
-%   Repeating this at any point we end up with a collection of maps satisfying the hypotheses of Lemma~\ref{lem:manifold_chart}.
-%   Thus $M$ is a smooth manifold of dimension $m$ and its topology coincides with the subspace topology.
-%
-%   Finally, with the inclusion $i:M\hookrightarrow N$ one has that $\psi \circ i\circ \sigma^{-1} (p^1,\ldots,p^m) = (p^1,\ldots,p^m,0,\ldots,0)$ which is smooth.
-% \end{proof}
-%
-% A non-trivial consequence of the previous lemma is the following proposition\footnote{Refer to \cite[Proposition 5.8 and Proposition 5.31]{book:lee}.}.
-%
-% \marginnote[1em]{In Proposition~\ref{prop:uniqdiffeoinclusion} it is not enough to ask that $\iota$ is smooth! As counterexample consider the two manifolds $(\R, \cA_1)$ with $\cA_1 := \{(\R, \id_\R)\}$ and $(\R, \cA_2)$ with $\cA_2 := \{(\R, x\mapsto x^3)\}$. The inclusion of open sets in $\R$ is smooth in both cases but is a diffeomorphism only in one.}
-% \begin{proposition}\label{prop:uniqdiffeoinclusion}
-%   Let $M$ be a smooth manifold and $U\subset M$ an open set.
-%   Then $U$ has a unique differentiable structure such that the inclusion $\iota:U\hookrightarrow M$ is a diffeomorphism.
-% \end{proposition}
+One can flip the Rank Theorem around to get a practical way to check that a subset is in fact an embedded submanifold.
+\begin{lemma}[Local slice lemma]\label{lem:slice}\idxthm{Local slice lemma}
+	Let $N^n$ be a smooth manifold without boundary and $M\subset N$ a subset.
+	Assume that around any point $p\in M$ there is a chart $(V, (y^i))$ of $N$ of the form
+	\begin{equation}\label{eq:slicechart}
+		M\cap V = \left\{ q \in V \;\mid\; y^{m+1}(q)=\cdots=y^n(q)=0\right\} \subset N.
+	\end{equation}
+	\marginnote{Charts of the form~\eqref{eq:slicechart} are sometimes called \emph{slice charts} for $M$.}
+	Then, if we endow $M$ with the subspace topology on $N$, $M$ is a topological manifold of dimension $m$.
+	Furthermore, it has a smooth structure that makes it into an embedded submanifold of $N$.
+\end{lemma}
 
-%\newthought{Up to this point}, the first manifold either had the same dimension or was smaller than the second one.
-%What if it is larger?
+\begin{proof}
+	Let $\pi: \R^n\to\R^m$, $\pi(x^1,\ldots,x^n) = (x^1,\ldots,x^m)$, be the projection on the first $m$ components and $j:\R^m\to\R^n$ the inclusion, that is, $j(x^1,\ldots,x^m) = (x^1,\ldots,x^m,0,\ldots,0)$. Clearly both are smooth and $\pi\circ j = \id_{\R^m}$.
+
+	Let $p\in M$ and let $(V,\psi)$ be a chart with coordinates $(y^i)$ of the form above.
+	If we endow $M$ with the subspace topology, then $W := M\cap V$ is open in $M$ and, by~\eqref{eq:slicechart}, $\psi(W) = \psi(V)\cap j(\R^m)$.
+	Therefore $\sigma:= \pi \circ \psi\big|_{W}: W\to\R^m$ is continuous, its image $\sigma(W) = j^{-1}(\psi(V))$ is open in $\R^m$, and it has the continuous inverse $\psi^{-1}\circ j\big|_{\sigma(W)}$, since $j\circ\pi$ is the identity on $\psi(W)\subset j(\R^m)$.
+	That is, $\sigma: W\to\sigma(W)$ is a homeomorphism.
+	Since $M$ is Hausdorff and second countable, as a subspace of $N$, and every point of $M$ lies in the domain of such a $\sigma$, $M$ is a topological manifold of dimension $m$.
+
+	If $(V',\psi')$ is another chart of the same form and $\sigma' := \pi \circ \psi'$, then the transition map
+	\begin{equation}
+		\sigma'\circ\sigma^{-1} = \pi\circ\psi'\circ\psi^{-1}\circ j : \sigma(W\cap W') \to \sigma'(W\cap W')
+	\end{equation}
+	is a composition of smooth maps: indeed, for $x\in\sigma(W\cap W')$ we have $j(x) = \psi(\sigma^{-1}(x))\in\psi(V\cap V')$, so $j$ maps the open set $\sigma(W\cap W')$ into the domain of the transition map $\psi'\circ\psi^{-1}$ of $N$, which is smooth, while $\pi$ and $j$ are linear.
+	Thus the charts $(W,\sigma)$ form a smooth atlas on $M$.
+	In these charts, the inclusion $\iota:M\hookrightarrow N$ has coordinate representation $\psi\circ\iota\circ\sigma^{-1} = j\big|_{\sigma(W)}$, which is smooth with injective differential.
+	So $\iota$ is an immersion, injective since it is an inclusion, which, since $M$ carries the subspace topology, is also a homeomorphism onto its image: $M$ is an embedded submanifold of $N$.
+\end{proof}
+
+\begin{exercise}
+	Prove the converse of Lemma~\ref{lem:slice}: if $M^m$ is an embedded submanifold of a smooth manifold $N^n$, both without boundary, then around any point $p\in M$ there is a chart of $N$ of the form~\eqref{eq:slicechart}.
+
+	Where are you using that $M$ is embedded and not just immersed?
+
+	\textit{\small Hint: apply the Rank Theorem~\ref{thm:rank} to the inclusion $\iota:M\hookrightarrow N$, then use that $M$ carries the subspace topology to shrink the chart of $N$ so that it meets $M$ only in the slice. }
+\end{exercise}
 
 Let's now focus on the opposite situation, submersions.
 For this case we will need to be able to identify some special points depending on the rank of the mapping.
@@ -380,7 +390,7 @@ While the proof of Theorem~\ref{thm:impl_fun} is not particularly complicated an
 \begin{remark}
 	You may wonder how many regular values a smooth map has.
 	Sard's theorem~\cite[Theorem 6.10 and Proposition 6.8]{book:lee} says that the set of critical values of a smooth map $F:M\to N$ has measure zero in $N$\footnote{That is, its image in every chart of $N$ has measure zero in $\R^n$ with respect to Lebesgue measure.} and, as a consequence, that the regular values of $F$ are dense in $N$.
-	
+
 	Note that this is less strong that what it may seem at first sight, since values whose preimages are empty are also regular, and thus you may well have maps with lots of regular values which are somewhat vacuous. For instance, the constant map $F:\R\to\R$, $F(x)=c$, has $dF=0$ everywhere, its only critical value is $c$, and all its regular values $q\neq c$ have $F^{-1}(q)=\emptyset$.
 \end{remark}
 
