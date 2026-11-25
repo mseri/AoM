@@ -606,6 +606,19 @@ We can summarise\footnote{One should also prove convergence, if you are curious 
 \end{exercise}
 
 \begin{exercise}
+	The exponential map does not need to be surjective. Let $\mathrm{SL}(2)$ be as in Exercise~\ref{ex:SL2LGA}.
+	\begin{enumerate}
+		\item Let $A\in\mathrm{Mat}(2,\R)$ with $\mathrm{tr}\,A = 0$. Show that $A^2 = -(\det A)\, I$ and use it to show that $\mathrm{tr}\, e^A\geq -2$.
+		\item Conclude that
+		      \begin{equation*}
+			      \begin{pmatrix} -2 & 0 \\ 0 & -\frac12 \end{pmatrix}\in\mathrm{SL}(2)
+		      \end{equation*}
+		      is not of the form $\exp A$ for any $A\in T_e\mathrm{SL}(2)$.
+	\end{enumerate}
+	\textit{\small Hint: for the first part, it can be helpful to check by direct computation that every $A\in\mathrm{Mat}(2,\R)$ satisfies $A^2 - (\mathrm{tr}\,A)\,A + (\det A)\,I = 0$...}
+\end{exercise}
+
+\begin{exercise}
 	Let $G$ be a Lie group and $\fg$ its Lie algebra.
 	For any $X,Y\in\fg$, show the following results.
 	\begin{enumerate}
