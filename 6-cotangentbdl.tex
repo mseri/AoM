@@ -19,7 +19,7 @@
 	Even though $\dim V = \dim V^*$ in any case, without the scalar product there is no such canonical\footnote{The keywords \emph{natural} and \emph{canonical} here are crucial: we are saying that in general there is no ``coordinate-free'' isomorphism, i.e., one that is independent of the choice of basis on $V$.} isomorphism.
 \end{remark}
 
-In the previous chapter we defined the tangent space as a special vector space over each point in a manifold, which nicely fits in the requirements above.
+In Chapter~\ref{ch:2} we defined the tangent space as a special vector space over each point in a manifold, which nicely fits in the requirements above.
 
 \begin{definition}\idxdef{Cotangent space}
 	Let $M$ be a differentiable manifold and $p\in M$.
@@ -185,7 +185,7 @@ This should start giving you an idea of what is behind the following famous quot
 
 \section{Change of coordinates}
 \marginnote{Let's denote the two charts respectively by $\varphi$ and $\psi$, then if $\phi = \psi\circ\varphi^{-1}$ is the corresponding transition map, one has \begin{equation}
-		\frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p = (D\phi(p))_i^j \frac{\partial}{\partial y^j}\Big|_p,
+		\frac{\partial y^j}{\partial x^i}(p) \frac{\partial}{\partial y^j}\Big|_p = (D\phi(\varphi(p)))_i^j \frac{\partial}{\partial y^j}\Big|_p,
 	\end{equation}
 	where $D\phi$ is the Jacobian matrix of the transition map.}
 In Remark~\ref{rmk:chg_coords} we have seen that if we have two different charts with local coordinates $(x^i)$ and $(y^i)$ on a smooth manifold $M$,
@@ -227,7 +227,7 @@ Its dual is going to be a map that pulls covectors from one covector space to an
 \begin{definition}\label{def:pullback:oneform}\idxdef{Pullback of covectors}
 	Let $F:M\to N$ be a smooth map between smooth manifolds, let $\omega\in T^*_{F(p)}N$ for some $p\in M$.
 	The \emph{pullback} of covectors by $F$ at the point $F(p)$, is the dual linear map of the differential
-	\marginnote[-1.5em]{Which is also the reason why, some authors, use the notation $F_*$ to denote the differential of maps between manifolds and other call pushforward the differential.}
+	\marginnote[-1.5em]{Which is also the reason why some authors use the notation $F_*$ for the differential of maps between manifolds, calling it pushforward, and $F^*$ for its dual, the pullback.}
 	\begin{equation}
 		dF^*_p : T^*_{F(p)} N \to T^*_p M, \quad \omega \mapsto dF^*_p\omega,
 	\end{equation}
@@ -428,14 +428,17 @@ The surprising thing about covectors is that covector fields always pull back to
 \begin{example}[Tautological one-form]
 	On $T^*M$ there is a $1$-form, called\footnote{As usual there are different names: two other common ones are \emph{Liouville form} or \emph{Poincar\'e form}, but don't be surprised if you find more.} \emph{tautological one-form}, defined as follows.
 
-	A point in $T^*M$ is a covector $\omega_p\in T^*_p M$ at some point $p\in M$. If $X_{\omega_p}\in T_{\omega_p}(T^*M)$ is a tangent vector to $T^*M$ at $\omega_p$. Let $\pi:T^*M \to M$, then the pushforward $\pi_*(X_{\omega_p})\in T_p M$ is a tangent vector to $M$ at $p$.
-	Therefore, one can pair $\omega_p$ and $\pi_*(X_{\omega_p})$ to obtain a real number $\left(\omega_p\;\big|\;\pi_*(X_{\omega_p})\right)$.
+	A point in $T^*M$ is a covector $\omega_p\in T^*_p M$ at some point $p\in M$. Let $X_{\omega_p}\in T_{\omega_p}(T^*M)$ be a tangent vector to $T^*M$ at $\omega_p$ and $\pi:T^*M \to M$ the projection, then $d\pi_{\omega_p}(X_{\omega_p})\in T_p M$ is a tangent vector to $M$ at $p$.
+	Therefore, one can pair $\omega_p$ and $d\pi_{\omega_p}(X_{\omega_p})$ to obtain a real number $\left(\omega_p\;\big|\;d\pi_{\omega_p}(X_{\omega_p})\right)$.
 	The tautological one-form $\theta\in\fX^*(T^*M)$ is then defined as
 	\begin{equation}
-		\theta_{\omega_p}(X_{\omega_p}) := \left(\omega_p\;\Big|\;\pi_*(X_{\omega_p})\right).
+		\theta_{\omega_p}(X_{\omega_p}) := \left(\omega_p\;\Big|\;d\pi_{\omega_p}(X_{\omega_p})\right).
 	\end{equation}
+	To see that $\theta$ is smooth, let $(x^i)$ be local coordinates on $U\subseteq M$ and write $\omega_p = \xi_i\, dx^i|_p$, so that $(x^i, \xi_i)$ are the corresponding local coordinates on $T^*U$ from Exercise~\ref{exe:prooftstarmbld}.
+	In these coordinates $\pi(x,\xi) = x$, thus $d\pi\left(\frac{\partial}{\partial x^j}\right) = \frac{\partial}{\partial x^j}$ and $d\pi\left(\frac{\partial}{\partial \xi_j}\right) = 0$, which give $\theta\left(\frac{\partial}{\partial x^j}\right) = \xi_j$ and $\theta\left(\frac{\partial}{\partial \xi_j}\right) = 0$.
+	That is, $\theta = \xi_i\, dx^i$ on $T^*U$, whose components are smooth.
 
-	This is a very important concept in symplectic and contact geometry and in the mathematical theory of classical mechanics.
+	This is a very important concept in symplectic and contact geometry and plays a central role in the mathematical theory of classical mechanics.
 \end{example}
 
 The pullback is a rather pervasive concept, and does provide us a new way to explore vector bundles.

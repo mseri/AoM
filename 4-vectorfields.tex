@@ -61,7 +61,7 @@ In this sense, the representation~\eqref{eq:vfCoordBAsis0} in terms of the coord
 \begin{equation}\label{eq:vfCoordBAsis}
 	X = X^i \frac{\partial}{\partial x^i},
 \end{equation}
-where $X^i\in C^\infty(M)$ denotes the component of the vector field $X$ in the given coordinates.
+where $X^i\in C^\infty(U)$ denotes the component of the vector field $X$ in the given coordinates on $U$.
 
 \newthought{There is one more way} of thinking about the coordinate basis expression above.
 We have seen that differentials of smooth maps define maps between tangent bundles.
@@ -362,7 +362,7 @@ While this concept makes sense for an arbitrary smooth map, it is important to m
 
 \begin{example}
 	Exercise~\ref{ex:vfliealgebra} shows that the space $\fX(M)$ of vector fields on a manifold $M$ is a Lie algebra.
-	Since $\fX(M)$ is a $C^\infty(M)$-module and $C^\infty(M)$ is an infinite-dimensional vector space, it defines an infinite dimensional Lie algebra.
+	If $\dim M\geq 1$, since $\fX(M)$ is a $C^\infty(M)$-module and $C^\infty(M)$ is an infinite-dimensional vector space, it defines an infinite dimensional Lie algebra.
 
 	This may seem an alien concept at first, however there are many simple examples of Lie algebras. To name a few:
 	\begin{enumerate}
@@ -388,7 +388,7 @@ In Theorem~\ref{thm:liealgiso} we have thus shown that the pushforward is a Lie 
 \section{Flows and integral curves}
 
 Once again, a comparison with the Euclidean world can open the door to a whole new world.
-Vector fields on Euclidean spaces give rise to ordinary differential equations (ODEs) and to each vector field we can associate a flow, that is, the curve that solve the ODE.
+Vector fields on Euclidean spaces give rise to ordinary differential equations (ODEs) and to each vector field we can associate a flow, that is, the family of curves solving the ODE.
 
 The classical theorems of existence and uniqueness of solutions of ODEs, then, give us the necessary conditions to ensure that such flow exists locally or globally and it is well--defined.
 For a rather detailed account you can refer to~\cite[Chapters 3.2 and 3.3]{book:knauf} (which you can freely access on \href{https://link.springer.com/book/10.1007\%2F978-3-662-55774-7}{SpringerLink} via the university proxy).
@@ -494,7 +494,7 @@ This immediately implies the following theorem.
 
 \begin{theorem}[Existence, uniqueness and differentiability of local solutions] %
 	\label{thm:exuniqloc}
-	Let $M$ be a smooth manifold and $X\in\fX(M)$. For every $p\in \mathring M := M\setminus \partial M$, there exists $\epsilon > 0$, an open neighbourhood $U\subset\mathring M$ of $p$ and a unique map $\phi : (-\epsilon, \epsilon) \times U \to M$, $(t, p) \mapsto \phi(t,p)$, such that
+	Let $M$ be a smooth manifold and $X\in\fX(M)$. For every $p_0\in \mathring M := M\setminus \partial M$, there exists $\epsilon > 0$, an open neighbourhood $U\subset\mathring M$ of $p_0$ and a unique map $\phi : (-\epsilon, \epsilon) \times U \to M$, $(t, p) \mapsto \phi(t,p)$, such that
 	\begin{enumerate}[(i)]
 		\item for every $p\in U$, the curve $\phi_p : (-\epsilon, \epsilon) \to M$, $t\mapsto \phi_p(t) := \phi(t, p)$ is an integral curve of $X$ through $p$, that is, $\phi_p' = X\circ\phi_p$ and $\phi_p(0) = p$;
 		\item for every $t\in(-\epsilon, \epsilon)$, the map $\phi_t: U \to M$, $p\mapsto \phi_t(p):=\phi(t,p)$, is a diffeomorphism from $U$ onto an open subset of $M$.
@@ -531,7 +531,7 @@ Every smooth vector field has a local flow about any point, but not necessarily 
 	\begin{equation}
 		\gamma(t) = \left(\frac{1}{1-t}, 0\right).
 	\end{equation}
-	Since $i_x \circ \gamma(t)$ is unbounded as $t\to 1$, this curve cannot be extended past $t=1$.
+	Since $x \circ \gamma(t)$ is unbounded as $t\to 1$, this curve cannot be extended past $t=1$.
 
 	A somewhat simpler example is given by the vertical lines on $\cH^2$ (so a manifold with boundary). These are integral curves of $\frac{\partial}{\partial x^2}$ which cannot extend further than the boundary $\{x^2=0\}$.
 \end{example}
@@ -578,7 +578,7 @@ When we want to emphasize the vector field $X$, we will write $\phi^X$.
 	Both $\cD$ and $\phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so to prove the theorem one only needs to show that $\cD$ is open and that $\phi$ is smooth.
 	This is done by applying the Euclidean theorems to extend the local flow, finally showing that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\phi$ is smooth.
 
-	We are going to omit the details of the proof, the interested reader can refer to~\cite[Proposition 9.12]{book:lee}.
+	We are going to omit the details of the proof, the interested reader can refer to~\cite[Theorem 9.12]{book:lee}.
 	The statements may seem different at a first glance, but a careful look will reveal that he is just taking a slightly different perspective.
 
 	Indeed, if we reverse the roles of $t$ and $p$, we can define for any given $t\in \R$ the set
@@ -589,7 +589,7 @@ When we want to emphasize the vector field $X$, we will write $\phi^X$.
 	\begin{equation}\label{eq:flowdiffeo}
 		\phi_t(p) := \phi(t,p), \quad p\in M_t.
 	\end{equation}
-	Which is exactly the claim in~\cite[Proposition 9.12]{book:lee}.
+	Which is exactly the claim in~\cite[Theorem 9.12]{book:lee}.
 
 	%   Both $\cD$ and $\phi$ are uniquely identified respectively by (\ref{thm:exuniqmax:i}) and (\ref{thm:exuniqmax:ii}), so we only need to show that $\cD$ is open and that $\phi$ is smooth.
 	%   To this end we are going to prove that for all $p\in M$ and $t\in I_p$, $\cD$ contains a neighbourhood of $(t,p)$ on which $\phi$ is smooth.
@@ -839,7 +839,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 	\end{align}
 	That is, $e^{-tX}\circ e^{sY}\circ e^{tX} = e^{sY}$ which is equivalent to the claim.
 
-	$(\Longleftarrow)$ Let $f\in C^\infty(M)$, by~\eqref{eq:lbddr} we have
+	$(\Longleftarrow)$ By~\eqref{eq:lbddr} we have
 	\begin{align}
 		[X,Y]_q & = \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0}e^{-tX}\circ e^{sY}\circ e^{t X}(q) \\
 		        & = \frac{\partial^2}{\partial s \partial t}\Big|_{t=s=0} e^{sY} = 0.
@@ -915,7 +915,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 	\begin{equation}
 		\lim_{t\to\infty} \phi_{-t}^L \circ \phi_t^{\widetilde{L}}\Big|_K = \phi_{-t_0}^L \circ \phi_{t_0}^{\widetilde{L}}.
 	\end{equation}
-	Thus, $\Omega$ is a well--defined smooth map and, with an argument similar to the above, a diffeomorphism.
+	Thus, $\Omega$ is a well--defined smooth map and, with an argument similar to the above, a diffeomorphism with inverse $\lim_{t\to\infty} \phi_{-t}^{\widetilde{L}} \circ \phi_t^L$.
 	Moreover,
 	\begin{align}
 		\Omega \circ \phi^{\widetilde{L}}_t & = \lim_{s\to\infty} \phi_{-s}^L \circ \phi^{\widetilde{L}}_s \circ \phi^{\widetilde{L}}_t                     \\
@@ -957,7 +957,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 	\end{equation}
 	Close to $x=0$ we can thus approximate $\widetilde X_x$ by its linearisation $ d\widetilde X_0 x$.
 	%
-	Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\widetilde X_0 x$ is independent of the choice of local coordinates.} of $d\widetilde X_0 x$ and their geometric multiplicities (cf.~\cite[Figure 9.8]{book:lee}), as long as the fixed point is \emph{hyperbolic}, that is, none of the eigenvalues has vanishing real part\footnote{This is the content of the Hartman--Grobman theorem: near a hyperbolic fixed point, the flow is topologically conjugate to the flow of its linearisation, see~\cite[Theorem 9.9]{book:teschl}.}. This is the same as you may have seen in the Euclidean case~\cite[Chapter 5.3]{book:knauf}.
+	Qualitatively, the behaviour close to the fixed point is determined by the eigenvalues\footnote{Note that thanks to the compatibility conditions, the linearisations of $X$ at different charts are similar matrices, and thus the spectrum of $d\widetilde X_0$ is independent of the choice of local coordinates.} of $d\widetilde X_0$ and their geometric multiplicities (cf.~\cite[Figure 9.8]{book:lee}), as long as the fixed point is \emph{hyperbolic}, that is, none of the eigenvalues has vanishing real part\footnote{This is the content of the Hartman--Grobman theorem: near a hyperbolic fixed point, the flow is topologically conjugate to the flow of its linearisation, see~\cite[Theorem 9.9]{book:teschl}.}. This is the same as you may have seen in the Euclidean case~\cite[Chapter 5.3]{book:knauf}.
 
 	At non-hyperbolic fixed points one needs more care to determine the local behaviour.\marginnote{A useful tool in this case is the \emph{centre manifold}, a nonlinear counterpart of the subspace spanned by the generalised eigenvectors of the linearisation whose eigenvalues have vanishing real part, you can refer to~\cite[Section 9.2]{book:teschl} if you are curious.}
 	In this case one can try to simplify the nonlinear terms of $\widetilde X$ by a change of coordinates: by the Poincar\'e--Dulac theorem, all the terms that are ``not \emph{resonant}'' with the eigenvalues of the linearisation can be removed, at least formally, and the resulting \emph{normal form} often determines the local behaviour, see~\cite[\S 23]{book:arnold:ode} and~\cite[Section 3.3]{book:guckenheimerholmes}.

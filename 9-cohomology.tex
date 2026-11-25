@@ -199,29 +199,29 @@ An important consequence of Theorem~\ref{thm:deRham-invariance} is the following
 	Then, the induced maps $F^*$ and $G^*$ on the de Rham cohomology groups are the same.
 \end{theorem}
 \begin{proof}
-	Since $F$ and $G$ are homotopic, there is a continuous map $K: [0,1]\times M \to N$ such that $K(0,\cdot) = F$ and $K(1,\cdot) = G$.
-	If we could assume $K$ to be the restriction of a smooth map $K:\R\times M\to N$, the theorem would follow from
+	Since $F$ and $G$ are homotopic, there is a continuous map $H: [0,1]\times M \to N$ such that $H(0,\cdot) = F$ and $H(1,\cdot) = G$.
+	If we could assume $H$ to be the restriction of a smooth map $H:\R\times M\to N$, the theorem would follow from
 	\begin{equation}
-		F^* = (K\circ i_0)^* = i_0^*\circ K^* = i_1^*\circ K^* = (K\circ i_1)^* = G^*.
+		F^* = (H\circ i_0)^* = i_0^*\circ H^* = i_1^*\circ H^* = (H\circ i_1)^* = G^*.
 	\end{equation}
 
-	In fact this is the case, thanks to the following theorem\sidenote[][-1em]{This is a deep result related to the Whitney Embedding Theorem from Remark~\ref{rmk:WhitneyET} and is out of the scope of our course, for more details refer to~\cite[Chapter 6 and Theorems 6.26 and 9.27]{book:lee}.}.
+	In fact this is the case, thanks to the following theorem\sidenote[][-1em]{This is a deep result related to the Whitney Embedding Theorem from Remark~\ref{rmk:WhitneyET} and is out of the scope of our course, for more details refer to~\cite[Chapter 6 and Theorems 6.26 and 6.29]{book:lee} and, for manifolds with boundary, \cite[Theorems 9.27 and 9.28]{book:lee}.}.
 	%
 	\begin{theorem}[Whitney Approximation Theorem for continuous maps]\label{thm:WhitneyApproxCont}
 		Given any continuous mapping $G \in C^0(M,N)$, there exists $F \in C^\infty(M,N)$ which is homotopic to $G$. Moreover, if $G$ is smooth\sidenote[][1em]{Note that a function $f : M \to N$ is defined to be smooth on a subset $A \subset M$ if there is some smooth function $g: U \to N$, defined on an open $U\supset A$ such that $g = f$ on $A$.} on a closed subset $A\subset M$, then one can choose $F$ so that $F=G$ on $A$.
 	\end{theorem}
 	%
-	In particular, if two smooth maps are homotopic then they are also smoothly homotopic: we can assume the map $K$ to be smooth and defined on $\R\times M$.
+	In particular, if two smooth maps are homotopic then they are also smoothly homotopic: we can assume the map $H$ to be smooth and defined on $\R\times M$.
 
-	To see this, continuously extend $K$ to a mapping $\widetilde K : \R \times M \to N$ by defining
+	To see this, continuously extend $H$ to a mapping $\widetilde H : \R \times M \to N$ by defining
 	\begin{align}
-		\widetilde K(t, p) = K(0, p) \mbox{ if } t \leq 0,
-		\quad\mbox{and}\quad \widetilde K(t, p) = K(1, p) \mbox{ if } t \geq 1.
+		\widetilde H(t, p) = H(0, p) \mbox{ if } t \leq 0,
+		\quad\mbox{and}\quad \widetilde H(t, p) = H(1, p) \mbox{ if } t \geq 1.
 	\end{align}
-	Then $\widetilde K \in C^0(\R\times M, N)$ and smooth on the closed subsets\footnote{By the definition in the margin note above, in our case it is only required that $g(0, p) = f(0,p)$ for all $p\in M$ but \emph{nothing} is required on $f$ in an open neighbourhood of $\{0\}\times M$!} $\{0\}\times M$ and $\{1\}\times M$.
+	Then $\widetilde H \in C^0(\R\times M, N)$ and smooth on the closed subsets\footnote{By the definition in the margin note above, in our case it is only required that $g(0, p) = f(0,p)$ for all $p\in M$ but \emph{nothing} is required on $f$ in an open neighbourhood of $\{0\}\times M$!} $\{0\}\times M$ and $\{1\}\times M$.
 	%
-	By Whitney Approximation Theorem for continuous maps, there exists $\widehat K : \R\times M \to N$ smooth and homotopic to $\widetilde K$ (but we don't really care here) such that $\widehat K = \widetilde K$ on $\{0\}\times M$ and $\{1\}\times M$, that is, $\widehat K(0, \cdot) = K(0, \cdot) = F$ and $\widehat K(1, \cdot) = K(1, \cdot) = G$.
-	That is, $\widehat K$ is the smooth homotopy, defined on $\R\times M$, we were looking for.
+	By Whitney Approximation Theorem for continuous maps, there exists $\widehat H : \R\times M \to N$ smooth and homotopic to $\widetilde H$ (but we don't really care here) such that $\widehat H = \widetilde H$ on $\{0\}\times M$ and $\{1\}\times M$, that is, $\widehat H(0, \cdot) = H(0, \cdot) = F$ and $\widehat H(1, \cdot) = H(1, \cdot) = G$.
+	That is, $\widehat H$ is the smooth homotopy, defined on $\R\times M$, we were looking for.
 \end{proof}
 
 \begin{corollary}\label{cor:deRhamIso}
@@ -241,13 +241,13 @@ We are almost there.
 \begin{definition}\idxdef{Contractible space}
 	A topological space is said to be \emph{contractible} if it is homotopy equivalent to a point, that is, there exists $p_0\in M$ and a continuous\footnote{In fact, we now know that we can assume it is smooth.} map
 	\begin{equation}
-		K:[0,1]\times M \to M
+		H:[0,1]\times M \to M
 		\quad\mbox{with}\quad
-		K(0, \cdot) = \id_M
+		H(0, \cdot) = \id_M
 		\mbox{ and }
-		K(1, \cdot) = p_0.
+		H(1, \cdot) = p_0.
 	\end{equation}
-	\marginnote[-2em]{The map $K$ continuously ``contracts'' $M$ into a single point $p_0\in M$.}
+	\marginnote[-2em]{The map $H$ continuously ``contracts'' $M$ into a single point $p_0\in M$.}
 \end{definition}
 
 \marginnote{Note that this means that for contractible manifolds, the space of closed and exact $k$-forms coincide for all $k \geq 1$.}
@@ -277,7 +277,7 @@ We are almost there.
 \end{exercise}
 
 \begin{exercise}
-	Prove that $H^0_{dR}(\R^n) = \R$ and $H^k_{dR}(\R^n) = \{0\}$ for all $k > 1$.
+	Prove that $H^0_{\mathrm{dR}}(\R^n) = \R$ and $H^k_{\mathrm{dR}}(\R^n) = \{0\}$ for all $k \geq 1$.
 \end{exercise}
 
 \begin{remark}\label{rmk:ch_topology_domain_invariance}
@@ -285,7 +285,7 @@ We are almost there.
 	There is more, \emph{de Rham's theorem}~\cite[Theorem 18.14]{book:lee} states that the de Rham cohomology group is isomorphic to the so--called singular cohomology, a purely topological concept.
 
 	On the face of it, we might start thinking that the de Rham cohomology is a far too coarse invariant to be useful: following the previous exercise, one might be led to believe that we cannot even distinguish between Euclidean spaces. Luckily, however, this is not the case.
-	For instance, we can prove the \emph{invariance of dimension theorem}\footnote{If $m\neq n$, then a nonempty topological space cannot be both an $m$-manifold and an $n$-manifold~\cite[Problem 13-3]{book:lee:topology}. See also the discussion at the end of chapter~\ref{sec:top_manifolds}.}, using de Rham cohomology. Let us sketch a proof here, based on the homotopy invariance of de Rham cohomology.
+	For instance, we can prove the \emph{invariance of dimension theorem}\footnote{If $m\neq n$, then a nonempty topological space cannot be both an $m$-manifold and an $n$-manifold~\cite[Problem 13-3]{book:lee:topology}. See also the discussion at the end of chapter~\ref{sec:top_manifolds}.}, using de Rham cohomology. Let us sketch a proof here, based on the homotopy invariance of de Rham cohomology, without worrying much about making it local.
 
 	Suppose that $\R^n\cong\R^m$ and assume w.l.o.g. that $m>n$. If the spaces are homeomorphic, then also $\R^n\setminus\{0\}\cong\R^m\setminus\{0\}$. But $\R^n\setminus\{0\}\simeq S^{n-1}$, where $\simeq$ denotes homotopy equivalence. This homotopy is explicitly constructed by radially retracting $\R^n\setminus\{0\}$ onto the unit sphere. Then our assumption that $\R^n\cong\R^m$ implies that $H^k_{\mathrm{dR}}(S^{n-1})\cong H^k_{\mathrm{dR}}(S^{m-1})$ for all $k\geq 0$,
 	by homotopy invariance. However, from this we would derive a contradiction, due to the fact that
@@ -296,16 +296,17 @@ We are almost there.
 		\end{cases}
 	\end{equation}
 	for $n\geq1$, while $H^0_{\mathrm{dR}}(S^0)\cong\R^2$ and $H^k_{\mathrm{dR}}(S^0)\cong 0$ for $k\geq1$, since $S^0$ consists of two points (the case $n=0$ is trivial, since $\R^0$ is a point).
-	We leave the computation of the cohomology of spheres as an interesting exercise.
-	A useful tool for this computation is the Mayer-Vietoris sequence\footnote{For more details, see~\cite[Chapter 17.3]{book:lee} or~\cite[Chapter 26]{book:tu}.}, which is unfortunately not part of the course.
+	We leave the computation of the cohomology of spheres as an interesting exercise. A useful tool for this computation is the Mayer-Vietoris sequence\footnote{For more details, see~\cite[Chapter 17.3]{book:lee} or~\cite[Chapter 26]{book:tu}.}, which is unfortunately not part of the course.
+
+	The general statement for manifolds requires a more refined, local, version of the argument above: locally, one only finds an open subset of $\R^n$ homeomorphic to $\R^m$, and removing a point from an open subset of $\R^n$ does not, in general, give something homotopy equivalent to $S^{n-1}$. The Mayer-Vietoris sequence provides a way around this as well.
 \end{remark}
 
 Finally, we are ready to show a more general version of the Poincar\'e lemma as promised.
 
 \begin{corollary}[Poincar\'e lemma]\label{cor:plemma}\idxthm{Poincar\'e lemma}
 	Let $M$ be a smooth manifold and let $\omega\in\Omega^k(M)$ be a closed differential form of positive degree $k>0$.
-	For any point $p\in M$ there exists a neighbourhood $U$ of $p$ such that $\omega|_U$ is an exact form in $\Omega^k(U)$.
+	For any point $p\in M\setminus\partial M$ there exists a neighbourhood $U$ of $p$ such that $\omega|_U$ is an exact form in $\Omega^k(U)$\footnote{The statement holds also at boundary points, see~\cite[Corollary 17.15]{book:lee} for the full proof.}.
 \end{corollary}
 \begin{proof}
-	Every point in a $n$-manifold has a neighbourhood which is homeomorphic to $\R^n$ and so is contractible.
+	Every interior point of an $n$-manifold has a neighbourhood which is diffeomorphic to $\R^n$, and so is contractible (and without boundary).
 \end{proof}

@@ -1,4 +1,4 @@
-What we have seen in the previous chapter is our first example of vector bundle, which is just a way to call a vector space depending continuously (or smoothly) on some parameters, for example points on a manifold.
+What we have seen in Chapter~\ref{ch:2}, the tangent bundle, is our first example of vector bundle, which is just a way to call a vector space depending continuously (or smoothly) on some parameters, for example points on a manifold.
 
 This concept can be useful for example to extend the meaning of vector-valued functions to the manifold setting.
 We saw that vector fields assign to each $p\in M$ a vector in the space $T_pM$ which varies with $p$. Vector bundles are a way to do the same, but mapping the point to some vector space $E_p$ which also varies with $p$.
@@ -106,9 +106,9 @@ Understanding this example would take us well beyond the scope of these notes, b
 
 To compare vector bundles it is useful to define the following concept.
 \begin{definition}\idxdef{Isomorphism of vector bundles}
-	An \emph{isomorphism} between two vector bundles $\pi_i: E_i \to M$, $i=1,2$, over the same base space $M$ is a homeomorphism $h:E_1 \to E_2$ which maps every fiber $\pi_1^{-1}(p)$ to the corresponding fiber $\pi_2^{-1}(p)$ by a linear isomorphism.
-	The map $h$ is a \emph{diffeomorphism} between vector bundles if it is a diffeomorphism which maps fibres to fibres isomorphically.
-	In this case we say that the vector bundles are \emph{diffeomorphic}.
+	An \emph{isomorphism} between two vector bundles $\pi_i: E_i \to M$, $i=1,2$, over the same base space $M$ is a diffeomorphism $h:E_1 \to E_2$ which maps every fiber $\pi_1^{-1}(p)$ to the corresponding fiber $\pi_2^{-1}(p)$ by a linear isomorphism.
+	In this case we also say that the vector bundles are \emph{diffeomorphic}.
+	If $h$ is only a homeomorphism with these properties, we call it an isomorphism of \emph{topological} vector bundles.
 \end{definition}
 
 Since an isomorphism preserves all the structure of a vector bundle, isomorphic bundles are often regarded as the same.
@@ -212,7 +212,7 @@ The maps $\tau_{\alpha\beta}$ are called \emph{transition function}s between the
 	What is $\tau_{\alpha\beta}$ in the case of $TM$?
 \end{exercise}
 
-The previous exercise should already give you a hint at why property (iii) of the Theorem~\ref{thm:bundle_chart_thm} has such a strange form involving $k\times k$ invertible matrices.
+The previous exercise should already give you a hint at why property (ii) of the Theorem~\ref{thm:bundle_chart_thm} has such a strange form involving $k\times k$ invertible matrices.
 The following lemma should clarify definitively why this is natural.
 
 \begin{lemma}\label{lem:transition_vb}
@@ -292,7 +292,7 @@ Even if we will not discuss these examples in the notes, Appendix~\ref{appendix:
 	\end{equation}
 \end{example}
 
-One can sometimes distinguish non--isomorphic bundles by looking at the complement of their zero section: since any vector bundle isomorphism $h:E_1\to E_2$ must map the zero section of $E_1$ onto the zero section of $E_2$, the complements of the zero sections in $E_1$ and $E_2$ must be homeomorphic.
+One can sometimes distinguish non--isomorphic bundles by looking at the complement of their \emph{zero section}, the section $p\mapsto 0\in E_p$: since any vector bundle isomorphism $h:E_1\to E_2$ must map the zero section of $E_1$ onto the zero section of $E_2$, the complements of the zero sections in $E_1$ and $E_2$ must be homeomorphic.
 
 \begin{marginfigure}
 	\includegraphics{2_9-vfield.pdf}
@@ -300,7 +300,7 @@ One can sometimes distinguish non--isomorphic bundles by looking at the compleme
 	\label{fig:vectorfield-rn}
 \end{marginfigure}
 
-Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not true in general with one exception.
+Even though, as we have seen, \emph{locally} $TM$ is diffeomorphic to $M\times\R^n$, this is not true in general. It is true, for example, when $M$ has a global chart.
 \begin{exercise}\label{ex:trivializable}
 	Let $M$ be a smooth $n$-manifold that can be covered by a single smooth chart.
 	Show that $TM$ is diffeomorphic to $M\times\R^n$ (without applying Proposition~\ref{prop:trivializable}).

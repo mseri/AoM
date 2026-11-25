@@ -82,7 +82,7 @@ This definition immediately implies that the map
 is associative and distributive but not commutative (why?).
 
 \begin{exercise}
-	Give a tensor in $T^2_0$ which is a linear combination of tensor products but cannot be written as a tensor product.
+	Give a tensor in $T^0_2$ which is a linear combination of tensor products but cannot be written as a tensor product.
 	Justify your answer.\\
 	\textit{\small Hint: one of the examples at the beginning of the chapter can help.}
 \end{exercise}
@@ -92,7 +92,7 @@ Of course, there is no reason to restrict ourselves to just two tensors: the def
 \marginnote{A more general approach to this proposition is by proving the universal property of tensor spaces. See for instance~\cite[Propositions 12.5, 12.7 and 12.8]{book:lee}.}
 \begin{proposition}\label{prop:tensorbasis}
 	Let $V$ be an $n$-dimensional vector space.
-	Let $\{e_j\}$ and $\{\varepsilon^i\}$ denote bases of $V=T_0^1(V)$ and $V^*=T_1^0(V)$ respectively.
+	Let $\{e_j\}$ be a basis of $V=T_0^1(V)$ and $\{\varepsilon^i\}$ the dual basis\footnote{That is, $\varepsilon^i(e_j) = \delta^i_j$.} of $V^*=T_1^0(V)$.
 	Then, every $\tau\in T_s^r(V)$ can be uniquely written as the linear combination\marginnote{\textit{Exercise}: expand Einstein's notation to write the full sum on the left with the relevant indices.}% In the expression, all indices $j_1,\ldots,j_r$, $i_1,\ldots,i_s$ run from $1$ to $n$.}
 	\begin{equation}\label{eq:tensor:decomposition}
 		\tau = \tau^{j_1\cdots j_r}_{i_1\cdots i_s} \, e_{j_1}\otimes\cdots\otimes e_{j_r}\otimes \varepsilon^{i_1}\otimes \cdots\otimes \varepsilon^{i_s},
@@ -139,7 +139,7 @@ Let's go back for a moment to the example of inner products.
 
 \begin{definition}\label{def:metric}
 	\marginnote[1em]{In Definition~\ref{def:metric} and Example~\ref{ex:musicaliso} we are slightly abusing notation: as we will see, the ``true'' pseudo-metric, metric and symplectic tensors will be sections of certain tensor bundles over manifolds which pointwise share the properties presented here. Nevertheless, this definition provides a good intuition for what is coming.}
-	We call \emph{pseudo-metric tensor}\idxdef{Pseudo-metric tensor}, any tensor $g\in T_2^0(V)$ that is
+	We call \emph{pseudo-metric tensor}\idxdef{Pseudo-metric tensor}\footnote{Be careful: here ``pseudo'' means that we drop non-degeneracy while keeping positivity. This is \emph{not} the ``pseudo'' of the pseudo-Riemannian metrics that we will meet at the end of the chapter, which are non-degenerate but not necessarily positive.}, any tensor $g\in T_2^0(V)$ that is
 	\begin{enumerate}
 		\item symmetric, i.e. $g(v,w) = g(w,v)$ for all $v,w\in T_0^1(V)$;
 		\item positive semidefinite, i.e. $g(v,v)\geq0$ for all $v\neq 0$.
@@ -194,9 +194,9 @@ Let's go back for a moment to the example of inner products.
 	\begin{enumerate}
 		\item Show that the space $T^1_1(V)$ is canonically isomorphic to the space of endomorphisms of $V$, that is, of linear maps $L:V\to V$.
 
-		\item If $\ell\in T^1_1(V)$ is the tensor associated to $A$, show that its components $\ell_i^j$ are just the matrix entries of $A$ seen as a matrix.
+		\item If $\ell\in T^1_1(V)$ is the tensor associated to $L$, show that its components $\ell_i^j$ are just the matrix entries of $L$ seen as a matrix.
 
-		\item Of course, given the previous example, $T^1_1(V)$ is also canonically isomorphic to the space of endomorphisms of $V^*$, that is, of linear maps $\Lambda:V^*\to V^*$.
+		\item Similarly (and without the need of any inner product!) $T^1_1(V)$ is also canonically isomorphic to the space of endomorphisms of $V^*$, that is, of linear maps $\Lambda:V^*\to V^*$.
 		      Prove the claim by explicitly constructing the mapping $\ell \leftrightarrow \Lambda$.
 	\end{enumerate}
 	\textit{\small Hint: definitions can look rather tautological when dealing with tensors... think carefully about domains and co-domains.}
@@ -260,7 +260,8 @@ applying the previous reasoning and comparing term by term we get
 		\quad
 		G(\tau, \widetilde\tau) := (\cI_g(\tau), \widetilde\tau),
 	\end{equation}
-	where the scalar product is defined via the requirement that tensor products of basis elements of $V$ are orthonormal and that $G$ is invariant under the musical isomorphism.
+	where $(\cdot, \cdot)$ denotes the natural pairing of $T_r^s(V)$ with $T_s^r(V)$, obtained by contracting each index of $\cI_g(\tau)$ with the corresponding index of $\widetilde\tau$.
+	If $g$ is a metric tensor, this amounts to requiring that the tensor products of the elements of a $g$-orthonormal basis of $V$ and of its dual basis are orthonormal.
 	In particular\footnote{Exercise: write down the detailed proof of this statement.}, if $g$ is a metric tensor on $V$, then $G$ is a metric tensor on $T_s^r(V)$.
 \end{remark}
 
@@ -271,12 +272,12 @@ applying the previous reasoning and comparing term by term we get
 		\item Write down $G$ with respect to the basis from the previous point.
 	\end{enumerate}
 	%In coordinates the one mapping $(r,s)$-tensors to $(r+s, 0)$-tensors is $I_g(\tau) = \tau_{i_1\ldots i_r}^{j_1\ldots j_s} g_{j_1 j_{r+1}} \ldots g_{j_s j_{r+s}}}$
-	%If \((g_{ij})\) and \((g^{ij})\) are the matrix element of the matrices representing metric tensor and its inverse resp, then \[ G(\sigma, \tau) = \langle\sigma, \tau\rangle_g := g^{k_1 l_1}\cdots g^{k_rl_r} g_{i_1j_1} \cdots g_{i_sj_s} \sigma_{k_1,\ldots,k_r}^{i_1,\ldots,i_s} \tau_{l_1,\ldots,l_r}^{j_1,\ldots,j_s} \]
+	%If \((g_{ij})\) and \((g^{ij})\) are the matrix element of the matrices representing metric tensor and its inverse resp, then \[ G(\sigma, \tau) = \langle\sigma, \tau\rangle_g := g_{k_1 l_1}\cdots g_{k_rl_r} g^{i_1j_1} \cdots g^{i_sj_s} \sigma^{k_1,\ldots,k_r}_{i_1,\ldots,i_s} \tau^{l_1,\ldots,l_r}_{j_1,\ldots,j_s} \]
 \end{exercise}
 
 \begin{remark}\label{rem:gradedtensoralgebra}
-	Interestingly, even though none of the tensor spaces $T_s^r(V)$ are algebras, the map $\otimes$ makes the collection of all tensor spaces
-	\marginnote{This is a so-called \emph{graded algebra} since $\otimes :  T_s^r(V)\times T_{s'}^{r'}(V) \to T_{s+s'}^{r+r'}(V)$ in some sense moves along the structure of the indices. Technically, an algebra is graded if its additive group can be decomposed into a direct sum of subgroups. Any element has a degree defined by the subgroup it belongs to.}
+	Interestingly, even though none of the tensor spaces $T_s^r(V)$ with $r+s>0$ are algebras, the map $\otimes$ makes the collection of all tensor spaces
+	\marginnote{This is a so-called \emph{graded algebra} since $\otimes :  T_s^r(V)\times T_{s'}^{r'}(V) \to T_{s+s'}^{r+r'}(V)$ in some sense moves along the structure of the indices. Technically, an algebra $A$ is graded if its additive group can be decomposed into a direct sum of subgroups $A = \bigoplus_i A_i$ compatible with the multiplication, that is, $A_iA_j\subset A_{i+j}$. Elements of the subgroups $A_i$ are said to have degree $i$. In our case the degrees are the pairs $(r,s)$.}
 	\begin{equation}
 		T(V) := \bigoplus_{r,s\geq 0} T_s^r(V), \qquad T_0^0(V):= \R,
 	\end{equation}
@@ -327,7 +328,7 @@ Before moving on, there is an important operation on tensors that will come back
 \end{example}
 
 \begin{example}
-	For $a\in T_1^1(V)$, the contraction $\mathrm{tr} (a) := a^1_1$ is called the trace of $a$ and is the usual trace of the corresponding endomorphism $A:V\to V$.
+	For $a\in T_1^1(V)$, the $(1,1)$-contraction $\mathrm{tr} (a) := a^i_i$ is called the trace of $a$ and is the usual trace of the corresponding endomorphism $A:V\to V$.
 \end{example}
 
 \section{Tensor bundles}
@@ -480,7 +481,7 @@ We can also use the pullback to construct a diffeomorphism between tensor bundle
 	Note that if $p\in M$, for any $\omega\in T_p^* M$ and any $v\in T_pM$, we have
 	\begin{align}
 		(d\varphi^\dagger_p \omega \;\mid\; d\varphi_p v)
-		 & =  d(\varphi^{-1})^*_{\varphi^{-1}\circ\varphi(p)}\omega (d\varphi_p v) \\
+		 & =  d(\varphi^{-1})^*_{\varphi(p)}\omega (d\varphi_p v) \\
 		 & = \omega(d\varphi^{-1}_{\varphi(p)} \circ d\varphi_p v )                \\
 		 & = \omega(v) = (\omega \mid v).
 	\end{align}
@@ -536,7 +537,7 @@ With this diffeomorphism at hand, we can finally generalize the pushforward.
 \end{exercise}
 
 Note that thanks to this duality between pullback and pushforward, the dual pairing is always invariant under diffeomorphisms:
-\marginnote[-2em]{In general, \eqref{eq:pairdualitypull} is not true for scalar products: one has to require that the diffeomorphism leaves the metric invariant, i.e. $g_N(F_* v, F_* w)\circ F = g_M(v,w)$ where $g_M\in T_2^0(M)$ and $g_N\in T_2^0(N)$.
+\marginnote[-2em]{In general, \eqref{eq:pairdualitypull} is not true for scalar products: one has to require that the diffeomorphism leaves the metric invariant, i.e. $g_N(F_* v, F_* w)\circ F = g_M(v,w)$ where $g_M\in \cT_2^0(M)$ and $g_N\in \cT_2^0(N)$.
 	You encounter this if you study isometries for pseudo-Riemannian metrics or canonical transformations in classical mechanics.}
 \begin{equation}\label{eq:pairdualitypull}
 	(F_* \omega \mid F_* v) = (\omega \mid v).

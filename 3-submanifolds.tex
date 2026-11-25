@@ -34,7 +34,7 @@ compare the following statements.
 \begin{theorem}[Inverse function theorem for manifolds]\label{thm:iftm}\idxthm{Inverse function theorem (manifolds)}
 	Let $F:M\to N$ be a smooth function between smooth manifolds without boundary of the same dimension $n$.
 	Let $p\in M$ such that $F$ has maximal rank $n$ at $p$.
-	Then there exists an open neighbourhood $V$ of $p$ such that the restriction $F|_V : V\to F(V)$ is a diffeomorphism.
+	Then there exists an open neighbourhood $V$ of $p$ such that $F(V)$ is open in $N$ and the restriction $F|_V : V\to F(V)$ is a diffeomorphism.
 \end{theorem}
 % \begin{proof}
 %   This is a purely local statement.
@@ -352,7 +352,7 @@ For this case we will need to be able to identify some special points depending 
 \begin{marginfigure}
 	\includegraphics{2_8-crit_pts.pdf}
 	\caption{Beware of the subtleties here. The map $F=\pi_x\circ i$ for the inclusion $i:\bT^2\hookrightarrow\R^3$ and the projection $\pi_x(x,y,z)=x$.
-		So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if the image of $T_p\bT^2$ by $d i_p: T_p\bT^2\hookrightarrow T_p\R^3$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
+		So $dF_p = d (\pi_x)_{i(p)} \circ d i_p$. The latter is zero if the image of $T_p\bT^2$ by $d i_p: T_p\bT^2\hookrightarrow T_{i(p)}\R^3$ is contained in the $yz$-plane (the reason will be clear by the end of the chapter): the critical points depicted here are exactly those points for which the tangent plane is the $yz$-plane.}
 	\label{fig:2_8-crit_pts}
 \end{marginfigure}
 
