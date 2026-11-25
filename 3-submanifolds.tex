@@ -377,6 +377,13 @@ Differently from the previous ones, the statement is not local.
 If you think about it carefully, this is an analogue of the implicit function theorem for manifolds, where some coordinate functions are implicitly defined as solution of a levelset equation.
 While the proof of Theorem~\ref{thm:impl_fun} is not particularly complicated and is also a direct application of the implicit function theorem, we will not pursue it here. You can find it in \cite[Corollary 5.14]{book:lee} or \cite[Theorem 9.9]{book:tu}.
 
+\begin{remark}
+	You may wonder how many regular values a smooth map has.
+	Sard's theorem~\cite[Theorem 6.10 and Proposition 6.8]{book:lee} says that the set of critical values of a smooth map $F:M\to N$ has measure zero in $N$\footnote{That is, its image in every chart of $N$ has measure zero in $\R^n$ with respect to Lebesgue measure.} and, as a consequence, that the regular values of $F$ are dense in $N$.
+	
+	Note that this is less strong that what it may seem at first sight, since values whose preimages are empty are also regular, and thus you may well have maps with lots of regular values which are somewhat vacuous. For instance, the constant map $F:\R\to\R$, $F(x)=c$, has $dF=0$ everywhere, its only critical value is $c$, and all its regular values $q\neq c$ have $F^{-1}(q)=\emptyset$.
+\end{remark}
+
 In the previous chapter, all manifolds were introduced as a set on top of which we had to explicitly provide a differentiable structure. With this theorem we can finally get it all for free as long as we provide an appropriate submersion $F$.
 
 \begin{remark}
@@ -403,7 +410,7 @@ In the previous chapter, all manifolds were introduced as a set on top of which 
 % \end{proposition}
 
 \begin{remark}\label{rmk:WhitneyET}
-	Whitney Embedding Theorem states that any smooth $n$-dimensional manifold, $n\geq1$, can be smoothly embedded into $\R^{2n}$.
+	Whitney Embedding Theorem\footnote{See~\cite[Theorem 6.19]{book:lee}, where it is stated without proof. The weaker statement that any smooth $n$-dimensional manifold, with or without boundary, admits a smooth embedding into $\R^{2n+1}$ is proved in~\cite[Theorem 6.15]{book:lee}.} states that any smooth $n$-dimensional manifold, $n\geq1$, can be smoothly embedded into $\R^{2n}$.
 	Thus any abstract manifold is diffeomorphic to a submanifold of $\R^m$ (for some $m$).
 \end{remark}
 
