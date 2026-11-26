@@ -271,7 +271,19 @@ The cotangent spaces are the fibres of the cotangent bundle.
 %   (p, \omega) &\mapsto \left(\varphi_i(p), d(\varphi_i^{-1})^*)_p\omega \right).
 % \end{align}
 \begin{exercise}\label{exe:prooftstarmbld}
-	Mimicking what we did for Theorem~\ref{thm:tgbdlsmoothmfld}, complete the proof of Theorem~\ref{thm:starmbld}.
+	\begin{enumerate}
+		\item Mimicking what we did for Theorem~\ref{thm:tgbdlsmoothmfld}, complete the proof of Theorem~\ref{thm:starmbld}.
+		\item Now obtain the same result using Theorem~\ref{thm:bundle_chart_thm}.
+      Let $\{(U_\alpha,\varphi_\alpha)\}_{\alpha\in A}$ be an atlas of $M$ and denote by $(x_\alpha^i)$ the coordinates on $U_\alpha$.
+      Show that
+      \begin{equation}
+	      \varPhi_\alpha : \pi^{-1}(U_\alpha) \to U_\alpha\times\R^n, \qquad
+	      \omega_i \, dx_\alpha^i|_p \mapsto \big(p, (\omega_1, \ldots, \omega_n)\big),
+      \end{equation}
+      satisfies the assumptions of Theorem~\ref{thm:bundle_chart_thm}, compute the transition functions $\tau_{\alpha\beta}$, and conclude that $T^*M$ is a smooth vector bundle of rank $n$ over $M$.
+
+      How are the $\tau_{\alpha\beta}$ related to the transition functions of $TM$?
+	\end{enumerate}
 \end{exercise}
 %\end{proof}
 
