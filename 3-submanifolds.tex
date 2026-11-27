@@ -196,6 +196,69 @@ If some detail seems unclear, I would recommend you to go through the proof step
 	and $\ker dF_p \not\subseteq T_p\partial M$.
 \end{exercise}
 
+The exercise leaves out the maps whose differential is injective, for which $\ker dF_p = \{0\}\subseteq T_p\partial M$.
+Of course at the interior points we can just apply the Rank theorem to the restriction of $F$ to the interior of $M$, the challenge comes from the boundary points. There, however there is a simple substitute for the Rank theorem that can help us out.
+
+\begin{theorem}[Local immersion theorem for manifolds with boundary]\label{thm:rank_bdry}\idxthm{Local immersion theorem (manifolds with boundary)}
+	Let $M$ be a smooth $m$-manifold with boundary, $N$ a smooth $n$-manifold without boundary and $F:M\to N$ a smooth function of rank $m$ at all points $p\in M$.
+	Then, for all $p\in\partial M$ there exist a smooth chart $(U,\varphi)$ of $M$ centred at $p$, with $\varphi(U)\subseteq\cH^m$, and a smooth chart $(V,\psi)$ of $N$ centred at $F(p)$ with $F(U)\subseteq V$, such that
+	\begin{equation}
+		\psi\circ F\circ\varphi^{-1}(x^1,\ldots,x^m) = (x^1,\ldots,x^m,\LaTeXunderbrace{0,\ldots,0}_{n-m}).
+	\end{equation}
+\end{theorem}
+
+We follow the proof of~\cite[Theorem 4.15]{book:lee}: as you may already expect, the idea is to extend $F$ across the boundary, apply the Rank theorem to the extension and then fix the charts that it gives us.
+
+\begin{proof}
+	Choose a chart $(U_1,\varphi_1)$ of $M$ centred at $p$, with $\varphi_1(U_1)\subseteq\cH^m$, and a chart $(V_1,\psi_1)$ of $N$ centred at $F(p)$. By continuity of $F$, up to shrinking $U_1$, we can assume that $F(U_1)\subseteq V_1$.
+	The coordinate representation $\widehat F := \psi_1\circ F\circ\varphi_1^{-1}:\varphi_1(U_1)\to\R^n$ is smooth on the relatively open set $\varphi_1(U_1)\subseteq\cH^m$.
+	By definition, this means that there exist an open set $W\subseteq\R^m$ containing $\varphi_1(U_1)$ and a smooth map $\widetilde F:W\to\R^n$ such that $\widetilde F = \widehat F$ on $\varphi_1(U_1)$.
+
+	The partial derivatives of $\widetilde F$ at the points of $\varphi_1(U_1)\setminus\partial\cH^m$ are those of $\widehat F$ and, by continuity, at the points of $\varphi_1(U_1)\cap\partial\cH^m$ they are their limits.
+	Hence the Jacobian $D\widetilde F(0)$ does not depend on the chosen extension and it coincides to the rank $m$ matrix representing $dF_p$ in our coordinates.
+	Thus in particular some $m\times m$ minor of $D\widetilde F(0)$ is non-zero and, by continuity, the same minor is non-zero in a neighbourhood of $0$.
+	Up to shrinking $W$, we can thus assume that $\widetilde F$ has rank $m$ at all points of $W$.
+
+	Now $\widetilde F:W\to\R^n$ is a smooth map of constant rank $m$ between manifolds without boundary.
+	By the Rank theorem, there exist charts $(U_0,\varphi_0)$ of $W$ centred at $0$ and $(V_0,\psi_0)$ of $\R^n$ centred at $0$ such that $\widetilde F(U_0)\subseteq V_0$ and
+	\begin{equation}
+		\psi_0\circ\widetilde F\circ\varphi_0^{-1}(x) = (x, 0), \qquad x\in\varphi_0(U_0).
+	\end{equation}
+	The only problem with these charts is that $\varphi_0$ does not need to map $U_0\cap\cH^m$ into $\cH^m$, so that we cannot use it for $M$.
+	We fix this by moving $\varphi_0$ on the other side.
+	The map $\varphi_0^{-1}\times\id_{\R^{n-m}}:\varphi_0(U_0)\times\R^{n-m}\to U_0\times\R^{n-m}$ is a diffeomorphism.
+	Let $V' := \psi_0^{-1}\big(\varphi_0(U_0)\times\R^{n-m}\big)\subseteq V_0$, which is open and contains $0$ since $\psi_0(0) = 0 = (\varphi_0(0), 0)$.
+	Then $\sigma := (\varphi_0^{-1}\times\id_{\R^{n-m}})\circ\psi_0|_{V'}$ is a diffeomorphism from $V'$ onto an open subset of $\R^n$ with $\sigma(0) = 0$.
+	For $x\in U_0$ we have $\psi_0(\widetilde F(x)) = (\varphi_0(x), 0)\in\varphi_0(U_0)\times\R^{n-m}$, that is, $\widetilde F(U_0)\subseteq V'$, and
+	\begin{equation}
+		\sigma\big(\widetilde F(x)\big) = (\varphi_0^{-1}\times\id_{\R^{n-m}})(\varphi_0(x), 0) = (x, 0).
+	\end{equation}
+
+	Finally, let
+	\begin{equation}
+		U := \varphi_1^{-1}\big(U_0\cap\varphi_1(U_1)\big),\quad \varphi := \varphi_1|_U,
+		\qquad
+		V := \psi_1^{-1}\big(V'\cap\psi_1(V_1)\big),\quad \psi := \sigma\circ\psi_1|_V.
+	\end{equation}
+	The pair $(U,\varphi)$ is a chart of $M$ centred at $p$ with $\varphi(U)\subseteq\cH^m$, since it is the restriction of $\varphi_1$ to an open neighbourhood of $p$, and $(V,\psi)$ is a chart of $N$ centred at $F(p)$, since $\sigma$ is a diffeomorphism.
+	If $q\in U$ and $x = \varphi(q)$, then $\psi_1(F(q)) = \widehat F(x) = \widetilde F(x)$ lies both in $\psi_1(V_1)$ and in $V'$.
+	Therefore $F(U)\subseteq V$ and
+	\begin{equation}
+		\psi\circ F\circ\varphi^{-1}(x) = \sigma\big(\widetilde F(x)\big) = (x, 0),
+	\end{equation}
+	concluding the proof.
+\end{proof}
+
+In particular, if $m = n$ the coordinate representation $\psi\circ F\circ\varphi^{-1}$ is the identity on $\varphi(U)\subseteq\cH^n$.
+That is, near a boundary point at which $dF_p$ is invertible, $F$ looks exactly like the inclusion $\cH^n\hookrightarrow\R^n$ that we used as a counterexample to the inverse function theorem: this is the best we can hope for when $M$ has a boundary.
+
+\begin{exercise}
+	Let $M$ be a smooth $n$-manifold without boundary, $N$ a smooth $n$-manifold with boundary and $F:M\to N$ a smooth function.
+	Show that if $dF_p$ is invertible at some $p\in M$, then $F(p)\notin\partial N$.
+	%
+	\textit{\small Hint: work in charts and use the inverse function theorem for $\R^n$ (Theorem~\ref{thm:ift}), recalling that charts of $N$ take values in $\cH^n$.}
+\end{exercise}
+
 \section{Embeddings, submersions and immersions}
 
 Looking at the statement of the Rank Theorem, one can already see that there can be different possibilities depending on the relation between $m$, $n$ and $k$. This warrants a definition.
