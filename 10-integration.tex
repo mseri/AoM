@@ -657,6 +657,100 @@ which, for the standard volume form on $\R^n$, coincides with the familiar formu
 
 It may seem a triviality, but this function plays an interesting role in many applications. If you are curious, have a look, for instance, at some book of geometric mechanics or spectral geometry.
 
+\newthought{An important special case} appears on Riemannian manifolds, where the metric singles out a preferred volume form.
+
+\begin{proposition}[Riemannian volume form]\label{prop:riemannian-volume}\idxdef{Riemannian volume form}
+	Let $(M,g)$ be an oriented Riemannian $n$-manifold, $n\geq1$.
+	There is a unique volume form $\mathrm{vol}_g$ on $M$ such that, in every positively oriented chart with local coordinates $(x^i)$,
+	\begin{equation}\label{eq:riemannian-volume}
+		\mathrm{vol}_g = \sqrt{\det[g_{ij}]}\; dx^1\wedge\cdots\wedge dx^n,
+		\qquad g_{ij} := g\left(\frac{\partial}{\partial x^i}, \frac{\partial}{\partial x^j}\right),
+	\end{equation}
+	and $\mathrm{vol}_g = -\sqrt{\det[g_{ij}]}\; dx^1\wedge\cdots\wedge dx^n$ in every negatively oriented chart with connected domain.
+\end{proposition}
+\begin{proof}
+	Since $[g_{ij}]$ is positive definite at every point, $\det[g_{ij}]>0$ and $\sqrt{\det[g_{ij}]}$ is well-defined as a smooth positive function on the chart domain.
+	If $\omega$ is the volume form defining the orientation, on a chart with connected domain $\omega = \omega(x)\,dx^1\wedge\cdots\wedge dx^n$ with $\omega(x)$ never vanishing and thus of constant sign: the chart is either positively or negatively oriented.
+	Denote $\varepsilon_x := 1$ in the first case and $\varepsilon_x:=-1$ in the second, so that the statement requires $\mathrm{vol}_g = \varepsilon_x\sqrt{\det[g_{ij}]}\; dx^1\wedge\cdots\wedge dx^n$.
+	Since every point of $M$ lies in a chart with connected domain, this determines $\mathrm{vol}_g$ uniquely, and we only need to check that the local expressions agree on overlapping charts.
+
+	Let $(x^i)$ and $(y^j)$ be local coordinates on overlapping connected domains, denote the Jacobian of the change of variable by $J := \left[\frac{\partial x^i}{\partial y^j}\right]$. Moreover denote
+	\begin{equation}
+	  \widetilde g_{kl} := g\big(\frac{\partial}{\partial y^k}, \frac{\partial}{\partial y^l}\big).
+	\end{equation}
+	From the change of variables for vectors~\ref{eq:vec:chg_coords} (and thus vector fields), we get
+	\begin{equation}
+	  \widetilde g_{kl} = \frac{\partial x^i}{\partial y^k}\frac{\partial x^j}{\partial y^l}g_{ij},
+		\quad\Rightarrow\quad
+		[\widetilde g_{kl}] = J^T[g_{ij}]J,
+	\end{equation}
+	and thus $\sqrt{\det[\widetilde g_{kl}]} = |\det J|\sqrt{\det[g_{ij}]}$.
+
+	Moreover, $dx^1\wedge\cdots\wedge dx^n = \det J\; dy^1\wedge\cdots\wedge dy^n$, so that $\omega = \omega(x)\det J\; dy^1\wedge\cdots\wedge dy^n$ and $\varepsilon_y = \varepsilon_x\operatorname{sign}(\det J)$ at every point of the overlap.
+	Hence
+	\begin{align}
+		\varepsilon_y\sqrt{\det[\widetilde g_{kl}]}& \; dy^1\wedge\cdots\wedge dy^n \\
+		& = \varepsilon_x\operatorname{sign}(\det A)\,|\det A| \sqrt{\det[g_{ij}]}\; dy^1\wedge\cdots\wedge dy^n \\
+		& = \varepsilon_x\sqrt{\det[g_{ij}]}\; dx^1\wedge\cdots\wedge dx^n,
+	\end{align}
+	and thus we have constructed a smooth, nowhere vanishing $n$-form on $M$.
+\end{proof}
+
+On an oriented Riemannian manifold we write $\divergence_g := \divergence_{\mathrm{vol}_g}$.
+By the coordinate formula above with $\mu = \pm\sqrt{\det[g_{ij}]}$, in any local coordinates the sign cancels out and we obtain
+\begin{equation}
+	\divergence_g X = \frac{1}{\sqrt{\det[g_{ij}]}}\sum_{i=1}^n\frac{\partial}{\partial x^i}\left(\sqrt{\det[g_{ij}]}\,X^i\right).
+\end{equation}
+Combining it with the gradient $\mathrm{grad}\, f := (df)^\sharp$ of Example~\ref{ex:vectorcalculus}, whose components can be expressed\footnote{Exercise: show that it is the case!} as $(\mathrm{grad}\, f)^i = g^{ij}\frac{\partial f}{\partial x^j}$, we obtain the \emph{Laplace--Beltrami operator}\idxdef{Laplace--Beltrami operator}
+\begin{equation}
+	\Delta_g f := \divergence_g\mathrm{grad}\, f = \frac{1}{\sqrt{\det[g_{ij}]}}\sum_{i,j=1}^n\frac{\partial}{\partial x^i}\left(\sqrt{\det[g_{ij}]}\,g^{ij}\frac{\partial f}{\partial x^j}\right).
+\end{equation}
+This is the link between spectral theory of differential operators and differential geometry, and is the starting point of many fascinating lines of research, for a more thorough introduction to Spectral Geometry, I strongly recommend you to look at \cite{book:levitin}.
+
+For the Euclidean metric on $\R^n$ in cartesian coordinates, $g_{ij} = \delta_{ij}$ and we recover the familiar Laplacian $\Delta f = \sum_i\frac{\partial^2f}{\partial (x^i)^2}$.
+Note that, in contrast with $\mathrm{vol}_g$, the divergence $\divergence_g$ and the Laplace--Beltrami operator do not depend on the choice of the orientation.
+% Indeed, reversing it changes $\mathrm{vol}_g$ into $-\mathrm{vol}_g$, and $\cL_X(-\mathrm{vol}_g) = (\divergence_g X)(-\mathrm{vol}_g)$.
+
+\begin{exercise}
+	\begin{enumerate}
+		\item Let $g = dr\otimes dr + r^2\, d\theta\otimes d\theta$ be the Euclidean metric on $\R^2\setminus\{0\}$ in polar coordinates. Show that
+		      \begin{equation}
+			      \Delta_g f = \frac1r\frac{\partial}{\partial r}\left(r\frac{\partial f}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2 f}{\partial\theta^2}.
+		      \end{equation}
+		\item Let $g = d\theta\otimes d\theta + \sin^2\theta\, d\phi\otimes d\phi$ be the round metric on $\bS^2$ in spherical coordinates $(\theta,\phi)\in(0,\pi)\times(0,2\pi)$. Show that
+		      \begin{equation}
+			      \Delta_g f = \frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial f}{\partial\theta}\right) + \frac{1}{\sin^2\theta}\frac{\partial^2 f}{\partial\phi^2}.
+		      \end{equation}
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Let $(M,g)$ be an oriented Riemannian $3$-manifold and let $\star$ be the Hodge star introduced in Example~\ref{ex:vectorcalculus}, with $\star1 = \mathrm{vol}_g$.
+	Show that $\star(X^\flat) = \iota_X\mathrm{vol}_g$ for all $X\in\fX(M)$, and deduce that $d\star(X^\flat) = (\divergence_g X)\,\mathrm{vol}_g$.
+	That is, the divergence $\star d\star\flat$ of Example~\ref{ex:vectorcalculus} is the divergence with respect to the Riemannian volume form.
+
+	\textit{\small Hint: for any $1$-form $\tau$, $\tau\wedge\mathrm{vol}_g = 0$ since it is a $4$-form on a $3$-manifold. Apply $\iota_X$ to this identity.}
+\end{exercise}
+
+\begin{exercise}[Liouville's theorem]\label{exe:liouville}\idxthm{Liouville's theorem}
+	Let $(M,\omega)$ be a symplectic manifold of dimension $2n$, see Exercise~\ref{exe:symplectic}, and let $H\in C^\infty(M)$.
+	\begin{enumerate}
+		\item Show that there is a unique vector field $X_H\in\fX(M)$ such that $\iota_{X_H}\omega = dH$, called the \emph{Hamiltonian vector field} of $H$.
+		      Check that, if $M=\R^2$ and $\omega = dq\wedge dp$, it is the vector field $X_H$ of Exercise~\ref{exe:gradham}.
+		\item Show that $\omega^n := \omega\wedge\cdots\wedge\omega$ ($n$ times) is a volume form on $M$.
+
+		      \textit{\small Hint: adapt your proof of point 1 of Exercise~\ref{exe:symplectic} to find, at each $q\in M$, a basis of $T_qM$ in which $\omega_q$ has the form of point 5 of the same exercise.}
+		\item Show that $\cL_{X_H}\omega = 0$ and deduce that $\divergence_{\omega^n}X_H = 0$.
+		\item Assume that $M$ has no boundary and that $X_H$ is complete, with flow $\phi_t$.
+		      Show that $\phi_t^*\omega^n = \omega^n$ and, therefore, that for all $f\in C^\infty_0(M)$ and $t\in\R$,
+		      \begin{equation}
+			      \int_M (f\circ\phi_t)\,\omega^n = \int_M f\,\omega^n,
+		      \end{equation}
+		      where $M$ is oriented by $\omega^n$.
+	\end{enumerate}
+	In other words, Hamiltonian flows preserve the volume $\omega^n$. This is (one version of) Liouville's theorem, compare with~\cite[Theorem 3.30]{lectures:seri:hm}.
+\end{exercise}
+
 \section{Stokes' Theorem}
 
 Stokes' theorem states that if $\omega$ is a compactly supported $(n-1)$-form on an oriented $n$-manifold $M$, then the integral of $d\omega$ over $M$ equals the integral of $\omega$ over $\partial M$, generalising our observations for the line integral.

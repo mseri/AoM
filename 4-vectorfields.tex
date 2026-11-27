@@ -946,7 +946,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 	In these new coordinates, which are just polar coordinates labelled with different symbols, you can directly check that $Z = \frac{\partial}{\partial t}$ as claimed.
 \end{example}
 
-\begin{remark}[Linearisation of a vector field at a fixed point]
+\begin{remark}[Linearisation of a vector field at a fixed point]\label{rmk:linearisation}
 	Away from the fixed points, the previous theorem tells us that the flow is locally linear.
 	Near a fixed point we can describe the flow in terms of the \emph{linearisation} of the associated vector field.
 
@@ -964,7 +964,7 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 	A starting point to see the challenges that arise in these cases in a simplified setting is given by the example in~\cite[Section 7.3]{book:teschl} with $f(r)=r^2$. We leave it mentioned here for the more adventurous readers.
 \end{remark}
 
-\begin{exercise}
+\begin{exercise}\label{exe:gradham}
 	Let $M=\R^2$ with coordinates $(q,p)\in\R^2$ and $H\in C^\infty(\R^2)$.
 	Discuss the possible local behaviour near the fixed-points of the following types of vector fields by considering their linearisation:
 	\begin{itemize}
@@ -972,6 +972,9 @@ With this we can show that the Lie bracket of two vector fields is zero (i.e., t
 		\item hamiltonian flows $\displaystyle X_H(q,p) := \begin{pmatrix}\frac{\partial}{\partial p} H(q,p)\\-\frac{\partial}{\partial q} H(q,p)\end{pmatrix}$.
 	\end{itemize}
 	Sketch in all cases the vector field and the local flow.
+
+	What can you say about the eigenvalues of the linearisation in the two cases?
+	Which of the behaviours discussed in Remark~\ref{rmk:linearisation} can occur, and in which cases does the linearisation alone determine the local behaviour?
 \end{exercise}
 
 
