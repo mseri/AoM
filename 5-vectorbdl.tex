@@ -369,6 +369,47 @@ Which was to be expected: after all, for each $p\in U\subset M$, the local frame
 	Incidentally, the cylinder is isomorphic to $T\bS^1$ (why?).
 \end{example}
 
+\begin{example}[The M\"obius bundle]\label{ex:mobius_bundle}\idxdef{M\"obius bundle}
+	All the fibres of the cylinder are copies of $\R$, glued together without any twist.
+	If we glue them with a twist instead, we obtain a M\"obius strip of infinite width\footnote{Compare with Example~\ref{ex:mobius}, where the strip had finite width.}. This simple modification of the construction turns out to have interesting global consequences, as anticipated at the beginning of the chapter.
+
+	Let $M = \R/\Z$ be the circle with the two charts $\varphi_1:U_1 := \R/\Z\setminus\{[0]\}\to(0,1)$ and $\varphi_2:U_2 := \R/\Z\setminus\{[\frac12]\}\to(-\frac12,\frac12)$ from Chapter~\ref{ch:manifolds}.
+	As a set, let $E$ be the quotient of $\R^2$ by the equivalence relation $(x,y)\sim(x+n,(-1)^n y)$, $n\in\Z$, and let $\pi:E\to M$, $\pi([(x,y)]) := [x]$, which is well defined since $x+n\sim x$ in $\R/\Z$.
+
+	For $[x]\in M$, all the elements of the fibre $E_{[x]}=\pi^{-1}([x])$ are of the form $[(x,y)]$, $y\in\R$, and $[(x,y)]=[(x,y')]$ only if $y=y'$.
+	So $y\mapsto[(x,y)]$ is a bijection $\R\to E_{[x]}$, which we can use to define the vector space structure on $E_{[x]}$.
+	The resulting vector space structure does not depend on the representative of $[x]$: for any other representative $x+n$, $n\in\Z$, the corresponding $y$ is obtained via the bijection $y\mapsto[(x+n,y)] = [(x,(-1)^ny)]$ and since $y\mapsto(-1)^ny$ is an isomorphism of $\R$, it induces the same vector space structure on $E_{[x]}$.
+
+	Every class $[(x,y)]$ with $[x]\in U_1$ has exactly one representative with $x\in(0,1)$, and every class with $[x]\in U_2$ has exactly one representative with $x\in(-\frac12,\frac12)$.
+	We can thus define the bijections
+	\begin{align}
+		\varPhi_1:\pi^{-1}(U_1)\to U_1\times\R, & \quad [(x,y)]\mapsto([x],y), \quad x\in(0,1),                     \\
+		\varPhi_2:\pi^{-1}(U_2)\to U_2\times\R, & \quad [(x,y)]\mapsto([x],y), \quad x\in(-\tfrac12,\tfrac12),
+	\end{align}
+	which, by construction, are isomorphisms on each fibre.
+	The intersection $U_1\cap U_2$ is the union of the two disjoint arcs $L:=\{[x]\mid x\in(0,\frac12)\}$ and $R:=\{[x]\mid x\in(\frac12,1)\}$.
+	If $[x]\in L$, we can take $x\in(0,\frac12)$ for both maps and $\varPhi_1\circ\varPhi_2^{-1}([x],v) = ([x],v)$.
+	If $[x]\in R$, with $x\in(\frac12,1)$, the representative used by $\varPhi_2$ is $x-1\in(-\frac12,0)$ and
+	\begin{equation}
+		\varPhi_1\circ\varPhi_2^{-1}([x],v) = \varPhi_1([(x-1,v)]) = \varPhi_1([(x,-v)]) = ([x],-v).
+	\end{equation}
+	Therefore $\tau_{12}(p) = 1$ for $p\in L$ and $\tau_{12}(p)=-1$ for $p\in R$, which is smooth since it is constant on each of the two open arcs, and $\tau_{21} = \tau_{12}^{-1} = \tau_{12}$.
+	By Theorem~\ref{thm:bundle_chart_thm}, $\pi:E\to M$ is a smooth line bundle, called the \emph{M\"obius bundle}.
+
+	The M\"obius bundle is not trivializable.
+	By Proposition~\ref{prop:trivializable}, we need to show that it has no global frame, that is, no section $S$ such that $S(p)\neq0$ for all $p\in M$.
+	Assume by contradiction that such a section exists and write $\varPhi_\alpha\circ S(p) = (p, s_\alpha(p))$ for $p\in U_\alpha$, $\alpha=1,2$.
+	The functions $s_\alpha:U_\alpha\to\R$ are continuous, never vanish and, on $U_1\cap U_2$, satisfy $s_1 = \tau_{12}s_2$.
+	The arcs $U_1=\varphi_1^{-1}((0,1))$ and $U_2=\varphi_2^{-1}((-\frac12,\frac12))$ are connected, so $s_1$ and $s_2$ have constant sign on their domains.
+	But $s_1=s_2$ on $L$ implies that the two signs agree, while $s_1=-s_2$ on $R$ implies that they are opposite: a contradiction.
+\end{example}
+
+\begin{exercise}
+  Consider the complement in $E$ of the image of the zero section, that is the set $E\setminus\{0_p\in E_p\mid p\in M\}$ of all nonzero vectors in all the fibres.
+	Show that the complement of the image of the zero section of the M\"obius bundle is connected, while the same complement of the cylinder $\bS^1\times\R$ has two connected components.
+	Use this to give another proof that the two bundles are not isomorphic.
+\end{exercise}
+
 \begin{exercise}
 	Let $M$ be a smooth $m$-manifold and $N$ a smooth $n$-manifold.
 	Let $F:M\to N$ be an embedding and denote $\widetilde M = F(M)\subset N$.

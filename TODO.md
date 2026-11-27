@@ -1,9 +1,5 @@
 Changes which would complicate something for this year but should be performed for next year:
 
-- Add pictures (video?) on how to draw a vector bundle on a cylinder and on a Moebius strip. Link it with the topology motivation in the vector bundles chapter.
-
-- Add inverse fn theorem on submanifolds with boundary in the submanifolds section.
-
 - Mention Hodge star operator and maybe Laplace-Beltrami in appendix after volume forms
 
 - Add exercise on Liouville theorem for hamiltonians in symplectic geometry
